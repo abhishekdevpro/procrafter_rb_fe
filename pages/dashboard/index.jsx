@@ -66,9 +66,9 @@ const DashboardLayout = () => {
   const DashboardButton = ({ icon: Icon, text, path }) => (
     <button
       onClick={() => handleNavigation(path)}
-      className="flex items-center justify-center space-x-2 w-full md:w-64 p-4 bg-white hover:bg-gray-50 rounded-lg shadow-md transition-all duration-300 border border-gray-200 hover:border-blue-500"
+      className="flex items-center justify-center space-x-2 w-full md:w-64 p-4 bg-white hover:bg-gray-50 rounded-lg shadow-md transition-all duration-300 border border-gray-200 hover:border-green-500"
     >
-      <Icon className="w-6 h-6 text-blue-600" />
+      <Icon className="w-6 h-6 text-green-500" />
       <span className="text-gray-700 font-medium">{text}</span>
     </button>
   );

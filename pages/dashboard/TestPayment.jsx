@@ -90,7 +90,7 @@ const TestPayment = () => {
             className={`w-full py-3 px-4 rounded-md text-white font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500
               ${loading 
                 ? 'bg-blue-400 cursor-not-allowed' 
-                : 'bg-blue-600 hover:bg-blue-700 active:bg-blue-800'
+                : 'bg-green-500 hover:bg-blue-700 active:bg-blue-800'
               }`}
           >
             {loading ? 'Processing...' : 'Process Test Payment'}

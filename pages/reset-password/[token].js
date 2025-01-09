@@ -1,7 +1,7 @@
 // pages/reset-password/[token].jsx
 import React, { useState } from "react";
 import { useRouter } from "next/router";
-import logo from "../forgotpassword/logo.jpg";
+import logo from "../forgotpassword/logo.png";
 import Image from "next/image";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -51,7 +51,9 @@ function ResetPassword() {
         toast.error("Failed to reset password");
       }
     } catch (error) {
-      console.error(error.response?.data || error.message || "An error occurred");
+      console.error(
+        error.response?.data || error.message || "An error occurred"
+      );
       toast.error(error.response?.data?.message || "An error occurred");
     }
   };

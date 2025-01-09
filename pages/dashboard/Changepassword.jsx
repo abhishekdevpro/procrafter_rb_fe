@@ -196,7 +196,7 @@ const ChangePassword = () => {
             className={`w-full py-2 px-4 border border-transparent rounded-md ${
               loading
                 ? 'bg-gray-400 cursor-not-allowed'
-                : 'bg-blue-600 hover:bg-blue-700 text-white'
+                : 'bg-green-500 hover:bg-blue-700 text-white'
             } text-sm font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500`}
           >
             {loading ? 'Updating...' : 'Update Password'}

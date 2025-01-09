@@ -1,16 +1,16 @@
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const VerificationPage = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const {id} = router.query;
-    console.log(id,router.query,"token huu");
-    
+    const { id } = router.query;
+    console.log(id, router.query, "token huu");
+
     if (!id) return;
 
     const verifyUser = async () => {
@@ -18,19 +18,21 @@ const VerificationPage = () => {
         const response = await fetch(
           `https://api.resumeintellect.com/api/user/verify-account/${id}`
         );
-         console.log(response);
+        console.log(response);
         if (response.ok) {
-          toast.success('Account verified successfully!');
+          toast.success("Account verified successfully!");
           // Redirect to login after 3 seconds
           setTimeout(() => {
-            router.push('/login2');
+            router.push("/login2");
           }, 3000);
         } else {
-          toast.error('Verification failed. Please try again or contact support.');
-          router.push('/signup')
+          toast.error(
+            "Verification failed. Please try again or contact support."
+          );
+          router.push("/signup");
         }
       } catch (error) {
-        toast.error('An error occurred during verification. Please try again.');
+        toast.error("An error occurred during verification. Please try again.");
       } finally {
         setIsLoading(false);
       }
@@ -48,7 +50,7 @@ const VerificationPage = () => {
             <h1 className="text-3xl font-bold text-gray-900 mb-6">
               Account Verification
             </h1>
-            
+
             {isLoading ? (
               <div className="flex flex-col items-center gap-4">
                 {/* Custom loader using only Tailwind */}
@@ -59,13 +61,13 @@ const VerificationPage = () => {
               <div className="mt-6">
                 <button
                   onClick={() => router.reload()}
-                  className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+                  className="px-4 py-2 bg-green-400 text-white rounded-lg hover:bg-green-500 transition-colors"
                 >
                   Try Again
                 </button>
                 <p className="mt-4 text-sm text-gray-600">
-                  If the problem persists, please{' '}
-                  <a 
+                  If the problem persists, please{" "}
+                  <a
                     href="mailto:support@resumeintellect.com"
                     className="text-blue-500 hover:underline"
                   >

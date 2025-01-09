@@ -11,11 +11,11 @@ function AiJobMatchApply() {
         <h2 className="text-xl font-bold my-5">
           Simplifying Your Job Search with AI Technology
         </h2>
-        At Resume Intellect, we aim to make your job search efficient and
-        effective with our AI Job Match & Apply tool. This innovative technology
-        uses advanced algorithms to match your skills and experiences with
-        relevant job opportunities, streamlining the application process and
-        increasing your chances of landing the perfect job.
+        At Cibil Job , we aim to make your job search efficient and effective
+        with our AI Job Match & Apply tool. This innovative technology uses
+        advanced algorithms to match your skills and experiences with relevant
+        job opportunities, streamlining the application process and increasing
+        your chances of landing the perfect job.
         <h1 className="text-xl font-bold my-5">
           Key Features of Our AI Job Match & Apply Tool
         </h1>
@@ -60,9 +60,9 @@ function AiJobMatchApply() {
         <h1 className="text-sm font-semibold my-2">
           Step 1: Create Your Profile
         </h1>
-        Sign up on the Resume Intellect platform and create your profile. Upload
-        your resume and provide details about your skills, experiences, and
-        career aspirations.
+        Sign up on the Cibil Job platform and create your profile. Upload your
+        resume and provide details about your skills, experiences, and career
+        aspirations.
         <h1 className="text-sm font-semibold my-2">Step 2: AI Analysis</h1>
         The AI scans your profile and resume, analyzing your qualifications and
         preferences. It matches you with suitable job opportunities from our
@@ -112,9 +112,9 @@ function AiJobMatchApply() {
         <h1 className="text-sm font-semibold my-2">
           Start Using AI Job Match & Apply Today
         </h1>
-        Transform your job search with Resume Intellect’s AI Job Match & Apply
-        tool. Sign up now to discover job opportunities that perfectly match
-        your profile and streamline your path to career success.
+        Transform your job search with Cibil Job ’s AI Job Match & Apply tool.
+        Sign up now to discover job opportunities that perfectly match your
+        profile and streamline your path to career success.
         <h1 className="text-lg font-bold my-2">Get Started</h1>
         Ready to find your dream job? Visit our AI Job Match & Apply page and
         start matching with top job opportunities today!

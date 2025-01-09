@@ -251,9 +251,9 @@ const ProfilePage = () => {
   return (
     <>
       <Navbar />
-      <div className="bg-indigo-900">
+      <div className="bg-green-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-indigo-900 rounded-lg shadow-lg sm:p-6">
+          <div className="bg-green-100 rounded-lg shadow-lg sm:p-6">
             <div className="flex flex-col lg:flex-row gap-6 lg:gap-12">
               {/* Profile Information Section */}
               {/* <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row items-center gap-4 flex-1">
@@ -292,7 +292,7 @@ const ProfilePage = () => {
               </div> */}
 
               {/* Vertical Divider - Only visible on larger screens */}
-              <div className="hidden lg:block w-px bg-gray-700 self-stretch"></div>
+              {/* <div className="hidden lg:block w-px bg-gray-700 self-stretch"></div> */}
 
               {/* Resume Actions Section */}
               <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-4 items-center justify-center flex-1">
@@ -344,7 +344,7 @@ const ProfilePage = () => {
                   />
                   <label
                     htmlFor="fileInput"
-                    className="w-full sm:w-auto px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 cursor-pointer transition-colors duration-200 text-center"
+                    className="w-full sm:w-auto px-6 py-3 bg-green-400 text-black rounded-lg hover:bg-green-500 cursor-pointer transition-colors duration-200 text-center"
                   >
                     {isLoading ? (
                       <span className="flex items-center justify-center">
@@ -398,7 +398,7 @@ const ProfilePage = () => {
               <div className="flex gap-3">
                 <button
                   onClick={copyToClipboard}
-                  className="flex-1 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors duration-200"
+                  className="flex-1 bg-green-400 text-white py-2 px-4 rounded hover:bg-green-500 transition-colors duration-200"
                 >
                   Copy
                 </button>

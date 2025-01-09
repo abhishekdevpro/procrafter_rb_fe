@@ -29,7 +29,7 @@ const ColorPicker = ({ selectedColor, onChange }) => {
       <button
         onClick={handleToggleDropdown}
 
-        className="hidden sm:block rounded-lg border-2 border-blue-800 px-8 p-1 font-bold  bg-white text-blue-800"
+        className="hidden sm:block rounded-lg border-2 border-green-500 px-8 p-1 font-bold  bg-white text-black"
         style={{ backgroundColor: selectedColor || 'transparent' }}
       >
     <span className="">Background Color</span>
@@ -37,7 +37,7 @@ const ColorPicker = ({ selectedColor, onChange }) => {
       </button>
       <button
         onClick={handleToggleDropdown}
-        className="sm:hidden rounded-lg border-2 border-blue-800 px-5 py-2 font-bold  bg-white text-blue-800"
+        className="sm:hidden rounded-lg border-2 border-green-500 px-5 py-2 font-bold  bg-white text-black"
         style={{ backgroundColor: selectedColor || 'transparent' }}
       >
      Color 

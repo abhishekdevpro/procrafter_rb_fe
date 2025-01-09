@@ -40,7 +40,7 @@ const TemplateStep = ({ onNext, onBack, onChange, value }) => {
 
   const colors = [
     { name: 'Gray', class: 'bg-gray-200', selectedClass: 'ring-gray-400', hexCode: '#6D7278' },
-    { name: 'Blue', class: 'bg-blue-600', selectedClass: 'ring-blue-400', hexCode: '#2563EB' },
+    { name: 'Blue', class: 'bg-green-500', selectedClass: 'ring-blue-400', hexCode: '#2563EB' },
     { name: 'Purple', class: 'bg-purple-600', selectedClass: 'ring-purple-400', hexCode: '#9333EA' },
     { name: 'Green', class: 'bg-green-600', selectedClass: 'ring-green-400', hexCode: '#16A34A' },
     { name: 'Red', class: 'bg-red-600', selectedClass: 'ring-red-400', hexCode: '#DC2626' },
@@ -312,7 +312,7 @@ const TemplateStep = ({ onNext, onBack, onChange, value }) => {
                       name="photo"
                       checked={value.hasPhoto === (option === 'With Photo')}
                       onChange={() => onChange({ ...value, hasPhoto: option === 'With Photo' })}
-                      className="w-5 h-5 text-blue-600 border-gray-300 focus:ring-blue-500"
+                      className="w-5 h-5 text-green-500 border-gray-300 focus:ring-blue-500"
                     />
                     <span className="ml-3 text-gray-700 font-medium">{option}</span>
                   </label>
@@ -362,7 +362,7 @@ const TemplateStep = ({ onNext, onBack, onChange, value }) => {
           <button
             onClick={handleSaveTemplate}
             style={{ backgroundColor: selectedHexCode }}
-            className="px-8 py-3 text-white rounded-xl font-medium
+            className="px-8 py-3 text-black rounded-xl font-medium
               hover:opacity-90 transition-colors shadow-lg hover:shadow-xl"
           >
             Next

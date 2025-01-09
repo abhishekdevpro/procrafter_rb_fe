@@ -3,7 +3,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import axios from "axios";
 import Link from "next/link";
-import logo from "../login2/logo.jpg";
+import logo from "../login2/logo.png";
 import { useRouter } from "next/router";
 import { Loader2 } from "lucide-react";
 import { toast } from "react-toastify";
