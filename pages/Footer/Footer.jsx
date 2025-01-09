@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import logo from "../Footer/logo.jpg";
+import logo from "../Footer/logo.png";
 import { useState } from "react";
 import axios from "axios";
 import Link from "next/link"; // Import Link from next/link
@@ -48,13 +48,13 @@ const Footer = () => {
                 Building Careers of Tomorrow
               </p>
             </div>
-          <div className="flex flex-wrap justify-between px-2 md:px-[65px]">
+          {/* <div className="flex flex-wrap justify-between px-2 md:px-[65px]">
             <div className="w-auto h mb-6 md:mb-0">
               <Link href="/">
                 <Image src={img} alt="logo" className="h-20 w-[300px]" />
               </Link>
               </div>
-            </div>
+            </div> */}
            
             <div className="w-full md:w-auto mb-6 md:mb-0">
               <h2 className="text-lg font-semibold text-white">
@@ -74,7 +74,7 @@ const Footer = () => {
                 />
                 <button
                   type="submit"
-                  className="md:px-4 md:py-1 p-1 rounded-full bg-white text-black hover:bg-orange-500"
+                  className="md:px-4 md:py-1 p-1 rounded-full bg-white text-black hover:bg-green-500"
                 >
                   Subscribe
                 </button>
@@ -85,7 +85,7 @@ const Footer = () => {
           <br />
           <div className="flex flex-wrap justify-around">
             <div className="w-full md:w-auto mb-6 md:mb-0" id="footer">
-              <h2 className="text-lg font-bold text-white">Resume Intellect</h2>
+              <h2 className="text-lg font-bold text-white">Cibil Job </h2>
               <ul>
                 <li>
                   <Link href="/footers/Aboutus">
@@ -183,7 +183,7 @@ const Footer = () => {
         </div>
         <div className="container text-base md:mx-auto text-center border-t border-white pt-6 mt-6">
           <p className="text-white text-right">
-            &copy; Copyright By ResumeIntellect.ca All Rights Reserved
+            &copy; Copyright By CibilJob.ca All Rights Reserved
           </p>
         </div>
       </footer>

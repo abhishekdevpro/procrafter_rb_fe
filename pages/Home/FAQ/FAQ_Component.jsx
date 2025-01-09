@@ -124,7 +124,7 @@ const FAQ = () => {
   };
 
   return (
-    <div id='faq' className=' bg-gray-100'>
+    <div id='faq' className=' bg-green-100'>
     <div className=" max-w-4xl  mx-auto p-4" >
       <h2 className="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
       <div className="space-y-4">
@@ -276,7 +276,7 @@ const FAQ = () => {
             {successMessage && <p className="text-green-500 mb-2">{successMessage}</p>}
             <button
               type="submit"
-              className="bg-blue-500 text-white px-4 py-2 rounded-lg"
+              className="bg-green-400 text-white px-4 py-2 rounded-lg"
             >
               Send
             </button>

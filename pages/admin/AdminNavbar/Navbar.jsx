@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import logo from "./logo.jpg";
+import logo from "./logo.png";
 import Image from "next/image";
 import { toast } from "react-toastify";
 

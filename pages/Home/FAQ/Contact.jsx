@@ -43,7 +43,7 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="bg-white py-12 lg:py-20">
+    <div className="bg-green-50 py-12 lg:py-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 ">
         <h1 className="text-3xl font-bold text-center mb-8 sm:mb-12" id="phone">
           Get In Touch
@@ -153,7 +153,7 @@ const ContactUs = () => {
                   </div>
                   {error && <p className="text-red-500 mb-2">{error}</p>}
                   {successMessage && <p className="text-green-500 mb-2">{successMessage}</p>}
-                  <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-lg">
+                  <button type="submit" className="bg-green-400 text-white px-4 py-2 rounded-lg">
                     Send
                   </button>
                 </form>
@@ -335,7 +335,7 @@ const ContactUs = () => {
                   )}
                   <button
                     type="submit"
-                    className="bg-blue-500 text-white px-4 py-2 rounded-lg"
+                    className="bg-green-400 text-white px-4 py-2 rounded-lg"
                   >
                     Send
                   </button>

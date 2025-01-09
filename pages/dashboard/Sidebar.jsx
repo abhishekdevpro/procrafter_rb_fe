@@ -15,8 +15,8 @@ useEffect(()=>{
   };
   const getLinkClassName = (path) => {
     return router.pathname === path
-      ? "flex items-center p-2 bg-blue-900 border-b-2 rounded font-semibold text-white"
-      : "flex items-center p-2 hover:bg-blue-900  border-b-2 hover:text-white rounded font-semibold  ";
+      ? "flex items-center p-2 bg-green-600 border-b-2 rounded font-semibold text-white"
+      : "flex items-center p-2 hover:bg-green-600  border-b-2 hover:text-white rounded font-semibold  ";
   };
   return (
     <div className="bg-white h-screen p-4 border-r border-gray-200 md:block">

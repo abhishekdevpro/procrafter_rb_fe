@@ -325,7 +325,7 @@ const MyResume = () => {
           <div className="bg-white p-4 rounded shadow-lg w-80">
             <h2 className="text-lg font-bold">{modalResumeName}</h2>
             <p>{modalContent}</p>
-            <button onClick={() => setIsScoreModalOpen(false)} className="mt-4 bg-blue-500 text-white px-4 py-2 rounded">
+            <button onClick={() => setIsScoreModalOpen(false)} className="mt-4 bg-green-400 text-white px-4 py-2 rounded">
               Close
             </button>
           </div>
@@ -342,7 +342,7 @@ const MyResume = () => {
                 <li key={index}>{suggestion}</li>
               ))}
             </ul>
-            <button onClick={() => setIsAIModalOpen(false)} className="mt-4 bg-blue-500 text-white px-4 py-2 rounded">
+            <button onClick={() => setIsAIModalOpen(false)} className="mt-4 bg-green-400 text-white px-4 py-2 rounded">
               Close
             </button>
           </div>

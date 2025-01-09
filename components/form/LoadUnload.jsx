@@ -188,7 +188,7 @@ const LoadUnload = () => {
             {/* Back Button */}
             <button
               onClick={handleBack}
-              className="absolute top-4 left-4 sm:top-6 sm:left-6 text-gray-600 hover:text-blue-600 transition-all duration-300 flex items-center gap-2 group"
+              className="absolute top-4 left-4 sm:top-6 sm:left-6 text-gray-600 hover:text-green-500 transition-all duration-300 flex items-center gap-2 group"
             >
               <FaArrowLeft className="text-lg sm:text-xl group-hover:-translate-x-1 transition-transform duration-300" />
               <span className="hidden sm:inline font-medium">Back</span>
@@ -205,7 +205,7 @@ const LoadUnload = () => {
             <div className="p-2 md:p-12">
               {!editingReady ? (
                 <>
-                  <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 mt-6 sm:mt-8 md:mt-12 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent text-center">
+                  <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 mt-6 sm:mt-8 md:mt-12 bg-gradient-to-r from-green-500 to-blue-800 bg-clip-text text-transparent text-center">
                     Lets Build Your Resume
                   </h1>
                   <p className="text-gray-600 mb-6 sm:mb-8 text-base sm:text-lg text-center">
@@ -224,7 +224,7 @@ const LoadUnload = () => {
                       </p>
 
                       <div className="flex flex-col items-center gap-4">
-                        <label className="inline-block px-4 sm:px-6 py-2 sm:py-3 text-white bg-blue-600 rounded-lg cursor-pointer hover:bg-blue-700 transition-colors duration-300 shadow-md hover:shadow-lg text-sm sm:text-base">
+                        <label className="inline-block px-4 sm:px-6 py-2 sm:py-3 text-white bg-green-500 rounded-lg cursor-pointer hover:bg-blue-700 transition-colors duration-300 shadow-md hover:shadow-lg text-sm sm:text-base">
                           <span className="flex items-center gap-2">
                             <FaCloudUploadAlt className="text-lg sm:text-xl" />
                             Select PDF Resume
@@ -236,7 +236,7 @@ const LoadUnload = () => {
                           className={`w-full px-4 sm:px-6 py-2 sm:py-3 text-white rounded-lg shadow-md transition-all duration-300 text-sm sm:text-base
                             ${loading 
                               ? "bg-gray-400 cursor-not-allowed" 
-                              : "bg-blue-600 hover:bg-blue-700 hover:shadow-lg"}`}
+                              : "bg-green-500 hover:bg-blue-700 hover:shadow-lg"}`}
                           onClick={handleUpload}
                           disabled={loading}
                         >
@@ -262,7 +262,7 @@ const LoadUnload = () => {
                       </p>
                       <button
                         onClick={handleStartFromScratch}
-                        className="w-full px-4 sm:px-6 py-2 sm:py-3 text-white bg-blue-600 rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300 hover:shadow-lg mt-8 sm:mt-12 text-sm sm:text-base"
+                        className="w-full px-4 sm:px-6 py-2 sm:py-3 text-white bg-green-500 rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300 hover:shadow-lg mt-8 sm:mt-12 text-sm sm:text-base"
                       >
                         Start from Scratch
                       </button>
@@ -271,11 +271,11 @@ const LoadUnload = () => {
                 </>
               ) : (
                 <div className="text-center py-6 sm:py-8">
-                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 text-blue-600">Ready to Edit!</h2>
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 text-green-500">Ready to Edit!</h2>
                   <p className="text-gray-600 mb-4 sm:mb-6 text-base sm:text-lg">Your resume is ready for customization</p>
                   <button
                     onClick={closeOverlay}
-                    className="px-6 sm:px-8 py-2 sm:py-3 text-white bg-blue-600 rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300 hover:shadow-lg text-sm sm:text-base"
+                    className="px-6 sm:px-8 py-2 sm:py-3 text-white bg-green-500 rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300 hover:shadow-lg text-sm sm:text-base"
                   >
                     Start Editing
                   </button>

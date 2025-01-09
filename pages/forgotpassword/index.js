@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
-import logo from "../forgotpassword/logo.jpg";
+import logo from "../forgotpassword/logo.png";
 import Image from "next/image";
 import axios from "axios";
-import { toast} from "react-toastify";
+import { toast } from "react-toastify";
 
 function Index() {
   const [formData, setFormData] = useState({
@@ -30,11 +30,11 @@ function Index() {
 
     try {
       const response = await axios.post(
-        'https://api.resumeintellect.com/api/user/forget-password',
+        "https://api.resumeintellect.com/api/user/forget-password",
         formDataToSend,
         {
           headers: {
-            'Content-Type': 'multipart/form-data',
+            "Content-Type": "multipart/form-data",
           },
         }
       );
@@ -46,7 +46,9 @@ function Index() {
         toast.error("Failed to send email");
       }
     } catch (error) {
-      console.error(error.response?.data || error.message || "An error occurred");
+      console.error(
+        error.response?.data || error.message || "An error occurred"
+      );
       toast.error(error.response?.data?.message || "An error occurred");
     }
   };
@@ -54,7 +56,7 @@ function Index() {
   return (
     <>
       <div className="flex justify-center items-center h-screen w-full">
-         {/* Make sure this is always rendered */}
+        {/* Make sure this is always rendered */}
         <div className="p-8 rounded-xl shadow-lg shadow-slate-700 w-full max-w-lg bg-white">
           <div className="flex justify-center mb-6">
             <Image src={logo} className="w-40 h-10" alt="Logo" />
@@ -63,7 +65,8 @@ function Index() {
             Forgot Password
           </div>
           <p className="text-black text-base text-center mb-6">
-            People across the globe are joining us to upgrade their career with our Robust AI.
+            People across the globe are joining us to upgrade their career with
+            our Robust AI.
           </p>
           <form onSubmit={handleLogin}>
             <div className="m-4">

@@ -246,7 +246,7 @@ const Template19 = () => {
                                 href={item.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-blue-600 hover:text-blue-800"
+                                className="text-green-500 hover:text-black"
                               >
                                 {item.link}
                               </Link>

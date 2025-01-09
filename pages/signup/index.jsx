@@ -8,7 +8,7 @@ import { Loader2 } from "lucide-react";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar from '../Navbar/Navbar';
-import logo from './logo.jpg'
+import logo from './logo.png'
 
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -217,7 +217,7 @@ const Signup = () => {
                 />
                 <Link
                   href={"/TermsandConditions"}
-                  className="text-blue-600 hover:underline"
+                  className="text-green-500 hover:underline"
                 >
                   {" "}
                   Agree to terms & conditions

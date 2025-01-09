@@ -10,7 +10,7 @@ function Placement() {
       <h1 className="text-lg font-semibold my-2 mt-5 ">
         Empowering Your Job Search
       </h1>
-      At Resume Intellect, we go beyond crafting exceptional resumes. We provide
+      At Cibil Job , we go beyond crafting exceptional resumes. We provide
       comprehensive placement support services designed to help you navigate the
       job market with confidence and secure the position that aligns with your
       career goals. Our tailored approach ensures that you have the tools and
@@ -59,7 +59,7 @@ function Placement() {
       professionals, we’ve helped countless individuals achieve their career
       goals. Here are a few of their stories:
       <br />
-      {/* - Anna S.: "Thanks to Resume Intellect, I landed my dream job in marketing
+      {/* - Anna S.: "Thanks to Cibil Job , I landed my dream job in marketing
       within a month. Their interview prep and job search strategy were
       invaluable!"
       <br />
@@ -68,19 +68,18 @@ function Placement() {
       fantastic position."
       <br />
       - Jessica M.: "I was nervous about negotiating my salary, but the guidance
-      I received from Resume Intellect helped me secure a 20% increase over my
+      I received from Cibil Job  helped me secure a 20% increase over my
       initial offer."
       <br /> */}
       <h1 className="text-sm font-bold my-2 mt-5 ">Get Started Today</h1>
       Ready to take your job search to the next level? Contact us today to learn
       more about our placement support services and how we can help you achieve
-      your career goals. At Resume Intellect, we’re dedicated to your success
-      and are here to support you every step of the way.
+      your career goals. At Cibil Job , we’re dedicated to your success and are
+      here to support you every step of the way.
       <h1 className="text-sm font-bold my-2 mt-5 ">Contact Us</h1>
-      Reach out to us at [career@Resume Intellect.ca](mailto:career@Resume
-      Intellect.ca) to schedule a consultation. Let Resume Intellect be your
-      partner in navigating the job market and securing the perfect role for
-      your future.
+      Reach out to us at [career@Cibil Job .ca](mailto:career@Resume
+      Intellect.ca) to schedule a consultation. Let Cibil Job be your partner in
+      navigating the job market and securing the perfect role for your future.
     </div>
   );
 }

@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import logo from "./logo.jpg";
+import logo from "./logo.png";
 import { toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Modal from "./Modal";
@@ -116,7 +116,7 @@ const Login2 = () => {
             <div className="text-center py-2">
               <button
                 type="button"
-                className="text-blue-500 hover:text-yellow-500"
+                className="text-green-400 hover:text-green-500"
                 onClick={() => setThirdstepOpen(true)}
                 disabled={isLoading}
               >

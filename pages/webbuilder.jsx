@@ -31,7 +31,7 @@ import Image from "next/image";
 import resumeImg from "./builderImages/GraphicDesignerResume.jpg";
 import poweredbypaypal from "./builderImages/poweredbypaypal.png";
 import paypal from "./builderImages/paypal.png";
-import logo from "./builderImages/logo.jpg";
+import logo from "./builderImages/logo.png";
 import applepay from "./builderImages/apple-pay.png";
 import { ResumeContext } from "../components/context/ResumeContext";
 
@@ -691,7 +691,7 @@ export default function WebBuilder() {
   return (
     <>
       <Meta
-        title="Resume Intellect - AI Resume Builder"
+        title="Cibil Job  - AI Resume Builder"
         description="ATSResume is a cutting-edge resume builder that helps job seekers create a professional, ATS-friendly resume in minutes..."
         keywords="ATS-friendly, Resume optimization..."
       />
@@ -708,7 +708,7 @@ export default function WebBuilder() {
                     type="button"
                     onClick={handlePrevious}
                     disabled={currentSection === 0}
-                    className="w-40 h-10 rounded-lg bg-blue-950 text-white font-medium transition hover:bg-blue-900 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-40 h-10 rounded-lg bg-green-500 text-white font-medium transition hover:bg-blue-900 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     Previous
                   </button>
@@ -725,7 +725,7 @@ export default function WebBuilder() {
                   <select
                     value={selectedFont}
                     onChange={handleFontChange}
-                    className="w-40 h-10 rounded-lg border border-blue-800 px-4 font-bold text-blue-800 bg-white focus:ring-2 focus:ring-blue-800"
+                    className="w-40 h-10 rounded-lg border border-green-500 px-4 font-bold text-black bg-white focus:ring-2 focus:ring-blue-800"
                   >
                     <option value="Ubuntu">Ubuntu</option>
                     <option value="Calibri">Calibri</option>
@@ -771,8 +771,8 @@ export default function WebBuilder() {
                             key={index}
                             className={`px-4 py-2 cursor-pointer transition rounded-lg border-2 ${
                               currentSection === index
-                                ? "border-blue-800 font-semibold bg-blue-950 text-white"
-                                : "border-blue-800 bg-white text-blue-800 hover:bg-blue-50"
+                                ? "border-green-500 font-semibold bg-green-500 text-white"
+                                : "border-green-500 bg-white text-black hover:bg-blue-50"
                             }`}
                             onClick={() => handleSectionClick(index)}
                           >
@@ -859,7 +859,7 @@ export default function WebBuilder() {
               <div className="flex gap-4">
                 <button
                   onClick={handleFinish}
-                  className="bg-blue-950 text-white px-6 py-2 rounded-lg"
+                  className="bg-green-500 text-white px-6 py-2 rounded-lg"
                 >
                   Save Resume
                 </button>
@@ -922,7 +922,7 @@ export default function WebBuilder() {
                               </label>
                               <input
                                 type="text"
-                                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-600"
+                                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
                                 value={`${formData.first_name} ${formData.last_name}`.trim()}
                                 name="full name"
                                 required
@@ -935,7 +935,7 @@ export default function WebBuilder() {
                               </label>
                               <input
                                 type="email"
-                                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-600"
+                                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
                                 value={formData.email}
                                 required
                                 name="email"
@@ -947,7 +947,7 @@ export default function WebBuilder() {
                                 ☎️ Phone
                               </label>
                               <input
-                                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-600"
+                                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
                                 required
                                 disabled
                                 type="number"
@@ -960,7 +960,7 @@ export default function WebBuilder() {
                               <button
                                 onClick={downloadAsPDF}
                                 type="submit"
-                                className="w-full bg-yellow-400 text-blue-800 font-bold  rounded-[50px] hover:bg-yellow-500 transition duration-200"
+                                className="w-full bg-yellow-400 text-black font-bold  rounded-[50px] hover:bg-yellow-500 transition duration-200"
                               >
                                 <Image
                                   src={paypal}

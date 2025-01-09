@@ -11,12 +11,12 @@ const Home_five = () => {
         setIsAuthenticated(!!token);
     }, []);
   return (
-    <div className="bg-gray-100 py-10">
+    <div className="bg-green-100 py-10">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-center font-bold text-3xl py-5">Want To Supercharge Your Career Growth With Our AI Tool?</h1>
         <div className="flex justify-center">
           <div className="bg-white rounded-lg shadow-md p-4 sm:p-6 md:p-8">
-            <h1 className="font-bold text-xl mb-4">Resume Intellect Builder</h1>
+            <h1 className="font-bold text-xl mb-4">Cibil Job  Builder</h1>
             <div className="flex items-center gap-2 font-medium mb-2">
               <i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-green-500"></i>
               <span>AI Score</span>
@@ -51,7 +51,7 @@ const Home_five = () => {
             </div>
             <div className="flex justify-center mt-6">
             <Link href={isAuthenticated?"/dashboard":"/login2"}>
-              <button className="px-6 py-3 rounded-2xl font-semibold text-white bg-blue-500 hover:bg-blue-600 shadow-md">
+              <button className="px-6 py-3 rounded-2xl font-semibold text-black bg-green-400 hover:bg-green-500 shadow-md">
                 Get Started For Free
               </button>
               </Link>

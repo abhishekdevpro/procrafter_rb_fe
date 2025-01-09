@@ -13,7 +13,7 @@ function Salarytools() {
           Navigate Your Career with Confidence
         </h1>
         Understanding your market value and negotiating your salary are crucial
-        steps in your job search and career advancement. At Resume Intellect, we
+        steps in your job search and career advancement. At Cibil Job , we
         provide access to a variety of salary tools and resources that empower
         you to make informed decisions about your compensation. These tools help
         you research industry standards, evaluate job offers, and negotiate the
@@ -53,7 +53,7 @@ function Salarytools() {
         sense of what to expect from a potential employer and help you gauge
         whether their compensation packages are competitive.
         <h1 className="text-lg font-semibold my-2 mt-5 ">
-          How Resume Intellect Can Help
+          How Cibil Job Can Help
         </h1>
         <h1 className="text-lg font-semibold my-2 mt-5 ">
           One-on-One Coaching{" "}
@@ -67,7 +67,7 @@ function Salarytools() {
         <h1 className="text-lg font-semibold my-2 mt-5 ">
           Exclusive Resources
         </h1>
-        As a Resume Intellect client, you’ll gain access to exclusive resources,
+        As a Cibil Job client, you’ll gain access to exclusive resources,
         including industry reports, salary surveys, and negotiation workshops.
         Our comprehensive toolkit ensures that you have all the information and
         skills needed to advocate for yourself effectively.
@@ -75,9 +75,9 @@ function Salarytools() {
           Start Maximizing Your Earning Potential Today
         </h1>
         Don’t leave your salary to chance. Take control of your career and
-        maximize your earning potential with the help of Resume Intellect’s
-        salary tools and resources. Contact us today to learn more about how we
-        can support you in your job search and salary negotiations.
+        maximize your earning potential with the help of Cibil Job ’s salary
+        tools and resources. Contact us today to learn more about how we can
+        support you in your job search and salary negotiations.
       </div>
       <Footer />
     </div>

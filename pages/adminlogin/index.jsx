@@ -1,7 +1,7 @@
 
 
 import React, { useState } from "react";
-import logo from "./logo.jpg";
+import logo from "./logo.png";
 import Modal from "./Modal";
 import Signup from "./Signup";
 import axios from "axios";
