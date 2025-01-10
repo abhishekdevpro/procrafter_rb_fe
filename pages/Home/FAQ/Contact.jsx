@@ -43,9 +43,9 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="bg-green-50 py-12 lg:py-20">
+    <div className="bg-gray-100 py-12 lg:py-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 ">
-        <h1 className="text-3xl font-bold text-center mb-8 sm:mb-12" id="phone">
+        <h1 className="text-3xl font-bold text-center mb-8 sm:mb-12 text-[#00b38d]" id="phone">
           Get In Touch
         </h1>
         <p className="text-center mb-8 sm:mb-12">
@@ -219,7 +219,7 @@ const ContactUs = () => {
                   href="mailto:info@resumeintellect.com"
                   className="text-slate-800 font-semibold text-sm hover:underline flex items-center"
                 >
-                  info@resumeintellect.com
+                  info@ciblijob.com
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="ml-2 h-4 w-4"

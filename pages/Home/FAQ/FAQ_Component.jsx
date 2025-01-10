@@ -124,8 +124,8 @@ const FAQ = () => {
   };
 
   return (
-    <div id='faq' className=' bg-green-100'>
-    <div className=" max-w-4xl  mx-auto p-4" >
+    <div id='faq' className=' bg-gray-100'>
+    {/* <div className=" max-w-4xl  mx-auto p-4" >
       <h2 className="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
       <div className="space-y-4">
         {faqs.map((faq, index) => (
@@ -137,7 +137,7 @@ const FAQ = () => {
       
 
 
-    </div>
+    </div> */}
 
    
       

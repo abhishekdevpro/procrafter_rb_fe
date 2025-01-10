@@ -37,7 +37,7 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="bg-black text-white py-8" id="footerbg">
+      <footer className="bg-gray-300 text-black py-8" id="footerbg">
         <div className="container mx-auto flex flex-col gap-7 justify-between px-6">
           <div className="flex flex-wrap justify-between px-2 md:px-[65px]">
             <div className="w-auto h mb-6 md:mb-0">
@@ -57,7 +57,7 @@ const Footer = () => {
             </div> */}
            
             <div className="w-full md:w-auto mb-6 md:mb-0">
-              <h2 className="text-lg font-semibold text-white">
+              <h2 className="text-lg font-semibold text-[#00b38d]">
                 Get Our Weekly
               </h2>
               <form
@@ -85,7 +85,7 @@ const Footer = () => {
           <br />
           <div className="flex flex-wrap justify-around">
             <div className="w-full md:w-auto mb-6 md:mb-0" id="footer">
-              <h2 className="text-lg font-bold text-white">Cibli Job </h2>
+              <h2 className="text-lg font-bold text-[#00b38d]">Cibli Job </h2>
               <ul>
                 <li>
                   <Link href="/footers/Aboutus">
@@ -110,7 +110,7 @@ const Footer = () => {
               </ul>
             </div>
             <div className="w-full md:w-auto mb-6 md:mb-0">
-              <h2 className="text-lg font-bold text-white">Support</h2>
+              <h2 className="text-lg font-bold text-[#00b38d]">Support</h2>
               <ul>
                 <li>
                   <Link href="/footers/Salarytools">
@@ -130,7 +130,7 @@ const Footer = () => {
               </ul>
             </div>
             <div className="w-full md:w-auto mb-6 md:mb-0">
-              <h2 className="text-lg font-bold text-white">Scope & Products</h2>
+              <h2 className="text-lg font-bold text-[#00b38d]">Scope & Products</h2>
               <ul>
                 <li>
                   <Link href="/footers/AiResumeBuilder">
@@ -160,7 +160,7 @@ const Footer = () => {
               </ul>
             </div>
             <div className="w-full md:w-auto mb-6 md:mb-0">
-              <h2 className="text-lg font-bold text-white">Ai Resources</h2>
+              <h2 className="text-lg font-bold text-[#00b38d]">Ai Resources</h2>
               <ul>
                 <li>
                   <Link href="/footers/AIEnhancedResumeAccuracy">
@@ -182,7 +182,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="container text-base md:mx-auto text-center border-t border-white pt-6 mt-6">
-          <p className="text-white text-right">
+          <p className="text-[#00b38d] text-right">
             &copy; Copyright By CibliJob.ca All Rights Reserved
           </p>
         </div>

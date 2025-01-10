@@ -185,14 +185,19 @@ import icon1 from './Images/video_icon1.png';
 import icon2 from './Images/video_icon2.gif';
 import icon3 from './Images/video_icon3.gif';
 import icon4 from './Images/video_icon4.gif';
-import image1 from './Images/homeimage1.jpg';
-import image2 from './Images/resume3.jpg';
-import image3 from './Images/homeimage2.jpg';
+// import image1 from './Images/homeimage1.jpg';
+// import image2 from './Images/resume3.jpg';
+// import image3 from './Images/homeimage2.jpg';
+import image1 from './Images/homeimage1.jpg'
+import image2 from './Images/homeimage2.jpg'
+import image3 from './Images/homeimage3.jpg'
+import image4 from './Images/homeimage4.jpg'
 import cvimage1 from './Images/cv4.jpg';
 import cvimage2 from './Images/homeimage3.jpg';
 import cvimage3 from './Images/cv3.jpg';
 import Home_fourth from "./Home_fourth";
 import video from './Images/video2.mp4'
+
 function Home_third() {
   return (
     <>
@@ -327,7 +332,7 @@ function Home_third() {
           </div>
         </div> */}
       </div>
-      <div className='py-6 border-2 mb-3'>
+      <div className='py-6 border-2 mb-3 bg-gray-100'>
     <div className='flex gap-2 justify-center bg-[#00b38d] text-white py-4 text-lg md:text-4xl align-middle items-center font-bold px-2'>
         Certified By Recruiters & Admired By Job Seekers
     </div>
@@ -355,12 +360,12 @@ function Home_third() {
   <div className='flex flex-col justify-center gap-5 items-center md:flex-row'>
     {[
       { src: image1, alt: "Assistant Editor Resume Example", title: "Cover Letter Example" },
-      { src: image3, alt: "Farmer Resume Template", title: "Cover Letter Examples" },
       { src: image2, alt: "Farmer Resume Template", title: "Cover Letter Examples" },
-      { src: image3, alt: "Farmer Resume Template", title: "Cover Letter Examples" }
+      { src: image3, alt: "Farmer Resume Template", title: "Cover Letter Examples" },
+      { src: image4, alt: "Farmer Resume Template", title: "Cover Letter Examples" }
     ].map((template, index) => (
       <div key={index} className='relative group'>
-        <img src={template.src} alt={template.alt} className=' h-[400px] w-full border-2 rounded-lg shadow-xl shadow-gray-500' />
+        <Image src={template.src} alt={template.alt} className=' h-[400px] w-full border-2 rounded-lg shadow-xl shadow-gray-500' />
         <h1 className='font-bold  text-xl text-center mt-2' id='homecard'>{template.title}</h1>
         <button className='absolute top-0 left-0 right-0 bottom-0 m-auto w-fit h-fit bg-[#00b38d] text-white font-bold py-2 px-4 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300' >Create Your CV </button>
       </div>

@@ -19,9 +19,9 @@ const Home_fourth = () => {
       ];
     return (
       <>
-         <div id="course" className="bg-green-100 py-10 ">
+         <div id="course" className="bg-gray-100 py-10 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl lg:text-5xl font-bold px-4 lg:px-0 py-5 text-center">Newest Strategies From Our Career Search Advisors</h1>
+        <h1 className="text-4xl lg:text-5xl font-bold px-4 lg:px-0 py-5 text-center text-[#00b38d]">Newest Strategies From Our Career Search Advisors</h1>
         <p className="mx-auto px-4 lg:px-0 text-lg lg:text-base text-gray-700 max-w-4xl text-center mb-8">You’re never alone in your job search. Whether you’re writing a cover letter, preparing for the interview, or negotiating your salary, our resource center has articles that will help you take the next step in your career.</p>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -38,7 +38,7 @@ const Home_fourth = () => {
         
         <div className="flex justify-center mt-10">
         <Link href={"https://blog.resumeintellect.com/"}>
-          <button className="px-6 py-3 text-lg font-semibold text-black bg-green-400 hover:bg-green-500 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500">
+          <button className="px-6 py-3 text-lg font-semibold text-white bg-[#00b38d] hover:bg-[#00b38d] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00b38d]">
             Get More Career Advice
           </button></Link>
         </div>
