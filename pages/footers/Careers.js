@@ -6,10 +6,10 @@ function Careers() {
     <div>
       <div className="m-10 mx-40 p-5  shadow-2xl">
         <h1 className="text-4xl font-semibold my-4 underline ">
-          Careers at Cibil Job
+          Careers at Cibli Job
         </h1>
         <h1 className="text-2xl font-semibold my-2 mt-5 ">Join Our Team</h1>
-        At Cibil Job , we are committed to helping individuals achieve their
+        At Cibli Job , we are committed to helping individuals achieve their
         career goals through expertly crafted resumes and personalized career
         services. Our team is passionate about making a difference in the lives
         of job seekers, and we’re always on the lookout for talented individuals
@@ -27,12 +27,12 @@ function Careers() {
         <h1 className="text-2xl font-semibold my-2 mt-5">
           Collaborative Culture
         </h1>
-        At Cibil Job , we believe in the power of collaboration. Our team
+        At Cibli Job , we believe in the power of collaboration. Our team
         members work closely together, sharing ideas and supporting one another
         to achieve common goals. You’ll be part of a supportive community that
         values your input and encourages professional growth.
         <h1 className="text-2xl font-semibold my-2 mt-5">Impactful Work</h1>
-        Your work at Cibil Job will have a direct impact on our clients’ lives.
+        Your work at Cibli Job will have a direct impact on our clients’ lives.
         By helping job seekers present their best selves to potential employers,
         you’ll play a crucial role in their career success. There’s nothing more
         rewarding than knowing you’ve contributed to someone’s journey towards
@@ -67,16 +67,16 @@ function Careers() {
         </h1>
         Provide exceptional support to our clients, answering questions and
         resolving issues related to our services. You’ll ensure that every
-        client has a positive experience with Cibil Job .
+        client has a positive experience with Cibli Job .
         <h1 className="text-2xl font-semibold my-2 mt-5">How to Apply</h1>
         If you’re passionate about helping others succeed and want to be part of
         a dynamic, growth-oriented team, we’d love to hear from you. To apply
-        for a position at Cibil Job , please send your resume and a cover letter
-        to [career@Cibil Job .ca](mailto:career@Resume Intellect.ca).
+        for a position at Cibli Job , please send your resume and a cover letter
+        to [career@Cibli Job .ca](mailto:career@Resume Intellect.ca).
         <h1 className="text-2xl font-semibold my-2 mt-5">
           Join Us and Make a Difference
         </h1>
-        At Cibil Job , you’ll have the opportunity to make a meaningful impact
+        At Cibli Job , you’ll have the opportunity to make a meaningful impact
         every day. Join us and help shape the future of job seekers around the
         world. We look forward to welcoming you to our team!
       </div>

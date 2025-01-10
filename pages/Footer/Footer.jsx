@@ -42,7 +42,7 @@ const Footer = () => {
           <div className="flex flex-wrap justify-between px-2 md:px-[65px]">
             <div className="w-auto h mb-6 md:mb-0">
               <Link href="/">
-                <Image src={logo} alt="logo" className="h-12 w-[300px]" />
+                <Image src={logo} alt="logo" className="h-12 w-[280px]" />
               </Link>
               <p className="text-lg text-bold px-5">
                 Building Careers of Tomorrow
@@ -85,7 +85,7 @@ const Footer = () => {
           <br />
           <div className="flex flex-wrap justify-around">
             <div className="w-full md:w-auto mb-6 md:mb-0" id="footer">
-              <h2 className="text-lg font-bold text-white">Cibil Job </h2>
+              <h2 className="text-lg font-bold text-white">Cibli Job </h2>
               <ul>
                 <li>
                   <Link href="/footers/Aboutus">
@@ -183,7 +183,7 @@ const Footer = () => {
         </div>
         <div className="container text-base md:mx-auto text-center border-t border-white pt-6 mt-6">
           <p className="text-white text-right">
-            &copy; Copyright By CibilJob.ca All Rights Reserved
+            &copy; Copyright By CibliJob.ca All Rights Reserved
           </p>
         </div>
       </footer>
