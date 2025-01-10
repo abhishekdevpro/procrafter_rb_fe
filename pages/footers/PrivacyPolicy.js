@@ -9,7 +9,7 @@ function PrivacyPolicy() {
           Privacy Policy
         </h1>
         <h1 className="text-lg font-semibold my-2 mt-5 ">Introduction</h1>
-        At Cibil Job , we value your privacy and are committed to protecting
+        At Cibli Job , we value your privacy and are committed to protecting
         your personal information. This Privacy Policy outlines how we collect,
         use, and safeguard your data when you use our website and services. By
         accessing our website and using our services, you agree to the terms of
@@ -48,7 +48,7 @@ function PrivacyPolicy() {
         <h1 className="text-lg font-semibold my-2 mt-5 ">Legal Compliance</h1>
         We may disclose your information to comply with legal obligations,
         enforce our terms and conditions, or protect the rights, property, or
-        safety of Cibil Job , our clients, or others.
+        safety of Cibli Job , our clients, or others.
         <h1 className="text-lg font-semibold my-2 mt-5 ">3. Data Security</h1>
         We implement appropriate technical and organizational measures to
         protect your personal information from unauthorized access, disclosure,
@@ -122,7 +122,7 @@ function PrivacyPolicy() {
         <h1 className="text-lg font-semibold my-2 mt-5 ">10. Contact Us</h1>
         If you have any questions or concerns about this Privacy Policy or our
         data practices, please contact us at: Email [career@Resume
-        Intellect.ca](mailto:career@Cibil Job .ca)
+        Intellect.ca](mailto:career@Cibli Job .ca)
       </div>
       <Footer />
     </div>

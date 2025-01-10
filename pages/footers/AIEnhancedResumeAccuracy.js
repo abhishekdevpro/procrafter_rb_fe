@@ -9,7 +9,7 @@ function AIEnhancedResumeAccuracy() {
           AI-Enhanced Resume Accuracy
         </h1>
         <h2> Ensuring Precision and Reliability in Resume Creation</h2>
-        At Cibil Job , we understand that the accuracy of your resume can
+        At Cibli Job , we understand that the accuracy of your resume can
         significantly impact your chances of landing your dream job. Our
         AI-enhanced resume accuracy tools ensure that your resume is not only
         compelling but also precise and error-free. Leveraging advanced AI
@@ -59,7 +59,7 @@ function AIEnhancedResumeAccuracy() {
         <h1 className="text-sm font-semibold my-2">
           Step 1: Upload Your Resume{" "}
         </h1>
-        Upload your resume to the Cibil Job platform. Our AI will start
+        Upload your resume to the Cibli Job platform. Our AI will start
         analyzing your document immediately.
         <h1 className="text-sm font-semibold my-2">Step 2: AI Analysis</h1>
         The AI scans your resume for errors, inconsistencies, and missing
@@ -96,7 +96,7 @@ function AIEnhancedResumeAccuracy() {
         <h1 className="text-lg font-bold my-4">
           Start Enhancing Your Resume Accuracy Today{" "}
         </h1>
-        Transform your resume with Cibil Job ’s AI-enhanced accuracy tools. Sign
+        Transform your resume with Cibli Job ’s AI-enhanced accuracy tools. Sign
         up now to create a resume that is polished, precise, and professional.
       </div>
       <Footer />

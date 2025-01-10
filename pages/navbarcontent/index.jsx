@@ -11,7 +11,7 @@ function Navbarcontent() {
         <h1 className="text-5xl font-semibold my-4 underline ">
           AI Resume Builder
         </h1>
-        AI Resume Builder - AI Resume Builder on CibilJob.com offers a
+        AI Resume Builder - AI Resume Builder on CibliJob.com offers a
         seamless way to craft professional resumes tailored to specific job
         roles. Leveraging advanced AI algorithms, it guides users through every
         step, ensuring optimal formatting, keyword optimization, and

@@ -7,7 +7,7 @@ function AiCVParsing() {
       <div className="m-10 mx-40 p-5  shadow-2xl">
         <h1 className="text-3xl font-bold my-4 ">Ai CV Parsing</h1>
         <h2> Transforming Recruitment with Advanced AI CV Parsing</h2>
-        At Cibil Job , we leverage cutting-edge AI CV parsing technology to
+        At Cibli Job , we leverage cutting-edge AI CV parsing technology to
         streamline the recruitment process, making it faster and more efficient
         for both employers and job seekers. Our AI CV parsing tool accurately
         extracts and analyzes key information from CVs, helping you identify the
@@ -114,7 +114,7 @@ function AiCVParsing() {
         <h1 className="text-sm font-semibold my-2">
           Start Using AI CV Parsing Today
         </h1>
-        Revolutionize your recruitment process with Cibil Job ’s AI CV parsing
+        Revolutionize your recruitment process with Cibli Job ’s AI CV parsing
         tool. Sign up now to experience the benefits of efficient, accurate, and
         automated CV processing.
         <h1 className="text-sm font-semibold my-2">Get Started</h1>

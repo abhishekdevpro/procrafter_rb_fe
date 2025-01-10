@@ -192,13 +192,13 @@ import cvimage1 from './Images/cv4.jpg';
 import cvimage2 from './Images/homeimage3.jpg';
 import cvimage3 from './Images/cv3.jpg';
 import Home_fourth from "./Home_fourth";
-
+import video from './Images/video2.mp4'
 function Home_third() {
   return (
     <>
-      <div className='bg-green-200 py-10'>
+      <div className='bg-gray-100 py-10'>
         <div className='flex justify-center'>
-          <div className='md:w-[78%] rounded-xl py-5 px-4' id='home_third'>
+          <div className='md:w-[78%] rounded-xl py-5 px-4 bg-[#00b38d]' id='home_third' >
             <div className='flex flex-col gap-2 justify-evenly md:flex-row rounded-xl px-5 text-black'>
               <div>
                 <Image src={image} alt="logo" className='h-[400px] w-[400px] rounded-xl shadow-lg shadow-gray-600' />
@@ -224,8 +224,38 @@ function Home_third() {
             </div>
           </div>
         </div>
+        <div className='flex flex-col gap-5 border-2 my-8 rounded-xl bg-white justify-center px-5 py-10 shadow-md shadow-gray-600 md:mx-auto md:w-[78%]'>
+  <div className='flex flex-col items-center'>
+    <h1 className=' text-3xl md:text-5xl font-bold text-[#00b38d] text-center py-6'>Explore Our Wide Range Of Trending Templates That Recruiters Loves To See
+    </h1>
+    <div className=' flex gap-2'>
+    <div className=' text-lg text-left flex flex-col gap-1'>
+      <div><i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-green-500 "></i>Chosen & Crafted by Our Experts</div>
+      <div><i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-green-500 "></i>Backed by our Technology</div>
+    </div>
 
-        <div className='flex flex-col gap-5 my-8 rounded-xl justify-center px-5 py-10 shadow-gray-600'>
+    <div className=' text-lg text-left flex flex-col gap-1 '>      
+      <div><i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-green-500 "></i> Powered by our Robust AI </div>
+       <div><i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-green-500 "></i> Get it ready in less than 15 minutes</div>
+    </div>
+    </div>
+  </div>
+  <div className='flex flex-col justify-center gap-5 items-center md:flex-row'>
+            {[
+              { src: image1, alt: "Assistant Editor Resume Example", title: "Create Resume Template" },
+              { src: cvimage2, alt: "Farmer Resume Template", title: "Simple Resume Template" },
+              { src: image3, alt: "Doctor Resume Template", title: "Modern Resume Template" }
+            ].map((template, index) => (
+              <div key={index} className='relative group'>
+                <Image src={template.src} alt={template.alt} className='h-96 w-full rounded-xl' />
+                <h1 className='font-bold text-xl text-center mt-2' id='homecard'>{template.title}</h1>
+               
+               
+              </div>
+            ))}
+          </div>
+</div>
+        {/* <div className='flex flex-col gap-5 my-8 rounded-xl justify-center px-5 py-10 shadow-gray-600'>
           <div className='flex flex-col items-center'>
             <h1 className='text-3xl font-bold text-center py-6'>Explore Our Wide Range Of Trending Templates That Recruiters Love To See</h1>
             <div className='flex gap-2'>
@@ -295,8 +325,49 @@ function Home_third() {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
+      <div className='py-6 border-2 mb-3'>
+    <div className='flex gap-2 justify-center bg-[#00b38d] text-white py-4 text-lg md:text-4xl align-middle items-center font-bold px-2'>
+        Certified By Recruiters & Admired By Job Seekers
+    </div>
+    <div className='flex justify-center items-center px-2 py-3'>
+        <div className='relative w-[100%] h-[300px] md:w-[80%] md:h-[675px] rounded-xl shadow-lg shadow-gray-600 overflow-hidden'>
+            <video 
+                className='absolute top-0 left-0 w-full h-full' 
+                src={video} 
+                title="Embedded Video" 
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+                // style={{objectFit: 'cover'}}
+            ></video>
+        </div>
+    </div>
+</div>
+<div className='flex flex-col gap-5 px-5 py-10 md:mx-auto md:w-[70%]'>
+  <div className='flex flex-col items-center'>
+    <h1 className='text-5xl font-bold text-[#00b38d] rounded-xl text-center py-6'>Looking For Impressive Cover Letters?</h1>
+    <p className=' text-lg'>Explore from our 25+ premium Cover Letters, Which are exclusively crafted by our Experts.
+    </p>
+  </div>
+  <div className='flex flex-col justify-center gap-5 items-center md:flex-row'>
+    {[
+      { src: image1, alt: "Assistant Editor Resume Example", title: "Cover Letter Example" },
+      { src: image3, alt: "Farmer Resume Template", title: "Cover Letter Examples" },
+      { src: image2, alt: "Farmer Resume Template", title: "Cover Letter Examples" },
+      { src: image3, alt: "Farmer Resume Template", title: "Cover Letter Examples" }
+    ].map((template, index) => (
+      <div key={index} className='relative group'>
+        <img src={template.src} alt={template.alt} className=' h-[400px] w-full border-2 rounded-lg shadow-xl shadow-gray-500' />
+        <h1 className='font-bold  text-xl text-center mt-2' id='homecard'>{template.title}</h1>
+        <button className='absolute top-0 left-0 right-0 bottom-0 m-auto w-fit h-fit bg-[#00b38d] text-white font-bold py-2 px-4 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300' >Create Your CV </button>
+      </div>
+    ))}
+  </div>
+</div>
+
       <Home_fourth />
     </>
   );

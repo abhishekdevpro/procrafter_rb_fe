@@ -11,7 +11,7 @@ const Navbar = () => {
   const [isHovering, setIsHovering] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isApiSuccess, setIsApiSuccess] = useState(false);
-  
+
   const router = useRouter();
 
   useEffect(() => {
@@ -19,13 +19,13 @@ const Navbar = () => {
 
     if (token) {
       setIsLoggedIn(true);
-      
+
       // Check API success
       const checkApiSuccess = async () => {
         try {
           const response = await fetch('https://api.resumeintellect.com/api/user/user-profile', {
             headers: {
-              'Authorization': token,
+              Authorization: token,
             },
           });
           if (response.ok) {
@@ -55,14 +55,14 @@ const Navbar = () => {
   const handleLogout = () => {
     localStorage.removeItem('token');
     setIsLoggedIn(false);
-    toast.success("Logout Succesfully")
+    toast.success('Logout Succesfully');
     router.push('/');
   };
 
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
 
   return (
-    <nav className="bg-black border-b border-gray-200">
+    <nav className="bg-white border-b border-gray-200">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0 flex items-center">
@@ -73,32 +73,25 @@ const Navbar = () => {
           <div className="hidden md:flex justify-center items-center space-x-4">
             <Link
               href="/navbarcontent"
-              className="text-white px-3 py-2 rounded-md text-lg font-semibold"
+              className="text-black hover:text-[#00b38d] px-3 py-2 rounded-md text-lg font-semibold"
             >
               AI Resume Builder
             </Link>
             <Link
               href="https://blog.resumeintellect.com/"
-              className="text-white px-3 py-2 rounded-md text-lg font-semibold"
+              className="text-black hover:text-[#00b38d] px-3 py-2 rounded-md text-lg font-semibold"
             >
               Resources
             </Link>
             <Link
-              // href="https://blog.resumeintellect.com/"
               href="/footers/Aboutus"
-              className="text-white px-3 py-2 rounded-md text-lg font-semibold"
+              className="text-black hover:text-[#00b38d] px-3 py-2 rounded-md text-lg font-semibold"
             >
               About Us
             </Link>
-            {/* <Link href="/adminlogin" className="text-white px-3 py-2 rounded-md text-lg font-semibold">
-              <span className="mr-2">🛡️</span>
-              <span>Admin</span>
-            </Link> */}
-            {/* <a href="#phone" className="text-white px-3 py-2 rounded-md text-lg font-semibold">📞  Contact us  </a> */}
             <Link
-              // href="/Home/FAQ/Contact"
               href="#phone"
-              className="text-white px-3 py-2 rounded-md text-lg font-semibold"
+              className="text-black hover:text-[#00b38d] px-3 py-2 rounded-md text-lg font-semibold"
             >
               📞 Contact us
             </Link>
@@ -108,7 +101,7 @@ const Navbar = () => {
               <div className="relative">
                 <button
                   onClick={toggleDropdown}
-                  className="flex items-center bg-white text-white px-4 py-2 text-md font-semibold border-2 rounded-xl"
+                  className="flex items-center bg-[#00b38d] text-white px-4 py-2 text-md font-semibold border-2 rounded-xl"
                 >
                   <img
                     src="https://img.freepik.com/premium-vector/businessman-avatar-illustration-cartoon-user-portrait-user-profile-icon_118339-4382.jpg"
@@ -148,13 +141,13 @@ const Navbar = () => {
               <>
                 <Link
                   href="/login2"
-                  className="text-white px-4 py-2 text-md font-semibold border-2 rounded-xl"
+                  className="bg-[#00b38d] text-white  px-4 py-2 text-md font-semibold border-2 rounded-xl"
                 >
                   Log in
                 </Link>
                 <Link
                   href="/signup"
-                  className="text-white px-4 py-2 text-md font-semibold border-2 rounded-xl"
+                  className="bg-[#00b38d] text-white  px-4 py-2 text-md font-semibold border-2 rounded-xl"
                 >
                   Sign up
                 </Link>
@@ -164,7 +157,7 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={handleMenuClick}
-              className="text-white hover:text-gray-700 focus:outline-none px-3 py-2 rounded-md text-sm font-medium"
+              className="text-black hover:text-[#00b38d] focus:outline-none px-3 py-2 rounded-md text-sm font-medium"
             >
               <svg
                 className="w-6 h-6"
@@ -188,28 +181,28 @@ const Navbar = () => {
             <div className="px-2 pt-2 pb-3 space-y-1">
               <Link
                 href="/navbarcontent"
-                className="text-white block px-3 py-2 rounded-md text-base font-semibold"
+                className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
                 onClick={handleLinkClick}
               >
                 AI Resume Builder
               </Link>
               <Link
                 href="https://blog.resumeintellect.com/"
-                className="text-white block px-3 py-2 rounded-md text-base font-semibold"
+                className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
                 onClick={handleLinkClick}
               >
                 Resources
               </Link>
               <Link
                 href="https://blog.resumeintellect.com/"
-                className="text-white block px-3 py-2 rounded-md text-base font-semibold"
+                className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
                 onClick={handleLinkClick}
               >
                 About Us
               </Link>
               <Link
                 href="https://blog.resumeintellect.com/"
-                className="text-white block px-3 py-2 rounded-md text-base font-semibold"
+                className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
                 onClick={handleLinkClick}
               >
                 Blog
@@ -218,7 +211,7 @@ const Navbar = () => {
               {isLoggedIn ? (
                 <Link
                   href="/"
-                  className="text-white block px-3 py-2 rounded-md text-base font-semibold"
+                  className="bg-[#00b38d] text-white  block px-3 py-2 rounded-md text-base font-semibold"
                   onClick={() => {
                     handleLogout();
                     handleLinkClick();
@@ -230,14 +223,14 @@ const Navbar = () => {
                 <>
                   <Link
                     href="/login2"
-                    className="text-white block px-3 py-2 rounded-md text-base font-semibold"
+                    className="bg-[#00b38d] text-white  block px-3 py-2 rounded-md text-base font-semibold"
                     onClick={handleLinkClick}
                   >
                     Log in
                   </Link>
                   <Link
                     href="/signup"
-                    className="text-white block px-3 py-2 rounded-md text-base font-semibold"
+                    className="bg-[#00b38d] text-white  block px-3 py-2 rounded-md text-base font-semibold"
                     onClick={handleLinkClick}
                   >
                     Sign up

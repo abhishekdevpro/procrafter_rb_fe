@@ -248,3 +248,48 @@ body {
     top: 280px;
   }
 }
+.slider-container {
+  position: relative;
+  width: 70%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slide.right {
+  transform: translateX(100%);
+}
+
+.slide.left {
+  transform: translateX(-100%);
+}
+
+.slide.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media only screen and (max-width: 768px) {
+  .slider-container {
+    width: 95%;
+  }
+  .slide {
+    width: 100%;
+  }
+  .slide img {
+    object-fit: fill;
+  }
+}
