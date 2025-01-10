@@ -724,13 +724,14 @@
 // export default Home_second;
 
 import React from 'react'
-import Home_Third from './Home_Third'
+
 import Image from 'next/image'
 import image1 from './Images/1.png'
 import image2 from './Images/2.png'
 import image3 from './Images/3.png'
 import image4 from './Images/4.png'
 import image5 from './Images/5.png'
+import Home_third from './Home_third'
 function Home_Second() {
   return (
     <>
@@ -775,7 +776,7 @@ function Home_Second() {
         </div>
       </div>
 
-      <Home_Third/>
+      <Home_third/>
       
     </>
   )
