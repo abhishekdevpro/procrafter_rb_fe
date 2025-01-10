@@ -731,7 +731,9 @@ import image2 from './Images/2.png'
 import image3 from './Images/3.png'
 import image4 from './Images/4.png'
 import image5 from './Images/5.png'
-import Home_third from './Home_third'
+
+import Home_third from "./Home_third"
+
 function Home_Second() {
   return (
     <>
@@ -776,7 +778,9 @@ function Home_Second() {
         </div>
       </div>
 
+
       <Home_third/>
+
       
     </>
   )

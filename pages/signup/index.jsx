@@ -217,7 +217,7 @@ const Signup = () => {
                 />
                 <Link
                   href={"/TermsandConditions"}
-                  className="text-green-500 hover:underline"
+                  className="text-[#00b38d] hover:underline"
                 >
                   {" "}
                   Agree to terms & conditions
@@ -227,7 +227,7 @@ const Signup = () => {
 
             <button
               type="submit"
-              className="w-full bg-yellow-500 text-black px-4 py-2 rounded-md flex items-center justify-center gap-2 hover:bg-yellow-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-[#00b38d] text-white px-4 py-2 rounded-md flex items-center justify-center gap-2 hover:bg-[#00b38d] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={isLoading}
             >
               {isLoading ? (
