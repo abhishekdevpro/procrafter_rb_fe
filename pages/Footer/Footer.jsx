@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import Image from 'next/image';
 import logo from "../Footer/logo.png";
@@ -42,7 +44,7 @@ const Footer = () => {
           <div className="flex flex-wrap justify-between px-2 md:px-[65px]">
             <div className="w-auto h mb-6 md:mb-0">
               <Link href="/">
-                <Image src={logo} alt="logo" className="h-12 w-[280px]" />
+                <Image src={logo} alt="logo" className="h-12 w-[200px]" />
               </Link>
               <p className="text-lg text-bold px-5">
                 Building Careers of Tomorrow
@@ -192,5 +194,3 @@ const Footer = () => {
 };
 
 export default Footer;
-// docker build . -t abhishekdevpro/dean_users_fe:1.1
-// docker push abhishekdevpro/dean_users_fe:1.1

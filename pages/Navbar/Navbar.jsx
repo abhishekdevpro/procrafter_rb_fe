@@ -11,7 +11,7 @@ const Navbar = () => {
   const [isHovering, setIsHovering] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isApiSuccess, setIsApiSuccess] = useState(false);
-
+  const [user, setUser] = useState();
   const router = useRouter();
 
   useEffect(() => {
@@ -28,8 +28,12 @@ const Navbar = () => {
               Authorization: token,
             },
           });
-          if (response.ok) {
+          console.log(response.data, ">>>firstname")
+          console.log(user,">>>user")
+          if (response.data.status === 'success') {
             setIsApiSuccess(true);
+            setUser(response.data.data);
+         
           } else {
             setIsApiSuccess(false);
           }
@@ -67,10 +71,27 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0 flex items-center">
             <Link href="/">
-              <Image src={logo} alt="logo" className="h-10 w-40" />
+              <Image src={logo} alt="logo" className="h-10  w-[140px]" />
             </Link>
           </div>
           <div className="hidden md:flex justify-center items-center space-x-4">
+          <Link
+              href="/dashboard"
+              className="text-black hover:text-[#00b38d] px-3 py-2 rounded-md text-lg font-semibold"
+            >Dashboard
+            </Link>
+            <Link
+              href="/dashboard/resumelist"
+              className="text-black hover:text-[#00b38d] px-3 py-2 rounded-md text-lg font-semibold"
+            >
+              My Resumes
+            </Link>
+            <Link
+              href="/dashboard/MyJobs"
+              className="text-black hover:text-[#00b38d] px-3 py-2 rounded-md text-lg font-semibold"
+            >
+              Jobs
+            </Link>
             <Link
               href="/navbarcontent"
               className="text-black hover:text-[#00b38d] px-3 py-2 rounded-md text-lg font-semibold"
@@ -78,23 +99,29 @@ const Navbar = () => {
               AI Resume Builder
             </Link>
             <Link
-              href="https://blog.resumeintellect.com/"
+              href="https://blog.ciblijob.fr/"
               className="text-black hover:text-[#00b38d] px-3 py-2 rounded-md text-lg font-semibold"
             >
               Resources
             </Link>
             <Link
+              href=""
+              className="text-black hover:text-[#00b38d] px-3 py-2 rounded-md text-lg font-semibold"
+            >
+             CibliJob ID
+            </Link>
+            {/* <Link
               href="/footers/Aboutus"
               className="text-black hover:text-[#00b38d] px-3 py-2 rounded-md text-lg font-semibold"
             >
               About Us
-            </Link>
-            <Link
+            </Link> */}
+            {/* <Link
               href="#phone"
               className="text-black hover:text-[#00b38d] px-3 py-2 rounded-md text-lg font-semibold"
             >
               📞 Contact us
-            </Link>
+            </Link> */}
           </div>
           <div className="hidden md:flex items-center gap-4">
             {isLoggedIn ? (
@@ -108,6 +135,9 @@ const Navbar = () => {
                     alt="User"
                     className="w-8 h-8 rounded-full "
                   />
+                   <span className="ml-2">
+                    {user ? user.first_name : "profile"}
+                  </span>
                 </button>
                 {isDropdownOpen && (
                   <div className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-md text-black">
@@ -118,12 +148,20 @@ const Navbar = () => {
                     >
                       Home
                     </Link>
+
                     <Link
                       href="/dashboard/page"
                       className="block px-4 py-2 hover:bg-gray-200"
                       onClick={() => setIsDropdownOpen(false)}
                     >
                       Profile
+                    </Link>
+                    <Link
+                      href="/dashboard"
+                      className="block px-4 py-2 hover:bg-gray-200"
+                      onClick={() => setIsDropdownOpen(false)}
+                    >
+                     Dashboard
                     </Link>
                     <button
                       onClick={() => {

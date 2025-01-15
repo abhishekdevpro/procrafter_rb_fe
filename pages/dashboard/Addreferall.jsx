@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 function Addreferall() {
     const [name, setName] = useState("");
@@ -95,7 +96,7 @@ function Addreferall() {
                                             />
                                         </div>
                                         <div className="text-center">
-                                        <button type="submit" className="w-full bg-white text-black border-green-500 border-2 px-6 py-3 rounded-lg font-bold " disabled={loading}>
+                                        <button type="submit" className="w-full bg-white text-blue-800 border-blue-800 border-2 px-6 py-3 rounded-lg font-bold " disabled={loading}>
                                             {loading ? "Submitting..." : "Submit"}
                                         </button>
                                         </div>
@@ -106,6 +107,7 @@ function Addreferall() {
                     </div>
                 </div>
             </div>
+            <ToastContainer />
         </>
     );
 }

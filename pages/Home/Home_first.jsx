@@ -68,7 +68,7 @@ function Home_first() {
                        
                         > Sign Up! Its 100% Free!</button>
                         </Link>
-                        <Link href={isAuthenticated ? "/dashboard" : "/login2"}>
+                        <Link href={isAuthenticated ? "/dashboard/resume-builder" : "/login2"}>
                         <button 
                        
                         className=' text-white bg-pink-600 text-lg px-6 py-2 rounded-full  font-bold hover:shadow-2xl hover:shadow-slate-500 ' > Build your Resume</button>

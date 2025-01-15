@@ -46,7 +46,7 @@ const Login2 = () => {
         console.log("Token", response.data.data.token);
         localStorage.setItem("token", response.data.data.token);
         toast.success(response.data.message || "Login Successfully");
-        router.push("/dashboard");
+        router.push("/dashboard/resume-builder");
       } else {
         toast.error("Failed to login");
       }

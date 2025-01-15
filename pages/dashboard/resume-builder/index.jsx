@@ -139,8 +139,8 @@ export default function Home() {
 
         <button
           onClick={handleCreateResume}
-          className={`px-6 py-3 text-black font-semibold rounded-lg ${
-            loading ? 'bg-green-200' : 'bg-green-400 hover:bg-green-500'
+          className={`px-6 py-3 text-white font-semibold rounded-lg ${
+            loading ? 'bg-gray-400' : 'bg-blue-600 hover:bg-blue-700'
           }`}
           disabled={loading}
         >

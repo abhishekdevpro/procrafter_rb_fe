@@ -292,7 +292,7 @@ const ProfileForm = () => {
               />
             </div>
             <div>
-              <label className="block mb-2">Current Salary ($):</label>
+              <label className="block mb-2">Current Salary (£):</label>
               <input
                 type="number"
                 name="current_salary"
@@ -304,7 +304,7 @@ const ProfileForm = () => {
               />
             </div>
             <div>
-              <label className="block mb-2">Expected Salary ($):</label>
+              <label className="block mb-2">Expected Salary (£):</label>
               <input
                 type="number"
                 name="expected_salary"

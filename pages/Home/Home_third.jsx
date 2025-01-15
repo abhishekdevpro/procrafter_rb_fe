@@ -188,6 +188,7 @@ import icon4 from './Images/video_icon4.gif';
 // import image1 from './Images/homeimage1.jpg';
 // import image2 from './Images/resume3.jpg';
 // import image3 from './Images/homeimage2.jpg';
+import { AiOutlineCheck } from "react-icons/ai";
 import image1 from './Images/homeimage1.jpg'
 import image2 from './Images/homeimage2.jpg'
 import image3 from './Images/homeimage3.jpg'
@@ -233,16 +234,39 @@ function Home_third() {
   <div className='flex flex-col items-center'>
     <h1 className=' text-3xl md:text-5xl font-bold text-[#00b38d] text-center py-6'>Explore Our Wide Range Of Trending Templates That Recruiters Loves To See
     </h1>
-    <div className=' flex gap-2'>
+    {/* <div className=' flex gap-2'>
     <div className=' text-lg text-left flex flex-col gap-1'>
-      <div><i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-green-500 "></i>Chosen & Crafted by Our Experts</div>
-      <div><i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-green-500 "></i>Backed by our Technology</div>
+      <div><i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-[#00b38d] "></i>Chosen & Crafted by Our Experts</div>
+      <div><i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-[#00b38d] "></i>Backed by our Technology</div>
     </div>
 
     <div className=' text-lg text-left flex flex-col gap-1 '>      
-      <div><i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-green-500 "></i> Powered by our Robust AI </div>
-       <div><i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-green-500 "></i> Get it ready in less than 15 minutes</div>
+      <div><i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-[#00b38d] "></i> Powered by our Robust AI </div>
+       <div><i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-[#00b38d] "></i> Get it ready in less than 15 minutes</div>
     </div>
+    </div> */}
+     <div className="flex gap-2">
+      <div className="text-lg text-left flex flex-col gap-1">
+        <div>
+          <AiOutlineCheck className="border-2 px-2 py-2 rounded-full text-white bg-[#00b38d]" />
+          Chosen & Crafted by Our Experts
+        </div>
+        <div>
+          <AiOutlineCheck className="border-2 px-2 py-2 rounded-full text-white bg-[#00b38d]" />
+          Backed by our Technology
+        </div>
+      </div>
+
+      <div className="text-lg text-left flex flex-col gap-1">
+        <div>
+          <AiOutlineCheck className="border-2 px-2 py-2 rounded-full text-white bg-[#00b38d]" />
+          Powered by our Robust AI
+        </div>
+        <div>
+          <AiOutlineCheck className="border-2 px-2 py-2 rounded-full text-white bg-[#00b38d]" />
+          Get it ready in less than 15 minutes
+        </div>
+      </div>
     </div>
   </div>
   <div className='flex flex-col justify-center gap-5 items-center md:flex-row'>
