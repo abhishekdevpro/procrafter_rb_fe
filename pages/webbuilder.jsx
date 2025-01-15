@@ -223,6 +223,7 @@ export default function WebBuilder() {
   };
 
   const handleNext = () => {
+    handleFinish()
     if (currentSection === sections.length - 1) {
       localStorage.setItem("tempResumeData", JSON.stringify(resumeData));
       localStorage.setItem("tempHeaderColor", headerColor);
@@ -258,10 +259,12 @@ export default function WebBuilder() {
   }, []);
 
   const handlePrevious = () => {
+    handleFinish()
     setCurrentSection((prev) => Math.max(prev - 1, 0));
   };
 
   const handleSectionClick = (index) => {
+    handleFinish()
     setCurrentSection(index);
     setIsMobileMenuOpen(false);
   };
@@ -271,12 +274,14 @@ export default function WebBuilder() {
   };
 
   const nextSection = () => {
+    handleFinish()
     if (currentSection < sections.length - 1) {
       handleSectionClick(currentSection + 1);
     }
   };
 
   const prevSection = () => {
+    handleFinish()
     if (currentSection > 0) {
       handleSectionClick(currentSection - 1);
     }
@@ -511,6 +516,7 @@ export default function WebBuilder() {
   };
 
   const downloadPDF = async (orderId, resumeId, token) => {
+    handleFinish()
     try {
       const response = await axios.get(
         `https://api.resumeintellect.com/api/user/download-file/${orderId}/${resumeId}`,
@@ -908,7 +914,7 @@ export default function WebBuilder() {
                         <div className="md:w-1/2 w-full p-4 ">
                           <div className="text-center mb-6">
                             <h2 className="text-2xl font-bold text-gray-900">
-                              $49
+                            £49
                             </h2>
                             <p className="text-sm text-gray-500">
                               Total Amount

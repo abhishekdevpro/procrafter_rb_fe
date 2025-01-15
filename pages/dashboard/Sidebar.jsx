@@ -1,35 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
 const Sidebar = ({ onClose }) => {
-  const router = useRouter();  
-  const [userId,setUserId] = useState(0)
-useEffect(()=>{
-  setUserId(localStorage.getItem("user_id"));
-},[])
-  const handleLogout = () => {
-    localStorage.removeItem('token'); 
-    // setIsLoggedIn(false);
-    router.push('/')
+  const router = useRouter();  const handleLogout = () => {
+    localStorage.removeItem('token'); // Clear the token
+    setIsLoggedIn(false); // Update login state
   };
   const getLinkClassName = (path) => {
     return router.pathname === path
-      ? "flex items-center p-2 bg-green-600 border-b-2 rounded font-semibold text-white"
-      : "flex items-center p-2 hover:bg-green-600  border-b-2 hover:text-white rounded font-semibold  ";
+      ? "flex items-center p-2 bg-[#00b38d] border-b-2 rounded font-semibold text-white"
+      : "flex items-center p-2 hover:bg-[#00b38d]  border-b-2 rounded font-semibold  ";
   };
+
   return (
     <div className="bg-white h-screen p-4 border-r border-gray-200 md:block">
       {/* Sidebar links */}
       <ul className="space-y-2 mt-4">
         <li>
           <Link
-            href="/dashboard"
-            // className="flex items-center p-2 bg-blue-900 border-b-2 border-black font-semibold text-white"
-            className={getLinkClassName("/dashboard")}
+            href=""
+            className="flex items-center p-2 bg-pink-600 border-b-2 border-black font-semibold text-white"
             onClick={onClose} // Close sidebar on link click
           >
-            <span className="mr-2">🖥️</span>
+            <span className="mr-10 ">🖥️</span>
             <span>Dashboard</span>
           </Link>
         </li>
@@ -45,8 +39,8 @@ useEffect(()=>{
         </li>
         <li>
           <Link
-            href="/dashboard/resume-builder"
-            className={getLinkClassName("/dashboard/resume-builder")}
+            href="aibuilder"
+            className={getLinkClassName("/dashboard/aibuilder")}
             onClick={onClose} // Close sidebar on link click
           >
             <span className="mr-2">🤖</span>
@@ -55,7 +49,7 @@ useEffect(()=>{
         </li>
         <li>
           <Link
-            href="/dashboard/resumelist"
+            href="resumelist"
             className={getLinkClassName("/dashboard/resumelist")}
             onClick={onClose} // Close sidebar on link click
           >
@@ -65,7 +59,7 @@ useEffect(()=>{
         </li>
         <li>
           <Link
-            href="/dashboard/notification"
+            href="notification"
             className={getLinkClassName("/dashboard/notification")}
             onClick={onClose} // Close sidebar on link click
           >
@@ -75,7 +69,7 @@ useEffect(()=>{
         </li>
         <li>
           <Link
-            href="/dashboard/skilltest"
+            href="skilltest"
             className={getLinkClassName("/dashboard/skilltest")}
             onClick={onClose} // Close sidebar on link click
           >
@@ -85,7 +79,7 @@ useEffect(()=>{
         </li>
         <li>
           <Link
-            href="/dashboard/addrefferal"
+            href="addrefferal"
             className={getLinkClassName("/dashboard/addrefferal")}
             onClick={onClose} // Close sidebar on link click
           >
@@ -95,7 +89,7 @@ useEffect(()=>{
         </li>
         <li>
           <Link
-            href="/dashboard/skillhistorylist"
+            href="skillhistorylist"
             className={getLinkClassName("/dashboard/skillhistorylist")}
             onClick={onClose} // Close sidebar on link click
           >
@@ -105,7 +99,7 @@ useEffect(()=>{
         </li>
         <li>
           <Link
-            href="/dashboard/reffrerallistpage"
+            href="reffrerallistpage"
             className={getLinkClassName("/dashboard/reffrerallistpage")}
             onClick={onClose} // Close sidebar on link click
           >
@@ -115,7 +109,7 @@ useEffect(()=>{
         </li>
         <li>
           <Link
-            href="/dashboard/paymentpage"
+            href="paymentpage"
             className={getLinkClassName("/dashboard/paymentpage")}
             onClick={onClose} // Close sidebar on link click
           >
@@ -125,7 +119,7 @@ useEffect(()=>{
         </li>
         <li>
           <Link
-            href="/dashboard/password"
+            href="password"
             className={getLinkClassName("/dashboard/password")}
             onClick={onClose} // Close sidebar on link click
           >
@@ -133,30 +127,17 @@ useEffect(()=>{
             <span>Change Password</span>
           </Link>
         </li>
-        {userId == 121 ? (
-          <li>
-            <Link
-              href="/dashboard/test-payment"
-              className={getLinkClassName("/dashboard/test-payment")}
-              onClick={onClose} // Close sidebar on link click
-            >
-              <span className="mr-2">💳</span>
-              <span>Test Payment</span>
-            </Link>
-          </li>
-        ) : (
-          ""
-        )}
         <li>
-          <button
-            className="w-full flex items-center p-2 hover:bg-blue-900  border-b-2 rounded font-semibold"
-            onClick={() => {
-              handleLogout();
-            }}
-          >
+          
+          <Link
+            href="/"
+            className="flex items-center p-2 hover:bg-[#00b38d]  border-b-2 rounded font-semibold"
+            onClick={() => { handleLogout(); }}>  
+          
             <span className="mr-2 ">🔓</span>
             <span>Log Out</span>
-          </button>
+          </Link>
+          
         </li>
       </ul>
     </div>

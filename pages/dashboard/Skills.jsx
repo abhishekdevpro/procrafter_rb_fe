@@ -23,7 +23,7 @@ const Skills = () => {
     }
 
     try {
-      const response = await axios.get('https://api.resumeintellect.com/api/user/user-skills', {
+      const response = await axios.get(' https://api.resumeintellect.com/api/user/user-skills', {
         headers: {
           Authorization: token,
         },
@@ -128,7 +128,7 @@ const Skills = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 px-5 py-5 text-center">
             {skills.length > 0 ? (
               skills.map((skill, index) => (
-                <div key={index} className="bg-indigo-900 rounded-xl shadow-2xl border-2 border-slate-600 px-5 py-4 text-center">
+                <div key={index} className="bg-[#00b38d] rounded-xl shadow-2xl border-2 border-slate-600 px-5 py-4 text-center">
                   <h3 className="text-2xl sm:text-3xl text-white font-semibold py-3">{skill.name || 'Add skill from CV'}</h3>
                   <p className="text-center text-white py-1">❓ Total Questions: {skill.total_question || '15'}</p>
                   <p className="text-center text-white py-1">📌 Right Answers: {skill.right_answer || '0'}</p>

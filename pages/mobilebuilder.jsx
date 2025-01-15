@@ -212,6 +212,7 @@ export default function MobileBuilder() {
   
 
   const handleNext = () => {
+    handleFinish()
     if (currentSection === sections.length - 1) {
       localStorage.setItem("tempResumeData", JSON.stringify(resumeData));
       localStorage.setItem("tempHeaderColor", headerColor);
@@ -247,10 +248,12 @@ export default function MobileBuilder() {
   }, []);
 
   const handlePrevious = () => {
+    handleFinish()
     setCurrentSection((prev) => Math.max(prev - 1, 0));
   };
 
   const handleSectionClick = (index) => {
+    handleFinish()
     setCurrentSection(index);
     setIsMobileMenuOpen(false);
   };
@@ -262,6 +265,7 @@ export default function MobileBuilder() {
  
  
   const downloadAsPDF = async () => {
+    handleFinish()
     const amount = 49; // Fixed price
 
     try {

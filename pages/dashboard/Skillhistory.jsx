@@ -7,7 +7,7 @@ function Skillhistory() {
   useEffect(() => {
     const token = localStorage.getItem('token');
 
-    axios.get('https://api.resumeintellect.com/api/user/skill-assessment-history', {
+    axios.get(' https://api.resumeintellect.com/api/user/skill-assessment-history', {
       headers: {
         Authorization: token
       }
@@ -30,9 +30,8 @@ function Skillhistory() {
           ) : (
             <table className="min-w-full bg-dark text-black rounded-md text-center">
               <thead>
-                <tr className="bg-green-400 text-white">
+                <tr className="bg-[#00b38d] text-white">
                   <th className="py-2 px-4">Date / Time</th>
-                  <th className="py-2 px-4">Skill Name</th>
                   <th className="py-2 px-4">Verification Status</th>
                   <th className="py-2 px-4">Total Questions</th>
                   <th className="py-2 px-4">Right Answers</th>
@@ -42,15 +41,9 @@ function Skillhistory() {
               </thead>
               <tbody>
                 {users.map((user, index) => (
-                  <tr
-                    key={index}
-                    className="border border-gray-700 text-center"
-                  >
+                  <tr key={index} className="border border-gray-700 text-center">
                     <td className="py-2 px-4">{user.date_time || "N/A"}</td>
-                    <td className="py-2 px-4">{user.skill_name || "N/A"}</td>
-                    <td className="py-2 px-4">
-                      {user.is_verified ? "Verified" : "Not Verified"}
-                    </td>
+                    <td className="py-2 px-4">{user.is_verified ? "Verified" : "Not Verified"}</td>
                     <td className="py-2 px-4">{user.results.total_question}</td>
                     <td className="py-2 px-4">{user.results.right_answer}</td>
                     <td className="py-2 px-4">{user.results.wrong_answer}</td>
