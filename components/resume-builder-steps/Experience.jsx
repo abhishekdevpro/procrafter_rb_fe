@@ -8,7 +8,8 @@ export default function ExperienceStep({ onNext, onChange, value }) {
     ]
   
     return (
-      <div className="space-y-6">
+      <>
+       <div className="space-y-6">
         <div className="text-center">
           <h2 className="text-2xl font-bold text-gray-900">How long have you been working?</h2>
           <p className="mt-2 text-gray-600">We will find the best templates for your experience level.</p>
@@ -33,6 +34,8 @@ export default function ExperienceStep({ onNext, onChange, value }) {
           ))}
         </div>
       </div>
+      </>
+     
     )
   }
   

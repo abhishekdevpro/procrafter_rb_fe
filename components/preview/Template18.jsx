@@ -1,5 +1,5 @@
 import { useContext, useRef } from "react";
-import { ResumeContext } from "../../pages/builder";
+import { ResumeContext } from "../context/ResumeContext";
 import { HighlightMenu } from "react-highlight-menu";
 import ContactInfo from "./ContactInfo";
 import { CgWebsite } from "react-icons/cg";
@@ -341,7 +341,7 @@ const Template18 = () => {
                                 href={item.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-green-500 hover:underline"
+                                className="text-blue-600 hover:underline"
                               >
                                 {item.link}
                               </Link>
@@ -402,7 +402,7 @@ const Template18 = () => {
             </div>
             {/* <button 
               onClick={extractHtml}
-              className="mt-4 px-4 py-2 bg-green-400 text-white rounded hover:bg-green-500 transition-colors duration-300"
+              className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors duration-300"
             >
               Log HTML Content
             </button> */}

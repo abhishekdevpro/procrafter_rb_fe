@@ -43,8 +43,7 @@ const Sidebar = ({ score, resumeId }) => {
 
         if (response.data.status === "success") {
           const { data } = response.data;
-          const parsedData = data.ai_resume_parse_data;
-
+          const parsedData = JSON.parse(data.ai_resume_parse_data);
           // Update state with fetched data
           setResumeData(parsedData.templateData);
           setResumeTitle(data.resume_title || "Untitled Resume");
@@ -76,7 +75,7 @@ const Sidebar = ({ score, resumeId }) => {
         method: "GET",
         headers: {
           Authorization: token,
-          "Content-Type": "application/json",
+          "Content-Type": "application/pdf",
         },
       });
 

@@ -318,7 +318,7 @@
 //                             href={item.link}
 //                             target="_blank"
 //                             rel="noopener noreferrer"
-//                             className="text-green-500 hover:underline"
+//                             className="text-blue-600 hover:underline"
 //                           >
 //                             {item.link}
 //                           </Link>

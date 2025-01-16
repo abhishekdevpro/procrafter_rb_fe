@@ -310,7 +310,7 @@
 //                                   href={item.link}
 //                                   target="_blank"
 //                                   rel="noopener noreferrer"
-//                                   className="text-green-500 hover:underline block mt-2"
+//                                   className="text-blue-600 hover:underline block mt-2"
 //                                 >
 //                                   {item.link}
 //                                 </Link>
@@ -383,7 +383,7 @@
 //             </div>
 //             <button
 //               onClick={extractHtml}
-//               className="mt-4 px-4 py-2 bg-green-400 text-white rounded hover:bg-green-500 transition-colors"
+//               className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
 //             >
 //               Log HTML Content
 //             </button>
@@ -414,7 +414,7 @@
 
 // export default Template21;
 import { useContext, useRef } from "react";
-import { ResumeContext } from "../../pages/builder";
+import { ResumeContext } from "../context/ResumeContext";
 import ContactInfo from "./ContactInfo";
 import DateRange from "../utility/DateRange";
 import Language from "./Language";
@@ -712,7 +712,7 @@ const Template21 = () => {
                                   href={item.link}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="text-green-500 hover:underline block mt-2"
+                                  className="text-blue-600 hover:underline block mt-2"
                                 >
                                   {item.link}
                                 </Link>
@@ -785,7 +785,7 @@ const Template21 = () => {
             </div>
             {/* <button
               onClick={extractHtml}
-              className="mt-4 px-4 py-2 bg-green-400 text-white rounded hover:bg-green-500 transition-colors"
+              className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
             >
               Log HTML Content
             </button> */}

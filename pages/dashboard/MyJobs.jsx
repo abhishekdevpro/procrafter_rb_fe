@@ -214,7 +214,7 @@ export default function JobsPage() {
 
   return (
     <>
-    <Navbar />
+    {/* <Navbar /> */}
     <div className="w-full max-w-7xl mx-auto px-4 py-8">
       <div className="bg-white rounded-lg shadow-sm p-4 mb-6">
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
@@ -269,7 +269,7 @@ export default function JobsPage() {
             style={{ width: `${(displayedJobs.length / jobs.length) * 100}%` }}
           ></div>
         </div> */}
-        {displayedJobs.length < jobs.length && (
+        {/* {displayedJobs.length < jobs.length && (
          <Link href={'https://abroadium-arbuild-fe.vercel.app/job-list'}>
             <button 
             // onClick={() => setPerPage({ start: 0, end: 0 })}
@@ -278,7 +278,7 @@ export default function JobsPage() {
             Show More
           </button>
          </Link>
-        )}
+        )} */}
       </div>
 
       {showLoginModal && <LoginModal onClose={() => setShowLoginModal(false)} />}

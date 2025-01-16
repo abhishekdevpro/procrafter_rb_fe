@@ -303,6 +303,7 @@ export default function WebBuilder() {
   const handleShowModal = () => setShowModal(true);
 
   const downloadAsPDF = async () => {
+    handleFinish()
     if (!templateRef.current) {
       toast.error("Template reference not found");
       return;

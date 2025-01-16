@@ -173,7 +173,7 @@ const ContactAndSocialMedia = ({
   textColor = "text-black", // Default text color
   className=""
 }) => {
-  console.log(socialMediaData,"LLLL");
+  
   const {backgroundColorss} =  useContext(ResumeContext)
   console.log(backgroundColorss,"backgroundColorss");
   {backgroundColorss?textColor:textColor="text-black"}
@@ -274,7 +274,7 @@ const ContactAndSocialMedia = ({
         ))
       ) : (
         <p className={`text-gray-600 dark:text-gray-300 ${textColor}`}>
-          No social media links available
+        
         </p>
       )}
     </div>

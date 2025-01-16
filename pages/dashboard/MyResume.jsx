@@ -78,32 +78,39 @@ const MyResume = () => {
       toast.error("Failed to download the file. Please try again later.");
     }
   };
+ 
+  
 
   const handleDeleteResume = async () => {
     const token = localStorage.getItem("token");
+    
     if (token) {
       try {
-        await axios.delete(
-          `https://api.resumeintellect.com/api/user/resume-list/${deleteresumeid}`,
-          {
-            headers: { Authorization: token },
-          }
-        );
-        toast.success("Resume deleted successfully");
+        await axios.delete(`https://api.resumeintellect.com/api/user/resume-list/${deleteresumeid}`, {
+          headers: { Authorization: token },
+        });
+        toast.success("Your Resume Deleted Successfully");
         setisDeleteModalOpen(false);
-        setResumes(
-          resumes.filter((resume) => resume.resume_id !== deleteresumeid)
-        );
+        setResumes(resumes.filter(resume => resume.id !== deleteresumeid));
       } catch (error) {
         console.error("Error deleting resume:", error);
-        toast.error("Failed to delete resume");
+        toast.error("Failed to Delete your Resume");
       }
+    } else {
+      console.error("Token not found in localStorage");
     }
+  };
+  const handleopenDeleteModal = (resumeId) => {
+    setDeleteresumeid(resumeId);
+    setisDeleteModalOpen(true);
+  };
+  const handleCloseModal = () => {
+    setisDeleteModalOpen(false);
   };
 
   const handleOpenEditModal = (resume) => {
     setCurrentResume(resume);
-    setNewResumeTitle(resume.resume_title || "");
+    setNewResumeTitle(resume.resue_name || "");
     setIsEditModalOpen(true);
   };
 
@@ -112,8 +119,8 @@ const MyResume = () => {
     if (token && currentResume) {
       axios
         .put(
-          `https://api.resumeintellect.com/api/user/resume-details/${currentResume.resume_id}`,
-          { resume_title: newResumeTitle },
+          `https://api.resumeintellect.com/api/user/resume-details/${currentResume.id}`,
+          { resue_name: newResumeTitle },
           { headers: { Authorization: token } }
         )
         .then(() => {
@@ -121,8 +128,8 @@ const MyResume = () => {
           setIsEditModalOpen(false);
           setResumes((prevResumes) =>
             prevResumes.map((resume) =>
-              resume.resume_id === currentResume.resume_id
-                ? { ...resume, resume_title: newResumeTitle }
+              resume.id === currentResume.id
+                ? { ...resume, resue_name: newResumeTitle }
                 : resume
             )
           );
@@ -168,7 +175,7 @@ const MyResume = () => {
                   Strength
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">
-                  Abroadium ID
+                  CibliJob ID
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">
                   Actions
@@ -185,7 +192,7 @@ const MyResume = () => {
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center space-x-2">
                         <span className="text-sm text-gray-900">
-                          {resume.resume_title || "ABC"}
+                          {resume.resue_name || "ABC"}
                         </span>
                         <button
                           onClick={() => handleOpenEditModal(resume)}
@@ -244,19 +251,19 @@ const MyResume = () => {
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                       <div className="flex items-center space-x-3">
                         <button
-                          onClick={() => handleEdit(resume.resume_id)}
+                          onClick={() => handleEdit(resume.id)}
                           className="text-blue-600 hover:text-blue-800 transition-colors duration-200"
                         >
                           <Edit className="w-5 h-5" />
                         </button>
                         <button
-                          onClick={() => setisDeleteModalOpen(true)}
+                      onClick={() => handleopenDeleteModal(resume.id)}
                           className="text-red-600 hover:text-red-800 transition-colors duration-200"
                         >
                           <Trash className="w-5 h-5" />
                         </button>
                         <button
-                          onClick={() => handleDownload(resume.resume_id)}
+                          onClick={() => handleDownload(resume.id)}
                           className="text-green-600 hover:text-green-800 transition-colors duration-200"
                         >
                           <Download className="w-5 h-5" />
@@ -280,25 +287,17 @@ const MyResume = () => {
         </div>
       </div>
 
-      {/* Delete Modal */}
-      {isDeleteModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-6 max-w-sm mx-4">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">
-              Are you sure you want to delete this resume?
-            </h2>
-            <div className="flex justify-end space-x-3">
-              <button
-                onClick={() => setisDeleteModalOpen(false)}
-                className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
-              >
-                Cancel
-              </button>
-              <button
-                onClick={handleDeleteResume}
-                className="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-              >
+       {/* Delete Resume Modal */}
+       {isDeleteModalOpen && (
+        <div className="fixed inset-0 flex items-center justify-center z-50">
+          <div className="bg-white p-4 rounded shadow-lg w-80">
+            <h2 className="text-lg font-bold">Are you sure you want to delete this resume?</h2>
+            <div className="flex justify-between mt-4">
+              <button onClick={handleDeleteResume} className="bg-red-500 text-white px-4 py-2 rounded">
                 Delete
+              </button>
+              <button onClick={handleCloseModal} className="bg-gray-300 text-black px-4 py-2 rounded">
+                Cancel
               </button>
             </div>
           </div>
@@ -341,3 +340,6 @@ const MyResume = () => {
 };
 
 export default MyResume;
+
+
+
