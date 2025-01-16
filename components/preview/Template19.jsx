@@ -1,5 +1,5 @@
 import { useContext, useRef } from "react";
-import { ResumeContext } from "../../pages/builder";
+import { ResumeContext } from "../context/ResumeContext";
 import { HighlightMenu } from "react-highlight-menu";
 import ContactInfo from "./ContactInfo";
 import { CgWebsite } from "react-icons/cg";
@@ -246,7 +246,7 @@ const Template19 = () => {
                                 href={item.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-green-500 hover:text-black"
+                                className="text-blue-600 hover:text-blue-800"
                               >
                                 {item.link}
                               </Link>

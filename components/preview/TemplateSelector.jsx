@@ -101,7 +101,7 @@
 //     <div>
 //       <button
 //         onClick={openModal}
-//         className="rounded-lg border-2 m-2 border-green-500 px-5 py-2 font-bold bg-white text-black "
+//         className="rounded-lg border-2 m-2 border-blue-800 px-5 py-2 font-bold bg-white text-blue-800 "
 //       >
 //         Select Template
 //       </button>
@@ -203,11 +203,12 @@ const TemplateSelector = ({ selectedTemplate, setSelectedTemplate }) => {
     { key: 'template5', imageUrl: template5 },
     { key: 'template6', imageUrl: template6 },
     { key: 'template7', imageUrl: template7 },
-    // { key: 'template8', imageUrl: template8 },
-    // { key: 'template9', imageUrl: template9 },
-    // { key: 'template10', imageUrl: template10 },
-    // { key: 'template11', imageUrl: template11 },
-    // { key: 'template12', imageUrl: template12 },
+    { key: 'template8', imageUrl: template8 },
+    { key: 'template9', imageUrl: template9 },
+    { key: 'template10', imageUrl: template10 },
+    { key: 'template11', imageUrl: template11 },
+    { key: 'template12', imageUrl: template12 },
+   
     // { key: 'template13', imageUrl: template13 },
     // { key: 'template14', imageUrl: template14 },
     // { key: 'template15', imageUrl: template15 },
@@ -266,13 +267,13 @@ const TemplateSelector = ({ selectedTemplate, setSelectedTemplate }) => {
     <div className="font-sans">
       <button
         onClick={openModal}
-        className="hidden md:block rounded-lg border-2 m-2 border-green-500 px-5 py-2 font-bold bg-white text-black"
+        className="hidden md:block rounded-lg border-2 m-2 border-blue-800 px-5 py-2 font-bold bg-white text-blue-800"
       >
         <span>Selected: {templateId || 'template1'}</span>
       </button>
       <button
         onClick={openModal}
-        className="block md:hidden rounded-lg border-2 m-2 border-green-500 px-5 py-2 font-bold bg-white text-black"
+        className="block md:hidden rounded-lg border-2 m-2 border-blue-800 px-5 py-2 font-bold bg-white text-blue-800"
       >
        Template
       </button>
@@ -334,8 +335,8 @@ const TemplateSelector = ({ selectedTemplate, setSelectedTemplate }) => {
                         <div className={`
                           mt-2 text-center py-2 px-4 rounded-md transition-colors duration-300
                           ${template.key === templateId 
-                            ? 'bg-green-400 text-white font-semibold'
-                            : 'text-gray-600 group-hover:text-green-500'
+                            ? 'bg-blue-500 text-white font-semibold'
+                            : 'text-gray-600 group-hover:text-blue-600'
                           }
                         `}>
                           {template.key}

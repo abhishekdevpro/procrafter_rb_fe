@@ -72,7 +72,7 @@
 //       setLoading(true);
 //       const token = localStorage.getItem("token");
 //       const response = await axios.get(
-//         "https://api.resumeintellect.com/api/user/resume-list/0",
+//         "https://api.sentryspot.co.uk/api/jobseeker/resume-list/0",
 //         {
 //           headers: {
 //             Authorization: token
@@ -175,8 +175,9 @@ export default function DashboardPage() {
 
       if (response.data.code === 200 || response.data.status === "success") {
         setStrength(response.data.data.resume_strenght_details);
-        setResumeId(response.data.data.resume_id)
+        setResumeId(response.data?.data?.id)
       }
+     
     } catch (err) {
       setError(err.message);
     } finally {

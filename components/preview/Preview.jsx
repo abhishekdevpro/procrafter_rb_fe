@@ -436,7 +436,7 @@ const Preview = forwardRef(({ selectedTemplate }, ref) => {
   return (
   
       <A4PageWrapper>
-        <div ref={ref}className="preview" style={{ fontFamily: selectedFont }}>
+        <div ref={ref} className="preview" style={{ fontFamily: selectedFont }}>
           <HighlightMenu
             styles={{
               borderColor: "",
@@ -520,7 +520,7 @@ const A4PageWrapper = ({ children }) => {
       const previewHeight = preview.offsetHeight;
       console.log(previewHeight);
       if (previewHeight > 1122) {
-        alert("A4 size exceeded");
+        // alert("A4 size exceeded");
       }
     } else {
       console.error("Element with class 'preview' not found.");
