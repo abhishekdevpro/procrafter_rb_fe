@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
-import logo from '../Navbar/logo.png';
-import Image from 'next/image';
-import { toast } from 'react-toastify';
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import Link from "next/link";
+import logo from "../Navbar/logo.png";
+import Image from "next/image";
+import { toast } from "react-toastify";
+import axios from "axios";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,33 +12,36 @@ const Navbar = () => {
   const [isHovering, setIsHovering] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isApiSuccess, setIsApiSuccess] = useState(false);
-  const [user, setUser] = useState();
+  const [user, setUser] = useState("");
   const router = useRouter();
 
   useEffect(() => {
-    const token = localStorage.getItem('token'); // Access localStorage here
-
+    const token = localStorage.getItem("token"); // Access localStorage here
+   
     if (token) {
       setIsLoggedIn(true);
 
       // Check API success
       const checkApiSuccess = async () => {
         try {
-          const response = await fetch('https://api.resumeintellect.com/api/user/user-profile', {
-            headers: {
-              Authorization: token,
-            },
-          });
-          console.log(response.data, ">>>firstname")
-          console.log(user,">>>user")
-          if (response.data.status === 'success') {
+          const response = await axios.get(
+            "https://api.resumeintellect.com/api/user/user-profile",
+            {
+              headers: {
+                Authorization: token,
+              },
+            }
+          );
+
+          console.log(response.data, "ac firstname");
+          if (response.data.status === "success") {
             setIsApiSuccess(true);
-            setUser(response.data.data);
-         
+            setUser(response.data.data.first_name);
           } else {
             setIsApiSuccess(false);
           }
         } catch (error) {
+          console.log("KSC catch err: ", error);
           setIsApiSuccess(false);
         }
       };
@@ -57,10 +61,10 @@ const Navbar = () => {
   const handleMouseLeave = () => setIsHovering(false);
 
   const handleLogout = () => {
-    localStorage.removeItem('token');
+    localStorage.removeItem("token");
     setIsLoggedIn(false);
-    toast.success('Logout Succesfully');
-    router.push('/');
+    toast.success("Logout Succesfully");
+    router.push("/");
   };
 
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
@@ -75,10 +79,11 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="hidden md:flex justify-center items-center space-x-4">
-          <Link
+            <Link
               href="/dashboard"
               className="text-black hover:text-[#00b38d] px-3 py-2 rounded-md text-lg font-semibold"
-            >Dashboard
+            >
+              Dashboard
             </Link>
             <Link
               href="/dashboard/resumelist"
@@ -108,7 +113,7 @@ const Navbar = () => {
               href=""
               className="text-black hover:text-[#00b38d] px-3 py-2 rounded-md text-lg font-semibold"
             >
-             CibliJob ID
+              CibliJob ID
             </Link>
             {/* <Link
               href="/footers/Aboutus"
@@ -135,9 +140,7 @@ const Navbar = () => {
                     alt="User"
                     className="w-8 h-8 rounded-full "
                   />
-                   <span className="ml-2">
-                    {user ? user.first_name : "profile"}
-                  </span>
+                  <span className="ml-2">{user ? user : "profile"}</span>
                 </button>
                 {isDropdownOpen && (
                   <div className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-md text-black">
@@ -161,7 +164,7 @@ const Navbar = () => {
                       className="block px-4 py-2 hover:bg-gray-200"
                       onClick={() => setIsDropdownOpen(false)}
                     >
-                     Dashboard
+                      Dashboard
                     </Link>
                     <button
                       onClick={() => {

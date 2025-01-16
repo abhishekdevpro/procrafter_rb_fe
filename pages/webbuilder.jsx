@@ -611,7 +611,17 @@ export default function WebBuilder() {
         },
       },
     };
-
+    const htmlContent = templateRef?.current?.innerHTML;
+    if (!htmlContent) {
+      toast.error("Error: Template content is missing.");
+      return;
+    }
+    const resumeHtml = `
+    <style>
+      @import url('https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css');
+    </style>
+    ${htmlContent}
+  `;
     await handleAction(async () => {
       try {
         const id = router.query.id || localStorage.getItem("resumeId");
@@ -621,7 +631,7 @@ export default function WebBuilder() {
         }
 
         const url = `https://api.resumeintellect.com/api/user/resume-update/${id}`;
-        const response = await axios.put(url, templateData, {
+        const response = await axios.put(url, {...templateData, resume_html: resumeHtml}, {
           headers: {
             "Content-Type": "application/json",
             Authorization: token,
@@ -759,7 +769,7 @@ export default function WebBuilder() {
               </div>
             </div>
 
-            <div className="sticky top-0 z-10 w-full bg-white shadow-sm">
+            <div className="top-0  w-full bg-white shadow-sm">
               <div className="hidden md:flex justify-center items-center p-4">
                 <nav className="bg-gray-100 rounded-lg p-2">
                   <div className="flex items-center">
