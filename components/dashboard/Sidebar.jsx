@@ -46,7 +46,7 @@ const Sidebar = ({ score, resumeId }) => {
           const parsedData = JSON.parse(data.ai_resume_parse_data);
           // Update state with fetched data
           setResumeData(parsedData.templateData);
-          setResumeTitle(data.resume_title || "Untitled Resume");
+          setResumeTitle(data.resue_name || "Untitled Resume");
           if (parsedData?.templateData?.templateDetails) {
             const { backgroundColor, templateId } = parsedData.templateData.templateDetails;
             setBgColor(backgroundColor || "");
