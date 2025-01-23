@@ -33,7 +33,6 @@ const Navbar = () => {
             }
           );
 
-          console.log(response.data, "ac firstname");
           if (response.data.status === "success") {
             setIsApiSuccess(true);
             setUser(response.data.data.first_name);

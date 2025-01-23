@@ -27,11 +27,16 @@ export default function DashboardPage() {
       );
 
       if (response.data.code === 200 || response.data.status === "success") {
-        setStrength(response.data.data.resume_strenght_details);
-        setResumeId(response.data?.data?.id);
+        setStrength(response.data.data.resume_strenght_details || null);
+        setResumeId(response.data?.data?.id || null);
+      } else {
+        setStrength(null);
+        setResumeId(null);
       }
     } catch (err) {
       setError(err.message);
+      setStrength(null);
+      setResumeId(null);
     } finally {
       setLoading(false);
     }
@@ -71,9 +76,9 @@ export default function DashboardPage() {
           </h1>
 
           <ResumeStrength
-            score={strength.resume_strenght}
-            strength={strength}
-            resumeId={resumeId}
+            score={strength.resume_strenght || 0}
+            strength={strength || {}}
+            resumeId={resumeId || null}
           />
           {/* <ProfileSection visits={4} /> */}
           <InterviewSection />

@@ -1,5 +1,3 @@
-
-
 import "/styles/globals.css";
 // In your component or _app.js
 import "slick-carousel/slick/slick.css";
@@ -9,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { ResumeProvider } from "../components/context/ResumeContext";
+import { CoverLetterProvider } from "../components/context/CoverLetterContext";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
@@ -34,11 +33,12 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
-    <ResumeProvider>
-            <Component {...pageProps} />
-      <ToastContainer position="top-right" autoClose={3000} pauseOnHover />  
+      <ResumeProvider>
+        <CoverLetterProvider>
+          <Component {...pageProps} />
+          <ToastContainer position="top-right" autoClose={3000} pauseOnHover />
+        </CoverLetterProvider>
       </ResumeProvider>
-
-        </>
+    </>
   );
 }

@@ -1,8 +1,17 @@
-'use client';
+"use client";
 
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Heart, Bookmark, Filter, MapPin, Briefcase, Clock, DollarSign, Plus } from "lucide-react";
+import {
+  Heart,
+  Bookmark,
+  Filter,
+  MapPin,
+  Briefcase,
+  Clock,
+  DollarSign,
+  Plus,
+} from "lucide-react";
 import Link from "next/link";
 import { toast } from "react-toastify";
 import Navbar from "../Navbar/Navbar";
@@ -12,7 +21,9 @@ const LoginModal = ({ onClose }) => {
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
       <div className="bg-white rounded-lg p-6 max-w-md w-full mx-4 shadow-xl">
         <h3 className="text-xl font-semibold mb-4">Please Login</h3>
-        <p className="mb-6 text-gray-600">You need to be logged in to perform this action.</p>
+        <p className="mb-6 text-gray-600">
+          You need to be logged in to perform this action.
+        </p>
         <div className="flex justify-end space-x-4">
           <button
             onClick={onClose}
@@ -39,7 +50,10 @@ const JobCard = ({ item, onSaveJob, onApplyNow }) => (
         <div className="flex items-start space-x-4">
           <div className="w-16 h-16 flex-shrink-0">
             <img
-              src={item.logo || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLXn84m0ldNEy4b-doui_GKkeziMRUfEl71g&s"}
+              src={
+                item.logo ||
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLXn84m0ldNEy4b-doui_GKkeziMRUfEl71g&s"
+              }
               alt="company logo"
               className="w-full h-full object-cover rounded"
               width={64}
@@ -47,8 +61,9 @@ const JobCard = ({ item, onSaveJob, onApplyNow }) => (
             />
           </div>
           <div className="flex-1">
-            <Link 
-              href={`/jobs/${item.id}`}
+            <Link
+              // href={`/jobs/${item.id}`}
+              href={""}
               className="text-lg font-semibold text-gray-900 hover:text-blue-600 transition-colors"
             >
               {item.job_title}
@@ -64,7 +79,9 @@ const JobCard = ({ item, onSaveJob, onApplyNow }) => (
           <div className="flex items-center space-x-2">
             <MapPin className="w-4 h-4" />
             <span>
-              {item.city ? `${item.city}, ${item.country}` : "Location not specified"}
+              {item.city
+                ? `${item.city}, ${item.country}`
+                : "Location not specified"}
             </span>
           </div>
           <div className="flex items-center space-x-2">
@@ -113,7 +130,7 @@ export default function JobsPage() {
   const [showLoginModal, setShowLoginModal] = useState(false);
 
   const getToken = () => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       return localStorage.getItem("token");
     }
     return null;
@@ -135,7 +152,7 @@ export default function JobsPage() {
           },
         }
       );
-      
+
       if (response.data.status === "success" || response.data.code === 200) {
         toast.success("Job saved successfully!");
       } else {
@@ -160,7 +177,9 @@ export default function JobsPage() {
     const fetchJobs = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch('https://api.resumeintellect.com/api/user/job-list');
+        const response = await fetch(
+          "https://api.resumeintellect.com/api/user/job-list"
+        );
         const data = await response.json();
 
         if (data.data) {
@@ -214,62 +233,69 @@ export default function JobsPage() {
 
   return (
     <>
-    {/* <Navbar /> */}
-    <div className="w-full max-w-7xl mx-auto px-4 py-8">
-      <div className="bg-white rounded-lg shadow-sm p-4 mb-6">
-        <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-        <div className="flex justify-between items-center mb-8">
-        <h1 className="text-2xl font-bold text-gray-800">My Jobs</h1>
-        
-      </div>
+      {/* <Navbar /> */}
+      <div className="w-full max-w-7xl mx-auto px-4 py-8">
+        <div className="bg-white rounded-lg shadow-sm p-4 mb-6">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div className="flex justify-between items-center mb-8">
+              <h1 className="text-2xl font-bold text-gray-800">My Jobs</h1>
+            </div>
 
-          <div className="flex items-center space-x-4">
-            <select
-              value={sort}
-              onChange={handleSort}
-              className="block w-full rounded-md border-gray-300 text-sm focus:border-blue-500 focus:ring-blue-500"
-            >
-              <option value="">Sort by (default)</option>
-              <option value="asc">Newest</option>
-              <option value="des">Oldest</option>
-            </select>
+            <div className="flex items-center space-x-4">
+              <select
+                value={sort}
+                onChange={handleSort}
+                className="block w-full rounded-md border-gray-300 text-sm focus:border-blue-500 focus:ring-blue-500"
+              >
+                <option value="">Sort by (default)</option>
+                <option value="asc">Newest</option>
+                <option value="des">Oldest</option>
+              </select>
 
-            <select
-              onChange={handlePerPage}
-              value={JSON.stringify(perPage)}
-              className="block w-full rounded-md border-gray-300 text-sm focus:border-blue-500 focus:ring-blue-500"
-            >
-              <option value={JSON.stringify({ start: 0, end: 0 })}>All</option>
-              <option value={JSON.stringify({ start: 0, end: 20 })}>20 per page</option>
-              <option value={JSON.stringify({ start: 0, end: 25 })}>25 per page</option>
-              <option value={JSON.stringify({ start: 0, end: 30 })}>30 per page</option>
-            </select>
+              <select
+                onChange={handlePerPage}
+                value={JSON.stringify(perPage)}
+                className="block w-full rounded-md border-gray-300 text-sm focus:border-blue-500 focus:ring-blue-500"
+              >
+                <option value={JSON.stringify({ start: 0, end: 0 })}>
+                  All
+                </option>
+                <option value={JSON.stringify({ start: 0, end: 20 })}>
+                  20 per page
+                </option>
+                <option value={JSON.stringify({ start: 0, end: 25 })}>
+                  25 per page
+                </option>
+                <option value={JSON.stringify({ start: 0, end: 30 })}>
+                  30 per page
+                </option>
+              </select>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="flex flex-wrap -mx-4">
-        {displayedJobs.map((job) => (
-          <JobCard
-            key={job.id}
-            item={job}
-            onSaveJob={handleSaveJob}
-            onApplyNow={handleApplyNow}
-          />
-        ))}
-      </div>
-
-      <div className="mt-8 text-center">
-        <div className="text-sm text-gray-600 mb-4">
-          Showing {displayedJobs.length} of {jobs.length} Jobs
+        <div className="flex flex-wrap -mx-4">
+          {displayedJobs.map((job) => (
+            <JobCard
+              key={job.id}
+              item={job}
+              onSaveJob={handleSaveJob}
+              onApplyNow={handleApplyNow}
+            />
+          ))}
         </div>
-        {/* <div className="w-full bg-gray-200 rounded-full h-2 mb-4">
+
+        <div className="mt-8 text-center">
+          <div className="text-sm text-gray-600 mb-4">
+            Showing {displayedJobs.length} of {jobs.length} Jobs
+          </div>
+          {/* <div className="w-full bg-gray-200 rounded-full h-2 mb-4">
           <div
             className="bg-blue-600 h-2 rounded-full transition-all duration-300"
             style={{ width: `${(displayedJobs.length / jobs.length) * 100}%` }}
           ></div>
         </div> */}
-        {/* {displayedJobs.length < jobs.length && (
+          {/* {displayedJobs.length < jobs.length && (
          <Link href={'https://abroadium-arbuild-fe.vercel.app/job-list'}>
             <button 
             // onClick={() => setPerPage({ start: 0, end: 0 })}
@@ -279,10 +305,12 @@ export default function JobsPage() {
           </button>
          </Link>
         )} */}
-      </div>
+        </div>
 
-      {showLoginModal && <LoginModal onClose={() => setShowLoginModal(false)} />}
-    </div>
+        {showLoginModal && (
+          <LoginModal onClose={() => setShowLoginModal(false)} />
+        )}
+      </div>
     </>
   );
 }
