@@ -3,8 +3,9 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 const Sidebar = ({ onClose }) => {
-  const router = useRouter();  const handleLogout = () => {
-    localStorage.removeItem('token'); // Clear the token
+  const router = useRouter();
+  const handleLogout = () => {
+    localStorage.removeItem("token"); // Clear the token
     setIsLoggedIn(false); // Update login state
   };
   const getLinkClassName = (path) => {
@@ -19,7 +20,7 @@ const Sidebar = ({ onClose }) => {
       <ul className="space-y-2 mt-4">
         <li>
           <Link
-            href=""
+            href="/dashboard"
             className="flex items-center p-2 bg-pink-600 border-b-2 border-black font-semibold text-white"
             onClick={onClose} // Close sidebar on link click
           >
@@ -128,16 +129,16 @@ const Sidebar = ({ onClose }) => {
           </Link>
         </li>
         <li>
-          
           <Link
             href="/"
             className="flex items-center p-2 hover:bg-[#00b38d]  border-b-2 rounded font-semibold"
-            onClick={() => { handleLogout(); }}>  
-          
+            onClick={() => {
+              handleLogout();
+            }}
+          >
             <span className="mr-2 ">🔓</span>
             <span>Log Out</span>
           </Link>
-          
         </li>
       </ul>
     </div>

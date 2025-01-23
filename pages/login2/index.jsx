@@ -1,16 +1,15 @@
-
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import logo from "./logo.png";
-import { toast} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Modal from "./Modal";
 import Signup from "./Signup";
 import Image from "next/image";
 import axios from "axios";
 import { useRouter } from "next/router";
 import Navbar from "../Navbar/Navbar";
-
+import { FcGoogle } from "react-icons/fc";
 const Login2 = () => {
   const [isThirdstepOpen, setThirdstepOpen] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -37,7 +36,7 @@ const Login2 = () => {
     setIsLoading(true);
     try {
       const response = await axios.post(
-        'https://api.resumeintellect.com/api/user/auth/login',
+        "https://api.resumeintellect.com/api/user/auth/login",
         formData
       );
 
@@ -61,7 +60,31 @@ const Login2 = () => {
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
   };
+  const handleGoogleSignin = async () => {
+    const url = "https://api.resumeintellect.com/api/user/auth/google";
 
+    try {
+      const response = await axios.get(
+        url,
+        {},
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (response.status === 200) {
+        console.log("Google sign-in token: ", response.data.data);
+        window.open(response.data.data);
+      } else {
+        toast.error("Google sign-in failed.");
+      }
+    } catch (err) {
+      console.log(err);
+      toast.error(`${err.response?.data?.message || "Google sign-in failed"}`);
+    }
+  };
   return (
     <>
       <Navbar />
@@ -74,7 +97,8 @@ const Login2 = () => {
             Welcome Back
           </div>
           <p className="text-black text-base text-center mb-6">
-            People across the globe are joining us to upgrade their career with our Robust AI.
+            People across the globe are joining us to upgrade their career with
+            our Robust AI.
           </p>
           <form onSubmit={handleLogin}>
             <div className="mb-4">
@@ -125,7 +149,9 @@ const Login2 = () => {
             </div>
             <div className="text-center py-2">
               <Link href="/forgotpassword">
-                <label className="text-black cursor-pointer">Forgot Password?</label>
+                <label className="text-black cursor-pointer">
+                  Forgot Password?
+                </label>
               </Link>
             </div>
             <button
@@ -135,9 +161,25 @@ const Login2 = () => {
             >
               {isLoading ? (
                 <div className="flex items-center justify-center">
-                  <svg className="animate-spin h-5 w-5 mr-2 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  <svg
+                    className="animate-spin h-5 w-5 mr-2 text-black"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    ></path>
                   </svg>
                   Logging in...
                 </div>
@@ -145,6 +187,14 @@ const Login2 = () => {
                 "Login"
               )}
             </button>
+            {/* <button
+              onClick={handleGoogleSignin}
+              type="button"
+              className="w-full flex items-center justify-center bg-white border border-gray-300 text-gray-700 px-4 py-2 rounded-md mt-4 shadow-sm hover:bg-gray-100 focus:outline-none"
+            >
+              <FcGoogle className="h-6 w-6 mr-2" />
+              Continue with Google
+            </button> */}
           </form>
         </div>
       </div>
@@ -153,6 +203,6 @@ const Login2 = () => {
       </Modal>
     </>
   );
-}
+};
 
 export default Login2;
