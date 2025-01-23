@@ -26,7 +26,7 @@
 
 //   return (
 //     <div className="flex-col-gap-3 w-full mt-10 px-10">
-//       <h2 className="input-title text-white  text-3xl">
+//       <h2 className="input-title text-black  text-3xl">
 //         {title || "Language"}
 //       </h2>
 //       {resumeData[skillType].map((skill, index) => (
@@ -111,7 +111,7 @@
 
 //   return (
 //     <div className="flex-col-gap-3 w-full mt-10 px-10">
-//       <h2 className="input-title text-white text-3xl">{title}</h2>
+//       <h2 className="input-title text-black text-3xl">{title}</h2>
 //       <p className="text-gray-400 text-sm mb-4">
 //         If you are proficient in one or more languages, mention them in this
 //         section.
@@ -120,7 +120,7 @@
 //         resumeData[skillType].map((skill, index) => (
 //           <div key={index} className="flex d-flex justify-between mb-4">
 //             <div>
-//               <label className="block text-sm font-medium text-white">
+//               <label className="block text-sm font-medium text-black">
 //                 {index === 0 ? "First Language" : "Language"}
 //               </label>
 //               <select
@@ -139,7 +139,7 @@
 //               </select>
 //             </div>
 //             <div>
-//               <label className="block text-sm font-medium text-white">
+//               <label className="block text-sm font-medium text-black">
 //                 Proficiency
 //               </label>
 //               <select
@@ -160,7 +160,7 @@
 //           </div>
 //         ))
 //       ) : (
-//         <p className="text-white">
+//         <p className="text-black">
 //           No languages added. Add a new language to get started.
 //         </p>
 //       )}
@@ -176,11 +176,8 @@
 // export default Language;
 
 import React, { useContext } from "react";
-
-import { ResumeContext } from "../context/ResumeContext";
-
 import FormButton from "./FormButton";
-
+import { ResumeContext } from "../context/ResumeContext";
 
 const Language = () => {
   const { resumeData, setResumeData } = useContext(ResumeContext);
@@ -204,13 +201,11 @@ const Language = () => {
   ];
 
   const proficiencyOptions = [
-    "Native",
-    "Beginner (A1)",
-    "Elementary (A2)",
-    "Intermediate (B1)",
-    "Upper Intermediate (B2)",
-    "Advanced (C1)",
-    "Proficient (C2)",
+    "Native Speaker",
+    "Fluent",
+    "Good ",
+    "Basic Knowledge",
+    "Just Starting",
   ];
 
   const handleSkills = (e, index, field) => {
@@ -237,16 +232,16 @@ const Language = () => {
 
   return (
     <div className="flex-col-gap-3 w-full mt-10 px-10">
-      <h2 className="input-title text-white text-3xl">{title}</h2>
+      <h2 className="input-title text-black text-3xl">{title}</h2>
       <p className="text-gray-400 text-sm mb-4">
         If you are proficient in one or more languages, mention them in this
         section.
       </p>
       {resumeData[skillType]?.length > 0 ? (
         resumeData[skillType].map((skill, index) => (
-          <div key={index} className="flex justify-between mb-4">
+          <div key={index} className="flex justify-between gap-2 mb-4">
             <div className="w-1/2">
-              <label className="block text-sm font-medium text-white">
+              <label className="block text-sm font-medium text-black">
                 {index === 0 ? "First Language" : "Language"}
               </label>
               <select
@@ -265,7 +260,7 @@ const Language = () => {
               </select>
             </div>
             <div className="w-1/2">
-              <label className="block text-sm font-medium text-white">
+              <label className="block text-sm font-medium text-black">
                 Proficiency
               </label>
               <select
@@ -277,7 +272,7 @@ const Language = () => {
                   Select Proficiency
                 </option>
                 {index === 0 ? (
-                  <option value="Native">Native</option>
+                  <option value="Native Speaker">Native Speaker</option>
                 ) : (
                   proficiencyOptions.map((level, i) => (
                     <option key={i} value={level}>
@@ -290,7 +285,7 @@ const Language = () => {
           </div>
         ))
       ) : (
-        <p className="text-white">
+        <p className="text-black">
           No languages added. Add a new language to get started.
         </p>
       )}

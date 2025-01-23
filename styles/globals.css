@@ -1,12 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   body {
-    @apply font-[Ubuntu];
+    @apply font-[sans-serif];
   }
 
   ::-webkit-scrollbar {
@@ -116,7 +114,7 @@
   font-weight: 700 !important;
 }
 
-@media print {
+/* @media print {
   .exclude-print {
     display: none;
   }
@@ -128,13 +126,13 @@
   @page {
     size: A4;
     margin: 10mm;
-  }
+  } */
 
-  .preview {
+/* .preview {
     overflow-y: visible !important;
-  }
+  } */
 
-  .preview::after {
+/* .preview::after {
     content: "Created using https://Resume.vercel.app/";
     position: fixed;
     bottom: 0;
@@ -144,7 +142,7 @@
     text-align: center;
     z-index: -1;
   }
-}
+} */
 
 /* styles/globals.css or a dedicated CSS file */
 @keyframes fadeIn {
@@ -195,26 +193,29 @@
   }
 }
 
-/* ApplePayButton.css */
-.apple-pay-button {
-  display: inline-block;
-  -webkit-appearance: -apple-pay-button;
-  -apple-pay-button-type: donate; /* Use any supported button type */
-}
-.apple-pay-button-black {
-  -apple-pay-button-style: black;
-}
-.apple-pay-button-white {
-  -apple-pay-button-style: white;
-}
-.apple-pay-button-white-with-line {
-  -apple-pay-button-style: white-outline;
-}
-
 body {
+  /* overflow-y: hidden; */
   overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 /* } */
+
+/*  */
+
+.preview {
+  width: 794px; /* Adjust for A4 */
+  height: 1123px;
+  overflow: auto;
+  transform: scale(1);
+  overflow-y: hidden;
+}
+.a4-wrapper {
+  width: 794px; /* Adjust for A4 */
+  height: 1123px;
+  margin: auto;
+  transform: scale(1); /* Slightly scale down */
+  /* transform-origin: top left; */
+}
+
 @media (max-width: 768px) {
   .preview {
     width: 100%;
@@ -225,12 +226,12 @@ body {
     height: auto;
   }
   .a4-wrapper {
-    transform: scale(0.5); /* Shrink for smaller devices */
+    transform: scale(0.6); /* Shrink for smaller devices */
     transform-origin: top center;
     width: 100%; /* A4 width */
 
     max-width: 100%;
-    height: 100%;
+    height: 83%;
   }
 }
 
@@ -239,60 +240,12 @@ body {
     width: 199%;
   }
   .a4-wrapper {
-    transform: scale(0.6); /* Shrink for smaller devices */
-
-    width: 100%; /* A4 width */
-
     position: absolute;
     left: 0px;
-    top: 280px;
+    top: 250px;
   }
 }
-.slider-container {
-  position: relative;
-  width: 70%;
-  height: 100%;
-  overflow: hidden;
-}
 
-.slide {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: transform 0.8s ease, opacity 0.5s ease;
-}
-
-.slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.slide.right {
-  transform: translateX(100%);
-}
-
-.slide.left {
-  transform: translateX(-100%);
-}
-
-.slide.active {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-@media only screen and (max-width: 768px) {
-  .slider-container {
-    width: 95%;
-  }
-  .slide {
-    width: 100%;
-  }
-  .slide img {
-    object-fit: fill;
-  }
-}
 .preview-dashboard {
   width: 200%;
   overflow-x: hidden !important;
@@ -307,4 +260,8 @@ body {
   width: 100%;
   height: 100vh;
   max-height: 200vh;
+}
+
+.ql-container {
+  height: 162px !important;
 }

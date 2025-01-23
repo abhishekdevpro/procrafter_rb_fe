@@ -21,11 +21,6 @@
 // import template19 from './template/template19.png'
 // import template20 from './template/template20.png'
 
-
-
-
-
-
 // const TemplateSelector = ({ selectedTemplate, setSelectedTemplate }) => {
 //   const [isOpen, setIsOpen] = useState(false); // Modal state
 //   const [currentIndex, setCurrentIndex] = useState(1); // Middle slide index
@@ -60,8 +55,6 @@
 //     { key: 'template26', imageUrl: template20 },
 //     { key: 'template27', imageUrl: template20 },
 //     { key: 'template27', imageUrl: template20 },
-
-    
 
 //     // Add more templates here...
 //   ];
@@ -168,55 +161,55 @@
 
 // export default TemplateSelector;
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import template1 from './template/template1.png'
-import template2 from './template/template2.png'
-import template3 from './template/template3.png'
-import template4 from './template/template4.png'
-import template5 from './template/template5.png'
-import template6 from './template/template6.png'
-import template7 from './template/template7.png'
-import template8 from './template/template8.png'
-import template9 from './template/template9.png'
-import template10 from './template/template10.png'
-import template11 from './template/template11.png'
-import template12 from './template/template12.png'
-import template13 from './template/template13.png'
-import template14 from './template/template14.png'
-import template15 from './template/template15.png'
-import template16 from './template/template16.png'
-import template17 from './template/template17.png'
-import template18 from './template/template18.png'
-import template19 from './template/template19.png'
-import template20 from './template/template20.png'
+import template1 from "./template/template1.png";
+import template2 from "./template/template2.png";
+import template3 from "./template/template3.png";
+import template4 from "./template/template4.png";
+import template5 from "./template/template5.png";
+import template6 from "./template/template6.png";
+import template7 from "./template/template7.png";
+import template8 from "./template/template8.png";
+import template9 from "./template/template9.png";
+import template10 from "./template/template10.png";
+import template11 from "./template/template11.png";
+import template12 from "./template/template12.png";
+import template13 from "./template/template13.png";
+import template14 from "./template/template14.png";
+import template15 from "./template/template15.png";
+import template16 from "./template/template16.png";
+import template17 from "./template/template17.png";
+import template18 from "./template/template18.png";
+import template19 from "./template/template19.png";
+import template20 from "./template/template20.png";
 const TemplateSelector = ({ selectedTemplate, setSelectedTemplate }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [templateId, setTemplateId] = useState(selectedTemplate);
   const templates = [
-    { key: 'template1', imageUrl: template1 },
+    { key: "template1", imageUrl: template1 },
     // { key: 'template2', imageUrl: template2 },
-    { key: 'template3', imageUrl: template3 },
-    { key: 'template4', imageUrl: template4 },
-    { key: 'template5', imageUrl: template5 },
-    { key: 'template6', imageUrl: template6 },
-    { key: 'template7', imageUrl: template7 },
-    { key: 'template8', imageUrl: template8 },
-    { key: 'template9', imageUrl: template9 },
-    { key: 'template10', imageUrl: template10 },
-    { key: 'template11', imageUrl: template11 },
-    { key: 'template12', imageUrl: template12 },
-   
-    // { key: 'template13', imageUrl: template13 },
-    // { key: 'template14', imageUrl: template14 },
-    // { key: 'template15', imageUrl: template15 },
-    // { key: 'template16', imageUrl: template16 },
-    // { key: 'template17', imageUrl: template17 },
-    // { key: 'template18', imageUrl: template18 },
-    // { key: 'template19', imageUrl: template19 },
-    // { key: 'template20', imageUrl: template20 },
+    { key: "template3", imageUrl: template3 },
+    { key: "template4", imageUrl: template4 },
+    { key: "template5", imageUrl: template5 },
+    { key: "template6", imageUrl: template6 },
+    { key: "template7", imageUrl: template7 },
+    { key: "template8", imageUrl: template8 },
+    { key: "template9", imageUrl: template9 },
+    { key: "template10", imageUrl: template10 },
+    { key: "template11", imageUrl: template11 },
+    { key: "template12", imageUrl: template12 },
+
+    { key: "template13", imageUrl: template13 },
+    { key: "template14", imageUrl: template14 },
+    { key: "template15", imageUrl: template15 },
+    { key: "template16", imageUrl: template16 },
+    { key: "template17", imageUrl: template17 },
+    { key: "template18", imageUrl: template18 },
+    { key: "template19", imageUrl: template19 },
+    { key: "template20", imageUrl: template20 },
     // { key: 'template21', imageUrl: template20 },
     // { key: 'template22', imageUrl: template20 },
     // { key: 'template23', imageUrl: template20 },
@@ -227,10 +220,12 @@ const TemplateSelector = ({ selectedTemplate, setSelectedTemplate }) => {
     // { key: 'template28', imageUrl: template20 },
   ];
 
-  console.log(selectedTemplate,"stttt",templateId);
+  console.log(selectedTemplate, "stttt", templateId);
 
   useEffect(() => {
-    const selectedIndex = templates.findIndex(template => template.key == selectedTemplate);
+    const selectedIndex = templates.findIndex(
+      (template) => template.key == selectedTemplate
+    );
     if (selectedIndex !== -1) {
       setCurrentIndex(selectedIndex);
     }
@@ -267,15 +262,15 @@ const TemplateSelector = ({ selectedTemplate, setSelectedTemplate }) => {
     <div className="font-sans">
       <button
         onClick={openModal}
-        className="hidden md:block rounded-lg border-2 m-2 border-blue-800 px-5 py-2 font-bold bg-white text-blue-800"
+        className="hidden md:block rounded-lg border-2 m-2 border-green-500 px-5 py-2 font-bold bg-white text-black"
       >
-        <span>Selected: {templateId || 'template1'}</span>
+        <span>Selected: {templateId || "template1"}</span>
       </button>
       <button
         onClick={openModal}
-        className="block md:hidden rounded-lg border-2 m-2 border-blue-800 px-5 py-2 font-bold bg-white text-blue-800"
+        className="block md:hidden rounded-lg border-2 m-2 border-green-500 px-5 py-2 font-bold bg-white text-black"
       >
-       Template
+        Template
       </button>
 
       {isOpen && (
@@ -301,19 +296,23 @@ const TemplateSelector = ({ selectedTemplate, setSelectedTemplate }) => {
                       onClick={() => handleTemplateClick(template.key)}
                       className={`
                         relative group cursor-pointer transition-all duration-300
-                        ${template.key === templateId 
-                          ? 'transform scale-105'
-                          : 'hover:scale-102'
+                        ${
+                          template.key === templateId
+                            ? "transform scale-105"
+                            : "hover:scale-102"
                         }
                       `}
                     >
-                      <div className={`
+                      <div
+                        className={`
                         w-64 p-2 rounded-lg transition-all duration-300
-                        ${template.key === templateId 
-                          ? 'bg-blue-100 ring-4 ring-blue-500 ring-offset-2'
-                          : 'hover:bg-gray-50'
+                        ${
+                          template.key === templateId
+                            ? "bg-blue-100 ring-4 ring-blue-500 ring-offset-2"
+                            : "hover:bg-gray-50"
                         }
-                      `}>
+                      `}
+                      >
                         <div className="relative">
                           <Image
                             src={template.imageUrl}
@@ -322,9 +321,10 @@ const TemplateSelector = ({ selectedTemplate, setSelectedTemplate }) => {
                             height={400}
                             className={`
                               w-full h-80 object-cover rounded-lg shadow-md transition-transform duration-300
-                              ${template.key === templateId 
-                                ? 'ring-2 ring-blue-400'
-                                : 'group-hover:ring-2 group-hover:ring-blue-300'
+                              ${
+                                template.key === templateId
+                                  ? "ring-2 ring-blue-400"
+                                  : "group-hover:ring-2 group-hover:ring-blue-300"
                               }
                             `}
                           />
@@ -332,13 +332,16 @@ const TemplateSelector = ({ selectedTemplate, setSelectedTemplate }) => {
                             <div className="absolute inset-0 border-4 border-blue-500 rounded-lg pointer-events-none" />
                           )}
                         </div>
-                        <div className={`
+                        <div
+                          className={`
                           mt-2 text-center py-2 px-4 rounded-md transition-colors duration-300
-                          ${template.key === templateId 
-                            ? 'bg-blue-500 text-white font-semibold'
-                            : 'text-gray-600 group-hover:text-blue-600'
+                          ${
+                            template.key === templateId
+                              ? "bg-blue-500 text-white font-semibold"
+                              : "text-gray-600 group-hover:text-blue-600"
                           }
-                        `}>
+                        `}
+                        >
                           {template.key}
                         </div>
                       </div>

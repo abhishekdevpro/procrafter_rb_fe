@@ -1,4 +1,3 @@
-
 import React, { useContext, useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
@@ -78,20 +77,21 @@ const MyResume = () => {
       toast.error("Failed to download the file. Please try again later.");
     }
   };
- 
-  
 
   const handleDeleteResume = async () => {
     const token = localStorage.getItem("token");
-    
+
     if (token) {
       try {
-        await axios.delete(`https://api.resumeintellect.com/api/user/resume-list/${deleteresumeid}`, {
-          headers: { Authorization: token },
-        });
+        await axios.delete(
+          `https://api.resumeintellect.com/api/user/resume-list/${deleteresumeid}`,
+          {
+            headers: { Authorization: token },
+          }
+        );
         toast.success("Your Resume Deleted Successfully");
         setisDeleteModalOpen(false);
-        setResumes(resumes.filter(resume => resume.id !== deleteresumeid));
+        setResumes(resumes.filter((resume) => resume.id !== deleteresumeid));
       } catch (error) {
         console.error("Error deleting resume:", error);
         toast.error("Failed to Delete your Resume");
@@ -155,7 +155,7 @@ const MyResume = () => {
       </div>
 
       <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto max-h-96 overflow-y-scroll">
           <table className="w-full min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
               <tr>
@@ -257,7 +257,7 @@ const MyResume = () => {
                           <Edit className="w-5 h-5" />
                         </button>
                         <button
-                      onClick={() => handleopenDeleteModal(resume.id)}
+                          onClick={() => handleopenDeleteModal(resume.id)}
                           className="text-red-600 hover:text-red-800 transition-colors duration-200"
                         >
                           <Trash className="w-5 h-5" />
@@ -287,16 +287,24 @@ const MyResume = () => {
         </div>
       </div>
 
-       {/* Delete Resume Modal */}
-       {isDeleteModalOpen && (
+      {/* Delete Resume Modal */}
+      {isDeleteModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center z-50">
           <div className="bg-white p-4 rounded shadow-lg w-80">
-            <h2 className="text-lg font-bold">Are you sure you want to delete this resume?</h2>
+            <h2 className="text-lg font-bold">
+              Are you sure you want to delete this resume?
+            </h2>
             <div className="flex justify-between mt-4">
-              <button onClick={handleDeleteResume} className="bg-red-500 text-white px-4 py-2 rounded">
+              <button
+                onClick={handleDeleteResume}
+                className="bg-red-500 text-white px-4 py-2 rounded"
+              >
                 Delete
               </button>
-              <button onClick={handleCloseModal} className="bg-gray-300 text-black px-4 py-2 rounded">
+              <button
+                onClick={handleCloseModal}
+                className="bg-gray-300 text-black px-4 py-2 rounded"
+              >
                 Cancel
               </button>
             </div>
@@ -340,6 +348,3 @@ const MyResume = () => {
 };
 
 export default MyResume;
-
-
-

@@ -17,7 +17,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const token = localStorage.getItem("token"); // Access localStorage here
-   
+
     if (token) {
       setIsLoggedIn(true);
 
@@ -90,6 +90,12 @@ const Navbar = () => {
               className="text-black hover:text-[#00b38d] px-3 py-2 rounded-md text-lg font-semibold"
             >
               My Resumes
+            </Link>
+            <Link
+              href="/dashboard/cvletterlist"
+              className="text-black hover:text-[#00b38d] px-3 py-2 rounded-md text-lg font-semibold"
+            >
+              Cover Letter
             </Link>
             <Link
               href="/dashboard/MyJobs"
