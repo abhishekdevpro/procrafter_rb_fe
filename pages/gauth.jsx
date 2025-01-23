@@ -46,9 +46,10 @@ const Gauth = () => {
     } else {
       console.error("Code parameter is missing in the URL");
       setLoading(false);
-      navigate(""); // Redirect to the login page if code is missing
+
+      // navigate(""); // Redirect to the login page if code is missing
     }
-  }, [navigate]);
+  }, []);
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
