@@ -1,11 +1,15 @@
 // WorkExperienceSection.js
 import React from "react";
 import { Droppable, Draggable } from "react-beautiful-dnd";
-import DateRange from "../utility/DateRange"; 
+import DateRange from "../utility/DateRange";
 
-const WorkExperience = ({ resumeData, headerColor,className = "",
+const WorkExperience = ({
+  resumeData,
+  headerColor,
+  className = "",
   style = {},
-  itemClassNames = {}, }) => {
+  itemClassNames = {},
+}) => {
   if (!resumeData?.workExperience || resumeData.workExperience.length === 0) {
     return null;
   }
@@ -13,10 +17,9 @@ const WorkExperience = ({ resumeData, headerColor,className = "",
   return (
     <Droppable droppableId="work-experience" type="WORK_EXPERIENCE">
       {(provided) => (
-        <div {...provided.droppableProps} ref={provided.innerRef}  style={style}>
+        <div {...provided.droppableProps} ref={provided.innerRef} style={style}>
           <h2
-          
-          className={`${itemClassNames.title || ""}`}
+            className={`${itemClassNames.title || ""}`}
             contentEditable
             suppressContentEditableWarning
             style={{
@@ -40,29 +43,31 @@ const WorkExperience = ({ resumeData, headerColor,className = "",
                   className={`hover:scale-105 transition-transform duration-300 mb-1 
                     ${itemClassNames.content || ""}
                     ${
-                    snapshot.isDragging && "outline-dashed outline-2 outline-gray-400 bg-white"  
-                  }`}
+                      snapshot.isDragging &&
+                      "outline-dashed outline-2 outline-gray-400 bg-white"
+                    }`}
                 >
                   <div className="flex flex-row justify-between space-y-1">
-                    <p  className={`${itemClassNames.company || ""}`}>{item.company}</p>
+                    <p className={`${itemClassNames.company || ""}`}>
+                      {item.company}
+                    </p>
                     <DateRange
                       startYear={item.startYear}
                       endYear={item.endYear}
                       id={`work-experience-start-end-date`}
                     />
                   </div>
-                
+
                   <div className="flex flex-row justify-between space-y-1">
-                                    <p  className={``}>{item.position}</p>
-                                    <p className={``}>{item.location}</p>
-                                  </div>
+                    <p className={``}>{item.position}</p>
+                    <p className={``}>{item.location}</p>
+                  </div>
                   <p
                     className=" hover:outline-dashed hover:outline-2 hover:outline-gray-400"
                     contentEditable="true"
                     suppressContentEditableWarning={true}
-                  >
-                    {item.description}
-                  </p>
+                    dangerouslySetInnerHTML={{ __html: item.description }}
+                  ></p>
 
                   <Droppable
                     droppableId={`WORK_EXPERIENCE_KEY_ACHIEVEMENT-${index}`}

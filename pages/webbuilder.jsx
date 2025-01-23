@@ -26,7 +26,7 @@ import { toast } from "react-toastify";
 import LoaderButton from "../components/utility/LoaderButton";
 import useLoader from "../hooks/useLoader";
 import Modal from "./adminlogin/Modal";
-import { Menu, X } from 'lucide-react';
+import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import resumeImg from "./builderImages/GraphicDesignerResume.jpg";
 import poweredbypaypal from "./builderImages/poweredbypaypal.png";
@@ -61,7 +61,16 @@ export default function WebBuilder() {
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
   const [userId, setUserId] = useState(0);
   const templateRef = useRef(null);
-  const {resumeData ,setResumeData, setHeaderColor,setBgColor,setSelectedFont,selectedFont,backgroundColorss,headerColor} = useContext(ResumeContext)
+  const {
+    resumeData,
+    setResumeData,
+    setHeaderColor,
+    setBgColor,
+    setSelectedFont,
+    selectedFont,
+    backgroundColorss,
+    headerColor,
+  } = useContext(ResumeContext);
 
   useEffect(() => {
     setUserId(localStorage.getItem("user_id"));
@@ -74,33 +83,43 @@ export default function WebBuilder() {
   useEffect(() => {
     const fetchResumeData = async () => {
       const { id } = router.query;
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem("token");
 
       if (id && token) {
         try {
-          const response = await axios.get(`https://api.resumeintellect.com/api/user/resume-list/${id}`, {
-            headers: {
-              Authorization: token,
-            },
-          });
+          const response = await axios.get(
+            `https://api.resumeintellect.com/api/user/resume-list/${id}`,
+            {
+              headers: {
+                Authorization: token,
+              },
+            }
+          );
 
-          if (response.data.status === 'success') {
+          if (response.data.status === "success") {
             const { data } = response.data;
             const parsedData = JSON.parse(data.ai_resume_parse_data);
-            
+
             // Update state with fetched data
             setResumeData(parsedData.templateData);
-            
+
             // Set background color and template
             if (parsedData.templateData.templateDetails) {
-              setBgColor(parsedData.templateData.templateDetails.backgroundColor || '');
-              setHeaderColor(parsedData.templateData.templateDetails.backgroundColor );
-              setSelectedTemplate(parsedData.templateData.templateDetails.templateId || 'template1');
+              setBgColor(
+                parsedData.templateData.templateDetails.backgroundColor || ""
+              );
+              setHeaderColor(
+                parsedData.templateData.templateDetails.backgroundColor
+              );
+              setSelectedTemplate(
+                parsedData.templateData.templateDetails.templateId ||
+                  "template1"
+              );
             }
           }
         } catch (error) {
-          console.error('Error fetching resume data:', error);
-          toast.error('Failed to fetch resume data');
+          console.error("Error fetching resume data:", error);
+          toast.error("Failed to fetch resume data");
         }
       }
     };
@@ -121,7 +140,8 @@ export default function WebBuilder() {
       // const storedResumeData = localStorage.getItem("resumeData");
 
       if (storedIsFinished) setIsFinished(JSON.parse(storedIsFinished));
-      if (storedTemplate && !selectedTemplate) setSelectedTemplate(storedTemplate);
+      if (storedTemplate && !selectedTemplate)
+        setSelectedTemplate(storedTemplate);
       if (storedFont) setSelectedFont(storedFont);
       if (storedBgColor && !backgroundColorss) setBgColor(storedBgColor);
       if (storedCurrentSection)
@@ -223,7 +243,7 @@ export default function WebBuilder() {
   };
 
   const handleNext = () => {
-    handleFinish()
+    handleFinish();
     if (currentSection === sections.length - 1) {
       localStorage.setItem("tempResumeData", JSON.stringify(resumeData));
       localStorage.setItem("tempHeaderColor", headerColor);
@@ -259,12 +279,12 @@ export default function WebBuilder() {
   }, []);
 
   const handlePrevious = () => {
-    handleFinish()
+    handleFinish();
     setCurrentSection((prev) => Math.max(prev - 1, 0));
   };
 
   const handleSectionClick = (index) => {
-    handleFinish()
+    handleFinish();
     setCurrentSection(index);
     setIsMobileMenuOpen(false);
   };
@@ -274,14 +294,14 @@ export default function WebBuilder() {
   };
 
   const nextSection = () => {
-    handleFinish()
+    handleFinish();
     if (currentSection < sections.length - 1) {
       handleSectionClick(currentSection + 1);
     }
   };
 
   const prevSection = () => {
-    handleFinish()
+    handleFinish();
     if (currentSection > 0) {
       handleSectionClick(currentSection - 1);
     }
@@ -303,16 +323,16 @@ export default function WebBuilder() {
   const handleShowModal = () => setShowModal(true);
 
   const downloadAsPDF = async () => {
-    handleFinish()
+    handleFinish();
     if (!templateRef.current) {
       toast.error("Template reference not found");
       return;
     }
-  
+
     try {
       // Get the HTML content from the template
       const htmlContent = templateRef.current.innerHTML;
-  
+
       // Generate the full HTML for the PDF
       const fullContent = `
         <style>
@@ -320,37 +340,37 @@ export default function WebBuilder() {
         </style>
         ${htmlContent}
       `;
-  
+
       // API call to generate the PDF
       const response = await axios.post(
-        'https://api.resumeintellect.com/api/user/generate-pdf1',
+        "https://api.resumeintellect.com/api/user/generate-pdf1",
         { html: fullContent },
         {
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
             Authorization: token,
           },
         }
       );
-  
+
       // Check if the file path was returned
       // const filePath = response.data.data?.file_path;
       // if (!filePath) {
       //   throw new Error('PDF file path not received');
       // }
-  
+
       // Construct the URL
       // const downloadUrl = `https://api.resumeintellect.com${filePath}`;
-  
+
       // Open the URL in a new tab
       createPayment();
       // window.open(downloadUrl, '_blank');
-  
+
       // toast.success('PDF generated and opened in a new tab!');
     } catch (error) {
-      console.error('PDF generation error:', error);
+      console.error("PDF generation error:", error);
       toast.error(
-        error.response?.data?.message || 'Failed to generate and open PDF'
+        error.response?.data?.message || "Failed to generate and open PDF"
       );
     }
   };
@@ -362,21 +382,22 @@ export default function WebBuilder() {
       const payload = {
         amount,
         ResumeId: resumeId, // Make sure resumeId is defined in your component
-        Token: token || '' // Make sure token is defined in your component
+        Token: token || "", // Make sure token is defined in your component
       };
 
       const response = await axios.post(
-        'https://api.resumeintellect.com/api/user/paypal/create-payment',
+        "https://api.resumeintellect.com/api/user/paypal/create-payment",
         payload,
         {
           headers: {
-             Authorization:token,
-            'Content-Type': 'application/json' }
+            Authorization: token,
+            "Content-Type": "application/json",
+          },
         }
       );
 
       const data = response.data;
-      console.log(data,"data");
+      console.log(data, "data");
       if (data && data.data) {
         // Store the order ID for later verification if needed
         const orderId = data.order_id;
@@ -390,7 +411,7 @@ export default function WebBuilder() {
         }
       }
     } catch (error) {
-      console.error('Payment Error:', error);
+      console.error("Payment Error:", error);
       // Handle error (show error message to user)
     }
   };
@@ -399,20 +420,20 @@ export default function WebBuilder() {
   //     toast.error("Template reference not found");
   //     return;
   //   }
-  
+
   //   try {
   //     // Get HTML and used classes
   //     const htmlContent = templateRef.current.innerHTML;
   //     const usedClasses = [...new Set(
   //       Array.from(templateRef.current.querySelectorAll('*')).flatMap(el => [...el.classList])
   //     )];
-  
+
   //     // Extract relevant CSS
   //     const cssContent = Array.from(document.styleSheets)
   //       .flatMap(sheet => {
   //         try {
   //           return [...sheet.cssRules]
-  //             .filter(rule => 
+  //             .filter(rule =>
   //               rule.selectorText && usedClasses.some(cls => rule.selectorText.includes(`.${cls}`))
   //             )
   //             .map(rule => rule.cssText);
@@ -421,14 +442,14 @@ export default function WebBuilder() {
   //         }
   //       })
   //       .join('\n');
-  
+
   //     // Generate HTML content for PDF
   //     const fullContent = `
   //       <style>${cssContent}</style>
   //       ${htmlContent}
   //     `;
   //     console.log(fullContent,"fullContent");
-  
+
   //     // API call to generate the PDF
   //     const response = await axios.post(
   //       'https://api.resumeintellect.com/api/user/generate-pdf1',
@@ -440,23 +461,23 @@ export default function WebBuilder() {
   //         },
   //       }
   //     );
-  
+
   //     if (!response.data.data?.file_path) {
   //       throw new Error('PDF file path not received');
   //     }
-  
+
   //     // Construct the download URL
   //     const downloadUrl = `https://api.resumeintellect.com${response.data.data.file_path}`;
-      
+
   //     // Fetch the PDF file to handle CORS issues
   //     const fileResponse = await axios.get(downloadUrl, {
   //       responseType: 'blob', // Ensure the response is treated as a binary file
   //     });
-  
+
   //     // Create a Blob URL
   //     const blob = new Blob([fileResponse.data], { type: 'application/pdf' });
   //     const blobUrl = window.URL.createObjectURL(blob);
-  
+
   //     // Download the file
   //     const link = document.createElement('a');
   //     link.href = blobUrl;
@@ -464,10 +485,10 @@ export default function WebBuilder() {
   //     document.body.appendChild(link);
   //     link.click();
   //     document.body.removeChild(link);
-  
+
   //     // Clean up the Blob URL
   //     window.URL.revokeObjectURL(blobUrl);
-  
+
   //     toast.success('PDF generated and downloaded successfully!');
   //   } catch (error) {
   //     console.error('PDF generation error:', error);
@@ -517,7 +538,7 @@ export default function WebBuilder() {
   };
 
   const downloadPDF = async (orderId, resumeId, token) => {
-    handleFinish()
+    handleFinish();
     try {
       const response = await axios.get(
         `https://api.resumeintellect.com/api/user/download-file/${orderId}/${resumeId}`,
@@ -528,20 +549,22 @@ export default function WebBuilder() {
           responseType: "blob", // Important for file download
         }
       );
-  
-      const url = window.URL.createObjectURL(new Blob([response.data], { type: "application/pdf" }));
+
+      const url = window.URL.createObjectURL(
+        new Blob([response.data], { type: "application/pdf" })
+      );
       const link = document.createElement("a");
       link.href = url;
-  
+
       // Set the file name
       link.setAttribute("download", `resume_${orderId}.pdf`);
       document.body.appendChild(link);
       link.click();
-  
+
       // Cleanup
       document.body.removeChild(link);
       window.URL.revokeObjectURL(url);
-  
+
       toast.success("PDF downloaded successfully!");
     } catch (error) {
       console.error("PDF Download Error:", error);
@@ -631,12 +654,16 @@ export default function WebBuilder() {
         }
 
         const url = `https://api.resumeintellect.com/api/user/resume-update/${id}`;
-        const response = await axios.put(url, {...templateData, resume_html: resumeHtml}, {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: token,
-          },
-        });
+        const response = await axios.put(
+          url,
+          { ...templateData, resume_html: resumeHtml },
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: token,
+            },
+          }
+        );
 
         if (response.data.code === 200 || response.data.status === "success") {
           setIsSaved(true);
@@ -651,10 +678,6 @@ export default function WebBuilder() {
       }
     });
   };
-
-  
-
- 
 
   const handleBackToEditor = () => {
     // localStorage.setItem("tempResumeData", JSON.stringify(resumeData));
@@ -714,8 +737,6 @@ export default function WebBuilder() {
       />
 
       <div className="min-h-screen bg-gray-50">
-       
-
         {!isFinished ? (
           <div className="min-h-screen bg-gray-50 flex flex-col">
             <div className="w-full bg-gray-200 p-4 shadow-sm">
@@ -812,11 +833,7 @@ export default function WebBuilder() {
             </div>
 
             <div className="flex flex-col md:flex-row flex-grow ">
-            
-
-             
-
-              <aside
+              {/* <aside
                 className={`fixed md:static left-0 top-0 h-full z-10 transform 
                                 
                                 md:translate-x-0 transition-transform duration-300 ease-in-out 
@@ -827,26 +844,42 @@ export default function WebBuilder() {
                     <Sidebar />
                   </div>
                 </div>
-              </aside>
+              </aside> */}
+              <div className="flex flex-col md:flex-row flex-grow p-4">
+                <div
+                  className="w-[40%] "
+                  style={{ backgroundColor: "#e5e7eb" }}
+                >
+                  <main className="w-full mx-auto md:p-4">
+                    <form>{sections[currentSection].component}</form>
+                  </main>
+                </div>
 
-              <main className="flex-1 max-w-2xl mx-auto md:p-4">
+                <aside className="w-[60%] min-h-screen border-l bg-gray-50">
+                  <div className="sticky top-20 p-4">
+                    <Preview
+                      ref={templateRef}
+                      selectedTemplate={selectedTemplate}
+                    />
+                  </div>
+                </aside>
+              </div>
+              {/* <main className="flex-1 max-w-2xl mx-auto md:p-4">
                 <form>{sections[currentSection].component}</form>
               </main>
 
               <aside className="  w-1/2 min-h-screen border-l bg-gray-50">
                 <div className="sticky top-20 p-4">
-                 
-                    <Preview ref={templateRef} selectedTemplate={selectedTemplate} />
-                 
+                  <Preview
+                    ref={templateRef}
+                    selectedTemplate={selectedTemplate}
+                  />
                 </div>
-              </aside>
+              </aside> */}
             </div>
-
           </div>
         ) : (
           <div className=" flex flex-col">
-            
-
             <div className="hidden md:flex w-screen px-8 py-4 justify-between items-center bg-white shadow">
               <div className="flex gap-4">
                 <select
@@ -925,7 +958,7 @@ export default function WebBuilder() {
                         <div className="md:w-1/2 w-full p-4 ">
                           <div className="text-center mb-6">
                             <h2 className="text-2xl font-bold text-gray-900">
-                            £49
+                              £49
                             </h2>
                             <p className="text-sm text-gray-500">
                               Total Amount
@@ -1018,9 +1051,7 @@ export default function WebBuilder() {
             </div>
 
             <div className="z-10">
-            
-                <Preview ref={templateRef} selectedTemplate={selectedTemplate} />
-            
+              <Preview ref={templateRef} selectedTemplate={selectedTemplate} />
             </div>
           </div>
         )}
@@ -1028,6 +1059,3 @@ export default function WebBuilder() {
     </>
   );
 }
-
-
-

@@ -131,7 +131,10 @@ const Template5 = () => {
             resumeData={resumeData}
             headerColor={backgroundColorss}
           />
-          <ProjectsSection resumeData={resumeData} headerColor={backgroundColorss} />
+          <ProjectsSection
+            resumeData={resumeData}
+            headerColor={backgroundColorss}
+          />
         </div>
       </section>
 

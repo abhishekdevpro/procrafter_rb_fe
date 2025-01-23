@@ -120,7 +120,6 @@
 //   return (
 //     <div ref={templateRef} className="">
 //       <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-lg">
-        
 
 //         <div className="flex-col items-center justify-center mb-1 p-2">
 //           {resumeData?.profilePicture && (
@@ -166,7 +165,7 @@
 //               className="mt-4"
 //             />
 //             <div>
-              
+
 //               <EducationSection
 //               itemClassNames={{
 //                 school: "",
@@ -188,7 +187,6 @@
 //              <Language title="Languages" languages={resumeData.languages}
 //              headerColor= {backgroundColorss?"white":"black"}
 //             />
-            
 
 //             <Certification
 //               title="Certifications"
@@ -254,7 +252,7 @@
 //   return (
 //     <div
 //       className="w-full md:w-8.5in border p-2 md:p-3 transform-gpu transition-transform duration-300 ease-in-out mx-auto
-//       sm:scale-[0.7] md:scale-[0.85] lg:scale-100 
+//       sm:scale-[0.7] md:scale-[0.85] lg:scale-100
 //       sm:origin-top md:origin-top lg:origin-top"
 //       onLoad={alertA4Size}
 //     >
@@ -336,36 +334,39 @@ const Template1 = () => {
   ];
 
   return (
-    <div
-      ref={templateRef}
-      className="max-w-4xl mx-auto bg-white border border-gray-200"
-    >
+    <div ref={templateRef} className="">
       <div
-      style={{ borderBottom: `2px solid ${backgroundColorss}` }}
-      className={`mb-6 ${resumeData?.profilePicture ? 'flex justify-between items-center' : 'flex justify-center items-center '} px-16 py-4`}>
+        style={{ borderBottom: `2px solid ${backgroundColorss}` }}
+        className={`mb-6 ${
+          resumeData?.profilePicture
+            ? "flex justify-between items-center"
+            : "flex justify-center items-center "
+        } px-16 py-4`}
+      >
+        {resumeData?.profilePicture && (
+          <ImageWrapper
+            src={resumeData.profilePicture}
+            alt="Profile Picture"
+            className="w-32 h-32 rounded-full"
+          />
+        )}
+        <TextWrapper
+          name={resumeData?.name}
+          position={resumeData?.position}
+          className={
+            resumeData?.profilePicture
+              ? "justify-start items-start"
+              : "text-center"
+          }
+          headerColor={backgroundColorss}
+          orientation="column"
+        />
+      </div>
 
-      {resumeData?.profilePicture && (
-              <ImageWrapper
-                src={resumeData.profilePicture}
-                alt="Profile Picture"
-                className="w-32 h-32 rounded-full"
-              />
-            )}
-            <TextWrapper
-              name={resumeData?.name}
-              position={resumeData?.position}
-              className={resumeData?.profilePicture ? "justify-start items-start" : "text-center"}
-              headerColor={backgroundColorss}
-              orientation="column"
-            />
-           
-          </div>
-         
       <div className="container mx-auto flex bg-white shadow-lg">
         {/* Left Column */}
         <div className="left-column w-8/12 p-8 border-r border-gray-300">
           {/* Header Section with TextWrapper and conditional ImageWrapper */}
-          
 
           {/* Rest of the left column content */}
           <div className="flex flex-col gap-4">

@@ -2,7 +2,7 @@
 import React from "react";
 import dynamic from "next/dynamic";
 import DateRange from "../utility/DateRange";
-import Link from "next/link"; 
+import Link from "next/link";
 const DragDropContext = dynamic(
   () => import("react-beautiful-dnd").then((mod) => mod.DragDropContext),
   { ssr: false }
@@ -47,7 +47,8 @@ const ProjectsSection = ({ resumeData, headerColor }) => {
                   {...provided.draggableProps}
                   {...provided.dragHandleProps}
                   className={`hover:scale-105 transition-transform duration-300 mb-1 ${
-                    snapshot.isDragging && "outline-dashed outline-2 outline-gray-400 bg-white"
+                    snapshot.isDragging &&
+                    "outline-dashed outline-2 outline-gray-400 bg-white"
                   }`}
                 >
                   <div className="flex flex-row justify-between space-y-1">
@@ -66,7 +67,10 @@ const ProjectsSection = ({ resumeData, headerColor }) => {
                   >
                     {item.link}
                   </Link>
-                  <p className="content">{item.description}</p>
+                  <p
+                    className="content"
+                    dangerouslySetInnerHTML={{ __html: item.description }}
+                  ></p>
 
                   <Droppable
                     droppableId={`PROJECTS_KEY_ACHIEVEMENT-${index}`}
@@ -94,7 +98,10 @@ const ProjectsSection = ({ resumeData, headerColor }) => {
                                     {...provided.dragHandleProps}
                                     className={`
                                     hover:outline-dashed hover:outline-2 hover:outline-gray-400
-                                    ${snapshot.isDragging && "outline-dashed outline-2 outline-gray-400 bg-white"}`}
+                                    ${
+                                      snapshot.isDragging &&
+                                      "outline-dashed outline-2 outline-gray-400 bg-white"
+                                    }`}
                                   >
                                     <div
                                       dangerouslySetInnerHTML={{

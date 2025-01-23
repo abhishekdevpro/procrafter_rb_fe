@@ -1,5 +1,3 @@
-
-
 import { useContext, useRef } from "react";
 import { ResumeContext } from "../context/ResumeContext";
 import { HighlightMenu } from "react-highlight-menu";
@@ -77,33 +75,39 @@ const Template11 = () => {
       className="max-w-4xl mx-auto bg-white border border-gray-200"
     >
       <div
-      style={{ borderBottom: `2px solid ${backgroundColorss}` }}
-      className={`mb-6 ${resumeData?.profilePicture ? 'flex justify-start items-center gap-4' : 'flex justify-center items-center '} px-16 py-4`}>
+        style={{ borderBottom: `2px solid ${backgroundColorss}` }}
+        className={`mb-6 ${
+          resumeData?.profilePicture
+            ? "flex justify-start items-center gap-4"
+            : "flex justify-center items-center "
+        } px-16 py-4`}
+      >
+        {resumeData?.profilePicture && (
+          <ImageWrapper
+            src={resumeData.profilePicture}
+            alt="Profile Picture"
+            className="w-32 h-32 rounded-full"
+          />
+        )}
+        <TextWrapper
+          name={resumeData?.name}
+          position={resumeData?.position}
+          className={
+            resumeData?.profilePicture
+              ? "justify-start items-start"
+              : "text-center"
+          }
+          headerColor={backgroundColorss}
+          orientation="column"
+        />
+      </div>
 
-      {resumeData?.profilePicture && (
-              <ImageWrapper
-                src={resumeData.profilePicture}
-                alt="Profile Picture"
-                className="w-32 h-32 rounded-full"
-              />
-            )}
-            <TextWrapper
-              name={resumeData?.name}
-              position={resumeData?.position}
-              className={resumeData?.profilePicture ? "justify-start items-start" : "text-center"}
-              headerColor={backgroundColorss}
-              orientation="column"
-            />
-           
-          </div>
-         
       <div className="container mx-auto flex bg-white shadow-lg">
         {/* Left Column */}
         <div
           className="right-column w-4/12 bg-gray-100 p-8"
           style={{ backgroundColor: backgroundColorss }}
         >
-         
           <div className="flex flex-col gap-4">
             <ContactAndSocialMedia
               title="Contacts"
@@ -119,14 +123,7 @@ const Template11 = () => {
               socialMediaClass=""
               textColor="text-white"
             />
-             <div>
-          <SummaryWrapper
-                summary={resumeData.summary}
-                headerColor={"white"}
-                editable={true}
-                className="mt-4"
-              />
-          </div>
+            <div></div>
             <SkillsWrapper
               skills={resumeData.skills}
               headerColor={backgroundColorss ? "white" : "black"}
@@ -139,23 +136,22 @@ const Template11 = () => {
               languages={resumeData.languages}
               headerColor={backgroundColorss ? "white" : "black"}
             />
-            
           </div>
-
-       
         </div>
-       
 
         {/* Right Column */}
         <div className="left-column w-8/12 p-8 border-r border-gray-300">
           {/* Header Section with TextWrapper and conditional ImageWrapper */}
-          
 
           {/* Rest of the left column content */}
           <div className="flex flex-col gap-4">
             <div className="col-span-2 space-y-2">
-             
-              
+              <SummaryWrapper
+                summary={resumeData.summary}
+                headerColor={"black"}
+                editable={true}
+                className="mt-4"
+              />
               <WorkExperience
                 itemClassNames={{
                   title: "text-lg font-bold mb-1 editable",
@@ -170,24 +166,24 @@ const Template11 = () => {
                 resumeData={resumeData}
                 headerColor={backgroundColorss}
               />
-            
-            <EducationSection
-              itemClassNames={{
-                school: "",
-                degree: "",
-                location: "",
-              }}
-              layout="column"
-              educationData={resumeData?.education}
-              headerColor={backgroundColorss ? "black" : "white"}
-            />
-         
+
+              <EducationSection
+                itemClassNames={{
+                  school: "",
+                  degree: "",
+                  location: "",
+                }}
+                layout="column"
+                educationData={resumeData?.education}
+                headerColor={backgroundColorss ? "black" : "white"}
+              />
+
               <Certification
-              title="Certifications"
-              certifications={resumeData.certifications}
-              hasBullet={true}
-              headerColor={backgroundColorss ? "black" : "white"}
-            />
+                title="Certifications"
+                certifications={resumeData.certifications}
+                hasBullet={true}
+                headerColor={backgroundColorss ? "black" : "white"}
+              />
             </div>
           </div>
         </div>

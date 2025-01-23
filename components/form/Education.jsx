@@ -1,16 +1,141 @@
-
-
+// import FormButton from "./FormButton";
 // import React, { useContext } from "react";
-// // import { ResumeContext } from "../../pages/builder";
-// import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
+// import { ResumeContext } from "../../pages/builder";
+
+// const Education = () => {
+//     const { resumeData, setResumeData} = useContext(ResumeContext);
+
+//     const handleEducation = (e, index) => {
+//       const newEducation = [...resumeData.education];
+//       newEducation[index][e.target.name] = e.target.value;
+//       setResumeData({ ...resumeData, education: newEducation });
+//     };
+
+//     const addEducation = () => {
+//       setResumeData({
+//         ...resumeData,
+//         education: [
+//           ...resumeData.education,
+//           { school: "", degree: "", startYear: "", endYear: "", location: "" },
+//         ],
+//       });
+//     };
+
+//     const removeEducation = (index) => {
+//       const newEducation = [...resumeData.education];
+//       newEducation[index] = newEducation[newEducation.length - 1];
+//       newEducation.pop();
+//       setResumeData({ ...resumeData, education: newEducation });
+//     };
+
+//     return (
+//       <div className="flex-col gap-3 w-full mt-10 px-10">
+//         <h2 className="input-title text-black  text-3xl">Education</h2>
+//         {resumeData.education.map((education, index) => (
+//           <div key={index} className="f-col">
+//             <input
+//               type="text"
+//               placeholder="School"
+//               name="school"
+//               className="w-full other-input border-black border"
+//               value={education.school}
+//               onChange={(e) => handleEducation(e, index)}
+//             />
+//             <input
+//               type="text"
+//               placeholder="Degree"
+//               name="degree"
+//               className="w-full other-input border-black border"
+//               value={education.degree}
+//               onChange={(e) => handleEducation(e, index)}
+//             />
+//             <div className="flex-wrap-gap-2">
+//               <input
+//                 type="date"
+//                 placeholder="Start Year"
+//                 name="startYear"
+//                 className="other-input border-black border flex-1"
+//                 value={education.startYear}
+//                 onChange={(e) => handleEducation(e, index)}
+//               />
+//               <input
+//                 type="date"
+//                 placeholder="End Year"
+//                 name="endYear"
+//                 className="other-input border-black border flex-1"
+//                 value={education.endYear}
+//                 onChange={(e) => handleEducation(e, index)}
+//               />
+//             </div>
+//             <label className="mt-2 text-black">Location</label>
+//             <input
+//               type="text"
+//               placeholder="Location"
+//               name="location"
+//               className="w-full other-input border-black border"
+//               value={education.location}
+//               onChange={(e) => handleEducation(e, index)}
+//             />
+//           </div>
+//         ))}
+//         <FormButton
+//           size={resumeData.education.length}
+//           add={addEducation}
+//           remove={removeEducation}
+//         />
+//       </div>
+//     );
+//   }
+
+// export default Education;
+
 // import { ResumeContext } from "../context/ResumeContext";
+// import FormButton from "./FormButton";
+// import React, { useContext } from "react";
 
 // const Education = () => {
 //   const { resumeData, setResumeData } = useContext(ResumeContext);
-
 //   const handleEducation = (e, index) => {
+//     const { name, value } = e.target;
 //     const newEducation = [...resumeData.education];
-//     newEducation[index][e.target.name] = e.target.value;
+//     newEducation[index][name] = value;
+//     setResumeData({ ...resumeData, education: newEducation });
+//   };
+//   const months = [
+//     "Jan",
+//     "Feb",
+//     "Mar",
+//     "Apr",
+//     "May",
+//     "Jun",
+//     "Jul",
+//     "Aug",
+//     "Sep",
+//     "Oct",
+//     "Nov",
+//     "Dec",
+//   ];
+
+//   const years = Array.from(
+//     { length: 50 },
+//     (_, i) => new Date().getFullYear() - i
+//   );
+
+//   const handleMonthChange = (e, index, field) => {
+//     const newEducation = [...resumeData.education];
+//     const currentDate = newEducation[index][field] || "Aug,2020";
+//     const [_, year] = currentDate.split(",");
+//     const newMonth = e.target.value;
+//     newEducation[index][field] = `${newMonth},${year || ""}`;
+//     setResumeData({ ...resumeData, education: newEducation });
+//   };
+
+//   const handleYearChange = (e, index, field) => {
+//     const newEducation = [...resumeData.education];
+//     const currentDate = newEducation[index][field] || "Aug,2020";
+//     const [month, _] = currentDate.split(",");
+//     const newYear = e.target.value;
+//     newEducation[index][field] = `${month || ""},${newYear}`;
 //     setResumeData({ ...resumeData, education: newEducation });
 //   };
 
@@ -19,30 +144,33 @@
 //       ...resumeData,
 //       education: [
 //         ...resumeData.education,
-//         { school: "", degree: "", startYear: "", endYear: "" },
+//         {
+//           school: "",
+//           degree: "",
+//           startYear: "Aug,2020",
+//           endYear: "Jul,2024",
+//           location: "",
+//         },
 //       ],
 //     });
 //   };
 
 //   const removeEducation = (index) => {
-//     const newEducation = resumeData.education.filter((_, i) => i !== index);
+//     const newEducation = [...resumeData.education];
+//     newEducation.splice(index, 1);
 //     setResumeData({ ...resumeData, education: newEducation });
 //   };
 
 //   return (
-//     <div className="flex flex-col gap-6 mt-10 px-4 sm:px-8 lg:px-10">
-//       <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-black">Education</h2>
-
+//     <div className="flex-col gap-3 w-full mt-10 px-10">
+//       <h2 className="input-title text-black text-3xl">Education</h2>
 //       {resumeData.education.map((education, index) => (
-//         <div
-//           key={index}
-//           className="flex flex-col gap-4 p-4 border border-gray-300 rounded-md shadow-sm bg-white"
-//         >
+//         <div key={index} className="f-col">
 //           <input
 //             type="text"
 //             placeholder="School"
 //             name="school"
-//             className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+//             className="w-full other-input border-black border"
 //             value={education.school}
 //             onChange={(e) => handleEducation(e, index)}
 //           />
@@ -50,105 +178,107 @@
 //             type="text"
 //             placeholder="Degree"
 //             name="degree"
-//             className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+//             className="w-full other-input border-black border"
 //             value={education.degree}
 //             onChange={(e) => handleEducation(e, index)}
 //           />
-//           <div className="flex flex-wrap gap-4">
-//             <input
-//               type="date"
-//               placeholder="Start Year"
-//               name="startYear"
-//               className="flex-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-//               value={education.startYear}
-//               onChange={(e) => handleEducation(e, index)}
-//             />
-//             <input
-//               type="date"
-//               placeholder="End Year"
-//               name="endYear"
-//               className="flex-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-//               value={education.endYear}
-//               onChange={(e) => handleEducation(e, index)}
-//             />
+//           <div className="">
+//             <label className="text-black">Start Date</label>
+//             <div className="flex-wrap-gap-2">
+//               <select
+//                 className="border-black border other-input  flex-1"
+//                 value={(education.startYear || "Aug,2020").split(",")[0]}
+//                 onChange={(e) => handleMonthChange(e, index, "startYear")}
+//               >
+//                 <option value="">Month</option>
+//                 {months.map((month, idx) => (
+//                   <option key={idx} value={month}>
+//                     {month}
+//                   </option>
+//                 ))}
+//               </select>
+//               <select
+//                 className="other-input border-black border flex-1"
+//                 value={(education.startYear || "Aug,2020").split(",")[1]}
+//                 onChange={(e) => handleYearChange(e, index, "startYear")}
+//               >
+//                 <option value="">Year</option>
+//                 {years.map((year, idx) => (
+//                   <option key={idx} value={year}>
+//                     {year}
+//                   </option>
+//                 ))}
+//               </select>
+//             </div>
+//             <label className="text-black">End Date</label>
+//             <div className="flex-wrap-gap-2">
+//               <select
+//                 className="other-input border-black border flex-1"
+//                 value={(education.endYear || "Jul,2024").split(",")[0]}
+//                 onChange={(e) => handleMonthChange(e, index, "endYear")}
+//               >
+//                 <option value="">Month</option>
+//                 {months.map((month, idx) => (
+//                   <option key={idx} value={month}>
+//                     {month}
+//                   </option>
+//                 ))}
+//               </select>
+//               <select
+//                 className="other-input border-black border flex-1"
+//                 value={(education.endYear || "Jul,2024").split(",")[1]}
+//                 onChange={(e) => handleYearChange(e, index, "endYear")}
+//               >
+//                 <option value="">Year</option>
+//                 {years.map((year, idx) => (
+//                   <option key={idx} value={year}>
+//                     {year}
+//                   </option>
+//                 ))}
+//               </select>
+//             </div>
 //           </div>
-
-//          <div className="flex justify-between items-center">
-//          <p
-//           className="self-end flex items-center gap-2 text-red-500 hover:text-red-700 "
-//          >
-//             {`${resumeData.education_suggestions.length} suggestions`}
-//           </p>
-//           <button
-//             type="button"
-//             className="self-end flex items-center gap-2 text-red-500 hover:text-red-700 "
-//             onClick={() => removeEducation(index)}
-//           >
-//             <AiOutlineMinus /> Remove
-//           </button>
-//          </div>
-
+//           <label className="mt-2 text-black">Location</label>
+//           <input
+//             type="text"
+//             placeholder="Location"
+//             name="location"
+//             className="w-full other-input border-black border"
+//             value={education.location}
+//             onChange={(e) => handleEducation(e, index)}
+//           />
 //         </div>
 //       ))}
-
-//       <button
-//         type="button"
-//         className="flex items-center gap-2 px-4 py-2 bg-black text-black rounded-md hover:bg-black transition-all"
-//         onClick={addEducation}
-//       >
-//         <AiOutlinePlus /> Add Education
-//       </button>
-//     </div>
-//   );
-// };
-
-//          <div className="flex justify-between items-center">
-//          <p
-//           className="self-end flex items-center gap-2 text-red-500 hover:text-red-700 "
-//          >
-//             {`${resumeData.education_suggestions.length} suggestions`}
-//           </p>
-//           <button
-//             type="button"
-//             className="self-end flex items-center gap-2 text-red-500 hover:text-red-700 "
-//             onClick={() => removeEducation(index)}
-//           >
-//             <AiOutlineMinus /> Remove
-//           </button>
-//          </div>
-
-
-//         </div>
-//       ))}
-
-//       <button
-//         type="button"
-//         className="flex items-center gap-2 px-4 py-2 bg-black text-white rounded-md hover:bg-black transition-all"
-//         onClick={addEducation}
-//       >
-//         <AiOutlinePlus /> Add Education
-//       </button>
+//       <FormButton
+//         size={resumeData.education.length}
+//         add={addEducation}
+//         remove={removeEducation}
+//       />
 //     </div>
 //   );
 // };
 
 // export default Education;
-import React, { useContext, useState } from "react";
-import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import { ResumeContext } from "../context/ResumeContext";
 import FormButton from "./FormButton";
-const Education = () => {
-  const { resumeData, setResumeData } = useContext(ResumeContext);
-  const [showSuggestions, setShowSuggestions] = useState(false);
+import React, { useContext, useState } from "react";
+import { AlertCircle, X } from "lucide-react";
+import { useRouter } from "next/router";
 
- 
+const Education = () => {
+  const { resumeData, setResumeData, resumeStrength } =
+    useContext(ResumeContext);
+  const [activeTooltip, setActiveTooltip] = useState(null);
+  const router = useRouter();
+  const { improve } = router.query;
+
   const handleEducation = (e, index) => {
     const { name, value } = e.target;
     const newEducation = [...resumeData.education];
     newEducation[index][name] = value;
     setResumeData({ ...resumeData, education: newEducation });
   };
-  
+
   const months = [
     "Jan",
     "Feb",
@@ -208,91 +338,199 @@ const Education = () => {
     newEducation.splice(index, 1);
     setResumeData({ ...resumeData, education: newEducation });
   };
-  const toggleSuggestions = () => {
-    setShowSuggestions((prev) => !prev);
+
+  // Helper function to check if a field has errors
+  const hasErrors = (index, field) => {
+    const educationStrength = resumeStrength?.education_strenght?.[index];
+    return educationStrength && educationStrength[field] !== null;
   };
 
-  
+  // Helper function to get error message for a field
+  const getErrorMessage = (index, field) => {
+    const educationStrength = resumeStrength?.education_strenght?.[index];
+    if (educationStrength && Array.isArray(educationStrength[field])) {
+      return educationStrength[field];
+    }
+    return null;
+  };
 
   return (
-    <div className="flex flex-col gap-6 mt-10 px-4 sm:px-8 lg:px-10">
-      <div className="flex justify-between items-center">
-        <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-black">
-          Education
-        </h2>
-        <div className="relative">
-          {resumeData.education_suggestions?.length > 0 && (
-            <div
-              className="text-red-500 font-medium cursor-pointer hover:text-red-600"
-              onClick={toggleSuggestions}
-            >
-              {`${resumeData.education_suggestions.length} suggestions`}
-              {showSuggestions && (
-                <div className="absolute top-12 right-0 w-64 bg-white border border-gray-300 rounded-lg shadow-lg z-20">
-                                        <div className="text-red-600 font-medium mb-2">Suggested Improvements</div>
-
-                  <ul className="text-sm text-gray-800 list-disc pl-5 py-2">
-                    {resumeData.education_suggestions.map(
-                      (suggestion, index) => (
-                        <li key={index} className="mb-1">
-                          {suggestion}
-                        </li>
-                      )
-                    )}
-                  </ul>
-                  {/* Tooltip arrow */}
-                  <div className="absolute -top-2 right-4 w-4 h-4 bg-white border-l border-t border-gray-300 rotate-45 transform" />
-                </div>
-              )}
-            </div>
-          )}
-        </div>
-      </div>
-
+    <div className="flex-col gap-3 w-full mt-10 px-10">
+      <h2 className="input-title text-black text-3xl">Education</h2>
       {resumeData.education.map((education, index) => (
-        <div
-          key={index}
-          className="flex flex-col gap-4 p-4 border border-gray-300 rounded-md shadow-sm bg-white"
-        >
-          <input
-            type="text"
-            placeholder="School"
-            name="school"
-            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            value={education.school}
-            onChange={(e) => handleEducation(e, index)}
-          />
-          <input
-            type="text"
-            placeholder="Degree"
-            name="degree"
-            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            value={education.degree}
-            onChange={(e) => handleEducation(e, index)}
-          />
-          {/* <div className="flex flex-wrap gap-4">
+        <div key={index} className="f-col">
+          <div className="relative mb-4">
             <input
-              type="date"
-              placeholder="Start Year"
-              name="startYear"
-              className="flex-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              value={education.startYear}
+              type="text"
+              placeholder="School"
+              name="school"
+              className={`w-full other-input border ${
+                hasErrors(index, "school") ? "border-red-500" : "border-black"
+              }`}
+              value={education.school}
               onChange={(e) => handleEducation(e, index)}
             />
+            {improve && hasErrors(index, "school") && (
+              <button
+                type="button"
+                className="absolute right-2 top-1/2 -translate-y-1/2 text-red-500 hover:text-red-600 transition-colors"
+                onClick={() =>
+                  setActiveTooltip(
+                    activeTooltip === `school-${index}`
+                      ? null
+                      : `school-${index}`
+                  )
+                }
+              >
+                <AlertCircle className="w-5 h-5" />
+              </button>
+            )}
+            {activeTooltip === `school-${index}` && (
+              // <div className="absolute z-10 mt-2 w-full bg-white rounded-lg shadow-lg border border-gray-200">
+              //   <div className="bg-red-50 px-4 py-2 rounded-t-lg border-b border-red-100">
+              //     <div className="flex items-center gap-2">
+              //       <AlertCircle className="w-5 h-5 text-red-600" />
+              //       <span className="font-medium text-red-800">School Error</span>
+              //     </div>
+              //   </div>
+              //   <div className="p-4">
+              //     {getErrorMessage(index, 'school')?.map((msg, i) => (
+              //       <div key={i} className="text-gray-700 text-sm mb-2">{msg}</div>
+              //     ))}
+              //   </div>
+              //   <div className="border-t border-gray-100 p-3 flex justify-end">
+              //     <button
+              //       onClick={() => setActiveTooltip(null)}
+              //       className="text-blue-600 hover:text-blue-800 text-sm font-medium"
+              //     >
+              //       Dismiss
+              //     </button>
+              //   </div>
+              // </div>
+              <div className="absolute z-50 right-0 mt-2 w-80 bg-white rounded-lg shadow-xl transform transition-all duration-200 ease-in-out border border-gray-700">
+                <div className="p-4 border-b border-gray-700">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-2">
+                      <AlertCircle className="w-5 h-5 text-red-400" />
+                      <span className="font-medium text-black">
+                        {" "}
+                        Suggestions
+                      </span>
+                    </div>
+                    <button
+                      onClick={() => setActiveTooltip(null)}
+                      className="text-gray-400 hover:text-black transition-colors"
+                    >
+                      <X className="w-5 h-5" />
+                    </button>
+                  </div>
+                </div>
+                <div className="p-4">
+                  {getErrorMessage(index, "school").map((msg, i) => (
+                    <div
+                      key={i}
+                      className="flex items-start space-x-3 mb-3 last:mb-0"
+                    >
+                      <div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-red-400 mt-2"></div>
+                      <p className="text-black text-sm">{msg}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          <div className="relative mb-4">
             <input
-              type="date"
-              placeholder="End Year"
-              name="endYear"
-              className="flex-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              value={education.endYear}
+              type="text"
+              placeholder="Degree"
+              name="degree"
+              className={`w-full other-input border ${
+                improve && hasErrors(index, "degree")
+                  ? "border-red-500"
+                  : "border-black"
+              }`}
+              value={education.degree}
               onChange={(e) => handleEducation(e, index)}
             />
-          </div> */}
-           <div className="">
+            {improve && hasErrors(index, "degree") && (
+              <button
+                type="button"
+                className="absolute right-2 top-1/2 -translate-y-1/2 text-red-500 hover:text-red-600 transition-colors"
+                onClick={() =>
+                  setActiveTooltip(
+                    activeTooltip === `degree-${index}`
+                      ? null
+                      : `degree-${index}`
+                  )
+                }
+              >
+                <AlertCircle className="w-5 h-5" />
+              </button>
+            )}
+            {activeTooltip === `degree-${index}` && (
+              // <div className="absolute z-10 mt-2 w-full bg-white rounded-lg shadow-lg border border-gray-200">
+              //   <div className="bg-red-50 px-4 py-2 rounded-t-lg border-b border-red-100">
+              //     <div className="flex items-center gap-2">
+              //       <AlertCircle className="w-5 h-5 text-red-600" />
+              //       <span className="font-medium text-red-800">Degree Error</span>
+              //     </div>
+              //   </div>
+              //   <div className="p-4">
+              //     {getErrorMessage(index, 'degree')?.map((msg, i) => (
+              //       <div key={i} className="text-gray-700 text-sm mb-2">{msg}</div>
+              //     ))}
+              //   </div>
+              //   <div className="border-t border-gray-100 p-3 flex justify-end">
+              //     <button
+              //       onClick={() => setActiveTooltip(null)}
+              //       className="text-blue-600 hover:text-blue-800 text-sm font-medium"
+              //     >
+              //       Dismiss
+              //     </button>
+              //   </div>
+              // </div>
+              <div className="absolute z-50 right-0 mt-2 w-80 bg-white rounded-lg shadow-xl transform transition-all duration-200 ease-in-out border border-gray-700">
+                <div className="p-4 border-b border-gray-700">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-2">
+                      <AlertCircle className="w-5 h-5 text-red-400" />
+                      <span className="font-medium text-black">
+                        Suggestions
+                      </span>
+                    </div>
+                    <button
+                      onClick={() => setActiveTooltip(null)}
+                      className="text-gray-400 hover:text-black transition-colors"
+                    >
+                      <X className="w-5 h-5" />
+                    </button>
+                  </div>
+                </div>
+                <div className="p-4">
+                  {getErrorMessage(index, "degree").map((msg, i) => (
+                    <div
+                      key={i}
+                      className="flex items-start space-x-3 mb-3 last:mb-0"
+                    >
+                      <div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-red-400 mt-2"></div>
+                      <p className="text-black text-sm">{msg}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          <div className="">
             <label className="text-black">Start Date</label>
             <div className="flex-wrap-gap-2">
               <select
-                className="border-black border other-input  flex-1"
+                className={`border other-input flex-1 ${
+                  improve && hasErrors(index, "startYear")
+                    ? "border-red-500"
+                    : "border-black"
+                }`}
                 value={(education.startYear || "Aug,2020").split(",")[0]}
                 onChange={(e) => handleMonthChange(e, index, "startYear")}
               >
@@ -304,7 +542,11 @@ const Education = () => {
                 ))}
               </select>
               <select
-                className="other-input border-black border flex-1"
+                className={`other-input border flex-1 ${
+                  improve && hasErrors(index, "startYear")
+                    ? "border-red-500"
+                    : "border-black"
+                }`}
                 value={(education.startYear || "Aug,2020").split(",")[1]}
                 onChange={(e) => handleYearChange(e, index, "startYear")}
               >
@@ -316,10 +558,15 @@ const Education = () => {
                 ))}
               </select>
             </div>
+
             <label className="text-black">End Date</label>
             <div className="flex-wrap-gap-2">
               <select
-                className="other-input border-black border flex-1"
+                className={`other-input border flex-1 ${
+                  improve && hasErrors(index, "endYear")
+                    ? "border-red-500"
+                    : "border-black"
+                }`}
                 value={(education.endYear || "Jul,2024").split(",")[0]}
                 onChange={(e) => handleMonthChange(e, index, "endYear")}
               >
@@ -331,7 +578,11 @@ const Education = () => {
                 ))}
               </select>
               <select
-                className="other-input border-black border flex-1"
+                className={`other-input border flex-1 ${
+                  improve && hasErrors(index, "endYear")
+                    ? "border-red-500"
+                    : "border-black"
+                }`}
                 value={(education.endYear || "Jul,2024").split(",")[1]}
                 onChange={(e) => handleYearChange(e, index, "endYear")}
               >
@@ -344,33 +595,97 @@ const Education = () => {
               </select>
             </div>
           </div>
-          
-          <label className="mt-2 text-black">Location</label>
-          <input
-            type="text"
-            placeholder="Location"
-            name="location"
-            className="w-full other-input border-black border"
-            value={education.location}
-            onChange={(e) => handleEducation(e, index)}
-          />
-          
+
+          <div className="relative">
+            <label className="mt-2 text-black">Location</label>
+            <input
+              type="text"
+              placeholder="Location"
+              name="location"
+              className={`w-full other-input border ${
+                improve && hasErrors(index, "location")
+                  ? "border-red-500"
+                  : "border-black"
+              }`}
+              value={education.location}
+              onChange={(e) => handleEducation(e, index)}
+            />
+            {improve && hasErrors(index, "location") && (
+              <button
+                type="button"
+                className="absolute right-2 top-1/2 translate-y-1 text-red-500 hover:text-red-600 transition-colors"
+                onClick={() =>
+                  setActiveTooltip(
+                    activeTooltip === `location-${index}`
+                      ? null
+                      : `location-${index}`
+                  )
+                }
+              >
+                <AlertCircle className="w-5 h-5" />
+              </button>
+            )}
+            {activeTooltip === `location-${index}` && (
+              // <div className="absolute z-10 mt-2 w-full bg-white rounded-lg shadow-lg border border-gray-200">
+
+              //   <div className="p-4">
+              //     {getErrorMessage(index, 'location')?.map((msg, i) => (
+              //       <div key={i} className="text-gray-700 text-sm flex items-center gap-2">
+              //         <AlertCircle className="w-5 h-5 text-red-600" />
+              //         <span>{msg}</span>
+              //         </div>
+              //     ))}
+              //   </div>
+              //   <div className="border-t border-gray-100 p-3 flex justify-end">
+              //     <button
+              //       onClick={() => setActiveTooltip(null)}
+              //       className="text-blue-600 hover:text-blue-800 text-sm font-medium"
+              //     >
+              //       Dismiss
+              //     </button>
+              //   </div>
+              // </div>
+
+              <div className="absolute z-50 right-0 mt-2 w-80 bg-white rounded-lg shadow-xl transform transition-all duration-200 ease-in-out border border-gray-700">
+                <div className="p-4 border-b border-gray-700">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-2">
+                      <AlertCircle className="w-5 h-5 text-red-400" />
+                      <span className="font-medium text-black">
+                        Location Suggestions
+                      </span>
+                    </div>
+                    <button
+                      onClick={() => setActiveTooltip(null)}
+                      className="text-gray-400 hover:text-black transition-colors"
+                    >
+                      <X className="w-5 h-5" />
+                    </button>
+                  </div>
+                </div>
+                <div className="p-4">
+                  {getErrorMessage(index, "location").map((msg, i) => (
+                    <div
+                      key={i}
+                      className="flex items-start space-x-3 mb-3 last:mb-0"
+                    >
+                      <div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-red-400 mt-2"></div>
+                      <p className="text-black text-sm">{msg}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       ))}
-
-<FormButton
+      <FormButton
         size={resumeData.education.length}
         add={addEducation}
         remove={removeEducation}
       />
-
     </div>
   );
-}
+};
 
 export default Education;
-
-
-
-
-
