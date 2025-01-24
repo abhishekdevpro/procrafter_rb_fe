@@ -139,7 +139,7 @@ const MyCvLetter = () => {
         <h1 className="text-2xl font-bold text-gray-800">My Cover Letters</h1>
         <button
           onClick={handleCreate}
-          className="flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium shadow-sm"
+          className="flex items-center px-4 py-2 bg-[#00b38d] text-white rounded-lg hover:bg-[#00b38d] transition-colors duration-200 font-medium shadow-sm"
         >
           <Plus className="w-5 h-5 mr-2" /> Create New Cover Letters
         </button>
@@ -181,23 +181,25 @@ const MyCvLetter = () => {
                         </span>
                         <button
                           onClick={() => handleOpenEditModal(coverletter)}
-                          className="text-blue-600 hover:text-blue-800"
+                          className="text-[#00b38d] hover:text-blue-800"
                         >
                           🖍
                         </button>
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      {coverletter.updated_at}
+                      {/* {coverletter.updated_at} */}
+                      {new Date(coverletter.updated_at).toLocaleDateString()}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      {coverletter.created_at}
+                      {/* {coverletter.created_at} */}
+                      {new Date(coverletter.created_at).toLocaleDateString()}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                       <div className="flex items-center space-x-3">
                         <button
                           onClick={() => handleEdit(coverletter.id)}
-                          className="text-blue-600 hover:text-blue-800"
+                          className="text-[#00b38d] hover:text-blue-800"
                         >
                           <Edit className="w-5 h-5" />
                         </button>
@@ -282,7 +284,7 @@ const MyCvLetter = () => {
               </button>
               <button
                 onClick={handleUpdateCvLetterTitle}
-                className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700"
+                className="px-4 py-2 text-sm font-medium text-white bg-[#00b38d] rounded-md hover:bg-[#00b38d]"
               >
                 Save
               </button>

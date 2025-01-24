@@ -1,4 +1,4 @@
-const InterviewSection = () => {
+const AbroadiumCommunity = () => {
   return (
     <div className="border border-gray-200 rounded-lg p-6 mb-6">
       <div className="flex justify-between items-center">
@@ -19,20 +19,23 @@ const InterviewSection = () => {
             </svg>
           </div>
           <div>
-            <h3 className="text-lg font-semibold">Ace Your Interview</h3>
+            <h3 className="text-lg font-semibold">
+              Join the Abroadium Community!
+            </h3>
             <p className="text-gray-600 max-w-md">
-              Learn and practice your skills with our partner site, Big
-              Interview. Prep by reviewing common interview questions and
-              receive personalized A.I. feedback.
+              Connect with professionals, industry experts, and like-minded
+              peers in our vibrant discussion space. Share ideas, ask questions,
+              and explore career insights—all while staying anonymous if you
+              prefer. Coming soon to help you grow and thrive!
             </p>
           </div>
         </div>
         <button className="px-6 py-2 border border-[#00b38d] text-[#00b38d] rounded-lg hover:bg-blue-50">
-          Visit Big Interview
+          I’m In!
         </button>
       </div>
     </div>
   );
 };
 
-export default InterviewSection;
+export default AbroadiumCommunity;

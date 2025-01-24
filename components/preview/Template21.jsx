@@ -77,7 +77,7 @@
 //                 alt="Profile"
 //               />
 //             </div>
- 
+
 //             <div className="text-left text-white">
 //             <ContactAndSocialMedia
 //               contactData={{
@@ -142,7 +142,6 @@
 //             </Droppable>
 //           </div>
 
-          
 //         </div>
 
 //         <div className="bg-slate-300 w-2/3">
@@ -310,7 +309,7 @@
 //                                   href={item.link}
 //                                   target="_blank"
 //                                   rel="noopener noreferrer"
-//                                   className="text-blue-600 hover:underline block mt-2"
+//                                   className="text-[#00b38d] hover:underline block mt-2"
 //                                 >
 //                                   {item.link}
 //                                 </Link>
@@ -383,12 +382,12 @@
 //             </div>
 //             <button
 //               onClick={extractHtml}
-//               className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+//               className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-[#00b38d] transition-colors"
 //             >
 //               Log HTML Content
 //             </button>
 //           </div>
-          
+
 //         </div>
 //       </div>
 //     </div>
@@ -466,7 +465,10 @@ const Template21 = () => {
   };
 
   return (
-    <div ref={templateRef} className="max-w-4xl mx-auto p-2 bg-white shadow-md border">
+    <div
+      ref={templateRef}
+      className="max-w-4xl mx-auto p-2 bg-white shadow-md border"
+    >
       <div className="flex">
         <div className="bg-cyan-500 p-5 w-1/3">
           <div className="mb-5">
@@ -481,7 +483,7 @@ const Template21 = () => {
                 alt="Profile"
               />
             </div>
- 
+
             <div className="text-left text-white">
               <ContactAndSocialMedia
                 contactData={{
@@ -712,7 +714,7 @@ const Template21 = () => {
                                   href={item.link}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="text-blue-600 hover:underline block mt-2"
+                                  className="text-[#00b38d] hover:underline block mt-2"
                                 >
                                   {item.link}
                                 </Link>
@@ -785,7 +787,7 @@ const Template21 = () => {
             </div>
             {/* <button
               onClick={extractHtml}
-              className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+              className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-[#00b38d] transition-colors"
             >
               Log HTML Content
             </button> */}
@@ -797,4 +799,3 @@ const Template21 = () => {
 };
 
 export default Template21;
-

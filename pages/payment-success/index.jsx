@@ -19,20 +19,22 @@ const PaymentSuccess = () => {
 
           {/* Success Message */}
           <p className="text-gray-600 mb-6">
-            Your payment was processed successfully. Thank you for your purchase!
+            Your payment was processed successfully. Thank you for your
+            purchase!
           </p>
 
           {/* Confirmation Details */}
           <div className="bg-gray-50 w-full rounded-lg p-4 mb-6">
             <p className="text-sm text-gray-600">
-              A confirmation email has been sent to your inbox with the transaction details.
+              A confirmation email has been sent to your inbox with the
+              transaction details.
             </p>
           </div>
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-3 w-full">
             <button
-              className="w-full py-2 px-4 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition-colors"
+              className="w-full py-2 px-4 bg-[#00b38d] text-white rounded-lg hover:bg-blue-800 transition-colors"
               onClick={() => {
                 window.location.href = "/dashboard/aibuilder";
               }}

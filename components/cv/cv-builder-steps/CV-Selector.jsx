@@ -28,7 +28,7 @@ const CVSelector = ({ onNext, onBack, onChange, value }) => {
     },
     {
       name: "Blue",
-      class: "bg-blue-600",
+      class: "bg-[#00b38d]",
       selectedClass: "ring-blue-400",
       hexCode: "#2563EB",
     },
@@ -338,7 +338,7 @@ const CVSelector = ({ onNext, onBack, onChange, value }) => {
                       w-full text-left px-4 py-2 rounded-lg
                       ${
                         value.category === category
-                          ? "bg-blue-50 text-blue-600"
+                          ? "bg-blue-50 text-[#00b38d]"
                           : "text-gray-600 hover:bg-gray-50"
                       }
                     `}

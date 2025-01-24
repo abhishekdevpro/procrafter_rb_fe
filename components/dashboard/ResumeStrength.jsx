@@ -18,7 +18,7 @@
 //               We found <span className="font-semibold">4</span> errors in your resume.
 //             </p>
 //             <p className="text-gray-600">Use our Resume Check tool to fix them.</p>
-//             <button className="mt-2 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+//             <button className="mt-2 px-6 py-2 bg-[#00b38d] text-white rounded-lg hover:bg-[#00b38d]">
 //               Improve Resume
 //             </button>
 //           </div>
@@ -122,7 +122,7 @@ const ResumeStrength = ({ score, strength, resumeId }) => {
 
           <button
             onClick={handleImproveResume}
-            className="mt-2 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+            className="mt-2 px-6 py-2 bg-[#00b38d] text-white rounded-lg hover:bg-[#00b38d]"
           >
             Improve Resume
           </button>

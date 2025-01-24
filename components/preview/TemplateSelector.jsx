@@ -338,7 +338,7 @@ const TemplateSelector = ({ selectedTemplate, setSelectedTemplate }) => {
                           ${
                             template.key === templateId
                               ? "bg-blue-500 text-white font-semibold"
-                              : "text-gray-600 group-hover:text-blue-600"
+                              : "text-gray-600 group-hover:text-[#00b38d]"
                           }
                         `}
                         >
