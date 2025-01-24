@@ -1,4 +1,3 @@
-
 import { Download, Edit } from "lucide-react";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -11,7 +10,8 @@ const Sidebar = ({ score, resumeId }) => {
   const templateRef = useRef(null);
   const router = useRouter();
 
-  const { resumeData, setResumeData, setHeaderColor, setBgColor } = useContext(ResumeContext);
+  const { resumeData, setResumeData, setHeaderColor, setBgColor } =
+    useContext(ResumeContext);
   const [selectedTemplate, setSelectedTemplate] = useState("template1");
   const [loading, setLoading] = useState(false); // To track API call status
   const [resumeTitle, setResumeTitle] = useState("");
@@ -48,7 +48,8 @@ const Sidebar = ({ score, resumeId }) => {
           setResumeData(parsedData.templateData);
           setResumeTitle(data.resue_name || "Untitled Resume");
           if (parsedData?.templateData?.templateDetails) {
-            const { backgroundColor, templateId } = parsedData.templateData.templateDetails;
+            const { backgroundColor, templateId } =
+              parsedData.templateData.templateDetails;
             setBgColor(backgroundColor || "");
             setHeaderColor(backgroundColor || "");
             setSelectedTemplate(templateId || "template1");
@@ -102,7 +103,10 @@ const Sidebar = ({ score, resumeId }) => {
     <div className="w-full md:w-[400px] p-4 border-r border-gray-200">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-lg font-semibold">{resumeTitle}</h2>
-        <Link href="/dashboard/resumelist" className="text-blue-600 hover:text-blue-700">
+        <Link
+          href="/dashboard/resumelist"
+          className="text-[#00b38d] hover:text-blue-700"
+        >
           View All
         </Link>
       </div>
@@ -110,7 +114,9 @@ const Sidebar = ({ score, resumeId }) => {
       {/* Resume Preview */}
       <div className="border border-gray-200 rounded-lg shadow-sm p-2 mb-4 relative h-[500px]">
         {loading ? (
-          <div className="flex items-center justify-center h-full">Loading...</div>
+          <div className="flex items-center justify-center h-full">
+            Loading...
+          </div>
         ) : (
           <DashboardPreview
             ref={templateRef}
@@ -143,8 +149,12 @@ const Sidebar = ({ score, resumeId }) => {
         <div className="flex justify-between items-center mb-2">
           <span className="text-sm font-medium">Resume Strength:</span>
           <div className="flex items-center gap-2">
-            <span className="bg-teal-100 text-teal-800 px-2 py-1 rounded-full text-sm">{score}</span>
-            <button className="text-blue-600 hover:text-blue-700 text-sm">Improve</button>
+            <span className="bg-teal-100 text-teal-800 px-2 py-1 rounded-full text-sm">
+              {score}
+            </span>
+            <button className="text-[#00b38d] hover:text-blue-700 text-sm">
+              Improve
+            </button>
           </div>
         </div>
       </div>
@@ -152,10 +162,20 @@ const Sidebar = ({ score, resumeId }) => {
       {/* Create New Resume Button */}
       <button
         onClick={handleCreate}
-        className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+        className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-[#00b38d] text-white rounded-lg hover:bg-[#00b38d]"
       >
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+        <svg
+          className="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+          />
         </svg>
         Create New Resume
       </button>

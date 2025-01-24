@@ -30,19 +30,16 @@
 //     city_id: '',
 //     uploadPhoto: null
 //   });
-  
 
 //   useEffect(() => {
 //     const fetchData = async () => {
 
-
-      
 //       try {
 //         const token = localStorage.getItem("token");
 //         const userProfileResponse = await axios.get(' https://api.resumeintellect.com/api/user/user-profile', {
 //           headers: { Authorization: token },
 //         });
-        
+
 //         if (userProfileResponse.data.status === 'success') {
 //           const userData = userProfileResponse.data.data;
 //           setFormData(prevData => ({
@@ -166,7 +163,7 @@
 //               <div>
 //                 <p className="text-white">📧 {formData.email || "Please update your [Email]"}</p>
 //                 <p className="text-white">📱 {formData.phone || "Please update your [Phone]"}</p>
-             
+
 //               </div>
 //             </div>
 //           </div>
@@ -203,7 +200,7 @@
 //             </div>
 //             <Link href="/dashboard/ai-resume-builder">
 //               <button
-//                 className="bg-blue-500 text-white px-1 py-2 rounded-lg hover:bg-blue-600 w-full md:w-auto"
+//                 className="bg-blue-500 text-white px-1 py-2 rounded-lg hover:bg-[#00b38d] w-full md:w-auto"
 //           >
 //             Upload Resume
 //           </button>
@@ -256,60 +253,61 @@ const ProfilePage = () => {
   const [resumes, setResumes] = useState([]);
   const [scores, setScores] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalContent, setModalContent] = useState('');
-  const [modalResumeName, setModalResumeName] = useState('');
+  const [modalContent, setModalContent] = useState("");
+  const [modalResumeName, setModalResumeName] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
 
   const [formData, setFormData] = useState({
-    photo: '',
-    first_name: '',
-    last_name: '',
-    professional_title: '',
-    languages: '',
-    age: '',
-    current_salary: '',
-    expected_salary: '',
-    description: '',
-    country_id: '',
-    state_id: '',
-    city_id: '',
-    uploadPhoto: null
+    photo: "",
+    first_name: "",
+    last_name: "",
+    professional_title: "",
+    languages: "",
+    age: "",
+    current_salary: "",
+    expected_salary: "",
+    description: "",
+    country_id: "",
+    state_id: "",
+    city_id: "",
+    uploadPhoto: null,
   });
- 
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const token = localStorage.getItem("token");
-        const userProfileResponse = await axios.get('https://api.resumeintellect.com/api/user/user-profile', {
-          headers: { Authorization: token },
-        });
-        console.log(userProfileResponse.data.data ,">>> data profile")
-        if (userProfileResponse.data.status === 'success') {
+        const userProfileResponse = await axios.get(
+          "https://api.resumeintellect.com/api/user/user-profile",
+          {
+            headers: { Authorization: token },
+          }
+        );
+        console.log(userProfileResponse.data.data, ">>> data profile");
+        if (userProfileResponse.data.status === "success") {
           const userData = userProfileResponse.data.data;
-          setFormData(prevData => ({
+          setFormData((prevData) => ({
             ...prevData,
             photo: userData.photo || "",
-            first_name: userData.first_name || '',
-            last_name: userData.last_name || '',
-            professional_title: userData.professional_title || '',
-            languages: userData.languages || '',
-            age: userData.age || '',
-            current_salary: userData.current_salary || '',
-            expected_salary: userData.expected_salary || '',
-            phone: userData.phone || '',
-            email: userData.email || '',
-            description: userData.description || '',
-            country_id: userData.country_id || '',
-            state_id: userData.state_id || '',
-            city_id: userData.city_id || ''
+            first_name: userData.first_name || "",
+            last_name: userData.last_name || "",
+            professional_title: userData.professional_title || "",
+            languages: userData.languages || "",
+            age: userData.age || "",
+            current_salary: userData.current_salary || "",
+            expected_salary: userData.expected_salary || "",
+            phone: userData.phone || "",
+            email: userData.email || "",
+            description: userData.description || "",
+            country_id: userData.country_id || "",
+            state_id: userData.state_id || "",
+            city_id: userData.city_id || "",
           }));
-      
         }
       } catch (error) {
-        console.error('An error occurred while fetching data:', error);
-        toast.error('Failed to load profile data');
+        console.error("An error occurred while fetching data:", error);
+        toast.error("Failed to load profile data");
       }
     };
 
@@ -321,56 +319,66 @@ const ProfilePage = () => {
   }, []);
 
   const fetchResumes = async () => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     if (token) {
       try {
-        const response = await axios.get('https://api.resumeintellect.com/api/user/resume-list', {
-          headers: { Authorization: token }
-        });
+        const response = await axios.get(
+          "https://api.resumeintellect.com/api/user/resume-list",
+          {
+            headers: { Authorization: token },
+          }
+        );
         const resumes = response.data.resumelist;
         if (resumes.length === 0) {
           toast.info("No resumes available.");
         }
         setResumes(resumes);
       } catch (error) {
-        console.error('Error fetching resume list:', error);
-        toast.error('Failed to fetch resumes');
+        console.error("Error fetching resume list:", error);
+        toast.error("Failed to fetch resumes");
       }
     } else {
-      console.error('Token not found in localStorage');
-      toast.error('Please login to continue');
+      console.error("Token not found in localStorage");
+      toast.error("Please login to continue");
     }
   };
 
   const handleGetScore = async (resume) => {
     setIsLoading(true);
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
 
     if (!token) {
-      toast.error('Please login to continue');
+      toast.error("Please login to continue");
       setIsLoading(false);
       return;
     }
 
     try {
-      const response = await axios.post('https://api.resumeintellect.com/api/user/file-based-ai', {
-        keyword: 'Rate this resume content in percentage ? and checklist of scope improvements in manner of content and informations',
-        file_location: resume.file_path || "/etc/dean_ai_resume/users/resume_uploads/majid[15_0]-1723818329.pdf",
-      }, {
-        headers: { Authorization: token }
-      });
+      const response = await axios.post(
+        "https://api.resumeintellect.com/api/user/file-based-ai",
+        {
+          keyword:
+            "Rate this resume content in percentage ? and checklist of scope improvements in manner of content and informations",
+          file_location:
+            resume.file_path ||
+            "/etc/dean_ai_resume/users/resume_uploads/majid[15_0]-1723818329.pdf",
+        },
+        {
+          headers: { Authorization: token },
+        }
+      );
 
       const { content_acuracy_percentage } = response.data.data;
-      setScores(prevScores => ({
+      setScores((prevScores) => ({
         ...prevScores,
-        [resume.id]: content_acuracy_percentage
+        [resume.id]: content_acuracy_percentage,
       }));
       setModalContent(content_acuracy_percentage);
       setModalResumeName(resume.name);
       setIsModalOpen(true);
     } catch (error) {
-      console.error('Error fetching AI score:', error);
-      toast.error('Failed to get resume score');
+      console.error("Error fetching AI score:", error);
+      toast.error("Failed to get resume score");
     } finally {
       setIsLoading(false);
     }
@@ -388,7 +396,7 @@ const ProfilePage = () => {
       return;
     }
 
-    if (file.type !== 'application/pdf') {
+    if (file.type !== "application/pdf") {
       toast.error("Please upload only PDF files.");
       setSelectedFile(null);
       return;
@@ -399,27 +407,27 @@ const ProfilePage = () => {
   };
 
   const handleFileUpload = async (file) => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     if (!token) {
-      toast.error('Please login to continue');
+      toast.error("Please login to continue");
       return;
     }
 
     // Create FormData object and append the file
     const formData = new FormData();
-    formData.append('files', file); // Using 'files' as the key based on the API requirements
+    formData.append("files", file); // Using 'files' as the key based on the API requirements
 
     try {
       setIsLoading(true);
-      setUploadStatus('Uploading...');
+      setUploadStatus("Uploading...");
 
       const response = await axios.post(
-        'https://api.resumeintellect.com/api/user/resume-upload',
+        "https://api.resumeintellect.com/api/user/resume-upload",
         formData,
         {
           headers: {
-            'Authorization': token,
-            'Content-Type': 'multipart/form-data',
+            Authorization: token,
+            "Content-Type": "multipart/form-data",
           },
           onUploadProgress: (progressEvent) => {
             const percentCompleted = Math.round(
@@ -430,33 +438,34 @@ const ProfilePage = () => {
         }
       );
 
-      if (response.data.status === 'success') {
-        toast.success('Resume uploaded successfully');
+      if (response.data.status === "success") {
+        toast.success("Resume uploaded successfully");
         setSelectedFile(null);
         setUploadProgress(0);
-        setUploadStatus('Upload complete');
+        setUploadStatus("Upload complete");
         await fetchResumes(); // Refresh the resume list
       } else {
-        toast.error(response.data.message || 'Upload failed');
-        setUploadStatus('Upload failed');
+        toast.error(response.data.message || "Upload failed");
+        setUploadStatus("Upload failed");
       }
     } catch (error) {
-      console.error('Error uploading resume:', error);
-      toast.error(error.response?.data?.message || 'Failed to upload resume');
-      setUploadStatus('Upload failed');
+      console.error("Error uploading resume:", error);
+      toast.error(error.response?.data?.message || "Failed to upload resume");
+      setUploadStatus("Upload failed");
     } finally {
       setIsLoading(false);
     }
   };
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(modalContent)
+    navigator.clipboard
+      .writeText(modalContent)
       .then(() => {
-        toast.success('Content copied to clipboard');
+        toast.success("Content copied to clipboard");
       })
-      .catch(err => {
-        console.error('Failed to copy: ', err);
-        toast.error('Failed to copy content');
+      .catch((err) => {
+        console.error("Failed to copy: ", err);
+        toast.error("Failed to copy content");
       });
   };
 
@@ -552,7 +561,7 @@ const ProfilePage = () => {
                 />
                 <label
                   htmlFor="fileInput"
-                  className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 cursor-pointer w-full md:w-auto text-center"
+                  className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-[#00b38d] cursor-pointer w-full md:w-auto text-center"
                 >
                   {isLoading ? (
                     <span className="flex items-center justify-center">
@@ -603,7 +612,7 @@ const ProfilePage = () => {
                 <div className="flex mt-4">
                   <button
                     onClick={copyToClipboard}
-                    className="bg-blue-500 text-white py-1 px-4 rounded mr-2 hover:bg-blue-600"
+                    className="bg-blue-500 text-white py-1 px-4 rounded mr-2 hover:bg-[#00b38d]"
                   >
                     Copy
                   </button>

@@ -628,7 +628,7 @@ const Skill = ({ title }) => {
               <div className="border-t border-gray-100 p-3 flex justify-end">
                 <button
                   onClick={() => setActiveTooltip(null)}
-                  className="text-blue-600 hover:text-blue-800 text-sm font-medium"
+                  className="text-[#00b38d] hover:text-blue-800 text-sm font-medium"
                 >
                   Dismiss
                 </button>

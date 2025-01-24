@@ -220,7 +220,7 @@ const Testpaper = () => {
                     className={`p-2 bg-[#00b38d] rounded-md text-white hover:bg-[#00b38d] mt-4 ${
                       currentQuestionIndex === 0
                         ? "opacity-50 cursor-not-allowed"
-                        : "hover:bg-blue-700"
+                        : "hover:bg-[#00b38d]"
                     }`}
                     onClick={handlePrevious}
                     disabled={currentQuestionIndex === 0}
