@@ -42,13 +42,13 @@ const IntroductionAndBodyForm = () => {
 
   return (
     <div className="p-4 md:p-8   rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold mb-6 text-white">
+      <h2 className="text-2xl font-bold mb-6 text-black">
         Introduction & Body
       </h2>
 
       {/* Introduction Section */}
       <div className="mb-6">
-        <label className="block text-white font-medium mb-2">
+        <label className="block text-black font-medium mb-2">
           Introduction
         </label>
         <textarea
@@ -61,11 +61,11 @@ const IntroductionAndBodyForm = () => {
       </div>
 
       {/* Body Section */}
-      <h3 className="text-xl font-semibold mb-4 text-white">Body Paragraphs</h3>
+      <h3 className="text-xl font-semibold mb-4 text-black">Body Paragraphs</h3>
       {coverLetterData.body.map((paragraph, index) => (
         <div key={index} className="mb-4">
           <div className="flex justify-between items-center">
-            <label className="block text-white font-medium mb-2">
+            <label className="block text-black font-medium mb-2">
               Paragraph {index + 1}
             </label>
             <button

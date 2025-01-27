@@ -50,7 +50,7 @@
 // //     setLoading(true);
 // //     setShowLoadingAnimation(true);
 // //     try {
-// //       const response = await axios.post("https://api.sentryspot.co.uk/api/user/resume-upload", formData, {
+// //       const response = await axios.post("https://api.resumeintellect.com/api/user/resume-upload", formData, {
 // //         headers: {
 // //           "Content-Type": "multipart/form-data",
 // //           Authorization: token,
@@ -91,7 +91,7 @@
 // //     setShowLoadingAnimation(true);
 // //     try {
 // //       const response = await axios.post(
-// //         "https://api.sentryspot.co.uk/api/user/resume-create",
+// //         "https://api.resumeintellect.com/api/user/resume-create",
 // //         {},
 // //         { headers: { Authorization: token } }
 // //       );
@@ -267,7 +267,7 @@
 //     setLoading(true);
 //     setShowLoadingAnimation(true);
 //     try {
-//       const response = await axios.post("https://api.sentryspot.co.uk/api/jobseeker/resume-upload", formData, {
+//       const response = await axios.post("https://api.resumeintellect.com/api/jobseeker/resume-upload", formData, {
 //         headers: {
 //           "Content-Type": "multipart/form-data",
 //           Authorization: token,
@@ -308,7 +308,7 @@
 //     setShowLoadingAnimation(true);
 //     try {
 //       const response = await axios.post(
-//         "https://api.sentryspot.co.uk/api/jobseeker/resume-create",
+//         "https://api.resumeintellect.com/api/jobseeker/resume-create",
 //         {},
 //         { headers: { Authorization: token } }
 //       );
@@ -493,7 +493,7 @@ const ResumeEnhancementModal = ({ isOpen, onClose, fileLocation, token }) => {
     setIsEnhancing(true);
     try {
       const response = await axios.post(
-        "https://api.sentryspot.co.uk/api/jobseeker/resume-improved",
+        "https://api.resumeintellect.com/api/jobseeker/resume-improved",
         {
           keyword: "resume improved",
           file_location: fileLocation,
@@ -765,7 +765,7 @@ const LoadUnload = () => {
     setShowLoadingAnimation(true);
     try {
       const response = await axios.post(
-        "https://api.sentryspot.co.uk/api/jobseeker/resume-upload",
+        "https://api.resumeintellect.com/api/jobseeker/resume-upload",
         formData,
         {
           headers: {
@@ -817,7 +817,7 @@ const LoadUnload = () => {
     setShowLoadingAnimation(true);
     try {
       const response = await axios.post(
-        "https://api.sentryspot.co.uk/api/jobseeker/resume-create",
+        "https://api.resumeintellect.com/api/jobseeker/resume-create",
         {},
         { headers: { Authorization: token } }
       );

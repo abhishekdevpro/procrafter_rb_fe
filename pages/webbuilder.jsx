@@ -763,7 +763,7 @@ export default function WebBuilder() {
                   <select
                     value={selectedFont}
                     onChange={handleFontChange}
-                    className="w-40 h-10 rounded-lg border border-green-500 px-4 font-bold text-black bg-white focus:ring-2 focus:ring-blue-800"
+                    className="w-40 h-10 rounded-lg border border-green-500 px-4 font-bold text-black bg-white focus:ring-2 focus:ring-green-600"
                   >
                     <option value="Ubuntu">Ubuntu</option>
                     <option value="Calibri">Calibri</option>
@@ -881,11 +881,11 @@ export default function WebBuilder() {
         ) : (
           <div className=" flex flex-col">
             <div className="hidden md:flex w-screen px-8 py-4 justify-between items-center bg-white shadow">
-              <div className="flex gap-4">
+              <div className="flex gap-4 ">
                 <select
                   value={selectedFont}
                   onChange={handleFontChange}
-                  className="px-4 py-2 border rounded-lg"
+                  className="w-40 h-10 rounded-lg border-2 border-green-500 px-8 p-1 font-bold  bg-white text-black mt-2"
                 >
                   <option value="Ubuntu">Ubuntu</option>
                   <option value="Calibri">Calibri</option>

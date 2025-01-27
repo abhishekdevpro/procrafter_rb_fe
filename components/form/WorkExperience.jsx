@@ -73,7 +73,7 @@
 //     setError("");
 //     try {
 //       const response = await axios.post(
-//         "https://api.sentryspot.co.uk/api/jobseeker/ai-resume-profexp-data",
+//         "https://api.resumeintellect.com/api/jobseeker/ai-resume-profexp-data",
 //         {
 //           key: "professional_experience",
 //           keyword:
@@ -824,7 +824,7 @@ const WorkExperience = () => {
     setError("");
     try {
       const response = await axios.post(
-        "https://api.sentryspot.co.uk/api/jobseeker/ai-resume-profexp-data",
+        "https://api.resumeintellect.com/api/user/ai-resume-profexp-data",
         {
           key: "professional_experience",
           keyword:
@@ -931,7 +931,7 @@ const WorkExperience = () => {
       setIsLoading(true);
       try {
         const response = await axios.post(
-          "https://api.sentryspot.co.uk/api/jobseeker/ai-resume-profexp-data",
+          "https://api.resumeintellect.com/api/user/ai-resume-profexp-data",
           {
             key: "professional_experience",
             keyword: value,
@@ -1545,7 +1545,7 @@ export default WorkExperience;
 //     setError("");
 //     try {
 //       const response = await axios.post(
-//         "https://api.sentryspot.co.uk/api/jobseeker/ai-resume-profexp-data",
+//         "https://api.resumeintellect.com/api/jobseeker/ai-resume-profexp-data",
 //         {
 //           key: "professional_experience",
 //           keyword: "Generate professional summary and Checklist of professional experience in manner of content and information",
