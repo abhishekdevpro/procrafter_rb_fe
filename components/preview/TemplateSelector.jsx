@@ -94,7 +94,7 @@
 //     <div>
 //       <button
 //         onClick={openModal}
-//         className="rounded-lg border-2 m-2 border-blue-800 px-5 py-2 font-bold bg-white text-blue-800 "
+//         className="rounded-lg border-2 m-2 border-pink-800 px-5 py-2 font-bold bg-white text-pink-800 "
 //       >
 //         Select Template
 //       </button>
@@ -308,7 +308,7 @@ const TemplateSelector = ({ selectedTemplate, setSelectedTemplate }) => {
                         w-64 p-2 rounded-lg transition-all duration-300
                         ${
                           template.key === templateId
-                            ? "bg-blue-100 ring-4 ring-blue-500 ring-offset-2"
+                            ? "bg-pink-100 ring-4 ring-pink-500 ring-offset-2"
                             : "hover:bg-gray-50"
                         }
                       `}
@@ -323,13 +323,13 @@ const TemplateSelector = ({ selectedTemplate, setSelectedTemplate }) => {
                               w-full h-80 object-cover rounded-lg shadow-md transition-transform duration-300
                               ${
                                 template.key === templateId
-                                  ? "ring-2 ring-blue-400"
-                                  : "group-hover:ring-2 group-hover:ring-blue-300"
+                                  ? "ring-2 ring-pink-400"
+                                  : "group-hover:ring-2 group-hover:ring-pink-300"
                               }
                             `}
                           />
                           {template.key === templateId && (
-                            <div className="absolute inset-0 border-4 border-blue-500 rounded-lg pointer-events-none" />
+                            <div className="absolute inset-0 border-4 border-pink-500 rounded-lg pointer-events-none" />
                           )}
                         </div>
                         <div
@@ -337,7 +337,7 @@ const TemplateSelector = ({ selectedTemplate, setSelectedTemplate }) => {
                           mt-2 text-center py-2 px-4 rounded-md transition-colors duration-300
                           ${
                             template.key === templateId
-                              ? "bg-blue-500 text-white font-semibold"
+                              ? "bg-pink-500 text-white font-semibold"
                               : "text-gray-600 group-hover:text-[#00b38d]"
                           }
                         `}

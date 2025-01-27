@@ -19,7 +19,7 @@
 // //       const location = localStorage.getItem("location");
 
 // //       const response = await axios.post(
-// //         "https://api.sentryspot.co.uk/api/jobseeker/ai-resume-summery-data",
+// //         "https://api.resumeintellect.com/api/jobseeker/ai-resume-summery-data",
 // //         {
 // //           key: "resumesummery",
 // //           keyword: "professional summery in manner of description",
@@ -162,7 +162,7 @@
 //       const location = localStorage.getItem("location");
 
 //       const response = await axios.post(
-//         "https://api.sentryspot.co.uk/api/jobseeker/ai-resume-summery-data",
+//         "https://api.resumeintellect.com/api/jobseeker/ai-resume-summery-data",
 //         {
 //           key: "resumesummery",
 //           keyword: `professional summary in manner of description - ${Date.now()}`, // Adding a timestamp to ensure uniqueness
@@ -375,7 +375,7 @@ const Summary = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        "https://api.sentryspot.co.uk/api/jobseeker/ai-resume-summery-data",
+        "https://api.resumeintellect.com/api/user/ai-resume-summery-data",
         {
           key: "resumesummery",
           keyword: `professional summary in manner of description - ${Date.now()}`,
