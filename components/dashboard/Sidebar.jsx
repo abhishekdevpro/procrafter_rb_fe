@@ -105,7 +105,7 @@ const Sidebar = ({ score, resumeId }) => {
         <h2 className="text-lg font-semibold">{resumeTitle}</h2>
         <Link
           href="/dashboard/resumelist"
-          className="text-[#00b38d] hover:text-blue-700"
+          className="text-[#00b38d] hover:text-[#369984]"
         >
           View All
         </Link>

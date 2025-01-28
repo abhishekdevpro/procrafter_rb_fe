@@ -199,7 +199,7 @@ const MyCvLetter = () => {
                       <div className="flex items-center space-x-3">
                         <button
                           onClick={() => handleEdit(coverletter.id)}
-                          className="text-[#00b38d] hover:text-blue-800"
+                          className="text-[#00b38d] hover:text-[#369984] transition-colors duration-200"
                         >
                           <Edit className="w-5 h-5" />
                         </button>
@@ -214,7 +214,7 @@ const MyCvLetter = () => {
                         </button>
                         <button
                           onClick={() => handleDownload(coverletter.id)}
-                          className="text-green-600 hover:text-green-800 transition-colors duration-200"
+                          className="text-[#00b38d] hover:text-[#369984]  transition-colors duration-200"
                         >
                           <Download className="w-5 h-5" />
                         </button>

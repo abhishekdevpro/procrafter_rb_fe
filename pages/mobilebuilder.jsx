@@ -18,14 +18,13 @@ import ColorPickers from "./ColorPickers";
 import Preview from "../components/preview/Preview";
 import TemplateSelector from "../components/preview/TemplateSelector";
 
-
 import { useRouter } from "next/router";
 import Sidebar from "./dashboard/Sidebar";
 import { toast } from "react-toastify";
 import LoaderButton from "../components/utility/LoaderButton";
 import useLoader from "../hooks/useLoader";
 
-import { Menu, X } from 'lucide-react';
+import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import resumeImg from "./builderImages/GraphicDesignerResume.jpg";
 import poweredbypaypal from "./builderImages/poweredbypaypal.png";
@@ -33,22 +32,20 @@ import paypal from "./builderImages/paypal.png";
 import logo from "./builderImages/logo.png";
 import applepay from "./builderImages/apple-pay.png";
 import { ResumeContext } from "../components/context/ResumeContext";
-
+import PayAndDownload from "../components/PayDownload";
 
 const Print = dynamic(() => import("../components/utility/WinPrint"), {
   ssr: false,
 });
 
 export default function MobileBuilder() {
-  
- 
   const [currentSection, setCurrentSection] = useState(0);
-  
+
   const [selectedTemplate, setSelectedTemplate] = useState("template1");
   const [isFinished, setIsFinished] = useState(false);
 
   const [token, setToken] = useState(null);
-   const [resumeId, setResumeId] = useState(null);
+  const [resumeId, setResumeId] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const router = useRouter();
   const pdfExportComponent = useRef(null);
@@ -58,8 +55,17 @@ export default function MobileBuilder() {
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
   const [userId, setUserId] = useState(0);
   const templateRef = useRef(null);
-  const {resumeData ,setResumeData, setHeaderColor,setBgColor,setSelectedFont,selectedFont,backgroundColorss,headerColor} = useContext(ResumeContext)
- const [showModal, setShowModal] = useState(false);
+  const {
+    resumeData,
+    setResumeData,
+    setHeaderColor,
+    setBgColor,
+    setSelectedFont,
+    selectedFont,
+    backgroundColorss,
+    headerColor,
+  } = useContext(ResumeContext);
+  const [showModal, setShowModal] = useState(false);
 
   const handleCloseModal = () => setShowModal(false);
   const handleShowModal = () => setShowModal(true);
@@ -74,33 +80,43 @@ export default function MobileBuilder() {
   useEffect(() => {
     const fetchResumeData = async () => {
       const { id } = router.query;
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem("token");
 
       if (id && token) {
         try {
-          const response = await axios.get(`https://api.resumeintellect.com/api/user/resume-list/${id}`, {
-            headers: {
-              Authorization: token,
-            },
-          });
+          const response = await axios.get(
+            `https://api.resumeintellect.com/api/user/resume-list/${id}`,
+            {
+              headers: {
+                Authorization: token,
+              },
+            }
+          );
 
-          if (response.data.status === 'success') {
+          if (response.data.status === "success") {
             const { data } = response.data;
             const parsedData = JSON.parse(data.ai_resume_parse_data);
-            
+
             // Update state with fetched data
             setResumeData(parsedData.templateData);
-            
+
             // Set background color and template
             if (parsedData.templateData.templateDetails) {
-              setBgColor(parsedData.templateData.templateDetails.backgroundColor || '');
-              setHeaderColor(parsedData.templateData.templateDetails.backgroundColor );
-              setSelectedTemplate(parsedData.templateData.templateDetails.templateId || 'template1');
+              setBgColor(
+                parsedData.templateData.templateDetails.backgroundColor || ""
+              );
+              setHeaderColor(
+                parsedData.templateData.templateDetails.backgroundColor
+              );
+              setSelectedTemplate(
+                parsedData.templateData.templateDetails.templateId ||
+                  "template1"
+              );
             }
           }
         } catch (error) {
-          console.error('Error fetching resume data:', error);
-          toast.error('Failed to fetch resume data');
+          console.error("Error fetching resume data:", error);
+          toast.error("Failed to fetch resume data");
         }
       }
     };
@@ -121,7 +137,8 @@ export default function MobileBuilder() {
       // const storedResumeData = localStorage.getItem("resumeData");
 
       if (storedIsFinished) setIsFinished(JSON.parse(storedIsFinished));
-      if (storedTemplate && !selectedTemplate) setSelectedTemplate(storedTemplate);
+      if (storedTemplate && !selectedTemplate)
+        setSelectedTemplate(storedTemplate);
       if (storedFont) setSelectedFont(storedFont);
       if (storedBgColor && !backgroundColorss) setBgColor(storedBgColor);
       if (storedCurrentSection)
@@ -207,12 +224,8 @@ export default function MobileBuilder() {
     { label: "Certifications", component: <Certification /> },
   ];
 
-  
-
-  
-
   const handleNext = () => {
-    handleFinish()
+    handleFinish();
     if (currentSection === sections.length - 1) {
       localStorage.setItem("tempResumeData", JSON.stringify(resumeData));
       localStorage.setItem("tempHeaderColor", headerColor);
@@ -248,12 +261,12 @@ export default function MobileBuilder() {
   }, []);
 
   const handlePrevious = () => {
-    handleFinish()
+    handleFinish();
     setCurrentSection((prev) => Math.max(prev - 1, 0));
   };
 
   const handleSectionClick = (index) => {
-    handleFinish()
+    handleFinish();
     setCurrentSection(index);
     setIsMobileMenuOpen(false);
   };
@@ -262,10 +275,8 @@ export default function MobileBuilder() {
     setSelectedFont(e.target.value);
   };
 
- 
- 
   const downloadAsPDF = async () => {
-    handleFinish()
+    handleFinish();
     const amount = 49; // Fixed price
 
     try {
@@ -273,21 +284,22 @@ export default function MobileBuilder() {
       const payload = {
         amount,
         ResumeId: resumeId, // Make sure resumeId is defined in your component
-        Token: token || '' // Make sure token is defined in your component
+        Token: token || "", // Make sure token is defined in your component
       };
 
       const response = await axios.post(
-        'https://api.resumeintellect.com/api/user/paypal/create-payment',
+        "https://api.resumeintellect.com/api/user/paypal/create-payment",
         payload,
         {
           headers: {
-             Authorization:token,
-            'Content-Type': 'application/json' }
+            Authorization: token,
+            "Content-Type": "application/json",
+          },
         }
       );
 
       const data = response.data;
-      console.log(data,"data");
+      console.log(data, "data");
       if (data && data.data) {
         // Store the order ID for later verification if needed
         const orderId = data.order_id;
@@ -301,21 +313,21 @@ export default function MobileBuilder() {
         }
       }
     } catch (error) {
-      console.error('Payment Error:', error);
+      console.error("Payment Error:", error);
       // Handle error (show error message to user)
     }
   };
- 
+
   // const downloadAsPDF = async () => {
   //   if (!templateRef.current) {
   //     toast.error("Template reference not found");
   //     return;
   //   }
-  
+
   //   try {
   //     // Get the HTML content from the template
   //     const htmlContent = templateRef.current.innerHTML;
-  
+
   //     // Generate the full HTML for the PDF
   //     const fullContent = `
   //       <style>
@@ -323,7 +335,7 @@ export default function MobileBuilder() {
   //       </style>
   //       ${htmlContent}
   //     `;
-  
+
   //     // API call to generate the PDF
   //     const response = await axios.post(
   //       'https://api.resumeintellect.com/api/user/generate-pdf1',
@@ -335,19 +347,19 @@ export default function MobileBuilder() {
   //         },
   //       }
   //     );
-  
+
   //     // Check if the file path was returned
   //     const filePath = response.data.data?.file_path;
   //     if (!filePath) {
   //       throw new Error('PDF file path not received');
   //     }
-  
+
   //     // Construct the URL
   //     const downloadUrl = `https://api.resumeintellect.com${filePath}`;
-  
+
   //     // Open the URL in a new tab
   //     window.open(downloadUrl, '_blank');
-  
+
   //     toast.success('PDF generated and opened in a new tab!');
   //   } catch (error) {
   //     console.error('PDF generation error:', error);
@@ -599,12 +611,8 @@ export default function MobileBuilder() {
       />
 
       <div className=" w-full bg-gray-50">
-      
-
         {!isFinished ? (
           <div className=" bg-gray-50 flex flex-col">
-            
-
             <div className="flex flex-col md:flex-row flex-grow ">
               <button
                 onClick={toggleMobileSidebar}
@@ -644,57 +652,59 @@ export default function MobileBuilder() {
               <main className="flex-1 max-w-2xl mx-auto md:p-4">
                 <form>{sections[currentSection].component}</form>
               </main>
-
             </div>
 
             <MobileNavigation />
           </div>
         ) : (
           <>
-              <div className="flex items-center absolute justify-center gap-2 p-2  top-26 left-0 right-0 bg-white shadow-lg ">
+            <div className="flex items-center absolute justify-center gap-2 p-2  top-26 left-0 right-0 bg-white shadow-lg ">
               <ColorPickers
-                      selectmultiplecolor={backgroundColorss}
-                      onChange={setBgColor}
-                    />
-          <select
-                    value={selectedFont}
-                    onChange={handleFontChange}
-                    className="rounded-lg border-2 border-green-500 px-5 py-2 font-bold  bg-white text-black"
-                  >
-                    <option value="Ubuntu">Ubuntu</option>
-                    <option value="Calibri">Calibri</option>
-                    <option value="Georgia">Georgia</option>
-                    <option value="Roboto">Roboto</option>
-                    <option value="Poppins">Poppins</option>
-                  </select>
-         
-<TemplateSelector   selectedTemplate={selectedTemplate}
-                      setSelectedTemplate={setSelectedTemplate}/>
+                selectmultiplecolor={backgroundColorss}
+                onChange={setBgColor}
+              />
+              <select
+                value={selectedFont}
+                onChange={handleFontChange}
+                className="rounded-lg border-2 border-green-500 px-5 py-2 font-bold  bg-white text-black"
+              >
+                <option value="Ubuntu">Ubuntu</option>
+                <option value="Calibri">Calibri</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Roboto">Roboto</option>
+                <option value="Poppins">Poppins</option>
+              </select>
 
-          </div>
-           <div className=" ">
-          <Preview ref={templateRef} selectedTemplate={selectedTemplate} />
-          </div>
-         
-          <div className="flex items-center justify-center gap-4 p-2 fixed bottom-0 left-0 right-0 bg-white shadow-lg ">
-         
-          
+              <TemplateSelector
+                selectedTemplate={selectedTemplate}
+                setSelectedTemplate={setSelectedTemplate}
+              />
+            </div>
+            <div className=" ">
+              <Preview ref={templateRef} selectedTemplate={selectedTemplate} />
+            </div>
+
+            <div className="flex items-center justify-center gap-4 p-2 fixed bottom-0 left-0 right-0 bg-white shadow-lg ">
               <LoaderButton
                 isLoading={isLoading}
                 onClick={handleFinish}
                 className=" text-white px-4 py-2 rounded-lg bottom-btns"
               >
-              
-              Save
+                Save
               </LoaderButton>
 
-              <button
+              {/* <button
                 onClick={downloadAsPDF}
                 className=" bg-yellow-500 text-black px-4 py-2 rounded-lg bottom-btns"
               >
              Pay & Download
-              </button>
-              {showModal && (
+              </button> */}
+              <PayAndDownload
+                resumeId={resumeId}
+                token={token}
+                PayerID={PayerID}
+              />
+              {/* {showModal && (
                 <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
                   <div className="w-full max-w-[90%] sm:max-w-4xl bg-white rounded-lg shadow-lg overflow-hidden max-h-screen overflow-y-auto">
                     <div className="flex justify-between items-center p-4 border-b">
@@ -816,22 +826,17 @@ export default function MobileBuilder() {
                     </div>
                   </div>
                 </div>
-              )}
+              )} */}
               <button
                 onClick={handleBackToEditor}
                 className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors bottom-btns"
               >
-             Back
+                Back
               </button>
             </div>
           </>
-          
-          
         )}
       </div>
     </>
   );
 }
-
-
-

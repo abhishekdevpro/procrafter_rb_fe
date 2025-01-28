@@ -31,7 +31,6 @@ const Gauth = () => {
 
           // Redirect to the success URL with the token
           router.push("/dashboard");
-          // window.open = `https://abroadium-arbuild-dev-fe.vercel.app/dashboard/?${token}`;
         } catch (error) {
           console.error("Error while sending auth code:", error);
 
@@ -55,7 +54,7 @@ const Gauth = () => {
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       {loading ? (
         <div className="flex flex-col items-center">
-          <div className="loader border-t-4 border-blue-500 rounded-full w-12 h-12 animate-spin"></div>
+          <div className="loader border-t-4 border-green-500 rounded-full w-12 h-12 animate-spin"></div>
           <p className="mt-4 text-gray-600">Loading, please wait...</p>
         </div>
       ) : (

@@ -755,31 +755,35 @@ const TemplateStep = ({ onNext, onBack, onChange, value }) => {
           </div>
 
           <div className="lg:col-span-3">
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-              {templates.map((template) => (
-                <button
-                  key={template.key}
-                  onClick={() => onChange({ ...value, template: template.key })}
-                  className="group relative bg-white rounded-xl overflow-hidden transition-all duration-300"
-                  style={getHoverStyle(template.key)}
-                >
-                  <div className="w-full">
-                    <div className="relative aspect-[3/4] overflow-hidden">
-                      <Image
-                        src={template.imageUrl}
-                        alt={template.name}
-                        layout="fill"
-                        objectFit="cover"
-                        className="transition-transform duration-300 group-hover:scale-105"
-                        priority={templates.indexOf(template) < 6}
-                      />
+            <div className="overflow-y-auto max-h-[430px] scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                {templates.map((template) => (
+                  <button
+                    key={template.key}
+                    onClick={() =>
+                      onChange({ ...value, template: template.key })
+                    }
+                    className="group relative bg-white rounded-xl overflow-hidden transition-all duration-300"
+                    style={getHoverStyle(template.key)}
+                  >
+                    <div className="w-full">
+                      <div className="relative aspect-[3/4] overflow-hidden">
+                        <Image
+                          src={template.imageUrl}
+                          alt={template.name}
+                          layout="fill"
+                          objectFit="cover"
+                          className="transition-transform duration-300 group-hover:scale-105"
+                          priority={templates.indexOf(template) < 6}
+                        />
+                      </div>
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                        {/* <p className="text-white font-medium text-lg">{template.name}</p> */}
+                      </div>
                     </div>
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                      {/* <p className="text-white font-medium text-lg">{template.name}</p> */}
-                    </div>
-                  </div>
-                </button>
-              ))}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         </div>

@@ -321,7 +321,6 @@ function CoverLetterBuilder() {
               {/* Editor Section */}
               <div
                 className="w-[40%] overflow-auto"
-                // style={{ backgroundColor: "#323159f5" }}
                 style={{ backgroundColor: "#e5e7eb" }}
               >
                 <main className="w-full mx-auto md:p-4">
