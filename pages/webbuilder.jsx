@@ -34,6 +34,7 @@ import paypal from "./builderImages/paypal.png";
 import logo from "./builderImages/logo.png";
 import applepay from "./builderImages/apple-pay.png";
 import { ResumeContext } from "../components/context/ResumeContext";
+import PayAndDownload from "../components/PayDownload";
 
 const Print = dynamic(() => import("../components/utility/WinPrint"), {
   ssr: false,
@@ -102,7 +103,7 @@ export default function WebBuilder() {
 
             // Update state with fetched data
             setResumeData(parsedData.templateData);
-
+            console.log(parsedData, ">>>>parsedData");
             // Set background color and template
             if (parsedData.templateData.templateDetails) {
               setBgColor(
@@ -363,7 +364,7 @@ export default function WebBuilder() {
       // const downloadUrl = `https://api.resumeintellect.com${filePath}`;
 
       // Open the URL in a new tab
-      createPayment();
+      // createPayment();
       // window.open(downloadUrl, '_blank');
 
       // toast.success('PDF generated and opened in a new tab!');
@@ -601,9 +602,9 @@ export default function WebBuilder() {
             company: exp.company || "",
             position: exp.position || "",
             description: exp.description || "",
-            KeyAchievements: Array.isArray(exp.keyAchievements)
-              ? exp.keyAchievements
-              : [exp.keyAchievements || ""],
+            KeyAchievements: Array.isArray(exp.KeyAchievements)
+              ? exp.KeyAchievements
+              : [exp.KeyAchievements || ""],
             startYear: exp.startYear || "",
             endYear: exp.endYear || "",
           })) || [],
@@ -913,13 +914,18 @@ export default function WebBuilder() {
                 >
                   Save Resume
                 </button>
-                <button
+                {/* <button
                   onClick={downloadAsPDF}
                   className="bg-yellow-500 text-black px-6 py-2 rounded-lg"
                 >
                   Pay & Download
-                </button>
-                {showModal && (
+                </button> */}
+                <PayAndDownload
+                  resumeId={resumeId}
+                  token={token}
+                  PayerID={PayerID}
+                />
+                {/* {showModal && (
                   <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
                     <div className=" w-full max-w-4xl bg-white rounded-lg shadow-lg ">
                       <div className="flex justify-between items-center p-2">
@@ -1040,7 +1046,7 @@ export default function WebBuilder() {
                       </div>
                     </div>
                   </div>
-                )}
+                )} */}
                 <button
                   onClick={handleBackToEditor}
                   className="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors"

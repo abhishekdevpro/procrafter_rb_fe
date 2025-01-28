@@ -14,6 +14,7 @@ const Navbar = () => {
   const [isApiSuccess, setIsApiSuccess] = useState(false);
   const [user, setUser] = useState("");
   const router = useRouter();
+  const axiosInstance = axios.create();
 
   useEffect(() => {
     const token = localStorage.getItem("token"); // Access localStorage here
@@ -59,13 +60,55 @@ const Navbar = () => {
 
   const handleMouseLeave = () => setIsHovering(false);
 
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    setIsLoggedIn(false);
-    toast.success("Logout Succesfully");
-    router.push("/");
+  // const handleLogout = () => {
+  //   localStorage.removeItem("token");
+  //   setIsLoggedIn(false);
+  //   toast.success("Logout Succesfully");
+  //   router.push("/");
+  // };
+  const handleLogout = async () => {
+    const token = localStorage.getItem("token");
+
+    try {
+      await axios.post(
+        "https://api.resumeintellect.com/api/user/logout",
+        { token },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      localStorage.removeItem("token");
+      router.push("/login2");
+    } catch (error) {
+      console.error(
+        "Error during logout:",
+        error.response?.data || error.message
+      );
+      // Still remove token and redirect even if logout API fails
+      localStorage.removeItem("token");
+      router.push("/login2");
+    }
   };
 
+  // Setup axios interceptor
+  useEffect(() => {
+    const interceptor = axiosInstance.interceptors.response.use(
+      (response) => response,
+      (error) => {
+        if (error.response?.status === 401) {
+          handleLogout();
+        }
+        return Promise.reject(error);
+      }
+    );
+
+    return () => {
+      axiosInstance.interceptors.response.eject(interceptor);
+    };
+  }, []);
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
 
   return (
