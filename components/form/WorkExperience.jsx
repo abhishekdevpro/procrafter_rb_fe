@@ -1031,7 +1031,7 @@ const WorkExperience = () => {
       {resumeData.workExperience.map((experience, index) => (
         <div key={index} className="mb-6 rounded-lg overflow-hidden">
           <div
-            className="flex justify-between items-center p-4 cursor-pointer bg-white"
+            className="flex justify-between items-center p-4 cursor-pointer bg-gray-200"
             onClick={() => toggleExperience(index)}
           >
             <h3 className="text-black text-xl font-semibold">

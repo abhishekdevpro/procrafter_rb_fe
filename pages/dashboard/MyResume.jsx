@@ -144,7 +144,7 @@ const MyResume = () => {
   return (
     <div className="container mx-auto p-4 max-w-7xl">
       {/* New Header Section */}
-      <div className="flex justify-between items-center mb-8">
+      <div className="flex flex-col sm:flex-row  justify-between items-center mb-8">
         <h1 className="text-2xl font-bold text-gray-800">My Resumes</h1>
         <Link href={"/dashboard/resume-builder"}>
           <button className="flex items-center px-4 py-2 bg-[#00b38d] text-white rounded-lg hover:bg-[#369984] transition-colors duration-200 font-medium shadow-sm">

@@ -729,7 +729,7 @@ const Skill = ({ title }) => {
         </div>
       ))}
 
-      <div className="flex space-x-4">
+      {/* <div className="flex space-x-4">
         <FormButton
           size={skillType.skills.length}
           add={() => addSkill(title)}
@@ -746,6 +746,31 @@ const Skill = ({ title }) => {
           type="button"
           onClick={handleAIAssist}
           className="border bg-black text-white px-3 rounded-3xl"
+          disabled={loading}
+        >
+          {loading ? "Loading..." : " + Smart Assist"}
+        </button>
+      </div> */}
+      <div className="flex flex-wrap md:flex-nowrap gap-3 md:space-x-4 w-full">
+        <FormButton
+          size={skillType.skills.length}
+          add={() => addSkill(title)}
+          className="w-full md:w-auto"
+        />
+
+        <button
+          type="button"
+          onClick={() => removeAllSkills(title)}
+          className="text-red-600 hover:text-red-800 w-full md:w-auto text-center"
+          aria-label="Delete all skills"
+        >
+          Delete All Skills
+        </button>
+
+        <button
+          type="button"
+          onClick={handleAIAssist}
+          className="border bg-black text-white p-2 rounded-3xl w-full md:w-auto text-center"
           disabled={loading}
         >
           {loading ? "Loading..." : " + Smart Assist"}

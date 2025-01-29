@@ -319,10 +319,7 @@ function CoverLetterBuilder() {
             {/* Scrollable Main Content */}
             <div className="flex flex-col md:flex-row flex-grow p-4">
               {/* Editor Section */}
-              <div
-                className="w-[40%] overflow-auto"
-                style={{ backgroundColor: "#e5e7eb" }}
-              >
+              <div className="w-[40%] overflow-auto bg-gray-100">
                 <main className="w-full mx-auto md:p-4">
                   <CoverLetterEditor />
                 </main>

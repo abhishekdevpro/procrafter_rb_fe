@@ -3,127 +3,151 @@ import Footer from "../Footer/Footer";
 
 function PrivacyPolicy() {
   return (
-    <div>
-      <div className="m-10 mx-40 p-5  shadow-2xl">
-        <h1 className="text-4xl font-semibold my-4 underline ">
+    <div className="bg-gray-50 min-h-screen">
+      <div className="max-w-4xl mx-auto my-5 p-6 sm:p-10 shadow-lg bg-white rounded-lg">
+        <h1 className="text-3xl sm:text-4xl font-semibold text-center underline mb-6">
           Privacy Policy
         </h1>
-        <h1 className="text-lg font-semibold my-2 mt-5 ">Introduction</h1>
-        At Cibli Job , we value your privacy and are committed to protecting
-        your personal information. This Privacy Policy outlines how we collect,
-        use, and safeguard your data when you use our website and services. By
-        accessing our website and using our services, you agree to the terms of
-        this Privacy Policy.
-        <h1 className="text-lg font-semibold my-2 mt-5 ">
-          1. Information We Collect
-        </h1>
-        <h1 className="text-lg font-semibold my-2 mt-5 ">
-          Personal Information
-        </h1>
-        We may collect personal information that you provide to us, including
-        but not limited to your name, email address, phone number, mailing
-        address, resume details, and payment information.
-        <h1 className="text-lg font-semibold my-2 mt-5 ">
-          Non-Personal Information
-        </h1>
-        We may also collect non-personal information such as your IP address,
-        browser type, device information, and browsing behavior on our website.
-        This data helps us improve our services and enhance your experience.
-        <h1 className="text-lg font-semibold my-2 mt-5 ">
-          2. How We Use Your Information
-        </h1>
-        <h1 className="text-lg font-semibold my-2 mt-5 ">Service Delivery </h1>
-        We use your personal information to provide and manage our services,
-        including resume writing, career coaching, and LinkedIn profile
-        optimization.
-        <h1 className="text-lg font-semibold my-2 mt-5 ">Communication</h1>
-        We may use your contact information to communicate with you about our
-        services, updates, and promotional offers. You can opt-out of these
-        communications at any time.
-        <h1 className="text-lg font-semibold my-2 mt-5 ">
-          Improvement and Analysis
-        </h1>
-        Non-personal information is used to analyze website usage, improve our
-        services, and ensure the security and functionality of our website.
-        <h1 className="text-lg font-semibold my-2 mt-5 ">Legal Compliance</h1>
-        We may disclose your information to comply with legal obligations,
-        enforce our terms and conditions, or protect the rights, property, or
-        safety of Cibli Job , our clients, or others.
-        <h1 className="text-lg font-semibold my-2 mt-5 ">3. Data Security</h1>
-        We implement appropriate technical and organizational measures to
-        protect your personal information from unauthorized access, disclosure,
-        alteration, or destruction. While we strive to safeguard your data, no
-        method of transmission over the internet or electronic storage is
-        completely secure. Therefore, we cannot guarantee absolute security.
-        <h1 className="text-lg font-semibold my-2 mt-5 ">
-          4. Sharing Your Information
-        </h1>
-        <h1 className="text-lg font-semibold my-2 mt-5 ">
-          Third-Party Service Providers
-        </h1>
-        We may share your information with trusted third-party service providers
-        who assist us in delivering our services, such as payment processors and
-        email marketing platforms. These providers are obligated to protect your
-        data and use it only for the purposes specified by us.
-        <h1 className="text-lg font-semibold my-2 mt-5 ">
-          Business Transfers{" "}
-        </h1>
-        In the event of a merger, acquisition, or sale of all or a portion of
-        our assets, your personal information may be transferred to the
-        acquiring entity.
-        <h1 className="text-lg font-semibold my-2 mt-5 ">Legal Requirements</h1>
-        We may disclose your information if required to do so by law or in
-        response to valid requests by public authorities.
-        <h1 className="text-lg font-semibold my-2 mt-5 ">
-          5. Your Rights and Choices
-        </h1>
-        <h1 className="text-lg font-semibold my-2 mt-5 ">
-          Access and Correction
-        </h1>
-        You have the right to access, update, or correct your personal
-        information at any time. Please contact us if you need assistance with
-        this.
-        <h1 className="text-lg font-semibold my-2 mt-5 ">Data Deletion</h1>
-        You may request the deletion of your personal information, subject to
-        certain legal and contractual limitations. We will take reasonable steps
-        to comply with your request.
-        <h1 className="text-lg font-semibold my-2 mt-5 ">Opt-Out </h1>
-        You can opt-out of receiving promotional communications from us by
-        following the unsubscribe instructions provided in those communications
-        or by contacting us directly.
-        <h1 className="text-lg font-semibold my-2 mt-5 ">
-          6. Cookies and Tracking Technologies
-        </h1>
-        We use cookies and similar tracking technologies to enhance your
-        browsing experience, analyze website traffic, and personalize content.
-        You can manage your cookie preferences through your browser settings.
-        <h1 className="text-lg font-semibold my-2 mt-5 ">
-          7. Third-Party Links
-        </h1>
-        Our website may contain links to third-party websites. We are not
-        responsible for the privacy practices or content of these external
-        sites. We encourage you to review the privacy policies of any
-        third-party sites you visit.
-        <h1 className="text-lg font-semibold my-2 mt-5 ">
-          8. Childrens Privacy
-        </h1>
-        Our services are not intended for individuals under the age of 18. We do
-        not knowingly collect personal information from children. If we become
-        aware that a child has provided us with personal information, we will
-        take steps to delete such information.
-        <h1 className="text-lg font-semibold my-2 mt-5 ">
-          9. Changes to This Privacy Policy
-        </h1>
-        We may update this Privacy Policy from time to time to reflect changes
-        in our practices or legal requirements. Any updates will be posted on
-        this page, and the revised policy will indicate the date of the latest
-        revision. Your continued use of our website and services after any
-        changes signifies your acceptance of the revised policy.
-        <h1 className="text-lg font-semibold my-2 mt-5 ">10. Contact Us</h1>
-        If you have any questions or concerns about this Privacy Policy or our
-        data practices, please contact us at: Email [career@Resume
-        Intellect.ca](mailto:career@Cibli Job .ca)
+
+        <div className="mb-6">
+          <h2 className="text-xl font-semibold">Introduction</h2>
+          <p className="text-gray-700 mt-2">
+            At Cibli Job, we value your privacy and are committed to protecting
+            your personal information. This Privacy Policy outlines how we
+            collect, use, and safeguard your data when you use our website and
+            services.
+          </p>
+        </div>
+
+        <div className="mb-6">
+          <h2 className="text-xl font-semibold">1. Information We Collect</h2>
+          <h3 className="font-semibold mt-3">Personal Information</h3>
+          <p className="text-gray-700">
+            We may collect personal information such as your name, email, phone
+            number, mailing address, resume details, and payment information.
+          </p>
+
+          <h3 className="font-semibold mt-3">Non-Personal Information</h3>
+          <p className="text-gray-700">
+            We also collect non-personal information like IP address, browser
+            type, and website behavior to improve our services.
+          </p>
+        </div>
+
+        <div className="mb-6">
+          <h2 className="text-xl font-semibold">
+            2. How We Use Your Information
+          </h2>
+          <h3 className="font-semibold mt-3">Service Delivery</h3>
+          <p className="text-gray-700">
+            We use your information to provide resume writing, career coaching,
+            and LinkedIn profile optimization.
+          </p>
+
+          <h3 className="font-semibold mt-3">Communication</h3>
+          <p className="text-gray-700">
+            We may contact you about our services, updates, and promotional
+            offers. You can opt-out at any time.
+          </p>
+
+          <h3 className="font-semibold mt-3">Improvement & Analysis</h3>
+          <p className="text-gray-700">
+            Non-personal data helps us analyze website usage and improve
+            security.
+          </p>
+        </div>
+
+        <div className="mb-6">
+          <h2 className="text-xl font-semibold">3. Data Security</h2>
+          <p className="text-gray-700">
+            We use appropriate security measures to protect your data but cannot
+            guarantee absolute security.
+          </p>
+        </div>
+
+        <div className="mb-6">
+          <h2 className="text-xl font-semibold">4. Sharing Your Information</h2>
+          <h3 className="font-semibold mt-3">Third-Party Service Providers</h3>
+          <p className="text-gray-700">
+            We may share data with trusted partners like payment processors and
+            email services.
+          </p>
+
+          <h3 className="font-semibold mt-3">Business Transfers</h3>
+          <p className="text-gray-700">
+            If we undergo a merger or sale, your information may be transferred.
+          </p>
+
+          <h3 className="font-semibold mt-3">Legal Requirements</h3>
+          <p className="text-gray-700">
+            We may disclose your data if required by law.
+          </p>
+        </div>
+
+        <div className="mb-6">
+          <h2 className="text-xl font-semibold">5. Your Rights and Choices</h2>
+          <h3 className="font-semibold mt-3">Access & Correction</h3>
+          <p className="text-gray-700">
+            You can update or correct your personal data anytime.
+          </p>
+
+          <h3 className="font-semibold mt-3">Data Deletion</h3>
+          <p className="text-gray-700">
+            You may request data deletion, subject to legal obligations.
+          </p>
+
+          <h3 className="font-semibold mt-3">Opt-Out</h3>
+          <p className="text-gray-700">
+            You can opt out of promotional emails anytime.
+          </p>
+        </div>
+
+        <div className="mb-6">
+          <h2 className="text-xl font-semibold">6. Cookies & Tracking</h2>
+          <p className="text-gray-700">
+            We use cookies to improve your experience. You can manage cookie
+            settings in your browser.
+          </p>
+        </div>
+
+        <div className="mb-6">
+          <h2 className="text-xl font-semibold">7. Third-Party Links</h2>
+          <p className="text-gray-700">
+            Our website may link to third-party sites. We are not responsible
+            for their privacy policies.
+          </p>
+        </div>
+
+        <div className="mb-6">
+          <h2 className="text-xl font-semibold">8. Childrens Privacy</h2>
+          <p className="text-gray-700">
+            Our services are not intended for individuals under 18. If a child
+            provides personal data, we will delete it.
+          </p>
+        </div>
+
+        <div className="mb-6">
+          <h2 className="text-xl font-semibold">9. Changes to This Policy</h2>
+          <p className="text-gray-700">
+            We may update this Privacy Policy. Continued use of our services
+            after changes means acceptance of the revised policy.
+          </p>
+        </div>
+
+        <div className="mb-6">
+          <h2 className="text-xl font-semibold">10. Contact Us</h2>
+          <p className="text-gray-700">
+            If you have any questions, contact us at:{" "}
+            <a
+              href="mailto:career@cibljob.ca"
+              className="text-blue-600 underline"
+            >
+              career@cibljob.ca
+            </a>
+          </p>
+        </div>
       </div>
+
       <Footer />
     </div>
   );

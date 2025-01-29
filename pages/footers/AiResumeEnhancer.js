@@ -4,8 +4,8 @@ import Footer from "../Footer/Footer";
 function AiResumeEnhancer() {
   return (
     <div>
-      <div className="m-10 mx-40 p-5  shadow-2xl">
-        <h1 className="text-4xl font-semibold my-4 underline ">
+      <div className="m-10  shadow-2xl max-w-4xl mx-auto my-5 p-6 sm:p-10 bg-white rounded-lg">
+        <h1 className="my-4 text-3xl sm:text-4xl font-semibold text-center underline ">
           AI Resume Enhancer
         </h1>
         <h2 className="text-xl font-bold my-5">

@@ -658,53 +658,57 @@ export default function MobileBuilder() {
           </div>
         ) : (
           <>
-            <div className="flex items-center absolute justify-center gap-2 p-2  top-26 left-0 right-0 bg-white shadow-lg ">
-              <ColorPickers
-                selectmultiplecolor={backgroundColorss}
-                onChange={setBgColor}
-              />
-              <select
-                value={selectedFont}
-                onChange={handleFontChange}
-                className="rounded-lg border-2 border-green-500 px-5 py-2 font-bold  bg-white text-black"
-              >
-                <option value="Ubuntu">Ubuntu</option>
-                <option value="Calibri">Calibri</option>
-                <option value="Georgia">Georgia</option>
-                <option value="Roboto">Roboto</option>
-                <option value="Poppins">Poppins</option>
-              </select>
+            <div className="">
+              <div className="flex items-center absolute justify-center gap-2 p-2  top-26 left-0 right-0 bg-white shadow-lg ">
+                <ColorPickers
+                  selectmultiplecolor={backgroundColorss}
+                  onChange={setBgColor}
+                />
+                <select
+                  value={selectedFont}
+                  onChange={handleFontChange}
+                  className="rounded-lg border-2 border-green-500 px-5 py-2 font-bold  bg-white text-black"
+                >
+                  <option value="Ubuntu">Ubuntu</option>
+                  <option value="Calibri">Calibri</option>
+                  <option value="Georgia">Georgia</option>
+                  <option value="Roboto">Roboto</option>
+                  <option value="Poppins">Poppins</option>
+                </select>
 
-              <TemplateSelector
-                selectedTemplate={selectedTemplate}
-                setSelectedTemplate={setSelectedTemplate}
-              />
-            </div>
-            <div className=" ">
-              <Preview ref={templateRef} selectedTemplate={selectedTemplate} />
-            </div>
+                <TemplateSelector
+                  selectedTemplate={selectedTemplate}
+                  setSelectedTemplate={setSelectedTemplate}
+                />
+              </div>
+              <div className=" ">
+                <Preview
+                  ref={templateRef}
+                  selectedTemplate={selectedTemplate}
+                />
+              </div>
 
-            <div className="flex items-center justify-center gap-4 p-2 fixed bottom-0 left-0 right-0 bg-white shadow-lg ">
-              <LoaderButton
-                isLoading={isLoading}
-                onClick={handleFinish}
-                className=" text-white px-4 py-2 rounded-lg bottom-btns"
-              >
-                Save
-              </LoaderButton>
+              <div className="flex items-center justify-center gap-4 p-2 fixed bottom-0 left-0 right-0 bg-white shadow-lg ">
+                <LoaderButton
+                  isLoading={isLoading}
+                  onClick={handleFinish}
+                  className=" text-white px-4 py-2 rounded-lg bottom-btns"
+                >
+                  Save
+                </LoaderButton>
 
-              {/* <button
+                {/* <button
                 onClick={downloadAsPDF}
                 className=" bg-yellow-500 text-black px-4 py-2 rounded-lg bottom-btns"
               >
              Pay & Download
               </button> */}
-              <PayAndDownload
-                resumeId={resumeId}
-                token={token}
-                PayerID={PayerID}
-              />
-              {/* {showModal && (
+                <PayAndDownload
+                  resumeId={resumeId}
+                  token={token}
+                  PayerID={PayerID}
+                />
+                {/* {showModal && (
                 <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
                   <div className="w-full max-w-[90%] sm:max-w-4xl bg-white rounded-lg shadow-lg overflow-hidden max-h-screen overflow-y-auto">
                     <div className="flex justify-between items-center p-4 border-b">
@@ -827,12 +831,13 @@ export default function MobileBuilder() {
                   </div>
                 </div>
               )} */}
-              <button
-                onClick={handleBackToEditor}
-                className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors bottom-btns"
-              >
-                Back
-              </button>
+                <button
+                  onClick={handleBackToEditor}
+                  className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors bottom-btns"
+                >
+                  Back
+                </button>
+              </div>
             </div>
           </>
         )}

@@ -1,12 +1,10 @@
-
-
-import React from 'react';
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
 import logo from "../Footer/logo.png";
 import { useState } from "react";
 import axios from "axios";
 import Link from "next/link"; // Import Link from next/link
-import img from "../Footer/footer-img.jpg"
+import img from "../Footer/footer-img.jpg";
 const Footer = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -50,14 +48,14 @@ const Footer = () => {
                 Building Careers of Tomorrow
               </p>
             </div>
-          {/* <div className="flex flex-wrap justify-between px-2 md:px-[65px]">
+            {/* <div className="flex flex-wrap justify-between px-2 md:px-[65px]">
             <div className="w-auto h mb-6 md:mb-0">
               <Link href="/">
                 <Image src={img} alt="logo" className="h-20 w-[300px]" />
               </Link>
               </div>
             </div> */}
-           
+
             <div className="w-full md:w-auto mb-6 md:mb-0">
               <h2 className="text-lg font-semibold text-[#00b38d]">
                 Get Our Weekly
@@ -105,7 +103,7 @@ const Footer = () => {
                   </Link>
                 </li> */}
                 <li>
-                  <Link href="https://blog.resumeintellect.com">
+                  <Link href="https://blog.ciblijob.fr/">
                     <span>Resources</span>
                   </Link>
                 </li>
@@ -132,7 +130,9 @@ const Footer = () => {
               </ul>
             </div>
             <div className="w-full md:w-auto mb-6 md:mb-0">
-              <h2 className="text-lg font-bold text-[#00b38d]">Scope & Products</h2>
+              <h2 className="text-lg font-bold text-[#00b38d]">
+                Scope & Products
+              </h2>
               <ul>
                 <li>
                   <Link href="/footers/AiResumeBuilder">

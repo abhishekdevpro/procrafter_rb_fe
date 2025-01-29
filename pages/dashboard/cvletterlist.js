@@ -1,13 +1,13 @@
 import Navbar from "../Navbar/Navbar";
 import ProfileForm from "../profile";
 import ProfilePage from "./Profile";
-import Sidebar from "./Sidebar";
 
 import React, { useState } from "react";
 
 import { FaBars } from "react-icons/fa"; //
 
 import MyCvLetter from "./MyCvLetter";
+import Sidebar from "./Sidebar";
 
 export default function CvLetterList() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -34,10 +34,13 @@ export default function CvLetterList() {
           </div>
 
           {/* Sidebar */}
-          {/* <div className={`md:w-64 flex-shrink-0 md:block  ${isSidebarOpen ? 'block' : 'hidden'}`}>
-          <Sidebar onClose={closeSidebar} />
-        </div> */}
-
+          <div
+            className={`md:w-64 flex-shrink-0 md:block  ${
+              isSidebarOpen ? "block" : "hidden"
+            }`}
+          >
+            <Sidebar onClose={closeSidebar} />
+          </div>
           {/* Content area */}
           <div className="flex-1 w-full max-w-8xl p-4 overflow-auto">
             <MyCvLetter />

@@ -4,7 +4,7 @@ import Footer from "../Footer/Footer";
 function AiJobMatchApply() {
   return (
     <div>
-      <div className="m-10 mx-40 p-5  shadow-2xl">
+      <div className="max-w-4xl mx-auto my-5 p-6 sm:p-10 shadow-lg bg-white rounded-lg">
         <h1 className="text-4xl font-semibold my-4 underline ">
           AI-Job Match & Apply
         </h1>
