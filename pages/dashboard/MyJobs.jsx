@@ -173,7 +173,7 @@ export default function JobsPage() {
       return;
     }
     // Implement your apply logic here
-    toast.success("Application started!");
+    // toast.success("Application started!");
   };
 
   useEffect(() => {

@@ -129,15 +129,16 @@ export default function SavedJobsPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [showLoginModal, setShowLoginModal] = useState(false);
 
-  const getToken = () => {
-    if (typeof window !== "undefined") {
-      return localStorage.getItem("token");
-    }
-    return null;
-  };
+//   const getToken = () => {
+//     if (typeof window !== "undefined") {
+//       return localStorage.getItem("token");
+//     }
+//     return null;
+//   };
+const token = localStorage.getItem("token")
 
   const handleSaveJob = async (jobId) => {
-    const token = localStorage.getItem("token");
+    // const token = localStorage.getItem("token");
     if (!token) {
       setShowLoginModal(true);
       return;
@@ -166,15 +167,15 @@ export default function SavedJobsPage() {
   };
 
   const handleApplyNow = (jobId) => {
-    const token = getToken();
+    // const token = getToken();
     if (!token) {
       setShowLoginModal(true);
       return;
     }
     // Implement your apply logic here
-    toast.success("Application started!");
+    // toast.success("Application started!");
   };
-const token = localStorage.getItem("token")
+// const token = localStorage.getItem("token")
 //   useEffect(() => {
 //     const fetchJobs = async () => {
 //       try {
