@@ -15,7 +15,7 @@ const Sidebar = ({ onClose }) => {
   };
 
   return (
-    <div className="bg-white h-screen p-4 border-r border-gray-200 md:block">
+    <div className="bg-white h-screen p-4 border-r border-gray-200 md:block absolute  z-50">
       {/* Sidebar links */}
       <ul className="space-y-2 mt-4">
         <li>
@@ -56,6 +56,16 @@ const Sidebar = ({ onClose }) => {
           >
             <span className="mr-2">📑</span>
             <span>My Resumes</span>
+          </Link>
+        </li>
+        <li>
+          <Link
+            href="cvletterlist"
+            className={getLinkClassName("/dashboard/cvletterlist")}
+            onClick={onClose} // Close sidebar on link click
+          >
+            <span className="mr-2">📑</span>
+            <span>My Cover Letters</span>
           </Link>
         </li>
         <li>

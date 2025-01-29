@@ -7,7 +7,7 @@ import React, { useState } from "react";
 import { FaBars } from "react-icons/fa"; //
 
 import MyCvLetter from "./MyCvLetter";
-import Sidebar from "../admin/Sidebar";
+import Sidebar from "./Sidebar";
 
 export default function CvLetterList() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);

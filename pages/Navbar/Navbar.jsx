@@ -388,16 +388,24 @@ const Navbar = () => {
                 CibliJob ID
               </Link>
               {isLoggedIn ? (
-                <Link
-                  href="/"
-                  className="bg-[#00b38d] text-white block px-3 py-2 rounded-md text-base font-semibold"
-                  onClick={() => {
-                    handleLogout();
-                    handleLinkClick();
-                  }}
-                >
-                  Logout
-                </Link>
+                <>
+                  <Link
+                    href="/dashboard/page"
+                    className="block px-4 py-2 hover:bg-gray-200"
+                  >
+                    Profile
+                  </Link>
+                  <Link
+                    href="/"
+                    className="bg-[#00b38d] text-white block px-3 py-2 rounded-md text-base font-semibold"
+                    onClick={() => {
+                      handleLogout();
+                      handleLinkClick();
+                    }}
+                  >
+                    Logout
+                  </Link>
+                </>
               ) : (
                 <>
                   <Link
