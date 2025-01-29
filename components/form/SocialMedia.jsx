@@ -130,19 +130,68 @@ const SocialMedia = () => {
   };
 
   return (
-    <div className="flex-col flex gap-3 w-full mt-10 px-10">
-      <h2 className="input-title text-black text-3xl">Social Media</h2>
-      <h2 className="input-title text-black">
+    // <div className="flex-col flex gap-3 w-full mt-10 px-10">
+    //   <h2 className="input-title text-black text-3xl">Social Media</h2>
+    //   <h2 className="input-title text-black">
+    //     Please mention the platform and their link
+    //   </h2>
+
+    //   {resumeData.socialMedia.map((socialMedia, index) => (
+    //     <div
+    //       key={index}
+    //       className="flex flex-col md:flex-row gap-2 w-full md:w-auto"
+    //     >
+    //       <select
+    //         className="other-input border-black bg-gray-200 font-semibold text-center w-1/3"
+    //         value={socialMedia.socialMedia || ""}
+    //         onChange={(e) => handlePlatformChange(index, e.target.value)}
+    //       >
+    //         <option value="">Select </option>
+    //         {SOCIAL_MEDIA_OPTIONS.map((option) => (
+    //           <option key={option.name} value={option.name}>
+    //             {option.name}
+    //           </option>
+    //         ))}
+    //       </select>
+
+    //       {/* Input for the username or link */}
+    //       <input
+    //         type="text"
+    //         placeholder="Username"
+    //         name="link"
+    //         className="other-input border-black border w-2/3"
+    //         value={socialMedia.link.replace("https://", "")}
+    //         onChange={(e) => handleSocialMedia(e, index)}
+    //       />
+    //       <button
+    //         type="button"
+    //         onClick={() => removeSocialMedia(index)}
+    //         aria-label="Remove"
+    //         className="p-2 text-white bg-red-700 rounded-lg text-xl mb-2"
+    //       >
+    //         <MdRemoveCircle />
+    //       </button>
+    //     </div>
+    //   ))}
+    //   <FormButton
+    //     size={resumeData.socialMedia.length}
+    //     add={addSocialMedia}
+    //     remove={removeSocialMedia}
+    //   />
+    // </div>
+    <div className="flex flex-col gap-3 w-full mt-10 px-4 md:px-10">
+      <h2 className="input-title text-black text-2xl md:text-3xl">
+        Social Media
+      </h2>
+      <h2 className="input-title text-black text-sm md:text-base">
         Please mention the platform and their link
       </h2>
 
       {resumeData.socialMedia.map((socialMedia, index) => (
-        <div
-          key={index}
-          className="flex flex-col md:flex-row gap-2 w-full md:w-auto"
-        >
+        <div key={index} className="flex flex-col md:flex-row gap-2 w-full">
+          {/* Platform Selection */}
           <select
-            className="other-input border-black bg-gray-200 font-semibold text-center w-1/3"
+            className="other-input border-black bg-gray-200 font-semibold text-center w-full md:w-auto"
             value={socialMedia.socialMedia || ""}
             onChange={(e) => handlePlatformChange(index, e.target.value)}
           >
@@ -154,38 +203,34 @@ const SocialMedia = () => {
             ))}
           </select>
 
-          {/* Input for the username or link */}
+          {/* Input for Username or Link */}
           <input
             type="text"
             placeholder="Username"
             name="link"
-            className="other-input border-black border w-2/3"
+            className="other-input border-black border w-full md:w-auto"
             value={socialMedia.link.replace("https://", "")}
             onChange={(e) => handleSocialMedia(e, index)}
           />
+
+          {/* Remove Button */}
           <button
             type="button"
             onClick={() => removeSocialMedia(index)}
             aria-label="Remove"
-            className="p-2 text-white bg-red-700 rounded-lg text-xl mb-2"
+            className="p-2 text-white bg-red-700 rounded-lg text-xl mb-2 flex items-center justify-center"
           >
             <MdRemoveCircle />
           </button>
         </div>
       ))}
+
+      {/* Add/Remove Button */}
       <FormButton
         size={resumeData.socialMedia.length}
         add={addSocialMedia}
         remove={removeSocialMedia}
       />
-      <div className=" mb-2">
-        {/* <button type="button" 
-          aria-label="Add"
-          className="p-2 text-black bg-black rounded-lg text-sm"   onClick={addSocialMedia}> 
-        
-         <span> ✙ Add section</span>
-        </button> */}
-      </div>
     </div>
   );
 };

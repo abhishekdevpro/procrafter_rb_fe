@@ -847,10 +847,7 @@ export default function WebBuilder() {
                 </div>
               </aside> */}
               <div className="flex flex-col md:flex-row flex-grow p-4">
-                <div
-                  className="w-[40%] "
-                  style={{ backgroundColor: "#e5e7eb" }}
-                >
+                <div className="w-[40%]  bg-gray-100">
                   <main className="w-full mx-auto md:p-4">
                     <form>{sections[currentSection].component}</form>
                   </main>

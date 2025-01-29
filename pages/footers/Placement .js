@@ -77,9 +77,9 @@ function Placement() {
       your career goals. At Cibli Job , we’re dedicated to your success and are
       here to support you every step of the way.
       <h1 className="text-sm font-bold my-2 mt-5 ">Contact Us</h1>
-      Reach out to us at [career@Cibli Job .ca](mailto:career@Resume
-      Intellect.ca) to schedule a consultation. Let Cibli Job be your partner in
-      navigating the job market and securing the perfect role for your future.
+      Reach out to us at [career@Cibli Job .ca](mailto:career@Cibli Job .ca) to
+      to schedule a consultation. Let Cibli Job be your partner in navigating
+      the job market and securing the perfect role for your future.
     </div>
   );
 }

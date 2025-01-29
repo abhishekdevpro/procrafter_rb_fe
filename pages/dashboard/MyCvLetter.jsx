@@ -135,7 +135,7 @@ const MyCvLetter = () => {
   return (
     <div className="container mx-auto p-4 max-w-7xl">
       {showLoader && <FullScreenLoader />}
-      <div className="flex justify-between items-center mb-8">
+      <div className="flex flex-col sm:flex-row  justify-between items-center mb-8">
         <h1 className="text-2xl font-bold text-gray-800">My Cover Letters</h1>
         <button
           onClick={handleCreate}

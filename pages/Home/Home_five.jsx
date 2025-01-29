@@ -1,4 +1,3 @@
-
 // import Link from "next/link";
 // import { useEffect, useState } from "react";
 
@@ -65,22 +64,20 @@
 
 // export default Home_five;
 
+import { useState } from "react";
+import axios from "axios";
+import React from "react";
 
-
-import { useState } from 'react';
-import axios from 'axios';
-import React from 'react'
-
-import Link from 'next/link';
-import logo from "../Home/modallogo.jpg";
+import Link from "next/link";
+import logo from "../Home/modallogo.png";
 // import logo from "../Home/Images/modallogo.jpg";
 import Image from "next/image";
 import resumeImg from "./Images/GraphicDesignerResume.jpg";
 import poweredbypaypal from "./Images/poweredbypaypal.png";
 import paypal from "./Images/paypal.png";
 import applepay from "./Images/apple-pay.png";
-import Script from 'next/script';
-import ApplePayButton from './ApplePayButton';
+import Script from "next/script";
+import ApplePayButton from "./ApplePayButton";
 function Home_five() {
   const [showModal, setShowModal] = useState(false);
   const [name, setName] = useState("");
@@ -500,7 +497,7 @@ function Home_five() {
                                 alt="paypal"
                                 className="h-10 w-auto m-auto"
                               /> */}
-                              <p className='p-2 text-md'>Secure Checkout</p>
+                              <p className="p-2 text-md">Secure Checkout</p>
                             </button>
                           </div>
                           <div className="flex justify-center mt-6">
@@ -626,8 +623,8 @@ function Home_five() {
                                 src={paypal}
                                 alt="paypal"
                                 className="h-10 w-auto m-auto"
-                              /> */} 
-                              <p className='p-2 text-md '> Secure Checkout </p>
+                              /> */}
+                              <p className="p-2 text-md "> Secure Checkout </p>
                             </button>
                           </div>
                           <div className="flex justify-center mt-6">
@@ -644,12 +641,10 @@ function Home_five() {
                               src={poweredbypaypal}
                               alt="poweredbypaypal"
                               className="h-10 w-auto"
-                            /> 
+                            />
                           </div>
                           <div className="flex justify-center mt-6 ">
-                          <ApplePayButton />
-                             
-                            
+                            <ApplePayButton />
                           </div>
                         </form>
                       </div>
@@ -783,8 +778,6 @@ function Home_five() {
           </div>
         </section>
       </div>
-
-      
     </>
   );
 }

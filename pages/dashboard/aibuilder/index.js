@@ -20,7 +20,7 @@ export default function DashboardPage() {
   };
   return (
     <div>
-      <div className="min-h-screen flex flex-col items-center bg-gray-100">
+      <div className=" flex flex-col items-center bg-gray-100">
         <Builder />
       </div>
     </div>

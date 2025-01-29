@@ -268,7 +268,7 @@ const Projects = () => {
   };
 
   return (
-    <div className="flex-col-gap-3 w-full mt-10 px-10">
+    <div className="flex-col-gap-3 w-full mt-10 px-10 min-h-screen">
       <h2 className="input-title text-black text-3xl">Projects</h2>
       {resumeData.projects && resumeData.projects.length > 0 ? (
         resumeData.projects.map((project, projectIndex) => (

@@ -243,7 +243,7 @@ const Navbar = () => {
               </>
             )}
           </div>
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden ">
             <button
               onClick={handleMenuClick}
               className="text-black hover:text-[#00b38d] focus:outline-none px-3 py-2 rounded-md text-sm font-medium"
@@ -265,38 +265,51 @@ const Navbar = () => {
             </button>
           </div>
         </div>
-        {isMenuOpen && (
+        {/* {isMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1">
+            <div className="px-2 pt-2 pb-3 space-y-1 relative z-30">
+              <Link
+                href="/dashboard"
+                className="text-black hover:text-[#00b38d] block  px-3 py-2 rounded-md text-base font-semibold"
+              >
+                Dashboard
+              </Link>
+              <Link
+                href="/dashboard/resumelist"
+                className="text-black hover:text-[#00b38d] block  px-3 py-2 rounded-md text-base font-semibold"
+              >
+                My Resumes
+              </Link>
+              <Link
+                href="/dashboard/cvletterlist"
+                className="text-black hover:text-[#00b38d] block  px-3 py-2 rounded-md text-base font-semibold"
+              >
+                Cover Letter
+              </Link>
+              <Link
+                href="/dashboard/MyJobs"
+                className="text-black hover:text-[#00b38d] block  px-3 py-2 rounded-md text-base font-semibold"
+              >
+                Jobs
+              </Link>
               <Link
                 href="/navbarcontent"
-                className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
-                onClick={handleLinkClick}
+                className="text-black hover:text-[#00b38d] block  px-3 py-2 rounded-md text-base font-semibold"
               >
                 AI Resume Builder
               </Link>
               <Link
-                href="https://blog.resumeintellect.com/"
-                className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
-                onClick={handleLinkClick}
+                href="https://blog.ciblijob.fr/"
+                className="text-black hover:text-[#00b38d] block  px-3 py-2 rounded-md text-base font-semibold"
               >
                 Resources
               </Link>
               <Link
-                href="https://blog.resumeintellect.com/"
-                className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
-                onClick={handleLinkClick}
+                href=""
+                className="text-black hover:text-[#00b38d] block  px-3 py-2 rounded-md text-base font-semibold"
               >
-                About Us
+                CibliJob ID
               </Link>
-              <Link
-                href="https://blog.resumeintellect.com/"
-                className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
-                onClick={handleLinkClick}
-              >
-                Blog
-              </Link>
-
               {isLoggedIn ? (
                 <Link
                   href="/"
@@ -320,6 +333,83 @@ const Navbar = () => {
                   <Link
                     href="/signup"
                     className="bg-[#00b38d] text-white  block px-3 py-2 rounded-md text-base font-semibold"
+                    onClick={handleLinkClick}
+                  >
+                    Sign up
+                  </Link>
+                </>
+              )}
+            </div>
+          </div>
+        )} */}
+        {isMenuOpen && (
+          <div className="md:hidden absolute top-16 left-0 right-0 bg-white shadow-lg z-50">
+            <div className="px-2 pt-2 pb-3 space-y-1">
+              <Link
+                href="/dashboard"
+                className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
+              >
+                Dashboard
+              </Link>
+              <Link
+                href="/dashboard/resumelist"
+                className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
+              >
+                My Resumes
+              </Link>
+              <Link
+                href="/dashboard/cvletterlist"
+                className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
+              >
+                Cover Letter
+              </Link>
+              <Link
+                href="/dashboard/MyJobs"
+                className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
+              >
+                Jobs
+              </Link>
+              <Link
+                href="/navbarcontent"
+                className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
+              >
+                AI Resume Builder
+              </Link>
+              <Link
+                href="https://blog.ciblijob.fr/"
+                className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
+              >
+                Resources
+              </Link>
+              <Link
+                href=""
+                className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
+              >
+                CibliJob ID
+              </Link>
+              {isLoggedIn ? (
+                <Link
+                  href="/"
+                  className="bg-[#00b38d] text-white block px-3 py-2 rounded-md text-base font-semibold"
+                  onClick={() => {
+                    handleLogout();
+                    handleLinkClick();
+                  }}
+                >
+                  Logout
+                </Link>
+              ) : (
+                <>
+                  <Link
+                    href="/login2"
+                    className="bg-[#00b38d] text-white block px-3 py-2 rounded-md text-base font-semibold"
+                    onClick={handleLinkClick}
+                  >
+                    Log in
+                  </Link>
+                  <Link
+                    href="/signup"
+                    className="bg-[#00b38d] text-white block px-3 py-2 rounded-md text-base font-semibold"
                     onClick={handleLinkClick}
                   >
                     Sign up
