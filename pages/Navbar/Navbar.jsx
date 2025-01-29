@@ -140,7 +140,7 @@ const Navbar = () => {
               Cover Letter
             </Link>
             <Link
-              href="/dashboard/MyJobs"
+              href="/dashboard/Jobs"
               className="text-black hover:text-[#00b38d] px-3 py-2 rounded-md text-lg font-semibold"
             >
               Jobs

@@ -15,7 +15,6 @@ import {
 import Link from "next/link";
 import { toast } from "react-toastify";
 import Navbar from "../Navbar/Navbar";
-import SavedJobsPage from "./SavedJobs";
 
 const LoginModal = ({ onClose }) => {
   return (
@@ -122,7 +121,7 @@ const JobCard = ({ item, onSaveJob, onApplyNow }) => (
   </div>
 );
 
-export default function JobsPage() {
+export default function SavedJobsPage() {
   const [jobs, setJobs] = useState([]);
   const [filteredJobs, setFilteredJobs] = useState([]);
   const [sort, setSort] = useState("");
@@ -175,19 +174,46 @@ export default function JobsPage() {
     // Implement your apply logic here
     toast.success("Application started!");
   };
+const token = localStorage.getItem("token")
+//   useEffect(() => {
+//     const fetchJobs = async () => {
+//       try {
+//         setIsLoading(true);
+//         const response = await fetch(
+//           "https://api.resumeintellect.com/api/user/job-favorites"
+//         );
+//         const data = await response.json();
 
-  useEffect(() => {
+//         if (data.data) {
+//           setJobs(data.data);
+//           setFilteredJobs(data.data);
+//         }
+//       } catch (error) {
+//         console.error("Error fetching jobs:", error);
+//         toast.error("Failed to fetch jobs. Please try again later.");
+//       } finally {
+//         setIsLoading(false);
+//       }
+//     };
+
+//     fetchJobs();
+//   }, []);
+useEffect(() => {
     const fetchJobs = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch(
-          "https://api.resumeintellect.com/api/user/job-list"
+        const response = await axios.get(
+          "https://api.resumeintellect.com/api/user/job-favorites",
+          {
+            headers: {
+              Authorization: token, // Add token if required
+            },
+          }
         );
-        const data = await response.json();
-
-        if (data.data) {
-          setJobs(data.data);
-          setFilteredJobs(data.data);
+  
+        if (response.data.data) {
+          setJobs(response.data.data);
+          setFilteredJobs(response.data.data);
         }
       } catch (error) {
         console.error("Error fetching jobs:", error);
@@ -196,10 +222,9 @@ export default function JobsPage() {
         setIsLoading(false);
       }
     };
-
+  
     fetchJobs();
   }, []);
-
   const handleSort = (e) => {
     const sortValue = e.target.value;
     setSort(sortValue);
@@ -241,7 +266,7 @@ export default function JobsPage() {
         <div className="bg-white rounded-lg shadow-sm p-4 mb-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex justify-between items-center mb-8">
-              <h1 className="text-2xl font-bold text-gray-800">My Jobs</h1>
+              <h1 className="text-2xl font-bold text-gray-800">Saved Jobs</h1>
             </div>
 
             <div className="flex items-center space-x-4">
@@ -287,7 +312,6 @@ export default function JobsPage() {
             />
           ))}
         </div>
-        {/* <SavedJobsPage/> */}
 
         <div className="mt-8 text-center">
           <div className="text-sm text-gray-600 mb-4">
