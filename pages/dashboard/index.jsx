@@ -84,7 +84,7 @@ export default function DashboardPage() {
   return (
     <>
       <Navbar />
-      <div className="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4 mt-4 p-4">
+      <div className="flex flex-col sm:flex-row justify-center items-center mb-8 gap-4 mt-4 p-4">
         <button
           onClick={handleCreateResume}
           className="flex justify-center items-center px-4 py-2 w-full sm:w-auto bg-[#00b38d] text-white rounded-lg hover:bg-[#369984] transition-colors duration-200 font-medium shadow-sm"
