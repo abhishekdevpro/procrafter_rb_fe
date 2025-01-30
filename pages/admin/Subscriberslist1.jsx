@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { BASE_URL } from '../../components/Constant/constant';
 
 function Subscriberslist1() {
   const [users, setUsers] = useState([]);
@@ -9,7 +10,7 @@ function Subscriberslist1() {
   useEffect(() => {
     const token = localStorage.getItem('token');
 
-    axios.get('https://api.resumeintellect.com/api/admin/subscribes', {
+    axios.get(`${BASE_URL}/api/admin/subscribes`, {
       headers: {
         Authorization: token,
       },
@@ -31,7 +32,7 @@ function Subscriberslist1() {
 
     try {
       await axios.post(
-        'https://api.resumeintellect.com/api/user/user-subscribe',
+        `${BASE_URL}/api/user/user-subscribe`,
         { email },  // Sending email in the body
         {
           headers: {

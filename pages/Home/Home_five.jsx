@@ -78,6 +78,7 @@ import paypal from "./Images/paypal.png";
 import applepay from "./Images/apple-pay.png";
 import Script from "next/script";
 import ApplePayButton from "./ApplePayButton";
+import { BASE_URL } from "../../components/Constant/constant";
 function Home_five() {
   const [showModal, setShowModal] = useState(false);
   const [name, setName] = useState("");
@@ -102,7 +103,7 @@ function Home_five() {
 
     axios
       .post(
-        "https://api.resumeintellect.com/api/user/paypal/create-payment",
+        `${BASE_URL}/api/user/paypal/create-payment`,
         payload,
         {
           headers: { "Content-Type": "application/json" },
@@ -143,7 +144,7 @@ function Home_five() {
 
     axios
       .post(
-        "https://api.resumeintellect.com/api/user/paypal/create-payment",
+        `${BASE_URL}/api/user/paypal/create-payment`,
         payload,
         {
           headers: { "Content-Type": "application/json" },

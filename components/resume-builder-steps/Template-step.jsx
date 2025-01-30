@@ -97,7 +97,7 @@
 //         }
 
 //         const response = await axios.get(
-//           `https://api.resumeintellect.com/api/user/resume-list/${resumeId}`,
+//           `${BASE_URL}/api/user/resume-list/${resumeId}`,
 //           {
 //             headers: {
 //               Authorization: token
@@ -199,7 +199,7 @@
 //       }
 
 //       const response = await axios.put(
-//         `https://api.resumeintellect.com/api/user/resume-update/${resumeId}`,
+//         `${BASE_URL}/api/user/resume-update/${resumeId}`,
 //         templateData,
 //         {
 //           headers: {
@@ -402,6 +402,7 @@ import template17 from "../preview/template/template17.png";
 import template18 from "../preview/template/template18.png";
 import template19 from "../preview/template/template19.png";
 import template20 from "../preview/template/template20.png";
+import { BASE_URL } from "../Constant/constant";
 
 const TemplateStep = ({ onNext, onBack, onChange, value }) => {
   const router = useRouter();
@@ -503,7 +504,7 @@ const TemplateStep = ({ onNext, onBack, onChange, value }) => {
         }
 
         const response = await axios.get(
-          `https://api.resumeintellect.com/api/user/resume-list/${resumeId}`,
+          `${BASE_URL}/api/user/resume-list/${resumeId}`,
           {
             headers: {
               Authorization: token,
@@ -617,7 +618,7 @@ const TemplateStep = ({ onNext, onBack, onChange, value }) => {
       }
 
       const response = await axios.put(
-        `https://api.resumeintellect.com/api/user/resume-update/${resumeId}`,
+        `${BASE_URL}/api/user/resume-update/${resumeId}`,
         templateData,
         {
           headers: {

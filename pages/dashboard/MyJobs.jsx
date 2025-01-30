@@ -16,6 +16,7 @@ import Link from "next/link";
 import { toast } from "react-toastify";
 import Navbar from "../Navbar/Navbar";
 import SavedJobsPage from "./SavedJobs";
+import { BASE_URL } from "../../components/Constant/constant";
 
 const LoginModal = ({ onClose }) => {
   return (
@@ -146,7 +147,7 @@ export default function JobsPage() {
 
     try {
       const response = await axios.post(
-        `https://api.resumeintellect.com/api/user/job-favorites`,{
+        `${BASE_URL}/api/user/job-favorites`,{
             job_id:jobId
         },
         {
@@ -181,7 +182,7 @@ export default function JobsPage() {
       try {
         setIsLoading(true);
         const response = await fetch(
-          "https://api.resumeintellect.com/api/user/job-list"
+          `${BASE_URL}/api/user/job-list`
         );
         const data = await response.json();
 

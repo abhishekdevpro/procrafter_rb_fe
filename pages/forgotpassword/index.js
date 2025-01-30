@@ -4,6 +4,7 @@ import logo from "../forgotpassword/logo.png";
 import Image from "next/image";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { BASE_URL } from "../../components/Constant/constant";
 
 function Index() {
   const [formData, setFormData] = useState({
@@ -30,7 +31,7 @@ function Index() {
 
     try {
       const response = await axios.post(
-        "https://api.resumeintellect.com/api/user/forget-password",
+        `${BASE_URL}/api/user/forget-password`,
         formDataToSend,
         {
           headers: {

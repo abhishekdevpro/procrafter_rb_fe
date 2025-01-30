@@ -46,7 +46,7 @@
 //       }
 
 //       const response = await axios.post(
-//         `https://api.resumeintellect.com/api/user/resume-upload/${id}`,
+//         `${BASE_URL}/api/user/resume-upload/${id}`,
 //         formData,
 //         {
 //           headers: {
@@ -199,6 +199,7 @@ import Image from "next/image";
 import { Upload, File } from "lucide-react"; // Replaced SVG with lucide-react icons
 import drive from "../../public/assets/google-drive.png";
 import { ResumeContext } from "../context/ResumeContext";
+import { BASE_URL } from "../Constant/constant";
 
 export default function FileUploadStep({ onNext, onBack, onChange, value }) {
   const [isUploading, setIsUploading] = useState(false);
@@ -238,7 +239,7 @@ export default function FileUploadStep({ onNext, onBack, onChange, value }) {
       }
 
       const response = await axios.post(
-        `https://api.resumeintellect.com/api/user/resume-upload/${id}`,
+        `${BASE_URL}/api/user/resume-upload/${id}`,
         formData,
         {
           headers: {

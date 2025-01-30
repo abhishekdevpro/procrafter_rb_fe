@@ -5,6 +5,7 @@ import logo from "../forgotpassword/logo.png";
 import Image from "next/image";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { BASE_URL } from "../../components/Constant/constant";
 
 function ResetPassword() {
   const router = useRouter();
@@ -36,7 +37,7 @@ function ResetPassword() {
       }
 
       const response = await axios.post(
-        "https://api.resumeintellect.com/api/user/reset-password",
+        `${BASE_URL}/api/user/reset-password`,
         {
           token,
           new_password: formData.newPassword,

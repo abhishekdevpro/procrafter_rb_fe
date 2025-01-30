@@ -3,6 +3,7 @@ import FAQItem from './FAQ_Item';
 
 import { useState } from 'react';
 import ContactUs from './Contact';
+import { BASE_URL } from '../../../components/Constant/constant';
 const FAQ = () => {
   const faqs = [
     {
@@ -102,7 +103,7 @@ const FAQ = () => {
     setSuccessMessage('');
 
     try {
-      const response = await fetch('https://api.resumeintellect.com/api/user/contact-us', {
+      const response = await fetch(`${BASE_URL}/api/user/contact-us`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -7,6 +7,7 @@ import logo from "../login2/logo.png";
 import { useRouter } from "next/router";
 import { Loader2 } from "lucide-react";
 import { toast } from "react-toastify";
+import { BASE_URL } from "../../components/Constant/constant";
 
 function Signup() {
   const [showPassword, setShowPassword] = useState(false);
@@ -51,7 +52,7 @@ function Signup() {
   
     try {
       const response = await axios.post(
-        "https://api.resumeintellect.com/api/user/auth/signup",
+        `${BASE_URL}/api/user/auth/signup`,
         body,
         {
           headers: {

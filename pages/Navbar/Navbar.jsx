@@ -5,6 +5,7 @@ import logo from "../Navbar/logo.png";
 import Image from "next/image";
 import { toast } from "react-toastify";
 import axios from "axios";
+import { BASE_URL } from "../../components/Constant/constant";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,7 +27,7 @@ const Navbar = () => {
       const checkApiSuccess = async () => {
         try {
           const response = await axios.get(
-            "https://api.resumeintellect.com/api/user/user-profile",
+            `${BASE_URL}/api/user/user-profile`,
             {
               headers: {
                 Authorization: token,
@@ -71,7 +72,7 @@ const Navbar = () => {
 
     try {
       await axios.post(
-        "https://api.resumeintellect.com/api/user/logout",
+        `${BASE_URL}/api/user/logout`,
         { token },
         {
           headers: {

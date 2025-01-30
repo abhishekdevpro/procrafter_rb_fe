@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { BASE_URL } from '../../components/Constant/constant';
 
 const MyResume1 = () => {
   const [users, setUsers] = useState([]);
@@ -11,7 +12,7 @@ const MyResume1 = () => {
     const token = localStorage.getItem('token');
 
     // Fetch all user data
-    axios.get('https://api.resumeintellect.com/api/admin/users', {
+    axios.get(`${BASE_URL}/api/admin/users`, {
       headers: {
         Authorization: token,
       },

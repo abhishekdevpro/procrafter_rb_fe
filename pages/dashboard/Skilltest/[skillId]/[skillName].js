@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
+import { BASE_URL } from "../../../../components/Constant/constant";
 
 const Testpaper = () => {
   const router = useRouter();
@@ -29,7 +30,7 @@ const Testpaper = () => {
       const fetchQuestions = async () => {
         try {
           const response = await axios.get(
-            ` https://api.resumeintellect.com/api/user/skill-assessment?skill_id=${parseInt(
+            ` ${BASE_URL}/api/user/skill-assessment?skill_id=${parseInt(
               skillId
             )}&skill_name=${encodeURIComponent(skillName)}`,
             {
@@ -75,7 +76,7 @@ const Testpaper = () => {
 
     try {
       const response = await axios.put(
-        ` https://api.resumeintellect.com/api/user/skill-assessment/${skillAssessmentId}`,
+        ` ${BASE_URL}/api/user/skill-assessment/${skillAssessmentId}`,
         {
           user_id: parseInt(jobSeekerId, 10),
           skill_id: parseInt(skillId, 10),
@@ -132,26 +133,40 @@ const Testpaper = () => {
 
   if (loading) {
     return (
-      <div className="font-bold mx-auto text-xl">
-        <div className="w-100 d-flex flex-row justify-content-center align-items-center bg-white p-5">
-          <div
-            className="w-75 d-flex flex-column align-items-center"
-            style={{ gap: "7px" }}
-          >
-            <div className="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center">
-              <div className="loader ease-linear rounded-full border-8 border-t-8 border-gray-900 h-64 w-64 pt-20 ps-16">
-                Please Wait..
-              </div>
-            </div>
-            <h2 className="text-violet-950">
-              Hold On A Second! We are Processing your request...!
-            </h2>
-            <p className="p-0 m-0" style={{ color: "red", fontWeight: "500" }}>
-              Don’t Shut or Back Your Window!
-            </p>
-          </div>
-        </div>
+      // <div className="font-bold mx-auto text-xl">
+      //   <div className="w-100 d-flex flex-row justify-content-center align-items-center bg-white p-5">
+      //     <div
+      //       className="w-75 d-flex flex-column align-items-center"
+      //       style={{ gap: "7px" }}
+      //     >
+      //       <div className="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center">
+      //         <div className="loader ease-linear rounded-full border-8 border-t-8 border-gray-900 h-64 w-64 pt-20 ps-16">
+      //           Please Wait..
+      //         </div>
+      //       </div>
+      //       <h2 className="text-violet-950">
+      //         Hold On A Second! We are Processing your request...!
+      //       </h2>
+      //       <p className="p-0 m-0" style={{ color: "red", fontWeight: "500" }}>
+      //         Don’t Shut or Back Your Window!
+      //       </p>
+      //     </div>
+      //   </div>
+      // </div>
+      <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-80 z-50">
+      <div className="flex flex-col items-center">
+        {/* Loader Spinner */}
+        <div className="animate-spin rounded-full h-24 w-24 border-t-4 border-b-4 border-violet-500"></div>
+
+        {/* Text Content */}
+        <h2 className="text-white text-2xl font-semibold mt-6 text-center">
+          Hold On A Second! We are Processing your request...
+        </h2>
+        <p className="text-red-500 text-lg font-medium mt-2 text-center">
+          Don’t Close or Navigate Away!
+        </p>
       </div>
+    </div>
     );
   }
 
@@ -160,8 +175,8 @@ const Testpaper = () => {
   }
 
   return (
-    <div className="flex h-screen w-full">
-      <div className="flex-1 py-24 bg-slate-200 px-5">
+    <div className="max-w-4xl flex h-screen justify-center items-center mx-auto">
+      <div className="flex-1 py-24 bg-white border-2 border-gray-200 shadow-xl rounded-2xl px-5">
         {showResults ? (
           <div className="w-100 bg-white d-flex justify-content-center align-items-center text-center">
             <div

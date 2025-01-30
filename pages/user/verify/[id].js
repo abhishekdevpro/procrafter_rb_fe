@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { BASE_URL } from "../../../components/Constant/constant";
 
 const VerificationPage = () => {
   const router = useRouter();
@@ -16,7 +17,7 @@ const VerificationPage = () => {
     const verifyUser = async () => {
       try {
         const response = await fetch(
-          `https://api.resumeintellect.com/api/user/verify-account/${id}`
+          `${BASE_URL}/api/user/verify-account/${id}`
         );
         console.log(response);
         if (response.ok) {

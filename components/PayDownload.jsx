@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { BASE_URL } from "./Constant/constant";
 
 const PayAndDownload = ({ resumeId, token, PayerID }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -36,7 +37,7 @@ const PayAndDownload = ({ resumeId, token, PayerID }) => {
 
       // API call to generate the PDF
       await axios.post(
-        "https://api.resumeintellect.com/api/user/generate-pdf1",
+        `${BASE_URL}/api/user/generate-pdf1`,
         { html: fullContent },
         {
           headers: {
@@ -73,7 +74,7 @@ const PayAndDownload = ({ resumeId, token, PayerID }) => {
       };
 
       const response = await axios.post(
-        "https://api.resumeintellect.com/api/user/paypal/create-payment",
+        `${BASE_URL}/api/user/paypal/create-payment`,
         payload,
         {
           headers: {
@@ -110,7 +111,7 @@ const PayAndDownload = ({ resumeId, token, PayerID }) => {
 
       if (orderId && token && PayerID) {
         const response = await axios.get(
-          `https://api.resumeintellect.com/api/user/paypal/verify-order?orderid=${orderId}`,
+          `${BASE_URL}/api/user/paypal/verify-order?orderid=${orderId}`,
           {
             headers: {
               Authorization: token,
@@ -144,7 +145,7 @@ const PayAndDownload = ({ resumeId, token, PayerID }) => {
       setIsLoading(true);
 
       const response = await axios.get(
-        `https://api.resumeintellect.com/api/user/download-file/${orderId}/${resumeId}`,
+        `${BASE_URL}/api/user/download-file/${orderId}/${resumeId}`,
         {
           headers: {
             Authorization: token,

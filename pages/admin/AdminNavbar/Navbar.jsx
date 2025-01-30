@@ -4,6 +4,7 @@ import Link from "next/link";
 import logo from "./logo.png";
 import Image from "next/image";
 import { toast } from "react-toastify";
+import { BASE_URL } from "../../../components/Constant/constant";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,7 +25,7 @@ const Navbar = () => {
       const checkApiSuccess = async () => {
         try {
           const response = await fetch(
-            "https://api.resumeintellect.com/api/user/user-profile",
+            `${BASE_URL}/api/user/user-profile`,
             {
               headers: {
                 Authorization: token,

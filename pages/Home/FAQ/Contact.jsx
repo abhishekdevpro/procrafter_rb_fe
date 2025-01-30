@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { BASE_URL } from '../../../components/Constant/constant';
 
 const ContactUs = () => {
   const [isFormVisible, setIsFormVisible] = useState(false);
@@ -22,7 +23,7 @@ const ContactUs = () => {
     setSuccessMessage('');
 
     try {
-      const response = await fetch('https://api.resumeintellect.com/api/user/contact-us', {
+      const response = await fetch(`${BASE_URL}/api/user/contact-us`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -22,7 +22,7 @@ export default function UploadStep({ onNext, onBack, onChange, value }) {
   //   try {
   //     const token = localStorage.getItem('token');
   //     const response = await axios.post(
-  //       'https://api.resumeintellect.com/api/jobseeker/resume-create',
+  //       '${BASE_URL}/api/jobseeker/resume-create',
   //       {},
   //       { headers: { Authorization: token } }
   //     );

@@ -31,7 +31,7 @@ export default function FileUploadStep({ onNext, onBack }) {
 
     try {
       const response = await axios.post(
-        `https://api.resumeintellect.com/api/jobseeker/resume-upload/12345`,
+        `${BASE_URL}/api/jobseeker/resume-upload/12345`,
         formData,
         {
           headers: {

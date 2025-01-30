@@ -77,7 +77,7 @@
 //     setError("");
 //     try {
 //       const response = await axios.post(
-//         "https://api.resumeintellect.com/api/user/ai-resume-profexp-data",
+//         "${BASE_URL}/api/user/ai-resume-profexp-data",
 //         {
 //           key: "professional_experience",
 //           keyword:
@@ -184,7 +184,7 @@
 //       setIsLoading(true);
 //       try {
 //         const response = await axios.post(
-//           "https://api.resumeintellect.com/api/user/ai-resume-profexp-data",
+//           "${BASE_URL}/api/user/ai-resume-profexp-data",
 //           {
 //             key: "professional_experience",
 //             keyword: value,
@@ -691,6 +691,7 @@ import axios from "axios";
 import dynamic from "next/dynamic";
 import "react-quill/dist/quill.snow.css";
 import { useRouter } from "next/router";
+import { BASE_URL } from "../Constant/constant";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
@@ -747,7 +748,7 @@ const WorkExperience = () => {
     setIsLoading((prev) => ({ ...prev, location: true }));
     try {
       const response = await fetch(
-        `https://api.resumeintellect.com/api/user/locations?locations=${encodeURIComponent(
+        `${BASE_URL}/api/user/locations?locations=${encodeURIComponent(
           keyword
         )}`
       );
@@ -771,7 +772,7 @@ const WorkExperience = () => {
 
     try {
       const response = await axios.get(
-        `https://api.resumeintellect.com/api/user/job-title?job_title_keyword=${encodeURIComponent(
+        `${BASE_URL}/api/user/job-title?job_title_keyword=${encodeURIComponent(
           keyword
         )}`
       );
@@ -792,7 +793,7 @@ const WorkExperience = () => {
 
     try {
       const response = await axios.get(
-        `https://api.resumeintellect.com/api/user/compnay-list?company_keyword=${encodeURIComponent(
+        `${BASE_URL}/api/user/compnay-list?company_keyword=${encodeURIComponent(
           keyword
         )}`
       );
@@ -838,7 +839,7 @@ const WorkExperience = () => {
     setError("");
     try {
       const response = await axios.post(
-        "https://api.resumeintellect.com/api/user/ai-resume-profexp-data",
+        `${BASE_URL}/api/user/ai-resume-profexp-data`,
         {
           key: "professional_experience",
           keyword:
@@ -948,7 +949,7 @@ const WorkExperience = () => {
       setIsLoading(true);
       try {
         const response = await axios.post(
-          "https://api.resumeintellect.com/api/user/ai-resume-profexp-data",
+          `${BASE_URL}/api/user/ai-resume-profexp-data`,
           {
             key: "professional_experience",
             keyword: value,

@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { ResumeContext } from "../../components/context/ResumeContext";
 import { Download, Edit, Trash, Plus } from "lucide-react";
 import Link from "next/link";
+import { BASE_URL } from "../../components/Constant/constant";
 
 const MyResume = () => {
   const { setResumeData } = useContext(ResumeContext);
@@ -26,7 +27,7 @@ const MyResume = () => {
     const token = localStorage.getItem("token");
     if (token) {
       axios
-        .get("https://api.resumeintellect.com/api/user/resume-list", {
+        .get(`${BASE_URL}/api/user/resume-list`, {
           headers: { Authorization: token },
         })
         .then((response) => {
@@ -50,7 +51,7 @@ const MyResume = () => {
 
   const handleDownload = async (resumeId) => {
     setResumeId(resumeId);
-    const apiUrl = `https://api.resumeintellect.com/api/user/download-resume/${resumeId}`;
+    const apiUrl = `${BASE_URL}/api/user/download-resume/${resumeId}`;
 
     try {
       const token = localStorage.getItem("token");
@@ -84,7 +85,7 @@ const MyResume = () => {
     if (token) {
       try {
         await axios.delete(
-          `https://api.resumeintellect.com/api/user/resume-list/${deleteresumeid}`,
+          `${BASE_URL}/api/user/resume-list/${deleteresumeid}`,
           {
             headers: { Authorization: token },
           }
@@ -119,7 +120,7 @@ const MyResume = () => {
     if (token && currentResume) {
       axios
         .put(
-          `https://api.resumeintellect.com/api/user/resume-details/${currentResume.id}`,
+          `${BASE_URL}/api/user/resume-details/${currentResume.id}`,
           { resue_name: newResumeTitle },
           { headers: { Authorization: token } }
         )

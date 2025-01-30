@@ -91,6 +91,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
 import Navbar from "../../Navbar/Navbar";
+import { BASE_URL } from "../../../components/Constant/constant";
 
 export default function Home() {
   const router = useRouter();
@@ -106,7 +107,7 @@ export default function Home() {
       const token = localStorage.getItem("token");
 
       const response = await axios.post(
-        "https://api.resumeintellect.com/api/user/resume-create",
+        `${BASE_URL}/api/user/resume-create`,
         {},
         {
           headers: {

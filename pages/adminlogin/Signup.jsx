@@ -6,6 +6,7 @@ import Link from "next/link";
 import toast from "react-toastify";
 import logo from "../login2/logo.png";
 import { useRouter } from "next/router";
+import { BASE_URL } from "../../components/Constant/constant";
  // Ensure this file exists and is correctly linked
 
 function Signup() {
@@ -48,7 +49,7 @@ function Signup() {
   
     try {
       const response = await axios.post(
-        "https://api.resumeintellect.com/api/user/auth/signup",
+        `${BASE_URL}/api/user/auth/signup`,
         body,
         {
           headers: {

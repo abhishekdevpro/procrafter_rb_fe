@@ -9,6 +9,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar from '../Navbar/Navbar';
 import logo from './logo.png'
+import { BASE_URL } from "../../components/Constant/constant";
 
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -61,7 +62,7 @@ const Signup = () => {
   
     try {
       const response = await axios.post(
-        "https://api.resumeintellect.com/api/user/auth/signup",
+        `${BASE_URL}/api/user/auth/signup`,
         body,
         {
           headers: {

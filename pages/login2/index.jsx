@@ -10,6 +10,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import Navbar from "../Navbar/Navbar";
 import { FcGoogle } from "react-icons/fc";
+import { BASE_URL } from "../../components/Constant/constant";
 const Login2 = () => {
   const [isThirdstepOpen, setThirdstepOpen] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -36,7 +37,7 @@ const Login2 = () => {
     setIsLoading(true);
     try {
       const response = await axios.post(
-        "https://api.resumeintellect.com/api/user/auth/login",
+        `${BASE_URL}/api/user/auth/login`,
         formData
       );
 
@@ -61,7 +62,7 @@ const Login2 = () => {
     setShowPassword(!showPassword);
   };
   const handleGoogleSignin = async () => {
-    const url = "https://api.resumeintellect.com/api/user/auth/google";
+    const url = `${BASE_URL}/api/user/auth/google`;
 
     try {
       const response = await axios.get(
@@ -187,14 +188,14 @@ const Login2 = () => {
                 "Login"
               )}
             </button>
-            {/* <button
+            <button
               onClick={handleGoogleSignin}
               type="button"
               className="w-full flex items-center justify-center bg-white border border-gray-300 text-gray-700 px-4 py-2 rounded-md mt-4 shadow-sm hover:bg-gray-100 focus:outline-none"
             >
               <FcGoogle className="h-6 w-6 mr-2" />
               Continue with Google
-            </button> */}
+            </button>
           </form>
         </div>
       </div>

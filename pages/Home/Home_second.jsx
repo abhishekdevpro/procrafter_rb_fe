@@ -37,7 +37,7 @@
 
 //     axios
 //       .post(
-//         "https://api.resumeintellect.com/api/user/paypal/create-payment",
+//         "${BASE_URL}/api/user/paypal/create-payment",
 //         payload,
 //         {
 //           headers: { "Content-Type": "application/json" },
@@ -78,7 +78,7 @@
 
 //     axios
 //       .post(
-//         "https://api.resumeintellect.com/api/user/paypal/create-payment",
+//         "${BASE_URL}/api/user/paypal/create-payment",
 //         payload,
 //         {
 //           headers: { "Content-Type": "application/json" },

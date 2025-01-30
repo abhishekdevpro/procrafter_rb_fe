@@ -434,6 +434,7 @@ import FormButton from "./FormButton";
 import React, { useContext, useState } from "react";
 import { AlertCircle, X, Loader2 } from "lucide-react";
 import { useRouter } from "next/router";
+import { BASE_URL } from "../Constant/constant";
 
 const Education = () => {
   const { resumeData, setResumeData, resumeStrength } =
@@ -473,7 +474,7 @@ const Education = () => {
     setIsLoading((prev) => ({ ...prev, university: true }));
     try {
       const response = await fetch(
-        `https://api.resumeintellect.com/api/user/university-lists?university_keyword=${encodeURIComponent(
+        `${BASE_URL}/api/user/university-lists?university_keyword=${encodeURIComponent(
           keyword
         )}`
       );
@@ -497,7 +498,7 @@ const Education = () => {
     setIsLoading((prev) => ({ ...prev, location: true }));
     try {
       const response = await fetch(
-        `https://api.resumeintellect.com/api/user/locations?locations=${encodeURIComponent(
+        `${BASE_URL}/api/user/locations?locations=${encodeURIComponent(
           keyword
         )}`
       );
