@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { BASE_URL } from '../../components/Constant/constant';
    
 
 const ProfileForm = () => {
@@ -32,7 +33,7 @@ const ProfileForm = () => {
         const token = localStorage.getItem("token");
         
         // Fetch user profile
-        const userProfileResponse = await axios.get('https://api.resumeintellect.com/api/user/user-profile', {
+        const userProfileResponse = await axios.get(`${BASE_URL}/api/user/user-profile`, {
           headers: {
             Authorization: token,
           },
@@ -58,7 +59,7 @@ const ProfileForm = () => {
           }));
 
           // Fetch countries
-          const countriesResponse = await axios.get('https://api.resumeintellect.com/api/user/countries');
+          const countriesResponse = await axios.get(`${BASE_URL}/api/user/countries`);
           if (countriesResponse.data.status === 'success') {
             setCountries(countriesResponse.data.data);
           }
@@ -78,7 +79,7 @@ const ProfileForm = () => {
       if (formData.country_id) {
         try {
           const token = localStorage.getItem("token");
-          const response = await axios.get(`https://api.resumeintellect.com/api/user/stats/${formData.country_id}`, {
+          const response = await axios.get(`${BASE_URL}/api/user/stats/${formData.country_id}`, {
             headers: {
               Authorization: token, // Ensure token is included correctly
             },
@@ -108,7 +109,7 @@ const ProfileForm = () => {
       if (formData.state_id) {
         setLoading(true); // Set loading state to true
         try {
-          const citiesResponse = await axios.get(`https://api.resumeintellect.com/api/user/cities/${formData.state_id}`);
+          const citiesResponse = await axios.get(`${BASE_URL}/api/user/cities/${formData.state_id}`);
           
           if (citiesResponse.data.status === 'success') {
             if (citiesResponse.data.message === "Records not found") {
@@ -191,7 +192,7 @@ const ProfileForm = () => {
     }
 
     try {
-      const response = await axios.patch('https://api.resumeintellect.com/api/user/user-profile', formDataToSend, {
+      const response = await axios.patch(`${BASE_URL}/api/user/user-profile`, formDataToSend, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: token,

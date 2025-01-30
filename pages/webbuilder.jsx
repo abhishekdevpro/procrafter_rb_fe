@@ -18,7 +18,7 @@ import ColorPickers from "./ColorPickers";
 import Preview from "../components/preview/Preview";
 import TemplateSelector from "../components/preview/TemplateSelector";
 import { PDFExport } from "@progress/kendo-react-pdf";
-import LoadUnload from "../components/form/LoadUnload";
+// import LoadUnload from "../components/form/LoadUnload";
 import MyResume from "./dashboard/MyResume";
 import { useRouter } from "next/router";
 import Sidebar from "./dashboard/Sidebar";
@@ -35,6 +35,7 @@ import logo from "./builderImages/logo.png";
 import applepay from "./builderImages/apple-pay.png";
 import { ResumeContext } from "../components/context/ResumeContext";
 import PayAndDownload from "../components/PayDownload";
+import { BASE_URL } from "../components/Constant/constant";
 
 const Print = dynamic(() => import("../components/utility/WinPrint"), {
   ssr: false,
@@ -89,7 +90,7 @@ export default function WebBuilder() {
       if (id && token) {
         try {
           const response = await axios.get(
-            `https://api.resumeintellect.com/api/user/resume-list/${id}`,
+            `${BASE_URL}/api/user/resume-list/${id}`,
             {
               headers: {
                 Authorization: token,
@@ -344,7 +345,7 @@ export default function WebBuilder() {
 
       // API call to generate the PDF
       const response = await axios.post(
-        "https://api.resumeintellect.com/api/user/generate-pdf1",
+        `${BASE_URL}/api/user/generate-pdf1`,
         { html: fullContent },
         {
           headers: {
@@ -361,7 +362,7 @@ export default function WebBuilder() {
       // }
 
       // Construct the URL
-      // const downloadUrl = `https://api.resumeintellect.com${filePath}`;
+      // const downloadUrl = `${BASE_URL}${filePath}`;
 
       // Open the URL in a new tab
       // createPayment();
@@ -387,7 +388,7 @@ export default function WebBuilder() {
       };
 
       const response = await axios.post(
-        "https://api.resumeintellect.com/api/user/paypal/create-payment",
+        `${BASE_URL}/api/user/paypal/create-payment`,
         payload,
         {
           headers: {
@@ -453,7 +454,7 @@ export default function WebBuilder() {
 
   //     // API call to generate the PDF
   //     const response = await axios.post(
-  //       'https://api.resumeintellect.com/api/user/generate-pdf1',
+  //       '${BASE_URL}/api/user/generate-pdf1',
   //       { html: ` <script src="https://cdn.tailwindcss.com"></script> ${htmlContent}` },
   //       {
   //         headers: {
@@ -468,7 +469,7 @@ export default function WebBuilder() {
   //     }
 
   //     // Construct the download URL
-  //     const downloadUrl = `https://api.resumeintellect.com${response.data.data.file_path}`;
+  //     const downloadUrl = `${BASE_URL}${response.data.data.file_path}`;
 
   //     // Fetch the PDF file to handle CORS issues
   //     const fileResponse = await axios.get(downloadUrl, {
@@ -509,7 +510,7 @@ export default function WebBuilder() {
 
       if (orderId && token && PayerID) {
         const response = await axios.get(
-          `https://api.resumeintellect.com/api/user/paypal/verify-order?orderid=${orderId}`,
+          `${BASE_URL}/api/user/paypal/verify-order?orderid=${orderId}`,
           {
             headers: {
               Authorization: token,
@@ -542,7 +543,7 @@ export default function WebBuilder() {
     handleFinish();
     try {
       const response = await axios.get(
-        `https://api.resumeintellect.com/api/user/download-file/${orderId}/${resumeId}`,
+        `${BASE_URL}/api/user/download-file/${orderId}/${resumeId}`,
         {
           headers: {
             Authorization: token,
@@ -654,7 +655,7 @@ export default function WebBuilder() {
           return;
         }
 
-        const url = `https://api.resumeintellect.com/api/user/resume-update/${id}`;
+        const url = `${BASE_URL}/api/user/resume-update/${id}`;
         const response = await axios.put(
           url,
           { ...templateData, resume_html: resumeHtml },
@@ -702,7 +703,7 @@ export default function WebBuilder() {
         const token = localStorage.getItem("token");
 
         const userProfileResponse = await axios.get(
-          "https://api.resumeintellect.com/api/user/user-profile",
+          `${BASE_URL}/api/user/user-profile`,
           {
             headers: {
               Authorization: token,

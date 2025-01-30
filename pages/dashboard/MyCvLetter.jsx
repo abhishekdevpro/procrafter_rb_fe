@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import FullScreenLoader from "../../components/ResumeLoader/Loader";
 import { toast } from "react-toastify";
 import Link from "next/link";
+import { BASE_URL } from "../../components/Constant/constant";
 const MyCvLetter = () => {
   const [coverletters, setCoverLetters] = useState([]);
   const [deletecoverletterId, setDeletecoverletterId] = useState(null);
@@ -20,7 +21,7 @@ const MyCvLetter = () => {
     const token = localStorage.getItem("token");
     if (token) {
       axios
-        .get("https://api.resumeintellect.com/api/user/coverletter", {
+        .get(`${BASE_URL}/api/user/coverletter`, {
           headers: { Authorization: token },
         })
         .then((response) => {
@@ -42,7 +43,7 @@ const MyCvLetter = () => {
   };
   const handleDownload = async (coverletterId) => {
     setcoverletterId(coverletterId);
-    const apiUrl = `https://api.resumeintellect.com/api/user/download-coverletter/${coverletterId}`;
+    const apiUrl = `${BASE_URL}/api/user/download-coverletter/${coverletterId}`;
 
     try {
       const token = localStorage.getItem("token");
@@ -74,7 +75,7 @@ const MyCvLetter = () => {
     if (token) {
       try {
         await axios.delete(
-          `https://api.resumeintellect.com/api/user/coverletter/${deletecoverletterId}`,
+          `${BASE_URL}/api/user/coverletter/${deletecoverletterId}`,
           {
             headers: { Authorization: token },
           }
@@ -103,7 +104,7 @@ const MyCvLetter = () => {
     if (token && currentCoverLetter) {
       axios
         .put(
-          `https://api.resumeintellect.com/api/user/coverletter-details/${currentCoverLetter.id}`,
+          `${BASE_URL}/api/user/coverletter-details/${currentCoverLetter.id}`,
           { cover_letter_title: newCoverLetterTitle },
           { headers: { Authorization: token } }
         )

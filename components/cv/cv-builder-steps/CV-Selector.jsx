@@ -10,6 +10,7 @@ import cvletter3 from "../coverletter/cvimgs/cvletter3.png";
 import cvletter4 from "../coverletter/cvimgs/cvletter4.png";
 import cvletter5 from "../coverletter/cvimgs/cvletter5.png";
 import { CoverLetterContext } from "../../context/CoverLetterContext";
+import { BASE_URL } from "../../Constant/constant";
 const CVSelector = ({ onNext, onBack, onChange, value }) => {
   const [selectedHexCode, setSelectedHexCode] = useState("#2563EB");
   const [loading, setLoading] = useState(false);
@@ -149,7 +150,7 @@ const CVSelector = ({ onNext, onBack, onChange, value }) => {
         }
 
         const response = await axios.get(
-          `https://api.resumeintellect.com/api/user/coverletter/${coverletterId}`,
+          `${BASE_URL}/api/user/coverletter/${coverletterId}`,
           {
             headers: {
               Authorization: token,
@@ -244,7 +245,7 @@ const CVSelector = ({ onNext, onBack, onChange, value }) => {
       }
 
       const response = await axios.put(
-        `https://api.resumeintellect.com/api/user/coverletter/${coverletterId}`,
+        `${BASE_URL}/api/user/coverletter/${coverletterId}`,
         coverletterInfo,
         {
           headers: {

@@ -146,7 +146,7 @@
 
 //     try {
 //       const response = await axios.post(
-//         `https://api.resumeintellect.com/api/user/job-favorites`,{
+//         `${BASE_URL}/api/user/job-favorites`,{
 //             job_id:jobId
 //         },
 //         {
@@ -181,7 +181,7 @@
 // //       try {
 // //         setIsLoading(true);
 // //         const response = await fetch(
-// //           "https://api.resumeintellect.com/api/user/job-favorites"
+// //           "${BASE_URL}/api/user/job-favorites"
 // //         );
 // //         const data = await response.json();
 
@@ -204,7 +204,7 @@
 //       try {
 //         setIsLoading(true);
 //         const response = await axios.get(
-//           "https://api.resumeintellect.com/api/user/job-favorites",
+//           "${BASE_URL}/api/user/job-favorites",
 //           {
 //             headers: {
 //               Authorization: token, // Add token if required
@@ -361,6 +361,7 @@ import Link from "next/link";
 import { toast } from "react-toastify";
 import Navbar from "../Navbar/Navbar";
 import Image from 'next/image';
+import { BASE_URL } from "../../components/Constant/constant";
 
 const LoginModal = ({ onClose }) => {
   return (
@@ -483,7 +484,7 @@ export default function SavedJobsPage() {
 
     try {
       const response = await axios.post(
-        `https://api.resumeintellect.com/api/user/job-favorites`,
+        `${BASE_URL}/api/user/job-favorites`,
         {
           job_id: jobId
         },
@@ -519,7 +520,7 @@ export default function SavedJobsPage() {
       try {
         setIsLoading(true);
         const response = await axios.get(
-          "https://api.resumeintellect.com/api/user/job-favorites",
+          `${BASE_URL}/api/user/job-favorites`,
           {
             headers: {
               Authorization: token,

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { BASE_URL } from '../../components/Constant/constant';
    
 
 function Payment() {
@@ -9,7 +10,7 @@ function Payment() {
   useEffect(() => {
     const token = localStorage.getItem('token');
 
-    axios.get('https://api.resumeintellect.com/api/admin/payment-history', {
+    axios.get(`${BASE_URL}/api/admin/payment-history`, {
       headers: {
         Authorization: token
       }
@@ -32,7 +33,7 @@ function Payment() {
     const token = localStorage.getItem('token');
     const remark = remarks[Id];
 
-    axios.post('https://api.resumeintellect.com/api/admin/payment-history-remark', {
+    axios.post(`${BASE_URL}/api/admin/payment-history-remark`, {
       Id,
       remark
     }, {

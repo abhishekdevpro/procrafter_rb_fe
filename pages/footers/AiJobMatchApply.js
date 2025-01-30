@@ -1,9 +1,11 @@
 import React from "react";
 import Footer from "../Footer/Footer";
+import Navbar from "../Navbar/Navbar";
 
 function AiJobMatchApply() {
   return (
     <div>
+      <Navbar/>
       <div className="max-w-4xl mx-auto my-5 p-6 sm:p-10 shadow-lg bg-white rounded-lg">
         <h1 className="text-4xl font-semibold my-4 underline ">
           AI-Job Match & Apply

@@ -7,12 +7,12 @@ import React, { useState } from "react";
 
 import { FaBars } from "react-icons/fa"; //
 import Builder from "../builder";
-import LoadUnload from "../../components/form/LoadUnload";
+// import LoadUnload from "../../components/form/LoadUnload";
 
 export default function DashboardPage() {
   return (
     <div>
-      <LoadUnload />
+      {/* <LoadUnload /> */}
     </div>
   );
 }

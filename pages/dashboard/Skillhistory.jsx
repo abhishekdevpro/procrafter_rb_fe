@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { BASE_URL } from '../../components/Constant/constant';
 
 function Skillhistory() {
   const [users, setUsers] = useState([]);
@@ -7,7 +8,7 @@ function Skillhistory() {
   useEffect(() => {
     const token = localStorage.getItem('token');
 
-    axios.get(' https://api.resumeintellect.com/api/user/skill-assessment-history', {
+    axios.get(`${BASE_URL}/api/user/skill-assessment-history`, {
       headers: {
         Authorization: token
       }

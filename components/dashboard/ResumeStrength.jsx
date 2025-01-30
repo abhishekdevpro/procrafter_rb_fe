@@ -129,7 +129,10 @@ const ResumeStrength = ({ score, strength, resumeId }) => {
 
             <button
               onClick={handleImproveResume}
-              className="mt-2 px-6 py-2 bg-[#00b38d] text-white rounded-lg hover:bg-[#00b38d]"
+              disabled={!resumeId}
+              className={`mt-2 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 w-full sm:w-auto ${
+                !resumeId ? "opacity-50 cursor-not-allowed" : ""
+              }`}
             >
               Improve Resume
             </button>

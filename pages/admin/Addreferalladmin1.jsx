@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import {  toast } from "react-toastify";
+import { BASE_URL } from "../../components/Constant/constant";
 
 function Addreferalladmin1() {
     const [name, setName] = useState("");
@@ -17,7 +18,7 @@ function Addreferalladmin1() {
         const referralData = { name, phone, email, remark };
 
         try {
-            const response = await axios.post("https://api.resumeintellect.com/api/admin/referral", referralData, {
+            const response = await axios.post(`${BASE_URL}/api/admin/referral`, referralData, {
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': token,

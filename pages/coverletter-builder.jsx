@@ -9,6 +9,7 @@ import ColorPickers from "./ColorPickers";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import MobileCoverLetterBuilder from "./mobile-cv-builder";
+import { BASE_URL } from "../components/Constant/constant";
 function CoverLetterBuilder() {
   const {
     coverLetterData,
@@ -55,7 +56,7 @@ function CoverLetterBuilder() {
       if (id && token) {
         try {
           const response = await axios.get(
-            `https://api.resumeintellect.com/api/user/coverletter/${id}`,
+            `${BASE_URL}/api/user/coverletter/${id}`,
             {
               headers: {
                 Authorization: token,
@@ -155,7 +156,7 @@ function CoverLetterBuilder() {
       }
 
       const response = await axios.put(
-        `https://api.resumeintellect.com/api/user/coverletter/${coverletterId}`,
+        `${BASE_URL}/api/user/coverletter/${coverletterId}`,
 
         { ...coverletterInfo, cover_letter_html: coverletterHtml },
         {
@@ -196,7 +197,7 @@ function CoverLetterBuilder() {
       `;
 
       // const response = await axios.post(
-      //   "https://api.resumeintellect.com/api/jobseeker/generate-pdf1",
+      //   "${BASE_URL}/api/jobseeker/generate-pdf1",
       //   { html: fullContent },
       //   {
       //     headers: {
@@ -217,7 +218,7 @@ function CoverLetterBuilder() {
   const downloadPDF = async () => {
     try {
       const response = await axios.get(
-        `https://api.resumeintellect.com/api/user/download-coverletter/${coverletterId}`,
+        `${BASE_URL}/api/user/download-coverletter/${coverletterId}`,
 
         {
           headers: {

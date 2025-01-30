@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
+import { BASE_URL } from "../../components/Constant/constant";
 
 const Index = () => {
   const [loading, setLoading] = useState(true);
@@ -14,7 +15,7 @@ const Index = () => {
       const verifyOrder = async () => {
         try {
           const response = await fetch(
-            `https://api.resumeintellect.com/api/user/paypal/verify-order?orderid=${orderId}`
+            `${BASE_URL}/api/user/paypal/verify-order?orderid=${orderId}`
           );
 
           if (!response.ok) {

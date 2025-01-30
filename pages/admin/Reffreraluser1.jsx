@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { BASE_URL } from '../../components/Constant/constant';
 
 function Reffreraluser1() {
   const [users, setUsers] = useState([]);
@@ -7,7 +8,7 @@ function Reffreraluser1() {
   useEffect(() => {
     const token = localStorage.getItem('token');
 
-    axios.get('https://api.resumeintellect.com/api/admin/referral-users', {
+    axios.get(`${BASE_URL}/api/admin/referral-users`, {
       headers: {
         Authorization: token
       }

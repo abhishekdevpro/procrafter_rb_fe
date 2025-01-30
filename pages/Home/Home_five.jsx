@@ -78,6 +78,8 @@ import paypal from "./Images/paypal.png";
 import applepay from "./Images/apple-pay.png";
 import Script from "next/script";
 import ApplePayButton from "./ApplePayButton";
+import { BASE_URL } from "../../components/Constant/constant";
+import { PoundSterling } from "lucide-react";
 function Home_five() {
   const [showModal, setShowModal] = useState(false);
   const [name, setName] = useState("");
@@ -90,7 +92,7 @@ function Home_five() {
 
   const handlePayment = (e) => {
     e.preventDefault();
-    const amount = 269;
+    const amount = 19;
 
     const payload = {
       amount,
@@ -102,7 +104,7 @@ function Home_five() {
 
     axios
       .post(
-        "https://api.resumeintellect.com/api/user/paypal/create-payment",
+        `${BASE_URL}/api/user/paypal/create-payment`,
         payload,
         {
           headers: { "Content-Type": "application/json" },
@@ -131,7 +133,7 @@ function Home_five() {
 
   const handlePayment1 = (e) => {
     e.preventDefault();
-    const amount = 349;
+    const amount = 29;
 
     const payload = {
       amount,
@@ -143,7 +145,7 @@ function Home_five() {
 
     axios
       .post(
-        "https://api.resumeintellect.com/api/user/paypal/create-payment",
+        `${BASE_URL}/api/user/paypal/create-payment`,
         payload,
         {
           headers: { "Content-Type": "application/json" },
@@ -182,7 +184,9 @@ function Home_five() {
                 </p>
                 <div className="flex justify-center items-baseline my-8 gap-3">
                   <span className="text-white dark:text-white">Starting </span>
-                  <span className="mr-2 text-5xl font-extrabold"> $0</span>
+                  <PoundSterling size={36} className="text-white stroke-[3]" />
+                  <span className="mr-2 text-5xl font-extrabold"> 
+                    0</span>
                 </div>
                 {/* List */}
                 <ul role="list" className="mb-8 space-y-4 text-left">
@@ -280,10 +284,11 @@ function Home_five() {
               <div className="flex flex-col p-6 mx-auto max-w-lg text-center text-white bg-gray-800 rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
                 <h3 className="mb-4 text-2xl font-bold">Expert Human Writer</h3>
                 <p className="font-light text-white sm:text-lg dark:text-white">
-                  Best for large scale uses and extended redistribution rights.
+                  Built by expert resume writers
                 </p>
                 <div className="flex justify-center items-baseline my-8">
-                  <span className="mr-2 text-5xl font-extrabold"> $269</span>
+                <PoundSterling size={36} className="text-white stroke-[3]" />
+                  <span className="mr-2 text-5xl font-extrabold"> 19</span>
                   <span className="text-white dark:text-white">/Resume</span>
                 </div>
                 {/* List */}
@@ -443,7 +448,7 @@ function Home_five() {
                       <div className="md:w-1/2 w-full p-4 ">
                         <div className="text-left mb-6">
                           <h2 className="text-2xl font-bold text-gray-900">
-                            $269
+                          £19
                           </h2>
                           <p className="text-sm text-gray-500">Total Amount</p>
                         </div>
@@ -569,8 +574,9 @@ function Home_five() {
                       {/* Right Section: Form */}
                       <div className="md:w-1/2 w-full p-4 ">
                         <div className="text-left mb-6">
+                          
                           <h2 className="text-2xl font-bold text-gray-900">
-                            $349
+                          £29
                           </h2>
                           <p className="text-sm text-gray-500">Total Amount</p>
                         </div>
@@ -659,10 +665,13 @@ function Home_five() {
                   French English Combo
                 </h3>
                 <p className="font-light text-white sm:text-lg dark:text-white">
-                  Best for large scale uses and extended redistribution rights.
+                  Built by expert resume writers
                 </p>
                 <div className="flex justify-center items-baseline my-8">
-                  <span className="mr-2 text-5xl font-extrabold"> $349</span>
+                <PoundSterling size={36} className="text-white stroke-[3]" /> 
+                  <span className="mr-2 text-5xl font-extrabold"> 
+                    29
+                    </span>
                   <span className="text-white dark:text-white">/Resume</span>
                 </div>
                 {/* List */}

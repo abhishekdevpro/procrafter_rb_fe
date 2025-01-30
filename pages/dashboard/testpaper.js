@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
+import { BASE_URL } from "../../components/Constant/constant";
 
 function Testpaper() {
   const router = useRouter();
@@ -28,7 +29,7 @@ function Testpaper() {
       const fetchQuestions = async () => {
         try {
           const response = await axios.get(
-            ` https://api.resumeintellect.com/api/user/skill-assessment?skill_id=${parseInt(
+            ` ${BASE_URL}/api/user/skill-assessment?skill_id=${parseInt(
               skillId
             )}&skill_name=${encodeURIComponent(skillName)}`,
             {
@@ -74,7 +75,7 @@ function Testpaper() {
 
     try {
       const response = await axios.put(
-        ` https://api.resumeintellect.com/api/user/skill-assessment/${skillAssessmentId}`,
+        ` ${BASE_URL}/api/user/skill-assessment/${skillAssessmentId}`,
         {
           user_id: parseInt(jobSeekerId, 10),
           skill_id: parseInt(skillId, 10),

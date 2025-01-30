@@ -3,6 +3,7 @@ import Link from 'next/link'
 import axios from "axios";
 import toast from "react-toastify";
 import { ToastContainer } from "react-toastify";
+import { BASE_URL } from "../../components/Constant/constant";
 
 function Changepassword() {
   const [showOldPassword, setShowOldPassword] = useState(false);
@@ -42,7 +43,7 @@ function Changepassword() {
 
     axios({
       method: "PUT",
-      url: " https://api.resumeintellect.com/api/user/change-password",
+      url: `${BASE_URL}/api/user/change-password`,
      
       headers: {
         Authorization: token,

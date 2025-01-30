@@ -11,6 +11,7 @@ import { useRouter } from "next/router";
 import FullScreenLoader from "../../components/ResumeLoader/Loader";
 import { Download, Edit, Trash, Plus } from "lucide-react";
 import AbroadiumCommunity from "../../components/dashboard/AbroadiumCommunity";
+import { BASE_URL } from "../../components/Constant/constant";
 export default function DashboardPage() {
   const [strength, setStrength] = useState(null);
   const [resumeId, setResumeId] = useState(null);
@@ -22,7 +23,7 @@ export default function DashboardPage() {
       setLoading(true);
       const token = localStorage.getItem("token");
       const response = await axios.get(
-        `https://api.resumeintellect.com/api/user/resume-list/0?resume_default=true`,
+        `${BASE_URL}/api/user/resume-list/0?resume_default=true`,
         {
           headers: {
             Authorization: token,
@@ -36,11 +37,13 @@ export default function DashboardPage() {
       } else {
         setStrength(null);
         setResumeId(null);
+        router.push(`/dashboard/resume-builder`)
       }
     } catch (err) {
       setError(err.message);
       setStrength(null);
       setResumeId(null);
+      router.push(`/dashboard/resume-builder`)
     } finally {
       setLoading(false);
     }
@@ -120,8 +123,8 @@ export default function DashboardPage() {
             resumeId={resumeId || null}
           />
           {/* <ProfileSection visits={4} /> */}
-          <AbroadiumCommunity />
-          {/* <InterviewSection /> */}
+          {/* <AbroadiumCommunity /> */}
+          <InterviewSection />
           <CoverLetterSection />
         </main>
       </div>

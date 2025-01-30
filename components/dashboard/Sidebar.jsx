@@ -5,6 +5,7 @@ import React, { useState, useRef, useEffect, useContext } from "react";
 import { ResumeContext } from "../../components/context/ResumeContext";
 import DashboardPreview from "../preview/DashboardPreview";
 import axios from "axios";
+import { BASE_URL } from "../Constant/constant";
 
 const Sidebar = ({ score, resumeId }) => {
   const templateRef = useRef(null);
@@ -33,7 +34,7 @@ const Sidebar = ({ score, resumeId }) => {
     if (token) {
       try {
         const response = await axios.get(
-          `https://api.resumeintellect.com/api/user/resume-list/${resumeId}`, // Fetch for specific resumeId
+          `${BASE_URL}/api/user/resume-list/${resumeId}`, // Fetch for specific resumeId
           {
             headers: {
               Authorization: token,
@@ -68,7 +69,7 @@ const Sidebar = ({ score, resumeId }) => {
   }, [resumeId]); // Trigger API call whenever `resumeId` changes
 
   const handleDownload = async () => {
-    const apiUrl = `https://api.resumeintellect.com/api/user/download-resume/${resumeId}`;
+    const apiUrl = `${BASE_URL}/api/user/download-resume/${resumeId}`;
 
     try {
       const token = localStorage.getItem("token");
@@ -128,20 +129,26 @@ const Sidebar = ({ score, resumeId }) => {
 
       {/* Action Buttons */}
       <div className="flex gap-4 mb-6">
-        <button
-          onClick={handleEdit}
-          className="flex-1 flex items-center justify-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50"
-        >
-          <Edit />
-          Edit
-        </button>
-        <button
-          onClick={handleDownload}
-          className="flex-1 flex items-center justify-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50"
-        >
-          <Download />
-          Download
-        </button>
+      <button
+              onClick={handleEdit}
+              disabled={!resumeId} // Disable button if resumeId is null
+              className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 ${
+                !resumeId ? "opacity-50 cursor-not-allowed" : ""
+              }`}
+            >
+              <Edit />
+              Edit
+            </button>
+            <button
+            onClick={handleDownload}
+            disabled={!resumeId}
+            className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 ${
+              !resumeId ? "opacity-50 cursor-not-allowed" : ""
+            }`}
+          >
+            <Download />
+            Download
+          </button>
       </div>
 
       {/* Resume Strength */}

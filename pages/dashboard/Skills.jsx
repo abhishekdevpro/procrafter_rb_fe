@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
+import { BASE_URL } from '../../components/Constant/constant';
 
 const Skills = () => {
   const [skills, setSkills] = useState([]);
@@ -23,7 +24,7 @@ const Skills = () => {
     }
 
     try {
-      const response = await axios.get(' https://api.resumeintellect.com/api/user/user-skills', {
+      const response = await axios.get(`${BASE_URL}/api/user/user-skills`, {
         headers: {
           Authorization: token,
         },

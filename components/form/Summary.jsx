@@ -46,7 +46,7 @@
 //     try {
 //       const token = localStorage.getItem("token");
 //       const response = await axios.post(
-//         "https://api.resumeintellect.com/api/user/ai-resume-summery-data",
+//         "${BASE_URL}/api/user/ai-resume-summery-data",
 //         {
 //           key: "resumesummery",
 //           keyword: `professional summary in manner of description - ${Date.now()}`,
@@ -299,7 +299,7 @@ const Summary = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        "https://api.resumeintellect.com/api/user/ai-resume-summery-data",
+        `${BASE_URL}/api/user/ai-resume-summery-data`,
         {
           key: "resumesummery",
           keyword: `professional summary in manner of description - ${Date.now()}`,

@@ -1,9 +1,11 @@
 import React from "react";
 import Footer from "../Footer/Footer";
+import Navbar from "../Navbar/Navbar";
 
 function Careers() {
   return (
     <div>
+      <Navbar/>
       <div className="m-4 sm:mx-10 lg:mx-40 p-4 sm:p-6 shadow-2xl">
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold my-4 underline">
           Careers at Cibli Job
@@ -114,7 +116,7 @@ function Careers() {
           of a dynamic, growth-oriented team, we’d love to hear from you. To
           apply for a position at Cibli Job, please send your resume and a cover
           letter to{" "}
-          <a href="mailto:career@CibliJob.ca" className="text-blue-500">
+          <a href="mailto:career@CibliJob.fr" className="text-blue-500">
             career@CibliJob.ca
           </a>
           .

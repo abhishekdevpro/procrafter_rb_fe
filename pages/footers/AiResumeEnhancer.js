@@ -1,9 +1,11 @@
 import React from "react";
 import Footer from "../Footer/Footer";
+import Navbar from "../Navbar/Navbar";
 
 function AiResumeEnhancer() {
   return (
     <div>
+      <Navbar/>
       <div className="m-10  shadow-2xl max-w-4xl mx-auto my-5 p-6 sm:p-10 bg-white rounded-lg">
         <h1 className="my-4 text-3xl sm:text-4xl font-semibold text-center underline ">
           AI Resume Enhancer

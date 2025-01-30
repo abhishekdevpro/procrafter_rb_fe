@@ -5,6 +5,7 @@ import { useState } from "react";
 import axios from "axios";
 import Link from "next/link"; // Import Link from next/link
 import img from "../Footer/footer-img.jpg";
+import { BASE_URL } from "../../components/Constant/constant";
 const Footer = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -15,7 +16,7 @@ const Footer = () => {
     // Sending raw JSON data in the POST request
     axios
       .post(
-        "https://api.resumeintellect.com/api/user/user-subscribe",
+        `${BASE_URL}/api/user/user-subscribe`,
         JSON.stringify({ email }), // Sending email in raw JSON
         {
           headers: {
@@ -185,7 +186,7 @@ const Footer = () => {
         </div>
         <div className="container text-base md:mx-auto text-center border-t border-white pt-6 mt-6">
           <p className="text-[#00b38d] text-right">
-            &copy; Copyright By CibliJob.ca All Rights Reserved
+            &copy; Copyright By CibliJob.fr All Rights Reserved
           </p>
         </div>
       </footer>

@@ -8,6 +8,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { toast, ToastContainer } from "react-toastify";
+import { BASE_URL } from "../../components/Constant/constant";
 // import Navbar from "../Navbar/Navbar";
 
 function AdminLogin() {
@@ -33,7 +34,7 @@ function AdminLogin() {
 
     try {
       const response = await axios.post(
-        'https://api.resumeintellect.com/api/admin/auth/login',
+        `${BASE_URL}/api/admin/auth/login`,
         formData,
       );
 

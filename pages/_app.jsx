@@ -30,7 +30,7 @@ export default function App({ Component, pageProps }) {
       router.push("/adminlogin"); // Redirect to admin login if accessing admin route without a token
     }
   }, [router.pathname]);
-
+  // console.log(router.pathname);
   return (
     <>
       <ResumeProvider>

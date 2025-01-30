@@ -36,7 +36,7 @@
 
 //       try {
 //         const token = localStorage.getItem("token");
-//         const userProfileResponse = await axios.get(' https://api.resumeintellect.com/api/user/user-profile', {
+//         const userProfileResponse = await axios.get(' ${BASE_URL}/api/user/user-profile', {
 //           headers: { Authorization: token },
 //         });
 
@@ -71,7 +71,7 @@
 //   useEffect(() => {
 //     const token = localStorage.getItem('token');
 //     if (token) {
-//       axios.get(' https://api.resumeintellect.com/api/user/resume-list', {
+//       axios.get(' ${BASE_URL}/api/user/resume-list', {
 //         headers: { Authorization: token }
 //       })
 //       .then(response => {
@@ -92,7 +92,7 @@
 //     const token = localStorage.getItem('token');
 
 //     if (token) {
-//       axios.post(' https://api.resumeintellect.com/api/user/file-based-ai', {
+//       axios.post(' ${BASE_URL}/api/user/file-based-ai', {
 //         keyword: 'Rate this resume content in percentage ? and checklist of scope improvements in manner of content and informations',
 //         file_location: resume.file_path || "/etc/dean_ai_resume/users/resume_uploads/majid[15_0]-1723818329.pdf",
 //       }, {
@@ -150,7 +150,7 @@
 //           <div className="space-y-4 mb-6 md:mb-0 md:mr-6 md:pr-6 w-full">
 //             <div className="flex flex-col md:flex-row md:items-center md:space-x-4">
 //               <img
-//                 src={`https://api.resumeintellect.com/${formData.photo}` || "https://www.kindpng.com/picc/m/252-2524695_dummy-profile-image-jpg-hd-png-download.png"}
+//                 src={`${BASE_URL}/${formData.photo}` || "https://www.kindpng.com/picc/m/252-2524695_dummy-profile-image-jpg-hd-png-download.png"}
 //                 alt="Please Upload Profile Photo"
 //                 className="w-20 h-20 rounded-full mb-4 md:mb-0"
 //               />
@@ -246,6 +246,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import Link from "next/link";
 import Navbar from "../Navbar/Navbar";
+import { BASE_URL } from "../../components/Constant/constant";
 
 const ProfilePage = () => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -279,7 +280,7 @@ const ProfilePage = () => {
       try {
         const token = localStorage.getItem("token");
         const userProfileResponse = await axios.get(
-          "https://api.resumeintellect.com/api/user/user-profile",
+          `${BASE_URL}/api/user/user-profile`,
           {
             headers: { Authorization: token },
           }
@@ -323,7 +324,7 @@ const ProfilePage = () => {
     if (token) {
       try {
         const response = await axios.get(
-          "https://api.resumeintellect.com/api/user/resume-list",
+          `${BASE_URL}/api/user/resume-list`,
           {
             headers: { Authorization: token },
           }
@@ -355,7 +356,7 @@ const ProfilePage = () => {
 
     try {
       const response = await axios.post(
-        "https://api.resumeintellect.com/api/user/file-based-ai",
+        `${BASE_URL}/api/user/file-based-ai`,
         {
           keyword:
             "Rate this resume content in percentage ? and checklist of scope improvements in manner of content and informations",
@@ -422,7 +423,7 @@ const ProfilePage = () => {
       setUploadStatus("Uploading...");
 
       const response = await axios.post(
-        "https://api.resumeintellect.com/api/user/resume-upload",
+        `${BASE_URL}/api/user/resume-upload`,
         formData,
         {
           headers: {
