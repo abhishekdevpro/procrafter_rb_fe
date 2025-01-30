@@ -235,12 +235,12 @@ const Navbar = () => {
                 >
                   Log in
                 </Link>
-                <Link
+                {/* <Link
                   href="/signup"
                   className="bg-[#00b38d] text-white  px-4 py-2 text-md font-semibold border-2 rounded-xl"
                 >
                   Sign up
-                </Link>
+                </Link> */}
               </>
             )}
           </div>

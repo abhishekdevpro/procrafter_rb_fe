@@ -68,7 +68,6 @@ const Gauth = () => {
           const token = response.data.data.token;
 
           localStorage.setItem('token', token);
-
           router.push(`/dashboard`);
         } catch (error) {
           console.error('Error while sending auth code:', error);

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const InterviewSection = () => {
   return (
     <div className="border border-gray-200 rounded-lg p-6 mb-6">
@@ -19,17 +21,19 @@ const InterviewSection = () => {
             </svg>
           </div>
           <div>
-            <h3 className="text-lg font-semibold">Ace Your Interview</h3>
+            <h3 className="text-lg font-semibold">Clear Your Interview</h3>
             <p className="text-gray-600 max-w-md">
-              Learn and practice your skills with our partner site, Big
-              Interview. Prep by reviewing common interview questions and
-              receive personalized A.I. feedback.
+            Gain insights from our expert-written resources and receive weekly updates straight to your inbox.
             </p>
           </div>
         </div>
-        <button className="px-6 py-2 border border-[#00b38d] text-[#00b38d] rounded-lg hover:bg-blue-50">
-          Visit Big Interview
+       <Link  
+        href={`https://blog.ciblijob.fr/`}
+       >
+       <button className="px-6 py-2 border border-[#00b38d] text-[#00b38d] rounded-lg hover:bg-blue-50">
+          Visit Resources
         </button>
+       </Link>
       </div>
     </div>
   );

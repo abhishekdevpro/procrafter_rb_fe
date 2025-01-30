@@ -230,49 +230,39 @@ function Home_third() {
             </div>
           </div>
         </div>
-        <div className='flex flex-col gap-5 border-2 my-8 rounded-xl bg-white justify-center px-5 py-10 shadow-md shadow-gray-600 md:mx-auto md:w-[78%]'>
-  <div className='flex flex-col items-center'>
+        <div className='flex flex-col gap-5  my-8 rounded-xl items-center justify-center px-5 py-10  md:mx-auto md:w-full'>
+  <div className='flex flex-col items-center justify-center max-w-6xl'>
     <h1 className=' text-3xl md:text-5xl font-bold text-[#00b38d] text-center py-6'>Explore Our Wide Range Of Trending Templates That Recruiters Loves To See
     </h1>
-    {/* <div className=' flex gap-2'>
-    <div className=' text-lg text-left flex flex-col gap-1'>
-      <div><i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-[#00b38d] "></i>Chosen & Crafted by Our Experts</div>
-      <div><i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-[#00b38d] "></i>Backed by our Technology</div>
-    </div>
-
-    <div className=' text-lg text-left flex flex-col gap-1 '>      
-      <div><i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-[#00b38d] "></i> Powered by our Robust AI </div>
-       <div><i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-[#00b38d] "></i> Get it ready in less than 15 minutes</div>
-    </div>
-    </div> */}
-     <div className="flex gap-2">
+    
+     <div className="flex flex-col md:flex-row gap-4 ">
       <div className="text-lg text-left flex flex-col gap-1">
-        <div>
+        <div className="flex gap-2">
           <AiOutlineCheck className="border-2 px-2 py-2 rounded-full text-white bg-[#00b38d]" />
           Chosen & Crafted by Our Experts
         </div>
-        <div>
+        <div className="flex gap-2">
           <AiOutlineCheck className="border-2 px-2 py-2 rounded-full text-white bg-[#00b38d]" />
           Backed by our Technology
         </div>
       </div>
 
       <div className="text-lg text-left flex flex-col gap-1">
-        <div>
+        <div className="flex gap-2">
           <AiOutlineCheck className="border-2 px-2 py-2 rounded-full text-white bg-[#00b38d]" />
           Powered by our Robust AI
         </div>
-        <div>
+        <div className="flex gap-2">
           <AiOutlineCheck className="border-2 px-2 py-2 rounded-full text-white bg-[#00b38d]" />
           Get it ready in less than 15 minutes
         </div>
       </div>
     </div>
   </div>
-  <div className='flex flex-col justify-center gap-5 items-center md:flex-row'>
+  <div className=' flex flex-col justify-center gap-5 items-center md:flex-row md:gap-10'>
             {[
               { src: image1, alt: "Assistant Editor Resume Example", title: "Create Resume Template" },
-              { src: cvimage2, alt: "Farmer Resume Template", title: "Simple Resume Template" },
+              { src: image2, alt: "Farmer Resume Template", title: "Simple Resume Template" },
               { src: image3, alt: "Doctor Resume Template", title: "Modern Resume Template" }
             ].map((template, index) => (
               <div key={index} className='relative group'>

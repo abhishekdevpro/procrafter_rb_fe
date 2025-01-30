@@ -186,7 +186,7 @@ const Footer = () => {
         </div>
         <div className="container text-base md:mx-auto text-center border-t border-white pt-6 mt-6">
           <p className="text-[#00b38d] text-right">
-            &copy; Copyright By CibliJob.ca All Rights Reserved
+            &copy; Copyright By CibliJob.fr All Rights Reserved
           </p>
         </div>
       </footer>

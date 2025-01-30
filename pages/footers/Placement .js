@@ -1,7 +1,10 @@
 import React from "react";
+import Navbar from "../Navbar/Navbar";
 
 function Placement() {
   return (
+     <>
+        <Navbar/>
     <div className="m-10 mx-40 p-5  shadow-2xl">
       <h1 className="text-4xl font-semibold my-4 underline ">
         {" "}
@@ -81,6 +84,7 @@ function Placement() {
       to schedule a consultation. Let Cibli Job be your partner in navigating
       the job market and securing the perfect role for your future.
     </div>
+     </>
   );
 }
 

@@ -123,8 +123,8 @@ export default function DashboardPage() {
             resumeId={resumeId || null}
           />
           {/* <ProfileSection visits={4} /> */}
-          <AbroadiumCommunity />
-          {/* <InterviewSection /> */}
+          {/* <AbroadiumCommunity /> */}
+          <InterviewSection />
           <CoverLetterSection />
         </main>
       </div>

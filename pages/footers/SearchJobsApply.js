@@ -1,9 +1,11 @@
 import React from "react";
 import Footer from "../Footer/Footer";
+import Navbar from "../Navbar/Navbar";
 
 function SearchJobsApply() {
   return (
     <div>
+      <Navbar/>
       <div className="m-10 mx-40 p-5  shadow-2xl">
         <h1 className="text-4xl font-semibold my-4 underline ">
           Search Jobs & Apply

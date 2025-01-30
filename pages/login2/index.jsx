@@ -101,6 +101,18 @@ const Login2 = () => {
             People across the globe are joining us to upgrade their career with
             our Robust AI.
           </p>
+          <button
+            onClick={handleGoogleSignin}
+            type="button"
+            className="w-full flex items-center justify-center bg-white border border-gray-300 text-gray-700 px-4 py-2 rounded-md mt-4 shadow-sm hover:bg-gray-100 focus:outline-none"
+          >
+            <FcGoogle className="h-6 w-6 mr-2" />
+            Continue with Google
+          </button>
+          <div className="p-4 flex justify-center items-center">
+            <p> OR</p>
+          </div>
+
           <form onSubmit={handleLogin}>
             <div className="mb-4">
               <label className="block text-black mb-2">Email ID</label>
@@ -115,8 +127,9 @@ const Login2 = () => {
                 disabled={isLoading}
               />
             </div>
-            <div className="mb-4">
-              <label className="block text-black mb-2">Password</label>
+
+            {/* <div className="mb-4">
+              <label className="block text-black mb-2">OTP</label>
               <div className="relative">
                 <input
                   type={showPassword ? "text" : "password"}
@@ -124,7 +137,7 @@ const Login2 = () => {
                   value={formData.password}
                   onChange={handleInputChange}
                   className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
-                  placeholder="Enter your password"
+                  placeholder="Enter your OTP"
                   required
                   disabled={isLoading}
                 />
@@ -137,25 +150,50 @@ const Login2 = () => {
                   {showPassword ? "🕵🏻 Hide " : "👁 View"}
                 </button>
               </div>
-            </div>
+            </div> */}
             <div className="text-center py-2">
-              <button
+              {/* <button
                 type="button"
                 className="text-[#00b38d] hover:text-[#00b38d]"
                 onClick={() => setThirdstepOpen(true)}
                 disabled={isLoading}
               >
                 New User? Create Account
-              </button>
+              </button> */}
             </div>
-            <div className="text-center py-2">
+            {/* <div className="text-center py-2">
               <Link href="/forgotpassword">
                 <label className="text-black cursor-pointer">
                   Forgot Password?
                 </label>
               </Link>
+            </div> */}
+            <div className="mb-4 flex items-center space-x-2">
+              <input
+                type="checkbox"
+                id="terms"
+                name="terms"
+                // checked={isChecked}
+                // onChange={(e) => setIsChecked(e.target.checked)}
+                className="w-4 h-4 text-yellow-500 border-gray-300 rounded focus:ring-yellow-500"
+              />
+              <label htmlFor="terms" className="text-gray-700 text-sm">
+                I agree to the{" "}
+                <Link href="/TermsandConditions" className="text-[#00b38d] underline">
+                  Terms & Conditions
+                </Link>
+              </label>
             </div>
+            <Link href={`/login2/login-email`}>
             <button
+              // type="submit"
+              className="w-full bg-[#00b38d] text-white px-4 py-2 rounded-md hover:bg-[#00b38d] transition-colors duration-300 relative"
+              disabled={isLoading}
+            >
+             Send OTP
+            </button>
+            </Link>
+            {/* <button
               type="submit"
               className="w-full bg-[#00b38d] text-white px-4 py-2 rounded-md hover:bg-[#00b38d] transition-colors duration-300 relative"
               disabled={isLoading}
@@ -185,17 +223,9 @@ const Login2 = () => {
                   Logging in...
                 </div>
               ) : (
-                "Login"
+                "Send OTP"
               )}
-            </button>
-            <button
-              onClick={handleGoogleSignin}
-              type="button"
-              className="w-full flex items-center justify-center bg-white border border-gray-300 text-gray-700 px-4 py-2 rounded-md mt-4 shadow-sm hover:bg-gray-100 focus:outline-none"
-            >
-              <FcGoogle className="h-6 w-6 mr-2" />
-              Continue with Google
-            </button>
+            </button> */}
           </form>
         </div>
       </div>

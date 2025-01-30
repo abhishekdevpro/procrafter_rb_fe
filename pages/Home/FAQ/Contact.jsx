@@ -64,10 +64,10 @@ const ContactUs = () => {
             <div className="">
               <button className="border px-3 p-2 rounded-lg">
                 <a
-                  href="mailto:info@resumeintellect.com"
+                  href="mailto:info@ciblijob.fr"
                   className="text-slate-800 font-semibold text-sm hover:underline flex items-center"
                 >
-                  info@resumeintellect.com
+                  info@ciblijob.fr
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="ml-2 h-4 w-4"
@@ -179,10 +179,10 @@ const ContactUs = () => {
             <div>
               <button className="border px-3 py-2 rounded-lg">
                 <a
-                  href="tel:18882008168"
+                  href="tel:123456789"
                   className="text-slate-800 font-semibold text-sm hover:underline flex items-center"
                 >
-                  18882008168
+                  123456789
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="ml-2 h-4 w-4"
@@ -217,10 +217,10 @@ const ContactUs = () => {
             <div>
               <button className="border px-3 py-2 rounded-lg">
                 <a
-                  href="mailto:info@resumeintellect.com"
+                  href="mailto:info@ciblijob.fr"
                   className="text-slate-800 font-semibold text-sm hover:underline flex items-center"
                 >
-                  info@ciblijob.com
+                  info@ciblijob.fr
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="ml-2 h-4 w-4"
