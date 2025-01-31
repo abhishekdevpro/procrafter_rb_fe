@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
 const Sidebar = ({ onClose }) => {
   const router = useRouter();
+  const [isLoggedIn, setIsLoggedIn] = useState();
   const handleLogout = () => {
     localStorage.removeItem("token"); // Clear the token
     setIsLoggedIn(false); // Update login state
@@ -40,8 +41,8 @@ const Sidebar = ({ onClose }) => {
         </li>
         <li>
           <Link
-            href="aibuilder"
-            className={getLinkClassName("/dashboard/aibuilder")}
+            href="/dashboard/resume-builder"
+            className={getLinkClassName("/dashboard/resume-builder")}
             onClick={onClose} // Close sidebar on link click
           >
             <span className="mr-2">🤖</span>
@@ -88,7 +89,7 @@ const Sidebar = ({ onClose }) => {
             <span>Skill Test</span>
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link
             href="addrefferal"
             className={getLinkClassName("/dashboard/addrefferal")}
@@ -97,7 +98,7 @@ const Sidebar = ({ onClose }) => {
             <span className="mr-2">👥</span>
             <span>Add Referral</span>
           </Link>
-        </li>
+        </li> */}
         <li>
           <Link
             href="skillhistorylist"
@@ -108,7 +109,7 @@ const Sidebar = ({ onClose }) => {
             <span>Skill history</span>
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link
             href="reffrerallistpage"
             className={getLinkClassName("/dashboard/reffrerallistpage")}
@@ -117,7 +118,7 @@ const Sidebar = ({ onClose }) => {
             <span className="mr-2">👥</span>
             <span>Referral List</span>
           </Link>
-        </li>
+        </li> */}
         <li>
           <Link
             href="paymentpage"
@@ -128,7 +129,7 @@ const Sidebar = ({ onClose }) => {
             <span>Payment</span>
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link
             href="password"
             className={getLinkClassName("/dashboard/password")}
@@ -137,7 +138,7 @@ const Sidebar = ({ onClose }) => {
             <span className="mr-2">🔑</span>
             <span>Change Password</span>
           </Link>
-        </li>
+        </li> */}
         <li>
           <Link
             href="/"

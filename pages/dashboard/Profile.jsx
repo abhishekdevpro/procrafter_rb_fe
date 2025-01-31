@@ -1,6 +1,6 @@
 // import React, { useState, useEffect } from "react";
 // import axios from "axios";
-// import toast from "react-hot-toast";
+
 // import Link from "next/link";
 // import Navbar from "../Navbar/Navbar";
 
@@ -243,7 +243,7 @@
 // export default ProfilePage;
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
 import Link from "next/link";
 import Navbar from "../Navbar/Navbar";
 import { BASE_URL } from "../../components/Constant/constant";
@@ -319,20 +319,50 @@ const ProfilePage = () => {
     fetchResumes();
   }, []);
 
+  // const fetchResumes = async () => {
+  //   const token = localStorage.getItem("token");
+  //   if (token) {
+  //     try {
+  //       const response = await axios.get(
+  //         `${BASE_URL}/api/user/resume-list`,
+  //         {
+  //           headers: { Authorization: token },
+  //         }
+  //       );
+  //       const resumes = response.data.resumelist;
+  //       if (resumes.length === 0) {
+  //         toast.info("No resumes available.");
+  //       }
+  //       setResumes(resumes);
+  //     } catch (error) {
+  //       console.error("Error fetching resume list:", error);
+  //       toast.error("Failed to fetch resumes");
+  //     }
+  //   } else {
+  //     console.error("Token not found in localStorage");
+  //     toast.error("Please login to continue");
+  //   }
+  // };
   const fetchResumes = async () => {
     const token = localStorage.getItem("token");
     if (token) {
       try {
-        const response = await axios.get(
-          `${BASE_URL}/api/user/resume-list`,
-          {
-            headers: { Authorization: token },
-          }
-        );
-        const resumes = response.data.resumelist;
-        if (resumes.length === 0) {
-          toast.info("No resumes available.");
+        const response = await axios.get(`${BASE_URL}/api/user/resume-list`, {
+          headers: { Authorization: token },
+        });
+
+        const resumes = response.data.resumelist || [];
+
+        if (!Array.isArray(resumes)) {
+          console.error("Invalid response format: resumelist is not an array");
+          toast.error("Unexpected response format");
+          return;
         }
+
+        if (resumes.length === 0) {
+          toast("No resumes available.", { icon: "ℹ️" }); // Use this instead of toast.info()
+        }
+
         setResumes(resumes);
       } catch (error) {
         console.error("Error fetching resume list:", error);

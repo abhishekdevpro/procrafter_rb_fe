@@ -3,11 +3,11 @@ import Image from "next/image";
 import React, { useState } from "react";
 import axios from "axios";
 import Link from "next/link";
-import toast from "react-toastify";
+import { toast } from "react-toastify";
 import logo from "../login2/logo.png";
 import { useRouter } from "next/router";
 import { BASE_URL } from "../../components/Constant/constant";
- // Ensure this file exists and is correctly linked
+// Ensure this file exists and is correctly linked
 
 function Signup() {
   const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
@@ -27,7 +27,7 @@ function Signup() {
 
   const handleSignup = async (e) => {
     e.preventDefault();
-  
+
     if (
       !formData.first_name ||
       !formData.last_name ||
@@ -38,7 +38,7 @@ function Signup() {
       toast.error("All fields are required");
       return;
     }
-  
+
     const body = {
       first_name: formData.first_name,
       last_name: formData.last_name,
@@ -46,7 +46,7 @@ function Signup() {
       phone: formData.phone,
       password: formData.password,
     };
-  
+
     try {
       const response = await axios.post(
         `${BASE_URL}/api/user/auth/signup`,
@@ -57,10 +57,12 @@ function Signup() {
           },
         }
       );
-  
+
       if (response.status === 200) {
-        toast.success("Verification link sent on your email ID, please activate to login ");
-        
+        toast.success(
+          "Verification link sent on your email ID, please activate to login "
+        );
+
         // Clear the form fields
         setFormData({
           first_name: "",
@@ -69,7 +71,7 @@ function Signup() {
           phone: "",
           password: "",
         });
-  
+
         router.push("/login2");
       } else {
         toast.error("Failed to sign up");
@@ -78,7 +80,6 @@ function Signup() {
       toast.error(error.response?.data?.message || "An error occurred");
     }
   };
-  
 
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);

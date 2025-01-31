@@ -6,6 +6,7 @@ import Image from "next/image";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { BASE_URL } from "../../components/Constant/constant";
+import CibliJobId from "./CibliJobId";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,9 +15,10 @@ const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isApiSuccess, setIsApiSuccess] = useState(false);
   const [user, setUser] = useState("");
+  const [photo, setPhoto] = useState("");
   const router = useRouter();
   const axiosInstance = axios.create();
-
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
   useEffect(() => {
     const token = localStorage.getItem("token"); // Access localStorage here
 
@@ -38,6 +40,7 @@ const Navbar = () => {
           if (response.data.status === "success") {
             setIsApiSuccess(true);
             setUser(response.data.data.first_name);
+            setPhoto(response.data.data.photo);
           } else {
             setIsApiSuccess(false);
           }
@@ -52,7 +55,8 @@ const Navbar = () => {
       setIsLoggedIn(false);
     }
   }, []); // Dependency array should be empty to run only once after the first render
-
+  const handleOpenPopup = () => setIsPopupOpen(true);
+  const handleClosePopup = () => setIsPopupOpen(false);
   const handleMenuClick = () => setIsMenuOpen(!isMenuOpen);
 
   const handleLinkClick = () => setIsMenuOpen(false);
@@ -160,10 +164,12 @@ const Navbar = () => {
             </Link>
             <Link
               href=""
+              onClick={handleOpenPopup}
               className="text-black hover:text-[#00b38d] px-3 py-2 rounded-md text-lg font-semibold"
             >
               CibliJob ID
             </Link>
+            <CibliJobId isOpen={isPopupOpen} onClose={handleClosePopup} />
             {/* <Link
               href="/footers/Aboutus"
               className="text-black hover:text-[#00b38d] px-3 py-2 rounded-md text-lg font-semibold"
@@ -184,11 +190,21 @@ const Navbar = () => {
                   onClick={toggleDropdown}
                   className="flex items-center bg-[#00b38d] text-white px-4 py-2 text-md font-semibold border-2 rounded-xl"
                 >
-                  <img
+                  {/* <img
                     src="https://img.freepik.com/premium-vector/businessman-avatar-illustration-cartoon-user-portrait-user-profile-icon_118339-4382.jpg"
                     alt="User"
                     className="w-8 h-8 rounded-full "
+                  /> */}
+                  <img
+                    src={
+                      photo
+                        ? `https://api.ciblijob.fr${photo}`
+                        : "https://img.freepik.com/premium-vector/businessman-avatar-illustration-cartoon-user-portrait-user-profile-icon_118339-4382.jpg"
+                    }
+                    alt="User"
+                    className="w-8 h-8 rounded-full"
                   />
+
                   <span className="ml-2">{user ? user : "profile"}</span>
                 </button>
                 {isDropdownOpen && (
@@ -384,10 +400,12 @@ const Navbar = () => {
               </Link>
               <Link
                 href=""
+                onClick={handleOpenPopup}
                 className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
               >
                 CibliJob ID
               </Link>
+              <CibliJobId isOpen={isPopupOpen} onClose={handleClosePopup} />
               {isLoggedIn ? (
                 <>
                   <Link
