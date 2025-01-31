@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { useRouter } from 'next/router';
-import { BASE_URL } from '../../components/Constant/constant';
-
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { useRouter } from "next/router";
+import { BASE_URL } from "../../components/Constant/constant";
+import { toast } from "react-toastify";
+import { Plus } from "lucide-react";
 const Skills = () => {
   const [skills, setSkills] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -16,7 +17,7 @@ const Skills = () => {
 
   // Function to fetch skills data
   const fetchSkills = async () => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
 
     if (!token) {
       window.location.href = "/login2";
@@ -31,23 +32,26 @@ const Skills = () => {
       });
 
       if (Array.isArray(response.data.data)) {
-        const formattedSkills = response.data.data.map(skill => ({
+        const formattedSkills = response.data.data.map((skill) => ({
           id: skill.id,
           name: skill.name,
           total_question: skill.skill_assessment?.results?.total_question || 0,
           right_answer: skill.skill_assessment?.results?.right_answer || 0,
           wrong_answer: skill.skill_assessment?.results?.wrong_answer || 0,
-          Percentage: skill.skill_assessment?.results?.Percentage || '0.0',
+          Percentage: skill.skill_assessment?.results?.Percentage || "0.0",
         }));
         setSkills(formattedSkills);
       } else {
-        throw new Error('API response data is not an array');
+        throw new Error("API response data is not an array");
       }
       setLoading(false);
     } catch (error) {
-      console.error('There was an error fetching the skills data!', error.response ? error.response.data : error.message);
+      console.error(
+        "There was an error fetching the skills data!",
+        error.response ? error.response.data : error.message
+      );
       if (error.response && error.response.status === 401) {
-        setTokenError('Unauthorized access. Please log in again.');
+        setTokenError("Unauthorized access. Please log in again.");
         window.location.href = "/login2";
       } else {
         setError(error);
@@ -81,7 +85,11 @@ const Skills = () => {
   const proceedToTest = () => {
     if (selectedSkill) {
       setShowInstructions(false);
-      router.push(`Skilltest/${selectedSkill.id}/${encodeURIComponent(selectedSkill.name)}`);
+      router.push(
+        `Skilltest/${selectedSkill.id}/${encodeURIComponent(
+          selectedSkill.name
+        )}`
+      );
     }
   };
 
@@ -97,20 +105,41 @@ const Skills = () => {
   if (tokenError) {
     return <div>{tokenError}</div>;
   }
-
+  const handleCreateResume = () => {
+    setTimeout(() => {
+      router.push("/dashboard/resume-builder");
+    }, 2000);
+  };
   if (error) {
-    return <div className="py-16 px-5 text-center text-3xl">🎮 Retry again or update your Skills, So you can take the test</div>;
+    toast.error("Please add a resume first before taking the test."); // Show toast notification
+
+    return (
+      <div className="py-16 px-5 text-center text-3xl">
+        <h1>Please create or upload resume to take test, using below link.</h1>
+        <div className="flex justify-center mt-5">
+          <button
+            onClick={handleCreateResume}
+            className="flex justify-center items-center px-4 py-2 w-full sm:w-auto bg-[#00b38d] text-white rounded-lg hover:bg-[#369984] transition-colors duration-200 font-medium shadow-sm"
+          >
+            <Plus className="w-5 h-5 mr-2" /> Create New Resume
+          </button>
+        </div>
+      </div>
+    );
   }
 
   return (
-    <div className="py-1 bg-gray-100 w-full">
+    <div className=" w-full">
       {/* Popup screen */}
       {showPopup && (
-        <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center">
+        <div className="flex items-center justify-center min-h-screen">
           <div className="bg-white p-6 rounded-lg shadow-lg text-center max-w-md">
-            <h2 className="text-2xl font-bold mb-3">Welcome to Skills Assessment</h2>
+            <h2 className="text-2xl font-bold mb-3">
+              Welcome to Skills Assessment
+            </h2>
             <p className="text-lg mb-4">
-              Please take a moment to read the instructions carefully before proceeding.
+              Please take a moment to read the instructions carefully before
+              proceeding.
             </p>
             <button
               onClick={handleContinue}
@@ -125,16 +154,31 @@ const Skills = () => {
       {/* Main content after the popup */}
       {!showPopup && (
         <>
-          <h1 className="text-3xl text-center md:text-5xl font-bold text-gray-700 p-3">👨‍💻 Take Skill Assessment</h1>
+          <h1 className="text-3xl text-center md:text-5xl font-bold text-gray-700 p-3">
+            👨‍💻 Take Skill Assessment
+          </h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 px-5 py-5 text-center">
             {skills.length > 0 ? (
               skills.map((skill, index) => (
-                <div key={index} className="bg-[#00b38d] rounded-xl shadow-2xl border-2 border-slate-600 px-5 py-4 text-center">
-                  <h3 className="text-2xl sm:text-3xl text-white font-semibold py-3">{skill.name || 'Add skill from CV'}</h3>
-                  <p className="text-center text-white py-1">❓ Total Questions: {skill.total_question || '15'}</p>
-                  <p className="text-center text-white py-1">📌 Right Answers: {skill.right_answer || '0'}</p>
-                  <p className="text-center text-white py-1">⚠️ Wrong Answers: {skill.wrong_answer || '0'}</p>
-                  <p className="text-center text-white py-1">📈 Percentage: {Math.floor(skill.Percentage) || '0'}</p>
+                <div
+                  key={index}
+                  className="bg-[#00b38d] rounded-xl shadow-2xl border-2 border-slate-600 px-5 py-4 text-center"
+                >
+                  <h3 className="text-2xl sm:text-3xl text-white font-semibold py-3">
+                    {skill.name || "Add skill from CV"}
+                  </h3>
+                  <p className="text-center text-white py-1">
+                    ❓ Total Questions: {skill.total_question || "15"}
+                  </p>
+                  <p className="text-center text-white py-1">
+                    📌 Right Answers: {skill.right_answer || "0"}
+                  </p>
+                  <p className="text-center text-white py-1">
+                    ⚠️ Wrong Answers: {skill.wrong_answer || "0"}
+                  </p>
+                  <p className="text-center text-white py-1">
+                    📈 Percentage: {Math.floor(skill.Percentage) || "0"}
+                  </p>
                   <div className="flex justify-center py-6">
                     <button
                       onClick={() => handleTakeTest(skill.id, skill.name)}
@@ -146,7 +190,9 @@ const Skills = () => {
                 </div>
               ))
             ) : (
-              <div className="col-span-full text-gray-700">No skills data available.</div>
+              <div className="col-span-full text-gray-700">
+                No skills data available.
+              </div>
             )}
           </div>
         </>
@@ -164,15 +210,30 @@ const Skills = () => {
             </button>
             <h2 className="text-2xl font-bold mb-3">📜 Instructions</h2>
             <p className="text-lg mb-3 text-start">
-              <strong>Following instructions are common for all User.</strong><br/><br/>
-              1. The duration of the test is 10 minutes*. Your answer gets automatically submitted after 10 minutes*.<br/>
-              2. This test consists of 15* multiple-choice questions.<br/>
-              3. You may attempt the questions in any order.<br/>
-              4. Please select the correct answer and click the Save and next button.<br/>
-              5. Please click skip if you wish to skip a question. You may come back and answer the question later.<br/>
-              6. Please click on the Submit Assessment button after answering all the questions.<br/>
-              7. Do not close the window before submitting the test.<br/>
-              8. Tests will be automatically submitted after the given time limit.<br/>
+              <strong>Following instructions are common for all User.</strong>
+              <br />
+              <br />
+              1. The duration of the test is 10 minutes*. Your answer gets
+              automatically submitted after 10 minutes*.
+              <br />
+              2. This test consists of 15* multiple-choice questions.
+              <br />
+              3. You may attempt the questions in any order.
+              <br />
+              4. Please select the correct answer and click the Save and next
+              button.
+              <br />
+              5. Please click skip if you wish to skip a question. You may come
+              back and answer the question later.
+              <br />
+              6. Please click on the Submit Assessment button after answering
+              all the questions.
+              <br />
+              7. Do not close the window before submitting the test.
+              <br />
+              8. Tests will be automatically submitted after the given time
+              limit.
+              <br />
             </p>
             <button
               onClick={proceedToTest}

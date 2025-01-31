@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Link from 'next/link'
+import Link from "next/link";
 import axios from "axios";
-import toast from "react-toastify";
+import { toast } from "react-toastify";
 import { ToastContainer } from "react-toastify";
 import { BASE_URL } from "../../components/Constant/constant";
 
@@ -44,7 +44,7 @@ function Changepassword() {
     axios({
       method: "PUT",
       url: `${BASE_URL}/api/user/change-password`,
-     
+
       headers: {
         Authorization: token,
         "Content-type": "application/json",
@@ -57,7 +57,9 @@ function Changepassword() {
       })
       .catch((err) => {
         console.log(err);
-        toast("❌ Something went wrong. Check the password again or try again later.");
+        toast(
+          "❌ Something went wrong. Check the password again or try again later."
+        );
       });
   };
 
@@ -80,7 +82,11 @@ function Changepassword() {
                     className="absolute right-2 top-2 cursor-pointer"
                     onClick={() => setShowOldPassword(!showOldPassword)}
                   >
-                    <i className={showOldPassword ? "fa fa-eye-slash" : "fa fa-eye"}></i>
+                    <i
+                      className={
+                        showOldPassword ? "fa fa-eye-slash" : "fa fa-eye"
+                      }
+                    ></i>
                   </span>
                   <input
                     type={showOldPassword ? "text" : "password"}
@@ -102,7 +108,11 @@ function Changepassword() {
                       className="absolute right-2 top-2 cursor-pointer"
                       onClick={() => setShowNewPassword(!showNewPassword)}
                     >
-                      <i className={showNewPassword ? "fa fa-eye-slash" : "fa fa-eye"}></i>
+                      <i
+                        className={
+                          showNewPassword ? "fa fa-eye-slash" : "fa fa-eye"
+                        }
+                      ></i>
                     </span>
                     <input
                       type={showNewPassword ? "text" : "password"}
@@ -121,9 +131,15 @@ function Changepassword() {
                   <div className="relative">
                     <span
                       className="absolute right-2 top-2 cursor-pointer"
-                      onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                      onClick={() =>
+                        setShowConfirmPassword(!showConfirmPassword)
+                      }
                     >
-                      <i className={showConfirmPassword ? "fa fa-eye-slash" : "fa fa-eye"}></i>
+                      <i
+                        className={
+                          showConfirmPassword ? "fa fa-eye-slash" : "fa fa-eye"
+                        }
+                      ></i>
                     </span>
                     <input
                       type={showConfirmPassword ? "text" : "password"}

@@ -1,24 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { BASE_URL } from '../../components/Constant/constant';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { BASE_URL } from "../../components/Constant/constant";
 
 function Skillhistory() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
 
-    axios.get(`${BASE_URL}/api/user/skill-assessment-history`, {
-      headers: {
-        Authorization: token
-      }
-    })
-      .then(response => {
+    axios
+      .get(`${BASE_URL}/api/user/skill-assessment-history`, {
+        headers: {
+          Authorization: token,
+        },
+      })
+      .then((response) => {
         // Ensure response.data.data is an array before setting state
-        const data = Array.isArray(response.data.data) ? response.data.data : [];
+        const data = Array.isArray(response.data.data)
+          ? response.data.data
+          : [];
         setUsers(data);
       })
-      .catch(error => console.error('Error fetching user data:', error));
+      .catch((error) => console.error("Error fetching user data:", error));
   }, []);
 
   return (
@@ -27,7 +30,9 @@ function Skillhistory() {
       <div className="container mx-auto p-4 text-center">
         <div className="overflow-x-auto">
           {users.length === 0 ? (
-            <p className="text-lg text-gray-500">There is no data available.</p>
+            <p className="text-lg text-gray-500">
+              Your skill assessment history shows up here.
+            </p>
           ) : (
             <table className="min-w-full bg-dark text-black rounded-md text-center">
               <thead>
@@ -42,9 +47,14 @@ function Skillhistory() {
               </thead>
               <tbody>
                 {users.map((user, index) => (
-                  <tr key={index} className="border border-gray-700 text-center">
+                  <tr
+                    key={index}
+                    className="border border-gray-700 text-center"
+                  >
                     <td className="py-2 px-4">{user.date_time || "N/A"}</td>
-                    <td className="py-2 px-4">{user.is_verified ? "Verified" : "Not Verified"}</td>
+                    <td className="py-2 px-4">
+                      {user.is_verified ? "Verified" : "Not Verified"}
+                    </td>
                     <td className="py-2 px-4">{user.results.total_question}</td>
                     <td className="py-2 px-4">{user.results.right_answer}</td>
                     <td className="py-2 px-4">{user.results.wrong_answer}</td>

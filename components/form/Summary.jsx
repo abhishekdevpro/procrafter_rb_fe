@@ -260,7 +260,7 @@ import { AlertCircle, X } from "lucide-react";
 import { useRouter } from "next/router";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
-
+import { BASE_URL } from "../Constant/constant";
 const Summary = () => {
   const { resumeData, setResumeData, resumeStrength } =
     useContext(ResumeContext);

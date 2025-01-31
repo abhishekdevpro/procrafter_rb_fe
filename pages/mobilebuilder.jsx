@@ -226,7 +226,7 @@ export default function MobileBuilder() {
   ];
 
   const handleNext = () => {
-    handleFinish();
+    handleFinish(false);
     if (currentSection === sections.length - 1) {
       localStorage.setItem("tempResumeData", JSON.stringify(resumeData));
       localStorage.setItem("tempHeaderColor", headerColor);
@@ -262,12 +262,12 @@ export default function MobileBuilder() {
   }, []);
 
   const handlePrevious = () => {
-    handleFinish();
+    handleFinish(false);
     setCurrentSection((prev) => Math.max(prev - 1, 0));
   };
 
   const handleSectionClick = (index) => {
-    handleFinish();
+    handleFinish(false);
     setCurrentSection(index);
     setIsMobileMenuOpen(false);
   };
@@ -414,7 +414,7 @@ export default function MobileBuilder() {
     }
   };
 
-  const handleFinish = async () => {
+  const handleFinish = async (showToast = true) => {
     if (!resumeData) return;
 
     const templateData = {
@@ -495,8 +495,13 @@ export default function MobileBuilder() {
 
         if (response.data.code === 200 || response.data.status === "success") {
           setIsSaved(true);
-          localStorage.setItem("isSaved", "true");
-          toast.success(response.data.message || "Resume saved Successfully");
+          // localStorage.setItem("isSaved", "true");
+          // toast.success(response.data.message || "Resume saved Successfully");
+          if (showToast) {
+            toast.success(
+              response.data.message || "Resume saved successfully."
+            );
+          }
         } else {
           toast.error(response.data.error || "Error while saving the Resume");
         }

@@ -48,7 +48,7 @@ const PayAndDownload = ({ resumeId, token, PayerID }) => {
       );
 
       toast.success("PDF generation request sent successfully!");
-      createPayment();
+      // createPayment();
     } catch (error) {
       console.error("PDF generation error:", error);
       toast.error(
@@ -58,10 +58,9 @@ const PayAndDownload = ({ resumeId, token, PayerID }) => {
       setIsLoading(false);
     }
   };
- const userID = localStorage.getItem("user_id")
+  const userID = localStorage.getItem("user_id");
   const createPayment = async () => {
     let PlanId = userID == 136 ? "4" : "1";
-
 
     try {
       setIsLoading(true);
