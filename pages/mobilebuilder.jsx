@@ -632,10 +632,7 @@ export default function MobileBuilder() {
               </button>
 
               {isMobileSidebarOpen && (
-                <div
-                  className="fixed inset-0 bg-black bg-opacity-50 z-40 "
-                  onClick={toggleMobileSidebar}
-                />
+                <div className="fixed  z-50 " onClick={toggleMobileSidebar} />
               )}
 
               <aside

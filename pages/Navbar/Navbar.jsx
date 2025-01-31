@@ -434,13 +434,13 @@ const Navbar = () => {
                   >
                     Log in
                   </Link>
-                  <Link
+                  {/* <Link
                     href="/signup"
                     className="bg-[#00b38d] text-white block px-3 py-2 rounded-md text-base font-semibold"
                     onClick={handleLinkClick}
                   >
                     Sign up
-                  </Link>
+                  </Link> */}
                 </>
               )}
             </div>
