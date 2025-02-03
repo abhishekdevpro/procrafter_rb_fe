@@ -692,7 +692,7 @@ import dynamic from "next/dynamic";
 import "react-quill/dist/quill.snow.css";
 import { useRouter } from "next/router";
 import { BASE_URL } from "../Constant/constant";
-
+import { MdRemoveCircle } from "react-icons/md";
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 const WorkExperience = () => {
@@ -1050,6 +1050,14 @@ const WorkExperience = () => {
               >
                 <Trash2 className="w-5 h-5" />
               </button> */}
+              <button
+                type="button"
+                onClick={() => removeWorkExperience(index)}
+                aria-label="Remove"
+                className="p-2 text-white bg-red-700 rounded-lg text-xl mb-2"
+              >
+                <MdRemoveCircle />
+              </button>
               {expandedExperiences[index] ? (
                 <ChevronUp className="w-6 h-6 text-black" />
               ) : (
@@ -1537,6 +1545,7 @@ const WorkExperience = () => {
       <FormButton
         size={resumeData.workExperience.length}
         add={addWorkExperience}
+        remove={removeWorkExperience}
       />
 
       {showPopup && (

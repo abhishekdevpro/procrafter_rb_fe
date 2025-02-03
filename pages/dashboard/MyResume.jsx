@@ -111,7 +111,7 @@ const MyResume = () => {
 
   const handleOpenEditModal = (resume) => {
     setCurrentResume(resume);
-    setNewResumeTitle(resume.resue_name || "");
+    setNewResumeTitle(resume.resume_title || "");
     setIsEditModalOpen(true);
   };
 
@@ -121,7 +121,7 @@ const MyResume = () => {
       axios
         .put(
           `${BASE_URL}/api/user/resume-details/${currentResume.id}`,
-          { resue_name: newResumeTitle },
+          { resume_title: newResumeTitle },
           { headers: { Authorization: token } }
         )
         .then(() => {
@@ -130,7 +130,7 @@ const MyResume = () => {
           setResumes((prevResumes) =>
             prevResumes.map((resume) =>
               resume.id === currentResume.id
-                ? { ...resume, resue_name: newResumeTitle }
+                ? { ...resume, resume_title: newResumeTitle }
                 : resume
             )
           );
@@ -193,7 +193,7 @@ const MyResume = () => {
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center space-x-2">
                         <span className="text-sm text-gray-900">
-                          {resume.resue_name || "ABC"}
+                          {resume.resume_title || "ABC"}
                         </span>
                         <button
                           onClick={() => handleOpenEditModal(resume)}
@@ -263,12 +263,12 @@ const MyResume = () => {
                         >
                           <Trash className="w-5 h-5" />
                         </button>
-                        <button
+                        {/* <button
                           onClick={() => handleDownload(resume.id)}
                           className="text-[#00b38d] hover:text-[#369984] transition-colors duration-200"
                         >
                           <Download className="w-5 h-5" />
-                        </button>
+                        </button> */}
                       </div>
                     </td>
                   </tr>
