@@ -8,8 +8,9 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { ResumeProvider } from "../components/context/ResumeContext";
 import { CoverLetterProvider } from "../components/context/CoverLetterContext";
-
-export default function App({ Component, pageProps }) {
+import { appWithTranslation } from "next-i18next";
+import "../components/utils/i18n";
+function App({ Component, pageProps }) {
   const router = useRouter();
 
   useEffect(() => {
@@ -42,3 +43,4 @@ export default function App({ Component, pageProps }) {
     </>
   );
 }
+export default appWithTranslation(App);

@@ -64,7 +64,7 @@
 
 // export default Home_five;
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import React from "react";
 
@@ -89,7 +89,14 @@ function Home_five() {
 
   const handleCloseModal = () => setShowModal(false);
   const handleShowModal = () => setShowModal(true);
+  const [redirectPath, setRedirectPath] = useState("/login2");
 
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setRedirectPath("/dashboard");
+    }
+  }, []);
   const handlePayment = (e) => {
     e.preventDefault();
     const amount = 19;
@@ -103,13 +110,9 @@ function Home_five() {
     };
 
     axios
-      .post(
-        `${BASE_URL}/api/user/paypal/create-payment`,
-        payload,
-        {
-          headers: { "Content-Type": "application/json" },
-        }
-      )
+      .post(`${BASE_URL}/api/user/paypal/create-payment`, payload, {
+        headers: { "Content-Type": "application/json" },
+      })
       .then((response) => {
         const data = response.data;
         if (data && data.data) {
@@ -144,13 +147,9 @@ function Home_five() {
     };
 
     axios
-      .post(
-        `${BASE_URL}/api/user/paypal/create-payment`,
-        payload,
-        {
-          headers: { "Content-Type": "application/json" },
-        }
-      )
+      .post(`${BASE_URL}/api/user/paypal/create-payment`, payload, {
+        headers: { "Content-Type": "application/json" },
+      })
       .then((response) => {
         const data = response.data;
         if (data && data.data) {
@@ -185,8 +184,7 @@ function Home_five() {
                 <div className="flex justify-center items-baseline my-8 gap-3">
                   <span className="text-white dark:text-white">Starting </span>
                   <PoundSterling size={36} className="text-white stroke-[3]" />
-                  <span className="mr-2 text-5xl font-extrabold"> 
-                    0</span>
+                  <span className="mr-2 text-5xl font-extrabold">0</span>
                 </div>
                 {/* List */}
                 <ul role="list" className="mb-8 space-y-4 text-left">
@@ -274,7 +272,8 @@ function Home_five() {
                   <li className="flex items-center space-x-3">{/* Icon */}</li>
                 </ul>
                 <Link
-                  href="/login2"
+                  // href="/login2"
+                  href={redirectPath}
                   className="text-white border bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-primary-900"
                 >
                   Get started for Free
@@ -287,7 +286,7 @@ function Home_five() {
                   Built by expert resume writers
                 </p>
                 <div className="flex justify-center items-baseline my-8">
-                <PoundSterling size={36} className="text-white stroke-[3]" />
+                  <PoundSterling size={36} className="text-white stroke-[3]" />
                   <span className="mr-2 text-5xl font-extrabold"> 19</span>
                   <span className="text-white dark:text-white">/Resume</span>
                 </div>
@@ -448,7 +447,7 @@ function Home_five() {
                       <div className="md:w-1/2 w-full p-4 ">
                         <div className="text-left mb-6">
                           <h2 className="text-2xl font-bold text-gray-900">
-                          £19
+                            £19
                           </h2>
                           <p className="text-sm text-gray-500">Total Amount</p>
                         </div>
@@ -574,9 +573,8 @@ function Home_five() {
                       {/* Right Section: Form */}
                       <div className="md:w-1/2 w-full p-4 ">
                         <div className="text-left mb-6">
-                          
                           <h2 className="text-2xl font-bold text-gray-900">
-                          £29
+                            £29
                           </h2>
                           <p className="text-sm text-gray-500">Total Amount</p>
                         </div>
@@ -668,10 +666,8 @@ function Home_five() {
                   Built by expert resume writers
                 </p>
                 <div className="flex justify-center items-baseline my-8">
-                <PoundSterling size={36} className="text-white stroke-[3]" /> 
-                  <span className="mr-2 text-5xl font-extrabold"> 
-                    29
-                    </span>
+                  <PoundSterling size={36} className="text-white stroke-[3]" />
+                  <span className="mr-2 text-5xl font-extrabold">29</span>
                   <span className="text-white dark:text-white">/Resume</span>
                 </div>
                 {/* List */}

@@ -1,15 +1,19 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import logo from './logo.png'
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import logo from "./logo.png";
+import { useRouter } from "next/router";
 // import ReCAPTCHA from 'react-google-recaptcha';
-
+import { BASE_URL } from "../../components/Constant/constant";
 const LoginCode = () => {
-  const [otp, setOtp] = useState('');
+  const [otp, setOtp] = useState("");
   const [captchaVerified, setCaptchaVerified] = useState(false);
+  const router = useRouter();
 
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(true);
   const handleOtpChange = (e) => {
     setOtp(e.target.value);
   };
@@ -17,17 +21,41 @@ const LoginCode = () => {
   const handleCaptchaChange = (value) => {
     setCaptchaVerified(value ? true : false);
   };
+  useEffect(() => {
+    // Get email from localStorage
+    const storedEmail = localStorage.getItem("userEmail");
+    if (storedEmail) {
+      setEmail(storedEmail);
+    }
+  }, []);
+  const handleSignIn = async () => {
+    if (otp.length !== 6) {
+      alert("Please enter a valid 6-digit OTP.");
+      return;
+    }
 
-  const handleSignIn = () => {
-    if (otp.length === 6) {
-      if (captchaVerified) {
-        // Replace with your toast implementation
-        alert('OTP Submitted Successfully!');
-      } else {
-        alert('Please verify the CAPTCHA.');
-      }
-    } else {
-      alert('Please enter a 6-digit code.');
+    setLoading(true);
+
+    try {
+      const response = await axios.post(
+        `${BASE_URL}/api/user/auth/login-verify-otp`,
+
+        { email, otp }
+      );
+
+      const token = response.data?.data?.token;
+
+      localStorage.setItem("token", token);
+
+      router.push(`/dashboard`);
+    } catch (error) {
+      console.error(
+        error.response?.data?.message || "Invalid OTP. Please try again."
+      );
+
+      router.push("/login2"); // Redirect to the login page on error
+    } finally {
+      setLoading(false); // Stop the loader
     }
   };
 
@@ -36,7 +64,7 @@ const LoginCode = () => {
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
         {/* Back Button */}
         <Link
-          href="/login2/login-email"
+          href="/login2"
           className="text-blue-600 flex items-center mb-6 hover:text-blue-700"
         >
           <span className="mr-2">←</span> Back
@@ -59,8 +87,7 @@ const LoginCode = () => {
         </h2>
         <p className="text-gray-600 text-center mb-6">
           We have sent your one-time passcode to <br />
-          <strong>abc@gmail.com</strong>. This passcode will expire after 10
-          minutes.
+          <strong>{email}</strong>. This passcode will expire after 10 minutes.
         </p>
 
         {/* OTP Input */}
@@ -87,16 +114,19 @@ const LoginCode = () => {
         </div> */}
 
         {/* Success Message */}
-        <div className="flex items-center bg-green-100 border border-green-500 text-green-700 p-3 rounded-md mb-6">
+        {/* <div className="flex items-center bg-green-100 border border-green-500 text-green-700 p-3 rounded-md mb-6">
           <span className="mr-2">✅</span> Success!
-        </div>
+        </div> */}
 
         {/* Resend Code */}
         <p className="text-center text-sm mb-6">
-          Didn&apos;t receive your code?{' '}
-          <button className="text-[#00b38d] font-semibold hover:text-[#00b38d]">
-            Send new code
-          </button>
+          Didn&apos;t receive your code?{" "}
+          <Link href="/login2">
+            {" "}
+            <button className="text-[#00b38d] font-semibold hover:text-[#00b38d]">
+              Send new code
+            </button>
+          </Link>
         </p>
 
         {/* Sign In Button */}

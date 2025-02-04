@@ -1,0 +1,29 @@
+{
+  "dashboard": "Tableau de bord",
+  "my_resumes": "Mes CV",
+  "cover_letter": "Lettre de motivation",
+  "ai_resume_builder": "Constructeur de CV IA",
+  "jobs": "Emplois",
+  "resources": "Ressources",
+  "cibli_job_id": "ID CibliJob",
+  "home": "Accueil",
+  "profile": "Profil",
+  "logout": "Se déconnecter",
+  "login": "Se connecter",
+  
+    "contact_us": "Contactez-nous",
+    "is_live_now": "est maintenant en ligne",
+    "resume_score": "Score de CV",
+    "enhanced_resume": "CV Amélioré",
+    "apply_job_with_confidence": "Postulez maintenant avec confiance grâce à notre solution tout-en-un sous un même toit.",
+    "build_resume": "Construire votre CV",
+    "reviews_certified": "Avis certifiés par les recruteurs et appréciés par les chercheurs d'emploi",
+    "featured_on": "Comme présenté sur",
+    
+      "cibli_job": "Cibli Job",
+      "ai_powered_resume_tool": "Outil de CV alimenté par l'IA",
+      "much_more": "& bien plus encore."
+    
+    
+  
+}

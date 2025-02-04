@@ -47,7 +47,7 @@ const Sidebar = ({ score, resumeId }) => {
           const parsedData = JSON.parse(data.ai_resume_parse_data);
           // Update state with fetched data
           setResumeData(parsedData.templateData);
-          setResumeTitle(data.resue_name || "Untitled Resume");
+          setResumeTitle(data.resume_title || "Untitled Resume");
           if (parsedData?.templateData?.templateDetails) {
             const { backgroundColor, templateId } =
               parsedData.templateData.templateDetails;
@@ -129,17 +129,17 @@ const Sidebar = ({ score, resumeId }) => {
 
       {/* Action Buttons */}
       <div className="flex gap-4 mb-6">
-      <button
-              onClick={handleEdit}
-              disabled={!resumeId} // Disable button if resumeId is null
-              className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 ${
-                !resumeId ? "opacity-50 cursor-not-allowed" : ""
-              }`}
-            >
-              <Edit />
-              Edit
-            </button>
-            <button
+        <button
+          onClick={handleEdit}
+          disabled={!resumeId} // Disable button if resumeId is null
+          className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 ${
+            !resumeId ? "opacity-50 cursor-not-allowed" : ""
+          }`}
+        >
+          <Edit />
+          Edit
+        </button>
+        {/* <button
             onClick={handleDownload}
             disabled={!resumeId}
             className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 ${
@@ -148,7 +148,7 @@ const Sidebar = ({ score, resumeId }) => {
           >
             <Download />
             Download
-          </button>
+          </button> */}
       </div>
 
       {/* Resume Strength */}

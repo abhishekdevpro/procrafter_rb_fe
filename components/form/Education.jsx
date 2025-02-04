@@ -435,7 +435,7 @@ import React, { useContext, useState } from "react";
 import { AlertCircle, X, Loader2 } from "lucide-react";
 import { useRouter } from "next/router";
 import { BASE_URL } from "../Constant/constant";
-
+import { MdRemoveCircle } from "react-icons/md";
 const Education = () => {
   const { resumeData, setResumeData, resumeStrength } =
     useContext(ResumeContext);
@@ -656,6 +656,19 @@ const Education = () => {
         <div key={index} className="f-col">
           <div className="relative mb-4">
             <div className="relative">
+              <div className="flex items-center justify-between">
+                <h3 className="text-black text-xl font-semibold">
+                  {`Education ${index + 1}`}
+                </h3>
+                <button
+                  type="button"
+                  onClick={() => removeEducation(index)}
+                  aria-label="Remove"
+                  className="p-2 text-white bg-red-700 rounded-lg text-xl mb-2"
+                >
+                  <MdRemoveCircle />
+                </button>
+              </div>
               <input
                 type="text"
                 placeholder="School"
