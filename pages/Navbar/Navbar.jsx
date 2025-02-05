@@ -501,6 +501,42 @@ const Navbar = () => {
   const changeLanguage = (event) => {
     i18n.changeLanguage(event.target.value);
   };
+  // useEffect(() => {
+  //   const token = localStorage.getItem("token"); // Access localStorage here
+
+  //   if (token) {
+  //     setIsLoggedIn(true);
+
+  //     // Check API success
+  //     const checkApiSuccess = async () => {
+  //       try {
+  //         const response = await axios.get(
+  //           `${BASE_URL}/api/user/user-profile`,
+  //           {
+  //             headers: {
+  //               Authorization: token,
+  //             },
+  //           }
+  //         );
+
+  //         if (response.data.status === "success") {
+  //           setIsApiSuccess(true);
+  //           setUser(response.data.data.first_name);
+  //           setPhoto(response.data.data.photo);
+  //         } else {
+  //           setIsApiSuccess(false);
+  //         }
+  //       } catch (error) {
+  //         console.log("KSC catch err: ", error);
+  //         setIsApiSuccess(false);
+  //       }
+  //     };
+
+  //     checkApiSuccess();
+  //   } else {
+  //     setIsLoggedIn(false);
+  //   }
+  // }, []); // Dependency array should be empty to run only once after the first render
   useEffect(() => {
     const token = localStorage.getItem("token"); // Access localStorage here
 
@@ -514,7 +550,7 @@ const Navbar = () => {
             `${BASE_URL}/api/user/user-profile`,
             {
               headers: {
-                Authorization: token,
+                Authorization: `Bearer ${token}`, // Add Bearer prefix
               },
             }
           );
@@ -527,8 +563,15 @@ const Navbar = () => {
             setIsApiSuccess(false);
           }
         } catch (error) {
-          console.log("KSC catch err: ", error);
-          setIsApiSuccess(false);
+          console.log("API Error:", error);
+          // Handle 401 error by removing token and redirecting to login
+          if (error.response && error.response.status === 401) {
+            localStorage.removeItem("token"); // Remove invalid token
+            setIsLoggedIn(false); // Set logged-out state
+            router.push("/login2"); // Redirect to login page
+          } else {
+            setIsApiSuccess(false);
+          }
         }
       };
 
@@ -536,7 +579,8 @@ const Navbar = () => {
     } else {
       setIsLoggedIn(false);
     }
-  }, []); // Dependency array should be empty to run only once after the first render
+  }, []);
+
   const handleOpenPopup = () => setIsPopupOpen(true);
   const handleClosePopup = () => setIsPopupOpen(false);
   const handleMenuClick = () => setIsMenuOpen(!isMenuOpen);
@@ -610,7 +654,7 @@ const Navbar = () => {
                 >
                   {t("dashboard")}
                 </Link>
-                <Link
+                {/* <Link
                   href="/dashboard/resumelist"
                   className="text-black hover:text-[#00b38d] px-3 py-2 rounded-md text-lg font-semibold"
                 >
@@ -621,12 +665,12 @@ const Navbar = () => {
                   className="text-black hover:text-[#00b38d] px-3 py-2 rounded-md text-lg font-semibold"
                 >
                   {t("cover_letter")}
-                </Link>
+                </Link> */}
               </div>
             ) : (
               <></>
             )}
-            <LanguageSelector />
+            {/* <LanguageSelector /> */}
             <Link
               href="/navbarcontent"
               className="text-black hover:text-[#00b38d] px-3 py-2 rounded-md text-lg font-semibold"
@@ -697,6 +741,18 @@ const Navbar = () => {
                       onClick={() => setIsDropdownOpen(false)}
                     >
                       {t("dashboard")}
+                    </Link>
+                    <Link
+                      href="/dashboard/resumelist"
+                      className="block px-4 py-2 hover:bg-gray-200"
+                    >
+                      {t("my_resumes")}
+                    </Link>
+                    <Link
+                      href="/dashboard/cvletterlist"
+                      className="block px-4 py-2 hover:bg-gray-200"
+                    >
+                      {t("cover_letter")}
                     </Link>
                     <button
                       onClick={() => {
