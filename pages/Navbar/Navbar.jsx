@@ -501,42 +501,6 @@ const Navbar = () => {
   const changeLanguage = (event) => {
     i18n.changeLanguage(event.target.value);
   };
-  // useEffect(() => {
-  //   const token = localStorage.getItem("token"); // Access localStorage here
-
-  //   if (token) {
-  //     setIsLoggedIn(true);
-
-  //     // Check API success
-  //     const checkApiSuccess = async () => {
-  //       try {
-  //         const response = await axios.get(
-  //           `${BASE_URL}/api/user/user-profile`,
-  //           {
-  //             headers: {
-  //               Authorization: token,
-  //             },
-  //           }
-  //         );
-
-  //         if (response.data.status === "success") {
-  //           setIsApiSuccess(true);
-  //           setUser(response.data.data.first_name);
-  //           setPhoto(response.data.data.photo);
-  //         } else {
-  //           setIsApiSuccess(false);
-  //         }
-  //       } catch (error) {
-  //         console.log("KSC catch err: ", error);
-  //         setIsApiSuccess(false);
-  //       }
-  //     };
-
-  //     checkApiSuccess();
-  //   } else {
-  //     setIsLoggedIn(false);
-  //   }
-  // }, []); // Dependency array should be empty to run only once after the first render
   useEffect(() => {
     const token = localStorage.getItem("token"); // Access localStorage here
 
@@ -550,7 +514,7 @@ const Navbar = () => {
             `${BASE_URL}/api/user/user-profile`,
             {
               headers: {
-                Authorization: `Bearer ${token}`, // Add Bearer prefix
+                Authorization: token,
               },
             }
           );
@@ -563,15 +527,8 @@ const Navbar = () => {
             setIsApiSuccess(false);
           }
         } catch (error) {
-          console.log("API Error:", error);
-          // Handle 401 error by removing token and redirecting to login
-          if (error.response && error.response.status === 401) {
-            localStorage.removeItem("token"); // Remove invalid token
-            setIsLoggedIn(false); // Set logged-out state
-            router.push("/login2"); // Redirect to login page
-          } else {
-            setIsApiSuccess(false);
-          }
+          console.log("KSC catch err: ", error);
+          setIsApiSuccess(false);
         }
       };
 
@@ -579,7 +536,50 @@ const Navbar = () => {
     } else {
       setIsLoggedIn(false);
     }
-  }, []);
+  }, []); // Dependency array should be empty to run only once after the first render
+  // useEffect(() => {
+  //   const token = localStorage.getItem("token"); // Access localStorage here
+
+  //   if (token) {
+  //     setIsLoggedIn(true);
+
+  //     // Check API success
+  //     const checkApiSuccess = async () => {
+  //       try {
+  //         const response = await axios.get(
+  //           `${BASE_URL}/api/user/user-profile`,
+  //           {
+  //             headers: {
+  //               Authorization: `Bearer ${token}`, // Add Bearer prefix
+  //             },
+  //           }
+  //         );
+
+  //         if (response.data.status === "success") {
+  //           setIsApiSuccess(true);
+  //           setUser(response.data.data.first_name);
+  //           setPhoto(response.data.data.photo);
+  //         } else {
+  //           setIsApiSuccess(false);
+  //         }
+  //       } catch (error) {
+  //         console.log("API Error:", error);
+  //         // Handle 401 error by removing token and redirecting to login
+  //         if (error.response && error.response.status === 401) {
+  //           localStorage.removeItem("token"); // Remove invalid token
+  //           setIsLoggedIn(false); // Set logged-out state
+  //           router.push("/login2"); // Redirect to login page
+  //         } else {
+  //           setIsApiSuccess(false);
+  //         }
+  //       }
+  //     };
+
+  //     checkApiSuccess();
+  //   } else {
+  //     setIsLoggedIn(false);
+  //   }
+  // }, []);
 
   const handleOpenPopup = () => setIsPopupOpen(true);
   const handleClosePopup = () => setIsPopupOpen(false);
