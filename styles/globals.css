@@ -300,3 +300,16 @@ body {
 .ql-container {
   height: 162px !important;
 }
+
+/* .VIpgJd-ZVi9od-l4eHX-hSRGPd {
+  display: none !important;
+} */
+#google_translate_element span,
+#google_translate_element a,
+#google_translate_element::after {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  width: 0 !important;
+}

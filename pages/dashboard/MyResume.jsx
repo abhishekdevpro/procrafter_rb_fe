@@ -33,7 +33,7 @@ const MyResume = () => {
         .then((response) => {
           const resumes = response?.data?.resumelist || [];
           if (resumes.length === 0) {
-            toast.info("No resumes available.");
+            toast.info("Create your first resume.");
           }
           setResumes(resumes);
         })

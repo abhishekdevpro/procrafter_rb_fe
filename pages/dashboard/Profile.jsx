@@ -77,7 +77,7 @@
 //       .then(response => {
 //         const resumes = response.data.resumelist;
 //         if (resumes.length === 0) {
-//           toast.info("No resumes available.");
+//           toast.info("Create your first resume.");
 //         }
 //         setResumes(resumes);
 //       })
@@ -331,7 +331,7 @@ const ProfilePage = () => {
   //       );
   //       const resumes = response.data.resumelist;
   //       if (resumes.length === 0) {
-  //         toast.info("No resumes available.");
+  //         toast.info("Create your first resume.");
   //       }
   //       setResumes(resumes);
   //     } catch (error) {
@@ -360,7 +360,7 @@ const ProfilePage = () => {
         }
 
         if (resumes.length === 0) {
-          toast("No resumes available.", { icon: "ℹ️" }); // Use this instead of toast.info()
+          toast("Create your first resume.", { icon: "ℹ️" }); // Use this instead of toast.info()
         }
 
         setResumes(resumes);

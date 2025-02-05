@@ -1,4 +1,3 @@
-
 // import { useState } from 'react';
 // import axios from 'axios';
 // import React from 'react'
@@ -558,7 +557,7 @@
 //                                 src={paypal}
 //                                 alt="paypal"
 //                                 className="h-10 w-auto m-auto"
-//                               /> */} 
+//                               /> */}
 //                               <p className='p-2 text-md '> Secure Checkout </p>
 //                             </button>
 //                           </div>
@@ -576,12 +575,11 @@
 //                               src={poweredbypaypal}
 //                               alt="poweredbypaypal"
 //                               className="h-10 w-auto"
-//                             /> 
+//                             />
 //                           </div>
 //                           <div className="flex justify-center mt-6 ">
 //                           <ApplePayButton />
-                             
-                            
+
 //                           </div>
 //                         </form>
 //                       </div>
@@ -723,67 +721,57 @@
 
 // export default Home_second;
 
-import React from 'react'
+import React from "react";
 
-import Image from 'next/image'
-import image1 from './Images/1.png'
-import image2 from './Images/2.png'
-import image3 from './Images/3.png'
-import image4 from './Images/4.png'
-import image5 from './Images/5.png'
-
-import Home_third from "./Home_third"
+import Image from "next/image";
+import image1 from "./Images/1.png";
+import image2 from "./Images/2.png";
+import image3 from "./Images/3.png";
+import image4 from "./Images/4.png";
+import image5 from "./Images/5.png";
+import { useTranslation } from "react-i18next";
+import Home_third from "./Home_third";
 
 function Home_Second() {
+  const { t } = useTranslation();
+
   return (
     <>
-    
-      <div className=' py-8 bg-gray-100'>
-        <div className=' font-bold text-4xl flex py-6 px-6  justify-center'>
-        Let Your Resume Stand Ahead Of Competition With Our Robust AI
+      <div className="py-8 bg-gray-100">
+        <div className="font-bold text-4xl flex py-6 px-6 justify-center">
+          {t("resume_stand_out")}
         </div>
-        <div className=' flex flex-col md:flex-row gap-2 md:gap-7 py-5 px-5 justify-center  '>
-            <div className=' flex flex-col items-center hover:-translate-y-3'>
-                <div>
-                    {/* <Image src={image1} alt="" className=' h-48 hover:h-52 hover:shadow-xl hover:shadow-gray-200' /> */}
-                    <Image src={image1} alt="" className=' h-48' />
-                </div>
-                <div className=' font-bold text-lg text-center'>Upload Resume</div>
+        <div className="flex flex-col md:flex-row gap-2 md:gap-7 py-5 px-5 justify-center">
+          {[
+            { img: image1, text: "upload_resume" },
+            { img: image2, text: "ai_analysis" },
+            { img: image3, text: "select_design" },
+            { img: image4, text: "improve_with_ai" },
+            { img: image5, text: "download" },
+          ].map((item, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center hover:-translate-y-3"
+            >
+              <div>
+                <Image src={item.img} alt="" className="h-48" />
+              </div>
+              <div className="font-bold text-lg text-center">
+                {t(item.text)}
+              </div>
             </div>
-            <div className=' flex flex-col items-center hover:-translate-y-3'>
-                <div>
-                    <Image src={image2} alt="" className=' h-48'  />
-                </div>
-                <div className=' font-bold text-lg text-center'>
-                AI Analysis
-                </div>
-            </div>
-            <div className=' flex flex-col items-center hover:-translate-y-3'>
-                <div><Image src={image3} alt="" className=' h-48 '  /></div>
-                <div className=' font-bold text-lg text-center'>Select Design</div>
-            </div>
-            <div className=' flex flex-col items-center hover:-translate-y-3'>
-                <div><Image src={image4} alt="" className=' h-48 '  /></div>
-                <div className=' font-bold text-lg text-center'>Improve with AI</div>
-            </div>
-            <div className=' flex flex-col items-center hover:-translate-y-3'>
-                <div><Image src={image5} alt="" className=' h-48 '  /></div>
-                <div className=' font-bold text-lg text-center'>Download</div>
-            </div>
+          ))}
         </div>
-        <div className=' flex justify-center mt-4'>
-            <button className=' px-5 py-3 rounded-full text-lg text-white bg-[#00b38d] font-bold hover:px-8 hover:shadow-2xl hover:bg-[#00b38d] hover:shadow-[#00b38d]'>
-                Create my Resume
-            </button>
+        <div className="flex justify-center mt-4">
+          <button className="px-5 py-3 rounded-full text-lg text-white bg-[#00b38d] font-bold hover:px-8 hover:shadow-2xl hover:bg-[#00b38d] hover:shadow-[#00b38d]">
+            {t("create_resume")}
+          </button>
         </div>
       </div>
 
-
-      <Home_third/>
-
-      
+      <Home_third />
     </>
-  )
+  );
 }
 
-export default Home_Second
+export default Home_Second;
