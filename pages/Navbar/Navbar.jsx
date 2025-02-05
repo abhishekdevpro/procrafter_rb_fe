@@ -525,10 +525,15 @@ const Navbar = () => {
             setPhoto(response.data.data.photo);
           } else {
             setIsApiSuccess(false);
+            localStorage.removeItem("token");
+            setIsLoggedIn(false);
+            router.push("/login2");
           }
         } catch (error) {
-          console.log("KSC catch err: ", error);
+          localStorage.removeItem("token");
           setIsApiSuccess(false);
+          setIsLoggedIn(false);
+          router.push("/login2");
         }
       };
 
