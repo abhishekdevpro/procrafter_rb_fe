@@ -724,7 +724,7 @@ const Navbar = () => {
                   <span className="ml-2">{user ? user : "profile"}</span>
                 </button>
                 {isDropdownOpen && (
-                  <div className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-md text-black">
+                  <div className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-md text-black z-50">
                     <Link
                       href="/"
                       className="block px-4 py-2 hover:bg-gray-200"

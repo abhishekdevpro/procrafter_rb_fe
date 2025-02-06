@@ -1567,7 +1567,7 @@ const WorkExperience = () => {
             </div>
             <button
               onClick={(e) => handleSaveSelectedAchievements(popupIndex, e)}
-              className="mt-4 bg-gray-800 text-black px-4 py-2 rounded hover:bg-gray-600"
+              className="mt-4 bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-600"
             >
               Save Selected Achievements
             </button>
