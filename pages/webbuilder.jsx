@@ -581,7 +581,7 @@ export default function WebBuilder() {
       templateData: {
         name: resumeData.name || "",
         position: resumeData.position || "",
-        contactInformation: resumeData.contact || "",
+        contactInformation: resumeData.contactInformation || "",
         email: resumeData.email || "",
         address: resumeData.address || "",
         profilePicture: resumeData.profilePicture || "",
@@ -589,6 +589,7 @@ export default function WebBuilder() {
           resumeData.socialMedia?.map((media) => ({
             socialMedia: media.platform || "",
             link: media.link || "",
+            socialMedia: media.socialMedia || "",
           })) || [],
         summary: resumeData.summary || "",
         education:
@@ -597,6 +598,7 @@ export default function WebBuilder() {
             degree: edu.degree || "",
             startYear: edu.startYear || "",
             endYear: edu.endYear || "",
+            location: edu.location || "",
           })) || [],
         workExperience:
           resumeData.workExperience?.map((exp) => ({
@@ -608,6 +610,7 @@ export default function WebBuilder() {
               : [exp.KeyAchievements || ""],
             startYear: exp.startYear || "",
             endYear: exp.endYear || "",
+            location: exp.location || "",
           })) || [],
         projects:
           resumeData.projects?.map((project) => ({

@@ -421,7 +421,7 @@ export default function MobileBuilder() {
       templateData: {
         name: resumeData.name || "",
         position: resumeData.position || "",
-        contactInformation: resumeData.contact || "",
+        contactInformation: resumeData.contactInformation || "",
         email: resumeData.email || "",
         address: resumeData.address || "",
         profilePicture: resumeData.profilePicture || "",
@@ -429,6 +429,7 @@ export default function MobileBuilder() {
           resumeData.socialMedia?.map((media) => ({
             socialMedia: media.platform || "",
             link: media.link || "",
+            socialMedia: media.socialMedia || "",
           })) || [],
         summary: resumeData.summary || "",
         education:
@@ -437,17 +438,19 @@ export default function MobileBuilder() {
             degree: edu.degree || "",
             startYear: edu.startYear || "",
             endYear: edu.endYear || "",
+            location: edu.location || "",
           })) || [],
         workExperience:
           resumeData.workExperience?.map((exp) => ({
             company: exp.company || "",
             position: exp.position || "",
             description: exp.description || "",
-            KeyAchievements: Array.isArray(exp.keyAchievements)
-              ? exp.keyAchievements
-              : [exp.keyAchievements || ""],
+            KeyAchievements: Array.isArray(exp.KeyAchievements)
+              ? exp.KeyAchievements
+              : [exp.KeyAchievements || ""],
             startYear: exp.startYear || "",
             endYear: exp.endYear || "",
+            location: exp.location || "",
           })) || [],
         projects:
           resumeData.projects?.map((project) => ({

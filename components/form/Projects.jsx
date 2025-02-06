@@ -406,7 +406,7 @@ const Projects = () => {
           </div>
         ))
       ) : (
-        <p className="text-white">
+        <p className="text-black">
           No projects available. Add a new project to get started.
         </p>
       )}
