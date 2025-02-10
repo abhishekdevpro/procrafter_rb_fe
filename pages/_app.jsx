@@ -103,74 +103,20 @@ function App({ Component, pageProps }) {
     window.googleTranslateElementInit = googleTranslateElementInit;
   }, []);
 
-  // useEffect(() => {
-  //   const token = localStorage.getItem("token");
-  //   const adminToken = localStorage.getItem("adminToken");
-  //   const isDashboardRoute = router.pathname.startsWith("/dashboard");
-  //   const isAdminRoute = router.pathname.startsWith("/admin");
-
-  //   if (isDashboardRoute && !token) {
-  //     localStorage.setItem("redirectAfterLogin", router.pathname);
-  //     router.push("/login2");
-  //   }
-
-  //   if (isAdminRoute && !adminToken) {
-  //     localStorage.setItem("redirectAfterAdminLogin", router.pathname);
-  //     router.push("/adminlogin");
-  //   }
-  // }, [router.pathname]);
-  // useEffect(() => {
-  //   const token = localStorage.getItem("token");
-  //   const adminToken = localStorage.getItem("adminToken");
-  //   const isDashboardRoute = router.pathname.startsWith("/dashboard");
-  //   const isAdminRoute = router.pathname.startsWith("/admin");
-
-  //   // Redirect if no token is found
-  //   if (isDashboardRoute && !token) {
-  //     localStorage.setItem("redirectAfterLogin", router.pathname);
-  //     router.push("/login2");
-  //   }
-
-  //   if (isAdminRoute && !adminToken) {
-  //     localStorage.setItem("redirectAfterAdminLogin", router.pathname);
-  //     router.push("/adminlogin");
-  //   }
-
-  //   // Set up Axios interceptor to catch 401 responses
-  //   const interceptor = axios.interceptors.response.use(
-  //     (response) => response,
-  //     (error) => {
-  //       if (error.response && error.response.status === 401) {
-  //         localStorage.removeItem("token"); // Clear token
-  //         router.push("/login2"); // Redirect to login
-  //       }
-  //       if (error.response && error.response.status === 401) {
-  //         localStorage.removeItem("adminToken"); // Clear token
-  //         router.push("/adminlogin"); // Redirect to login
-  //       }
-  //       return Promise.reject(error);
-  //     }
-  //   );
-
-  //   return () => {
-  //     axios.interceptors.response.eject(interceptor);
-  //     console.log("i am called");
-  //   };
-  // }, [router.pathname]);
   useEffect(() => {
     const token = localStorage.getItem("token");
-    const adminToken = localStorage.getItem("adminToken");
+    // const adminToken = localStorage.getItem("adminToken");
     const isDashboardRoute = router.pathname.startsWith("/dashboard");
     const isAdminRoute = router.pathname.startsWith("/admin");
 
     // Redirect if no token is found
     if (isDashboardRoute && !token) {
-      localStorage.setItem("redirectAfterLogin", router.pathname);
+      // localStorage.setItem("redirectAfterLogin", router.pathname);
       router.push("/login2");
     }
 
-    if (isAdminRoute && !adminToken) {
-      localStorage.setItem("redirectAfterAdminLogin", router.pathname);
+    if (isAdminRoute && !token) {
+      // localStorage.setItem("redirectAfterAdminLogin", router.pathname);
       router.push("/adminlogin");
     }
 
@@ -181,18 +127,20 @@ function App({ Component, pageProps }) {
         // Check if the error response is a 401 Unauthorized
         if (error.response && error.response.status === 401) {
           // Check if the error came from the user-related API
-          if (error.config.url.includes("user")) {
-            console.log("User token invalid, removing token...");
-            localStorage.removeItem("token"); // Remove user token
-            router.push("/login2"); // Redirect to login page
-          }
+          // if (error.config.url.includes("user")) {
+          //   console.log("User token invalid, removing token...");
+          //   localStorage.removeItem("token"); // Remove user token
+          //   router.push("/login2"); // Redirect to login page
+          // }
 
-          // Check if the error came from the admin-related API
-          if (error.config.url.includes("admin")) {
-            console.log("Admin token invalid, removing admin token...");
-            localStorage.removeItem("adminToken"); // Remove admin token
-            router.push("/adminlogin"); // Redirect to admin login
-          }
+          // // Check if the error came from the admin-related API
+          // if (error.config.url.includes("admin")) {
+          //   console.log("Admin token invalid, removing admin token...");
+          //   localStorage.removeItem("adminToken"); // Remove admin token
+          //   router.push("/adminlogin"); // Redirect to admin login
+          // }
+          localStorage.removeItem("token"); // Clear token
+          router.push("/login"); // Redirect to login
         }
         return Promise.reject(error);
       }

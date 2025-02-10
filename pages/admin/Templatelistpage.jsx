@@ -1,115 +1,40 @@
-import React from 'react';
-import Link from 'next/link';
-import template1 from "./templateimages/template1.png"
-import template2 from "./templateimages/template2.png"
-import template3 from "./templateimages/template3.png"
-import template4 from "./templateimages/template4.png"
-import template5 from "./templateimages/template5.png"
-import template6 from "./templateimages/template6.png"
-import template7 from "./templateimages/template7.png"
-import template8 from "./templateimages/template8.png"
-import template9 from "./templateimages/template9.png"
-import template10 from "./templateimages/template10.png"
-
-import Image from 'next/image';
+import React, { useState } from "react";
+import CoverLetterListPage from "./coverletterlist";
+import Resumelistpage from "./resumelist";
 
 const Templatelistpage = () => {
-  const boxes = [
-    <Link href="" key="box1">
-      <div className="bg-blue-900 shadow-blue-900 shadow-xl rounded-lg text-center text-white cursor-pointer text-3xl font-semibold box-hover-effect">
-        <Image
-          src={template1}
-          style={{ height: "300px", width: "240px" }}
-          alt="logo"
-        />
-      </div>
-    </Link>,
-    <Link href="" key="box2">
-      <div className="bg-blue-900 rounded-lg shadow-xl shadow-blue-900 text-center text-white cursor-pointer text-3xl font-semibold box-hover-effect">
-        <Image
-          src={template2}
-          style={{ height: "300px", width: "240px" }}
-          alt="logo"
-        />
-      </div>
-    </Link>,
-    <Link href="" key="box3">
-      <div className="bg-blue-900 rounded-lg shadow-xl shadow-blue-900 text-center text-white cursor-pointer text-3xl font-semibold box-hover-effect">
-        <Image
-          src={template3}
-          style={{ height: "300px", width: "240px" }}
-          alt="logo"
-        />
-      </div>
-    </Link>,
-    <Link href="" key="box4">
-      <div className="bg-blue-900 rounded-lg shadow-xl shadow-blue-900 text-center text-white cursor-pointer text-3xl font-semibold box-hover-effect">
-        <Image
-          src={template4}
-          style={{ height: "300px", width: "240px" }}
-          alt="logo"
-        />
-      </div>
-    </Link>,
-    <Link href="" key="box5">
-      <div className="bg-blue-900 rounded-lg shadow-xl shadow-blue-900 text-center text-white cursor-pointer text-3xl font-semibold box-hover-effect">
-        <Image
-          src={template5}
-          style={{ height: "300px", width: "240px" }}
-          alt="logo"
-        />
-      </div>
-    </Link>,
-    <Link href="" key="box6">
-      <div className="bg-blue-900 rounded-lg shadow-xl shadow-blue-900 text-center text-white cursor-pointer text-3xl font-semibold box-hover-effect">
-        <Image
-          src={template6}
-          style={{ height: "300px", width: "240px" }}
-          alt="logo"
-        />
-      </div>
-    </Link>,
-    <Link href="" key="box7">
-      <div className="bg-blue-900 rounded-lg shadow-xl shadow-blue-900 text-center text-white cursor-pointer text-3xl font-semibold box-hover-effect">
-        <Image
-          src={template7}
-          style={{ height: "300px", width: "240px" }}
-          alt="logo"
-        />
-      </div>
-    </Link>,
-    <Link href="" key="box8">
-      <div className="bg-blue-900 rounded-lg shadow-xl shadow-blue-900 text-center text-white cursor-pointer text-3xl font-semibold box-hover-effect">
-        <Image
-          src={template8}
-          style={{ height: "300px", width: "240px" }}
-          alt="logo"
-        />
-      </div>
-    </Link>,
-    <Link href="" key="box9">
-      <div className="bg-blue-900 rounded-lg shadow-xl shadow-blue-900 text-center text-white cursor-pointer text-3xl font-semibold box-hover-effect">
-        <Image
-          src={template9}
-          style={{ height: "300px", width: "240px" }}
-          alt="logo"
-        />
-      </div>
-    </Link>,
-    <Link href="" key="box10">
-      <div className="bg-blue-900 rounded-lg shadow-xl shadow-blue-900 text-center text-white cursor-pointer text-3xl font-semibold box-hover-effect">
-        <Image
-          src={template10}
-          style={{ height: "300px", width: "240px" }}
-          alt="logo"
-        />
-      </div>
-    </Link>,
-  ];
+  const [activeTab, setActiveTab] = useState("resume");
 
   return (
-    <div className="p-2 md:p-6 flex flex-wrap justify-center gap-16 mt-10">
-      {boxes.map((box, index) => box)}
+    <div className="p-4 md:p-6 flex flex-col items-center mt-10">
+      {/* Toggle Buttons */}
+      <div className="mb-6 flex gap-4">
+        <button
+          onClick={() => setActiveTab("resume")}
+          className={`px-6 py-2 rounded-lg font-semibold ${
+            activeTab === "resume"
+              ? "bg-[#00b38d] text-white"
+              : "bg-gray-300 text-gray-800"
+          }`}
+        >
+          My Resume
+        </button>
+        <button
+          onClick={() => setActiveTab("coverLetter")}
+          className={`px-6 py-2 rounded-lg font-semibold ${
+            activeTab === "coverLetter"
+              ? "bg-[#00b38d] text-white"
+              : "bg-gray-300 text-gray-800"
+          }`}
+        >
+          My Cover Letter
+        </button>
+      </div>
+
+      {/* Conditional Rendering */}
+      <div className="w-full flex justify-center">
+        {activeTab === "resume" ? <Resumelistpage /> : <CoverLetterListPage />}
+      </div>
     </div>
   );
 };
