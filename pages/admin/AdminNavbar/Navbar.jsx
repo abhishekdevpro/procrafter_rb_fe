@@ -24,14 +24,11 @@ const Navbar = () => {
       // Check API success
       const checkApiSuccess = async () => {
         try {
-          const response = await fetch(
-            `${BASE_URL}/api/user/user-profile`,
-            {
-              headers: {
-                Authorization: token,
-              },
-            }
-          );
+          const response = await fetch(`${BASE_URL}/api/user/user-profile`, {
+            headers: {
+              Authorization: token,
+            },
+          });
           if (response.ok) {
             setIsApiSuccess(true);
           } else {
@@ -66,7 +63,7 @@ const Navbar = () => {
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
 
   return (
-    <nav className="bg-black border-b border-gray-200">
+    <nav className="bg-white border-b border-gray-200">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0 flex items-center">

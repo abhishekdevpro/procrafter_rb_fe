@@ -7,8 +7,8 @@ const Sidebar1 = ({ onClose }) => {
   const location = router.pathname;
 
   const handleLogout = () => {
-    localStorage.removeItem('token'); // Clear the token
-    router.push('/login2'); // Redirect to login after logout
+    localStorage.removeItem("token"); // Clear the token
+    router.push("/adminlogin"); // Redirect to login after logout
   };
 
   const getLinkClassName = (path) => {
@@ -92,7 +92,7 @@ const Sidebar1 = ({ onClose }) => {
             <span>Subscribers List</span>
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link
             href="reffreraluser"
             className={getLinkClassName("/admin/reffreraluser")}
@@ -121,12 +121,12 @@ const Sidebar1 = ({ onClose }) => {
             <span className="mr-2">💷</span>
             <span>Referral </span>
           </Link>
-        </li>
+        </li> */}
 
         <li>
           <Link
             href="/"
-            className="flex items-center p-2 hover:bg-blue-900  border-b-2 rounded font-semibold"
+            className="flex items-center p-2 hover:bg-green-600  border-b-2 rounded font-semibold"
             onClick={() => {
               handleLogout();
             }}

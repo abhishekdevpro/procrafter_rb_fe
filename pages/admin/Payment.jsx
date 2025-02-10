@@ -1,52 +1,57 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { BASE_URL } from '../../components/Constant/constant';
-   
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { BASE_URL } from "../../components/Constant/constant";
 
 function Payment() {
   const [users, setUsers] = useState([]);
   const [remarks, setRemarks] = useState({}); // State to store remarks
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
 
-    axios.get(`${BASE_URL}/api/admin/payment-history`, {
-      headers: {
-        Authorization: token
-      }
-    })
-      .then(response => {
+    axios
+      .get(`${BASE_URL}/api/admin/payment-history`, {
+        headers: {
+          Authorization: token,
+        },
+      })
+      .then((response) => {
         console.log(response.data.data);
         setUsers(response.data.data);
       })
-      .catch(error => console.error('Error fetching user data:', error));
+      .catch((error) => console.error("Error fetching user data:", error));
   }, []);
 
   const handleRemarkChange = (Id, value) => {
-    setRemarks(prevRemarks => ({
+    setRemarks((prevRemarks) => ({
       ...prevRemarks,
-      [Id]: value
+      [Id]: value,
     }));
   };
 
   const handleRemarkSubmit = (Id) => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     const remark = remarks[Id];
 
-    axios.post(`${BASE_URL}/api/admin/payment-history-remark`, {
-      Id,
-      remark
-    }, {
-      headers: {
-        Authorization: token
-      }
-    })
-      .then(response => {
-        console.log('Remark submitted successfully:', response.data);
-        toast.success(response.data.message)
+    axios
+      .post(
+        `${BASE_URL}/api/admin/payment-history-remark`,
+        {
+          Id,
+          remark,
+        },
+        {
+          headers: {
+            Authorization: token,
+          },
+        }
+      )
+      .then((response) => {
+        console.log("Remark submitted successfully:", response.data);
+        toast.success(response.data.message);
         // Optionally update UI or provide feedback to the user
       })
-      .catch(error => console.error('Error submitting remark:', error));
+      .catch((error) => console.error("Error submitting remark:", error));
   };
 
   return (
@@ -54,7 +59,7 @@ function Payment() {
       <div className="overflow-x-auto">
         <table className="min-w-full bg-dark text-black rounded-md text-center">
           <thead>
-            <tr className="bg-blue-300">
+            <tr className="bg-pink-500 text-white">
               <th className="py-2 px-4">ID</th>
               <th className="py-2 px-4">Name</th>
               <th className="py-2 px-4">Email</th>

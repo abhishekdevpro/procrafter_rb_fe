@@ -1,24 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { BASE_URL } from '../../components/Constant/constant';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { BASE_URL } from "../../components/Constant/constant";
 
 function Reffreraluser1() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
 
-    axios.get(`${BASE_URL}/api/admin/referral-users`, {
-      headers: {
-        Authorization: token
-      }
-    })
-      .then(response => {
+    axios
+      .get(`${BASE_URL}/api/admin/referral-users`, {
+        headers: {
+          Authorization: token,
+        },
+      })
+      .then((response) => {
         // Ensure response.data.data is an array before setting state
-        const data = Array.isArray(response.data.data) ? response.data.data : [];
+        const data = Array.isArray(response.data.data)
+          ? response.data.data
+          : [];
         setUsers(data);
       })
-      .catch(error => console.error('Error fetching user data:', error));
+      .catch((error) => console.error("Error fetching user data:", error));
   }, []);
 
   return (
@@ -29,7 +32,7 @@ function Reffreraluser1() {
         ) : (
           <table className="min-w-full bg-dark text-black rounded-md text-center">
             <thead>
-              <tr className="bg-blue-300">
+              <tr className="bg-pink-500 text-white">
                 <th className="py-2 px-4">Name</th>
                 <th className="py-2 px-4">Email</th>
                 <th className="py-2 px-4">Phone</th>
