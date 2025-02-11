@@ -289,23 +289,24 @@ const Projects = () => {
               value={project.link}
               onChange={(e) => handleProjects(e, projectIndex)}
             />
-
-            <ReactQuill
-              placeholder="Describe your project in 2-3 sentences. Include details like the project's purpose, your role, and the technologies/tools used. "
-              className="w-full other-input border-black border h-100 max-w-[33rem]"
-              value={project.description}
-              onChange={(value) =>
-                handleProjects(
-                  { target: { name: "description", value } },
-                  projectIndex
-                )
-              }
-              theme="snow"
-              modules={{
-                toolbar: [["bold", "italic", "underline"], ["clean"]],
-              }}
-            />
-
+            <div className="notranslate">
+              <ReactQuill
+                placeholder="Describe your project in 2-3 sentences. Include details like the project's purpose, your role, and the technologies/tools used. "
+                className="w-full other-input border-black border h-100 max-w-[33rem]"
+                value={project.description}
+                onChange={(value) =>
+                  handleProjects(
+                    { target: { name: "description", value } },
+                    projectIndex
+                  )
+                }
+                theme="snow"
+                modules={{
+                  toolbar: [["bold", "italic", "underline"], ["clean"]],
+                }}
+                preserveWhitespace={true}
+              />
+            </div>
             {/* Key Achievements Section */}
             <div className="mt-4">
               <label className="text-black mb-2 block">Key Achievements</label>
