@@ -272,6 +272,7 @@ const Summary = () => {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const router = useRouter();
   const { improve } = router.query;
+  console.log("KSC resumedata top:>>>", resumeData.summary);
 
   const hasErrors = () => {
     return (
@@ -344,7 +345,8 @@ const Summary = () => {
     }
   };
 
-  const handleQuillChange = (content) => {
+  const handleQuillChange = (content, delta, source, editor) => {
+    console.log("KSC >>>>", { content, delta, source, editor });
     setResumeData({
       ...resumeData,
       summary: content,
@@ -445,13 +447,14 @@ const Summary = () => {
       </div>
 
       {/* ReactQuill Editor */}
-      <div className="grid-1 w-full">
+      <div className="grid-1 w-full notranslate">
         <ReactQuill
           placeholder="Enter your professional summary or use Smart Assist to generate one"
           value={resumeData.summary || ""}
           onChange={handleQuillChange}
           className="w-full other-input h-100 border-black border rounded"
           theme="snow"
+          preserveWhitespace={true}
           modules={{
             toolbar: [["bold", "italic", "underline"], ["clean"]],
           }}

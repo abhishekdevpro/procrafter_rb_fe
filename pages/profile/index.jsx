@@ -657,7 +657,7 @@ const ProfileForm = () => {
 
   return (
     <div className="p-2 md:p-6">
-      <div className="w-[15rem] md:w-full mx-auto rounded-lg shadow-lg px-4 py-2 md:p-6">
+      <div className="w-full mx-auto rounded-lg shadow-lg px-4 py-2 md:p-6">
         <h1 className="text-2xl font-bold mb-6 text-center md:text-left">
           BASIC INFORMATION
         </h1>

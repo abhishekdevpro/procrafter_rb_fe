@@ -1410,20 +1410,23 @@ const WorkExperience = () => {
                     {isLoading ? "Loading..." : "+ Smart Assist"}
                   </button>
                 </div>
-                <ReactQuill
-                  placeholder="Description"
-                  value={experience.description}
-                  onChange={(value) => handleDescriptionChange(value, index)}
-                  className={`bg-white rounded-md ${
-                    improve && hasErrors(index, "descriptionDetails")
-                      ? "border-red-500"
-                      : "border-black"
-                  }`}
-                  theme="snow"
-                  modules={{
-                    toolbar: [["bold", "italic", "underline"], ["clean"]],
-                  }}
-                />
+                <div className="notranslate">
+                  <ReactQuill
+                    placeholder="Description"
+                    value={experience.description}
+                    onChange={(value) => handleDescriptionChange(value, index)}
+                    className={`bg-white rounded-md ${
+                      improve && hasErrors(index, "descriptionDetails")
+                        ? "border-red-500"
+                        : "border-black"
+                    }`}
+                    preserveWhitespace={true}
+                    theme="snow"
+                    modules={{
+                      toolbar: [["bold", "italic", "underline"], ["clean"]],
+                    }}
+                  />
+                </div>
                 {improve && hasErrors(index, "descriptionDetails") && (
                   <button
                     type="button"
