@@ -84,9 +84,9 @@ function App({ Component, pageProps }) {
   const googleTranslateElementInit = () => {
     new window.google.translate.TranslateElement(
       {
-        pageLanguage: "en",
-        autoDisplay: false,
-        includedLanguages: "en,fr", // Only English and French
+        pageLanguage: "fr",
+        autoDisplay: true,
+        includedLanguages: "fr,en", // Only English and French
         layout: google.translate.TranslateElement.InlineLayout.SIMPLE, // Optional: Simplifies UI
       },
       "google_translate_element"
