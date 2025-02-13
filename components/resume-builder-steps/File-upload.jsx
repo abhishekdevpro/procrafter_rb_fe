@@ -254,7 +254,7 @@ export default function FileUploadStep({ onNext, onBack, onChange, value }) {
             // toast.info(`Upload progress: ${percentCompleted}%`);
             if (percentCompleted === 100) {
               toast.info("Upload completed successfully!");
-              setToastDisplayed(true);
+              // setToastDisplayed(true);
             }
           },
         }

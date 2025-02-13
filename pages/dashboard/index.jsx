@@ -6,12 +6,13 @@ import Sidebar from "../../components/dashboard/Sidebar";
 import Navbar from "../Navbar/Navbar";
 import axios from "axios";
 import MyResume from "./MyResume";
-import MyJobs from "./MyJobs";
+
 import { useRouter } from "next/router";
 import FullScreenLoader from "../../components/ResumeLoader/Loader";
 import { Download, Edit, Trash, Plus } from "lucide-react";
 import AbroadiumCommunity from "../../components/dashboard/AbroadiumCommunity";
 import { BASE_URL } from "../../components/Constant/constant";
+import JobSearch from "../JobSearch";
 export default function DashboardPage() {
   const [strength, setStrength] = useState(null);
   const [resumeId, setResumeId] = useState(null);
@@ -37,13 +38,13 @@ export default function DashboardPage() {
       } else {
         setStrength(null);
         setResumeId(null);
-        router.push(`/dashboard/resume-builder`)
+        router.push(`/dashboard/resume-builder`);
       }
     } catch (err) {
       setError(err.message);
       setStrength(null);
       setResumeId(null);
-      router.push(`/dashboard/resume-builder`)
+      router.push(`/dashboard/resume-builder`);
     } finally {
       setLoading(false);
     }
@@ -129,7 +130,7 @@ export default function DashboardPage() {
         </main>
       </div>
       <MyResume />
-      <MyJobs />
+      <JobSearch />
     </>
   );
 }

@@ -683,7 +683,7 @@ const Navbar = () => {
               {t("ai_resume_builder")}
             </Link>
             <Link
-              href="/dashboard/Jobs"
+              href="/dashboard/myjobs"
               className="text-black hover:text-[#00b38d] px-3 py-2 rounded-md text-lg font-semibold"
             >
               {t("jobs")}
@@ -809,7 +809,7 @@ const Navbar = () => {
           <div className="md:hidden absolute top-16 left-0 right-0 bg-white shadow-lg z-50">
             <div className="px-2 pt-2 pb-3 space-y-1">
               <Link
-                href="/dashboard/MyJobs"
+                href="/dashboard/myjobs"
                 className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
               >
                 {t("jobs")}
