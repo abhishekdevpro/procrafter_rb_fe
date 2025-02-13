@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import SavedJobsPage from "./SavedJobs";
-import JobsPage from "./myjobs";
+
 import Navbar from "../Navbar/Navbar";
+import JobSearch from "../JobSearch";
 
 const JobsToggle = () => {
   const [activeTab, setActiveTab] = useState("myJobs");
@@ -33,7 +34,7 @@ const JobsToggle = () => {
           </button>
         </div>
 
-        {activeTab === "myJobs" ? <JobsPage /> : <SavedJobsPage />}
+        {activeTab === "myJobs" ? <JobSearch /> : <SavedJobsPage />}
       </div>
     </>
   );
