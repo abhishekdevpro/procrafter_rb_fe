@@ -675,7 +675,7 @@ const Navbar = () => {
             ) : (
               <></>
             )}
-            {/* <LanguageSelector /> */}
+            <LanguageSelector />
             <Link
               href="/navbarcontent"
               className="text-black hover:text-[#00b38d] px-3 py-2 rounded-md text-lg font-semibold"

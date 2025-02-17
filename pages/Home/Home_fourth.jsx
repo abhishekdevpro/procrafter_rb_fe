@@ -1,31 +1,30 @@
 import Link from "next/link";
 import blog3 from "./Images/blog3.jpg";
 import Home_five from "./Home_five";
-
+import { useTranslation } from "react-i18next";
 const Home_fourth = () => {
+  const { t } = useTranslation();
   const course = [
     {
       img: "https://blog.ciblijob.fr/wp-content/uploads/2025/01/Ciblijob-blog-How-AI-is-Revolutionizing-Resume-Building-A-Beginners-Guide-1.png",
-      title: "How AI is Revolutionizing Resume Building: A Beginner’s Guide",
+      title: "card_title1",
       link: "https://blog.ciblijob.fr/?p=1",
     },
     {
       img: "https://blog.ciblijob.fr/wp-content/uploads/2025/01/Blog-2-CibliJob-AI-Powered-Resume-Builders-vs-Traditional-Methods-Whats-Better.png",
-      title:
-        "AI-Powered Resume Builders vs. Traditional Methods: What’s Better?",
+      title: "card_title2",
       link: "https://blog.ciblijob.fr/?p=23",
     },
 
     {
       img: "https://blog.ciblijob.fr/wp-content/uploads/2025/01/Blog-3-CibliJob-Top-5-Benefits-of-Using-an-AI-Resume-Builder.png",
-      title: "Top 5 Benefits of Using an AI Resume Builder for Job Seekers",
+      title: "card_title3",
       link: "https://blog.ciblijob.fr/?p=27",
     },
 
     {
       img: "https://blog.ciblijob.fr/wp-content/uploads/2025/01/Blog-4-Step-by-Step-Guide-to-Creating-a-Job-Winning-Resume-with-AI-Tools.png",
-      title:
-        "Step-by-Step Guide to Creating a Job-Winning Resume with AI Tools",
+      title: "card_title4",
       link: "https://blog.ciblijob.fr/?p=30",
     },
   ];
@@ -34,13 +33,10 @@ const Home_fourth = () => {
       <div id="course" className="bg-gray-100 py-10 ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl lg:text-5xl font-bold px-4 lg:px-0 py-5 text-center text-[#00b38d]">
-            Newest Strategies From Our Career Search Advisors
+            {t("neweststratigies")}
           </h1>
           <p className="mx-auto px-4 lg:px-0 text-lg lg:text-base text-gray-700 max-w-4xl text-center mb-8">
-            You’re never alone in your job search. Whether you’re writing a
-            cover letter, preparing for the interview, or negotiating your
-            salary, our resource center has articles that will help you take the
-            next step in your career.
+            {t("paragraphhome_fourth")}
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -59,7 +55,7 @@ const Home_fourth = () => {
                 />
                 <div className="p-4">
                   <h2 className="text-lg lg:text-lg font-bold mb-2">
-                    {card.title}
+                    {t(card.title)}
                   </h2>
                   {/* <p className="text-sm text-gray-600">{card.name}</p> */}
                 </div>
@@ -70,7 +66,7 @@ const Home_fourth = () => {
           <div className="flex justify-center mt-10">
             <Link href={"https://blog.ciblijob.fr/"}>
               <button className="px-6 py-3 text-lg font-semibold text-white bg-[#00b38d] hover:bg-[#00b38d] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00b38d]">
-                Get More Career Advice
+                {t("get_moreadvice")}
               </button>
             </Link>
           </div>

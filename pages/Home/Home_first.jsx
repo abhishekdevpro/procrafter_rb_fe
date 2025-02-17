@@ -183,15 +183,12 @@ function Home_first() {
             <div className="px-3 py-3 w-full md:w-[500px]">
               <div className="flex flex-col gap-4">
                 <div className="font-extrabold text-5xl font-sans">
-                  &quot; {t("cibli_job")}&quot;{t("ai_powered_resume_tool")},{" "}
-                  {t("is_live_now")}
+                  {t("resume_tool_live")}
                 </div>
 
                 <div className="text-lg font-medium text-slate-700">
-                  {t("resume_score")}, {t("enhanced_resume")} {t("much_more")}{" "}
-                  {t("apply_job_with_confidence")}
+                  {t("resume_features")}
                 </div>
-
                 <div className="flex flex-wrap gap-4">
                   <Link
                     href={
@@ -203,7 +200,6 @@ function Home_first() {
                     </button>
                   </Link>
                 </div>
-
                 <div className="font-bold text-base">
                   <i className="fa-solid fa-star text-yellow-500"></i>{" "}
                   <i className="fa-solid fa-star text-yellow-500"></i>{" "}

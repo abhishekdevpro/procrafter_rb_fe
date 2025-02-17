@@ -12,18 +12,20 @@
   "logout": "Logout",
   "login": "Log in",
 
-
+ "resume_tool_live": "\"Cibli Job\" AI Powered Resume Tool is Live NOW!",
+    
+"resume_features": "Resume Score, Enhanced Resume & much more. Now Apply Job with confidence with our all-in-one solution under one roof.",
+    
+    
+  
   "contact_us": "Contact us",
-  "is_live_now": "is Live NOW",
-  "resume_score": "Resume Score",
-  "enhanced_resume": "Enhanced Resume",
-  "apply_job_with_confidence": "Now Apply Job with confidence with our all-in-one solution under one roof.",
+  
+  
   "build_resume": "Build your Resume",
   "reviews_certified": "Reviews Certified by Recruiters & Admired by Jobseekers",
   "featured_on": "As Featured on",
-  "cibli_job":"Cibli Job",
-  "ai_powered_resume_tool":" AI Powered Resume Tool",
-"much_more":"& much more.",
+  
+
 
   "explore_resume_services": "Explore Our AI Enabled Resume Services",
 
@@ -50,9 +52,61 @@
       "certified_by_recruiters": "Certified By Recruiters & Admired By Job Seekers",
       "looking_cover_letter": "Looking For Impressive Cover Letters?",
       "explore_cover_letters": "Explore from our 25+ premium Cover Letters, which are exclusively crafted by our Experts.",
-      "create_cv": "Create Your CV"
-    
-    
+      "create_cv": "Create Your CV",
+      "alt1_h3":"Assistant Editor Resume Example",
+      "alt2_h3":"Farmer Resume Template",
+      "alt3_h3":"Doctor Resume Template",
+      "title1_h3":"Create Resume Template",
+       "title2_h3":"Simple Resume Template",
+        "title3_h3":"Modern Resume Template",
+        "title_h4":"Cover Letter Example",
+      "neweststratigies":"Newest Strategies From Our Career Search Advisors",
+      "paragraphhome_fourth" :" You’re never alone in your job search. Whether you’re writing a cover letter, preparing for the interview, or negotiating yoursalary, our resource center has articles that will help you take thenext step in your career.",
+    "card_title1":"How AI is Revolutionizing Resume Building: A Beginner’s Guide",
+     "card_title2":"AI-Powered Resume Builders vs. Traditional Methods: What’s Better?",
+      "card_title3":"Top 5 Benefits of Using an AI Resume Builder for Job Seekers",
+       "card_title4":"Step-by-Step Guide to Creating a Job-Winning Resume with AI Tools",
+       "get_moreadvice":"Get More Career Advice",
+       "choose_plan":" Choose a Plan, Which is right for you?",
+     
+        "resume_builder": "Resume Builder",
+        "resume_description": "Relevant for automation & one time download.",
+        "starting_price": "Starting",
+        "price_currency": "£",
+        "price_amount": "0",
+        "feature1": "Create optimized resumes",
+        "feature2": "Copy and paste content from site",
+        "feature3": "Unlimited resume edits",
+        "feature4": "Save resume as PDF and DOCs",
+        "feature5": "Download fully formatted Resume",
+        "expert_writer": "Expert Human Writer",
+  "expert_description": "Built by expert resume writers",
+  "get_started": "Get started for Free",
+  "price_amount_b": "19",
+  "price_per_resume": "/Resume",
+  "feature1_b": "Create optimized resumes",
+  "feature2_b": "Receive resume in PDF and DOCs",
+  "feature3_b": "Cover letter included",
+  "feature4_b": "3 revisions included",
+  "feature5_b": "Speak one-on-one with writer",
+  "feature6_b": "Final Delivery in 1 week",
+  "get_started_b": "Get started",
+  
+    "combo_title": "French English Combo",
+    "combo_description": "Built by expert resume writers",
+    "combo_price_currency": "£",
+    "combo_price_amount": "29",
+    "combo_price_per_resume": "/Resume",
+    "feature1_c": "Create optimized resumes",
+    "feature2_c": "Receive resume in PDF and DOCs",
+    "feature3_c": "Cover letter included",
+    "feature4_c": "3 revisions included",
+    "feature5_c": "Speak one-on-one with writer",
+    "feature6_c": "Final Delivery in 1 week"
+   
+  
+  
+      
   
 }
 
