@@ -509,31 +509,31 @@ function Home_third() {
             {[
               {
                 src: image1,
-                alt: "Assistant Editor Resume Example",
-                title: "Create Resume Template",
+                alt: "alt1_h3",
+                title: "title1_h3",
               },
               {
                 src: image2,
-                alt: "Farmer Resume Template",
-                title: "Simple Resume Template",
+                alt: "alt2_h3",
+                title: "title2_h3",
               },
               {
                 src: image3,
-                alt: "Doctor Resume Template",
-                title: "Modern Resume Template",
+                alt: "alt3_h3",
+                title: "title3_h3",
               },
             ].map((template, index) => (
               <div key={index} className="relative group">
                 <Image
                   src={template.src}
-                  alt={template.alt}
+                  alt={t(template.alt)}
                   className="h-96 w-full rounded-xl"
                 />
                 <h1
                   className="font-bold text-xl text-center mt-2"
                   id="homecard"
                 >
-                  {template.title}
+                  {t(template.title)}
                 </h1>
               </div>
             ))}
@@ -571,22 +571,22 @@ function Home_third() {
             {
               src: image1,
               alt: "Assistant Editor Resume Example",
-              title: "Cover Letter Example",
+              title: "title_h4",
             },
             {
               src: image2,
               alt: "Farmer Resume Template",
-              title: "Cover Letter Examples",
+              title: "title_h4",
             },
             {
               src: image3,
               alt: "Farmer Resume Template",
-              title: "Cover Letter Examples",
+              title: "title_h4",
             },
             {
               src: image4,
               alt: "Farmer Resume Template",
-              title: "Cover Letter Examples",
+              title: "title_h4",
             },
           ].map((template, index) => (
             <div key={index} className="relative group">
@@ -596,7 +596,7 @@ function Home_third() {
                 className=" h-[400px] w-full border-2 rounded-lg shadow-xl shadow-gray-500"
               />
               <h1 className="font-bold  text-xl text-center mt-2" id="homecard">
-                {template.title}
+                {t(template.title)}
               </h1>
               <button className="absolute top-0 left-0 right-0 bottom-0 m-auto w-fit h-fit bg-[#00b38d] text-white font-bold py-2 px-4 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 {t("create_cv")}
