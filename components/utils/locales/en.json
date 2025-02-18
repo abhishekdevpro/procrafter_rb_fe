@@ -102,9 +102,27 @@
     "feature3_c": "Cover letter included",
     "feature4_c": "3 revisions included",
     "feature5_c": "Speak one-on-one with writer",
-    "feature6_c": "Final Delivery in 1 week"
+    "feature6_c": "Final Delivery in 1 week",
+    "getintouch":"Get In Touch",
+    "contact_paragraph":" Build professional, job-winning resumes in minutes with our AI-powered tools and expert suggestions!",
    
   
+    "we_are_here": "We are here to help",
+    "contact_anytime": "Contact us anytime",
+    "phone": "Phone",
+    "email_us": "Email Us",
+    "message_us": "Message Us",
+    "reach_out": "Reach out for any assistance",
+    "chat": "Chat",
+    "form": {
+      "name": "Name",
+      "phone": "Phone",
+      "email": "Email",
+      "remark": "Remark",
+      "send": "Send",
+      "error_message": "An error occurred. Please try again.",
+      "success_message": "Your message has been sent successfully!"
+    }
   
       
   

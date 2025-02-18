@@ -98,6 +98,24 @@
   "feature3_c": "Lettre de motivation incluse",
   "feature4_c": "3 révisions incluses",
   "feature5_c": "Entretien individuel avec le rédacteur",
-  "feature6_c": "Livraison finale en 1 semaine"
+  "feature6_c": "Livraison finale en 1 semaine",
+   "getintouch":"Entrer en contact",
+   "contact_paragraph":"Créez des CV professionnels et gagnants en quelques minutes grâce à nos outils basés sur l'IA et aux suggestions d'experts !",
+   "we_are_here": "Nous sommes là pour vous aider",
+   "contact_anytime": "Contactez-nous à tout moment",
+   "phone": "Téléphone",
+   "email_us": "Envoyez-nous un e-mail",
+   "message_us": "Envoyez-nous un message",
+   "reach_out": "Contactez-nous pour toute assistance",
+   "chat": "Discussion",
+   "form": {
+     "name": "Nom",
+     "phone": "Téléphone",
+     "email": "E-mail",
+     "remark": "Remarque",
+     "send": "Envoyer",
+     "error_message": "Une erreur est survenue. Veuillez réessayer.",
+     "success_message": "Votre message a été envoyé avec succès !"
+   }
  
 }

@@ -1,4 +1,3 @@
-
 import React, { useContext, useEffect, useRef, useState } from "react";
 import axios from "axios";
 import FormButton from "./FormButton";
@@ -6,8 +5,7 @@ import { ResumeContext } from "../context/ResumeContext";
 import { AlertCircle } from "lucide-react";
 import { useRouter } from "next/router";
 import { BASE_URL } from "../Constant/constant";
-
-const Skill = ({ title }) => {
+const Skill = ({ title, currentSkillIndex }) => {
   const { resumeData, setResumeData, resumeStrength } =
     useContext(ResumeContext);
   const [loading, setLoading] = useState(false);
@@ -140,18 +138,22 @@ const Skill = ({ title }) => {
   };
 
   const hasErrors = (skillIndex) => {
-    const skillStrength = resumeStrength?.skills_strenght?.[skillIndex];
+    const skillStrengthErr =
+      resumeStrength?.Skills_strenght?.[currentSkillIndex]
+        ?.skills_strenght_info?.[skillIndex]?.skills;
     return (
-      skillStrength &&
-      Array.isArray(skillStrength.skills) &&
-      skillStrength.skills.length > 0
+      skillStrengthErr &&
+      Array.isArray(skillStrengthErr) &&
+      skillStrengthErr.length > 0
     );
   };
 
   const getErrorMessages = (skillIndex) => {
-    const skillStrength = resumeStrength?.skills_strenght?.[skillIndex];
-    return skillStrength && Array.isArray(skillStrength.skills)
-      ? skillStrength.skills
+    const skillStrengthErr =
+      resumeStrength?.Skills_strenght?.[currentSkillIndex]
+        ?.skills_strenght_info?.[skillIndex]?.skills;
+    return skillStrengthErr && Array.isArray(skillStrengthErr)
+      ? skillStrengthErr
       : [];
   };
 
@@ -173,6 +175,24 @@ const Skill = ({ title }) => {
     });
   };
 
+  // const removeSkill = (title, index) => {
+  //   setResumeData((prevData) => {
+  //     const skillType = prevData.skills.find(
+  //       (skillType) => skillType.title === title
+  //     );
+  //     if (!skillType) return prevData;
+
+  //     const newSkills = [...skillType.skills];
+  //     newSkills.splice(index, 1);
+  //     const updatedSkills = prevData.skills.map((skill) =>
+  //       skill.title === title ? { ...skill, skills: newSkills } : skill
+  //     );
+  //     return {
+  //       ...prevData,
+  //       skills: updatedSkills,
+  //     };
+  //   });
+  // };
   const removeSkill = (title, index) => {
     setResumeData((prevData) => {
       const skillType = prevData.skills.find(
@@ -180,11 +200,18 @@ const Skill = ({ title }) => {
       );
       if (!skillType) return prevData;
 
+      // Prevent removing the last skill if there's only one left
+      if (skillType.skills.length <= 1) {
+        alert("At least one skill is required.");
+        return prevData; // Prevent deletion
+      }
+
       const newSkills = [...skillType.skills];
-      newSkills.splice(index, 1);
+      newSkills.splice(index, 1); // Remove the skill at the specified index
       const updatedSkills = prevData.skills.map((skill) =>
         skill.title === title ? { ...skill, skills: newSkills } : skill
       );
+
       return {
         ...prevData,
         skills: updatedSkills,
@@ -371,7 +398,7 @@ const Skill = ({ title }) => {
           </button>
 
           {activeTooltip === `skill-${index}` && (
-            <div className="absolute z-10 right-16 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200">
+            <div className="absolute z-10 right-10 top-10 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200">
               <div className="bg-red-50 px-4 py-2 rounded-t-lg border-b border-red-100">
                 <div className="flex items-center gap-2">
                   <AlertCircle className="w-5 h-5 text-red-600" />
@@ -398,48 +425,24 @@ const Skill = ({ title }) => {
         </div>
       ))}
 
-      {/* <div className="flex space-x-4">
+      <div className="flex space-x-4">
         <FormButton
           size={skillType.skills.length}
           add={() => addSkill(title)}
+          remove={() => removeSkill(title)}
         />
-        <button
+        {/* <button
           type="button"
           onClick={() => removeAllSkills(title)}
           className="text-red-600 hover:text-red-800"
           aria-label="Delete all skills"
         >
           Delete All Skills
-        </button>
+        </button> */}
         <button
           type="button"
           onClick={handleAIAssist}
           className="border bg-black text-white px-3 rounded-3xl"
-          disabled={loading}
-        >
-          {loading ? "Loading..." : " + Smart Assist"}
-        </button>
-      </div> */}
-      <div className="flex flex-wrap md:flex-nowrap gap-3 md:space-x-4 w-full">
-        <FormButton
-          size={skillType.skills.length}
-          add={() => addSkill(title)}
-          className="w-full md:w-auto"
-        />
-
-        <button
-          type="button"
-          onClick={() => removeAllSkills(title)}
-          className="text-red-600 hover:text-red-800 w-full md:w-auto text-center"
-          aria-label="Delete all skills"
-        >
-          Delete All Skills
-        </button>
-
-        <button
-          type="button"
-          onClick={handleAIAssist}
-          className="border bg-black text-white p-2 rounded-3xl w-full md:w-auto text-center"
           disabled={loading}
         >
           {loading ? "Loading..." : " + Smart Assist"}

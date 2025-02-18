@@ -64,6 +64,7 @@ export default function WebBuilder() {
   const [userId, setUserId] = useState(0);
   const templateRef = useRef(null);
   const {
+    setResumeStrength,
     resumeData,
     setResumeData,
     setHeaderColor,
@@ -101,7 +102,7 @@ export default function WebBuilder() {
           if (response.data.status === "success") {
             const { data } = response.data;
             const parsedData = JSON.parse(data.ai_resume_parse_data);
-
+            setResumeStrength(data.resume_strenght_details);
             // Update state with fetched data
             setResumeData(parsedData.templateData);
             console.log(parsedData, ">>>>parsedData");
@@ -215,11 +216,12 @@ export default function WebBuilder() {
     { label: "Education", component: <Education /> },
     { label: "Experience", component: <WorkExperience /> },
     { label: "Projects", component: <Projects /> },
+
     {
       label: "Skills",
       component: Array.isArray(resumeData?.skills) ? (
         resumeData.skills.map((skill, index) => (
-          <Skill title={skill.title} key={index} />
+          <Skill title={skill.title} currentSkillIndex={index} key={index} />
         ))
       ) : (
         <p>No skills available</p>

@@ -57,6 +57,7 @@ export default function MobileBuilder() {
   const [userId, setUserId] = useState(0);
   const templateRef = useRef(null);
   const {
+    setResumeStrength,
     resumeData,
     setResumeData,
     setHeaderColor,
@@ -100,7 +101,7 @@ export default function MobileBuilder() {
 
             // Update state with fetched data
             setResumeData(parsedData.templateData);
-
+            setResumeStrength(data.resume_strenght_details);
             // Set background color and template
             if (parsedData.templateData.templateDetails) {
               setBgColor(
@@ -215,7 +216,7 @@ export default function MobileBuilder() {
       label: "Skills",
       component: Array.isArray(resumeData?.skills) ? (
         resumeData.skills.map((skill, index) => (
-          <Skill title={skill.title} key={index} />
+          <Skill title={skill.title} currentSkillIndex={index} key={index} />
         ))
       ) : (
         <p>No skills available</p>

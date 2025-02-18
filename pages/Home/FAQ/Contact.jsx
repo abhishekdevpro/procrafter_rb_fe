@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import { BASE_URL } from '../../../components/Constant/constant';
-
+import React, { useState } from "react";
+import { BASE_URL } from "../../../components/Constant/constant";
+import { useTranslation } from "react-i18next";
 const ContactUs = () => {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    remark: '',
+    name: "",
+    phone: "",
+    email: "",
+    remark: "",
   });
-  const [error, setError] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
-
+  const [error, setError] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+  const { t } = useTranslation();
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -19,25 +19,25 @@ const ContactUs = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
-    setSuccessMessage('');
+    setError("");
+    setSuccessMessage("");
 
     try {
       const response = await fetch(`${BASE_URL}/api/user/contact-us`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
 
       if (!response.ok) {
-        throw new Error('Failed to submit the form');
+        throw new Error("Failed to submit the form");
       }
 
       const data = await response.json();
-      setSuccessMessage('Message sent successfully!');
-      setFormData({ name: '', phone: '', email: '', remark: '' });
+      setSuccessMessage("Message sent successfully!");
+      setFormData({ name: "", phone: "", email: "", remark: "" });
     } catch (error) {
       setError(error.message);
     }
@@ -46,13 +46,13 @@ const ContactUs = () => {
   return (
     <div className="bg-gray-100 py-12 lg:py-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 ">
-        <h1 className="text-3xl font-bold text-center mb-8 sm:mb-12 text-[#00b38d]" id="phone">
-          Get In Touch
+        <h1
+          className="text-3xl font-bold text-center mb-8 sm:mb-12 text-[#00b38d]"
+          id="phone"
+        >
+          {t("getintouch")}
         </h1>
-        <p className="text-center mb-8 sm:mb-12">
-          Build professional, job-winning resumes in minutes with our AI-powered
-          tools and expert suggestions!
-        </p>
+        <p className="text-center mb-8 sm:mb-12">{t("contact_paragraph")}</p>
         {/* <div className="flex flex-col md:flex-row items-center justify-center gap-8 border border-green-500 ">
           <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg p-6 ">
             <div className="flex items-center mb-4">

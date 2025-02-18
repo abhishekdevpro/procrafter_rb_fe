@@ -1,688 +1,3 @@
-// import React, { useContext, useState } from "react";
-// import { ResumeContext } from "../context/ResumeContext";
-// import FormButton from "./FormButton";
-// import { AlertCircle, X } from "lucide-react";
-// import axios from "axios";
-// import dynamic from "next/dynamic";
-// import "react-quill/dist/quill.snow.css";
-// import { useRouter } from "next/router";
-
-// const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
-
-// const WorkExperience = () => {
-//   const { resumeData, setResumeData, resumeStrength } =
-//     useContext(ResumeContext);
-//   const [activeTooltip, setActiveTooltip] = useState(null);
-//   const [isLoading, setIsLoading] = useState(false);
-//   const [error, setError] = useState("");
-//   const [summaries, setSummaries] = useState([]);
-//   const [selectedSummaries, setSelectedSummaries] = useState([]);
-//   const [showPopup, setShowPopup] = useState(false);
-//   const [popupIndex, setPopupIndex] = useState(null);
-//   const [searchValue, setSearchValue] = useState("");
-//   const [searchResults, setSearchResults] = useState([]);
-//   const token = localStorage.getItem("token");
-//   const router = useRouter();
-//   const { improve } = router.query;
-
-//   const handleWorkExperience = (e, index) => {
-//     const { name, value } = e.target;
-//     const newWorkExperience = [...resumeData.workExperience];
-//     newWorkExperience[index][name] = value;
-//     setResumeData({ ...resumeData, workExperience: newWorkExperience });
-//   };
-
-//   const months = [
-//     "Jan",
-//     "Feb",
-//     "Mar",
-//     "Apr",
-//     "May",
-//     "Jun",
-//     "Jul",
-//     "Aug",
-//     "Sep",
-//     "Oct",
-//     "Nov",
-//     "Dec",
-//   ];
-
-//   const years = Array.from(
-//     { length: 100 },
-//     (_, i) => new Date().getFullYear() - i
-//   );
-
-//   const handleMonthChange = (e, index, field) => {
-//     const newWorkExperience = [...resumeData.workExperience];
-//     const currentDate = newWorkExperience[index][field] || "Jan,2024";
-//     const [_, year] = currentDate.split(",");
-//     newWorkExperience[index][field] = `${e.target.value},${year || ""}`;
-//     setResumeData({ ...resumeData, workExperience: newWorkExperience });
-//   };
-
-//   const handleYearChange = (e, index, field) => {
-//     const newWorkExperience = [...resumeData.workExperience];
-//     const currentDate = newWorkExperience[index][field] || "Jan,2024";
-//     const [month, _] = currentDate.split(",");
-//     newWorkExperience[index][field] = `${month || ""},${e.target.value}`;
-//     setResumeData({ ...resumeData, workExperience: newWorkExperience });
-//   };
-
-//   const handleDescriptionChange = (value, index) => {
-//     handleWorkExperience({ target: { name: "description", value } }, index);
-//   };
-
-//   const handleAIAssist = async (index) => {
-//     setIsLoading(true);
-//     setError("");
-//     try {
-//       const response = await axios.post(
-//         "${BASE_URL}/api/user/ai-resume-profexp-data",
-//         {
-//           key: "professional_experience",
-//           keyword:
-//             "Generate professional summary and Checklist of professional experience in manner of content and information",
-//           content: resumeData.workExperience[index].position,
-//           company_name: resumeData.workExperience[index].company,
-//           job_title: resumeData.workExperience[index].position,
-//           location: resumeData.workExperience[index].location,
-//         },
-//         {
-//           headers: {
-//             Authorization: token,
-//           },
-//         }
-//       );
-
-//       handleWorkExperience(
-//         {
-//           target: {
-//             name: "description",
-//             value: response.data.data.resume_analysis.professional_summary,
-//           },
-//         },
-//         index
-//       );
-
-//       setSummaries(response.data.data.resume_analysis.responsibilities);
-//       setPopupIndex(index);
-//       setShowPopup(true);
-//     } catch (err) {
-//       setError(err.message);
-//     } finally {
-//       setIsLoading(false);
-//     }
-//   };
-
-//   const handleKeyAchievementSelect = (achievement) => {
-//     const isSelected = selectedSummaries.includes(achievement);
-//     if (isSelected) {
-//       setSelectedSummaries(
-//         selectedSummaries.filter((item) => item !== achievement)
-//       );
-//     } else {
-//       setSelectedSummaries([...selectedSummaries, achievement]);
-//     }
-//   };
-
-//   const handleSaveSelectedAchievements = (index, e) => {
-//     e.preventDefault();
-//     const newWorkExperience = [...resumeData.workExperience];
-//     newWorkExperience[index].keyAchievements = selectedSummaries.join("\n");
-//     setResumeData({
-//       ...resumeData,
-//       workExperience: newWorkExperience,
-//     });
-//     setShowPopup(false);
-//   };
-
-//   const addWorkExperience = () => {
-//     setResumeData({
-//       ...resumeData,
-//       workExperience: [
-//         ...resumeData.workExperience,
-//         {
-//           company: "",
-//           position: "",
-//           startYear: "Jan,2024",
-//           endYear: "Dec,2024",
-//           location: "",
-//           description: "",
-//           descriptionDetails: "",
-//           keyAchievements: "",
-//         },
-//       ],
-//     });
-//   };
-
-//   const removeWorkExperience = (index) => {
-//     const newWorkExperience = [...resumeData.workExperience];
-//     newWorkExperience.splice(index, 1);
-//     setResumeData({ ...resumeData, workExperience: newWorkExperience });
-//   };
-
-//   const hasErrors = (index, field) => {
-//     const workStrength = resumeStrength?.work_experience_strenght?.[index];
-//     return (
-//       workStrength &&
-//       Array.isArray(workStrength[field]) &&
-//       workStrength[field].length > 0
-//     );
-//   };
-
-//   const getErrorMessages = (index, field) => {
-//     const workStrength = resumeStrength?.work_experience_strenght?.[index];
-//     return workStrength && Array.isArray(workStrength[field])
-//       ? workStrength[field]
-//       : [];
-//   };
-
-//   const handleSearchChange = async (e) => {
-//     const value = e.target.value;
-//     setSearchValue(value);
-//     if (e.key === "Enter" && value.length > 2) {
-//       setIsLoading(true);
-//       try {
-//         const response = await axios.post(
-//           "${BASE_URL}/api/user/ai-resume-profexp-data",
-//           {
-//             key: "professional_experience",
-//             keyword: value,
-//             content: value,
-//           },
-//           {
-//             headers: {
-//               Authorization: token,
-//             },
-//           }
-//         );
-//         setSearchResults(
-//           response.data.data.resume_analysis.responsibilities || []
-//         );
-//       } catch (err) {
-//         setError(err.message);
-//       } finally {
-//         setIsLoading(false);
-//       }
-//     }
-//   };
-
-//   const handleSearchResultSelect = (result, index) => {
-//     const currentDescription =
-//       resumeData.workExperience[index].description || "";
-//     const newDescription = currentDescription
-//       ? `${currentDescription}\n${result}`
-//       : result;
-//     handleDescriptionChange(newDescription, index);
-//     setSearchValue("");
-//     setSearchResults([]);
-//   };
-
-//   return (
-//     <div className="flex-col gap-3 w-full mt-10 px-10">
-//       <h2 className="input-title text-black text-3xl">Work Experience</h2>
-
-//       {resumeData.workExperience.map((experience, index) => (
-//         <div key={index} className="f-col">
-//           <div className="relative mb-4">
-//             <input
-//               type="text"
-//               placeholder="Company"
-//               name="company"
-//               className={`w-full other-input border ${
-//                 improve && hasErrors(index, "company")
-//                   ? "border-red-500"
-//                   : "border-black"
-//               }`}
-//               value={experience.company}
-//               onChange={(e) => handleWorkExperience(e, index)}
-//             />
-//             {improve && hasErrors(index, "company") && (
-//               <button
-//                 type="button"
-//                 className="absolute right-2 top-1/2 -translate-y-1/2 text-red-500 hover:text-red-600 transition-colors"
-//                 onClick={() =>
-//                   setActiveTooltip(
-//                     activeTooltip === `company-${index}`
-//                       ? null
-//                       : `company-${index}`
-//                   )
-//                 }
-//               >
-//                 <AlertCircle className="w-5 h-5" />
-//               </button>
-//             )}
-//             {activeTooltip === `company-${index}` && (
-//               <div className="absolute z-50 right-0 mt-2 w-80 bg-white rounded-lg shadow-xl transform transition-all duration-200 ease-in-out border border-gray-700">
-//                 <div className="p-4 border-b border-gray-700">
-//                   <div className="flex items-center justify-between">
-//                     <div className="flex items-center space-x-2">
-//                       <AlertCircle className="w-5 h-5 text-red-400" />
-//                       <span className="font-medium text-black">
-//                         Company Suggestions
-//                       </span>
-//                     </div>
-//                     <button
-//                       onClick={() => setActiveTooltip(null)}
-//                       className="text-black transition-colors"
-//                     >
-//                       <X className="w-5 h-5" />
-//                     </button>
-//                   </div>
-//                 </div>
-//                 <div className="p-4">
-//                   {getErrorMessages(index, "company").map((msg, i) => (
-//                     <div
-//                       key={i}
-//                       className="flex items-start space-x-3 mb-3 last:mb-0"
-//                     >
-//                       <div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-red-400 mt-2"></div>
-//                       <p className="text-black text-sm">{msg}</p>
-//                     </div>
-//                   ))}
-//                 </div>
-//               </div>
-//             )}
-//           </div>
-
-//           <div className="relative mb-4">
-//             <input
-//               type="text"
-//               placeholder="Position"
-//               name="position"
-//               className={`w-full other-input border ${
-//                 improve && hasErrors(index, "position")
-//                   ? "border-red-500"
-//                   : "border-black"
-//               }`}
-//               value={experience.position}
-//               onChange={(e) => handleWorkExperience(e, index)}
-//             />
-//             {/* Position error tooltip */}
-//             {improve && hasErrors(index, "position") && (
-//               <button
-//                 type="button"
-//                 className="absolute right-2 top-1/2 -translate-y-1/2 text-red-500 hover:text-red-600 transition-colors"
-//                 onClick={() =>
-//                   setActiveTooltip(
-//                     activeTooltip === `position-${index}`
-//                       ? null
-//                       : `position-${index}`
-//                   )
-//                 }
-//               >
-//                 <AlertCircle className="w-5 h-5" />
-//               </button>
-//             )}
-//             {activeTooltip === `position-${index}` && (
-//               <div className="absolute z-50 right-0 mt-2 w-80 bg-white rounded-lg shadow-xl transform transition-all duration-200 ease-in-out border border-gray-700">
-//                 {/* Position error content */}
-//                 <div className="p-4 border-b border-gray-700">
-//                   <div className="flex items-center justify-between">
-//                     <div className="flex items-center space-x-2">
-//                       <AlertCircle className="w-5 h-5 text-red-400" />
-//                       <span className="font-medium text-black">
-//                         Position Suggestions
-//                       </span>
-//                     </div>
-//                     <button
-//                       onClick={() => setActiveTooltip(null)}
-//                       className="text-black transition-colors"
-//                     >
-//                       <X className="w-5 h-5" />
-//                     </button>
-//                   </div>
-//                 </div>
-//                 <div className="p-4">
-//                   {getErrorMessages(index, "position").map((msg, i) => (
-//                     <div
-//                       key={i}
-//                       className="flex items-start space-x-3 mb-3 last:mb-0"
-//                     >
-//                       <div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-red-400 mt-2"></div>
-//                       <p className="text-black text-sm">{msg}</p>
-//                     </div>
-//                   ))}
-//                 </div>
-//               </div>
-//             )}
-//           </div>
-
-//           <div className="">
-//             <label className="text-black">Start Date</label>
-//             <div className="flex-wrap-gap-2">
-//               <select
-//                 className={`other-input border flex-1 ${
-//                   improve && hasErrors(index, "startYear")
-//                     ? "border-red-500"
-//                     : "border-black"
-//                 }`}
-//                 value={(experience.startYear || "Jan,2024").split(",")[0]}
-//                 onChange={(e) => handleMonthChange(e, index, "startYear")}
-//               >
-//                 {months.map((month, idx) => (
-//                   <option key={idx} value={month}>
-//                     {month}
-//                   </option>
-//                 ))}
-//               </select>
-//               <select
-//                 className={`other-input border flex-1 ${
-//                   improve && hasErrors(index, "startYear")
-//                     ? "border-red-500"
-//                     : "border-black"
-//                 }`}
-//                 value={(experience.startYear || "Jan,2024").split(",")[1]}
-//                 onChange={(e) => handleYearChange(e, index, "startYear")}
-//               >
-//                 {years.map((year, idx) => (
-//                   <option key={idx} value={year}>
-//                     {year}
-//                   </option>
-//                 ))}
-//               </select>
-//             </div>
-
-//             <label className="text-black">End Date</label>
-//             <div className="flex-wrap-gap-2">
-//               <select
-//                 className={`other-input border flex-1 ${
-//                   improve && hasErrors(index, "endYear")
-//                     ? "border-red-500"
-//                     : "border-black"
-//                 }`}
-//                 value={(experience.endYear || "Dec,2024").split(",")[0]}
-//                 onChange={(e) => handleMonthChange(e, index, "endYear")}
-//               >
-//                 {months.map((month, idx) => (
-//                   <option key={idx} value={month}>
-//                     {month}
-//                   </option>
-//                 ))}
-//               </select>
-//               <select
-//                 className={`other-input border flex-1 ${
-//                   improve && hasErrors(index, "endYear")
-//                     ? "border-red-500"
-//                     : "border-black"
-//                 }`}
-//                 value={(experience.endYear || "Dec,2024").split(",")[1]}
-//                 onChange={(e) => handleYearChange(e, index, "endYear")}
-//               >
-//                 {years.map((year, idx) => (
-//                   <option key={idx} value={year}>
-//                     {year}
-//                   </option>
-//                 ))}
-//               </select>
-//             </div>
-//           </div>
-
-//           <div className="relative mb-4">
-//             <label className="mt-2 text-black">Location</label>
-//             <input
-//               type="text"
-//               placeholder="Location"
-//               name="location"
-//               className={`w-full other-input border ${
-//                 improve && hasErrors(index, "location")
-//                   ? "border-red-500"
-//                   : "border-black"
-//               }`}
-//               value={experience.location}
-//               onChange={(e) => handleWorkExperience(e, index)}
-//             />
-//             {improve && hasErrors(index, "location") && (
-//               <button
-//                 type="button"
-//                 className="absolute right-2 top-1/2 translate-y-1 text-red-500 hover:text-red-600 transition-colors"
-//                 onClick={() =>
-//                   setActiveTooltip(
-//                     activeTooltip === `location-${index}`
-//                       ? null
-//                       : `location-${index}`
-//                   )
-//                 }
-//               >
-//                 <AlertCircle className="w-5 h-5" />
-//               </button>
-//             )}
-//             {activeTooltip === `location-${index}` && (
-//               <div className="absolute z-50 right-0 mt-2 w-80 bg-white rounded-lg shadow-xl transform transition-all duration-200 ease-in-out border border-gray-700">
-//                 <div className="p-4 border-b border-gray-700">
-//                   <div className="flex items-center justify-between">
-//                     <div className="flex items-center space-x-2">
-//                       <AlertCircle className="w-5 h-5 text-red-400" />
-//                       <span className="font-medium text-black">
-//                         Location Suggestions
-//                       </span>
-//                     </div>
-//                     <button
-//                       onClick={() => setActiveTooltip(null)}
-//                       className="text-black transition-colors"
-//                     >
-//                       <X className="w-5 h-5" />
-//                     </button>
-//                   </div>
-//                 </div>
-//                 <div className="p-4">
-//                   {getErrorMessages(index, "location").map((msg, i) => (
-//                     <div
-//                       key={i}
-//                       className="flex items-start space-x-3 mb-3 last:mb-0"
-//                     >
-//                       <div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-red-400 mt-2"></div>
-//                       <p className="text-black text-sm">{msg}</p>
-//                     </div>
-//                   ))}
-//                 </div>
-//               </div>
-//             )}
-//           </div>
-
-//           <div className="relative mb-4">
-//             <div className="flex justify-between mb-2">
-//               <label className="text-black">Description</label>
-//             </div>
-//             <ReactQuill
-//               placeholder="Description"
-//               value={experience.description}
-//               onChange={(value) => handleDescriptionChange(value, index)}
-//               className={`bg-white rounded-md ${
-//                 improve && hasErrors(index, "descriptionDetails")
-//                   ? "border-red-500"
-//                   : "border-black"
-//               }`}
-//               theme="snow"
-//               modules={{
-//                 toolbar: [["bold", "italic", "underline"], ["clean"]],
-//               }}
-//             />
-//             {improve && hasErrors(index, "descriptionDetails") && (
-//               <button
-//                 type="button"
-//                 className="absolute right-2 top-8 text-red-500 hover:text-red-600 transition-colors"
-//                 onClick={() =>
-//                   setActiveTooltip(
-//                     activeTooltip === `description-${index}`
-//                       ? null
-//                       : `description-${index}`
-//                   )
-//                 }
-//               >
-//                 <AlertCircle className="w-5 h-5" />
-//               </button>
-//             )}
-//             {activeTooltip === `description-${index}` && (
-//               <div className="absolute z-50 right-0 mt-2 w-80 bg-white rounded-lg shadow-xl transform transition-all duration-200 ease-in-out border border-gray-700">
-//                 <div className="p-4 border-b border-gray-700">
-//                   <div className="flex items-center justify-between">
-//                     <div className="flex items-center space-x-2">
-//                       <AlertCircle className="w-5 h-5 text-red-400" />
-//                       <span className="font-medium text-black">
-//                         Description Suggestions
-//                       </span>
-//                     </div>
-//                     <button
-//                       onClick={() => setActiveTooltip(null)}
-//                       className="text-black transition-colors"
-//                     >
-//                       <X className="w-5 h-5" />
-//                     </button>
-//                   </div>
-//                 </div>
-//                 <div className="p-4">
-//                   {getErrorMessages(index, "descriptionDetails").map(
-//                     (msg, i) => (
-//                       <div
-//                         key={i}
-//                         className="flex items-start space-x-3 mb-3 last:mb-0"
-//                       >
-//                         <div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-red-400 mt-2"></div>
-//                         <p className="text-black text-sm">{msg}</p>
-//                       </div>
-//                     )
-//                   )}
-//                 </div>
-//               </div>
-//             )}
-//           </div>
-
-//           <div className="relative mb-4">
-//             <div className="flex justify-between mb-2">
-//               <label className="text-black">Key Achievements</label>
-//               <button
-//                 type="button"
-//                 className="border bg-black text-white px-3 rounded-3xl"
-//                 onClick={() => handleAIAssist(index)}
-//                 disabled={isLoading}
-//               >
-//                 {isLoading ? "Loading..." : "+ Smart Assist"}
-//               </button>
-//             </div>
-
-//             <textarea
-//               placeholder="Key Achievements"
-//               name="keyAchievements"
-//               className={`w-full other-input border ${
-//                 improve && hasErrors(index, "keyAchievements")
-//                   ? "border-red-500"
-//                   : "border-black"
-//               }`}
-//               value={experience.keyAchievements}
-//               onChange={(e) => handleWorkExperience(e, index)}
-//               rows={4}
-//             />
-//             {improve && hasErrors(index, "keyAchievements") && (
-//               <button
-//                 type="button"
-//                 className="absolute right-2 top-8 text-red-500 hover:text-red-600 transition-colors"
-//                 onClick={() =>
-//                   setActiveTooltip(
-//                     activeTooltip === `achievements-${index}`
-//                       ? null
-//                       : `achievements-${index}`
-//                   )
-//                 }
-//               >
-//                 <AlertCircle className="w-5 h-5" />
-//               </button>
-//             )}
-//             {activeTooltip === `achievements-${index}` && (
-//               <div className="absolute z-50 right-0 mt-2 w-80 bg-white rounded-lg shadow-xl transform transition-all duration-200 ease-in-out border border-gray-700">
-//                 <div className="p-4 border-b border-gray-700">
-//                   <div className="flex items-center justify-between">
-//                     <div className="flex items-center space-x-2">
-//                       <AlertCircle className="w-5 h-5 text-red-400" />
-//                       <span className="font-medium text-black">
-//                         Achievement Suggestions
-//                       </span>
-//                     </div>
-//                     <button
-//                       onClick={() => setActiveTooltip(null)}
-//                       className="text-black transition-colors"
-//                     >
-//                       <X className="w-5 h-5" />
-//                     </button>
-//                   </div>
-//                 </div>
-//                 <div className="p-4">
-//                   {getErrorMessages(index, "keyAchievements").map((msg, i) => (
-//                     <div
-//                       key={i}
-//                       className="flex items-start space-x-3 mb-3 last:mb-0"
-//                     >
-//                       <div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-red-400 mt-2"></div>
-//                       <p className="text-black text-sm">{msg}</p>
-//                     </div>
-//                   ))}
-//                 </div>
-//               </div>
-//             )}
-//           </div>
-//         </div>
-//       ))}
-
-//       <FormButton
-//         size={resumeData.workExperience.length}
-//         add={addWorkExperience}
-//         remove={removeWorkExperience}
-//       />
-
-//       {/* Smart Assist Popup */}
-//       {showPopup && (
-//         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-//           <div className="bg-white p-6 rounded-lg w-[90%] max-w-lg">
-//             <h3 className="text-xl font-bold mb-4">Select Key Achievements</h3>
-//             <div className="space-y-3 max-h-96 overflow-y-auto">
-//               {summaries.map((summary, index) => (
-//                 <div key={index} className="flex items-start gap-3">
-//                   <input
-//                     type="checkbox"
-//                     checked={selectedSummaries.includes(summary)}
-//                     onChange={() => handleKeyAchievementSelect(summary)}
-//                     className="mt-1"
-//                   />
-//                   <p className="text-gray-800">{summary}</p>
-//                 </div>
-//               ))}
-//             </div>
-//             <button
-//               onClick={(e) => handleSaveSelectedAchievements(popupIndex, e)}
-//               className="mt-4 bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-600"
-//             >
-//               Save Selected Achievements
-//             </button>
-//             <button
-//               onClick={() => setShowPopup(false)}
-//               className="mt-2 ml-2 bg-gray-400 text-white px-4 py-2 rounded hover:bg-gray-300"
-//             >
-//               Close
-//             </button>
-//           </div>
-//         </div>
-//       )}
-
-//       {/* Search Results */}
-//       {searchResults.length > 0 && (
-//         <div className="absolute z-50 top-full left-0 right-0 bg-white rounded-lg shadow-xl mt-2">
-//           {searchResults.map((result, idx) => (
-//             <div
-//               key={idx}
-//               className="p-2 hover:bg-gray-100 cursor-pointer"
-//               onClick={() => handleSearchResultSelect(result, popupIndex)}
-//             >
-//               {result}
-//             </div>
-//           ))}
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default WorkExperience;
-
 import React, { useContext, useState, useEffect, useRef } from "react";
 import { ResumeContext } from "../context/ResumeContext";
 import FormButton from "./FormButton";
@@ -691,15 +6,16 @@ import axios from "axios";
 import dynamic from "next/dynamic";
 import "react-quill/dist/quill.snow.css";
 import { useRouter } from "next/router";
+import { toast } from "react-toastify";
 import { BASE_URL } from "../Constant/constant";
-import { MdRemoveCircle } from "react-icons/md";
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 const WorkExperience = () => {
-  const { resumeData, setResumeData, resumeStrength } =
+  const { resumeData, setResumeData, resumeStrength, setResumeStrength } =
     useContext(ResumeContext);
   const [activeTooltip, setActiveTooltip] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [loadingStates, setLoadingStates] = useState({});
   const [error, setError] = useState("");
   const [summaries, setSummaries] = useState([]);
   const [selectedSummaries, setSelectedSummaries] = useState([]);
@@ -714,6 +30,13 @@ const WorkExperience = () => {
   const [showJobTitleDropdown, setShowJobTitleDropdown] = useState(false);
   const [showCompanyDropdown, setShowCompanyDropdown] = useState(false);
   const [expandedExperiences, setExpandedExperiences] = useState([]);
+  const [popupType, setPopupType] = useState(""); // Track popup type
+  const [descriptions, setDescriptions] = useState([]); // Stores descriptions
+  const [keyAchievements, setKeyAchievements] = useState([]); // Stores key achievements
+
+  const [selectedDescriptions, setSelectedDescriptions] = useState([]); // Stores selected descriptions
+  const [selectedKeyAchievements, setSelectedKeyAchievements] = useState([]); // Stores selected key achievements
+
   const token = localStorage.getItem("token");
   const router = useRouter();
   const { improve } = router.query;
@@ -772,7 +95,7 @@ const WorkExperience = () => {
 
     try {
       const response = await axios.get(
-        `${BASE_URL}/api/user/job-title?job_title_keyword=${encodeURIComponent(
+        `https://api.resumeintellect.com/api/user/job-title?job_title_keyword=${encodeURIComponent(
           keyword
         )}`
       );
@@ -834,12 +157,60 @@ const WorkExperience = () => {
     handleWorkExperience({ target: { name: "description", value } }, index);
   };
 
-  const handleAIAssist = async (index) => {
-    setIsLoading(true);
+  const handleAIAssistDescription = async (index) => {
+    // setLoadingStates((prev) => ({ ...prev, [index]: true }));
+    setLoadingStates((prev) => ({
+      ...prev,
+      [`description_${index}`]: true, // ✅ Separate loading state for description
+    }));
     setError("");
+
     try {
       const response = await axios.post(
-        `${BASE_URL}/api/user/ai-resume-profexp-data`,
+        `${BASE_URL}/api/user/ai-resume-profexp-summery-data`,
+        {
+          key: "professional_experience",
+          keyword:
+            "Generate multiple professional summaries and descriptions for professional experience",
+          content: resumeData.workExperience[index].position,
+          company_name: resumeData.workExperience[index].company,
+          job_title: resumeData.workExperience[index].position,
+          location: resumeData.workExperience[index].location,
+        },
+        {
+          headers: {
+            Authorization: token,
+          },
+        }
+      );
+
+      setDescriptions(
+        response.data.data.resume_analysis.professional_summaries
+      ); // ✅ Store in descriptions state
+      setPopupIndex(index);
+      setPopupType("description");
+      setShowPopup(true);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      // setLoadingStates((prev) => ({ ...prev, [index]: false }));
+      setLoadingStates((prev) => ({
+        ...prev,
+        [`description_${index}`]: false, // ✅ Reset only description button
+      }));
+    }
+  };
+
+  const handleAIAssistKey = async (index) => {
+    setLoadingStates((prev) => ({
+      ...prev,
+      [`key_${index}`]: true, // ✅ Separate loading state for key achievements
+    }));
+    setError("");
+
+    try {
+      const response = await axios.post(
+        `${BASE_URL}/api/user/ai-resume-profexp-key-data`,
         {
           key: "professional_experience",
           keyword:
@@ -856,45 +227,47 @@ const WorkExperience = () => {
         }
       );
 
-      handleWorkExperience(
-        {
-          target: {
-            name: "description",
-            value: response.data.data.resume_analysis.professional_summary,
-          },
-        },
-        index
-      );
-
-      setSummaries(response.data.data.resume_analysis.responsibilities);
+      setKeyAchievements(response.data.data.resume_analysis.responsibilities); // ✅ Store in keyAchievements state
       setPopupIndex(index);
+      setPopupType("keyAchievements");
       setShowPopup(true);
     } catch (err) {
       setError(err.message);
     } finally {
-      setIsLoading(false);
+      setLoadingStates((prev) => ({
+        ...prev,
+        [`key_${index}`]: false, // ✅ Reset only key achievements button
+      }));
     }
   };
 
-  const handleKeyAchievementselect = (achievement) => {
-    const isSelected = selectedSummaries.includes(achievement);
-    if (isSelected) {
-      setSelectedSummaries(
-        selectedSummaries.filter((item) => item !== achievement)
+  const handleSummarySelect = (item) => {
+    if (popupType === "description") {
+      setSelectedDescriptions((prev) =>
+        prev.includes(item) ? prev.filter((i) => i !== item) : [...prev, item]
       );
     } else {
-      setSelectedSummaries([...selectedSummaries, achievement]);
+      setSelectedKeyAchievements((prev) =>
+        prev.includes(item) ? prev.filter((i) => i !== item) : [...prev, item]
+      );
     }
   };
 
-  const handleSaveSelectedAchievements = (index, e) => {
+  const handleSaveSelectedSummary = (index, e) => {
     e.preventDefault();
     const newWorkExperience = [...resumeData.workExperience];
-    newWorkExperience[index].KeyAchievements = selectedSummaries;
+
+    if (popupType === "description") {
+      newWorkExperience[index].description = selectedDescriptions.join(" ");
+    } else {
+      newWorkExperience[index].KeyAchievements = selectedKeyAchievements;
+    }
+
     setResumeData({
       ...resumeData,
       workExperience: newWorkExperience,
     });
+
     setShowPopup(false);
   };
 
@@ -990,58 +363,138 @@ const WorkExperience = () => {
       return newExpanded;
     });
   };
-  const months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
+  const handleAutoFixDescription = async (e, index, content) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setLoadingStates((prev) => ({
+      ...prev,
+      [`description_${index}`]: true,
+    }));
 
-  const years = Array.from(
-    { length: 100 },
-    (_, i) => new Date().getFullYear() - i
-  );
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        toast.error("Authentication token is missing");
+        return;
+      }
 
-  const handleMonthChange = (e, index, field) => {
-    const newWorkExperience = [...resumeData.workExperience];
-    const currentDate = newWorkExperience[index][field] || "Jan,2024";
-    const [_, year] = currentDate.split(",");
-    newWorkExperience[index][field] = `${e.target.value},${year || ""}`;
-    setResumeData({ ...resumeData, workExperience: newWorkExperience });
+      const response = await fetch(`${BASE_URL}/api/user/ai-expsummery`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `${token}`,
+        },
+        body: JSON.stringify({
+          key: "experience description",
+          keyword: "auto improve",
+          content: content.description || "",
+          company_name: content.company || "",
+          job_title: content.position,
+          location: content.location || "",
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`API request failed with status ${response.status}`);
+      }
+
+      const data = await response.json();
+      const updatedDescription =
+        data?.data?.resume_analysis?.professional_summary;
+
+      if (updatedDescription) {
+        // Update the actual work experience data
+        const newWorkExperience = [...resumeData.workExperience];
+        newWorkExperience[index] = {
+          ...newWorkExperience[index],
+          description: updatedDescription,
+        };
+        setResumeData({
+          ...resumeData,
+          workExperience: newWorkExperience,
+        });
+
+        // Clear the error state for this field
+        if (resumeStrength?.work_experience_strenght) {
+          const newWorkExperienceStrength = [
+            ...resumeStrength.work_experience_strenght,
+          ];
+          if (newWorkExperienceStrength[index]) {
+            newWorkExperienceStrength[index] = {
+              ...newWorkExperienceStrength[index],
+              descriptionDetails: [], // Clear the errors
+            };
+          }
+          setResumeStrength({
+            ...resumeStrength,
+            work_experience_strenght: newWorkExperienceStrength,
+          });
+        }
+
+        // Close the tooltip
+        setActiveTooltip(null);
+
+        toast.success("Description updated successfully");
+      } else {
+        toast.error("Failed to auto-fix description");
+      }
+    } catch (error) {
+      console.error(
+        `Error auto-fixing experience description at index ${index}:`,
+        error
+      );
+      toast.error("An error occurred while processing your request");
+    } finally {
+      setLoadingStates((prev) => ({
+        ...prev,
+        [`description_${index}`]: false,
+      }));
+    }
+  };
+  const handleToggleFresher = (e) => {
+    e.preventDefault();
+    setResumeData((prevData) => ({
+      ...prevData,
+      is_fresher: !prevData.is_fresher,
+      workExperience: prevData.workExperience,
+    }));
   };
 
-  const handleYearChange = (e, index, field) => {
-    const newWorkExperience = [...resumeData.workExperience];
-    const currentDate = newWorkExperience[index][field] || "Jan,2024";
-    const [month, _] = currentDate.split(",");
-    newWorkExperience[index][field] = `${month || ""},${e.target.value}`;
-    setResumeData({ ...resumeData, workExperience: newWorkExperience });
-  };
   return (
     <div className="flex-col gap-3 w-full mt-10 px-10">
       <h2 className="input-title text-black text-3xl mb-6">Work Experience</h2>
-
-      {resumeData.workExperience.map((experience, index) => (
-        <div key={index} className="mb-6 rounded-lg overflow-hidden">
+      <div className="flex items-center space-x-2 mb-4">
+        <label className="text-lg text-black font-medium">
+          Are you a Fresher?
+        </label>
+        <button
+          className={`w-14 h-7 flex items-center rounded-full p-1 transition ${
+            resumeData.is_fresher ? "bg-green-500" : "bg-gray-400"
+          }`}
+          onClick={handleToggleFresher}
+        >
           <div
-            className="flex justify-between items-center p-4 cursor-pointer bg-gray-200"
-            onClick={() => toggleExperience(index)}
-          >
-            <h3 className="text-black text-xl font-semibold">
-              {experience.position ||
-                experience.company ||
-                `Work Experience ${index + 1}`}
-            </h3>
-            <div className="flex items-center">
-              {/* <button
+            className={`w-6 h-6 bg-white rounded-full shadow-md transform transition ${
+              resumeData.is_fresher ? "translate-x-7" : "translate-x-0"
+            }`}
+          />
+        </button>
+      </div>
+
+      {!resumeData.is_fresher &&
+        resumeData.workExperience.map((experience, index) => (
+          <div key={index} className="mb-6 rounded-lg overflow-hidden">
+            <div
+              className="flex justify-between items-center p-4 cursor-pointer bg-white"
+              onClick={() => toggleExperience(index)}
+            >
+              <h3 className="text-black text-xl font-semibold">
+                {experience.position ||
+                  experience.company ||
+                  `Work Experience ${index + 1}`}
+              </h3>
+              <div className="flex items-center">
+                {/* <button
                 onClick={(e) => {
                   e.stopPropagation()
                   removeWorkExperience(index)
@@ -1050,367 +503,295 @@ const WorkExperience = () => {
               >
                 <Trash2 className="w-5 h-5" />
               </button> */}
-              <button
-                type="button"
-                onClick={() => removeWorkExperience(index)}
-                aria-label="Remove"
-                className="p-2 text-white bg-red-700 rounded-lg text-xl mb-2"
-              >
-                <MdRemoveCircle />
-              </button>
-              {expandedExperiences[index] ? (
-                <ChevronUp className="w-6 h-6 text-black" />
-              ) : (
-                <ChevronDown className="w-6 h-6 text-black" />
-              )}
+                {expandedExperiences[index] ? (
+                  <ChevronUp className="w-6 h-6 text-black" />
+                ) : (
+                  <ChevronDown className="w-6 h-6 text-black" />
+                )}
+              </div>
             </div>
-          </div>
 
-          {expandedExperiences[index] && (
-            <div className="p-4 bg-white">
-              <div className="relative mb-4">
-                <label className="text-black">Company Name</label>
-                <input
-                  type="text"
-                  placeholder="Company"
-                  name="company"
-                  className={`w-full other-input border ${
-                    improve && hasErrors(index, "company")
-                      ? "border-red-500"
-                      : "border-black"
-                  }`}
-                  value={experience.company}
-                  onChange={(e) => handleWorkExperience(e, index)}
-                />
-                {showCompanyDropdown && companySuggestions.length > 0 && (
-                  <div className="absolute z-50 w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg">
-                    {companySuggestions.map((company, i) => (
-                      <div
-                        key={i}
-                        className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                        onClick={() => handleCompanySelect(company.name, index)}
-                      >
-                        {company.name}
-                      </div>
-                    ))}
-                  </div>
-                )}
-                {improve && hasErrors(index, "company") && (
-                  <button
-                    type="button"
-                    className="absolute right-2 top-1/2 -translate-y-1/2 text-red-500 hover:text-red-600 transition-colors"
-                    onClick={() =>
-                      setActiveTooltip(
-                        activeTooltip === `company-${index}`
-                          ? null
-                          : `company-${index}`
-                      )
-                    }
-                  >
-                    <AlertCircle className="w-5 h-5" />
-                  </button>
-                )}
-                {activeTooltip === `company-${index}` && (
-                  <div className="absolute z-50 right-0 mt-2 w-80 bg-white rounded-lg shadow-xl transform transition-all duration-200 ease-in-out border border-gray-700">
-                    <div className="p-4 border-b border-gray-700">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-2">
-                          <AlertCircle className="w-5 h-5 text-red-400" />
-                          <span className="font-medium text-black">
-                            Company Suggestions
-                          </span>
-                        </div>
-                        <button
-                          onClick={() => setActiveTooltip(null)}
-                          className="text-black transition-colors"
-                        >
-                          <X className="w-5 h-5" />
-                        </button>
-                      </div>
-                    </div>
-                    <div className="p-4">
-                      {getErrorMessages(index, "company").map((msg, i) => (
+            {expandedExperiences[index] && (
+              <div className="p-4 bg-white">
+                <div className="relative mb-4">
+                  <label className="text-black">Company Name</label>
+                  <input
+                    type="text"
+                    placeholder="Company"
+                    name="company"
+                    className={`w-full other-input border ${
+                      improve && hasErrors(index, "company")
+                        ? "border-red-500"
+                        : "border-black"
+                    }`}
+                    value={experience.company}
+                    onChange={(e) => handleWorkExperience(e, index)}
+                  />
+                  {showCompanyDropdown && companySuggestions.length > 0 && (
+                    <div className="absolute z-50 w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg">
+                      {companySuggestions.map((company, i) => (
                         <div
                           key={i}
-                          className="flex items-start space-x-3 mb-3 last:mb-0"
+                          className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                          onClick={() =>
+                            handleCompanySelect(company.name, index)
+                          }
                         >
-                          <div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-red-400 mt-2"></div>
-                          <p className="text-black text-sm">{msg}</p>
+                          {company.name}
                         </div>
                       ))}
                     </div>
-                  </div>
-                )}
-              </div>
-
-              <div className="relative mb-4">
-                <label className="text-black">Job Title</label>
-                <input
-                  type="text"
-                  placeholder="Position"
-                  name="position"
-                  className={`w-full other-input border ${
-                    improve && hasErrors(index, "position")
-                      ? "border-red-500"
-                      : "border-black"
-                  }`}
-                  value={experience.position}
-                  onChange={(e) => handleWorkExperience(e, index)}
-                />
-                {showJobTitleDropdown && jobTitleSuggestions.length > 0 && (
-                  <div className="absolute z-50 w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg">
-                    {jobTitleSuggestions.map((jobTitle, i) => (
-                      <div
-                        key={i}
-                        className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                        onClick={() =>
-                          handleJobTitleSelect(jobTitle.name, index)
-                        }
-                      >
-                        {jobTitle.name}
-                      </div>
-                    ))}
-                  </div>
-                )}
-                {improve && hasErrors(index, "position") && (
-                  <button
-                    type="button"
-                    className="absolute right-2 top-1/2 -translate-y-1/2 text-red-500 hover:text-red-600 transition-colors"
-                    onClick={() =>
-                      setActiveTooltip(
-                        activeTooltip === `position-${index}`
-                          ? null
-                          : `position-${index}`
-                      )
-                    }
-                  >
-                    <AlertCircle className="w-5 h-5" />
-                  </button>
-                )}
-                {activeTooltip === `position-${index}` && (
-                  <div className="absolute z-50 right-0 mt-2 w-80 bg-white rounded-lg shadow-xl transform transition-all duration-200 ease-in-out border border-gray-700">
-                    <div className="p-4 border-b border-gray-700">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-2">
-                          <AlertCircle className="w-5 h-5 text-red-400" />
-                          <span className="font-medium text-black">
-                            Position Suggestions
-                          </span>
+                  )}
+                  {improve && hasErrors(index, "company") && (
+                    <button
+                      type="button"
+                      className="absolute right-2 top-1/2 -translate-y-1/2 text-red-500 hover:text-red-600 transition-colors"
+                      onClick={() =>
+                        setActiveTooltip(
+                          activeTooltip === `company-${index}`
+                            ? null
+                            : `company-${index}`
+                        )
+                      }
+                    >
+                      <AlertCircle className="w-5 h-5" />
+                    </button>
+                  )}
+                  {activeTooltip === `company-${index}` && (
+                    <div className="absolute z-50 right-0 mt-2 w-80 bg-white rounded-lg shadow-xl transform transition-all duration-200 ease-in-out border border-gray-700">
+                      <div className="p-4 border-b border-gray-700">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center space-x-2">
+                            <AlertCircle className="w-5 h-5 text-red-400" />
+                            <span className="font-medium text-black">
+                              Company Suggestions
+                            </span>
+                          </div>
+                          <button
+                            onClick={() => setActiveTooltip(null)}
+                            className="text-black transition-colors"
+                          >
+                            <X className="w-5 h-5" />
+                          </button>
                         </div>
-                        <button
-                          onClick={() => setActiveTooltip(null)}
-                          className="text-black transition-colors"
-                        >
-                          <X className="w-5 h-5" />
-                        </button>
+                      </div>
+                      <div className="p-4">
+                        {getErrorMessages(index, "company").map((msg, i) => (
+                          <div
+                            key={i}
+                            className="flex items-start space-x-3 mb-3 last:mb-0"
+                          >
+                            <div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-red-400 mt-2"></div>
+                            <p className="text-black text-sm">{msg}</p>
+                          </div>
+                        ))}
                       </div>
                     </div>
-                    <div className="p-4">
-                      {getErrorMessages(index, "position").map((msg, i) => (
+                  )}
+                </div>
+
+                <div className="relative mb-4">
+                  <label className="text-black">Job Title</label>
+                  <input
+                    type="text"
+                    placeholder="Position"
+                    name="position"
+                    className={`w-full other-input border ${
+                      improve && hasErrors(index, "position")
+                        ? "border-red-500"
+                        : "border-black"
+                    }`}
+                    value={experience.position}
+                    onChange={(e) => handleWorkExperience(e, index)}
+                  />
+                  {showJobTitleDropdown && jobTitleSuggestions.length > 0 && (
+                    <div className="absolute z-50 w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg">
+                      {jobTitleSuggestions.map((jobTitle, i) => (
                         <div
                           key={i}
-                          className="flex items-start space-x-3 mb-3 last:mb-0"
+                          className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                          onClick={() =>
+                            handleJobTitleSelect(jobTitle.name, index)
+                          }
                         >
-                          <div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-red-400 mt-2"></div>
-                          <p className="text-black text-sm">{msg}</p>
+                          {jobTitle.name}
                         </div>
                       ))}
                     </div>
-                  </div>
-                )}
-              </div>
+                  )}
+                  {improve && hasErrors(index, "position") && (
+                    <button
+                      type="button"
+                      className="absolute right-2 top-1/2 -translate-y-1/2 text-red-500 hover:text-red-600 transition-colors"
+                      onClick={() =>
+                        setActiveTooltip(
+                          activeTooltip === `position-${index}`
+                            ? null
+                            : `position-${index}`
+                        )
+                      }
+                    >
+                      <AlertCircle className="w-5 h-5" />
+                    </button>
+                  )}
+                  {activeTooltip === `position-${index}` && (
+                    <div className="absolute z-50 right-0 mt-2 w-80 bg-white rounded-lg shadow-xl transform transition-all duration-200 ease-in-out border border-gray-700">
+                      <div className="p-4 border-b border-gray-700">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center space-x-2">
+                            <AlertCircle className="w-5 h-5 text-red-400" />
+                            <span className="font-medium text-black">
+                              Position Suggestions
+                            </span>
+                          </div>
+                          <button
+                            onClick={() => setActiveTooltip(null)}
+                            className="text-black transition-colors"
+                          >
+                            <X className="w-5 h-5" />
+                          </button>
+                        </div>
+                      </div>
+                      <div className="p-4">
+                        {getErrorMessages(index, "position").map((msg, i) => (
+                          <div
+                            key={i}
+                            className="flex items-start space-x-3 mb-3 last:mb-0"
+                          >
+                            <div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-red-400 mt-2"></div>
+                            <p className="text-black text-sm">{msg}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
 
-              {/* <div className="mb-4">
-                <label className="text-black">Start Date</label>
-                <input
-                  type="date"
-                  name="startYear"
-                  className={`w-full other-input border ${
-                    improve && hasErrors(index, "startYear")
-                      ? "border-red-500"
-                      : "border-black"
-                  }`}
-                  value={experience.startYear}
-                  onChange={(e) => handleWorkExperience(e, index)}
-                />
-              </div>
-
-              <div className="mb-4">
-                <label className="text-black">End Date</label>
-                <input
-                  type="date"
-                  name="endYear"
-                  className={`w-full other-input border ${
-                    improve && hasErrors(index, "endYear")
-                      ? "border-red-500"
-                      : "border-black"
-                  }`}
-                  value={experience.endYear}
-                  onChange={(e) => handleWorkExperience(e, index)}
-                />
-              </div> */}
-              <div className="">
-                <label className="text-black">Start Date</label>
-                <div className="flex-wrap-gap-2">
-                  <select
-                    className={`other-input border flex-1 ${
+                <div className="mb-4">
+                  <label className="text-black">Start Date</label>
+                  <input
+                    type="date"
+                    name="startYear"
+                    className={`w-full other-input border ${
                       improve && hasErrors(index, "startYear")
                         ? "border-red-500"
                         : "border-black"
                     }`}
-                    value={(experience.startYear || "Jan,2024").split(",")[0]}
-                    onChange={(e) => handleMonthChange(e, index, "startYear")}
-                  >
-                    {months.map((month, idx) => (
-                      <option key={idx} value={month}>
-                        {month}
-                      </option>
-                    ))}
-                  </select>
-                  <select
-                    className={`other-input border flex-1 ${
-                      improve && hasErrors(index, "startYear")
-                        ? "border-red-500"
-                        : "border-black"
-                    }`}
-                    value={(experience.startYear || "Jan,2024").split(",")[1]}
-                    onChange={(e) => handleYearChange(e, index, "startYear")}
-                  >
-                    {years.map((year, idx) => (
-                      <option key={idx} value={year}>
-                        {year}
-                      </option>
-                    ))}
-                  </select>
+                    value={experience.startYear}
+                    onChange={(e) => handleWorkExperience(e, index)}
+                  />
                 </div>
 
-                <label className="text-black">End Date</label>
-                <div className="flex-wrap-gap-2">
-                  <select
-                    className={`other-input border flex-1 ${
+                <div className="mb-4">
+                  <label className="text-black">End Date</label>
+                  <input
+                    type="date"
+                    name="endYear"
+                    className={`w-full other-input border ${
                       improve && hasErrors(index, "endYear")
                         ? "border-red-500"
                         : "border-black"
                     }`}
-                    value={(experience.endYear || "Dec,2024").split(",")[0]}
-                    onChange={(e) => handleMonthChange(e, index, "endYear")}
-                  >
-                    {months.map((month, idx) => (
-                      <option key={idx} value={month}>
-                        {month}
-                      </option>
-                    ))}
-                  </select>
-                  <select
-                    className={`other-input border flex-1 ${
-                      improve && hasErrors(index, "endYear")
-                        ? "border-red-500"
-                        : "border-black"
-                    }`}
-                    value={(experience.endYear || "Dec,2024").split(",")[1]}
-                    onChange={(e) => handleYearChange(e, index, "endYear")}
-                  >
-                    {years.map((year, idx) => (
-                      <option key={idx} value={year}>
-                        {year}
-                      </option>
-                    ))}
-                  </select>
+                    value={experience.endYear}
+                    onChange={(e) => handleWorkExperience(e, index)}
+                  />
                 </div>
-              </div>
-              <div className="relative mb-4">
-                <label className="mt-2 text-black">Location</label>
-                <input
-                  type="text"
-                  placeholder="Location"
-                  name="location"
-                  className={`w-full other-input border ${
-                    improve && hasErrors(index, "location")
-                      ? "border-red-500"
-                      : "border-black"
-                  }`}
-                  value={experience.location}
-                  onChange={(e) => handleWorkExperience(e, index)}
-                />
-                {isLoading.location && (
-                  <div className="absolute right-3 top-1/2 transform translate-y-1">
-                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-gray-900"></div>
-                  </div>
-                )}
-                {showLocationDropdown && locationSuggestions.length > 0 && (
-                  <div className="absolute z-50 w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg">
-                    {locationSuggestions.map((location, i) => (
-                      <div
-                        key={i}
-                        className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                        onClick={() => handleLocationSelect(location, index)}
-                      >
-                        {location}
-                      </div>
-                    ))}
-                  </div>
-                )}
-                {improve && hasErrors(index, "location") && (
-                  <button
-                    type="button"
-                    className="absolute right-2 top-1/2 translate-y-1 text-red-500 hover:text-red-600 transition-colors"
-                    onClick={() =>
-                      setActiveTooltip(
-                        activeTooltip === `location-${index}`
-                          ? null
-                          : `location-${index}`
-                      )
-                    }
-                  >
-                    <AlertCircle className="w-5 h-5" />
-                  </button>
-                )}
-                {activeTooltip === `location-${index}` && (
-                  <div className="absolute z-50 right-0 mt-2 w-80 bg-white rounded-lg shadow-xl transform transition-all duration-200 ease-in-out border border-gray-700">
-                    <div className="p-4 border-b border-gray-700">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-2">
-                          <AlertCircle className="w-5 h-5 text-red-400" />
-                          <span className="font-medium text-black">
-                            Location Suggestions
-                          </span>
-                        </div>
-                        <button
-                          onClick={() => setActiveTooltip(null)}
-                          className="text-black transition-colors"
-                        >
-                          <X className="w-5 h-5" />
-                        </button>
-                      </div>
+
+                <div className="relative mb-4">
+                  <label className="mt-2 text-black">Location</label>
+                  <input
+                    type="text"
+                    placeholder="Location"
+                    name="location"
+                    className={`w-full other-input border ${
+                      improve && hasErrors(index, "location")
+                        ? "border-red-500"
+                        : "border-black"
+                    }`}
+                    value={experience.location}
+                    onChange={(e) => handleWorkExperience(e, index)}
+                  />
+                  {isLoading.location && (
+                    <div className="absolute right-3 top-1/2 transform translate-y-1">
+                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-gray-900"></div>
                     </div>
-                    <div className="p-4">
-                      {getErrorMessages(index, "location").map((msg, i) => (
+                  )}
+                  {showLocationDropdown && locationSuggestions.length > 0 && (
+                    <div className="absolute z-50 w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg">
+                      {locationSuggestions.map((location, i) => (
                         <div
                           key={i}
-                          className="flex items-start space-x-3 mb-3 last:mb-0"
+                          className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                          onClick={() => handleLocationSelect(location, index)}
                         >
-                          <div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-red-400 mt-2"></div>
-                          <p className="text-black text-sm">{msg}</p>
+                          {location}
                         </div>
                       ))}
                     </div>
-                  </div>
-                )}
-              </div>
-
-              <div className="relative mb-4">
-                <div className="flex justify-between mb-2">
-                  <label className="text-black">Description</label>
-                  <button
-                    type="button"
-                    className="border bg-black text-white px-3 rounded-3xl"
-                    onClick={() => handleAIAssist(index)}
-                    disabled={isLoading}
-                  >
-                    {isLoading ? "Loading..." : "+ Smart Assist"}
-                  </button>
+                  )}
+                  {improve && hasErrors(index, "location") && (
+                    <button
+                      type="button"
+                      className="absolute right-2 top-1/2 translate-y-1 text-red-500 hover:text-red-600 transition-colors"
+                      onClick={() =>
+                        setActiveTooltip(
+                          activeTooltip === `location-${index}`
+                            ? null
+                            : `location-${index}`
+                        )
+                      }
+                    >
+                      <AlertCircle className="w-5 h-5" />
+                    </button>
+                  )}
+                  {activeTooltip === `location-${index}` && (
+                    <div className="absolute z-50 right-0 mt-2 w-80 bg-white rounded-lg shadow-xl transform transition-all duration-200 ease-in-out border border-gray-700">
+                      <div className="p-4 border-b border-gray-700">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center space-x-2">
+                            <AlertCircle className="w-5 h-5 text-red-400" />
+                            <span className="font-medium text-black">
+                              Location Suggestions
+                            </span>
+                          </div>
+                          <button
+                            onClick={() => setActiveTooltip(null)}
+                            className="text-black transition-colors"
+                          >
+                            <X className="w-5 h-5" />
+                          </button>
+                        </div>
+                      </div>
+                      <div className="p-4">
+                        {getErrorMessages(index, "location").map((msg, i) => (
+                          <div
+                            key={i}
+                            className="flex items-start space-x-3 mb-3 last:mb-0"
+                          >
+                            <div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-red-400 mt-2"></div>
+                            <p className="text-black text-sm">{msg}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
-                <div className="notranslate">
+
+                <div className="relative mb-4">
+                  <div className="flex justify-between mb-2">
+                    <label className="text-black">Description</label>
+
+                    <button
+                      type="button"
+                      className="border bg-black text-white px-3 rounded-3xl"
+                      onClick={() => handleAIAssistDescription(index)}
+                      disabled={loadingStates[`description_${index}`]} // Check loading state per button
+                    >
+                      {loadingStates[`description_${index}`]
+                        ? "Loading..."
+                        : "+ Smart Assist"}
+                    </button>
+                  </div>
                   <ReactQuill
                     placeholder="Description"
                     value={experience.description}
@@ -1420,130 +801,174 @@ const WorkExperience = () => {
                         ? "border-red-500"
                         : "border-black"
                     }`}
-                    preserveWhitespace={true}
                     theme="snow"
                     modules={{
                       toolbar: [["bold", "italic", "underline"], ["clean"]],
                     }}
                   />
+                  {improve && hasErrors(index, "descriptionDetails") && (
+                    <button
+                      type="button"
+                      className="absolute right-2 top-12 text-red-500 hover:text-red-600 transition-colors"
+                      onClick={() =>
+                        setActiveTooltip(
+                          activeTooltip === `description-${index}`
+                            ? null
+                            : `description-${index}`
+                        )
+                      }
+                    >
+                      <AlertCircle className="w-5 h-5" />
+                    </button>
+                  )}
+                  {activeTooltip === `description-${index}` && (
+                    <div className="absolute z-50 right-0 top-[50px] w-80 bg-white rounded-lg shadow-xl transform transition-all duration-200 ease-in-out border border-gray-700">
+                      <div className="p-4 border-b border-gray-700">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center space-x-2">
+                            <AlertCircle className="w-5 h-5 text-red-400" />
+                            <span className="font-medium text-black">
+                              Description Suggestions
+                            </span>
+                          </div>
+                          {/* <button
+                         onClick={() => {
+                          if (experience?.position) {
+                            handleAutoFixDescription(e,index, experience);
+                          } else {
+                            toast.error("Job Title is required");
+                          }
+                        }}
+                          className="px-3 py-1 text-sm font-medium text-white bg-blue-600 rounded-md shadow hover:bg-blue-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                          disabled={loadingStates[`description_${index}`]}
+                        >
+                          {loadingStates[`description_${index}`]
+                            ? "Fixing..."
+                            : "Auto Fix"}
+                        </button> */}
+                          <button
+                            onClick={() =>
+                              handleAutoFixDescription(index, experience)
+                            }
+                            onMouseDown={() => {
+                              if (!experience?.position) {
+                                toast.error("Job Title is required");
+                              }
+                            }}
+                            className="px-3 py-1 text-sm font-medium text-white bg-blue-600 rounded-md shadow hover:bg-blue-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                            disabled={
+                              loadingStates[`description_${index}`] ||
+                              !experience?.position
+                            }
+                          >
+                            {loadingStates[`description_${index}`]
+                              ? "Fixing..."
+                              : "Auto Fix"}
+                          </button>
+                          <button
+                            onClick={() => setActiveTooltip(null)}
+                            className="text-black transition-colors"
+                          >
+                            <X className="w-5 h-5" />
+                          </button>
+                        </div>
+                      </div>
+                      <div className="p-4">
+                        {getErrorMessages(index, "descriptionDetails").map(
+                          (msg, i) => (
+                            <div
+                              key={i}
+                              className="flex items-start space-x-3 mb-3 last:mb-0"
+                            >
+                              <div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-red-400 mt-2"></div>
+                              <p className="text-black text-sm">{msg}</p>
+                            </div>
+                          )
+                        )}
+                      </div>
+                    </div>
+                  )}
                 </div>
-                {improve && hasErrors(index, "descriptionDetails") && (
-                  <button
-                    type="button"
-                    className="absolute right-2 top-8 text-red-500 hover:text-red-600 transition-colors"
-                    onClick={() =>
-                      setActiveTooltip(
-                        activeTooltip === `description-${index}`
-                          ? null
-                          : `description-${index}`
-                      )
-                    }
-                  >
-                    <AlertCircle className="w-5 h-5" />
-                  </button>
-                )}
-                {activeTooltip === `description-${index}` && (
-                  <div className="absolute z-50 right-0 mt-2 w-80 bg-white rounded-lg shadow-xl transform transition-all duration-200 ease-in-out border border-gray-700">
-                    <div className="p-4 border-b border-gray-700">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-2">
-                          <AlertCircle className="w-5 h-5 text-red-400" />
-                          <span className="font-medium text-black">
-                            Description Suggestions
-                          </span>
-                        </div>
-                        <button
-                          onClick={() => setActiveTooltip(null)}
-                          className="text-black transition-colors"
-                        >
-                          <X className="w-5 h-5" />
-                        </button>
-                      </div>
-                    </div>
-                    <div className="p-4">
-                      {getErrorMessages(index, "descriptionDetails").map(
-                        (msg, i) => (
-                          <div
-                            key={i}
-                            className="flex items-start space-x-3 mb-3 last:mb-0"
-                          >
-                            <div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-red-400 mt-2"></div>
-                            <p className="text-black text-sm">{msg}</p>
-                          </div>
-                        )
-                      )}
-                    </div>
-                  </div>
-                )}
-              </div>
 
-              <div className="relative mb-4">
-                <label className="text-black">Key Achievements</label>
-                <textarea
-                  placeholder="Key Achievements (one per line)"
-                  name="KeyAchievements"
-                  className={`w-full other-input border ${
-                    improve && hasErrors(index, "KeyAchievements")
-                      ? "border-red-500"
-                      : "border-black"
-                  }`}
-                  value={experience.KeyAchievements.join("\n")}
-                  onChange={(e) => handleWorkExperience(e, index)}
-                  rows={4}
-                />
-                {improve && hasErrors(index, "KeyAchievements") && (
-                  <button
-                    type="button"
-                    className="absolute right-2 top-8 text-red-500 hover:text-red-600 transition-colors"
-                    onClick={() =>
-                      setActiveTooltip(
-                        activeTooltip === `achievements-${index}`
-                          ? null
-                          : `achievements-${index}`
-                      )
-                    }
-                  >
-                    <AlertCircle className="w-5 h-5" />
-                  </button>
-                )}
-                {activeTooltip === `achievements-${index}` && (
-                  <div className="absolute z-50 right-0 mt-2 w-80 bg-white rounded-lg shadow-xl transform transition-all duration-200 ease-in-out border border-gray-700">
-                    <div className="p-4 border-b border-gray-700">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-2">
-                          <AlertCircle className="w-5 h-5 text-red-400" />
-                          <span className="font-medium text-black">
-                            Achievement Suggestions
-                          </span>
+                <div className="relative mb-4">
+                  <div className="flex justify-between mb-2">
+                    <label className="text-black">Key Achievements</label>
+                    <button
+                      type="button"
+                      className="border bg-black text-white px-3 rounded-3xl"
+                      onClick={() => handleAIAssistKey(index)}
+                      disabled={loadingStates[`key_${index}`]} // Check loading state per button
+                    >
+                      {loadingStates[`key_${index}`]
+                        ? "Loading..."
+                        : "+ Key Assist"}
+                    </button>
+                  </div>
+                  <textarea
+                    placeholder="Key Achievements (one per line)"
+                    name="KeyAchievements"
+                    className={`w-full other-input border ${
+                      improve && hasErrors(index, "KeyAchievements")
+                        ? "border-red-500"
+                        : "border-black"
+                    }`}
+                    value={experience.KeyAchievements.join("\n")}
+                    onChange={(e) => handleWorkExperience(e, index)}
+                    rows={4}
+                  />
+                  {improve && hasErrors(index, "KeyAchievements") && (
+                    <button
+                      type="button"
+                      className="absolute right-2 top-8 text-red-500 hover:text-red-600 transition-colors"
+                      onClick={() =>
+                        setActiveTooltip(
+                          activeTooltip === `achievements-${index}`
+                            ? null
+                            : `achievements-${index}`
+                        )
+                      }
+                    >
+                      <AlertCircle className="w-5 h-5" />
+                    </button>
+                  )}
+                  {activeTooltip === `achievements-${index}` && (
+                    <div className="absolute z-50 right-0 mt-2 w-80 bg-white rounded-lg shadow-xl transform transition-all duration-200 ease-in-out border border-gray-700">
+                      <div className="p-4 border-b border-gray-700">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center space-x-2">
+                            <AlertCircle className="w-5 h-5 text-red-400" />
+                            <span className="font-medium text-black">
+                              Achievement Suggestions
+                            </span>
+                          </div>
+                          <button
+                            onClick={() => setActiveTooltip(null)}
+                            className="text-black transition-colors"
+                          >
+                            <X className="w-5 h-5" />
+                          </button>
                         </div>
-                        <button
-                          onClick={() => setActiveTooltip(null)}
-                          className="text-black transition-colors"
-                        >
-                          <X className="w-5 h-5" />
-                        </button>
+                      </div>
+                      <div className="p-4">
+                        {getErrorMessages(index, "KeyAchievements").map(
+                          (msg, i) => (
+                            <div
+                              key={i}
+                              className="flex items-start space-x-3 mb-3 last:mb-0"
+                            >
+                              <div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-red-400 mt-2"></div>
+                              <p className="text-black text-sm">{msg}</p>
+                            </div>
+                          )
+                        )}
                       </div>
                     </div>
-                    <div className="p-4">
-                      {getErrorMessages(index, "KeyAchievements").map(
-                        (msg, i) => (
-                          <div
-                            key={i}
-                            className="flex items-start space-x-3 mb-3 last:mb-0"
-                          >
-                            <div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-red-400 mt-2"></div>
-                            <p className="text-black text-sm">{msg}</p>
-                          </div>
-                        )
-                      )}
-                    </div>
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
-            </div>
-          )}
-        </div>
-      ))}
+            )}
+          </div>
+        ))}
 
       <FormButton
         size={resumeData.workExperience.length}
@@ -1551,7 +976,7 @@ const WorkExperience = () => {
         remove={removeWorkExperience}
       />
 
-      {showPopup && (
+      {/* {showPopup && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
           <div className="bg-white p-6 rounded-lg w-[90%] max-w-lg">
             <h3 className="text-xl font-bold mb-4">Select Key Achievements</h3>
@@ -1573,6 +998,49 @@ const WorkExperience = () => {
               className="mt-4 bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-600"
             >
               Save Selected Achievements
+            </button>
+            <button
+              onClick={() => setShowPopup(false)}
+              className="mt-2 ml-2 bg-gray-400 text-black px-4 py-2 rounded hover:bg-gray-300"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )} */}
+      {showPopup && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+          <div className="bg-white p-6 rounded-lg w-[90%] max-w-lg">
+            <h3 className="text-xl font-bold mb-4">
+              {popupType === "description"
+                ? "Select Description"
+                : "Select Key Achievements"}
+            </h3>
+            <div className="space-y-3 max-h-96 overflow-y-auto">
+              {(popupType === "description"
+                ? descriptions
+                : keyAchievements
+              ).map((item, index) => (
+                <div key={index} className="flex items-start gap-3">
+                  <input
+                    type="checkbox"
+                    checked={
+                      popupType === "description"
+                        ? selectedDescriptions.includes(item)
+                        : selectedKeyAchievements.includes(item)
+                    }
+                    onChange={() => handleSummarySelect(item)}
+                    className="mt-1"
+                  />
+                  <p className="text-gray-800">{item}</p>
+                </div>
+              ))}
+            </div>
+            <button
+              onClick={(e) => handleSaveSelectedSummary(popupIndex, e)}
+              className="mt-4 bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-600"
+            >
+              Save Selection
             </button>
             <button
               onClick={() => setShowPopup(false)}

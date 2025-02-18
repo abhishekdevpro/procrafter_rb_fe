@@ -369,6 +369,7 @@ export default function MyJobs() {
           <div className="flex-1 w-full max-w-8xl p-4 overflow-auto">
             <JobSearch />
           </div>
+          {/* Content area */}
         </div>
       </div>
     </div>
