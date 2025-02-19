@@ -167,14 +167,14 @@ const ContactUs = () => {
             <div className="flex items-center mb-4">
               <div className="text-3xl"> 📞</div>
               <h5 className="ml-3 text-slate-800 text-xl font-semibold">
-                Contact us
+                {t("contact_us")}
               </h5>
             </div>
             <p className="text-slate-600 font-semibold mb-1">
-              We are here to help
+              {t("we_are_here")}
             </p>
             <p className="text-slate-600 font-light mb-4 text-sm">
-              Contact us anytime
+              {t("contact_anytime")}
             </p>
             <div>
               <button className="border px-3 py-2 rounded-lg">
@@ -205,14 +205,14 @@ const ContactUs = () => {
             <div className="flex items-center mb-4">
               <div className="text-3xl">✉</div>
               <h5 className="ml-3 text-slate-800 text-xl font-semibold">
-                Email Us
+                {t("email_us")}
               </h5>
             </div>
             <p className="text-slate-600 font-semibold mb-1">
               We are here to help
             </p>
             <p className="text-slate-600 font-light mb-4 text-sm">
-              Contact us anytime
+              {t("contact_anytime")}
             </p>
             <div>
               <button className="border px-3 py-2 rounded-lg">
@@ -244,21 +244,21 @@ const ContactUs = () => {
             <div className="flex items-center mb-4">
               <div className="text-3xl">🗨</div>
               <h5 className="ml-3 text-slate-800 text-xl font-semibold">
-                Message Us
+                {t("message_us")}
               </h5>
             </div>
             <p className="text-slate-600 font-semibold mb-1">
-              We are here to help
+              {t("we_are_here")}
             </p>
             <p className="text-slate-600 font-light mb-4 text-sm">
-              Reach out for any assistance
+              {t("reach_out")}
             </p>
             <button
               className="border px-3 py-2 rounded-lg"
               onClick={() => setIsFormVisible(!isFormVisible)}
             >
               <span className="text-slate-800 font-semibold text-sm hover:underline flex items-center">
-                Chat
+                {t("chat")}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="ml-2 h-4 w-4"
@@ -281,7 +281,7 @@ const ContactUs = () => {
                 <form onSubmit={handleSubmit}>
                   <div className="mb-4">
                     <label className="block text-sm font-semibold mb-1">
-                      Name
+                      {t("name")}
                     </label>
                     <input
                       type="text"
@@ -294,7 +294,7 @@ const ContactUs = () => {
                   </div>
                   <div className="mb-4">
                     <label className="block text-sm font-semibold mb-1">
-                      Phone
+                      {t("phone")}
                     </label>
                     <input
                       type="text"
@@ -307,7 +307,7 @@ const ContactUs = () => {
                   </div>
                   <div className="mb-4">
                     <label className="block text-sm font-semibold mb-1">
-                      Email
+                      {t("email")}
                     </label>
                     <input
                       type="email"
@@ -320,7 +320,7 @@ const ContactUs = () => {
                   </div>
                   <div className="mb-4">
                     <label className="block text-sm font-semibold mb-1">
-                      Remark
+                      {t("remark")}
                     </label>
                     <textarea
                       name="remark"
@@ -338,7 +338,7 @@ const ContactUs = () => {
                     type="submit"
                     className="bg-green-400 text-white px-4 py-2 rounded-lg"
                   >
-                    Send
+                    {t("send")}
                   </button>
                 </form>
               </div>

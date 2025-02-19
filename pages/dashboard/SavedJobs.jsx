@@ -379,7 +379,7 @@ const LoginModal = ({ onClose }) => {
             Cancel
           </button>
           <Link
-            href="/login"
+            href="/login2"
             className="px-4 py-2 bg-[#00b38d] text-white rounded hover:bg-[#00b38d] transition-colors"
           >
             Login
