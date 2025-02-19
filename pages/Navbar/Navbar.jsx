@@ -759,6 +759,16 @@ const Navbar = () => {
                     >
                       {t("cover_letter")}
                     </Link>
+                    <Link
+                      href="/settings"
+                      className="fblock px-4 py-2 hover:bg-gray-200"
+                      onClick={() => setIsDropdownOpen(false)}
+                    >
+                      {/* <Settings className="mr-3 w-5 h-5 text-gray-500 group-hover:text-orange-500" /> */}
+                      {/* <span className="text-gray-800 group-hover:text-orange-500"> */}
+                      Settings
+                      {/* </span> */}
+                    </Link>
                     <button
                       onClick={() => {
                         handleLogout();

@@ -153,7 +153,7 @@ function App({ Component, pageProps }) {
       (error) => {
         if (error.response && error.response.status === 401) {
           localStorage.removeItem("token"); // Clear token
-          router.push("/login"); // Redirect to login
+          router.push("/login2"); // Redirect to login
         }
         return Promise.reject(error);
       }
