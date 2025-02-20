@@ -8,9 +8,13 @@ import "react-quill/dist/quill.snow.css";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import { BASE_URL } from "../Constant/constant";
+import { useTranslation } from "react-i18next";
+
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 const WorkExperience = () => {
+  const { i18n, t } = useTranslation();
+  const language = i18n.language;
   const { resumeData, setResumeData, resumeStrength, setResumeStrength } =
     useContext(ResumeContext);
   const [activeTooltip, setActiveTooltip] = useState(null);
@@ -106,7 +110,7 @@ const WorkExperience = () => {
       const response = await fetch(
         `${BASE_URL}/api/user/locations?locations=${encodeURIComponent(
           keyword
-        )}`
+        )}&lang=${language}`
       );
       if (response.ok) {
         const data = await response.json();
@@ -130,7 +134,7 @@ const WorkExperience = () => {
       const response = await axios.get(
         `https://api.resumeintellect.com/api/user/job-title?job_title_keyword=${encodeURIComponent(
           keyword
-        )}`
+        )}&lang=${language}`
       );
       if (response.data && response.data.data) {
         setJobTitleSuggestions(response.data.data);

@@ -5,7 +5,11 @@ import { AlertCircle, X, Loader2 } from "lucide-react";
 import { useRouter } from "next/router";
 import { MdRemoveCircle } from "react-icons/md";
 import { BASE_URL } from "../Constant/constant";
+import { useTranslation } from "react-i18next";
+
 const Education = () => {
+  const language = i18n.language;
+  const { i18n, t } = useTranslation();
   const { resumeData, setResumeData, resumeStrength } =
     useContext(ResumeContext);
   const [activeTooltip, setActiveTooltip] = useState(null);
@@ -97,7 +101,7 @@ const Education = () => {
       const response = await fetch(
         `${BASE_URL}/api/user/locations?locations=${encodeURIComponent(
           keyword
-        )}`
+        )}&lang=${language}`
       );
       if (response.ok) {
         const data = await response.json();

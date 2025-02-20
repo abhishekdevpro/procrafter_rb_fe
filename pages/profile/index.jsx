@@ -3,7 +3,10 @@ import axios from "axios";
 import { BASE_URL } from "../../components/Constant/constant";
 import { toast } from "react-toastify";
 import { Trash2 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 const ProfileForm = () => {
+  const { i18n, t } = useTranslation();
+  const language = i18n.language;
   const [formData, setFormData] = useState({
     first_name: "",
     last_name: "",
@@ -64,7 +67,7 @@ const ProfileForm = () => {
 
           // Fetch countries
           const countriesResponse = await axios.get(
-            `${BASE_URL}/api/user/countries`
+            `${BASE_URL}/api/user/countries?lang=${language}`
           );
           if (countriesResponse.data.status === "success") {
             setCountries(countriesResponse.data.data);
@@ -86,7 +89,7 @@ const ProfileForm = () => {
         try {
           const token = localStorage.getItem("token");
           const response = await axios.get(
-            `${BASE_URL}/api/user/stats/${formData.country_id}`,
+            `${BASE_URL}/api/user/stats/${formData.country_id}?lang=${language}`,
             {
               headers: {
                 Authorization: token, // Ensure token is included correctly
@@ -115,7 +118,7 @@ const ProfileForm = () => {
         setLoading(true); // Set loading state to true
         try {
           const citiesResponse = await axios.get(
-            `${BASE_URL}/api/user/cities/${formData.state_id}`
+            `${BASE_URL}/api/user/cities/${formData.state_id}?lang=${language}`
           );
 
           if (citiesResponse.data.status === "success") {
@@ -224,9 +227,9 @@ const ProfileForm = () => {
       );
       console.log(response.code, response.status, ">>>>response");
       if (response.status === 200) {
-        toast.success("Profile updated successfully");
+        toast.success(t("profile_updated"));
       } else {
-        toast.error("Failed to update profile:", response.data.message);
+        toast.error(t("profile_update_failed"), response.data.message);
       }
     } catch (error) {
       toast.error("An error occurred during profile update:", error);
@@ -236,7 +239,7 @@ const ProfileForm = () => {
   if (isLoading) {
     return (
       <div className="p-2 md:p-6">
-        <div className="text-center text-lg">Loading...</div>
+        <div className="text-center text-lg">{t("loading")}</div>
       </div>
     );
   }
@@ -253,14 +256,14 @@ const ProfileForm = () => {
       );
 
       if (response.data.status === "success") {
-        toast.success("Profile photo removed successfully");
+        toast.success(t("photo_removed"));
         setFormData((prev) => ({
           ...prev,
           photo: "", // Remove image preview
           uploadPhoto: null, // Reset selected file
         }));
       } else {
-        toast.error("Failed to remove profile photo");
+        toast.error(t("photo_remove_failed"));
       }
     } catch (error) {
       console.error("Error removing profile photo:", error);
@@ -272,7 +275,7 @@ const ProfileForm = () => {
     <div className="p-2 md:p-6">
       <div className="w-full mx-auto rounded-lg shadow-lg px-4 py-2 md:p-6">
         <h1 className="text-2xl font-bold mb-6 text-center md:text-left">
-          BASIC INFORMATION
+          {t("basic_information")}
         </h1>
 
         <form onSubmit={handleSubmit}>
@@ -338,20 +341,20 @@ const ProfileForm = () => {
               htmlFor="fileInput"
               className="border p-2 cursor-pointer bg-gray-100 rounded-md"
             >
-              Choose File
+              {t("choose_file")}
             </label>
             <span className="ml-2 text-gray-700">
               {formData.uploadPhoto
                 ? formData.uploadPhoto.name
                 : formData.photo
-                ? "Image uploaded"
-                : "No file chosen"}
+                ? t("image_uploaded")
+                : t("no_file_chosen")}
             </span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
             <div>
-              <label className="block mb-2">First Name*</label>
+              <label className="block mb-2"> {t("first_name")}*</label>
               <input
                 type="text"
                 name="first_name"
@@ -361,7 +364,7 @@ const ProfileForm = () => {
               />
             </div>
             <div>
-              <label className="block mb-2">Last Name*</label>
+              <label className="block mb-2">{t("last_name")}*</label>
               <input
                 type="text"
                 name="last_name"
@@ -371,7 +374,7 @@ const ProfileForm = () => {
               />
             </div>
             <div>
-              <label className="block mb-2">Professional Title*</label>
+              <label className="block mb-2">{t("professional_title")}*</label>
               <input
                 type="text"
                 name="professional_title"
@@ -381,7 +384,7 @@ const ProfileForm = () => {
               />
             </div>
             <div>
-              <label className="block mb-2">Languages*</label>
+              <label className="block mb-2">{t("languages")}*</label>
               <input
                 type="text"
                 name="languages"
@@ -392,7 +395,7 @@ const ProfileForm = () => {
             </div>
 
             <div>
-              <label className="block mb-2">Current Salary (£):</label>
+              <label className="block mb-2">{t("current_salary")} :</label>
               <input
                 type="number"
                 name="current_salary"
@@ -403,7 +406,7 @@ const ProfileForm = () => {
               />
             </div>
             <div>
-              <label className="block mb-2">Expected Salary (£):</label>
+              <label className="block mb-2">{t("expected_salary")} :</label>
               <input
                 type="number"
                 name="expected_salary"
@@ -414,7 +417,7 @@ const ProfileForm = () => {
               />
             </div>
             <div className="md:col-span-2">
-              <label className="block mb-2">Description*</label>
+              <label className="block mb-2">{t("description")}</label>
               <textarea
                 name="description"
                 value={formData.description}
@@ -425,7 +428,7 @@ const ProfileForm = () => {
             </div>
 
             <div>
-              <label className="block mb-2">Phone Number </label>
+              <label className="block mb-2">{t("phone_number")}</label>
               <input
                 type="number"
                 name="phone"
@@ -435,7 +438,7 @@ const ProfileForm = () => {
               />
             </div>
             <div>
-              <label className="block mb-2">Email</label>
+              <label className="block mb-2">{t("email")}</label>
               <input
                 type="text"
                 name="email"
@@ -450,7 +453,7 @@ const ProfileForm = () => {
             type="submit"
             className="w-full bg-green-400 text-white p-2 rounded"
           >
-            Update Profile
+            {t("update_profile")}
           </button>
         </form>
       </div>
