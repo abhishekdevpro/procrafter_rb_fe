@@ -255,7 +255,8 @@ function Home_five() {
                 <div className="flex justify-center items-baseline my-8">
                   <PoundSterling size={36} className="text-white stroke-[3]" />
                   <span className="mr-2 text-5xl font-extrabold">
-                    {t("price_amount")}
+                    {/* {t("price_amount")} */}
+                    {t("price_amount_b")}
                   </span>
                   <span className="text-white dark:text-white">
                     {t("price_per_resume")}

@@ -186,8 +186,11 @@ function PrivacyPolicy() {
         <h2 className="text-xl font-semibold">{t("sections.contactUs")}</h2>
         <p className="text-gray-700">
           {t("contactUs")}{" "}
-          <a href={`mailto:${t("email")}`} className="text-blue-600 underline">
-            {t("email")}
+          <a
+            href={`mailto:${t("email_name")}`}
+            className="text-blue-600 underline"
+          >
+            {t("email_name")}
           </a>
         </p>
       </div>

@@ -271,7 +271,7 @@
             "childrensPrivacy": "Nos services ne sont pas destinés aux personnes de moins de 18 ans. Si un enfant fournit des données personnelles, nous les supprimerons.",
             "changesPolicy": "Nous pouvons mettre à jour cette Politique de Confidentialité. La poursuite de l'utilisation de nos services après des modifications signifie l'acceptation de la politique révisée.",
             "contactUs": "Si vous avez des questions, contactez-nous à :",
-            "email": "career@cibliJob.fr",
+            "email_name": "career@cibliJob.fr",
           
             
               "title": "Générateur de CV IA",
@@ -553,7 +553,111 @@
                         "AI-Enhanced_p6": "L'IA vous aide à quantifier vos réalisations avec des chiffres concrets.",
                         "AI-Enhanced_p7": "Elle analyse la pertinence et la clarté de votre contenu.",
                         "AI-Enhanced_p8": "L'IA détecte le plagiat pour garantir un contenu unique.",
-                        "AI-Enhanced_p18": "Transformez votre CV avec Cibli Job. Inscrivez-vous maintenant !"
+                        "AI-Enhanced_p18": "Transformez votre CV avec Cibli Job. Inscrivez-vous maintenant !",
+                        
+                          "basic_information": "INFORMATIONS DE BASE",
+                          "first_name": "Prénom",
+                          "last_name": "Nom de famille",
+                          "professional_title": "Titre professionnel",
+                          "languages": "Langues",
+                          "age": "Âge",
+                          "current_salary": "Salaire actuel (£)",
+                          "expected_salary": "Salaire attendu (£)",
+                          "description": "Description",
+                          "phone_number": "Numéro de téléphone",
+                          "email": "E-mail",
+                          "choose_file": "Choisir un fichier",
+                          "image_uploaded": "Image téléchargée",
+                          "no_file_chosen": "Aucun fichier choisi",
+                          "update_profile": "Mettre à jour le profil",
+                          "profile_updated": "Profil mis à jour avec succès",
+                          "profile_update_failed": "Échec de la mise à jour du profil",
+                          "loading": "Chargement...",
+                          "remove_photo": "Supprimer la photo",
+                          "photo_removed": "Photo de profil supprimée avec succès",
+                          "photo_remove_failed": "Échec de la suppression de la photo de profil",
+                          
+                            "dashboard": "Tableau de bord",
+                            "profile": "Profil",
+                            "ai_resume_builder": "Générateur de CV IA",
+                            "my_resumes": "Mes CVs",
+                            "my_cover_letters": "Mes Lettres de Motivation",
+                            "my_jobs": "Mes Emplois",
+                            "notifications": "Notifications",
+                            "skill_test": "Test de Compétences",
+                            "skill_history": "Historique des Compétences",
+                            "payment": "Paiement",
+                            "logout": "Se Déconnecter",
+                            
+                              "myresume": {
+                                "title": "Mes CVs",
+                                "create_new_resume": "Créer un Nouveau CV",
+                                "sr_no": "N°",
+                                "my_resume": "Mon CV",
+                                "modification": "Modification",
+                                "created": "Créé",
+                                "strength": "Force",
+                                "actions": "Actions",
+                                "edit": "Modifier",
+                                "delete": "Supprimer",
+                                "please_upload_resume": "Veuillez télécharger un CV.",
+                                "delete_confirmation": "Êtes-vous sûr de vouloir supprimer ce CV ?",
+                                "cancel": "Annuler",
+                                "edit_resume_title": "Modifier le Titre du CV",
+                                "enter_new_resume_title": "Entrez un nouveau titre de CV",
+                                "save": "Enregistrer",
+                                "create_first_resume": "Créez votre premier CV.",
+                                "fetch_resume_error": "Échec de la récupération des CV.",
+                                "resume_deleted_success": "Votre CV a été supprimé avec succès.",
+                                "resume_deleted_error": "Échec de la suppression de votre CV.",
+                                "resume_title_updated_success": "Le titre du CV a été mis à jour avec succès.",
+                                "resume_title_updated_error": "Échec de la mise à jour du titre du CV."
+                              },
+                             
+                                "mycvletter": {
+                                  "no_coverletters": "Aucune lettre de motivation disponible.",
+                                  "fetch_coverletters_error": "Échec de la récupération des lettres de motivation.",
+                                  "resume_deleted_success": "Lettre de motivation supprimée avec succès.",
+                                  "resume_deleted_error": "Échec de la suppression de la lettre de motivation.",
+                                  "resume_title_updated_success": "Le titre de la lettre de motivation a été mis à jour avec succès.",
+                                  "resume_title_updated_error": "Échec de la mise à jour du titre de la lettre de motivation.",
+                                  "create_new_coverletter": "Créer une nouvelle lettre de motivation",
+                                  "sr_no": "N°",
+                                  "my_cover_letters": "Mes lettres de motivation",
+                                  "modification": "Modification",
+                                  "created": "Créé",
+                                  "actions": "Actions",
+                                  "please_upload_coverletter": "Veuillez télécharger une lettre de motivation.",
+                                  "edit_cover_letter_title": "Modifier le titre de la lettre de motivation",
+                                  "enter_new_coverletter_title": "Entrez un nouveau titre de lettre de motivation",
+                                  "cancel": "Annuler",
+                                  "save": "Enregistrer",
+                                  "delete_confirm": "Êtes-vous sûr de vouloir supprimer cette lettre de motivation ?",
+                                  "delete": "Supprimer",
+                                  "download_error": "Échec du téléchargement du fichier. Veuillez réessayer plus tard."
+                                },
+                                "jobsearch":{
+                                  "my_jobs": "Mes emplois",
+                                  "job_search": "Recherche d'emploi",
+                                  "keywords": "Mots-clés",
+                                  "keywords_placeholder": "Entrez le titre du poste, par ex. 'Développeur'",
+                                  "location": "Emplacement",
+                                  "location_placeholder": "Entrez une ville ou un pays, par ex. 'Berlin'",
+                                  "search_jobs": "Rechercher des emplois",
+                                  "loading": "Chargement...",
+                                  "error_message": "Échec de la récupération des offres d'emploi. Veuillez réessayer plus tard.",
+                                  "apply_now": "Postuler maintenant"
+                                },
+                                 "notification_coming_soon": "🙋‍♀️ Notification à venir bientôt"
+                                
+                              
+                              
+                            
+                            
+                          
+                          
+                        
+                        
                       
                       
                     }

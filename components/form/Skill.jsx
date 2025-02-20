@@ -5,7 +5,11 @@ import { ResumeContext } from "../context/ResumeContext";
 import { AlertCircle } from "lucide-react";
 import { useRouter } from "next/router";
 import { BASE_URL } from "../Constant/constant";
+import { useTranslation } from "react-i18next";
+
 const Skill = ({ title, currentSkillIndex }) => {
+  const language = i18n.language;
+  const { i18n, t } = useTranslation();
   const { resumeData, setResumeData, resumeStrength } =
     useContext(ResumeContext);
   const [loading, setLoading] = useState(false);
@@ -51,7 +55,7 @@ const Skill = ({ title, currentSkillIndex }) => {
       const response = await axios.get(
         `${BASE_URL}/api/user/skills-names?skill_keyword=${encodeURIComponent(
           query
-        )}`,
+        )}&lang=${language}`,
         {
           headers: {
             Authorization: token,

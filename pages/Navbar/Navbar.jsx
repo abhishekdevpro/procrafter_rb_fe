@@ -677,7 +677,7 @@ const Navbar = () => {
             )}
             <LanguageSelector />
             <Link
-              href="/navbarcontent"
+              href="/footers/AiResumeBuilder"
               className="text-black hover:text-[#00b38d] px-3 py-2 rounded-md text-lg font-semibold"
             >
               {t("ai_resume_builder")}
@@ -825,7 +825,7 @@ const Navbar = () => {
                 {t("jobs")}
               </Link>
               <Link
-                href="/navbarcontent"
+                href="/footers/AiResumeBuilder"
                 className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
               >
                 {t("ai_resume_builder")}

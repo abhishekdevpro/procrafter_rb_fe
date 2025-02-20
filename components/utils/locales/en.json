@@ -277,7 +277,7 @@
               "childrensPrivacy": "Our services are not intended for individuals under 18. If a child provides personal data, we will delete it.",
               "changesPolicy": "We may update this Privacy Policy. Continued use of our services after changes means acceptance of the revised policy.",
               "contactUs": "If you have any questions, contact us at:",
-              "email": "career@cibliJob.fr",
+              "email_name": "career@cibliJob.fr",
               
                 "title": "AI Resume Builder",
                 "introduction": "Revolutionizing the Job Application Process",
@@ -567,10 +567,114 @@
                     "AI-Enhanced_p15": "With an accurate and well-crafted resume, you can confidently apply for jobs, knowing that your application is strong and reliable.",
                     "AI-Enhanced_p16": "Optimizing your resume for accuracy and relevance increases your chances of passing through ATS filters and being shortlisted for interviews.",
                     "AI-Enhanced_p17": "Our AI tools automate the resume review process, saving you time and effort while ensuring a high level of precision and quality.",
-                    "AI-Enhanced_p18": "Transform your resume with Cibli Job’s AI-enhanced accuracy tools. Sign up now to create a resume that is polished, precise, and professional."
-                  }
+                    "AI-Enhanced_p18": "Transform your resume with Cibli Job’s AI-enhanced accuracy tools. Sign up now to create a resume that is polished, precise, and professional.",
                   
-
+                  
+                  
+                    "basic_information": "BASIC INFORMATION",
+                    "first_name": "First Name",
+                    "last_name": "Last Name",
+                    "professional_title": "Professional Title",
+                    "languages": "Languages",
+                    "age": "Age",
+                    "current_salary": "Current Salary (£)",
+                    "expected_salary": "Expected Salary (£)",
+                    "description": "Description",
+                    "phone_number": "Phone Number",
+                    "email": "Email",
+                    "choose_file": "Choose File",
+                    "image_uploaded": "Image uploaded",
+                    "no_file_chosen": "No file chosen",
+                    "update_profile": "Update Profile",
+                    "profile_updated": "Profile updated successfully",
+                    "profile_update_failed": "Failed to update profile",
+                    "loading": "Loading...",
+                    "remove_photo": "Remove Photo",
+                    "photo_removed": "Profile photo removed successfully",
+                    "photo_remove_failed": "Failed to remove profile photo",
+                    
+                      "dashboard": "Dashboard",
+                      "profile": "Profile",
+                      "ai_resume_builder": "AI Resume Builder",
+                      "my_resumes": "My Resumes",
+                      "my_cover_letters": "My Cover Letters",
+                      "my_jobs": "My Jobs",
+                      "notifications": "Notifications",
+                      "skill_test": "Skill Test",
+                      "skill_history": "Skill History",
+                      "payment": "Payment",
+                      "logout": "Log Out",
+                      
+                        "myresume": {
+                          "title": "My Resumes",
+                          "create_new_resume": "Create New Resume",
+                          "sr_no": "Sr. No.",
+                          "my_resume": "My Resume",
+                          "modification": "Modification",
+                          "created": "Created",
+                          "strength": "Strength",
+                          "actions": "Actions",
+                          "edit": "Edit",
+                          "delete": "Delete",
+                          "please_upload_resume": "Please Upload Resume.",
+                          "delete_confirmation": "Are you sure you want to delete this resume?",
+                          "cancel": "Cancel",
+                          "edit_resume_title": "Edit Resume Title",
+                          "enter_new_resume_title": "Enter new resume title",
+                          "save": "Save",
+                          
+                        "create_first_resume": "Create your first resume.",
+                              "fetch_resume_error": "Failed to fetch resumes.",
+                              "resume_deleted_success": "Your Resume Deleted Successfully",
+                              "resume_deleted_error": "Failed to Delete your Resume",
+                              "resume_title_updated_success": "Resume title updated successfully.",
+                              "resume_title_updated_error": "Failed to update resume title."
+                        },
+                       
+                          "mycvletter": {
+                            "no_coverletters": "No cover letters available.",
+                            "fetch_coverletters_error": "Failed to fetch cover letters.",
+                            "resume_deleted_success": "Cover letter deleted successfully.",
+                            "resume_deleted_error": "Failed to delete the cover letter.",
+                            "resume_title_updated_success": "Cover letter title updated successfully.",
+                            "resume_title_updated_error": "Failed to update cover letter title.",
+                            "create_new_coverletter": "Create New Cover Letter",
+                            "sr_no": "Sr. no.",
+                            "my_cover_letters": "My Cover Letters",
+                            "modification": "Modification",
+                            "created": "Created",
+                            "actions": "Actions",
+                            "please_upload_coverletter": "Please upload a cover letter.",
+                            "edit_cover_letter_title": "Edit Cover Letter Title",
+                            "enter_new_coverletter_title": "Enter new cover letter title",
+                            "cancel": "Cancel",
+                            "save": "Save",
+                            "delete_confirm": "Are you sure you want to delete this cover letter?",
+                            "delete": "Delete",
+                            "download_error": "Failed to download the file. Please try again later."
+                          
+                        },
+                        "jobsearch":{
+                          "my_jobs": "My Jobs",
+                          "job_search": "Job Search",
+                          "keywords": "Keywords",
+                          "keywords_placeholder": "Enter job title, e.g., 'Developer'",
+                          "location": "Location",
+                          "location_placeholder": "Enter city or country, e.g., 'Berlin'",
+                          "search_jobs": "Search Jobs",
+                          "loading": "Loading...",
+                          "error_message": "Failed to fetch jobs. Please try again later.",
+                          "apply_now": "Apply Now"
+                        },
+                         "notification_coming_soon": "🙋‍♀️ Notification Coming Soon"
+                        
+                        
+                      
+                      
+                    
+                    
+                  
+                }
                     
                     
                     

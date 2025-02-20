@@ -7,10 +7,11 @@ import React, { useState } from "react";
 
 import { FaBars } from "react-icons/fa"; //
 import Builder from "../builder";
+import { useTranslation } from "react-i18next";
 
 export default function DashboardPage() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
+  const { t } = useTranslation();
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
@@ -43,7 +44,9 @@ export default function DashboardPage() {
 
           {/* Content area */}
           <div className="flex-1 w-full max-w-8xl p-4 overflow-auto">
-            🙋‍♀️ Notification Coming Soon
+            {/* 🙋‍♀️ Notification Coming Soon
+             */}
+            {t("notification_coming_soon")}
           </div>
         </div>
       </div>
