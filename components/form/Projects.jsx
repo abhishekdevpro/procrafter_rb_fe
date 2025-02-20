@@ -8,8 +8,10 @@ import { ChevronDown, ChevronUp, AlertCircle, X } from "lucide-react";
 import axios from "axios";
 import FormButton from "./FormButton";
 import { useRouter } from "next/router";
-const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+import { toast } from "react-toastify";
 import { BASE_URL } from "../Constant/constant";
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+
 const Projects = () => {
   const { resumeData, setResumeData, resumeStrength, setResumeStrength } =
     useContext(ResumeContext);
@@ -101,88 +103,6 @@ const Projects = () => {
     );
   };
 
-  // const handleAIAssistDescription = async (projectIndex) => {
-  //   setLoadingStates((prev) => ({
-  //     ...prev,
-  //     [`description_${projectIndex}`]: true,
-  //   }));
-  //   setError("");
-
-  //   try {
-  //     const response = await axios.post(
-  //       `${BASE_URL}/api/user/ai-resume-project-summery-data`,
-  //       {
-  //         key: "professional_experience",
-  //         keyword:
-  //           "Generate multiple professional summaries and descriptions for professional experience",
-  //         content:
-  //           resumeData.projects[index].description || "Project description",
-  //         company_name: resumeData.projects[index].name || "N/A",
-  //         job_title: resumeData.projects[index].title || "Project",
-  //         link: resumeData.projects[index].link || "N/A",
-  //       },
-  //       {
-  //         headers: {
-  //           Authorization: token,
-  //         },
-  //       }
-  //     );
-
-  //     setDescriptions(response.data.data.resume_analysis.project_summaries);
-  //     setPopupIndex(index);
-  //     setPopupType("description");
-  //     setShowPopup(true);
-  //   } catch (err) {
-  //     setError(err.message);
-  //   } finally {
-  //     setLoadingStates((prev) => ({
-  //       ...prev,
-  //       [`description_${index}`]: false,
-  //     }));
-  //   }
-  // };
-  const handleAIAssistDescription = async (projectIndex) => {
-    setLoadingStates((prev) => ({
-      ...prev,
-      [`description_${projectIndex}`]: true,
-    }));
-    setError("");
-
-    try {
-      const response = await axios.post(
-        `${BASE_URL}/api/user/ai-resume-project-summery-data`,
-        {
-          key: "professional_experience",
-          keyword:
-            "Generate multiple professional summaries and descriptions for professional experience",
-          content:
-            resumeData.projects[projectIndex].description ||
-            "Project description",
-          company_name: resumeData.projects[projectIndex].name || "N/A",
-          job_title: resumeData.projects[projectIndex].title || "Project",
-          link: resumeData.projects[projectIndex].link || "N/A",
-        },
-        {
-          headers: {
-            Authorization: token,
-          },
-        }
-      );
-
-      setDescriptions(response.data.data.resume_analysis.project_summaries);
-      setPopupIndex(projectIndex);
-      setPopupType("description");
-      setShowPopup(true);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoadingStates((prev) => ({
-        ...prev,
-        [`description_${projectIndex}`]: false,
-      }));
-    }
-  };
-
   const handleAIAssistKey = async (index) => {
     setLoadingStates((prev) => ({
       ...prev,
@@ -200,7 +120,7 @@ const Projects = () => {
           content:
             resumeData.projects[index].description || "Project description",
           company_name: resumeData.projects[index].name || "N/A",
-          job_title: resumeData.projects[index].title || "Project",
+          job_title: resumeData.projects[index].po || "Project",
           link: resumeData.projects[index].link || "N/A",
         },
         {
@@ -262,8 +182,11 @@ const Projects = () => {
     );
   };
   const handleAutoFixDescription = async (e, projectIndex, content) => {
-    e.preventDefault();
-    e.stopPropagation();
+    if (e) {
+      e.preventDefault(); // Stops the form submission (only needed if inside a form)
+      e.stopPropagation(); // Prevents event bubbling
+    }
+
     setLoadingStates((prev) => ({
       ...prev,
       [`description_${projectIndex}`]: true,
@@ -285,10 +208,9 @@ const Projects = () => {
         body: JSON.stringify({
           key: "project description",
           keyword: "auto improve",
-          content: content.description || "",
-
+          content: resumeData.position || "",
           company_name: content.name || "",
-          job_title: content.title || "",
+          job_title: resumeData.position || "",
           link: content.link || "",
         }),
       });
@@ -298,48 +220,36 @@ const Projects = () => {
       }
 
       const data = await response.json();
-      const updatedDescription =
-        data?.data?.resume_analysis?.professional_summary;
+      const updatedDescription = data?.data?.resume_analysis?.project_summary;
 
       if (updatedDescription) {
-        // Update the actual work experience data
-        const newProjects = [...resumeData.projects];
-        newProjects[projectIndex] = {
-          ...newProjects[projectIndex],
-          description: updatedDescription,
-        };
-        setResumeData({
-          ...resumeData,
-          projects: newProjects,
-        });
+        setResumeData((prev) => ({
+          ...prev,
+          projects: prev.projects.map((proj, i) =>
+            i === projectIndex
+              ? { ...proj, description: updatedDescription }
+              : proj
+          ),
+        }));
 
-        // Clear the error state for this field
-        if (resumeStrength?.project_strenght) {
-          const newProjectsStrength = [...resumeStrength.project_strenght];
-          if (newProjectsStrength[projectIndex]) {
-            newProjectsStrength[projectIndex] = {
-              ...newProjectsStrength[projectIndex],
-              description: [], // Clear the errors
-            };
-          }
-          setResumeStrength({
-            ...resumeStrength,
-            project_strenght: newProjectsStrength,
-          });
-        }
+        setResumeStrength((prev) => ({
+          ...prev,
+          project_strenght: prev.project_strenght.map((strength, i) =>
+            i === projectIndex ? { ...strength, description: [] } : strength
+          ),
+        }));
 
-        // Close the tooltip
         setActiveTooltip(null);
-
         toast.success("Description updated successfully");
       } else {
         toast.error("Failed to auto-fix description");
       }
     } catch (error) {
       console.error(
-        `Error auto-fixing experience description at index ${projectIndex}:`,
+        `Error auto-fixing project description at index ${projectIndex}:`,
         error
       );
+      console.log(resumeData.position, ">>>>>position");
       toast.error("An error occurred while processing your request");
     } finally {
       setLoadingStates((prev) => ({
@@ -348,13 +258,52 @@ const Projects = () => {
       }));
     }
   };
+
   const getErrorMessages = (index, field) => {
     const workStrength = resumeStrength?.project_strenght?.[index];
     return workStrength && Array.isArray(workStrength[field])
       ? workStrength[field]
       : [];
   };
+  const handleAIAssistDescription = async (projectIndex) => {
+    setLoadingStates((prev) => ({
+      ...prev,
+      [`description_${projectIndex}`]: true,
+    }));
+    setError("");
 
+    try {
+      const response = await axios.post(
+        `${BASE_URL}/api/user/ai-resume-project-summery-data`,
+        {
+          key: "professional_experience",
+          keyword:
+            "Generate multiple professional summaries and descriptions for professional experience",
+          content: resumeData?.position || "Project description",
+          company_name: resumeData.projects[projectIndex].name || "N/A",
+          job_title: resumeData?.position || "Project",
+          link: resumeData.projects[projectIndex].link || "N/A",
+        },
+        {
+          headers: {
+            Authorization: token,
+          },
+        }
+      );
+
+      setDescriptions(response.data.data.resume_analysis.project_summaries);
+      setPopupIndex(projectIndex);
+      setPopupType("description");
+      setShowPopup(true);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoadingStates((prev) => ({
+        ...prev,
+        [`description_${projectIndex}`]: false,
+      }));
+    }
+  };
   return (
     <div className="flex-col-gap-3 w-full mt-10 px-10">
       <h2 className="input-title text-black text-3xl">Projects</h2>
@@ -577,8 +526,9 @@ const Projects = () => {
                           </div>
 
                           <button
-                            onClick={() =>
-                              handleAutoFixDescription(projectIndex, project)
+                            type="button" // Prevent form submission if inside a form
+                            onClick={(e) =>
+                              handleAutoFixDescription(e, projectIndex, project)
                             }
                             onMouseDown={() => {
                               if (!project?.name) {
@@ -595,6 +545,7 @@ const Projects = () => {
                               ? "Fixing..."
                               : "Auto Fix"}
                           </button>
+
                           <button
                             onClick={() => setActiveTooltip(null)}
                             className="text-black transition-colors"
@@ -724,43 +675,8 @@ const Projects = () => {
         add={addProjects}
         remove={removeProjects}
       />
+
       {showPopup && (
-        // <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-        //   <div className="bg-white p-6 rounded-lg w-[90%] max-w-lg">
-        //     <h3 className="text-xl font-bold mb-4">
-        //       {popupType === "description" ? "Select Description" : "Select Key Achievements"}
-        //     </h3>
-        //     <div className="space-y-3 max-h-96 overflow-y-auto">
-        //       {(popupType === "description" ? descriptions : keyAchievements).map((item, index) => (
-        //         <div key={index} className="flex items-start gap-3">
-        //           <input
-        //             type="checkbox"
-        //             checked={
-        //               popupType === "description"
-        //                 ? selectedDescriptions.includes(item)
-        //                 : selectedKeyAchievements.includes(item)
-        //             }
-        //             onChange={() => handleSummarySelect(item)}
-        //             className="mt-1"
-        //           />
-        //           <p className="text-gray-800">{item}</p>
-        //         </div>
-        //       ))}
-        //     </div>
-        //     <button
-        //       onClick={(e) => handleSaveSelectedSummary(popupIndex, e)}
-        //       className="mt-4 bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-600"
-        //     >
-        //       Save Selection
-        //     </button>
-        //     <button
-        //       onClick={() => setShowPopup(false)}
-        //       className="mt-2 ml-2 bg-gray-400 text-black px-4 py-2 rounded hover:bg-gray-300"
-        //     >
-        //       Close
-        //     </button>
-        //   </div>
-        // </div>
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
           <div className="bg-white p-6 rounded-lg w-[90%] max-w-lg">
             <h3 className="text-xl font-bold mb-4">
@@ -774,34 +690,40 @@ const Projects = () => {
                 : keyAchievements
               ).map((item, index) => (
                 <div key={index} className="flex items-start gap-3">
-                  <input
-                    type="checkbox"
-                    checked={
-                      popupType === "description"
-                        ? selectedDescriptions.includes(item)
-                        : selectedKeyAchievements.includes(item)
-                    }
-                    onChange={() => handleSummarySelect(item)}
-                    className="mt-1"
-                  />
+                  {/* Radio for description (Single Select) */}
+                  {popupType === "description" ? (
+                    <input
+                      type="radio"
+                      name="description" // Ensures only one can be selected
+                      checked={selectedDescriptions.includes(item)}
+                      onChange={() => setSelectedDescriptions([item])} // Only one selection
+                      className="mt-1"
+                    />
+                  ) : (
+                    // Checkbox for key achievements (Multi Select)
+                    <input
+                      type="checkbox"
+                      checked={selectedKeyAchievements.includes(item)}
+                      onChange={() => handleSummarySelect(item)}
+                      className="mt-1"
+                    />
+                  )}
                   <p className="text-gray-800">{item}</p>
                 </div>
               ))}
             </div>
-            <div className="flex gap-2 mt-4">
-              <button
-                onClick={(e) => handleSaveSelectedSummary(popupIndex, e)}
-                className="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-600"
-              >
-                Save Selection
-              </button>
-              <button
-                onClick={() => setShowPopup(false)}
-                className="bg-gray-400 text-black px-4 py-2 rounded hover:bg-gray-300"
-              >
-                Close
-              </button>
-            </div>
+            <button
+              onClick={(e) => handleSaveSelectedSummary(popupIndex, e)}
+              className="mt-4 bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-600"
+            >
+              Save Selection
+            </button>
+            <button
+              onClick={() => setShowPopup(false)}
+              className="mt-2 ml-2 bg-gray-400 text-black px-4 py-2 rounded hover:bg-gray-300"
+            >
+              Close
+            </button>
           </div>
         </div>
       )}
