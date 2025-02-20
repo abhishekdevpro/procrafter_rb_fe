@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import image1 from "./Images/img1.png";
-import image2 from "./Images/img2.png";
+import image1 from "./Images/cibliimg1.jpg";
+import image2 from "./Images/cibliimg2.jpg";
 import { useTranslation } from "react-i18next";
 import Image from "next/image";
 
