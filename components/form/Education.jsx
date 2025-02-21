@@ -8,8 +8,9 @@ import { BASE_URL } from "../Constant/constant";
 import { useTranslation } from "react-i18next";
 
 const Education = () => {
-  const language = i18n.language;
   const { i18n, t } = useTranslation();
+  const language = i18n.language;
+
   const { resumeData, setResumeData, resumeStrength } =
     useContext(ResumeContext);
   const [activeTooltip, setActiveTooltip] = useState(null);
