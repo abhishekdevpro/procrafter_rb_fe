@@ -41,7 +41,7 @@ const Print = dynamic(() => import("../components/utility/WinPrint"), {
 
 export default function MobileBuilder() {
   const [currentSection, setCurrentSection] = useState(0);
-
+  const [selectedPdfType, setSelectedPdfType] = useState("1");
   const [selectedTemplate, setSelectedTemplate] = useState("template1");
   const [isFinished, setIsFinished] = useState(false);
 
@@ -279,97 +279,94 @@ export default function MobileBuilder() {
 
   const downloadAsPDF = async () => {
     handleFinish();
-    const amount = 49; // Fixed price
+    if (!templateRef.current) {
+      toast.error("Template reference not found");
+      return;
+    }
 
     try {
-      // Make the payment API call
-      const payload = {
-        amount,
-        ResumeId: resumeId, // Make sure resumeId is defined in your component
-        Token: token || "", // Make sure token is defined in your component
-      };
+      // Get the HTML content from the template
+      const htmlContent = templateRef.current.innerHTML;
 
+      // Generate the full HTML for the PDF
+      const fullContent = `
+        <style>
+          @import url('https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css');
+        </style>
+        ${htmlContent}
+      `;
+
+      // API call to generate the PDF
       const response = await axios.post(
-        `${BASE_URL}/api/user/paypal/create-payment`,
-        payload,
+        `${BASE_URL}/api/user/generate-pdf-py`,
+        // { html: fullContent },
+        { html: fullContent, pdf_type: selectedPdfType },
         {
           headers: {
-            Authorization: token,
             "Content-Type": "application/json",
+            Authorization: token,
           },
         }
       );
 
-      const data = response.data;
-      console.log(data, "data");
-      if (data && data.data) {
-        // Store the order ID for later verification if needed
-        const orderId = data.order_id;
-        localStorage.setItem("orderid", orderId);
+      // Check if the file path was returned
+      // const filePath = response.data.data?.file_path;
+      // if (!filePath) {
+      //   throw new Error('PDF file path not received');
+      // }
 
-        // Redirect the user to PayPal URL to complete payment
-        if (data.data) {
-          window.location.href = data.data; // Redirect to PayPal
-        } else {
-          console.error("Payment URL not found");
-        }
-      }
+      // Construct the URL
+      // const downloadUrl = `${BASE_URL}${filePath}`;
+
+      // Open the URL in a new tab
+      // createPayment();
+      // window.open(downloadUrl, '_blank');
+
+      // toast.success('PDF generated and opened in a new tab!');
+      downloadPDF();
+      // toast.success("PDF generation request sent successfully!");
     } catch (error) {
-      console.error("Payment Error:", error);
-      // Handle error (show error message to user)
+      console.error("PDF generation error:", error);
+      toast.error(
+        error.response?.data?.message || "Failed to generate and open PDF"
+      );
+    }
+  };
+  const downloadPDF = async () => {
+    handleFinish();
+    try {
+      const response = await axios.get(
+        `${BASE_URL}/api/user/download-file/11/${resumeId}`,
+        {
+          headers: {
+            Authorization: token,
+          },
+          responseType: "blob", // Important for file download
+        }
+      );
+
+      const url = window.URL.createObjectURL(
+        new Blob([response.data], { type: "application/pdf" })
+      );
+      const link = document.createElement("a");
+      link.href = url;
+
+      // Set the file name
+      link.setAttribute("download", `resume.pdf`);
+      document.body.appendChild(link);
+      link.click();
+
+      // Cleanup
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+
+      toast.success("PDF downloaded successfully!");
+    } catch (error) {
+      console.error("PDF Download Error:", error);
+      toast.error("Failed to download the PDF. Please try again.");
     }
   };
 
-  // const downloadAsPDF = async () => {
-  //   if (!templateRef.current) {
-  //     toast.error("Template reference not found");
-  //     return;
-  //   }
-
-  //   try {
-  //     // Get the HTML content from the template
-  //     const htmlContent = templateRef.current.innerHTML;
-
-  //     // Generate the full HTML for the PDF
-  //     const fullContent = `
-  //       <style>
-  //         @import url('https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css');
-  //       </style>
-  //       ${htmlContent}
-  //     `;
-
-  //     // API call to generate the PDF
-  //     const response = await axios.post(
-  //       '${BASE_URL}/api/user/generate-pdf1',
-  //       { html: fullContent },
-  //       {
-  //         headers: {
-  //           'Content-Type': 'application/json',
-  //           Authorization: token,
-  //         },
-  //       }
-  //     );
-
-  //     // Check if the file path was returned
-  //     const filePath = response.data.data?.file_path;
-  //     if (!filePath) {
-  //       throw new Error('PDF file path not received');
-  //     }
-
-  //     // Construct the URL
-  //     const downloadUrl = `${BASE_URL}${filePath}`;
-
-  //     // Open the URL in a new tab
-  //     window.open(downloadUrl, '_blank');
-
-  //     toast.success('PDF generated and opened in a new tab!');
-  //   } catch (error) {
-  //     console.error('PDF generation error:', error);
-  //     toast.error(
-  //       error.response?.data?.message || 'Failed to generate and open PDF'
-  //     );
-  //   }
-  // };
   useEffect(() => {
     if (PayerID) {
       verifyPayment();
@@ -397,10 +394,7 @@ export default function MobileBuilder() {
           toast.success("Payment verified successfully!");
 
           localStorage.removeItem("orderid");
-
-          if (pdfExportComponent.current) {
-            pdfExportComponent.current.save();
-          }
+          await downloadPDF(orderId, resumeId, token);
         } else {
           toast.error("Payment verification failed. Please try again.");
           router.push("/payment-failed");
@@ -686,6 +680,8 @@ export default function MobileBuilder() {
                 <TemplateSelector
                   selectedTemplate={selectedTemplate}
                   setSelectedTemplate={setSelectedTemplate}
+                  selectedPdfType={selectedPdfType}
+                  setSelectedPdfType={setSelectedPdfType}
                 />
               </div>
               <div className=" ">
@@ -704,17 +700,17 @@ export default function MobileBuilder() {
                   Save
                 </LoaderButton>
 
-                {/* <button
-                onClick={downloadAsPDF}
-                className=" bg-yellow-500 text-black px-4 py-2 rounded-lg bottom-btns"
-              >
-             Pay & Download
-              </button> */}
-                <PayAndDownload
+                <button
+                  onClick={downloadAsPDF}
+                  className=" bg-yellow-500 text-black px-4 py-2 rounded-lg bottom-btns"
+                >
+                  Pay & Download
+                </button>
+                {/* <PayAndDownload
                   resumeId={resumeId}
                   token={token}
                   PayerID={PayerID}
-                />
+                /> */}
                 {/* {showModal && (
                 <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
                   <div className="w-full max-w-[90%] sm:max-w-4xl bg-white rounded-lg shadow-lg overflow-hidden max-h-screen overflow-y-auto">

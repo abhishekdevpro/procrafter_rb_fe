@@ -386,21 +386,21 @@ const Login2 = () => {
               </label>
             </div>
 
-            {/* <button
-              // type="submit"
+            <button
+              type="submit"
               className="w-full bg-[#00b38d] text-white px-4 py-2 rounded-md hover:bg-[#00b38d] transition-colors duration-300 relative"
-              // disabled={isLoading}
+              disabled={isLoading}
             >
               Send OTP
-            </button> */}
+            </button>
           </form>
-          <button
+          {/* <button
             // type="submit"
             className="w-full bg-[#00b38d] text-white px-4 py-2 rounded-md hover:bg-[#00b38d] transition-colors duration-300 relative"
             // disabled={isLoading}
           >
             Send OTP
-          </button>
+          </button> */}
         </div>
       </div>
     </>

@@ -48,6 +48,7 @@ export default function WebBuilder() {
   // const [selectedFont, setSelectedFont] = useState("Ubuntu");
   // const [headerColor, setHeaderColor] = useState("");
   // const [backgroundColorss, setBgColor] = useState("");
+  const [selectedPdfType, setSelectedPdfType] = useState("1");
   const [selectedTemplate, setSelectedTemplate] = useState("template1");
   const [isFinished, setIsFinished] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -347,8 +348,9 @@ export default function WebBuilder() {
 
       // API call to generate the PDF
       const response = await axios.post(
-        `${BASE_URL}/api/user/generate-pdf1`,
-        { html: fullContent },
+        `${BASE_URL}/api/user/generate-pdf-py`,
+        // { html: fullContent },
+        { html: fullContent, pdf_type: selectedPdfType },
         {
           headers: {
             "Content-Type": "application/json",
@@ -371,6 +373,8 @@ export default function WebBuilder() {
       // window.open(downloadUrl, '_blank');
 
       // toast.success('PDF generated and opened in a new tab!');
+      downloadPDF();
+      // toast.success("PDF generation request sent successfully!");
     } catch (error) {
       console.error("PDF generation error:", error);
       toast.error(
@@ -419,86 +423,7 @@ export default function WebBuilder() {
       // Handle error (show error message to user)
     }
   };
-  // const downloadAsPDF = async () => {
-  //   if (!templateRef.current) {
-  //     toast.error("Template reference not found");
-  //     return;
-  //   }
 
-  //   try {
-  //     // Get HTML and used classes
-  //     const htmlContent = templateRef.current.innerHTML;
-  //     const usedClasses = [...new Set(
-  //       Array.from(templateRef.current.querySelectorAll('*')).flatMap(el => [...el.classList])
-  //     )];
-
-  //     // Extract relevant CSS
-  //     const cssContent = Array.from(document.styleSheets)
-  //       .flatMap(sheet => {
-  //         try {
-  //           return [...sheet.cssRules]
-  //             .filter(rule =>
-  //               rule.selectorText && usedClasses.some(cls => rule.selectorText.includes(`.${cls}`))
-  //             )
-  //             .map(rule => rule.cssText);
-  //         } catch {
-  //           return [];
-  //         }
-  //       })
-  //       .join('\n');
-
-  //     // Generate HTML content for PDF
-  //     const fullContent = `
-  //       <style>${cssContent}</style>
-  //       ${htmlContent}
-  //     `;
-  //     console.log(fullContent,"fullContent");
-
-  //     // API call to generate the PDF
-  //     const response = await axios.post(
-  //       '${BASE_URL}/api/user/generate-pdf1',
-  //       { html: ` <script src="https://cdn.tailwindcss.com"></script> ${htmlContent}` },
-  //       {
-  //         headers: {
-  //           'Content-Type': 'application/json',
-  //           Authorization: token,
-  //         },
-  //       }
-  //     );
-
-  //     if (!response.data.data?.file_path) {
-  //       throw new Error('PDF file path not received');
-  //     }
-
-  //     // Construct the download URL
-  //     const downloadUrl = `${BASE_URL}${response.data.data.file_path}`;
-
-  //     // Fetch the PDF file to handle CORS issues
-  //     const fileResponse = await axios.get(downloadUrl, {
-  //       responseType: 'blob', // Ensure the response is treated as a binary file
-  //     });
-
-  //     // Create a Blob URL
-  //     const blob = new Blob([fileResponse.data], { type: 'application/pdf' });
-  //     const blobUrl = window.URL.createObjectURL(blob);
-
-  //     // Download the file
-  //     const link = document.createElement('a');
-  //     link.href = blobUrl;
-  //     link.download = 'GeneratedResume.pdf'; // Name of the file to be downloaded
-  //     document.body.appendChild(link);
-  //     link.click();
-  //     document.body.removeChild(link);
-
-  //     // Clean up the Blob URL
-  //     window.URL.revokeObjectURL(blobUrl);
-
-  //     toast.success('PDF generated and downloaded successfully!');
-  //   } catch (error) {
-  //     console.error('PDF generation error:', error);
-  //     toast.error(error.response?.data?.message || 'Failed to generate PDF');
-  //   }
-  // };
   useEffect(() => {
     if (PayerID) {
       verifyPayment();
@@ -541,11 +466,11 @@ export default function WebBuilder() {
     }
   };
 
-  const downloadPDF = async (orderId, resumeId, token) => {
+  const downloadPDF = async () => {
     handleFinish();
     try {
       const response = await axios.get(
-        `${BASE_URL}/api/user/download-file/${orderId}/${resumeId}`,
+        `${BASE_URL}/api/user/download-file/11/${resumeId}`,
         {
           headers: {
             Authorization: token,
@@ -561,7 +486,7 @@ export default function WebBuilder() {
       link.href = url;
 
       // Set the file name
-      link.setAttribute("download", `resume_${orderId}.pdf`);
+      link.setAttribute("download", `resume.pdf`);
       document.body.appendChild(link);
       link.click();
 
@@ -794,6 +719,8 @@ export default function WebBuilder() {
                     <TemplateSelector
                       selectedTemplate={selectedTemplate}
                       setSelectedTemplate={setSelectedTemplate}
+                      selectedPdfType={selectedPdfType}
+                      setSelectedPdfType={setSelectedPdfType}
                     />
                   </div>
                 </div>
@@ -911,6 +838,8 @@ export default function WebBuilder() {
                 <TemplateSelector
                   selectedTemplate={selectedTemplate}
                   setSelectedTemplate={setSelectedTemplate}
+                  selectedPdfType={selectedPdfType}
+                  setSelectedPdfType={setSelectedPdfType}
                 />
               </div>
               <div className="flex gap-4">
@@ -920,17 +849,17 @@ export default function WebBuilder() {
                 >
                   Save Resume
                 </button>
-                {/* <button
+                <button
                   onClick={downloadAsPDF}
                   className="bg-yellow-500 text-black px-6 py-2 rounded-lg"
                 >
                   Pay & Download
-                </button> */}
-                <PayAndDownload
+                </button>
+                {/* <PayAndDownload
                   resumeId={resumeId}
                   token={token}
                   PayerID={PayerID}
-                />
+                /> */}
                 {/* {showModal && (
                   <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
                     <div className=" w-full max-w-4xl bg-white rounded-lg shadow-lg ">

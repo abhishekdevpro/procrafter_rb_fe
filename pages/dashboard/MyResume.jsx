@@ -168,7 +168,7 @@ const MyResume = () => {
   };
 
   return (
-    <div className="container mx-auto p-4 max-w-7xl">
+    <div className="container mx-auto p-6 max-w-7xl">
       {/* Header Section */}
       <div className="flex flex-col sm:flex-row justify-between items-center mb-8">
         <h1 className="text-2xl font-bold text-gray-800">

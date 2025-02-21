@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { BASE_URL } from "../../components/Constant/constant";
+import { useTranslation } from "react-i18next";
 
 function Skillhistory() {
+  const { t } = useTranslation();
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -26,23 +28,33 @@ function Skillhistory() {
 
   return (
     <>
-      <h5 className="text-2xl font-bold mb-6 ms-5">Skill History</h5>
+      <h5 className="text-2xl font-bold mb-6 ms-5">
+        {t("skillhistory.title")}
+      </h5>
       <div className="container mx-auto p-4 text-center">
         <div className="overflow-x-auto">
           {users.length === 0 ? (
             <p className="text-lg text-gray-500">
-              Your skill assessment history shows up here.
+              {t("skillhistory.no_history")}
             </p>
           ) : (
             <table className="min-w-full bg-dark text-black rounded-md text-center">
               <thead>
                 <tr className="bg-[#00b38d] text-white">
-                  <th className="py-2 px-4">Date / Time</th>
-                  <th className="py-2 px-4">Verification Status</th>
-                  <th className="py-2 px-4">Total Questions</th>
-                  <th className="py-2 px-4">Right Answers</th>
-                  <th className="py-2 px-4">Wrong Answers</th>
-                  <th className="py-2 px-4">Percentage</th>
+                  <th className="py-2 px-4">{t("skillhistory.date_time")}</th>
+                  <th className="py-2 px-4">
+                    {t("skillhistory.verification_status")}
+                  </th>
+                  <th className="py-2 px-4">
+                    {t("skillhistory.total_questions")}
+                  </th>
+                  <th className="py-2 px-4">
+                    {t("skillhistory.right_answers")}
+                  </th>
+                  <th className="py-2 px-4">
+                    {t("skillhistory.wrong_answers")}
+                  </th>
+                  <th className="py-2 px-4">{t("skillhistory.percentage")}</th>
                 </tr>
               </thead>
               <tbody>
@@ -53,7 +65,9 @@ function Skillhistory() {
                   >
                     <td className="py-2 px-4">{user.date_time || "N/A"}</td>
                     <td className="py-2 px-4">
-                      {user.is_verified ? "Verified" : "Not Verified"}
+                      {user.is_verified
+                        ? t("skillhistory.verified")
+                        : t("skillhistory.not_verified")}
                     </td>
                     <td className="py-2 px-4">{user.results.total_question}</td>
                     <td className="py-2 px-4">{user.results.right_answer}</td>

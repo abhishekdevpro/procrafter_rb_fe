@@ -666,7 +666,202 @@
                           "error_message": "Failed to fetch jobs. Please try again later.",
                           "apply_now": "Apply Now"
                         },
-                         "notification_coming_soon": "🙋‍♀️ Notification Coming Soon"
+                         "notification_coming_soon": "🙋‍♀️ Notification Coming Soon",
+                         "skill": {
+    "welcome_message": "Welcome to Skills Assessment",
+    "instructions": "Please take a moment to read the instructions carefully before proceeding.",
+    "continue": "Continue",
+    "take_skill_assessment": "👨‍💻 Take Skill Assessment",
+    "total_questions": "❓ Total Questions",
+    "right_answers": "📌 Right Answers",
+    "wrong_answers": "⚠️ Wrong Answers",
+    "percentage": "📈 Percentage",
+    "take_test": "✍ Take Test",
+    "no_skills": "No skills data available.",
+    "instructions_title": "📜 Instructions",
+    "common_instructions": "Following instructions are common for all users.",
+    "instruction_1": "The duration of the test is 10 minutes*. Your answer gets automatically submitted after 10 minutes*.",
+    "instruction_2": "This test consists of 15* multiple-choice questions.",
+    "instruction_3": "You may attempt the questions in any order.",
+    "instruction_4": "Please select the correct answer and click the Save and next button.",
+    "instruction_5": "Please click skip if you wish to skip a question. You may come back and answer the question later.",
+    "instruction_6": "Please click on the Submit Assessment button after answering all the questions.",
+    "instruction_7": "Do not close the window before submitting the test.",
+    "instruction_8": "Tests will be automatically submitted after the given time limit.",
+    "proceed_to_test": "Proceed to Test",
+     "create_or_upload": "Please create or upload resume to take test, using below link.",
+    "create_new_resume": "Create New Resume",
+     "close": "Close",
+    
+    "toast": {
+      "resume_required": "Please add a resume first before taking the test.",
+      "test_started": "Test has started!",
+      "unauthorized": "Unauthorized access. Please log in again.",
+      "loading_error": "There was an error fetching the skills data."
+    }
+  
+  },
+  "testPaper": {
+    "loadingMessage": "Please Wait..",
+    "processingRequest": "Hold On A Second! We're Processing your request...!",
+    "dontCloseWindow": "Don't Close or Go Back in Your Window!",
+    "totalQuestions": "Total Questions",
+    "rightAnswer": "Right Answer",
+    "wrongAnswer": "Wrong Answer",
+    "percentage": "Percentage",
+    "back": "Back",
+    "previous": "↩️ Previous",
+    "next": "↪️ Next",
+    "submit": "🎓 Submit",
+    "errorFetching": "Error fetching questions",
+    "error":"Error"
+  },
+  "skillhistory": {
+    "title": "Skill History",
+    "no_history": "Your skill assessment history shows up here.",
+    "date_time": "Date / Time",
+    "verification_status": "Verification Status",
+    "total_questions": "Total Questions",
+    "right_answers": "Right Answers",
+    "wrong_answers": "Wrong Answers",
+    "percentage": "Percentage",
+    "verified": "Verified",
+    "not_verified": "Not Verified"
+  },
+  "payments": {
+    "title": "Payment Plans",
+    "resume_builder": "Resume Builder",
+    "starting": "starting",
+    "free": "Free",
+    "expert_writer": "Expert Human Writer",
+    "combo": "French English Combo",
+    "per_resume": "/Resume",
+    "choose_plan": "Choose this plan",
+    "features": {
+      "optimized_resumes": "✔️ Create optimized resumes",
+      "copy_paste": "✔️ Copy and paste content from site",
+      "receive_pdf_docs": "✔️ Receive resume in pdf and docs",
+      "unlimited_edits": "✔️ Unlimited resumes edits",
+      "cover_letter": "✔️ Cover letter included",
+      "save_pdf_docs": "✔️ Save resume as pdf and docs",
+      "revisions": "✔️ 3 revisions included",
+      "speak_writer": "✔️ Speak one on one with writer",
+      "final_delivery": "✔️ Final Delivery 1 week"
+    }
+  },
+  
+    "modal": {
+      "title": "CibliJob ID",
+      "subtitle": "Your One-Stop Access to Career Solutions",
+      "coming_soon": "Coming Soon!",
+      "status": "Development Status:",
+      "progress": "90% Complete",
+      "description": "CibliJob ID will allow you to seamlessly connect to all our services with a single account. Stay tuned for the launch!",
+      "signup": "Want to know when CibliJob ID is live? Sign up for updates!",
+      "email_placeholder": "Enter your email ID",
+      "notify_button": "Notify Me",
+      "close_button": "Close",
+      "in_progress":"In Progress"
+    },
+    "dashboard_page":{
+      "createResume": "Create New Resume",
+      "createCoverLetter": "Create New Cover Letters",
+      "myProfileDashboard": "My Profile Dashboard",
+      "recommendedSteps": "Your Recommended Next Steps"
+    },
+    "dashboard_sidebar":{
+      "resumeStrength": "Resume Strength:",
+      "improve": "Improve",
+      "createResume": "Create New Resume",
+      "edit": "Edit",
+      "viewAll": "View All",
+      "loading": "Loading...",
+      "downloadFailed": "Failed to download the file. Please try again later."
+    },
+    "resumeStrength": {
+      "resumeStrength": "Resume Strength",
+      "fixResume": "Fix Resume",
+      "foundErrors": "We found {{errors}} errors in your resume.",
+      "useTool": "Use our Resume Check tool to fix them.",
+      "improveResume": "Improve Resume",
+      "sections": {
+        "personalInformation": "Personal Information",
+        "socialLinks": "Social Links",
+        "personalSummary": "Personal Summary",
+        "education": "Education",
+        "workHistory": "Work History",
+        "projects": "Projects",
+        "skills": "Skills",
+        "languages": "Languages",
+        "certification": "Certification"
+      }
+      
+    },
+    "dashboard_interview":{
+        "clearInterview": "Clear Your Interview",
+        "description": "Gain insights from our expert-written resources and receive weekly updates straight to your inbox.",
+        "visitResources": "Visit Resources"
+      },
+      "dashboard_cvletter":{
+        "yourCoverLetters": "Your Cover Letters",
+        "viewCoverLetters": "View Cover Letters"
+      },
+      "createResume":{
+        "welcome_resumebuilder":"Welcome to Resume Builder",
+        "create_resume":"Click the button below to create your resume.",
+         "resume_btn":"Create Your Resume",
+         "creating":"Creating..."
+      },
+      "analyzingResume": {
+        "title": "Analyzing Resume...",
+        "description": "Please wait while we process your document"
+      },
+      
+        "experienceStep": {
+          "title": "How long have you been working?",
+          "description": "We will find the best templates for your experience level.",
+          "options": {
+            "none": "No Experience",
+            "less-3": "Less Than 3 Years",
+            "3-5": "3-5 Years",
+            "5-10": "5-10 Years",
+            "10-plus": "10+ Years"
+          }
+        },
+        
+          "templateStep": {
+            "choose_template": "Choose Your Perfect Template",
+            "select_design": "Select a design that best represents your professional style",
+            "color_theme": "Color Theme",
+            "photo_style": "Photo Style",
+            "with_photo": "With Photo",
+            "without_photo": "Without Photo",
+            "back": "Back",
+            "next": "Next",
+            "loading": "Loading...",
+            "toast": {
+              "resume_not_found": "Resume ID or token not found",
+              "fetch_error": "Error fetching resume data",
+              "save_success": "Resume saved successfully",
+              "save_error": "Error while saving the Resume",
+              "update_error": "Error updating resume!"
+            }
+          },
+          
+            "uploadStep": {
+              "title": "Are you uploading an existing resume?",
+              "description": "Just review, edit, and update it with new information",
+              "yes_upload": "Yes, upload from my resume",
+              "yes_upload_description": "We will give you expert guidance to fill out your info and enhance your resume",
+              "no_start_scratch": "No, start from scratch",
+              "no_start_scratch_description": "We will guide you through the whole process so your skills can shine",
+              "back": "Back",
+              "resume_id_error": "Resume ID or token not found"
+            }
+      
+      
+      
+    
                         
                         
                       

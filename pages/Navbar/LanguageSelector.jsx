@@ -53,7 +53,7 @@ function LanguageSelector() {
   };
 
   return (
-    <div className="fixed top-4 right-4 z-50">
+    <div className="fixed top-12 right-4 z-50">
       {/* Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
