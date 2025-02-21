@@ -648,9 +648,87 @@
                                   "error_message": "Échec de la récupération des offres d'emploi. Veuillez réessayer plus tard.",
                                   "apply_now": "Postuler maintenant"
                                 },
-                                 "notification_coming_soon": "🙋‍♀️ Notification à venir bientôt"
+                                 "notification_coming_soon": "🙋‍♀️ Notification à venir bientôt",
+                                 "skill": {
+    "welcome_message": "Bienvenue à l'évaluation des compétences",
+    "instructions": "Veuillez prendre un moment pour lire attentivement les instructions avant de continuer.",
+    "continue": "Continuer",
+    "take_skill_assessment": "👨‍💻 Passer l'évaluation des compétences",
+    "total_questions": "❓ Nombre total de questions",
+    "right_answers": "📌 Réponses correctes",
+    "wrong_answers": "⚠️ Réponses incorrectes",
+    "percentage": "📈 Pourcentage",
+    "take_test": "✍ Passer le test",
+    "no_skills": "Aucune donnée de compétences disponible.",
+    "instructions_title": "📜 Instructions",
+    "common_instructions": "Les instructions suivantes sont communes à tous les utilisateurs.",
+    "instruction_1": "La durée du test est de 10 minutes*. Votre réponse est automatiquement soumise après 10 minutes*.",
+    "instruction_2": "Ce test comprend 15* questions à choix multiples.",
+    "instruction_3": "Vous pouvez répondre aux questions dans n'importe quel ordre.",
+    "instruction_4": "Veuillez sélectionner la bonne réponse et cliquer sur le bouton Enregistrer et suivant.",
+    "instruction_5": "Veuillez cliquer sur Ignorer si vous souhaitez ignorer une question. Vous pouvez revenir plus tard pour y répondre.",
+    "instruction_6": "Veuillez cliquer sur le bouton Soumettre l'évaluation après avoir répondu à toutes les questions.",
+    "instruction_7": "Ne fermez pas la fenêtre avant de soumettre le test.",
+    "instruction_8": "Les tests seront automatiquement soumis après la durée limite.",
+    "proceed_to_test": "Passer au test",
+ "create_or_upload": "Veuillez créer ou télécharger un CV pour passer le test en utilisant le lien ci-dessous.",
+    "create_new_resume": "Créer un nouveau CV",
+     "close": "Fermer",
+    "toast": {
+      "resume_required": "Veuillez d'abord ajouter un CV avant de passer le test.",
+      "test_started": "Le test a commencé!",
+      "unauthorized": "Accès non autorisé. Veuillez vous reconnecter.",
+      "loading_error": "Erreur lors du chargement des données des compétences."
+    }
+  },
+  "testPaper": {
+    "loadingMessage": "Veuillez patienter...",
+    "processingRequest": "Un instant ! Nous traitons votre demande...!",
+    "dontCloseWindow": "Ne fermez pas ou ne revenez pas en arrière dans votre fenêtre !",
+    "totalQuestions": "Nombre total de questions",
+    "rightAnswer": "Bonne réponse",
+    "wrongAnswer": "Mauvaise réponse",
+    "percentage": "Pourcentage",
+    "back": "Retour",
+    "previous": "↩️ Précédent",
+    "next": "↪️ Suivant",
+    "submit": "🎓 Soumettre",
+    "errorFetching": "Erreur lors de la récupération des questions",
+    "error":"Erreur"
+  },
                                 
-                              
+  "skillhistory": {
+    "title": "Historique des Compétences",
+    "no_history": "Votre historique d'évaluation des compétences apparaîtra ici.",
+    "date_time": "Date / Heure",
+    "verification_status": "Statut de Vérification",
+    "total_questions": "Nombre Total de Questions",
+    "right_answers": "Bonnes Réponses",
+    "wrong_answers": "Mauvaises Réponses",
+    "percentage": "Pourcentage",
+    "verified": "Vérifié",
+    "not_verified": "Non Vérifié"
+  },
+  "payments": {
+    "title": "Plans de Paiement",
+    "resume_builder": "Créateur de CV",
+    "starting": "à partir de",
+    "free": "Gratuit",
+    "expert_writer": "Rédacteur Humain Expert",
+    "combo": "Combo Français Anglais",
+    "per_resume": "/CV",
+    "choose_plan": "Choisissez ce plan",
+    "features": {
+      "optimized_resumes": "✔️ Créez des CV optimisés",
+      "copy_paste": "✔️ Copier et coller du contenu depuis le site",
+      "receive_pdf_docs": "✔️ Recevez votre CV en pdf et doc",
+      "unlimited_edits": "✔️ Modifications illimitées du CV",
+      "cover_letter": "✔️ Lettre de motivation incluse",
+      "save_pdf_docs": "✔️ Enregistrez le CV en pdf et doc",
+      "revisions": "✔️ 3 révisions incluses",
+      "speak_writer": "✔️ Parlez en tête-à-tête avec l'écrivain",
+      "final_delivery": "✔️ Livraison finale en 1 semaine"
+    }                       
                               
                             
                             
@@ -660,7 +738,121 @@
                         
                       
                       
-                    }
+  },
+  "modal": {
+    "title": "CibliJob ID",
+    "subtitle": "Votre accès unique aux solutions de carrière",
+    "coming_soon": "Bientôt disponible !",
+    "status": "Statut du développement :",
+    "progress": "90% Complet",
+    "description": "CibliJob ID vous permettra de vous connecter facilement à tous nos services avec un seul compte. Restez à l'écoute pour le lancement !",
+    "signup": "Vous voulez savoir quand CibliJob ID sera en ligne ? Inscrivez-vous pour recevoir des mises à jour !",
+    "email_placeholder": "Entrez votre email",
+    "notify_button": "Prévenez-moi",
+    "close_button": "Fermer",
+    "in_progress":"En cours"
+  },
+  "dashboard_page":{
+    "createResume": "Créer un nouveau CV",
+    "createCoverLetter": "Créer de nouvelles lettres de motivation",
+    "myProfileDashboard": "Mon tableau de bord",
+    "recommendedSteps": "Vos prochaines étapes recommandées"
+  },
+  "dashboard_sidebar":{
+    "resumeStrength": "Force du CV :",
+    "improve": "Améliorer",
+    "createResume": "Créer un nouveau CV",
+    "edit": "Modifier",
+    "viewAll": "Voir tout",
+    "loading": "Chargement...",
+    "downloadFailed": "Échec du téléchargement du fichier. Veuillez réessayer plus tard."
+  },
+  "resumeStrength": {
+    "resumeStrength": "Force du CV",
+    "fixResume": "Corriger le CV",
+    "foundErrors": "Nous avons trouvé {{errors}} erreurs dans votre CV.",
+    "useTool": "Utilisez notre outil de vérification du CV pour les corriger.",
+    "improveResume": "Améliorer le CV",
+    "sections": {
+      "personalInformation": "Informations personnelles",
+      "socialLinks": "Liens sociaux",
+      "personalSummary": "Résumé personnel",
+      "education": "Éducation",
+      "workHistory": "Historique professionnel",
+      "projects": "Projets",
+      "skills": "Compétences",
+      "languages": "Langues",
+      "certification": "Certification"
+    }
+  },
+  "dashboard_interview":
+  {
+    "clearInterview": "Réussissez votre entretien",
+    "description": "Obtenez des informations précieuses grâce à nos ressources rédigées par des experts et recevez des mises à jour hebdomadaires directement dans votre boîte de réception.",
+    "visitResources": "Visitez les ressources"
+  },
+  "dashboard_cvletter":{
+    "yourCoverLetters": "Vos lettres de motivation",
+    "viewCoverLetters": "Voir les lettres de motivation"
+  },
+  "createResume":{
+    "welcome_resumebuilder":"Bienvenue sur Resume Builder",
+    "create_resume":"Cliquez sur le bouton ci-dessous pour créer votre CV.",
+    "resume_btn":"Créez votre CV",
+    "creating":"Création..."
+  },
+  "analyzingResume": {
+    "title": "Analyse du CV...",
+    "description": "Veuillez patienter pendant que nous traitons votre document"
+  },
+  
+    "experienceStep": {
+      "title": "Depuis combien de temps travaillez-vous ?",
+      "description": "Nous trouverons les meilleurs modèles adaptés à votre niveau d'expérience.",
+      "options": {
+        "none": "Aucune expérience",
+        "less-3": "Moins de 3 ans",
+        "3-5": "3-5 ans",
+        "5-10": "5-10 ans",
+        "10-plus": "10+ ans"
+      }
+    },
+    "templateStep": {
+    "choose_template": "Choisissez votre modèle parfait",
+    "select_design": "Sélectionnez un design qui représente le mieux votre style professionnel",
+    "color_theme": "Thème de couleur",
+    "photo_style": "Style de photo",
+    "with_photo": "Avec photo",
+    "without_photo": "Sans photo",
+    "back": "Retour",
+    "next": "Suivant",
+    "loading": "Chargement...",
+    "toast": {
+      "resume_not_found": "ID de CV ou jeton introuvable",
+      "fetch_error": "Erreur lors de la récupération des données du CV",
+      "save_success": "CV enregistré avec succès",
+      "save_error": "Erreur lors de l'enregistrement du CV",
+      "update_error": "Erreur lors de la mise à jour du CV !"
+    }
+  },
+  
+    "uploadStep": {
+      "title": "Téléchargez-vous un CV existant ?",
+      "description": "Il suffit de le revoir, de le modifier et de le mettre à jour avec de nouvelles informations",
+      "yes_upload": "Oui, télécharger mon CV",
+      "yes_upload_description": "Nous vous donnerons des conseils d'experts pour compléter vos informations et améliorer votre CV",
+      "no_start_scratch": "Non, commencer de zéro",
+      "no_start_scratch_description": "Nous vous guiderons tout au long du processus afin que vos compétences brillent",
+      "back": "Retour",
+      "resume_id_error": "ID de CV ou jeton introuvable"
+    }
+  
+  
+  
+  
+  
+
+}
                          
                   
                 

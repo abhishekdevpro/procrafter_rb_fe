@@ -5,7 +5,9 @@ import Link from "next/link";
 import Image from "next/image";
 import logo from "./logo.png";
 import { useRouter } from "next/router";
+import { toast } from "react-toastify";
 // import ReCAPTCHA from 'react-google-recaptcha';
+import axios from "axios";
 import { BASE_URL } from "../../components/Constant/constant";
 const LoginCode = () => {
   const [otp, setOtp] = useState("");
@@ -46,7 +48,7 @@ const LoginCode = () => {
       const token = response.data?.data?.token;
 
       localStorage.setItem("token", token);
-
+      toast.success("Login Successfully");
       router.push(`/dashboard`);
     } catch (error) {
       console.error(
@@ -65,7 +67,7 @@ const LoginCode = () => {
         {/* Back Button */}
         <Link
           href="/login2"
-          className="text-blue-600 flex items-center mb-6 hover:text-blue-700"
+          className="text-[#00b38d] flex items-center mb-6 hover:text-[#00b38d]"
         >
           <span className="mr-2">←</span> Back
         </Link>
@@ -87,7 +89,7 @@ const LoginCode = () => {
         </h2>
         <p className="text-gray-600 text-center mb-6">
           We have sent your one-time passcode to <br />
-          <strong>{email}</strong>. This passcode will expire after 10 minutes.
+          <strong>{email}</strong>. This passcode will expire after 5 minutes.
         </p>
 
         {/* OTP Input */}

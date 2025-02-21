@@ -2,10 +2,11 @@ import { Mail } from "lucide-react";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import FullScreenLoader from "../ResumeLoader/Loader";
+import { useTranslation } from "react-i18next";
 const CoverLetterSection = ({ letterCount }) => {
   const [showLoader, setShowLoader] = useState(false); // State to control loader visibility
   const router = useRouter();
-
+  const { t } = useTranslation();
   const handleClick = () => {
     setShowLoader(true); // Show the loader
     setTimeout(() => {
@@ -32,7 +33,9 @@ const CoverLetterSection = ({ letterCount }) => {
             </svg>
           </div>
           <div>
-            <h3 className="text-lg font-semibold">Your Cover Letters</h3>
+            <h3 className="text-lg font-semibold">
+              {t("dashboard_cvletter.yourCoverLetters")}
+            </h3>
             {/* <p className="text-gray-600">Cover Letter: Letter_1</p> */}
           </div>
         </div>
@@ -40,7 +43,7 @@ const CoverLetterSection = ({ letterCount }) => {
           onClick={handleClick}
           className="px-6 py-2 border border-[#00b38d] text-[#00b38d] rounded-lg hover:bg-blue-50"
         >
-          View Cover Letters
+          {t("dashboard_cvletter.viewCoverLetters")}
         </button>
       </div>
     </div>

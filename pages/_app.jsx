@@ -98,6 +98,7 @@ import { CoverLetterProvider } from "../components/context/CoverLetterContext";
 import { appWithTranslation } from "next-i18next";
 import "../components/utils/i18n";
 import axios from "axios";
+import LanguageSelector from "./Navbar/LanguageSelector";
 
 function App({ Component, pageProps }) {
   const router = useRouter();
@@ -167,7 +168,7 @@ function App({ Component, pageProps }) {
 
   return (
     <>
-      <div id="google_translate_element"></div>
+      <LanguageSelector />
       <ResumeProvider>
         <CoverLetterProvider>
           <Component {...pageProps} />

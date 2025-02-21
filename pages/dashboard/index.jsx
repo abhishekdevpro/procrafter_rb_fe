@@ -6,7 +6,7 @@ import Sidebar from "../../components/dashboard/Sidebar";
 import Navbar from "../Navbar/Navbar";
 import axios from "axios";
 import MyResume from "./MyResume";
-
+import { useTranslation } from "react-i18next";
 import { useRouter } from "next/router";
 import FullScreenLoader from "../../components/ResumeLoader/Loader";
 import { Download, Edit, Trash, Plus } from "lucide-react";
@@ -14,6 +14,8 @@ import AbroadiumCommunity from "../../components/dashboard/AbroadiumCommunity";
 import { BASE_URL } from "../../components/Constant/constant";
 import JobSearch from "../JobSearch";
 export default function DashboardPage() {
+  const { t } = useTranslation();
+
   const [strength, setStrength] = useState(null);
   const [resumeId, setResumeId] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -93,19 +95,20 @@ export default function DashboardPage() {
           onClick={handleCreateResume}
           className="flex justify-center items-center px-4 py-2 w-full sm:w-auto bg-[#00b38d] text-white rounded-lg hover:bg-[#369984] transition-colors duration-200 font-medium shadow-sm"
         >
-          <Plus className="w-5 h-5 mr-2" /> Create New Resume
+          <Plus className="w-5 h-5 mr-2" /> {t("dashboard_page.createResume")}
         </button>
         <button
           onClick={handleCreateCoverLetter}
           className="flex justify-center items-center px-4 py-2 w-full sm:w-auto bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition-colors duration-200 font-medium shadow-sm"
         >
-          <Plus className="w-5 h-5 mr-2" /> Create New Cover Letters
+          <Plus className="w-5 h-5 mr-2" />{" "}
+          {t("dashboard_page.createCoverLetter")}
         </button>
         <button
           onClick={handleMyDashboard}
           className="flex justify-center items-center px-4 py-2 w-full sm:w-auto bg-gray-400 text-white rounded-lg hover:bg-gray-500 transition-colors duration-200 font-medium shadow-sm"
         >
-          My Profile Dashboard
+          {t("dashboard_page.myProfileDashboard")}
         </button>
       </div>
       <div className="flex flex-col max-w-7xl mx-auto md:flex-row min-h-screen bg-white p-4">
@@ -115,7 +118,7 @@ export default function DashboardPage() {
         {/* Main Content */}
         <main className="flex-1 p-6 overflow-y-auto">
           <h1 className="text-2xl font-bold mb-6">
-            Your Recommended Next Steps
+            {t("dashboard_page.recommendedSteps")}
           </h1>
 
           <ResumeStrength
@@ -123,8 +126,6 @@ export default function DashboardPage() {
             strength={strength || {}}
             resumeId={resumeId || null}
           />
-          {/* <ProfileSection visits={4} /> */}
-          {/* <AbroadiumCommunity /> */}
           <InterviewSection />
           <CoverLetterSection />
         </main>
