@@ -87,6 +87,7 @@ export default function DashboardPage() {
       router.push("/dashboard/page");
     }, 2000);
   };
+
   return (
     <>
       <Navbar />

@@ -593,7 +593,7 @@
                     "photo_removed": "Profile photo removed successfully",
                     "photo_remove_failed": "Failed to remove profile photo",
                     
-                      "dashboard": "Dashboard",
+                     
                       "profile": "Profile",
                       "ai_resume_builder": "AI Resume Builder",
                       "my_resumes": "My Resumes",
@@ -784,6 +784,7 @@
       "foundErrors": "We found {{errors}} errors in your resume.",
       "useTool": "Use our Resume Check tool to fix them.",
       "improveResume": "Improve Resume",
+      "improveATS":"Improve ATS",
       "sections": {
         "personalInformation": "Personal Information",
         "socialLinks": "Social Links",
@@ -796,6 +797,31 @@
         "certification": "Certification"
       }
       
+    },
+    "improvements": {
+      "title": "Areas for Improvement",
+      "file_format": "File Formatting",
+      "keyword_optimization": "Keyword Optimization"
+    },
+    "formatting": {
+      "title": "Formatting Checklist",
+      "bullet_points": "Bullet Points Used",
+      "bullet_points_desc": "Proper use of bullet points in resume sections",
+      "clear_headings": "Clear Headings",
+      "clear_headings_desc": "Section headings are clear and well-defined",
+      "consistent_font": "Consistent Font",
+      "consistent_font_desc": "Consistent font usage throughout the resume",
+      "contact_info": "Contact Info Visible",
+      "contact_info_desc": "Contact information is clearly visible"
+    },
+    "overall_comments": "Overall Comments",
+    "button": {
+      "improve": "Proceed to Improve..."
+    },
+    "toast": {
+      "ats_success": "ATS updated successfully",
+      "no_response": "No response data received",
+      "error": "Something went wrong"
     },
     "dashboard_interview":{
         "clearInterview": "Clear Your Interview",
@@ -857,7 +883,28 @@
               "no_start_scratch_description": "We will guide you through the whole process so your skills can shine",
               "back": "Back",
               "resume_id_error": "Resume ID or token not found"
-            }
+            },
+            
+              "fileUploadStep": {
+                "title": "Upload Your Resume",
+                "description": "We accept PDF files for better parsing accuracy",
+                "dragDrop": "Drag and drop your resume here",
+                "selectFile": "Select PDF File",
+                "maxSize": "Maximum file size: 10MB",
+                "uploading": "Uploading your resume...",
+                "uploadComplete": "Upload completed successfully!",
+                "uploadFailed": "File upload failed",
+                "uploadSuccess": "File uploaded successfully",
+                "invalidFile": "Please upload a PDF file",
+                "noFileSelected": "Please select a file to upload",
+                "authError": "Authentication token not found",
+                "resumeError": "Resume data not found in API response",
+                "googleDrive": "Google Drive",
+                "or": "OR",
+                "back": "Back",
+                "next": "Next"
+              }
+            
       
       
       
