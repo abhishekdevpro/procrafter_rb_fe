@@ -373,7 +373,7 @@ export default function WebBuilder() {
       // window.open(downloadUrl, '_blank');
 
       // toast.success('PDF generated and opened in a new tab!');
-      downloadPDF();
+      initiateCheckout();
       // toast.success("PDF generation request sent successfully!");
     } catch (error) {
       console.error("PDF generation error:", error);
@@ -382,45 +382,42 @@ export default function WebBuilder() {
       );
     }
   };
-  const createPayment = async () => {
-    const amount = 49; // Fixed price
-
+  const initiateCheckout = async () => {
     try {
-      // Make the payment API call
-      const payload = {
-        amount,
-        ResumeId: resumeId, // Make sure resumeId is defined in your component
-        Token: token || "", // Make sure token is defined in your component
-      };
+      // Ensure resumeId is a valid integer
+      const parsedResumeId = parseInt(resumeId, 10);
+      if (isNaN(parsedResumeId)) {
+        throw new Error("Invalid resume ID; unable to convert to an integer.");
+      }
 
-      const response = await axios.post(
-        `${BASE_URL}/api/user/paypal/create-payment`,
-        payload,
+      // Step 2: Checkout API Call
+      const checkoutResponse = await axios.post(
+        `${BASE_URL}/api/user/payment/checkout`,
+        {
+          plan_id: 1,
+          resume_id: parsedResumeId, // Use integer here
+        },
         {
           headers: {
             Authorization: token,
-            "Content-Type": "application/json",
           },
         }
       );
 
-      const data = response.data;
-      console.log(data, "data");
-      if (data && data.data) {
-        // Store the order ID for later verification if needed
-        const orderId = data.order_id;
-        localStorage.setItem("orderid", orderId);
-
-        // Redirect the user to PayPal URL to complete payment
-        if (data.data) {
-          window.location.href = data.data; // Redirect to PayPal
-        } else {
-          console.error("Payment URL not found");
-        }
+      // Check for successful response
+      const redirectUrl = checkoutResponse.data.data; // Adjust the key if necessary
+      if (redirectUrl) {
+        toast.success("Checkout successful! Redirecting...");
+        window.location.href = redirectUrl; // Redirects user to payment page
+      } else {
+        throw new Error("No redirect URL found in checkout response.");
       }
     } catch (error) {
-      console.error("Payment Error:", error);
-      // Handle error (show error message to user)
+      console.error("Error during checkout:", error);
+      toast.error(
+        error.response?.data?.message ||
+          "Failed to initiate the payment process."
+      );
     }
   };
 
@@ -449,9 +446,12 @@ export default function WebBuilder() {
         if (response.data.status === "success") {
           setPaymentVerified(true);
           toast.success("Payment verified successfully!");
-
+          downloadPDF()
           localStorage.removeItem("orderid");
-          await downloadPDF(orderId, resumeId, token);
+
+          if (pdfExportComponent.current) {
+            pdfExportComponent.current.save();
+          }
         } else {
           toast.error("Payment verification failed. Please try again.");
           router.push("/payment-failed");
@@ -465,7 +465,6 @@ export default function WebBuilder() {
       router.push("/payment-failed");
     }
   };
-
   const downloadPDF = async () => {
     handleFinish();
     try {

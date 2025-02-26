@@ -205,6 +205,7 @@ import Link from "next/link"; // Import Link from next/link
 import img from "../Footer/footer-img.jpg";
 import { BASE_URL } from "../../components/Constant/constant";
 import { useTranslation } from "react-i18next";
+import { toast } from "react-toastify";
 const Footer = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -272,7 +273,7 @@ const Footer = () => {
                   {t("footer.subscribe")}
                 </button>
               </form>
-              {message && <p>{message}</p>}
+              {/* {message && <p>{message}</p>} */}
             </div>
           </div>
 

@@ -167,7 +167,7 @@ const TooltipContent = ({ improvements, resumeId, onClose }) => {
       {/* Overall Comments */}
       <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl p-6 mt-6 text-white">
         <h3 className="text-lg font-bold">{t("overall_comments")}</h3>
-        {/* <p>{improvements.overall_comments}</p> */}
+        <p>{improvements?.overall_comments}</p>
       </div>
       <button
         onClick={handleATS}
@@ -331,11 +331,13 @@ const ResumeStrength = ({ score, strength, resumeId }) => {
                 {t("resumeStrength.improveResume")}
               </button>
               <button
-                disabled={strength.ats_score === 10}
+                disabled={strength.ats_score === 10 || !resumeId}
                 onClick={() => setIsModalOpen(true)}
                 className={`px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors ${
-                  !strength.ats_score === 10
-                }?"opacity-50 cursor-not-allowed" :""}`}
+                  strength.ats_score === 10 || !resumeId
+                    ? "opacity-50 cursor-not-allowed"
+                    : ""
+                }`}
               >
                 {t("resumeStrength.improveATS")}
               </button>

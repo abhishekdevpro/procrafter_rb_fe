@@ -137,17 +137,20 @@
 
 // export default JobSearch;
 "use client";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import axios from "axios";
 import { useTranslation } from "next-i18next";
+import { ResumeContext } from "../components/context/ResumeContext";
 
 const JobSearch = () => {
   const { t } = useTranslation();
-  const [keywords, setKeywords] = useState("");
   const [location, setLocation] = useState("");
   const [jobResults, setJobResults] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const {resumeData} = useContext(ResumeContext)
+  const [keywords, setKeywords] = useState(resumeData?.position);
+
 
   const fetchJobs = async () => {
     if (!keywords) {
