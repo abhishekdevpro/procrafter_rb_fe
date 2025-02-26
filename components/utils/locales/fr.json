@@ -773,6 +773,7 @@
     "foundErrors": "Nous avons trouvé {{errors}} erreurs dans votre CV.",
     "useTool": "Utilisez notre outil de vérification du CV pour les corriger.",
     "improveResume": "Améliorer le CV",
+     "improveATS":"Améliorer le ATS",
     "sections": {
       "personalInformation": "Informations personnelles",
       "socialLinks": "Liens sociaux",
@@ -784,6 +785,31 @@
       "languages": "Langues",
       "certification": "Certification"
     }
+  },
+  "improvements": {
+    "title": "Domaines d'amélioration",
+    "file_format": "Format de fichier",
+    "keyword_optimization": "Optimisation des mots-clés"
+  },
+  "formatting": {
+    "title": "Liste de vérification du formatage",
+    "bullet_points": "Utilisation des puces",
+    "bullet_points_desc": "Utilisation appropriée des puces dans les sections du CV",
+    "clear_headings": "Titres clairs",
+    "clear_headings_desc": "Les titres des sections sont clairs et bien définis",
+    "consistent_font": "Police cohérente",
+    "consistent_font_desc": "Utilisation cohérente des polices dans tout le CV",
+    "contact_info": "Informations de contact visibles",
+    "contact_info_desc": "Les informations de contact sont clairement visibles"
+  },
+  "overall_comments": "Commentaires généraux",
+  "button": {
+    "improve": "Procéder à l'amélioration..."
+  },
+  "toast": {
+    "ats_success": "ATS mis à jour avec succès",
+    "no_response": "Aucune donnée de réponse reçue",
+    "error": "Une erreur est survenue"
   },
   "dashboard_interview":
   {
@@ -845,7 +871,28 @@
       "no_start_scratch_description": "Nous vous guiderons tout au long du processus afin que vos compétences brillent",
       "back": "Retour",
       "resume_id_error": "ID de CV ou jeton introuvable"
-    }
+    },
+ 
+      "fileUploadStep": {
+        "title": "Téléchargez votre CV",
+        "description": "Nous acceptons les fichiers PDF pour une meilleure précision d'analyse",
+        "dragDrop": "Glissez-déposez votre CV ici",
+        "selectFile": "Sélectionner un fichier PDF",
+        "maxSize": "Taille maximale du fichier : 10 Mo",
+        "uploading": "Téléchargement de votre CV...",
+        "uploadComplete": "Téléchargement terminé avec succès !",
+        "uploadFailed": "Échec du téléchargement du fichier",
+        "uploadSuccess": "Fichier téléchargé avec succès",
+        "invalidFile": "Veuillez télécharger un fichier PDF",
+        "noFileSelected": "Veuillez sélectionner un fichier à télécharger",
+        "authError": "Jeton d'authentification introuvable",
+        "resumeError": "Données du CV introuvables dans la réponse de l'API",
+        "googleDrive": "Google Drive",
+        "or": "OU",
+        "back": "Retour",
+        "next": "Suivant"
+      }
+   
   
   
   
