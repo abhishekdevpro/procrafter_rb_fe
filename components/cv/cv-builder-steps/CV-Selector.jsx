@@ -404,7 +404,7 @@ const CVSelector = ({ onNext, onBack, onChange, value }) => {
             className="px-8 py-3 text-white rounded-xl font-medium
               hover:opacity-90 transition-colors shadow-lg hover:shadow-xl disabled:opacity-50"
           >
-            {loading ? "Saving..." : "Next"}
+            {loading ? t("saving") : "Next"}
           </button>
         </div>
       </div>

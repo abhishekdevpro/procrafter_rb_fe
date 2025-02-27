@@ -448,7 +448,7 @@ const TemplateStep = ({ onNext, onBack, onChange, value }) => {
               }`}
           >
             {isLoading ? (
-              <SaveLoader loadingText="Saving" />
+              <SaveLoader loadingText={t("saving")} />
             ) : (
               t("templateStep.next")
             )}

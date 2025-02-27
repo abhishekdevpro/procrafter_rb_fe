@@ -73,6 +73,7 @@ import { MdRemoveCircle } from "react-icons/md";
 import { AlertCircle, X } from "lucide-react";
 
 import { useRouter } from "next/router";
+import { useTranslation } from "react-i18next";
 const SOCIAL_MEDIA_OPTIONS = [
   { name: "GitHub", baseUrl: "https://github.com/" },
   { name: "LinkedIn", baseUrl: "https://linkedin.com/in/" },
@@ -83,6 +84,7 @@ const SOCIAL_MEDIA_OPTIONS = [
 ];
 
 const SocialMedia = () => {
+  const { t } = useTranslation();
   const { resumeData, setResumeData, resumeStrength, setResumeStrength } =
     useContext(ResumeContext);
   const [activeTooltip, setActiveTooltip] = useState(null);
@@ -148,10 +150,122 @@ const SocialMedia = () => {
       : [];
   };
   return (
+    // <div className="flex-col flex gap-3 w-full mt-10 px-10">
+    //   <h2 className="input-title text-black text-3xl">Social Media</h2>
+    //   <h2 className="input-title text-black">
+    //     Please mention the platform and their link
+    //   </h2>
+
+    //   {resumeData.socialMedia.map((socialMedia, index) => (
+    //     <div
+    //       key={index}
+    //       className="flex flex-col md:flex-row gap-2 w-full md:w-auto"
+    //     >
+    //       <select
+    //         className="other-input border-black bg-gray-200 font-semibold text-center w-1/3"
+    //         value={socialMedia.socialMedia || ""}
+    //         onChange={(e) => handlePlatformChange(index, e.target.value)}
+    //       >
+    //         <option value="">Select </option>
+    //         {SOCIAL_MEDIA_OPTIONS.map((option) => (
+    //           <option key={option.name} value={option.name}>
+    //             {option.name}
+    //           </option>
+    //         ))}
+    //       </select>
+
+    //       {/* Input for the username or link */}
+    //       <div className="relative mb-2">
+    //         <input
+    //           type="text"
+    //           placeholder="Username"
+    //           name="link"
+    //           // className="other-input border-black border w-2/3"
+    //           className={`  w-full other-input border  ${
+    //             improve && hasErrors(index, "socialMedia")
+    //               ? "border-red-500"
+    //               : "border-black"
+    //           }`}
+    //           value={socialMedia.link.replace("https://", "")}
+    //           onChange={(e) => handleSocialMedia(e, index)}
+    //         />
+    //         {improve && hasErrors(index, "socialMedia") && (
+    //           <button
+    //             type="button"
+    //             className="absolute right-2 top-1/2 -translate-y-1/2 text-red-500 hover:text-red-600 transition-colors"
+    //             onClick={() =>
+    //               setActiveTooltip(
+    //                 activeTooltip === `socialMedia-${index}`
+    //                   ? null
+    //                   : `socialMedia-${index}`
+    //               )
+    //             }
+    //           >
+    //             <AlertCircle className="w-5 h-5" />
+    //           </button>
+    //         )}
+    //         {activeTooltip === `socialMedia-${index}` && (
+    //           <div className="absolute z-50 right-0 mt-2 w-80 bg-white rounded-lg shadow-xl transform transition-all duration-200 ease-in-out border border-gray-700">
+    //             <div className="p-4 border-b border-gray-700">
+    //               <div className="flex items-center justify-between">
+    //                 <div className="flex items-center space-x-2">
+    //                   <AlertCircle className="w-5 h-5 text-red-400" />
+    //                   <span className="font-medium text-black">
+    //                     Social Media Suggestion
+    //                   </span>
+    //                 </div>
+    //                 <button
+    //                   onClick={() => setActiveTooltip(null)}
+    //                   className="text-black transition-colors"
+    //                 >
+    //                   <X className="w-5 h-5" />
+    //                 </button>
+    //               </div>
+    //             </div>
+    //             <div className="p-4">
+    //               {getErrorMessages(index, "socialMedia").map((msg, i) => (
+    //                 <div
+    //                   key={i}
+    //                   className="flex items-start space-x-3 mb-3 last:mb-0"
+    //                 >
+    //                   <div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-red-400 mt-2"></div>
+    //                   <p className="text-black text-sm">{msg}</p>
+    //                 </div>
+    //               ))}
+    //             </div>
+    //           </div>
+    //         )}
+    //       </div>
+    //       <button
+    //         type="button"
+    //         onClick={() => removeSocialMedia(index)}
+    //         aria-label="Remove"
+    //         className="p-2 text-white bg-red-700 rounded-lg text-xl mb-2"
+    //       >
+    //         <MdRemoveCircle />
+    //       </button>
+    //     </div>
+    //   ))}
+    //   <FormButton
+    //     size={resumeData.socialMedia.length}
+    //     add={addSocialMedia}
+    //     remove={removeSocialMedia}
+    //   />
+    //   <div className=" mb-2">
+    //     {/* <button type="button"
+    //       aria-label="Add"
+    //       className="p-2 text-white bg-black rounded-lg text-sm"   onClick={addSocialMedia}>
+
+    //      <span> ✙ Add section</span>
+    //     </button> */}
+    //   </div>
+    // </div>
     <div className="flex-col flex gap-3 w-full mt-10 px-10">
-      <h2 className="input-title text-black text-3xl">Social Media</h2>
+      <h2 className="input-title text-black text-3xl">
+        {t("builder_forms.social_media.title")}
+      </h2>
       <h2 className="input-title text-black">
-        Please mention the platform and their link
+        {t("builder_forms.social_media.subtitle")}
       </h2>
 
       {resumeData.socialMedia.map((socialMedia, index) => (
@@ -164,7 +278,9 @@ const SocialMedia = () => {
             value={socialMedia.socialMedia || ""}
             onChange={(e) => handlePlatformChange(index, e.target.value)}
           >
-            <option value="">Select </option>
+            <option value="">
+              {t("builder_forms.social_media.select_placeholder")}
+            </option>
             {SOCIAL_MEDIA_OPTIONS.map((option) => (
               <option key={option.name} value={option.name}>
                 {option.name}
@@ -176,10 +292,9 @@ const SocialMedia = () => {
           <div className="relative mb-2">
             <input
               type="text"
-              placeholder="Username"
+              placeholder={t("builder_forms.social_media.username_placeholder")}
               name="link"
-              // className="other-input border-black border w-2/3"
-              className={`  w-full other-input border  ${
+              className={`w-full other-input border ${
                 improve && hasErrors(index, "socialMedia")
                   ? "border-red-500"
                   : "border-black"
@@ -209,7 +324,7 @@ const SocialMedia = () => {
                     <div className="flex items-center space-x-2">
                       <AlertCircle className="w-5 h-5 text-red-400" />
                       <span className="font-medium text-black">
-                        Social Media Suggestion
+                        {t("builder_forms.social_media.suggestion_title")}
                       </span>
                     </div>
                     <button
@@ -244,19 +359,15 @@ const SocialMedia = () => {
           </button>
         </div>
       ))}
-      <FormButton
-        size={resumeData.socialMedia.length}
-        add={addSocialMedia}
-        remove={removeSocialMedia}
-      />
-      <div className=" mb-2">
-        {/* <button type="button" 
-          aria-label="Add"
-          className="p-2 text-white bg-black rounded-lg text-sm"   onClick={addSocialMedia}> 
-        
-         <span> ✙ Add section</span>
-        </button> */}
-      </div>
+
+      {/* Add Section Button */}
+      <button
+        type="button"
+        onClick={addSocialMedia}
+        className="p-2 text-white bg-black rounded-lg text-sm"
+      >
+        {t("builder_forms.social_media.add_section")}
+      </button>
     </div>
   );
 };

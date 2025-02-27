@@ -348,7 +348,7 @@ const PersonalInformation = () => {
   return (
     <div className="flex flex-col gap-3 w-full items-center md:mt-10 p-4 md:px-10">
       <h2 className="text-2xl md:text-3xl font-semibold text-black">
-        Detail Information
+        {t("builder_forms.personal_info.details_info")}
       </h2>
 
       <div className="flex flex-col items-center gap-6 w-full">

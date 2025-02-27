@@ -407,6 +407,8 @@ import image1 from "./Images/homeimage1.jpg";
 import image2 from "./Images/homeimage2.jpg";
 import image3 from "./Images/homeimage3.jpg";
 import image4 from "./Images/homeimage4.jpg";
+import frenchimage1 from "./Images/frenchresume1.jpg";
+import frenchimage2 from "./Images/frenchresume2.jpg";
 import cvimage1 from "./Images/cv4.jpg";
 import cvimage2 from "./Images/homeimage3.jpg";
 import cvimage3 from "./Images/cv3.jpg";
@@ -508,20 +510,35 @@ function Home_third() {
           <div className=" flex flex-col justify-center gap-5 items-center md:flex-row md:gap-10">
             {[
               {
-                src: image1,
+                src: frenchimage1,
                 alt: "alt1_h3",
                 title: "title1_h3",
               },
               {
-                src: image2,
+                src: frenchimage2,
                 alt: "alt2_h3",
                 title: "title2_h3",
               },
               {
                 src: image3,
                 alt: "alt3_h3",
-                title: "title3_h3",
+                title: "title1_h3",
               },
+              {
+                src: image4,
+                alt: "alt1_h3",
+                title: "title2_h3",
+              },
+              // {
+              //   src: image2,
+              //   alt: "alt2_h3",
+              //   title: "title2_h3",
+              // },
+              // {
+              //   src: image3,
+              //   alt: "alt3_h3",
+              //   title: "title3_h3",
+              // },
             ].map((template, index) => (
               <div key={index} className="relative group">
                 <Image

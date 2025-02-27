@@ -1,4 +1,4 @@
-export const SaveLoader = ({ loadingText = "Saving" }) => {
+export const SaveLoader = ({ loadingText = t("saving") }) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 backdrop-blur-sm">
       <div className="bg-white bg-opacity-10 p-8 rounded-lg flex flex-col items-center shadow-lg">
