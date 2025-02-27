@@ -36,7 +36,7 @@ const TemplateStep = ({ onNext, onBack, onChange, value }) => {
 
   const { i18n, t } = useTranslation();
   const language = i18n.language;
-
+  const [isLoading, setIsLoading] = useState(false);
   const [resumeData, setResumeData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isSaved, setIsSaved] = useState(false);
@@ -240,7 +240,7 @@ const TemplateStep = ({ onNext, onBack, onChange, value }) => {
     const templateData = {
       templateData: formatResumeData(resumeData),
     };
-
+    setIsLoading(true);
     try {
       const resumeId = router.query.id || localStorage.getItem("resumeId");
       if (!resumeId) {
@@ -272,6 +272,8 @@ const TemplateStep = ({ onNext, onBack, onChange, value }) => {
     } catch (error) {
       toast.error(error?.message || t("templateStep.toast.update_error"));
       console.error("Error updating resume:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
