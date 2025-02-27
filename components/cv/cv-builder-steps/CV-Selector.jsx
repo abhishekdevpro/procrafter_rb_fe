@@ -31,7 +31,7 @@ const CVSelector = ({ onNext, onBack, onChange, value }) => {
       name: "Blue",
       class: "bg-[#00b38d]",
       selectedClass: "ring-blue-400",
-      hexCode: "#2563EB",
+      hexCode: "#00b38d",
     },
     {
       name: "Purple",

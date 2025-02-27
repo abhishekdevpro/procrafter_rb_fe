@@ -51,6 +51,15 @@ const Projects = () => {
     newProjects[index][e.target.name] = e.target.value;
     setResumeData({ ...resumeData, projects: newProjects });
   };
+  const handlePresentToggle = (index) => {
+    const newProjects = [...resumeData.projects];
+    const isPresent = newProjects[index].endYear === "Present";
+
+    newProjects[index].endMonth = isPresent ? "" : newProjects[index].endMonth;
+    newProjects[index].endYear = isPresent ? "" : "Present";
+
+    setResumeData({ ...resumeData, projects: newProjects });
+  };
 
   const handleKeyAchievement = (e, projectIndex) => {
     // const newProjects = [...resumeData.projects]
@@ -581,7 +590,7 @@ const Projects = () => {
                     >
                       {loadingStates[`key_${projectIndex}`]
                         ? "Loading..."
-                        : "+ Smart Assist"}
+                        : "+ Key Assist"}
                     </button>
                   </div>
                   <textarea
@@ -628,6 +637,7 @@ const Projects = () => {
                       className="other-input border-black border flex-1"
                       value={project.endMonth}
                       onChange={(e) => handleProjects(e, projectIndex)}
+                      disabled={project.endYear === "Present"}
                     >
                       <option value="">Select Month</option>
                       {months.map((month, idx) => (
@@ -641,6 +651,7 @@ const Projects = () => {
                       className="other-input border-black border flex-1"
                       value={project.endYear}
                       onChange={(e) => handleProjects(e, projectIndex)}
+                      disabled={project.endYear === "Present"}
                     >
                       <option value="">Select Year</option>
                       {years.map((year, idx) => (
@@ -649,6 +660,15 @@ const Projects = () => {
                         </option>
                       ))}
                     </select>
+                    <label className="flex flex-1 items-center gap-1 other-input text-xl">
+                      <input
+                        type="checkbox"
+                        checked={project.endYear === "Present"}
+                        onChange={() => handlePresentToggle(projectIndex)}
+                        className="w-6 h-6"
+                      />
+                      Present
+                    </label>
                   </div>
                 </div>
                 <button
@@ -663,7 +683,7 @@ const Projects = () => {
           </div>
         ))
       ) : (
-        <p className="text-black">
+        <p className="text-black ">
           No projects available. Add a new project to get started.
         </p>
       )}
@@ -675,7 +695,69 @@ const Projects = () => {
         add={addProjects}
         remove={removeProjects}
       />
-
+      {/* {showPopup && (
+      
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+          <div className="bg-white p-6 rounded-lg w-[90%] max-w-lg">
+            <h3 className="text-xl font-bold mb-4">
+              {popupType === "description"
+                ? "Select Description"
+                : "Select Key Achievements"}
+            </h3>
+            <div className="space-y-3 max-h-96 overflow-y-auto">
+              {(popupType === "description"
+                ? descriptions
+                : keyAchievements
+              ).map((item, index) => (
+                <div key={index} className="flex items-start gap-3">
+                    {popupType === "description" ? (
+                    <input
+                      type="radio"
+                      name="description" // Ensures only one can be selected
+                      checked={selectedDescriptions.includes(item)}
+                      onChange={() => setSelectedDescriptions([item])} // Only one selection
+                      className="mt-1"
+                    />
+                  ) : (
+                    // Checkbox for key achievements (Multi Select)
+                    <input
+                      type="checkbox"
+                      checked={selectedKeyAchievements.includes(item)}
+                      onChange={() => handleSummarySelect(item)}
+                      className="mt-1"
+                    />
+                  )}
+                  <input
+                    type="checkbox"
+                    checked={
+                      popupType === "description"
+                        ? selectedDescriptions.includes(item)
+                        : selectedKeyAchievements.includes(item)
+                    }
+                    onChange={() => handleSummarySelect(item)}
+                    className="mt-1"
+                  />
+                  <p className="text-gray-800">{item}</p>
+                </div>
+              ))}
+            </div>
+            <div className="flex gap-2 mt-4">
+              <button
+                onClick={(e) => handleSaveSelectedSummary(popupIndex, e)}
+                className="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-600"
+              >
+                Save Selection
+              </button>
+              <button
+                onClick={() => setShowPopup(false)}
+                className="bg-gray-400 text-black px-4 py-2 rounded hover:bg-gray-300"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )} */}
       {showPopup && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
           <div className="bg-white p-6 rounded-lg w-[90%] max-w-lg">

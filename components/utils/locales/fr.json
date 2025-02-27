@@ -120,6 +120,7 @@
    },
   
     "footer": {
+      "building_careers":"Construire les carrières de demain",
       "get_our_weekly": "Recevez notre bulletin hebdomadaire",
       "type_your_email": "Saisissez votre e-mail...",
       "subscribe": "S'abonner",
@@ -139,7 +140,8 @@
       "ai_resume_accuracy": "IA - Précision du CV",
       "ai_resume_enhancer": "IA - Amélioration du CV",
       "ai_job_match_apply": "IA - Correspondance et candidature aux emplois",
-      "copyright": "© Copyright By CibliJob.fr Tous droits réservés"
+      "copyright": "© Copyright By CibliJob.fr Tous droits réservés",
+       "toast_success":"Abonné avec succès !"
     },
     
       "about_us": "À propos de nous",

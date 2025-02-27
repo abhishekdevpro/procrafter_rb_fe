@@ -32,11 +32,11 @@ const ContactUs = () => {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to submit the form");
+        throw new Error(t("form.error_message"));
       }
 
       const data = await response.json();
-      setSuccessMessage("Message sent successfully!");
+      setSuccessMessage(t("form.success_message"));
       setFormData({ name: "", phone: "", email: "", remark: "" });
     } catch (error) {
       setError(error.message);
@@ -209,7 +209,7 @@ const ContactUs = () => {
               </h5>
             </div>
             <p className="text-slate-600 font-semibold mb-1">
-              We are here to help
+              {t("we_are_here")}
             </p>
             <p className="text-slate-600 font-light mb-4 text-sm">
               {t("contact_anytime")}
@@ -281,7 +281,7 @@ const ContactUs = () => {
                 <form onSubmit={handleSubmit}>
                   <div className="mb-4">
                     <label className="block text-sm font-semibold mb-1">
-                      {t("name")}
+                      {t("form.name")}
                     </label>
                     <input
                       type="text"
@@ -294,7 +294,7 @@ const ContactUs = () => {
                   </div>
                   <div className="mb-4">
                     <label className="block text-sm font-semibold mb-1">
-                      {t("phone")}
+                      {t("form.phone")}
                     </label>
                     <input
                       type="text"
@@ -307,7 +307,7 @@ const ContactUs = () => {
                   </div>
                   <div className="mb-4">
                     <label className="block text-sm font-semibold mb-1">
-                      {t("email")}
+                      {t("form.email")}
                     </label>
                     <input
                       type="email"
@@ -320,7 +320,7 @@ const ContactUs = () => {
                   </div>
                   <div className="mb-4">
                     <label className="block text-sm font-semibold mb-1">
-                      {t("remark")}
+                      {t("form.remark")}
                     </label>
                     <textarea
                       name="remark"
@@ -338,7 +338,7 @@ const ContactUs = () => {
                     type="submit"
                     className="bg-green-400 text-white px-4 py-2 rounded-lg"
                   >
-                    {t("send")}
+                    {t("form.send")}
                   </button>
                 </form>
               </div>

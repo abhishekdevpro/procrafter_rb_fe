@@ -593,7 +593,7 @@ function Home_third() {
               <Image
                 src={template.src}
                 alt={template.alt}
-                className=" h-[400px] w-full border-2 rounded-lg shadow-xl shadow-gray-500"
+                className=" h-[340px] w-full border-2 rounded-lg shadow-xl shadow-gray-500"
               />
               <h1 className="font-bold  text-xl text-center mt-2" id="homecard">
                 {t(template.title)}

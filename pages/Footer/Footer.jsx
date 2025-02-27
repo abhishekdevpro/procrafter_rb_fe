@@ -227,7 +227,7 @@ const Footer = () => {
       .then((response) => {
         // Handle the response, show a success message
         setMessage("Subscribed successfully!");
-        toast.success("Subscribed successfully!");
+        toast.success(t("footer.toast_success"));
       })
       .catch((error) => {
         // Handle the error, show an error message

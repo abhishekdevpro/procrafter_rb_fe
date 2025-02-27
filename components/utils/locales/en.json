@@ -125,6 +125,7 @@
     },
     
       "footer": {
+        "building_careers":"Building Careers of Tomorrow",
         "get_our_weekly": "Get Our Weekly",
         "type_your_email": "Type your email...",
         "subscribe": "Subscribe",
@@ -144,7 +145,8 @@
         "ai_resume_accuracy": "AI - Resume Accuracy",
         "ai_resume_enhancer": "AI - Resume Enhancer",
         "ai_job_match_apply": "AI - Job Match & Apply",
-        "copyright": "© Copyright By CibliJob.fr All Rights Reserved"
+        "copyright": "© Copyright By CibliJob.fr All Rights Reserved",
+        "toast_success":"Subscribed successfully!"
       
       },
      
