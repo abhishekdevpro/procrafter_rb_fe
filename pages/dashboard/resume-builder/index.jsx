@@ -6,6 +6,7 @@ import axios from "axios";
 import Navbar from "../../Navbar/Navbar";
 import { BASE_URL } from "../../../components/Constant/constant";
 import { useTranslation } from "react-i18next";
+import { SaveLoader } from "../../../components/ResumeLoader/SaveLoader";
 
 export default function Home() {
   const { t } = useTranslation();
@@ -69,6 +70,11 @@ export default function Home() {
             {loading
               ? t("createResume.creating")
               : t("createResume.resume_btn")}
+            {loading ? (
+              <SaveLoader loadingText={t("createResume.creating")} />
+            ) : (
+              t("createResume.resume_btn")
+            )}
           </button>
         </div>
       </main>

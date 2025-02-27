@@ -2,7 +2,8 @@ import React, { useContext, useState } from "react";
 import FormButton from "./FormButton";
 import { ResumeContext } from "../context/ResumeContext";
 import { useRouter } from "next/router";
-import { ChevronDown, ChevronUp, AlertCircle, X } from "lucide-react";
+import { ChevronDown, ChevronUp, AlertCircle, X, Trash } from "lucide-react";
+
 const Certification = () => {
   const { resumeData, setResumeData, resumeStrength } =
     useContext(ResumeContext);
@@ -11,6 +12,7 @@ const Certification = () => {
   const router = useRouter();
   const { improve } = router.query;
   const [activeTooltip, setActiveTooltip] = useState(null);
+
   const handleSkills = (e, index, skillType) => {
     const newSkills = [...resumeData[skillType]];
     newSkills[index] = e.target.value;
@@ -24,20 +26,25 @@ const Certification = () => {
     });
   };
 
-  // const removeSkill = (index) => {
-  //   const newSkills = [...resumeData[skillType]];
-  //   newSkills.splice(-1, 1);
-  //   setResumeData({ ...resumeData, [skillType]: newSkills });
-  // };
   const removeSkill = (index) => {
     if (resumeData[skillType].length > 1) {
-      // Prevent deletion if only one field exists
       const newSkills = [...resumeData[skillType]];
-      newSkills.splice(index, 1); // Remove the field at the specified index
+      newSkills.splice(-1, 1);
       setResumeData({ ...resumeData, [skillType]: newSkills });
     } else {
-      // Optional: You can show a message or alert that at least one field is required.
       alert("At least one certification is required.");
+    }
+  };
+
+  const deleteCertification = (indexToDelete) => {
+    if (resumeData[skillType].length) {
+      const newCertifications = resumeData[skillType].filter(
+        (_, index) => index !== indexToDelete
+      );
+      setResumeData({
+        ...resumeData,
+        [skillType]: newCertifications,
+      });
     }
   };
 
@@ -49,23 +56,25 @@ const Certification = () => {
       workStrength[field].length > 0
     );
   };
+
   const getErrorMessages = (index, field) => {
     const workStrength = resumeStrength?.certifications_strenght?.[index];
     return workStrength && Array.isArray(workStrength[field])
       ? workStrength[field]
       : [];
   };
+
   return (
     <div className="flex-col flex gap-3 w-full  mt-10 px-10">
       <h2 className="input-title text-black  text-3xl">{title}</h2>
       {resumeData[skillType].map((skill, index) => (
-        <div key={index} className="f-col">
-          <div className="relative mb-2">
+        <div key={index} className="f-col justify-center">
+          <div className="relative flex justify-center items-center gap-2">
             <input
               type="text"
               placeholder={title}
               name={title}
-              className={`w-full other-input border  ${
+              className={`w-full h-full px-4 py-2 rounded-md border  ${
                 improve && hasErrors(index, "certifications")
                   ? "border-red-500"
                   : "border-black"
@@ -73,6 +82,13 @@ const Certification = () => {
               value={skill}
               onChange={(e) => handleSkills(e, index, skillType)}
             />
+            <button
+              onClick={() => deleteCertification(index)}
+              className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition-colors"
+              type="button"
+            >
+              <Trash />
+            </button>
             {improve && hasErrors(index, "certifications") && (
               <button
                 type="button"

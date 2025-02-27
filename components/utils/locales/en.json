@@ -11,7 +11,8 @@
   "profile": "Profile",
   "logout": "Logout",
   "login": "Log in",
-
+  "signup": "Sign up",
+"settings": "Settings",
  "resume_tool_live": "\"Cibli Job\" AI Powered Resume Tool is Live NOW!",
     
 "resume_features": "Resume Score, Enhanced Resume & much more. Now Apply Job with confidence with our all-in-one solution under one roof.",
@@ -37,7 +38,7 @@
     "download": "Download",
     "create_resume": "Create my Resume",
   
-
+"saving": "Saving...",
   
       "how_ai_works": "How Our AI Resume Works For You",
       "check_resume_score": "Check Resume Score in few seconds with just a couple of clicks.",
@@ -48,6 +49,11 @@
       "chosen_by_experts": "Chosen & Crafted by Our Experts",
       "backed_by_technology": "Backed by our Technology",
       "powered_by_ai": "Powered by our Robust AI",
+      
+        "french_resume": "French Resume",
+        "english_resume": "English Resume",
+      
+      
       "ready_in_15_minutes": "Get it ready in less than 15 minutes",
       "certified_by_recruiters": "Certified By Recruiters & Admired By Job Seekers",
       "looking_cover_letter": "Looking For Impressive Cover Letters?",
@@ -125,6 +131,7 @@
     },
     
       "footer": {
+        "building_careers":"Building Careers of Tomorrow",
         "get_our_weekly": "Get Our Weekly",
         "type_your_email": "Type your email...",
         "subscribe": "Subscribe",
@@ -144,7 +151,8 @@
         "ai_resume_accuracy": "AI - Resume Accuracy",
         "ai_resume_enhancer": "AI - Resume Enhancer",
         "ai_job_match_apply": "AI - Job Match & Apply",
-        "copyright": "© Copyright By CibliJob.fr All Rights Reserved"
+        "copyright": "© Copyright By CibliJob.fr All Rights Reserved",
+        "toast_success":"Subscribed successfully!"
       
       },
      
@@ -903,7 +911,85 @@
                 "or": "OR",
                 "back": "Back",
                 "next": "Next"
-              }
+              },
+             
+                "loginpage": {
+                  "welcome": "Welcome Back",
+                  "description": "People across the globe are joining us to upgrade their career with our Robust AI.",
+                  "continue_google": "Continue with Google",
+                  "or": "OR",
+                  "email_label": "Email ID",
+                  "email_placeholder": "Enter your email ID",
+                  "password_label": "Password",
+                  "password_placeholder": "Enter your password",
+                  "hide": "🕵🏻 Hide",
+                  "view": "👁 View",
+                  "new_user": "New User? Create Account",
+                  "forgot_password": "Forgot Password?",
+                  "agree_terms": "I agree to the",
+                  "terms_conditions": "Terms & Conditions",
+                  "login_btn": "Login",
+                  "toast": {
+                    "email_required": "Email and Password are required",
+                    "login_success": "Login Successfully",
+                    "login_failed": "Failed to login",
+                    "error_occurred": "An error occurred",
+                    "google_failed": "Google sign-in failed."
+                  }
+                },
+                "forgotpage":{
+                  "forgot_password": "Forgot Password",
+                  "email_label": "Email ID",
+                  "enter_email": "Enter your email ID",
+                  "send_email": "Send Email",
+                  "password_reset_message": "Password reset link sent to your email",
+                  "password_reset_error": "Failed to send email",
+                  "email_required": "Email is required",
+                  "global_message": "People across the globe are joining us to upgrade their career with our Robust AI."
+                },
+                "signuppage":{
+                  "create_account": "Create an Account",
+                  "first_name": "First Name",
+                  "last_name": "Last Name",
+                  "email": "Email",
+                  "phone": "Phone",
+                  "password": "Password",
+                  "first_name_placeholder": "Enter your first name",
+                  "last_name_placeholder": "Enter your last name",
+                  "email_placeholder": "Enter your email",
+                  "phone_placeholder": "Enter your phone number",
+                  "password_placeholder": "Enter your password",
+                  "all_fields_required": "All fields are required",
+                  "verification_sent": "Verification link sent on your email",
+                  "signup_failed": "Failed to sign up",
+                  "error_occurred": "An error occurred",
+                  "signup": "Signup",
+                  "signing_up": "Signing up..."
+                },
+                "builder_forms":{
+                  "personal_info": {
+                    "details_info": "Detail Information",
+                    "upload_image": "Upload Profile Picture",
+                    "name_placeholder": "Full Name",
+                    "position_placeholder": "Job Title",
+                    "contact_placeholder": "Phone Number",
+                    "address_placeholder": "Address",
+                    "suggestions": "Suggestions",
+                    "auto_fix": "Auto Fix",
+                    "add_section": "✙ Add section"
+                  },
+                  "social_media": {
+    "title": "Social Media",
+    "subtitle": "Please mention the platform and their link",
+    "select_placeholder": "Select",
+    "username_placeholder": "Username",
+    "suggestion_title": "Social Media Suggestion",
+    "remove_button": "Remove",
+    "add_section": "✙ Add section"
+  }
+                }
+                
+                
             
       
       

@@ -446,7 +446,7 @@ export default function WebBuilder() {
         if (response.data.status === "success") {
           setPaymentVerified(true);
           toast.success("Payment verified successfully!");
-          downloadPDF()
+          downloadPDF();
           localStorage.removeItem("orderid");
 
           if (pdfExportComponent.current) {

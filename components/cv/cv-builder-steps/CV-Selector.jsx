@@ -31,7 +31,7 @@ const CVSelector = ({ onNext, onBack, onChange, value }) => {
       name: "Blue",
       class: "bg-[#00b38d]",
       selectedClass: "ring-blue-400",
-      hexCode: "#2563EB",
+      hexCode: "#00b38d",
     },
     {
       name: "Purple",
@@ -404,7 +404,7 @@ const CVSelector = ({ onNext, onBack, onChange, value }) => {
             className="px-8 py-3 text-white rounded-xl font-medium
               hover:opacity-90 transition-colors shadow-lg hover:shadow-xl disabled:opacity-50"
           >
-            {loading ? "Saving..." : "Next"}
+            {loading ? t("saving") : "Next"}
           </button>
         </div>
       </div>

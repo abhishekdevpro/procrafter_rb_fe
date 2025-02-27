@@ -197,7 +197,7 @@ function CoverLetterBuilder() {
       `;
 
       // const response = await axios.post(
-      //   `${BASE_URL}/api/jobseeker/generate-pdf1`,
+      //   `${BASE_URL}/api/user/generate-pdf1`,
       //   { html: fullContent },
       //   {
       //     headers: {
