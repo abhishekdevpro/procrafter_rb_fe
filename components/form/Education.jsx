@@ -53,7 +53,7 @@ const Education = () => {
       const response = await fetch(
         `${BASE_URL}/api/user/university-lists?university_keyword=${encodeURIComponent(
           keyword
-        )}`
+        )}&lang=${language}`
       );
       if (response.ok) {
         const data = await response.json();
@@ -76,7 +76,7 @@ const Education = () => {
       const response = await fetch(
         `${BASE_URL}/api/user/degree?degree_keyword=${encodeURIComponent(
           keyword
-        )}`
+        )}&lang=${language}`
       );
       if (response.ok) {
         const data = await response.json();

@@ -36,6 +36,7 @@ import applepay from "./builderImages/apple-pay.png";
 import { ResumeContext } from "../components/context/ResumeContext";
 import PayAndDownload from "../components/PayDownload";
 import { BASE_URL } from "../components/Constant/constant";
+import { useTranslation } from "react-i18next";
 
 const Print = dynamic(() => import("../components/utility/WinPrint"), {
   ssr: false,
@@ -64,6 +65,8 @@ export default function WebBuilder() {
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
   const [userId, setUserId] = useState(0);
   const templateRef = useRef(null);
+  const { i18n, t } = useTranslation();
+  const language = i18n.language;
   const {
     setResumeStrength,
     resumeData,
@@ -74,7 +77,7 @@ export default function WebBuilder() {
     selectedFont,
     backgroundColorss,
     headerColor,
-    selectedLang
+    
   } = useContext(ResumeContext);
 
   useEffect(() => {
@@ -93,7 +96,7 @@ export default function WebBuilder() {
       if (id && token) {
         try {
           const response = await axios.get(
-            `${BASE_URL}/api/user/resume-list/${id}?lang=${selectedLang}`,
+            `${BASE_URL}/api/user/resume-list/${id}?lang=${language}`,
             {
               headers: {
                 Authorization: token,
@@ -435,7 +438,7 @@ export default function WebBuilder() {
 
       if (orderId && token && PayerID) {
         const response = await axios.get(
-          `${BASE_URL}/api/user/paypal/verify-order?orderid=${orderId}?lang=${selectedLang}`,
+          `${BASE_URL}/api/user/paypal/verify-order?orderid=${orderId}?lang=${language}`,
           {
             headers: {
               Authorization: token,
@@ -470,7 +473,7 @@ export default function WebBuilder() {
     handleFinish();
     try {
       const response = await axios.get(
-        `${BASE_URL}/api/user/download-file/11/${resumeId}?lang=${selectedLang}`,
+        `${BASE_URL}/api/user/download-file/11/${resumeId}?lang=${language}`,
         {
           headers: {
             Authorization: token,
@@ -636,7 +639,7 @@ export default function WebBuilder() {
         const token = localStorage.getItem("token");
 
         const userProfileResponse = await axios.get(
-          `${BASE_URL}/api/user/user-profile?lang=${selectedLang}`,
+          `${BASE_URL}/api/user/user-profile?lang=${language}`,
           {
             headers: {
               Authorization: token,

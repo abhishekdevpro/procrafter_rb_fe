@@ -5,6 +5,7 @@ import logo from "./logo.png";
 import Image from "next/image";
 import { toast } from "react-toastify";
 import { BASE_URL } from "../../../components/Constant/constant";
+import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,6 +13,8 @@ const Navbar = () => {
   const [isHovering, setIsHovering] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isApiSuccess, setIsApiSuccess] = useState(false);
+  const { i18n, t } = useTranslation();
+  const language = i18n.language;
 
   const router = useRouter();
 
@@ -24,7 +27,7 @@ const Navbar = () => {
       // Check API success
       const checkApiSuccess = async () => {
         try {
-          const response = await fetch(`${BASE_URL}/api/user/user-profile`, {
+          const response = await fetch(`${BASE_URL}/api/user/user-profile?lang=${language}`, {
             headers: {
               Authorization: token,
             },

@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { BASE_URL } from "../../components/Constant/constant";
+import { useTranslation } from "react-i18next";
 
 function Subscriberslist1() {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { i18n, t } = useTranslation();
+  const language = i18n.language;
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -35,7 +38,7 @@ function Subscriberslist1() {
 
     try {
       await axios.post(
-        `${BASE_URL}/api/user/user-subscribe`,
+        `${BASE_URL}/api/user/user-subscribe?lang=${language}`,
         { email }, // Sending email in the body
         {
           headers: {

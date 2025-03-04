@@ -1,18 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
 import Navbar from "../../Navbar/Navbar";
 import { BASE_URL } from "../../../components/Constant/constant";
 import { useTranslation } from "react-i18next";
 import { SaveLoader } from "../../../components/ResumeLoader/SaveLoader";
+import { ResumeContext } from "../../../components/context/ResumeContext";
 
 export default function Home() {
   const { t } = useTranslation();
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const {selectedLang} = useContext(ResumeContext)
 
   const handleCreateResume = async () => {
     setLoading(true);
@@ -23,7 +25,7 @@ export default function Home() {
       const token = localStorage.getItem("token");
 
       const response = await axios.post(
-        `${BASE_URL}/api/user/resume-create`,
+        `${BASE_URL}/api/user/resume-create?lang=${selectedLang}`,
         {},
         {
           headers: {

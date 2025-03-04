@@ -345,7 +345,7 @@
 // }
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import {
   Heart,
@@ -362,6 +362,7 @@ import { toast } from "react-toastify";
 import Navbar from "../Navbar/Navbar";
 import Image from "next/image";
 import { BASE_URL } from "../../components/Constant/constant";
+import { ResumeContext } from "../../components/context/ResumeContext";
 
 const LoginModal = ({ onClose }) => {
   return (
@@ -465,6 +466,7 @@ export default function SavedJobsPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [token, setToken] = useState(null);
+  const {selectedLang} =  useContext(ResumeContext)
 
   // Initialize token on component mount
   useEffect(() => {
@@ -482,7 +484,7 @@ export default function SavedJobsPage() {
 
     try {
       const response = await axios.post(
-        `${BASE_URL}/api/user/job-favorites`,
+        `${BASE_URL}/api/user/job-favorites?lang=${selectedLang}`,
         {
           job_id: jobId,
         },
@@ -517,7 +519,7 @@ export default function SavedJobsPage() {
 
       try {
         setIsLoading(true);
-        const response = await axios.get(`${BASE_URL}/api/user/job-favorites`, {
+        const response = await axios.get(`${BASE_URL}/api/user/job-favorites?lang=${selectedLang}`, {
           headers: {
             Authorization: token,
           },

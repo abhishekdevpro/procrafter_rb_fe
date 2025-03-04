@@ -11,6 +11,7 @@ import cvletter4 from "../coverletter/cvimgs/cvletter4.png";
 import cvletter5 from "../coverletter/cvimgs/cvletter5.png";
 import { CoverLetterContext } from "../../context/CoverLetterContext";
 import { BASE_URL } from "../../Constant/constant";
+import { useTranslation } from "react-i18next";
 const CVSelector = ({ onNext, onBack, onChange, value }) => {
   const [selectedHexCode, setSelectedHexCode] = useState("#2563EB");
   const [loading, setLoading] = useState(false);
@@ -18,6 +19,8 @@ const CVSelector = ({ onNext, onBack, onChange, value }) => {
   // const [coverLetterData, setCoverLetterData] = useState(null);
   const { coverLetterData, setCoverLetterData } =
     useContext(CoverLetterContext);
+      const { i18n, t } = useTranslation();
+      const language = i18n.language;
   const token =
     typeof window !== "undefined" ? localStorage.getItem("token") : null;
   const colors = [
@@ -150,7 +153,7 @@ const CVSelector = ({ onNext, onBack, onChange, value }) => {
         }
 
         const response = await axios.get(
-          `${BASE_URL}/api/user/coverletter/${coverletterId}`,
+          `${BASE_URL}/api/user/coverletter/${coverletterId}?lang=${language}`,
           {
             headers: {
               Authorization: token,

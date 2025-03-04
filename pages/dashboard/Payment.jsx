@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
 import Link from "next/link";
 import { BASE_URL } from "../../components/Constant/constant";
 import { useTranslation } from "react-i18next";
+import { ResumeContext } from "../../components/context/ResumeContext";
 
 function Payment() {
   const { t } = useTranslation();
+  const {selectedLang} = useContext(ResumeContext)
   const handleChoosePlan3 = () => {
     const amount = 269; // Fixed price
     const token = localStorage.getItem("token"); // Retrieve token from localStorage
@@ -17,7 +19,7 @@ function Payment() {
     };
 
     axios
-      .post(`${BASE_URL}/api/user/paypal/create-payment`, payload, {
+      .post(`${BASE_URL}/api/user/paypal/create-payment?lang=${selectedLang}`, payload, {
         headers: { "Content-Type": "application/json" }, // Use JSON content type
       })
       .then((response) => {
@@ -46,7 +48,7 @@ function Payment() {
     };
 
     axios
-      .post(`${BASE_URL}/api/user/paypal/create-payment`, payload, {
+      .post(`${BASE_URL}/api/user/paypal/create-payment?lang=${selectedLang}`, payload, {
         headers: { "Content-Type": "application/json" }, // Use JSON content type
       })
       .then((response) => {

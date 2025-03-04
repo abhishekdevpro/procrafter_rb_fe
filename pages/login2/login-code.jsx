@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import logo from "./logo.png";
@@ -9,11 +9,12 @@ import { toast } from "react-toastify";
 // import ReCAPTCHA from 'react-google-recaptcha';
 import axios from "axios";
 import { BASE_URL } from "../../components/Constant/constant";
+import { ResumeContext } from "../../components/context/ResumeContext";
 const LoginCode = () => {
   const [otp, setOtp] = useState("");
   const [captchaVerified, setCaptchaVerified] = useState(false);
   const router = useRouter();
-
+  const {selectedLang} = useContext(ResumeContext)
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(true);
   const handleOtpChange = (e) => {
@@ -40,7 +41,7 @@ const LoginCode = () => {
 
     try {
       const response = await axios.post(
-        `${BASE_URL}/api/user/auth/login-verify-otp`,
+        `${BASE_URL}/api/user/auth/login-verify-otp?lang=${selectedLang}`,
 
         { email, otp }
       );

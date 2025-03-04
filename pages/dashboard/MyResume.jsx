@@ -123,7 +123,7 @@ const MyResume = () => {
     if (token) {
       try {
         await axios.delete(
-          `${BASE_URL}/api/user/resume-list/${deleteresumeid}`,
+          `${BASE_URL}/api/user/resume-list/${deleteresumeid}?lang=${selectedLang}`,
           {
             headers: { Authorization: token },
           }

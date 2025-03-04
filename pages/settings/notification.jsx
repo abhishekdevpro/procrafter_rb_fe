@@ -1,16 +1,17 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import Sidebar from "./Sidebar";
 import Navbar from "../Navbar/Navbar";
 import { BASE_URL } from "../../components/Constant/constant";
+import { ResumeContext } from "../../components/context/ResumeContext";
 export default function Notification() {
   const [emailNotifications, setEmailNotifications] = useState(false);
   const [smsNotifications, setSmsNotifications] = useState(false);
   const [marketingNotifications, setMarketingNotifications] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const {selectedLang} = useContext(ResumeContext)
   // Fetch Notification Preferences
   useEffect(() => {
     const fetchNotificationSettings = async () => {
@@ -23,7 +24,7 @@ export default function Notification() {
         }
 
         const response = await axios.get(
-          `${BASE_URL}/api/user/notification-permission`,
+          `${BASE_URL}/api/user/notification-permission?lang=${selectedLang}`,
           {
             headers: { Authorization: token },
           }
@@ -61,7 +62,7 @@ export default function Notification() {
     try {
       const token = localStorage.getItem("token");
       await axios.put(
-        `${BASE_URL}/api/user/notification-permission`,
+        `${BASE_URL}/api/user/notification-permission?lang=${selectedLang}`,
         updatedSettings,
         {
           headers: { Authorization: token },

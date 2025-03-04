@@ -1,14 +1,15 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import Sidebar from "./Sidebar";
 import axios from "axios";
 import { BASE_URL } from "../../components/Constant/constant";
+import { ResumeContext } from "../../components/context/ResumeContext";
 const Account = () => {
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const {selectedLang} = useContext(ResumeContext)
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
@@ -19,7 +20,7 @@ const Account = () => {
           return;
         }
 
-        const response = await axios.get(`${BASE_URL}/api/user/user-profile`, {
+        const response = await axios.get(`${BASE_URL}/api/user/user-profile?lang=${selectedLang}`, {
           headers: { Authorization: token },
         });
 

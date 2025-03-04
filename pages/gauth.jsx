@@ -5,6 +5,8 @@ import { useRouter } from "next/router";
 import { BASE_URL } from "../components/Constant/constant";
 const Gauth = () => {
   const [loading, setLoading] = useState(true);
+  const { i18n, t } = useTranslation();
+  const language = i18n.language;
 
   const router = useRouter();
 
@@ -22,7 +24,7 @@ const Gauth = () => {
       const sendAuthCode = async () => {
         try {
           const response = await axios.get(
-            `${BASE_URL}/api/user/auth/callback?code=${code}`
+            `${BASE_URL}/api/user/auth/callback?code=${code}&lang=${language}`
           );
           console.log(response);
           const token = response.data.data.token;

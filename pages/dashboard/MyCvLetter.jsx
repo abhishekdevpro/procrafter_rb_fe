@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Download, Edit, Trash, Plus } from "lucide-react";
 import { useRouter } from "next/router";
@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 import Link from "next/link";
 import { BASE_URL } from "../../components/Constant/constant";
 import { useTranslation } from "react-i18next";
+import { ResumeContext } from "../../components/context/ResumeContext";
 const MyCvLetter = () => {
   const { t } = useTranslation();
   const [coverletters, setCoverLetters] = useState([]);
@@ -18,12 +19,13 @@ const MyCvLetter = () => {
   const [currentCoverLetter, setCurrentCoverLetter] = useState(null);
   const [newCoverLetterTitle, setNewCoverLetterTitle] = useState("");
   const [showLoader, setShowLoader] = useState(false);
+  const {selectedLang} = useContext(ResumeContext)
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
       axios
-        .get(`${BASE_URL}/api/user/coverletter`, {
+        .get(`${BASE_URL}/api/user/coverletter?lang=${selectedLang}`, {
           headers: { Authorization: token },
         })
         .then((response) => {
@@ -45,7 +47,7 @@ const MyCvLetter = () => {
   };
   const handleDownload = async (coverletterId) => {
     setcoverletterId(coverletterId);
-    const apiUrl = `${BASE_URL}/api/user/download-coverletter/${coverletterId}`;
+    const apiUrl = `${BASE_URL}/api/user/download-coverletter/${coverletterId}?lang=${selectedLang}`;
 
     try {
       const token = localStorage.getItem("token");
@@ -77,7 +79,7 @@ const MyCvLetter = () => {
     if (token) {
       try {
         await axios.delete(
-          `${BASE_URL}/api/user/coverletter/${deletecoverletterId}`,
+          `${BASE_URL}/api/user/coverletter/${deletecoverletterId}?lang=${selectedLang}`,
           {
             headers: { Authorization: token },
           }
@@ -106,7 +108,7 @@ const MyCvLetter = () => {
     if (token && currentCoverLetter) {
       axios
         .put(
-          `${BASE_URL}/api/user/coverletter-details/${currentCoverLetter.id}`,
+          `${BASE_URL}/api/user/coverletter-details/${currentCoverLetter.id}?lang=${selectedLang}`,
           { cover_letter_title: newCoverLetterTitle },
           { headers: { Authorization: token } }
         )

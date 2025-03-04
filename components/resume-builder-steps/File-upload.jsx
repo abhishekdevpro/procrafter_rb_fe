@@ -448,7 +448,7 @@ export default function FileUploadStep({ onNext, onBack, onChange, value }) {
       }
 
       const response = await axios.post(
-        `${BASE_URL}/api/user/resume-upload/${id}`,
+        `${BASE_URL}/api/user/resume-upload/${id}?lang=${language}`,
         formData,
         {
           headers: {

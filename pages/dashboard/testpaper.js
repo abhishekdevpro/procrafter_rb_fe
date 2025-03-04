@@ -246,11 +246,12 @@
 // }
 
 // export default Testpaper;
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
 import { BASE_URL } from "../../components/Constant/constant";
 import { useTranslation } from "next-i18next";
+import { ResumeContext } from "../../components/context/ResumeContext";
 
 function Testpaper() {
   const router = useRouter();
@@ -264,7 +265,7 @@ function Testpaper() {
   const [showResults, setShowResults] = useState(false);
   const [results, setResults] = useState({});
   const [skillAssessmentId, setSkillAssessmentId] = useState(null);
-
+ const {selectedLang} = useContext(ResumeContext)
   useEffect(() => {
     const token = localStorage.getItem("token");
 
@@ -279,7 +280,7 @@ function Testpaper() {
           const response = await axios.get(
             ` ${BASE_URL}/api/user/skill-assessment?skill_id=${parseInt(
               skillId
-            )}&skill_name=${encodeURIComponent(skillName)}`,
+            )}&skill_name=${encodeURIComponent(skillName)}&lang=${selectedLang}`,
             {
               headers: {
                 Authorization: token,
@@ -323,7 +324,7 @@ function Testpaper() {
 
     try {
       const response = await axios.put(
-        ` ${BASE_URL}/api/user/skill-assessment/${skillAssessmentId}`,
+        ` ${BASE_URL}/api/user/skill-assessment/${skillAssessmentId}?lang=${selectedLang}`,
         {
           user_id: parseInt(jobSeekerId, 10),
           skill_id: parseInt(skillId, 10),

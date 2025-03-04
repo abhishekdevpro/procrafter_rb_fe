@@ -7,11 +7,14 @@ import { AlertCircle, Loader, Loader2, X } from "lucide-react";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import { BASE_URL } from "../Constant/constant";
+import { useTranslation } from "react-i18next";
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 const Summary = () => {
   const { resumeData, setResumeData, resumeStrength, setResumeStrength,selectedLang } =
     useContext(ResumeContext);
+    const { i18n, t } = useTranslation();
+    const language = i18n.language;
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [summaries, setSummaries] = useState([]);
@@ -47,7 +50,7 @@ const Summary = () => {
 
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`${BASE_URL}/api/user/ai-summery`, {
+      const response = await fetch(`${BASE_URL}/api/user/ai-summery?lang=${language}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -103,7 +106,7 @@ const Summary = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        `${BASE_URL}/api/user/ai-resume-summery-data`,
+        `${BASE_URL}/api/user/ai-resume-summery-data?lang=${language}`,
         {
           key: "resumesummery",
           keyword: `professional summary in manner of description - ${Date.now()}`,

@@ -1,12 +1,14 @@
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { BASE_URL } from "../../../components/Constant/constant";
+import { ResumeContext } from "../../../components/context/ResumeContext";
 
 const VerificationPage = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
+  const {selectedLang} = useContext(ResumeContext)
 
   useEffect(() => {
     const { id } = router.query;
@@ -17,7 +19,7 @@ const VerificationPage = () => {
     const verifyUser = async () => {
       try {
         const response = await fetch(
-          `${BASE_URL}/api/user/verify-account/${id}`
+          `${BASE_URL}/api/user/verify-account/${id}?lang=${selectedLang}`
         );
         console.log(response);
         if (response.ok) {

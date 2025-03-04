@@ -159,7 +159,7 @@ function CoverLetterBuilder() {
       }
 
       const response = await axios.put(
-        `${BASE_URL}/api/user/coverletter/${coverletterId}`,
+        `${BASE_URL}/api/user/coverletter/${coverletterId}?lang=${language}`,
 
         { ...coverletterInfo, cover_letter_html: coverletterHtml },
         {
