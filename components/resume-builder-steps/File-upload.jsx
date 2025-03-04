@@ -415,6 +415,7 @@ export default function FileUploadStep({ onNext, onBack, onChange, value }) {
   const [isUploading, setIsUploading] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
   const [uploadSuccess, setUploadSuccess] = useState(false);
+  // const [showLoadingAnimation, setShowLoadingAnimation] = useState(false);
   const [resumeId, setResumeId] = useState();
   const router = useRouter();
   const { setResumeData } = useContext(ResumeContext);
@@ -513,7 +514,7 @@ export default function FileUploadStep({ onNext, onBack, onChange, value }) {
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-8 space-y-8">
-      {showLoadingAnimation && (
+      {isUploading && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
           <SaveLoader loadingText="Processing your resume..." />
         </div>
