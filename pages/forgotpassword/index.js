@@ -101,9 +101,10 @@ import { useRouter } from "next/router";
 import logo from "../forgotpassword/logo.png";
 import Image from "next/image";
 import axios from "axios";
-import { toast } from "react-toastify";
 import { BASE_URL } from "../../components/Constant/constant";
 import { useTranslation } from "react-i18next";
+import { toast } from "react-toastify";
+import Navbar from "../Navbar/Navbar";
 
 function Index() {
   const { t } = useTranslation(); // Initialize i18n hook
@@ -156,7 +157,8 @@ function Index() {
   };
 
   return (
-    <>
+    <> 
+    <Navbar />
       <div className="flex justify-center items-center h-screen w-full">
         <div className="p-8 rounded-xl shadow-lg shadow-slate-700 w-full max-w-lg bg-white">
           <div className="flex justify-center mb-6">
