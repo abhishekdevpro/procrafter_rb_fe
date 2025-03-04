@@ -3,6 +3,7 @@ import axios from "axios";
 
 import { useRouter } from "next/router";
 import { BASE_URL } from "../components/Constant/constant";
+import { useTranslation } from "react-i18next";
 const Gauth = () => {
   const [loading, setLoading] = useState(true);
   const { i18n, t } = useTranslation();
