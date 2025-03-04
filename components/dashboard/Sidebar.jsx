@@ -206,12 +206,12 @@ const Sidebar = ({ score, resumeId }) => {
   const router = useRouter();
   const { t } = useTranslation();
 
-  const { resumeData, setResumeData, setHeaderColor, setBgColor } =
+  const { resumeData, setResumeData, setHeaderColor, setBgColor ,selectedLang} =
     useContext(ResumeContext);
   const [selectedTemplate, setSelectedTemplate] = useState("template1");
   const [loading, setLoading] = useState(false);
   const [resumeTitle, setResumeTitle] = useState("");
-
+  
   const handleEdit = () => {
     router.push(`/dashboard/aibuilder/${resumeId}`);
   };
@@ -230,7 +230,7 @@ const Sidebar = ({ score, resumeId }) => {
     if (token) {
       try {
         const response = await axios.get(
-          `${BASE_URL}/api/user/resume-list/${resumeId}`,
+          `${BASE_URL}/api/user/resume-list/${resumeId}?lang=${selectedLang}`,
           {
             headers: {
               Authorization: token,
@@ -262,7 +262,7 @@ const Sidebar = ({ score, resumeId }) => {
 
   useEffect(() => {
     fetchResumeData();
-  }, [resumeId]);
+  }, [resumeId,selectedLang]);
 
   const handleDownload = async () => {
     const apiUrl = `${BASE_URL}/api/user/download-resume/${resumeId}`;

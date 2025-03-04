@@ -10,7 +10,7 @@ import { BASE_URL } from "../Constant/constant";
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 const Summary = () => {
-  const { resumeData, setResumeData, resumeStrength, setResumeStrength } =
+  const { resumeData, setResumeData, resumeStrength, setResumeStrength,selectedLang } =
     useContext(ResumeContext);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -109,6 +109,7 @@ const Summary = () => {
           keyword: `professional summary in manner of description - ${Date.now()}`,
           content: resumeData.position,
           file_location: "",
+          lang: selectedLang
         },
         {
           headers: {

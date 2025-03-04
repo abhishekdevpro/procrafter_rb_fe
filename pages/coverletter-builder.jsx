@@ -10,6 +10,7 @@ import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import MobileCoverLetterBuilder from "./mobile-cv-builder";
 import { BASE_URL } from "../components/Constant/constant";
+import { useTranslation } from "react-i18next";
 function CoverLetterBuilder() {
   const {
     coverLetterData,
@@ -21,6 +22,8 @@ function CoverLetterBuilder() {
     setHeaderColor,
   } = useContext(CoverLetterContext);
   const router = useRouter();
+  const { i18n, t } = useTranslation();
+  const language = i18n.language;
   const templateRef = useRef(null);
   const [token, setToken] = useState(null);
   const [coverletterId, setCoverLetterId] = useState(null);
@@ -56,7 +59,7 @@ function CoverLetterBuilder() {
       if (id && token) {
         try {
           const response = await axios.get(
-            `${BASE_URL}/api/user/coverletter/${id}`,
+            `${BASE_URL}/api/user/coverletter/${id}?lang=${language}`,
             {
               headers: {
                 Authorization: token,
@@ -218,7 +221,7 @@ function CoverLetterBuilder() {
   const downloadPDF = async () => {
     try {
       const response = await axios.get(
-        `${BASE_URL}/api/user/download-coverletter/${coverletterId}`,
+        `${BASE_URL}/api/user/download-coverletter/${coverletterId}?lang=${language}`,
 
         {
           headers: {

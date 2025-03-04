@@ -11,7 +11,7 @@ import { useTranslation } from "react-i18next";
 const MyResume = () => {
   const { t } = useTranslation();
 
-  const { setResumeData } = useContext(ResumeContext);
+  const { setResumeData,selectedLang } = useContext(ResumeContext);
   const [resumes, setResumes] = useState([]);
   const [deleteresumeid, setDeleteresumeid] = useState(null);
   const [isDeleteModalOpen, setisDeleteModalOpen] = useState(false);
@@ -30,7 +30,7 @@ const MyResume = () => {
     const token = localStorage.getItem("token");
     if (token) {
       axios
-        .get(`${BASE_URL}/api/user/resume-list`, {
+        .get(`${BASE_URL}/api/user/resume-list?lang=${selectedLang}`, {
           headers: { Authorization: token },
         })
         .then((response) => {
@@ -45,7 +45,7 @@ const MyResume = () => {
           toast.error("Failed to fetch resumes.");
         });
     }
-  }, []);
+  }, [selectedLang]);
 
   const handleEdit = (resumeId) => {
     setResumeId(resumeId);
@@ -96,26 +96,26 @@ const MyResume = () => {
     setIsEditModalOpen(true);
   };
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      axios
-        .get(`${BASE_URL}/api/user/resume-list`, {
-          headers: { Authorization: token },
-        })
-        .then((response) => {
-          const resumes = response?.data?.resumelist || [];
-          if (resumes.length === 0) {
-            toast.info(t("myresume.create_first_resume"));
-          }
-          setResumes(resumes);
-        })
-        .catch((error) => {
-          console.error("Error fetching resume list:", error);
-          toast.error(t("myresume.fetch_resume_error"));
-        });
-    }
-  }, []);
+  // useEffect(() => {
+  //   const token = localStorage.getItem("token");
+  //   if (token) {
+  //     axios
+  //       .get(`${BASE_URL}/api/user/resume-list`, {
+  //         headers: { Authorization: token },
+  //       })
+  //       .then((response) => {
+  //         const resumes = response?.data?.resumelist || [];
+  //         if (resumes.length === 0) {
+  //           toast.info(t("myresume.create_first_resume"));
+  //         }
+  //         setResumes(resumes);
+  //       })
+  //       .catch((error) => {
+  //         console.error("Error fetching resume list:", error);
+  //         toast.error(t("myresume.fetch_resume_error"));
+  //       });
+  //   }
+  // }, []);
 
   const handleDeleteResume = async () => {
     const token = localStorage.getItem("token");

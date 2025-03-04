@@ -14,7 +14,8 @@ const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 const WorkExperience = () => {
   const { i18n, t } = useTranslation();
   const language = i18n.language;
-  const { resumeData, setResumeData, resumeStrength, setResumeStrength } =
+  // console.log(language,"language");
+  const { resumeData, setResumeData, resumeStrength, setResumeStrength,selectedLang} =
     useContext(ResumeContext);
   const [activeTooltip, setActiveTooltip] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -162,7 +163,7 @@ const WorkExperience = () => {
       const response = await axios.get(
         `${BASE_URL}/api/user/compnay-list?company_keyword=${encodeURIComponent(
           keyword
-        )}`
+        )}&lang=${language}`
       );
       if (response.data && response.data.data) {
         setCompanySuggestions(response.data.data);
@@ -220,6 +221,7 @@ const WorkExperience = () => {
           company_name: resumeData.workExperience[index].company,
           job_title: resumeData.workExperience[index].position,
           location: resumeData.workExperience[index].location,
+          lang:language
         },
         {
           headers: {
@@ -263,6 +265,7 @@ const WorkExperience = () => {
           company_name: resumeData.workExperience[index].company,
           job_title: resumeData.workExperience[index].position,
           location: resumeData.workExperience[index].location,
+          lang:language
         },
         {
           headers: {
@@ -371,6 +374,7 @@ const WorkExperience = () => {
             key: "professional_experience",
             keyword: value,
             content: value,
+            lang:language
           },
           {
             headers: {

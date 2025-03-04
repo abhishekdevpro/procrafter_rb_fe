@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import CoverLetterSection from "../../components/dashboard/CoverLetterSection";
 import InterviewSection from "../../components/dashboard/InterviewSection";
 import ResumeStrength from "../../components/dashboard/ResumeStrength";
@@ -13,9 +13,10 @@ import { Download, Edit, Trash, Plus } from "lucide-react";
 import AbroadiumCommunity from "../../components/dashboard/AbroadiumCommunity";
 import { BASE_URL } from "../../components/Constant/constant";
 import JobSearch from "../JobSearch";
+import { ResumeContext } from "../../components/context/ResumeContext";
 export default function DashboardPage() {
   const { t } = useTranslation();
-
+  const {selectedLang} = useContext(ResumeContext)
   const [strength, setStrength] = useState(null);
   const [resumeId, setResumeId] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -26,7 +27,7 @@ export default function DashboardPage() {
       setLoading(true);
       const token = localStorage.getItem("token");
       const response = await axios.get(
-        `${BASE_URL}/api/user/resume-list/0?resume_default=true`,
+        `${BASE_URL}/api/user/resume-list/0?resume_default=true?lang=${selectedLang}`,
         {
           headers: {
             Authorization: token,
@@ -54,12 +55,7 @@ export default function DashboardPage() {
 
   useEffect(() => {
     resumeStrength();
-    // Set up an interval to refresh data every 5 minutes
-    const interval = setInterval(resumeStrength, 300000);
-
-    // Cleanup interval on component unmount
-    return () => clearInterval(interval);
-  }, []); // Empty dependency array means this effect runs once on mount
+  }, [selectedLang]); // Empty dependency array means this effect runs once on mount
 
   if (loading) {
     return <FullScreenLoader />;

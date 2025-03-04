@@ -474,7 +474,7 @@
 
 // export default Navbar;
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import logo from "../Navbar/logo.png";
@@ -484,7 +484,7 @@ import axios from "axios";
 import { BASE_URL } from "../../components/Constant/constant";
 import CibliJobId from "./CibliJobId";
 import { useTranslation } from "react-i18next";
-import LanguageSelector from "./LanguageSelector";
+import { ResumeContext } from "../../components/context/ResumeContext";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -497,10 +497,10 @@ const Navbar = () => {
   const axiosInstance = axios.create();
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const { t, i18n } = useTranslation();
-
   const changeLanguage = (event) => {
     i18n.changeLanguage(event.target.value);
   };
+  const {selectedLang} = useContext(ResumeContext)
   useEffect(() => {
     const token = localStorage.getItem("token"); // Access localStorage here
 
@@ -511,7 +511,7 @@ const Navbar = () => {
       const checkApiSuccess = async () => {
         try {
           const response = await axios.get(
-            `${BASE_URL}/api/user/user-profile`,
+            `${BASE_URL}/api/user/user-profile?lang=${selectedLang}`,
             {
               headers: {
                 Authorization: token,
@@ -541,7 +541,7 @@ const Navbar = () => {
     } else {
       setIsLoggedIn(false);
     }
-  }, []); // Dependency array should be empty to run only once after the first render
+  }, [selectedLang]); // Dependency array should be empty to run only once after the first render
   // useEffect(() => {
   //   const token = localStorage.getItem("token"); // Access localStorage here
 

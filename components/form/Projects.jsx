@@ -10,10 +10,13 @@ import FormButton from "./FormButton";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import { BASE_URL } from "../Constant/constant";
+import { useTranslation } from "react-i18next";
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 const Projects = () => {
-  const { resumeData, setResumeData, resumeStrength, setResumeStrength } =
+  const { i18n, t } = useTranslation();
+    const language = i18n.language;
+  const { resumeData, setResumeData, resumeStrength, setResumeStrength} =
     useContext(ResumeContext);
   const [loadingStates, setLoadingStates] = useState({});
   const [error, setError] = useState("");
@@ -131,6 +134,7 @@ const Projects = () => {
           company_name: resumeData.projects[index].name || "N/A",
           job_title: resumeData.projects[index].po || "Project",
           link: resumeData.projects[index].link || "N/A",
+          lang:language
         },
         {
           headers: {
@@ -292,6 +296,7 @@ const Projects = () => {
           company_name: resumeData.projects[projectIndex].name || "N/A",
           job_title: resumeData?.position || "Project",
           link: resumeData.projects[projectIndex].link || "N/A",
+          lang:language
         },
         {
           headers: {
