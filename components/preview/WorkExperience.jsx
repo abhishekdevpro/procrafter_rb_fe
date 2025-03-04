@@ -138,7 +138,7 @@ const WorkExperience = ({
   style = {},
   itemClassNames = {},
 }) => {
-  if (!resumeData?.workExperience || resumeData.workExperience.length === 0) {
+  if (resumeData.is_fresher ||  !resumeData?.workExperience || resumeData.workExperience.length === 0) {
     return null;
   }
   // console.log(resumeData?.workExperience,"weee");
