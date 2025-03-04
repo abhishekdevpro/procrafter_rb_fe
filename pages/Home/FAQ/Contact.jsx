@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { BASE_URL } from "../../../components/Constant/constant";
 import { useTranslation } from "react-i18next";
+import { ResumeContext } from "../../../components/context/ResumeContext";
 const ContactUs = () => {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [formData, setFormData] = useState({
@@ -9,6 +10,7 @@ const ContactUs = () => {
     email: "",
     remark: "",
   });
+  const {selectedLang} = useContext(ResumeContext)
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const { t } = useTranslation();
@@ -23,7 +25,7 @@ const ContactUs = () => {
     setSuccessMessage("");
 
     try {
-      const response = await fetch(`${BASE_URL}/api/user/contact-us`, {
+      const response = await fetch(`${BASE_URL}/api/user/contact-us?lang=${selectedLang}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

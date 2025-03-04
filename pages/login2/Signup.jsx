@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
 import Link from "next/link";
 import logo from "../login2/logo.png";
@@ -8,6 +8,7 @@ import { Loader2 } from "lucide-react";
 import { toast } from "react-toastify";
 import { BASE_URL } from "../../components/Constant/constant";
 import { useTranslation } from "react-i18next";
+import { ResumeContext } from "../../components/context/ResumeContext";
 
 function Signup() {
   const { t } = useTranslation();
@@ -21,6 +22,7 @@ function Signup() {
     password: "",
   });
   const router = useRouter();
+  const {selectedLang} = useContext(ResumeContext)
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -53,7 +55,7 @@ function Signup() {
 
     try {
       const response = await axios.post(
-        `${BASE_URL}/api/user/auth/signup`,
+        `${BASE_URL}/api/user/auth/signup?lang=${selectedLang}`,
         body,
         {
           headers: {

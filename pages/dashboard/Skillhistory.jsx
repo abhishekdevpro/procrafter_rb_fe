@@ -1,17 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { BASE_URL } from "../../components/Constant/constant";
 import { useTranslation } from "react-i18next";
+import { ResumeContext } from "../../components/context/ResumeContext";
 
 function Skillhistory() {
   const { t } = useTranslation();
   const [users, setUsers] = useState([]);
+  const {selectedLang}= useContext(ResumeContext)
 
   useEffect(() => {
     const token = localStorage.getItem("token");
 
     axios
-      .get(`${BASE_URL}/api/user/skill-assessment-history`, {
+      .get(`${BASE_URL}/api/user/skill-assessment-history?lang=${selectedLang}`, {
         headers: {
           Authorization: token,
         },

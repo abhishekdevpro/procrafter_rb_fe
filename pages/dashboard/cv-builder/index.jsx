@@ -91,15 +91,17 @@
 
 "use client";
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
 import { BASE_URL } from "../../../components/Constant/constant";
+import { ResumeContext } from "../../../components/context/ResumeContext";
 
 export default function Home() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const {selectedLang} = useContext(ResumeContext)
 
   const handleCreateCvLetter = async () => {
     setLoading(true);
@@ -110,7 +112,7 @@ export default function Home() {
       const token = localStorage.getItem("token");
 
       const response = await axios.post(
-        `${BASE_URL}/api/user/coverletter`,
+        `${BASE_URL}/api/user/coverletter?lang=${selectedLang}`,
         {},
         {
           headers: {

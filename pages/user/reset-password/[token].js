@@ -111,7 +111,7 @@
 // export default ResetPassword;
 // pages/reset-password/[token].jsx
 
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useRouter } from "next/router";
 import logo from "../../forgotpassword/logo.png";
 import Image from "next/image";
@@ -119,6 +119,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { BASE_URL } from "../../../components/Constant/constant";
 import Navbar from "../../Navbar/Navbar";
+import { ResumeContext } from "../../../components/context/ResumeContext";
 
 // function ResetPassword() {
 //   const router = useRouter();
@@ -227,7 +228,7 @@ function ResetPassword() {
     newPassword: "",
     confirmPassword: "",
   });
-
+  const {selectedLang} = useContext(ResumeContext)
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -257,7 +258,7 @@ function ResetPassword() {
       formDataToSend.append("new_password", formData.newPassword);
       // formDataToSend.append("email", email);
 
-      const response = await axios.post(`${BASE_URL}/api/user/reset-password`, formDataToSend);
+      const response = await axios.post(`${BASE_URL}/api/user/reset-password?lang=${selectedLang}`, formDataToSend);
 
       if (response.status === 200) {
         toast.success("Password reset successfully");

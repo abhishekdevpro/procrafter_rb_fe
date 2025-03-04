@@ -34,6 +34,7 @@ import applepay from "./builderImages/apple-pay.png";
 import { ResumeContext } from "../components/context/ResumeContext";
 import PayAndDownload from "../components/PayDownload";
 import { BASE_URL } from "../components/Constant/constant";
+import { useTranslation } from "react-i18next";
 
 const Print = dynamic(() => import("../components/utility/WinPrint"), {
   ssr: false,
@@ -56,6 +57,8 @@ export default function MobileBuilder() {
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
   const [userId, setUserId] = useState(0);
   const templateRef = useRef(null);
+  const { i18n, t } = useTranslation();
+  const language = i18n.language;
   const {
     setResumeStrength,
     resumeData,
@@ -66,7 +69,6 @@ export default function MobileBuilder() {
     selectedFont,
     backgroundColorss,
     headerColor,
-    selectedLang
   } = useContext(ResumeContext);
   const [showModal, setShowModal] = useState(false);
 
@@ -88,7 +90,7 @@ export default function MobileBuilder() {
       if (id && token) {
         try {
           const response = await axios.get(
-            `${BASE_URL}/api/user/resume-list/${id}?lang=${selectedLang}`,
+            `${BASE_URL}/api/user/resume-list/${id}?lang=${language}`,
             {
               headers: {
                 Authorization: token,
@@ -299,7 +301,7 @@ export default function MobileBuilder() {
 
       // API call to generate the PDF
       const response = await axios.post(
-        `${BASE_URL}/api/user/generate-pdf-py`,
+        `${BASE_URL}/api/user/generate-pdf-py?lang=${language}`,
         // { html: fullContent },
         { html: fullContent, pdf_type: selectedPdfType },
         {
@@ -337,7 +339,7 @@ export default function MobileBuilder() {
     handleFinish();
     try {
       const response = await axios.get(
-        `${BASE_URL}/api/user/download-file/11/${resumeId}?lang=${selectedLang}`,
+        `${BASE_URL}/api/user/download-file/11/${resumeId}?lang=${language}`,
         {
           headers: {
             Authorization: token,
@@ -381,7 +383,7 @@ export default function MobileBuilder() {
 
       if (orderId && token && PayerID) {
         const response = await axios.get(
-          `${BASE_URL}/api/user/paypal/verify-order?orderid=${orderId}?lang=${selectedLang}`,
+          `${BASE_URL}/api/user/paypal/verify-order?orderid=${orderId}?lang=${language}`,
           {
             headers: {
               Authorization: token,
@@ -580,7 +582,7 @@ export default function MobileBuilder() {
         const token = localStorage.getItem("token");
 
         const userProfileResponse = await axios.get(
-          `${BASE_URL}/api/user/user-profile?lang=${selectedLang}`,
+          `${BASE_URL}/api/user/user-profile?lang=${language}`,
           {
             headers: {
               Authorization: token,

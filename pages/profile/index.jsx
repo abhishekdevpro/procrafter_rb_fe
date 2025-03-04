@@ -37,7 +37,7 @@ const ProfileForm = () => {
 
         // Fetch user profile
         const userProfileResponse = await axios.get(
-          `${BASE_URL}/api/user/user-profile`,
+          `${BASE_URL}/api/user/user-profile?lang=${language}`,
           {
             headers: {
               Authorization: token,
@@ -216,7 +216,7 @@ const ProfileForm = () => {
 
     try {
       const response = await axios.patch(
-        `${BASE_URL}/api/user/user-profile`,
+        `${BASE_URL}/api/user/user-profile?lang=${language}`,
         formDataToSend,
         {
           headers: {
@@ -247,7 +247,7 @@ const ProfileForm = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.get(
-        `${BASE_URL}/api/user/remove-profile-photo`,
+        `${BASE_URL}/api/user/remove-profile-photo?lang=${language}`,
         {
           headers: {
             Authorization: token,

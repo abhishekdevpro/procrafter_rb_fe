@@ -132,7 +132,7 @@ const PersonalInformation = () => {
 
       const token = localStorage.getItem("token");
 
-      const response = await fetch(`${BASE_URL}/api/user${endpoint}`, {
+      const response = await fetch(`${BASE_URL}/api/user${endpoint}?lang=${language}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

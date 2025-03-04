@@ -252,7 +252,7 @@ const Skill = ({ title, currentSkillIndex }) => {
       }
 
       const response = await axios.post(
-        `${BASE_URL}/api/user/ai-skills-data`,
+        `${BASE_URL}/api/user/ai-skills-data?lang=${language}`,
         {
           key: "skills",
           keyword: title,

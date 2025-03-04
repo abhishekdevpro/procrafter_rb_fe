@@ -64,7 +64,7 @@
 
 // export default Home_five;
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import React from "react";
 import { useTranslation } from "react-i18next";
@@ -80,6 +80,7 @@ import Script from "next/script";
 import ApplePayButton from "./ApplePayButton";
 import { BASE_URL } from "../../components/Constant/constant";
 import { PoundSterling } from "lucide-react";
+import { ResumeContext } from "../../components/context/ResumeContext";
 function Home_five() {
   const [showModal, setShowModal] = useState(false);
   const [name, setName] = useState("");
@@ -110,7 +111,7 @@ function Home_five() {
     };
 
     axios
-      .post(`${BASE_URL}/api/user/paypal/create-payment`, payload, {
+      .post(`${BASE_URL}/api/user/paypal/create-payment?lang=${selectedLang}`, payload, {
         headers: { "Content-Type": "application/json" },
       })
       .then((response) => {
@@ -129,6 +130,7 @@ function Home_five() {
   const [name1, setName1] = useState("");
   const [email1, setEmail1] = useState("");
   const [phone1, setPhone1] = useState("");
+  const {selectedLang} = useContext(ResumeContext)
   // Fixed price
 
   const handleCloseModal1 = () => setShowModal1(false);
@@ -147,7 +149,7 @@ function Home_five() {
     };
 
     axios
-      .post(`${BASE_URL}/api/user/paypal/create-payment`, payload, {
+      .post(`${BASE_URL}/api/user/paypal/create-payment?lang=${selectedLang}`, payload, {
         headers: { "Content-Type": "application/json" },
       })
       .then((response) => {

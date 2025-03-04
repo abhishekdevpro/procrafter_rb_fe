@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Link from "next/link";
 import logo from "./logo.png";
 import { toast } from "react-toastify";
@@ -12,6 +12,7 @@ import Navbar from "../Navbar/Navbar";
 import { FcGoogle } from "react-icons/fc";
 import { BASE_URL } from "../../components/Constant/constant";
 import { useTranslation } from "react-i18next";
+import { ResumeContext } from "../../components/context/ResumeContext";
 const Login2 = () => {
   const { t } = useTranslation();
   const [isThirdstepOpen, setThirdstepOpen] = useState(false);
@@ -22,7 +23,7 @@ const Login2 = () => {
     password: "",
   });
   const router = useRouter();
-
+  const {selectedLang} = useContext(ResumeContext)
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -39,7 +40,7 @@ const Login2 = () => {
     setIsLoading(true);
     try {
       const response = await axios.post(
-        `${BASE_URL}/api/user/auth/login`,
+        `${BASE_URL}/api/user/auth/login?lang=${selectedLang}`,
         formData
       );
 
@@ -68,7 +69,7 @@ const Login2 = () => {
     setShowPassword(!showPassword);
   };
   const handleGoogleSignin = async () => {
-    const url = `${BASE_URL}/api/user/auth/google`;
+    const url = `${BASE_URL}/api/user/auth/google?lang=${selectedLang}`;
 
     try {
       const response = await axios.get(

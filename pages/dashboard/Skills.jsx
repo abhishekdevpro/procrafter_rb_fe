@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { BASE_URL } from "../../components/Constant/constant";
 import { toast } from "react-toastify";
 import { Plus } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { ResumeContext } from "../../components/context/ResumeContext";
 const Skills = () => {
   const { t } = useTranslation();
   const [skills, setSkills] = useState([]);
@@ -16,7 +17,7 @@ const Skills = () => {
   const [showPopup, setShowPopup] = useState(true);
   const router = useRouter();
   const { result } = router.query; // Accessing result from query parameters
-
+ const {selectedLang} = useContext(ResumeContext)
   // Function to fetch skills data
   const fetchSkills = async () => {
     const token = localStorage.getItem("token");
@@ -27,7 +28,7 @@ const Skills = () => {
     }
 
     try {
-      const response = await axios.get(`${BASE_URL}/api/user/user-skills`, {
+      const response = await axios.get(`${BASE_URL}/api/user/user-skills?lang=${selectedLang}`, {
         headers: {
           Authorization: token,
         },

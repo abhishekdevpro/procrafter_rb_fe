@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Image from "next/image";
 import axios from "axios";
 import Link from "next/link";
@@ -10,6 +10,7 @@ import Navbar from "../Navbar/Navbar";
 import logo from "./logo.png";
 import { BASE_URL } from "../../components/Constant/constant";
 import { useTranslation } from "react-i18next";
+import { ResumeContext } from "../../components/context/ResumeContext";
 
 const Signup = () => {
   const { t } = useTranslation();
@@ -23,7 +24,7 @@ const Signup = () => {
     password: "",
   });
   const router = useRouter();
-
+  const {selectedLang} = useContext(ResumeContext)
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -55,7 +56,7 @@ const Signup = () => {
 
     try {
       const response = await axios.post(
-        `${BASE_URL}/api/user/auth/signup`,
+        `${BASE_URL}/api/user/auth/signup?lang=${language}`,
         body,
         {
           headers: {

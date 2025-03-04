@@ -196,7 +196,7 @@
 // };
 
 // export default Footer;
-import React from "react";
+import React, { useContext } from "react";
 import Image from "next/image";
 import logo from "../Footer/logo.png";
 import { useState } from "react";
@@ -206,9 +206,11 @@ import img from "../Footer/footer-img.jpg";
 import { BASE_URL } from "../../components/Constant/constant";
 import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
+import { ResumeContext } from "../../components/context/ResumeContext";
 const Footer = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const {selectedLang} = useContext(ResumeContext)
   const { t } = useTranslation();
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevent form default behavior
@@ -216,7 +218,7 @@ const Footer = () => {
     // Sending raw JSON data in the POST request
     axios
       .post(
-        `${BASE_URL}/api/user/user-subscribe`,
+        `${BASE_URL}/api/user/user-subscribe?lang=${selectedLang}`,
         JSON.stringify({ email }), // Sending email in raw JSON
         {
           headers: {
