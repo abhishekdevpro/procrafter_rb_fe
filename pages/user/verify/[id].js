@@ -30,7 +30,7 @@ const VerificationPage = () => {
           toast.error(
             "Verification failed. Please try again or contact support."
           );
-          router.push("/signup");
+          router.push("/login2");
         }
       } catch (error) {
         toast.error("An error occurred during verification. Please try again.");

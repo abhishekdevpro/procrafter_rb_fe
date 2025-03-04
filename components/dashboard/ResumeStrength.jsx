@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useRouter } from "next/router";
 import { BASE_URL } from "../Constant/constant";
 import {
@@ -20,6 +20,7 @@ import FullScreenLoader from "../ResumeLoader/Loader";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
+import { ResumeContext } from "../context/ResumeContext";
 const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
 
@@ -42,6 +43,7 @@ const TooltipContent = ({ improvements, resumeId, onClose }) => {
   const [Loading, setLoading] = useState(false);
   const router = useRouter();
   const { t } = useTranslation();
+  const {selectedLang} = useContext(ResumeContext)
   const formatItems = [
     {
       label: t("formatting.bullet_points"),
@@ -72,7 +74,7 @@ const TooltipContent = ({ improvements, resumeId, onClose }) => {
 
     try {
       const response = await axios.get(
-        `${BASE_URL}/api/user/ats-improve/${resumeId}`,
+        `${BASE_URL}/api/user/ats-improve/${resumeId}?lang=${selectedLang}`,
         {
           headers: {
             Authorization: token,
@@ -188,7 +190,8 @@ const ResumeStrength = ({ score, strength, resumeId }) => {
   const [showLoader, setShowLoader] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const router = useRouter();
-  console.log(strength.ats_strenght, "strength");
+  
+  // console.log(strength.ats_strenght, "strength");
   const { t } = useTranslation();
   const getSectionsList = (data) => {
     if (!data) return [];

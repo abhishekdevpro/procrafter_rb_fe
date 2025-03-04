@@ -408,7 +408,9 @@ import { BASE_URL } from "../Constant/constant";
 import { useTranslation } from "react-i18next";
 
 export default function FileUploadStep({ onNext, onBack, onChange, value }) {
-  const { t } = useTranslation();
+  
+  const { i18n, t } = useTranslation();
+  const language = i18n.language;
   const [isUploading, setIsUploading] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
   const [uploadSuccess, setUploadSuccess] = useState(false);
@@ -430,6 +432,7 @@ export default function FileUploadStep({ onNext, onBack, onChange, value }) {
 
     const formData = new FormData();
     formData.append("files", file);
+    formData.append("lang", language);
 
     setIsUploading(true);
     setUploadSuccess(false);

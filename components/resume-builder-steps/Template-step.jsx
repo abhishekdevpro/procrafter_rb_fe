@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Image from "next/image";
 import axios from "axios";
 import { useRouter } from "next/router";
@@ -29,6 +29,7 @@ import template19 from "../preview/template/template19.png";
 import template20 from "../preview/template/template20.png";
 import { BASE_URL } from "../Constant/constant";
 import { useTranslation } from "react-i18next";
+import { ResumeContext } from "../context/ResumeContext";
 
 const TemplateStep = ({ onNext, onBack, onChange, value }) => {
   const router = useRouter();
@@ -36,6 +37,7 @@ const TemplateStep = ({ onNext, onBack, onChange, value }) => {
   const [resumeData, setResumeData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isSaved, setIsSaved] = useState(false);
+  const {selectedLang} = useContext(ResumeContext)
   const [selectedHexCode, setSelectedHexCode] = useState("#2563EB"); // Default blue hex code
   const token =
     typeof window !== "undefined" ? localStorage.getItem("token") : null;
@@ -131,7 +133,7 @@ const TemplateStep = ({ onNext, onBack, onChange, value }) => {
         }
 
         const response = await axios.get(
-          `${BASE_URL}/api/user/resume-list/${resumeId}`,
+          `${BASE_URL}/api/user/resume-list/${resumeId}?lang=${selectedLang}`,
           {
             headers: {
               Authorization: token,

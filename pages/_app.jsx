@@ -168,8 +168,8 @@ function App({ Component, pageProps }) {
 
   return (
     <>
-      <LanguageSelector />
       <ResumeProvider>
+      <LanguageSelector />
         <CoverLetterProvider>
           <Component {...pageProps} />
           <ToastContainer position="top-right" autoClose={3000} pauseOnHover />

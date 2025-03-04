@@ -74,6 +74,7 @@ export default function WebBuilder() {
     selectedFont,
     backgroundColorss,
     headerColor,
+    selectedLang
   } = useContext(ResumeContext);
 
   useEffect(() => {
@@ -92,7 +93,7 @@ export default function WebBuilder() {
       if (id && token) {
         try {
           const response = await axios.get(
-            `${BASE_URL}/api/user/resume-list/${id}`,
+            `${BASE_URL}/api/user/resume-list/${id}?lang=${selectedLang}`,
             {
               headers: {
                 Authorization: token,
@@ -434,7 +435,7 @@ export default function WebBuilder() {
 
       if (orderId && token && PayerID) {
         const response = await axios.get(
-          `${BASE_URL}/api/user/paypal/verify-order?orderid=${orderId}`,
+          `${BASE_URL}/api/user/paypal/verify-order?orderid=${orderId}?lang=${selectedLang}`,
           {
             headers: {
               Authorization: token,
@@ -469,7 +470,7 @@ export default function WebBuilder() {
     handleFinish();
     try {
       const response = await axios.get(
-        `${BASE_URL}/api/user/download-file/11/${resumeId}`,
+        `${BASE_URL}/api/user/download-file/11/${resumeId}?lang=${selectedLang}`,
         {
           headers: {
             Authorization: token,
@@ -635,7 +636,7 @@ export default function WebBuilder() {
         const token = localStorage.getItem("token");
 
         const userProfileResponse = await axios.get(
-          `${BASE_URL}/api/user/user-profile`,
+          `${BASE_URL}/api/user/user-profile?lang=${selectedLang}`,
           {
             headers: {
               Authorization: token,

@@ -9,6 +9,7 @@ export const ResumeProvider = ({ children }) => {
   const [headerColor, setHeaderColor] = useState("");
   const [backgroundColorss, setBgColor] = useState("");
   const [selectedFont, setSelectedFont] = useState("Ubuntu");
+  const [selectedLang, setSelectedLang] = useState("fr");
 
   const handleProfilePicture = (e) => {
     const file = e.target.files[0];
@@ -40,6 +41,8 @@ export const ResumeProvider = ({ children }) => {
         setSelectedFont,
         resumeStrength,
         setResumeStrength,
+        selectedLang,
+        setSelectedLang,
       }}
     >
       {children}
