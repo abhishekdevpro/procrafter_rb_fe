@@ -30,10 +30,14 @@ import template20 from "../preview/template/template20.png";
 import { BASE_URL } from "../Constant/constant";
 import { useTranslation } from "react-i18next";
 import { ResumeContext } from "../context/ResumeContext";
+import { SaveLoader } from "../ResumeLoader/SaveLoader";
 
 const TemplateStep = ({ onNext, onBack, onChange, value }) => {
   const router = useRouter();
-  const { t } = useTranslation();
+
+  const { i18n, t } = useTranslation();
+  const language = i18n.language;
+  const [isLoading, setIsLoading] = useState(false);
   const [resumeData, setResumeData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isSaved, setIsSaved] = useState(false);
@@ -53,7 +57,7 @@ const TemplateStep = ({ onNext, onBack, onChange, value }) => {
       name: "Blue",
       class: "bg-[#00b38d]",
       selectedClass: "ring-blue-400",
-      hexCode: "#2563EB",
+      hexCode: "#00b38d",
     },
     {
       name: "Purple",
@@ -238,7 +242,7 @@ const TemplateStep = ({ onNext, onBack, onChange, value }) => {
     const templateData = {
       templateData: formatResumeData(resumeData),
     };
-
+    setIsLoading(true);
     try {
       const resumeId = router.query.id || localStorage.getItem("resumeId");
       if (!resumeId) {
@@ -247,7 +251,7 @@ const TemplateStep = ({ onNext, onBack, onChange, value }) => {
       }
 
       const response = await axios.put(
-        `${BASE_URL}/api/user/resume-update/${resumeId}`,
+        `${BASE_URL}/api/user/resume-update/${resumeId}?lang=${language}`,
         templateData,
         {
           headers: {
@@ -270,6 +274,8 @@ const TemplateStep = ({ onNext, onBack, onChange, value }) => {
     } catch (error) {
       toast.error(error?.message || t("templateStep.toast.update_error"));
       console.error("Error updating resume:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -433,12 +439,22 @@ const TemplateStep = ({ onNext, onBack, onChange, value }) => {
             {t("templateStep.back")}
           </button>
           <button
+            disabled={loading}
             onClick={handleSaveTemplate}
             style={{ backgroundColor: selectedHexCode }}
-            className="px-8 py-3 text-white rounded-xl font-medium
-              hover:opacity-90 transition-colors shadow-lg hover:shadow-xl"
+            className={`px-8 py-3 text-white rounded-xl font-medium transition-all shadow-lg 
+              ${
+                loading
+                  ? "opacity-70 cursor-not-allowed"
+                  : "hover:opacity-90 hover:shadow-xl"
+              }`}
           >
-            {t("templateStep.next")}
+            {isLoading ? (
+              <SaveLoader loadingText={t("saving")} />
+            ) : (
+              t("templateStep.next")
+            )}
+            {/* {t("templateStep.next")} */}
           </button>
         </div>
       </div>

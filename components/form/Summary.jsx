@@ -6,8 +6,9 @@ import { ResumeContext } from "../context/ResumeContext";
 import { AlertCircle, Loader, Loader2, X } from "lucide-react";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
-const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 import { BASE_URL } from "../Constant/constant";
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+
 const Summary = () => {
   const { resumeData, setResumeData, resumeStrength, setResumeStrength,selectedLang } =
     useContext(ResumeContext);

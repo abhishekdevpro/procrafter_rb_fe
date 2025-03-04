@@ -10,6 +10,8 @@
   "profile": "Profil",
   "logout": "Se déconnecter",
   "login": "Se connecter",
+  "signup":"S'inscrire",
+  "settings": "Paramètres",
    "resume_tool_live": "L'outil de CV basé sur l'IA « Cibli Job » est désormais disponible !",
    "resume_features":"Score de CV , CV amélioré et bien plus encore. Postulez dès maintenant en toute confiance grâce à notre solution tout-en-un sous un même toit.",
     "contact_us": "Contactez-nous",
@@ -32,7 +34,7 @@
           "improve_with_ai": "Améliorer avec l'IA",
           "download": "Télécharger",
           "create_resume": "Créer mon CV",
-        
+        "saving":"Sauvegarde en cours...",
         
           
             "how_ai_works": "Comment notre IA de CV fonctionne pour vous",
@@ -43,6 +45,8 @@
             "explore_templates": "Découvrez notre large gamme de modèles tendance que les recruteurs adorent voir",
             "chosen_by_experts": "Choisi et conçu par nos experts",
             "backed_by_technology": "Soutenu par notre technologie",
+            "french_resume": "CV Français",
+  "english_resume": "CV Anglais",
             "powered_by_ai": "Propulsé par notre IA robuste",
             "ready_in_15_minutes": "Préparez-le en moins de 15 minutes",
             "certified_by_recruiters": "Certifié par des recruteurs et admiré par les chercheurs d'emploi",
@@ -120,6 +124,7 @@
    },
   
     "footer": {
+      "building_careers":"Construire les carrières de demain",
       "get_our_weekly": "Recevez notre bulletin hebdomadaire",
       "type_your_email": "Saisissez votre e-mail...",
       "subscribe": "S'abonner",
@@ -139,7 +144,8 @@
       "ai_resume_accuracy": "IA - Précision du CV",
       "ai_resume_enhancer": "IA - Amélioration du CV",
       "ai_job_match_apply": "IA - Correspondance et candidature aux emplois",
-      "copyright": "© Copyright By CibliJob.fr Tous droits réservés"
+      "copyright": "© Copyright By CibliJob.fr Tous droits réservés",
+       "toast_success":"Abonné avec succès !"
     },
     
       "about_us": "À propos de nous",
@@ -891,7 +897,83 @@
         "or": "OU",
         "back": "Retour",
         "next": "Suivant"
-      }
+      },
+      "loginpage": {
+        "welcome": "Bienvenue",
+        "description": "Des personnes du monde entier nous rejoignent pour améliorer leur carrière avec notre IA robuste.",
+        "continue_google": "Continuer avec Google",
+        "or": "OU",
+        "email_label": "Adresse e-mail",
+        "email_placeholder": "Entrez votre adresse e-mail",
+        "password_label": "Mot de passe",
+        "password_placeholder": "Entrez votre mot de passe",
+        "hide": "🕵🏻 Cacher",
+        "view": "👁 Voir",
+        "new_user": "Nouvel utilisateur ? Créer un compte",
+        "forgot_password": "Mot de passe oublié?",
+        "agree_terms": "J'accepte les",
+        "terms_conditions": "Termes et Conditions",
+        "login_btn": "Se connecter",
+        "toast": {
+          "email_required": "L'e-mail et le mot de passe sont requis",
+          "login_success": "Connexion réussie",
+          "login_failed": "Échec de la connexion",
+          "error_occurred": "Une erreur est survenue",
+          "google_failed": "Échec de la connexion Google."
+        }
+      },
+      "forgotpage":{
+        "forgot_password": "Mot de passe oublié",
+        "email_label": "Adresse e-mail",
+        "enter_email": "Entrez votre adresse e-mail",
+        "send_email": "Envoyer un e-mail",
+        "password_reset_message": "Lien de réinitialisation du mot de passe envoyé à votre adresse e-mail",
+        "password_reset_error": "Échec de l'envoi de l'e-mail",
+        "email_required": "L'adresse e-mail est requise",
+        "global_message": "Des personnes du monde entier nous rejoignent pour améliorer leur carrière avec notre IA robuste."
+      },
+      "signuppage":{
+        "create_account": "Créer un compte",
+        "first_name": "Prénom",
+        "last_name": "Nom",
+        "email": "Email",
+        "phone": "Téléphone",
+        "password": "Mot de passe",
+        "first_name_placeholder": "Entrez votre prénom",
+        "last_name_placeholder": "Entrez votre nom",
+        "email_placeholder": "Entrez votre email",
+        "phone_placeholder": "Entrez votre numéro de téléphone",
+        "password_placeholder": "Entrez votre mot de passe",
+        "all_fields_required": "Tous les champs sont obligatoires",
+        "verification_sent": "Lien de vérification envoyé à votre email",
+        "signup_failed": "Échec de l'inscription",
+        "error_occurred": "Une erreur s'est produite",
+        "signup": "S'inscrire",
+        "signing_up": "Inscription en cours..."
+      },
+      "builder_forms":{
+        "personal_info": {
+          "details_info": "Informations détaillées",
+          "upload_image": "Télécharger la photo de profil",
+          "name_placeholder": "Nom complet",
+          "position_placeholder": "Titre du poste",
+          "contact_placeholder": "Numéro de téléphone",
+          "address_placeholder": "Adresse",
+          "suggestions": "Suggestions",
+          "auto_fix": "Correction automatique",
+          "add_section": "✙ Ajouter une section"
+        },
+                  "social_media": {
+    "title": "Réseaux Sociaux",
+    "subtitle": "Veuillez mentionner la plateforme et son lien",
+    "select_placeholder": "Sélectionner",
+    "username_placeholder": "Nom d'utilisateur",
+    "suggestion_title": "Suggestion de Réseaux Sociaux",
+    "remove_button": "Supprimer",
+    "add_section": "✙ Ajouter une section"
+  }
+                }
+      
    
   
   

@@ -766,7 +766,7 @@ const Navbar = () => {
                     >
                       {/* <Settings className="mr-3 w-5 h-5 text-gray-500 group-hover:text-orange-500" /> */}
                       {/* <span className="text-gray-800 group-hover:text-orange-500"> */}
-                      Settings
+                      {t("settings")}
                       {/* </span> */}
                     </Link>
                     <button
@@ -788,6 +788,12 @@ const Navbar = () => {
                   className="bg-[#00b38d] text-white  px-4 py-2 text-md font-semibold border-2 rounded-xl"
                 >
                   {t("login")}
+                </Link>
+                <Link
+                  href="/signup"
+                  className="bg-[#00b38d] text-white  px-4 py-2 text-md font-semibold border-2 rounded-xl"
+                >
+                  {t("signup")}
                 </Link>
               </>
             )}
@@ -871,6 +877,16 @@ const Navbar = () => {
                     {t("profile")}
                   </Link>
                   <Link
+                    href="/settings"
+                    className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
+                    onClick={() => setIsDropdownOpen(false)}
+                  >
+                    {/* <Settings className="mr-3 w-5 h-5 text-gray-500 group-hover:text-orange-500" /> */}
+                    {/* <span className="text-gray-800 group-hover:text-orange-500"> */}
+                    {t("settings")}
+                    {/* </span> */}
+                  </Link>
+                  <Link
                     href="/"
                     className="bg-[#00b38d] text-white block px-3 py-2 rounded-md text-base font-semibold"
                     onClick={() => {
@@ -889,6 +905,13 @@ const Navbar = () => {
                     onClick={handleLinkClick}
                   >
                     {t("login")}
+                  </Link>
+                  <Link
+                    href="/signup"
+                    className="bg-[#00b38d] text-white block px-3 py-2 rounded-md text-base font-semibold"
+                    onClick={handleLinkClick}
+                  >
+                    {t("signup")}
                   </Link>
                 </>
               )}

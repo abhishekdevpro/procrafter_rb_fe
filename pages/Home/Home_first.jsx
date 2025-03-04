@@ -133,9 +133,12 @@ import Link from "next/link";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import image1 from "./Images/homeimage1.jpg";
-import image2 from "./Images/homeimage2.jpg";
-import image3 from "./Images/homeimage3.jpg";
+import image4 from "./Images/homeimage1.jpg";
+import image5 from "./Images/homeimage2.jpg";
+import image6 from "./Images/homeimage3.jpg";
+import image1 from "./Images/frenchresume1.jpg";
+import image2 from "./Images/frenchresume2.jpg";
+import image3 from "./Images/frenchresume3.jpg";
 import Image from "next/image";
 import Home_second from "./Home_second";
 import { useEffect, useState } from "react";
@@ -163,7 +166,7 @@ function Home_first() {
     autoplaySpeed: 3000,
   };
 
-  const images = [image1, image2, image3];
+  const images = [image1, image2, image3, image4, image5, image6];
 
   return (
     <>
@@ -227,7 +230,7 @@ function Home_first() {
             </div>
 
             {/* Image Slider Section */}
-            <div className="px-6 py-3">
+            {/* <div className="px-6 py-3">
               <div className="hidden md:block md:max-w-lg p-4">
                 <Slider {...settings}>
                   {images?.map((image, index) => (
@@ -239,6 +242,27 @@ function Home_first() {
                         height={240}
                         className="transition-transform transform hover:scale-105 md:h-auto md:w-96"
                       />
+                    </div>
+                  ))}
+                </Slider>
+              </div>
+            </div> */}
+            {/* Image Slider Section */}
+            <div className="px-6 py-3">
+              <div className="hidden md:block md:max-w-lg p-4">
+                <Slider {...settings}>
+                  {images?.map((image, index) => (
+                    <div key={index} className="w-full text-center">
+                      <Image
+                        src={image}
+                        alt={`slide-${index}`}
+                        width={320}
+                        height={240}
+                        className="transition-transform transform hover:scale-105 md:h-auto md:w-96"
+                      />
+                      <p className="mt-2 text-lg font-semibold text-gray-700">
+                        {index < 3 ? t("french_resume") : t("english_resume")}
+                      </p>
                     </div>
                   ))}
                 </Slider>

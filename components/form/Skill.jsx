@@ -2,11 +2,10 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import axios from "axios";
 import FormButton from "./FormButton";
 import { ResumeContext } from "../context/ResumeContext";
-import { AlertCircle } from "lucide-react";
+import { AlertCircle, Trash } from "lucide-react";
 import { useRouter } from "next/router";
 import { BASE_URL } from "../Constant/constant";
 import { useTranslation } from "react-i18next";
-
 const Skill = ({ title, currentSkillIndex }) => {
   const { i18n, t } = useTranslation();
   const language = i18n.language;
@@ -383,23 +382,10 @@ const Skill = ({ title, currentSkillIndex }) => {
           <button
             type="button"
             onClick={() => removeSkill(title, index)}
-            className="text-red-500 hover:text-red-700"
+            className="bg-red-500 text-white hover:bg-red-700 py-2 px-2"
             aria-label="Delete skill"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
+            <Trash />
           </button>
 
           {activeTooltip === `skill-${index}` && (

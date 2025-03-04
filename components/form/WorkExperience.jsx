@@ -9,7 +9,6 @@ import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import { BASE_URL } from "../Constant/constant";
 import { useTranslation } from "react-i18next";
-
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 const WorkExperience = () => {
@@ -79,6 +78,14 @@ const WorkExperience = () => {
     newWorkExperience[index][field] = `${month || ""},${e.target.value}`;
     setResumeData({ ...resumeData, workExperience: newWorkExperience });
   };
+
+  const handlePresentToggle = (index) => {
+    const newWorkExperience = [...resumeData.workExperience];
+    newWorkExperience[index].endYear =
+      newWorkExperience[index].endYear === "Present" ? "" : "Present";
+    setResumeData({ ...resumeData, workExperience: newWorkExperience });
+  };
+
   const handleWorkExperience = (e, index) => {
     const { name, value } = e.target;
     const newWorkExperience = [...resumeData.workExperience];
@@ -133,7 +140,7 @@ const WorkExperience = () => {
 
     try {
       const response = await axios.get(
-        `https://api.resumeintellect.com/api/user/job-title?job_title_keyword=${encodeURIComponent(
+        `${BASE_URL}/api/user/job-title?job_title_keyword=${encodeURIComponent(
           keyword
         )}&lang=${language}`
       );
@@ -493,6 +500,17 @@ const WorkExperience = () => {
     }));
   };
 
+  const removeWork = (index) => {
+    const newworkExperience = [...(resumeData.workExperience || [])];
+    newworkExperience.splice(index, 1);
+    setResumeData({ ...resumeData, workExperience: newworkExperience });
+    setExpandedExperiences(
+      expandedExperiences
+        .filter((i) => i !== index)
+        .map((i) => (i > index ? i - 1 : i))
+    );
+  };
+
   return (
     <div className="flex-col gap-3 w-full mt-10 px-10">
       <h2 className="input-title text-black text-3xl mb-6">Work Experience</h2>
@@ -699,36 +717,7 @@ const WorkExperience = () => {
                     </div>
                   )}
                 </div>
-                {/* 
-                <div className="mb-4">
-                  <label className="text-black">Start Date</label>
-                  <input
-                    type="date"
-                    name="startYear"
-                    className={`w-full other-input border ${
-                      improve && hasErrors(index, "startYear")
-                        ? "border-red-500"
-                        : "border-black"
-                    }`}
-                    value={experience.startYear}
-                    onChange={(e) => handleWorkExperience(e, index)}
-                  />
-                </div>
 
-                <div className="mb-4">
-                  <label className="text-black">End Date</label>
-                  <input
-                    type="date"
-                    name="endYear"
-                    className={`w-full other-input border ${
-                      improve && hasErrors(index, "endYear")
-                        ? "border-red-500"
-                        : "border-black"
-                    }`}
-                    value={experience.endYear}
-                    onChange={(e) => handleWorkExperience(e, index)}
-                  />
-                </div> */}
                 <div className="">
                   <label className="text-black">Start Date</label>
                   <div className="flex-wrap-gap-2">
@@ -765,15 +754,20 @@ const WorkExperience = () => {
                   </div>
 
                   <label className="text-black">End Date</label>
-                  <div className="flex-wrap-gap-2">
+                  <div className="flex-wrap-gap-2 flex items-center gap-2 ">
                     <select
                       className={`other-input border flex-1 ${
                         improve && hasErrors(index, "endYear")
                           ? "border-red-500"
                           : "border-black"
                       }`}
-                      value={(experience.endYear || "Dec,2024").split(",")[0]}
+                      value={
+                        experience.endYear === "Present"
+                          ? ""
+                          : (experience.endYear || "Dec,2024").split(",")[0]
+                      }
                       onChange={(e) => handleMonthChange(e, index, "endYear")}
+                      disabled={experience.endYear === "Present"}
                     >
                       {months.map((month, idx) => (
                         <option key={idx} value={month}>
@@ -787,8 +781,13 @@ const WorkExperience = () => {
                           ? "border-red-500"
                           : "border-black"
                       }`}
-                      value={(experience.endYear || "Dec,2024").split(",")[1]}
+                      value={
+                        experience.endYear === "Present"
+                          ? ""
+                          : (experience.endYear || "Dec,2024").split(",")[1]
+                      }
                       onChange={(e) => handleYearChange(e, index, "endYear")}
+                      disabled={experience.endYear === "Present"}
                     >
                       {years.map((year, idx) => (
                         <option key={idx} value={year}>
@@ -796,6 +795,15 @@ const WorkExperience = () => {
                         </option>
                       ))}
                     </select>
+                    <label className="flex flex-1 items-center gap-1 other-input text-xl">
+                      <input
+                        type="checkbox"
+                        checked={experience.endYear === "Present"}
+                        onChange={() => handlePresentToggle(index)}
+                        className="w-6 h-6"
+                      />
+                      Present
+                    </label>
                   </div>
                 </div>
                 <div className="relative mb-4">
@@ -1086,6 +1094,14 @@ const WorkExperience = () => {
                     </div>
                   )}
                 </div>
+
+                <button
+                  onClick={() => removeWork(index)}
+                  className="bg-red-500 w-full text-white px-4 py-2 rounded mt-4"
+                  type="button"
+                >
+                  Remove Work Experience
+                </button>
               </div>
             )}
           </div>
