@@ -32,6 +32,7 @@ const Signup = () => {
 
   const handleSignup = async (e) => {
     e.preventDefault();
+    console.log("called");
 
     if (
       !formData.first_name ||
@@ -56,7 +57,7 @@ const Signup = () => {
 
     try {
       const response = await axios.post(
-        `${BASE_URL}/api/user/auth/signup?lang=${language}`,
+        `${BASE_URL}/api/user/auth/signup?lang=${selectedLang}`,
         body,
         {
           headers: {
@@ -81,8 +82,9 @@ const Signup = () => {
         toast.error(t("signuppage.signup_failed"));
       }
     } catch (error) {
+      console.log(error);
       toast.error(
-        error.response?.data?.message || t("signuppage.error_occurred")
+        error.response?.data?.error || t("signuppage.error_occurred")
       );
     } finally {
       setIsLoading(false);

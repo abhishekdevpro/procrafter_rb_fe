@@ -29,8 +29,9 @@ function Signup() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSignup = async (e) => {
-    e.preventDefault();
+  const handleSignup = async () => {
+    // e.preventDefault();
+    console.log("called");
 
     if (
       !formData.first_name ||
@@ -55,7 +56,7 @@ function Signup() {
 
     try {
       const response = await axios.post(
-        `${BASE_URL}/api/user/auth/signup?lang=${selectedLang}`,
+        `${BASE_URL}/api/user/auth/signup`,
         body,
         {
           headers: {
