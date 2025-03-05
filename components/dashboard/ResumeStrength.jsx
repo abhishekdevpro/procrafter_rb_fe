@@ -21,6 +21,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
 import { ResumeContext } from "../context/ResumeContext";
+import { SaveLoader } from "../ResumeLoader/SaveLoader";
 const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
 
@@ -180,7 +181,7 @@ const TooltipContent = ({ improvements, resumeId, onClose }) => {
         }`}
         disabled={improvements.ats_score === 10 || Loading}
       >
-        {Loading ? <Circle /> : t("button.improve")}
+        {Loading ?  <SaveLoader loadingText="Proceed To Improve" /> : t("button.improve")}
       </button>
     </div>
   );

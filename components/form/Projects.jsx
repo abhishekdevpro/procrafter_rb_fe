@@ -350,6 +350,7 @@ const Projects = () => {
                     type="text"
                     placeholder="Project Name"
                     name="name"
+                    maxLength={150}
                     className={`w-full other-input border  ${
                       improve && hasErrors(projectIndex, "name")
                         ? "border-red-500"
@@ -415,6 +416,7 @@ const Projects = () => {
                       type="text"
                       placeholder="Link"
                       name="link"
+                      maxLength={150}
                       className={`w-full other-input border  ${
                         improve && hasErrors(projectIndex, "link")
                           ? "border-red-500"
@@ -491,17 +493,28 @@ const Projects = () => {
                   <ReactQuill
                     placeholder="Description"
                     value={project.description}
-                    onChange={(value) =>
-                      handleProjects(
-                        {
+                    // onChange={(value) =>
+                    //   handleProjects(
+                        // {
+                        //   target: {
+                        //     name: "description",
+                        //     value: value,
+                        //   },
+                        // },
+                        // projectIndex
+                    //   )
+                    // }
+                    onChange={(value) => {
+                      if (value.replace(/<[^>]*>/g, "").length <= 1000) {
+                        handleProjects({
                           target: {
                             name: "description",
                             value: value,
                           },
                         },
-                        projectIndex
-                      )
-                    }
+                        projectIndex);
+                      }
+                    }}
                     className={`bg-white rounded-md ${
                       improve && hasErrors(projectIndex, "description")
                         ? "border-red-500"
@@ -603,6 +616,7 @@ const Projects = () => {
                     className="w-full other-input border-black border h-24 max-w-[33rem] p-2 mb-2"
                     value={project.keyAchievements}
                     onChange={(e) => handleKeyAchievement(e, projectIndex)}
+                    maxLength={1000}
                   />
                 </div>
                 <div className="">

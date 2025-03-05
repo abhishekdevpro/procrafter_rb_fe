@@ -35,6 +35,7 @@ import { ResumeContext } from "../components/context/ResumeContext";
 import PayAndDownload from "../components/PayDownload";
 import { BASE_URL } from "../components/Constant/constant";
 import { useTranslation } from "react-i18next";
+import { SaveLoader } from "../components/ResumeLoader/SaveLoader";
 
 const Print = dynamic(() => import("../components/utility/WinPrint"), {
   ssr: false,
@@ -57,6 +58,7 @@ export default function MobileBuilder() {
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
   const [userId, setUserId] = useState(0);
   const templateRef = useRef(null);
+  const [loading, setLoading] = useState(null);
   const { i18n, t } = useTranslation();
   const language = i18n.language;
   const {
@@ -286,7 +288,7 @@ export default function MobileBuilder() {
       toast.error("Template reference not found");
       return;
     }
-
+    setLoading("download")
     try {
       // Get the HTML content from the template
       const htmlContent = templateRef.current.innerHTML;
@@ -333,6 +335,9 @@ export default function MobileBuilder() {
       toast.error(
         error.response?.data?.message || "Failed to generate and open PDF"
       );
+    }
+    finally{
+      setLoading(null)
     }
   };
   const downloadPDF = async () => {
@@ -511,6 +516,14 @@ export default function MobileBuilder() {
         console.error("Error updating resume:", error);
       }
     });
+  };
+  const handleClick = async () => {
+    setLoading("save");
+    try {
+      await handleFinish(); // Ensure handleFinish is an async function
+    } finally {
+      setLoading(null);
+    }
   };
 
   const MobileNavigation = () => (
@@ -697,17 +710,17 @@ export default function MobileBuilder() {
               <div className="flex items-center justify-center gap-4 p-2 fixed bottom-0 left-0 right-0 bg-white shadow-lg ">
                 <LoaderButton
                   isLoading={isLoading}
-                  onClick={handleFinish}
+                  onClick={handleClick}
                   className=" text-white px-4 py-2 rounded-lg bottom-btns"
                 >
-                  Save
+                  {loading=="save"? <SaveLoader loadingText={"Saving"} />:"Save"}
                 </LoaderButton>
 
                 <button
                   onClick={downloadAsPDF}
                   className=" bg-yellow-500 text-black px-4 py-2 rounded-lg bottom-btns"
                 >
-                  Pay & Download
+                 {loading=="download"? <SaveLoader loadingText={"Downloading"} />:"Downlaod"}
                 </button>
                 {/* <PayAndDownload
                   resumeId={resumeId}

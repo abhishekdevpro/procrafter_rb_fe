@@ -261,7 +261,7 @@ const Summary = () => {
 
       {/* ReactQuill Editor */}
       <div className="grid-1 w-full">
-        <ReactQuill
+        {/* <ReactQuill
           placeholder="Enter your professional summary or use Smart Assist to generate one"
           value={resumeData.summary || ""}
           onChange={handleQuillChange}
@@ -272,8 +272,26 @@ const Summary = () => {
           }}
         />
         <div className="text-sm text-gray-500 mt-1 text-right">
-          {resumeData.summary?.length || 0}/500
-        </div>
+          {resumeData.summary?.length || 0}/1000
+        </div> */}
+        <ReactQuill
+  placeholder="Enter your professional summary or use Smart Assist to generate one"
+  value={resumeData.summary || ""}
+  onChange={(content) => {
+    if (content.replace(/<[^>]*>/g, "").length <= 1000) {
+      handleQuillChange(content);
+    }
+  }}
+  className="w-full other-input h-100 border-black border rounded"
+  theme="snow"
+  modules={{
+    toolbar: [["bold", "italic", "underline"], ["clean"]],
+  }}
+/>
+{/* <div className="text-sm text-gray-500 mt-1 text-right">
+  {resumeData.summary?.replace(/<[^>]*>/g, "").length || 0}/1000
+</div> */}
+
       </div>
 
       {/* Popup/Modal for AI Summaries */}

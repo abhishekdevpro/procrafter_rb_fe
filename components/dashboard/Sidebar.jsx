@@ -200,6 +200,7 @@ import { ResumeContext } from "../../components/context/ResumeContext";
 import DashboardPreview from "../preview/DashboardPreview";
 import axios from "axios";
 import { BASE_URL } from "../Constant/constant";
+import FullScreenLoader from "../ResumeLoader/Loader";
 
 const Sidebar = ({ score, resumeId }) => {
   const templateRef = useRef(null);
@@ -211,9 +212,17 @@ const Sidebar = ({ score, resumeId }) => {
   const [selectedTemplate, setSelectedTemplate] = useState("template1");
   const [loading, setLoading] = useState(false);
   const [resumeTitle, setResumeTitle] = useState("");
+    const [showLoader, setShowLoader] = useState(false);
+  
   
   const handleEdit = () => {
-    router.push(`/dashboard/aibuilder/${resumeId}`);
+    setShowLoader(true);
+    setTimeout(() => {
+      router.push({
+        pathname: `/dashboard/aibuilder/${resumeId}`,
+      });
+    }, 2000);
+    // router.push(`/dashboard/aibuilder/${resumeId}`);
   };
 
   const handleCreate = () => {
@@ -297,7 +306,10 @@ const Sidebar = ({ score, resumeId }) => {
   };
 
   return (
-    <div className="w-full md:w-[400px] p-4 border-r border-gray-200">
+   <>
+         {showLoader && <FullScreenLoader />}
+
+       <div className="w-full md:w-[400px] p-4 border-r border-gray-200">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-lg font-semibold">{resumeTitle}</h2>
         <Link
@@ -374,6 +386,7 @@ const Sidebar = ({ score, resumeId }) => {
         {t("dashboard_sidebar.createResume")}
       </button>
     </div>
+   </>
   );
 };
 

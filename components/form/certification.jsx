@@ -74,6 +74,7 @@ const Certification = () => {
               type="text"
               placeholder={title}
               name={title}
+              maxLength={150}
               className={`w-full h-full px-4 py-2 rounded-md border  ${
                 improve && hasErrors(index, "certifications")
                   ? "border-red-500"
