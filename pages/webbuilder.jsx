@@ -37,6 +37,7 @@ import { ResumeContext } from "../components/context/ResumeContext";
 import PayAndDownload from "../components/PayDownload";
 import { BASE_URL } from "../components/Constant/constant";
 import { useTranslation } from "react-i18next";
+import { SaveLoader } from "../components/ResumeLoader/SaveLoader";
 
 const Print = dynamic(() => import("../components/utility/WinPrint"), {
   ssr: false,
@@ -59,12 +60,12 @@ export default function WebBuilder() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const router = useRouter();
   const pdfExportComponent = useRef(null);
-  const [isLoading, handleAction] = useLoader();
   const { PayerID } = router.query;
   const [isSaved, setIsSaved] = useState(false);
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
   const [userId, setUserId] = useState(0);
   const templateRef = useRef(null);
+  const [loading, setLoading] = useState(null);
   const { i18n, t } = useTranslation();
   const language = i18n.language;
   const {
@@ -337,7 +338,7 @@ export default function WebBuilder() {
       toast.error("Template reference not found");
       return;
     }
-
+   setLoading("download")
     try {
       // Get the HTML content from the template
       const htmlContent = templateRef.current.innerHTML;
@@ -384,6 +385,9 @@ export default function WebBuilder() {
       toast.error(
         error.response?.data?.message || "Failed to generate and open PDF"
       );
+    }
+    finally{
+      setLoading(null)
     }
   };
   const initiateCheckout = async () => {
@@ -580,7 +584,7 @@ export default function WebBuilder() {
     </style>
     ${htmlContent}
   `;
-    await handleAction(async () => {
+    
       try {
         const id = router.query.id || localStorage.getItem("resumeId");
         if (!id) {
@@ -614,7 +618,15 @@ export default function WebBuilder() {
         toast.error(error?.message || "Error !!");
         console.error("Error updating resume:", error);
       }
-    });
+     
+  };
+  const handleClick = async () => {
+    setLoading("save");
+    try {
+      await handleFinish(); // Ensure handleFinish is an async function
+    } finally {
+      setLoading(null);
+    }
   };
 
   const handleBackToEditor = () => {
@@ -847,16 +859,16 @@ export default function WebBuilder() {
               </div>
               <div className="flex gap-4">
                 <button
-                  onClick={handleFinish}
+                  onClick={handleClick}
                   className="bg-green-500 text-white px-6 py-2 rounded-lg"
                 >
-                  Save Resume
+                  {loading=="save"? <SaveLoader loadingText={"Saving"} /> :"Save Resume"}
                 </button>
                 <button
                   onClick={downloadAsPDF}
                   className="bg-yellow-500 text-black px-6 py-2 rounded-lg"
                 >
-                  Pay & Download
+                 {loading=="download"? <SaveLoader loadingText={"Downloading"} /> :"Pay & Download"}
                 </button>
                 {/* <PayAndDownload
                   resumeId={resumeId}

@@ -570,6 +570,7 @@ const WorkExperience = () => {
                     type="text"
                     placeholder="Company"
                     name="company"
+                    maxLength={150}
                     className={`w-full other-input border ${
                       improve && hasErrors(index, "company")
                         ? "border-red-500"
@@ -647,6 +648,7 @@ const WorkExperience = () => {
                     type="text"
                     placeholder="Position"
                     name="position"
+                    maxLength={150}
                     className={`w-full other-input border ${
                       improve && hasErrors(index, "position")
                         ? "border-red-500"
@@ -910,7 +912,13 @@ const WorkExperience = () => {
                   <ReactQuill
                     placeholder="Description"
                     value={experience.description}
-                    onChange={(value) => handleDescriptionChange(value, index)}
+                    
+                    // onChange={(value) => handleDescriptionChange(value, index)}
+                    onChange={(value) => {
+                      if (value.replace(/<[^>]*>/g, "").length <= 1000) {
+                        handleDescriptionChange(value,index);
+                      }
+                    }}
                     className={`bg-white rounded-md ${
                       improve && hasErrors(index, "descriptionDetails")
                         ? "border-red-500"
@@ -1036,6 +1044,7 @@ const WorkExperience = () => {
                   <textarea
                     placeholder="Key Achievements (one per line)"
                     name="KeyAchievements"
+                    maxLength={1000}
                     className={`w-full other-input border ${
                       improve && hasErrors(index, "KeyAchievements")
                         ? "border-red-500"

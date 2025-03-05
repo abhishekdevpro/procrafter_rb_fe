@@ -280,6 +280,7 @@ const Education = () => {
                 type="text"
                 placeholder="School"
                 name="school"
+                maxLength={150}
                 className={`w-full other-input border ${
                   hasErrors(index, "school") ? "border-red-500" : "border-black"
                 }`}
@@ -353,6 +354,7 @@ const Education = () => {
               type="text"
               placeholder="Degree"
               name="degree"
+              maxLength={150}
               className={`w-full other-input border ${
                 improve && hasErrors(index, "degree")
                   ? "border-red-500"
