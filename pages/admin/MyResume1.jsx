@@ -49,6 +49,10 @@ const MyResume1 = () => {
 
   return (
     <div className="container mx-auto p-4 text-center">
+      <div className="bg-gradient-to-r from-pink-500 to-pink-700 p-6 rounded-lg shadow-lg mb-8">
+        <h2 className="text-start text-3xl text-white font-bold">All Customers</h2>
+      </div>
+
       <div className="overflow-x-auto">
         <table className="min-w-full  bg-dark text-black rounded-md text-center">
           <thead>

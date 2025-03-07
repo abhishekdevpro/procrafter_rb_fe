@@ -24,7 +24,7 @@ const Sidebar1 = ({ onClose }) => {
           <Link
             href=""
             className={getLinkClassName("/")}
-            onClick={onClose} // Close sidebar on link click
+            onClick={onClose} 
           >
             <span className="mr-2">🏠</span>
             <span>Home</span>
