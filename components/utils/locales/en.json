@@ -986,23 +986,137 @@
     "suggestion_title": "Social Media Suggestion",
     "remove_button": "Remove",
     "add_section": "✙ Add section"
+  },
+  "work_experience": {
+    "title": "Work Experience",
+    "fresher_question": "Are you a fresher?",
+    "company_name": "Company Name",
+    "job_title": "Job Title",
+    "start_date": "Start Date",
+    "end_date": "End Date",
+    "description": "Description",
+    "key_achievements": "Key Achievements",
+    "location": "Location",
+    "save_button": "Save",
+    "cancel_button": "Cancel",
+    "add_section": "✙ Add section"
+  },
+  "language": {
+    "title": "Languages",
+    "description": "If you are proficient in one or more languages, mention them in this section.",
+    "firstLanguage": "First Language",
+    "language": "Language",
+    "proficiency": "Proficiency",
+    "selectLanguage": "Select Language",
+    "selectProficiency": "Select Proficiency",
+    "deleteLanguage": "Delete language",
+    "noLanguages": "No languages added. Add a new language to get started.",
+    "atLeastOneRequired": "At least one language is required.",
+    "suggestionTitle": "Language Suggestion"
+  },
+  "proficiencyLevels": {
+    "nativeSpeaker": "Native Speaker",
+    "fluent": "Fluent",
+    "good": "Good",
+    "basicKnowledge": "Basic Knowledge",
+    "justStarting": "Just Starting"
   }
-                }
-                
-                
-            
+                },
+                "aiResumeEnhancer": {
+                    "title": "AI Resume Enhancer",
+                    "subtitle": "Elevate Your Job Applications with AI-Driven Enhancements",
+                    "intro": "At Cibli Job, we believe that every job seeker deserves a standout resume that effectively showcases their skills and experiences. Our AI Resume Enhancer is designed to elevate your resume, ensuring it meets industry standards and captures the attention of recruiters. Using advanced AI technology, we transform your resume into a powerful tool for career success",
+                    "featuresTitle": "Key Features of Our AI Resume Enhancer",
+                    "feature1Title": "1. Content Optimization",
+                    "feature1Desc": "Our AI analyzes your resume content to ensure it is concise, relevant, and impactful. It helps you highlight key achievements, skills, and experiences that align with the job you're applying for.",
+                    "feature2Title": "2. Tailored Recommendations",
+                    "feature2Desc": "Receive personalized suggestions on how to improve your resume. The AI provides specific advice on language, tone, and structure, helping you create a compelling narrative that resonates with hiring managers.",
+                    "feature3Title": "3. Industry-Specific Enhancements",
+                    "feature3Desc": "Our AI Resume Enhancer tailors your resume to fit the standards and expectations of your target industry. Whether you're in tech, finance, healthcare, or any other field, our AI ensures your resume speaks the industry language.",
+                    "feature4Title": "4. Keyword Optimization",
+                    "feature4Desc": "The AI scans job descriptions to identify critical keywords and phrases. It then suggests incorporating these keywords into your resume to increase your chances of passing through Applicant Tracking Systems (ATS).",
+                    "feature5Title": "5. Skill Highlighting",
+                    "feature5Desc": "Our AI emphasizes your most relevant skills based on the job description. It ensures that your resume showcases your strengths in a way that aligns with employer expectations.",
+                    "feature6Title": "6. Achievement Quantification",
+                    "feature6Desc": "The AI prompts you to quantify your achievements, such as including specific numbers and metrics. This adds credibility to your resume and provides tangible evidence of your accomplishments.",
+                    "feature7Title": "7. Visual Appeal",
+                    "feature7Desc": "Receive recommendations on improving the visual layout of your resume. The AI ensures that your resume is not only informative but also aesthetically pleasing, making it easier for recruiters to read.",
+                    "feature8Title": "7. Error Correction",
+                    "feature8Desc": "The AI checks for and corrects grammatical, spelling, and punctuation errors. This ensures your resume is polished and professional, free of any distracting mistakes.",
+                    "howItWorksTitle": "How It Works",
+                    "step1Title": "Step 1: Upload Your Resume",
+                    "step1Desc": "Upload your existing resume to the Cibli Job platform. Our AI will start analyzing your document immediately.",
+                    "step2Title": "Step 2: AI Analysis",
+                    "step2Desc": "The AI evaluates your resume, examining content, structure, keywords, and overall presentation. It identifies areas that need improvement and generates a comprehensive enhancement plan.",
+                    "step3Title": "Step 3: Receive Recommendations",
+                    "step3Desc": "Within minutes, you'll receive detailed recommendations on how to enhance your resume. The AI provides actionable insights and specific suggestions for improvement.",
+                    "step4Title": "Step 4: Implement Enhancements",
+                    "step4Desc": "Make the suggested changes to your resume. Use the AI's feedback to refine content, optimize keywords, and improve the visual layout.",
+                    "benefitsTitle": "Benefits of Using AI Resume Enhancer",
+                    "benefit1Title": "Professional Quality",
+                    "benefit1Desc": "Create a high-quality, polished resume that meets industry standards and captures the attention of hiring managers.",
+                    "benefit2Title": "Increased Visibility",
+                    "benefit2Desc": "Optimize your resume for ATS and keyword searches, increasing your chances of being shortlisted for interviews.",
+                    "benefit3Title": "Personalized Insights",
+                    "benefit3Desc": "Receive tailored recommendations that address your unique career goals and the specific requirements of your target job.",
+                    "benefit4Title": "Efficiency and Convenience",
+                    "benefit4Desc": "Save time and effort with automated enhancements that ensure your resume is comprehensive and impactful.",
+                    "startEnhancingTitle": "Start Enhancing Your Resume Today",
+                    "startEnhancingDesc": "Transform your resume with Cibli Job's AI Resume Enhancer. Sign up now to create a resume that stands out and opens doors to new career opportunities.",
+                    "getStartedTitle": "Get Started",
+                    "getStartedDesc": "Ready to elevate your resume? Visit our AI Resume Enhancer page and start refining your resume today!"
+                  },
+                  "aiJobMatchApply": {
+    "title": "AI-Job Match & Apply",
+    "subtitle": "Simplifying Your Job Search with AI Technology",
+    "intro": "At Cibli Job, we aim to make your job search efficient and effective with our AI Job Match & Apply tool. This innovative technology uses advanced algorithms to match your skills and experiences with relevant job opportunities, streamlining the application process and increasing your chances of landing the perfect job.",
+    "featuresTitle": "Key Features of Our AI Job Match & Apply Tool",
+    "feature1Title": "1. Personalized Job Matching",
+    "feature1Desc": "Our AI analyzes your resume and profile to identify job opportunities that align with your skills, experience, and career goals. This ensures that you apply for positions where you are most likely to succeed.",
+    "feature2Title": "2. Real-Time Job Alerts",
+    "feature2Desc": "Receive real-time notifications about new job postings that match your profile. Stay updated on the latest opportunities without having to constantly search job boards.",
+    "feature3Title": "3. One-Click Application",
+    "feature3Desc": "Simplify the application process with one-click applications. Our AI auto-fills your resume and other required details, allowing you to apply to multiple jobs quickly and efficiently.",
+    "feature4Title": "4. ATS Optimization",
+    "feature4Desc": "Ensure that your resume passes through Applicant Tracking Systems (ATS) with ease. Our AI optimizes your resume with relevant keywords and formats it to meet ATS standards, increasing your chances of being noticed by recruiters.",
+    "feature5Title": "5. Comprehensive Job Search Filters",
+    "feature5Desc": "Use advanced filters to narrow down job listings based on criteria such as location, industry, salary range, and company size. This helps you find the most relevant job opportunities faster.",
+    "feature6Title": "6. Skill Gap Analysis",
+    "feature6Desc": "Our AI identifies any skill gaps between your current profile and the job requirements. It provides recommendations for courses or certifications that can help you qualify for your desired positions.",
+    "feature7Title": "7. Application Tracking",
+    "feature7Desc": "Keep track of all your job applications in one place. Our tool provides a dashboard where you can monitor the status of your applications, upcoming interviews, and follow-up tasks.",
+    "feature8Title": "8. Company Insights",
+    "feature8Desc": "Gain insights into potential employers with detailed company profiles. Learn about company culture, values, benefits, and recent news to make informed decisions about where to apply.",
+    "howItWorksTitle": "How It Works",
+    "step1Title": "Step 1: Create Your Profile",
+    "step1Desc": "Sign up on the Cibli Job platform and create your profile. Upload your resume and provide details about your skills, experiences, and career aspirations.",
+    "step2Title": "Step 2: AI Analysis",
+    "step2Desc": "The AI scans your profile and resume, analyzing your qualifications and preferences. It matches you with suitable job opportunities from our extensive database.",
+    "step3Title": "Step 3: Receive Job Matches",
+    "step3Desc": "Get a list of personalized job matches that align with your profile. The AI continuously updates this list as new job openings become available.",
+    "step4Title": "Step 4: Apply with One Click",
+    "step4Desc": "Use the one-click application feature to apply for jobs directly through the platform. The AI auto-fills your application details, making the process quick and hassle-free.",
+    "step5Title": "Step 5: Track Your Applications",
+    "step5Desc": "Monitor the progress of your job applications through the dashboard. Receive updates on application status, interview schedules, and follow-up actions.",
+    "step6Title": "Step 6: Enhance Your Profile",
+    "step6Desc": "Follow the AI's recommendations to bridge any skill gaps. Take suggested courses or earn certifications to improve your qualifications and increase your job match accuracy.",
+    "benefitsTitle": "Benefits of Using AI Job Match & Apply",
+    "benefit1Title": "Increased Efficiency",
+    "benefit1Desc": "Save time and effort by receiving personalized job matches and applying with just one click. The AI handles the heavy lifting, so you can focus on preparing for interviews and advancing your career.",
+    "benefit2Title": "Higher Success Rate",
+    "benefit2Desc": "Optimize your job search with targeted matches and ATS-friendly applications. This increases your chances of being shortlisted for interviews and ultimately landing the job.",
+    "benefit3Title": "Personalized Experience",
+    "benefit3Desc": "Enjoy a tailored job search experience that aligns with your unique skills, experiences, and career goals. The AI provides relevant opportunities and actionable insights for continuous improvement.",
+    "benefit4Title": "Comprehensive Support",
+    "benefit4Desc": "Manage your entire job search process from one platform. Track applications, receive real-time alerts, and gain valuable insights into potential employers.",
+    "startUsingTitle": "Start Using AI Job Match & Apply Today",
+    "startUsingDesc": "Transform your job search with Cibli Job's AI Job Match & Apply tool. Sign up now to discover job opportunities that perfectly match your profile and streamline your path to career success.",
+    "getStartedTitle": "Get Started",
+    "getStartedDesc": "Ready to find your dream job? Visit our AI Job Match & Apply page and start matching with top job opportunities today!"
+  }
+  
+}                      
       
-      
-      
-    
-                        
-                        
-                      
-                      
-                    
-                    
-                  
-                }
                     
                     
                     

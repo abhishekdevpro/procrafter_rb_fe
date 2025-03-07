@@ -230,6 +230,7 @@ const Footer = () => {
         // Handle the response, show a success message
         setMessage("Subscribed successfully!");
         toast.success(t("footer.toast_success"));
+        setEmail("")
       })
       .catch((error) => {
         // Handle the error, show an error message

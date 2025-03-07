@@ -209,16 +209,15 @@ export default function MobileBuilder() {
     const id = path.split("/").pop();
     setResumeId(id);
   }, []);
-
-  const sections = [
-    { label: "Personal Details", component: <PersonalInformation /> },
-    { label: "Social Links", component: <SocialMedia /> },
-    { label: "Summary", component: <Summary /> },
-    { label: "Education", component: <Education /> },
-    { label: "Experience", component: <WorkExperience /> },
-    { label: "Projects", component: <Projects /> },
+const sections = [
+    { label: t("resumeStrength.sections.personalInformation"), component: <PersonalInformation /> },
+    { label: t("resumeStrength.sections.socialLinks"), component: <SocialMedia /> },
+    { label: t("resumeStrength.sections.personalSummary"), component: <Summary /> },
+    { label: t("resumeStrength.sections.education"), component: <Education /> },
+    { label: t("resumeStrength.sections.workHistory"), component: <WorkExperience /> },
+    { label: t("resumeStrength.sections.projects"), component: <Projects /> },
     {
-      label: "Skills",
+      label: t("resumeStrength.sections.skills"),
       component: Array.isArray(resumeData?.skills) ? (
         resumeData.skills.map((skill, index) => (
           <Skill title={skill.title} currentSkillIndex={index} key={index} />
@@ -227,9 +226,29 @@ export default function MobileBuilder() {
         <p>No skills available</p>
       ),
     },
-    { label: "Languages", component: <Language /> },
-    { label: "Certifications", component: <Certification /> },
+    { label: t("resumeStrength.sections.languages"), component: <Language /> },
+    { label: t("resumeStrength.sections.certification"), component: <Certification /> },
   ];
+  // const sections = [
+  //   { label: "Personal Details", component: <PersonalInformation /> },
+  //   { label: "Social Links", component: <SocialMedia /> },
+  //   { label: "Summary", component: <Summary /> },
+  //   { label: "Education", component: <Education /> },
+  //   { label: "Experience", component: <WorkExperience /> },
+  //   { label: "Projects", component: <Projects /> },
+  //   {
+  //     label: "Skills",
+  //     component: Array.isArray(resumeData?.skills) ? (
+  //       resumeData.skills.map((skill, index) => (
+  //         <Skill title={skill.title} currentSkillIndex={index} key={index} />
+  //       ))
+  //     ) : (
+  //       <p>No skills available</p>
+  //     ),
+  //   },
+  //   { label: "Languages", component: <Language /> },
+  //   { label: "Certifications", component: <Certification /> },
+  // ];
 
   const handleNext = () => {
     handleFinish(false);

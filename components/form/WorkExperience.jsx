@@ -513,10 +513,10 @@ const WorkExperience = () => {
 
   return (
     <div className="flex-col gap-3 w-full mt-10 px-10">
-      <h2 className="input-title text-black text-3xl mb-6">Work Experience</h2>
+      <h2 className="input-title text-black text-3xl mb-6">{t("resumeStrength.sections.workHistory")}</h2>
       <div className="flex items-center space-x-2 mb-4">
         <label className="text-lg text-black font-medium">
-          Are you a Fresher?
+        {t("builder_forms.work_experience.fresher_question")}
         </label>
         <button
           className={`w-14 h-7 flex items-center rounded-full p-1 transition ${
@@ -565,7 +565,7 @@ const WorkExperience = () => {
             {expandedExperiences[index] && (
               <div className="p-4 bg-white">
                 <div className="relative mb-4">
-                  <label className="text-black">Company Name</label>
+                  <label className="text-black">{t("builder_forms.work_experience.company_name")}</label>
                   <input
                     type="text"
                     placeholder="Company"
@@ -643,7 +643,7 @@ const WorkExperience = () => {
                 </div>
 
                 <div className="relative mb-4">
-                  <label className="text-black">Job Title</label>
+                  <label className="text-black">{t("builder_forms.work_experience.job_title")}</label>
                   <input
                     type="text"
                     placeholder="Position"
@@ -721,7 +721,7 @@ const WorkExperience = () => {
                 </div>
 
                 <div className="">
-                  <label className="text-black">Start Date</label>
+                  <label className="text-black">{t("builder_forms.work_experience.start_date")}</label>
                   <div className="flex-wrap-gap-2">
                     <select
                       className={`other-input border flex-1 ${
@@ -755,7 +755,7 @@ const WorkExperience = () => {
                     </select>
                   </div>
 
-                  <label className="text-black">End Date</label>
+                  <label className="text-black">{t("builder_forms.work_experience.end_date")}</label>
                   <div className="flex-wrap-gap-2 flex items-center gap-2 ">
                     <select
                       className={`other-input border flex-1 ${
@@ -809,7 +809,7 @@ const WorkExperience = () => {
                   </div>
                 </div>
                 <div className="relative mb-4">
-                  <label className="mt-2 text-black">Location</label>
+                  <label className="mt-2 text-black">{t("builder_forms.work_experience.location")}</label>
                   <input
                     type="text"
                     placeholder="Location"
@@ -890,7 +890,7 @@ const WorkExperience = () => {
 
                 <div className="relative mb-4">
                   <div className="flex justify-between mb-2">
-                    <label className="text-black">Description</label>
+                    <label className="text-black">{t("builder_forms.work_experience.description")}</label>
 
                     <button
                       type="button"
@@ -1022,7 +1022,7 @@ const WorkExperience = () => {
 
                 <div className="relative mb-4">
                   <div className="flex justify-between mb-2">
-                    <label className="text-black">Key Achievements</label>
+                    <label className="text-black">{t("builder_forms.work_experience.key_achievements")}</label>
                     <button
                       type="button"
                       className="border bg-black text-white px-3 rounded-3xl"

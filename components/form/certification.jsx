@@ -3,6 +3,7 @@ import FormButton from "./FormButton";
 import { ResumeContext } from "../context/ResumeContext";
 import { useRouter } from "next/router";
 import { ChevronDown, ChevronUp, AlertCircle, X, Trash } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const Certification = () => {
   const { resumeData, setResumeData, resumeStrength } =
@@ -12,6 +13,8 @@ const Certification = () => {
   const router = useRouter();
   const { improve } = router.query;
   const [activeTooltip, setActiveTooltip] = useState(null);
+  const { t } = useTranslation();
+
 
   const handleSkills = (e, index, skillType) => {
     const newSkills = [...resumeData[skillType]];
@@ -66,7 +69,7 @@ const Certification = () => {
 
   return (
     <div className="flex-col flex gap-3 w-full  mt-10 px-10">
-      <h2 className="input-title text-black  text-3xl">{title}</h2>
+      <h2 className="input-title text-black  text-3xl">{t("resumeStrength.sections.certification")}</h2>
       {resumeData[skillType].map((skill, index) => (
         <div key={index} className="f-col justify-center">
           <div className="relative flex justify-center items-center gap-2">
