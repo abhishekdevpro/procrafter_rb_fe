@@ -69,6 +69,9 @@ function Subscriberslist1() {
 
   return (
     <div className="container mx-auto p-4 text-center">
+      <div className="bg-gradient-to-r from-pink-500 to-pink-700 p-6 rounded-lg shadow-lg mb-8">
+        <h2 className="text-start text-3xl text-white font-bold">Subscriber List</h2>
+      </div>
       <div className="overflow-x-auto">
         {users.length === 0 ? (
           <p className="text-lg text-gray-500">There is no data available.</p>

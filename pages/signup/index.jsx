@@ -77,15 +77,19 @@ const Signup = () => {
           password: "",
         });
 
-        // router.push("/login2");
-      } else {
+       
+      }
+      else {
+        
         toast.error(t("signuppage.signup_failed"));
+        router.push("/login2");
       }
     } catch (error) {
       console.log(error);
       toast.error(
         error.response?.data?.error || t("signuppage.error_occurred")
       );
+      
     } finally {
       setIsLoading(false);
     }

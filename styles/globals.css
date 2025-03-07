@@ -71,7 +71,7 @@
   }
 
   .editable {
-    @apply hover:bg-gray-100 hover:cursor-text outline-none;
+    @apply  hover:cursor-text outline-none;
   }
 }
 

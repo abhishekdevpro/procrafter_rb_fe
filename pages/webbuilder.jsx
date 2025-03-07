@@ -397,7 +397,8 @@ export default function WebBuilder() {
       // window.open(downloadUrl, '_blank');
 
       // toast.success('PDF generated and opened in a new tab!');
-      initiateCheckout();
+      // initiateCheckout();
+      downloadPDF()
       // toast.success("PDF generation request sent successfully!");
     } catch (error) {
       console.error("PDF generation error:", error);
