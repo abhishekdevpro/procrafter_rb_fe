@@ -258,13 +258,13 @@ const Education = () => {
 
   return (
     <div className="flex-col gap-3 w-full mt-10 px-10">
-      <h2 className="input-title text-black text-3xl">Education</h2>
+      <h2 className="input-title text-black text-3xl">{t("resumeStrength.sections.education")}</h2>
       {resumeData.education.map((education, index) => (
         <div key={index} className="f-col">
           <div className="relative mb-4">
             <div className="flex items-center justify-between mt-4">
               <h3 className="text-black text-xl font-semibold">
-                {`Education ${index + 1}`}
+                {`${t("resumeStrength.sections.education")} ${index + 1}`}
               </h3>
               <button
                 type="button"
@@ -407,7 +407,7 @@ const Education = () => {
           </div>
 
           <div className="">
-            <label className="text-black">Start Date</label>
+            <label className="text-black">{t("builder_forms.work_experience.start_date")}</label>
             <div className="flex-wrap-gap-2">
               <select
                 className={`border other-input flex-1 ${
@@ -443,7 +443,7 @@ const Education = () => {
               </select>
             </div>
 
-            <label className="text-black">End Date</label>
+            <label className="text-black">{t("builder_forms.work_experience.end_date")}</label>
             <div className="flex-wrap-gap-2">
               <select
                 className={`other-input border flex-1 ${
@@ -492,7 +492,7 @@ const Education = () => {
           </div>
 
           <div className="relative">
-            <label className="mt-2 text-black">Location</label>
+            <label className="mt-2 text-black">{t("builder_forms.work_experience.location")}</label>
             <div className="relative">
               <input
                 type="text"

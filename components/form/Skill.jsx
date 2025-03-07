@@ -320,8 +320,12 @@ const Skill = ({ title, currentSkillIndex }) => {
   }
 
   return (
-    <div className="flex-col-gap-3 w-full mt-10 px-10">
-      <h2 className="input-title text-black text-3xl">{title}</h2>
+
+   <>
+   
+      <div className="flex-col-gap-3 w-full mt-10 px-10">
+      
+      <h2 className="input-title text-black text-xl">{title}</h2>
       {skillType.skills.map((skill, index) => (
         <div key={index} className="relative flex items-center space-x-2">
           <div className="relative w-full">
@@ -480,6 +484,7 @@ const Skill = ({ title, currentSkillIndex }) => {
       )}
       {error && <p className="text-red-500 mt-2">{error}</p>}
     </div>
+   </>
   );
 };
 

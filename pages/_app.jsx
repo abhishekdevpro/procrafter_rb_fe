@@ -104,7 +104,7 @@ function App({ Component, pageProps }) {
   const router = useRouter();
 
   const googleTranslateElementInit = () => {
-    let savedLanguage = localStorage.getItem("selectedLanguage") || "fr"; // Default to French
+    let savedLanguage = localStorage.getItem("selectedLang") || "fr"; // Default to French
 
     new window.google.translate.TranslateElement(
       {
@@ -127,12 +127,12 @@ function App({ Component, pageProps }) {
     window.googleTranslateElementInit = googleTranslateElementInit;
   }, []);
 
-  useEffect(() => {
-    // Set default language in localStorage if not set
-    if (!localStorage.getItem("selectedLanguage")) {
-      localStorage.setItem("selectedLanguage", "fr"); // Default to French
-    }
-  }, []);
+  // useEffect(() => {
+  //   // Set default language in localStorage if not set
+  //   if (!localStorage.getItem("selectedLanguage")) {
+  //     localStorage.setItem("selectedLanguage", "fr"); // Default to French
+  //   }
+  // }, []);
 
   useEffect(() => {
     const token = localStorage.getItem("token");

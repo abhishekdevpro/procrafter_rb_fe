@@ -69,9 +69,7 @@ export default function Home() {
             }`}
             disabled={loading}
           >
-            {loading
-              ? t("createResume.creating")
-              : t("createResume.resume_btn")}
+            
             {loading ? (
               <SaveLoader loadingText={t("createResume.creating")} />
             ) : (

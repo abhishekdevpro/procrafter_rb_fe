@@ -320,7 +320,7 @@ const Projects = () => {
   };
   return (
     <div className="flex-col-gap-3 w-full mt-10 px-10">
-      <h2 className="input-title text-black text-3xl">Projects</h2>
+      <h2 className="input-title text-black text-3xl">{t("resumeStrength.sections.projects")}</h2>
       {resumeData.projects && resumeData.projects.length > 0 ? (
         resumeData.projects.map((project, projectIndex) => (
           <div
@@ -477,7 +477,7 @@ const Projects = () => {
                 </div>
                 <div className="relative mb-4">
                   <div className="flex justify-between mb-2">
-                    <label className="text-black">Description</label>
+                    <label className="text-black">{t("builder_forms.work_experience.description")}</label>
                     <button
                       type="button"
                       className="border bg-black text-white px-3 rounded-3xl"
@@ -599,7 +599,7 @@ const Projects = () => {
                 </div>
                 <div className="mt-4">
                   <div className="flex justify-between mb-2">
-                    <label className="text-black">Key Achievements</label>
+                    <label className="text-black">{t("builder_forms.work_experience.key_achievements")}</label>
                     <button
                       type="button"
                       className="border bg-black text-white px-3 rounded-3xl"
@@ -620,7 +620,7 @@ const Projects = () => {
                   />
                 </div>
                 <div className="">
-                  <label className="mt-2 text-black">Start Date</label>
+                  <label className="mt-2 text-black">{t("builder_forms.work_experience.start_date")}</label>
                   <div className="flex-wrap-gap-2">
                     <select
                       name="startMonth"
@@ -649,7 +649,7 @@ const Projects = () => {
                       ))}
                     </select>
                   </div>
-                  <label className="mt-2 text-black">End Date</label>
+                  <label className="mt-2 text-black">{t("builder_forms.work_experience.end_date")}</label>
                   <div className="flex-wrap-gap-2">
                     <select
                       name="endMonth"

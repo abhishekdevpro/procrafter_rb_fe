@@ -290,7 +290,7 @@ const SocialMedia = () => {
   return (
     <div className="flex-col flex gap-3 w-full mt-10 px-10">
       <h2 className="input-title text-black text-3xl">
-        {t("builder_forms.social_media.title")}
+        {t("resumeStrength.sections.socialLinks")}
       </h2>
       <h2 className="input-title text-black">
         {t("builder_forms.social_media.subtitle")}

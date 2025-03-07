@@ -164,7 +164,7 @@ const Summary = () => {
       <div className="flex flex-col gap-2">
         <div className="flex justify-between mb-2 items-center">
           <div className="flex items-center gap-2">
-            <h2 className="input-title text-black text-3xl">Summary</h2>
+            <h2 className="input-title text-black text-3xl">{t("resumeStrength.sections.personalSummary")}</h2>
             {improve && hasErrors() && (
               <button
                 type="button"

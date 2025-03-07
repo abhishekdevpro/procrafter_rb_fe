@@ -745,7 +745,7 @@ const PersonalInformation = () => {
       errorMessage: "Please enter a valid email address",
     },
     address: {
-      maxLength: 250,
+      maxLength: 500,
       minLength: 5,
       errorMessage: "Address must be between 5 and 200 characters",
     },
@@ -1207,7 +1207,7 @@ const PersonalInformation = () => {
                   <div className="relative w-full">
                     <div className="flex items-center">
                       {/* Country Code Selector */}
-                      <div
+                      {/* <div
                         className="absolute left-2 z-10 flex items-center cursor-pointer"
                         onClick={() => setShowCountryCodeDropdown(!showCountryCodeDropdown)}
                       >
@@ -1215,7 +1215,6 @@ const PersonalInformation = () => {
                         <ChevronDown className="w-4 h-4 text-gray-500" />
                       </div>
 
-                      {/* Input Field for Contact Information */}
                       {showCountryCodeDropdown && (
                         <div className="absolute top-full left-0 mt-1 w-64 max-h-60 overflow-y-auto bg-white border border-gray-300 rounded-md shadow-lg z-50">
                           {countryCodes.map((country) => (
@@ -1229,12 +1228,12 @@ const PersonalInformation = () => {
                             </div>
                           ))}
                         </div>
-                      )}
+                      )} */}
                       <input
                         type={type}
                         placeholder={placeholder}
                         name={field}
-                        className={`w-full p-2 pl-16 border rounded-md outline-none transition-colors ${
+                        className={`w-full p-2 border rounded-md outline-none transition-colors ${
                           hasErrors(field)
                             ? "border-red-500 focus:border-red-600"
                             : "border-gray-300 focus:border-blue-500"
