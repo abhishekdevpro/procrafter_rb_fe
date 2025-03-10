@@ -19,7 +19,7 @@ const MyCvLetter = () => {
   const [currentCoverLetter, setCurrentCoverLetter] = useState(null);
   const [newCoverLetterTitle, setNewCoverLetterTitle] = useState("");
   const [showLoader, setShowLoader] = useState(false);
-  const {selectedLang} = useContext(ResumeContext)
+  const { selectedLang } = useContext(ResumeContext);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -309,7 +309,7 @@ const MyCvLetter = () => {
           className="flex items-center px-4 py-2 bg-[#00b38d] text-white rounded-lg hover:bg-[#00b38d] transition-colors duration-200 font-medium shadow-sm"
         >
           <Plus className="w-5 h-5 mr-2" />{" "}
-          {t("mycvletter.create_new_cover_letter")}
+          {t("mycvletter.create_new_coverletter")}
         </button>
       </div>
 
