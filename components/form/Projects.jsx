@@ -15,8 +15,8 @@ const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 const Projects = () => {
   const { i18n, t } = useTranslation();
-    const language = i18n.language;
-  const { resumeData, setResumeData, resumeStrength, setResumeStrength} =
+  const language = i18n.language;
+  const { resumeData, setResumeData, resumeStrength, setResumeStrength } =
     useContext(ResumeContext);
   const [loadingStates, setLoadingStates] = useState({});
   const [error, setError] = useState("");
@@ -134,7 +134,7 @@ const Projects = () => {
           company_name: resumeData.projects[index].name || "N/A",
           job_title: resumeData.projects[index].po || "Project",
           link: resumeData.projects[index].link || "N/A",
-          lang:language
+          lang: language,
         },
         {
           headers: {
@@ -296,7 +296,7 @@ const Projects = () => {
           company_name: resumeData.projects[projectIndex].name || "N/A",
           job_title: resumeData?.position || "Project",
           link: resumeData.projects[projectIndex].link || "N/A",
-          lang:language
+          lang: language,
         },
         {
           headers: {
@@ -305,7 +305,11 @@ const Projects = () => {
         }
       );
 
-      setDescriptions(response.data.data.resume_analysis.project_summaries);
+      // setDescriptions(response.data.data.resume_analysis.project_summaries);
+      const projectSummaries =
+        response.data.data.resume_analysis.project_summaries || [];
+      setDescriptions(projectSummaries);
+
       setPopupIndex(projectIndex);
       setPopupType("description");
       setShowPopup(true);
@@ -318,9 +322,12 @@ const Projects = () => {
       }));
     }
   };
+
   return (
     <div className="flex-col-gap-3 w-full mt-10 px-10">
-      <h2 className="input-title text-black text-3xl">{t("resumeStrength.sections.projects")}</h2>
+      <h2 className="input-title text-black text-3xl">
+        {t("resumeStrength.sections.projects")}
+      </h2>
       {resumeData.projects && resumeData.projects.length > 0 ? (
         resumeData.projects.map((project, projectIndex) => (
           <div
@@ -477,12 +484,16 @@ const Projects = () => {
                 </div>
                 <div className="relative mb-4">
                   <div className="flex justify-between mb-2">
-                    <label className="text-black">{t("builder_forms.work_experience.description")}</label>
+                    <label className="text-black">
+                      {t("builder_forms.work_experience.description")}
+                    </label>
                     <button
                       type="button"
                       className="border bg-black text-white px-3 rounded-3xl"
                       onClick={() => handleAIAssistDescription(projectIndex)}
-                      disabled={loadingStates[`description_${projectIndex}`]}
+                      disabled={
+                        loadingStates[`description_${projectIndex}`] || false
+                      }
                     >
                       {loadingStates[`description_${projectIndex}`]
                         ? "Loading..."
@@ -495,24 +506,26 @@ const Projects = () => {
                     value={project.description}
                     // onChange={(value) =>
                     //   handleProjects(
-                        // {
-                        //   target: {
-                        //     name: "description",
-                        //     value: value,
-                        //   },
-                        // },
-                        // projectIndex
+                    // {
+                    //   target: {
+                    //     name: "description",
+                    //     value: value,
+                    //   },
+                    // },
+                    // projectIndex
                     //   )
                     // }
                     onChange={(value) => {
                       if (value.replace(/<[^>]*>/g, "").length <= 1000) {
-                        handleProjects({
-                          target: {
-                            name: "description",
-                            value: value,
+                        handleProjects(
+                          {
+                            target: {
+                              name: "description",
+                              value: value,
+                            },
                           },
-                        },
-                        projectIndex);
+                          projectIndex
+                        );
                       }
                     }}
                     className={`bg-white rounded-md ${
@@ -599,7 +612,9 @@ const Projects = () => {
                 </div>
                 <div className="mt-4">
                   <div className="flex justify-between mb-2">
-                    <label className="text-black">{t("builder_forms.work_experience.key_achievements")}</label>
+                    <label className="text-black">
+                      {t("builder_forms.work_experience.key_achievements")}
+                    </label>
                     <button
                       type="button"
                       className="border bg-black text-white px-3 rounded-3xl"
@@ -620,7 +635,9 @@ const Projects = () => {
                   />
                 </div>
                 <div className="">
-                  <label className="mt-2 text-black">{t("builder_forms.work_experience.start_date")}</label>
+                  <label className="mt-2 text-black">
+                    {t("builder_forms.work_experience.start_date")}
+                  </label>
                   <div className="flex-wrap-gap-2">
                     <select
                       name="startMonth"
@@ -649,7 +666,9 @@ const Projects = () => {
                       ))}
                     </select>
                   </div>
-                  <label className="mt-2 text-black">{t("builder_forms.work_experience.end_date")}</label>
+                  <label className="mt-2 text-black">
+                    {t("builder_forms.work_experience.end_date")}
+                  </label>
                   <div className="flex-wrap-gap-2">
                     <select
                       name="endMonth"
