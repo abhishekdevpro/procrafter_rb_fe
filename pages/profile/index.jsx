@@ -433,8 +433,8 @@ const ProfileForm = () => {
                 type="number"
                 name="phone"
                 value={formData.phone}
+                onChange={handleChange}
                 className="w-full border p-2"
-                readOnly
               />
             </div>
             <div>

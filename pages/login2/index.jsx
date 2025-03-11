@@ -22,8 +22,14 @@ const Login2 = () => {
     email: "",
     password: "",
   });
+  const [isChecked, setIsChecked] = useState(false);
+
+  // Checkbox handler
+  const handleCheckboxChange = (e) => {
+    setIsChecked(e.target.checked);
+  };
   const router = useRouter();
-  const {selectedLang} = useContext(ResumeContext)
+  const { selectedLang } = useContext(ResumeContext);
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -179,14 +185,23 @@ const Login2 = () => {
               </Link>
             </div>
             <div className="mb-4 flex items-center space-x-2">
-              <input
+              {/* <input
                 type="checkbox"
                 id="terms"
                 name="terms"
                 // checked={isChecked}
                 // onChange={(e) => setIsChecked(e.target.checked)}
                 className="w-4 h-4 text-yellow-500 border-gray-300 rounded focus:ring-yellow-500"
+              /> */}
+              <input
+                type="checkbox"
+                id="terms"
+                name="terms"
+                checked={isChecked}
+                onChange={handleCheckboxChange}
+                className="w-4 h-4 text-yellow-500 border-gray-300 rounded focus:ring-yellow-500"
               />
+
               <label htmlFor="terms" className="text-gray-700 text-sm">
                 {t("loginpage.agree_terms")}{" "}
                 <Link
@@ -201,7 +216,7 @@ const Login2 = () => {
             <button
               type="submit"
               className="w-full bg-[#00b38d] text-white px-4 py-2 rounded-md hover:bg-[#00b38d] transition-colors duration-300 relative"
-              disabled={isLoading}
+              disabled={!isChecked || isLoading} // Disabled when terms are not checked or loading
             >
               {t("loginpage.login_btn")}
             </button>
