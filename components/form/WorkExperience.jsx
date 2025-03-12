@@ -15,8 +15,13 @@ const WorkExperience = () => {
   const { i18n, t } = useTranslation();
   const language = i18n.language;
   // console.log(language,"language");
-  const { resumeData, setResumeData, resumeStrength, setResumeStrength,selectedLang} =
-    useContext(ResumeContext);
+  const {
+    resumeData,
+    setResumeData,
+    resumeStrength,
+    setResumeStrength,
+    selectedLang,
+  } = useContext(ResumeContext);
   const [activeTooltip, setActiveTooltip] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [loadingStates, setLoadingStates] = useState({});
@@ -221,7 +226,7 @@ const WorkExperience = () => {
           company_name: resumeData.workExperience[index].company,
           job_title: resumeData.workExperience[index].position,
           location: resumeData.workExperience[index].location,
-          lang:language
+          lang: language,
         },
         {
           headers: {
@@ -265,7 +270,7 @@ const WorkExperience = () => {
           company_name: resumeData.workExperience[index].company,
           job_title: resumeData.workExperience[index].position,
           location: resumeData.workExperience[index].location,
-          lang:language
+          lang: language,
         },
         {
           headers: {
@@ -374,7 +379,7 @@ const WorkExperience = () => {
             key: "professional_experience",
             keyword: value,
             content: value,
-            lang:language
+            lang: language,
           },
           {
             headers: {
@@ -513,10 +518,12 @@ const WorkExperience = () => {
 
   return (
     <div className="flex-col gap-3 w-full mt-10 px-10">
-      <h2 className="input-title text-black text-3xl mb-6">{t("resumeStrength.sections.workHistory")}</h2>
+      <h2 className="input-title text-black text-3xl mb-6">
+        {t("resumeStrength.sections.workHistory")}
+      </h2>
       <div className="flex items-center space-x-2 mb-4">
         <label className="text-lg text-black font-medium">
-        {t("builder_forms.work_experience.fresher_question")}
+          {t("builder_forms.work_experience.fresher_question")}
         </label>
         <button
           className={`w-14 h-7 flex items-center rounded-full p-1 transition ${
@@ -565,7 +572,9 @@ const WorkExperience = () => {
             {expandedExperiences[index] && (
               <div className="p-4 bg-white">
                 <div className="relative mb-4">
-                  <label className="text-black">{t("builder_forms.work_experience.company_name")}</label>
+                  <label className="text-black">
+                    {t("builder_forms.work_experience.company_name")}
+                  </label>
                   <input
                     type="text"
                     placeholder="Company"
@@ -643,7 +652,9 @@ const WorkExperience = () => {
                 </div>
 
                 <div className="relative mb-4">
-                  <label className="text-black">{t("builder_forms.work_experience.job_title")}</label>
+                  <label className="text-black">
+                    {t("builder_forms.work_experience.job_title")}
+                  </label>
                   <input
                     type="text"
                     placeholder="Position"
@@ -721,7 +732,9 @@ const WorkExperience = () => {
                 </div>
 
                 <div className="">
-                  <label className="text-black">{t("builder_forms.work_experience.start_date")}</label>
+                  <label className="text-black">
+                    {t("builder_forms.work_experience.start_date")}
+                  </label>
                   <div className="flex-wrap-gap-2">
                     <select
                       className={`other-input border flex-1 ${
@@ -755,7 +768,9 @@ const WorkExperience = () => {
                     </select>
                   </div>
 
-                  <label className="text-black">{t("builder_forms.work_experience.end_date")}</label>
+                  <label className="text-black">
+                    {t("builder_forms.work_experience.end_date")}
+                  </label>
                   <div className="flex-wrap-gap-2 flex items-center gap-2 ">
                     <select
                       className={`other-input border flex-1 ${
@@ -809,7 +824,9 @@ const WorkExperience = () => {
                   </div>
                 </div>
                 <div className="relative mb-4">
-                  <label className="mt-2 text-black">{t("builder_forms.work_experience.location")}</label>
+                  <label className="mt-2 text-black">
+                    {t("builder_forms.work_experience.location")}
+                  </label>
                   <input
                     type="text"
                     placeholder="Location"
@@ -890,7 +907,9 @@ const WorkExperience = () => {
 
                 <div className="relative mb-4">
                   <div className="flex justify-between mb-2">
-                    <label className="text-black">{t("builder_forms.work_experience.description")}</label>
+                    <label className="text-black">
+                      {t("builder_forms.work_experience.description")}
+                    </label>
 
                     <button
                       type="button"
@@ -912,11 +931,10 @@ const WorkExperience = () => {
                   <ReactQuill
                     placeholder="Description"
                     value={experience.description}
-                    
                     // onChange={(value) => handleDescriptionChange(value, index)}
                     onChange={(value) => {
                       if (value.replace(/<[^>]*>/g, "").length <= 1000) {
-                        handleDescriptionChange(value,index);
+                        handleDescriptionChange(value, index);
                       }
                     }}
                     className={`bg-white rounded-md ${
@@ -1022,7 +1040,9 @@ const WorkExperience = () => {
 
                 <div className="relative mb-4">
                   <div className="flex justify-between mb-2">
-                    <label className="text-black">{t("builder_forms.work_experience.key_achievements")}</label>
+                    <label className="text-black">
+                      {t("builder_forms.work_experience.key_achievements")}
+                    </label>
                     <button
                       type="button"
                       className="border bg-black text-white px-3 rounded-3xl"
@@ -1127,8 +1147,8 @@ const WorkExperience = () => {
           <div className="bg-white p-6 rounded-lg w-[90%] max-w-lg">
             <h3 className="text-xl font-bold mb-4">
               {popupType === "description"
-                ? "Select Description"
-                : "Select Key Achievements"}
+                ? "Select Description" || []
+                : "Select Key Achievements" || []}
             </h3>
             <div className="space-y-3 max-h-96 overflow-y-auto">
               {(popupType === "description"

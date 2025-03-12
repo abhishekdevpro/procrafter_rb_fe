@@ -215,7 +215,13 @@ const Login2 = () => {
 
             <button
               type="submit"
-              className="w-full bg-[#00b38d] text-white px-4 py-2 rounded-md hover:bg-[#00b38d] transition-colors duration-300 relative"
+              // className="w-full bg-[#00b38d] text-white px-4 py-2 rounded-md hover:bg-[#00b38d] transition-colors duration-300 relative"
+              className={`w-full text-white px-4 py-2 rounded-md transition-colors duration-300 relative 
+                ${
+                  !isChecked || isLoading
+                    ? "bg-gray-400 cursor-not-allowed "
+                    : "bg-[#00b38d] hover:bg-[#008f6f]"
+                }`}
               disabled={!isChecked || isLoading} // Disabled when terms are not checked or loading
             >
               {t("loginpage.login_btn")}
