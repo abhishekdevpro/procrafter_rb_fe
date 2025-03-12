@@ -21,6 +21,7 @@ const ProfileForm = () => {
     city_id: "",
     photo: "",
     uploadPhoto: null,
+    phone: "",
   });
 
   const [countries, setCountries] = useState([]);
@@ -209,6 +210,7 @@ const ProfileForm = () => {
     formDataToSend.append("country_id", formData.country_id);
     formDataToSend.append("state_id", formData.state_id);
     formDataToSend.append("city_id", formData.city_id);
+    formDataToSend.append("phone", formData.phone);
 
     if (formData.uploadPhoto) {
       formDataToSend.append("upload_photo", formData.uploadPhoto);
