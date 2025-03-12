@@ -236,7 +236,7 @@ const WorkExperience = () => {
       );
 
       setDescriptions(
-        response.data.data.resume_analysis.professional_summaries
+        response.data.data.resume_analysis.professional_summaries || []
       ); // ✅ Store in descriptions state
       setPopupIndex(index);
       setPopupType("description");
@@ -279,7 +279,9 @@ const WorkExperience = () => {
         }
       );
 
-      setKeyAchievements(response.data.data.resume_analysis.responsibilities); // ✅ Store in keyAchievements state
+      setKeyAchievements(
+        response.data.data.resume_analysis.responsibilities || []
+      ); // ✅ Store in keyAchievements state
       setPopupIndex(index);
       setPopupType("keyAchievements");
       setShowPopup(true);
@@ -930,7 +932,7 @@ const WorkExperience = () => {
                   </div>
                   <ReactQuill
                     placeholder="Description"
-                    value={experience.description}
+                    value={experience.description || ""}
                     // onChange={(value) => handleDescriptionChange(value, index)}
                     onChange={(value) => {
                       if (value.replace(/<[^>]*>/g, "").length <= 1000) {
@@ -1147,13 +1149,13 @@ const WorkExperience = () => {
           <div className="bg-white p-6 rounded-lg w-[90%] max-w-lg">
             <h3 className="text-xl font-bold mb-4">
               {popupType === "description"
-                ? "Select Description" || []
-                : "Select Key Achievements" || []}
+                ? "Select Description"
+                : "Select Key Achievements"}
             </h3>
             <div className="space-y-3 max-h-96 overflow-y-auto">
               {(popupType === "description"
-                ? descriptions
-                : keyAchievements
+                ? descriptions || []
+                : keyAchievements || []
               ).map((item, index) => (
                 <div key={index} className="flex items-start gap-3">
                   {/* Radio for description (Single Select) */}

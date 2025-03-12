@@ -143,7 +143,9 @@ const Projects = () => {
         }
       );
 
-      setKeyAchievements(response.data.data.resume_analysis.responsibilities);
+      setKeyAchievements(
+        response.data.data.resume_analysis.responsibilities || []
+      );
       setPopupIndex(index);
       setPopupType("keyAchievements");
       setShowPopup(true);

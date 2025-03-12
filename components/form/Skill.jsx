@@ -266,7 +266,7 @@ const Skill = ({ title, currentSkillIndex }) => {
       );
 
       if (response.data.status === "success") {
-        setAiSkills(response.data.data.resume_analysis.skills);
+        setAiSkills(response.data.data.resume_analysis.skills || []);
         setIsModalOpen(true);
       } else {
         setError("Unable to fetch AI data. Please try again.");
@@ -320,113 +320,114 @@ const Skill = ({ title, currentSkillIndex }) => {
   }
 
   return (
-
-   <>
-   
+    <>
       <div className="flex-col-gap-3 w-full mt-10 px-10">
-      
-      <h2 className="input-title text-black text-xl">{title}</h2>
-      {skillType.skills.map((skill, index) => (
-        <div key={index} className="relative flex items-center space-x-2">
-          <div className="relative w-full">
-            <input
-              type="text"
-              placeholder={title}
-              name={title}
-              className={`w-full other-input border ${
-                improve && hasErrors(index) ? "border-red-500" : "border-black"
-              }`}
-              value={skill}
-              onChange={(e) => handleSkill(e, index, title)}
-              onKeyDown={(e) => handleKeyDown(e, index, title)}
-              onFocus={() => {
-                if (skill.length >= 2) {
-                  fetchSuggestions(skill, index);
+        <h2 className="input-title text-black text-xl">{title}</h2>
+        {skillType.skills.map((skill, index) => (
+          <div key={index} className="relative flex items-center space-x-2">
+            <div className="relative w-full">
+              <input
+                type="text"
+                placeholder={title}
+                name={title}
+                className={`w-full other-input border ${
+                  improve && hasErrors(index)
+                    ? "border-red-500"
+                    : "border-black"
+                }`}
+                value={skill}
+                onChange={(e) => handleSkill(e, index, title)}
+                onKeyDown={(e) => handleKeyDown(e, index, title)}
+                onFocus={() => {
+                  if (skill.length >= 2) {
+                    fetchSuggestions(skill, index);
+                  }
+                }}
+              />
+              {showSuggestions &&
+                activeInputIndex === index &&
+                suggestions.length > 0 && (
+                  <div
+                    ref={suggestionsRef}
+                    className="absolute z-50 w-full bg-white mt-1 border border-gray-200 rounded-md shadow-lg max-h-60 overflow-y-auto"
+                  >
+                    {suggestions.map((suggestion, i) => (
+                      <div
+                        key={suggestion.id}
+                        className={`px-4 py-2 cursor-pointer hover:bg-gray-100 ${
+                          i === activeSuggestionIndex ? "bg-gray-100" : ""
+                        }`}
+                        onClick={() =>
+                          handleSelectSuggestion(suggestion, index, title)
+                        }
+                      >
+                        {suggestion.name}
+                      </div>
+                    ))}
+                  </div>
+                )}
+            </div>
+
+            {improve && hasErrors(index) && (
+              <button
+                type="button"
+                className="absolute right-8 top-1/2 -translate-y-1/2 text-red-500 hover:text-red-600 transition-colors"
+                onClick={() =>
+                  setActiveTooltip(
+                    activeTooltip === `skill-${index}` ? null : `skill-${index}`
+                  )
                 }
-              }}
-            />
-            {showSuggestions &&
-              activeInputIndex === index &&
-              suggestions.length > 0 && (
-                <div
-                  ref={suggestionsRef}
-                  className="absolute z-50 w-full bg-white mt-1 border border-gray-200 rounded-md shadow-lg max-h-60 overflow-y-auto"
-                >
-                  {suggestions.map((suggestion, i) => (
-                    <div
-                      key={suggestion.id}
-                      className={`px-4 py-2 cursor-pointer hover:bg-gray-100 ${
-                        i === activeSuggestionIndex ? "bg-gray-100" : ""
-                      }`}
-                      onClick={() =>
-                        handleSelectSuggestion(suggestion, index, title)
-                      }
-                    >
-                      {suggestion.name}
+              >
+                <AlertCircle className="w-5 h-5" />
+              </button>
+            )}
+
+            <button
+              type="button"
+              onClick={() => removeSkill(title, index)}
+              className="bg-red-500 text-white hover:bg-red-700 py-2 px-2"
+              aria-label="Delete skill"
+            >
+              <Trash />
+            </button>
+
+            {activeTooltip === `skill-${index}` && (
+              <div className="absolute z-10 right-10 top-10 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200">
+                <div className="bg-red-50 px-4 py-2 rounded-t-lg border-b border-red-100">
+                  <div className="flex items-center gap-2">
+                    <AlertCircle className="w-5 h-5 text-red-600" />
+                    <span className="font-medium text-red-800">
+                      Skill Error
+                    </span>
+                  </div>
+                </div>
+                <div className="p-4">
+                  {getErrorMessages(index).map((msg, i) => (
+                    <div key={i} className="text-gray-700 text-sm mb-2">
+                      {msg}
                     </div>
                   ))}
                 </div>
-              )}
-          </div>
-
-          {improve && hasErrors(index) && (
-            <button
-              type="button"
-              className="absolute right-8 top-1/2 -translate-y-1/2 text-red-500 hover:text-red-600 transition-colors"
-              onClick={() =>
-                setActiveTooltip(
-                  activeTooltip === `skill-${index}` ? null : `skill-${index}`
-                )
-              }
-            >
-              <AlertCircle className="w-5 h-5" />
-            </button>
-          )}
-
-          <button
-            type="button"
-            onClick={() => removeSkill(title, index)}
-            className="bg-red-500 text-white hover:bg-red-700 py-2 px-2"
-            aria-label="Delete skill"
-          >
-            <Trash />
-          </button>
-
-          {activeTooltip === `skill-${index}` && (
-            <div className="absolute z-10 right-10 top-10 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200">
-              <div className="bg-red-50 px-4 py-2 rounded-t-lg border-b border-red-100">
-                <div className="flex items-center gap-2">
-                  <AlertCircle className="w-5 h-5 text-red-600" />
-                  <span className="font-medium text-red-800">Skill Error</span>
+                <div className="border-t border-gray-100 p-3 flex justify-end">
+                  <button
+                    onClick={() => setActiveTooltip(null)}
+                    className="text-blue-600 hover:text-blue-800 text-sm font-medium"
+                  >
+                    Dismiss
+                  </button>
                 </div>
               </div>
-              <div className="p-4">
-                {getErrorMessages(index).map((msg, i) => (
-                  <div key={i} className="text-gray-700 text-sm mb-2">
-                    {msg}
-                  </div>
-                ))}
-              </div>
-              <div className="border-t border-gray-100 p-3 flex justify-end">
-                <button
-                  onClick={() => setActiveTooltip(null)}
-                  className="text-blue-600 hover:text-blue-800 text-sm font-medium"
-                >
-                  Dismiss
-                </button>
-              </div>
-            </div>
-          )}
-        </div>
-      ))}
+            )}
+          </div>
+        ))}
 
-      <div className="flex space-x-4">
-        <FormButton
-          size={skillType.skills.length}
-          add={() => addSkill(title)}
-          remove={() => removeSkill(title)}
-        />
-        {/* <button
+        <div className="flex space-x-4">
+          <FormButton
+            size={skillType.skills.length}
+            add={() => addSkill(title)}
+            remove={() => removeSkill(title)}
+          />
+          {/* <button
           type="button"
           onClick={() => removeAllSkills(title)}
           className="text-red-600 hover:text-red-800"
@@ -434,57 +435,57 @@ const Skill = ({ title, currentSkillIndex }) => {
         >
           Delete All Skills
         </button> */}
-        <button
-          type="button"
-          onClick={handleAIAssist}
-          className="border bg-black text-white px-3 rounded-3xl"
-          disabled={loading}
-        >
-          {loading ? "Loading..." : " + Smart Assist"}
-        </button>
-      </div>
-
-      {isModalOpen && (
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white p-6 rounded-xl w-96">
-            <h3 className="text-xl mb-4">Select AI Skills</h3>
-            <ul className="space-y-2">
-              {Array.isArray(aiSkills) && aiSkills.length > 0 ? (
-                aiSkills.map((skill, index) => (
-                  <li key={index} className="flex items-center space-x-2">
-                    <input
-                      type="checkbox"
-                      checked={selectedSkills.includes(skill)}
-                      onChange={() => handleSelectSkill(skill)}
-                    />
-                    <span>{skill}</span>
-                  </li>
-                ))
-              ) : (
-                <li>No AI skills available.</li>
-              )}
-            </ul>
-            <button
-              className="mt-4 px-4 py-2 bg-gray-300 rounded-lg"
-              onClick={addSelectedSkills}
-            >
-              Add Selected Skills
-            </button>
-            <button
-              className="mt-4 ml-2 px-4 py-2 bg-gray-300 rounded-lg"
-              onClick={() => {
-                setIsModalOpen(false);
-                setSelectedSkills([]);
-              }}
-            >
-              Close
-            </button>
-          </div>
+          <button
+            type="button"
+            onClick={handleAIAssist}
+            className="border bg-black text-white px-3 rounded-3xl"
+            disabled={loading}
+          >
+            {loading ? "Loading..." : " + Smart Assist"}
+          </button>
         </div>
-      )}
-      {error && <p className="text-red-500 mt-2">{error}</p>}
-    </div>
-   </>
+
+        {isModalOpen && (
+          <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-50">
+            <div className="bg-white p-6 rounded-xl w-96">
+              <h3 className="text-xl mb-4">Select AI Skills</h3>
+              <ul className="space-y-2">
+                {Array.isArray(aiSkills) && aiSkills.length > 0 ? (
+                  aiSkills.map((skill, index) => (
+                    <li key={index} className="flex items-center space-x-2">
+                      <input
+                        type="checkbox"
+                        checked={selectedSkills.includes(skill)}
+                        onChange={() => handleSelectSkill(skill)}
+                      />
+                      <span>{skill}</span>
+                    </li>
+                  ))
+                ) : (
+                  <li>No AI skills available.</li>
+                )}
+              </ul>
+              <button
+                className="mt-4 px-4 py-2 bg-gray-300 rounded-lg"
+                onClick={addSelectedSkills}
+              >
+                Add Selected Skills
+              </button>
+              <button
+                className="mt-4 ml-2 px-4 py-2 bg-gray-300 rounded-lg"
+                onClick={() => {
+                  setIsModalOpen(false);
+                  setSelectedSkills([]);
+                }}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        )}
+        {error && <p className="text-red-500 mt-2">{error}</p>}
+      </div>
+    </>
   );
 };
 
