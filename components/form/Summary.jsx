@@ -11,10 +11,15 @@ import { useTranslation } from "react-i18next";
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 const Summary = () => {
-  const { resumeData, setResumeData, resumeStrength, setResumeStrength,selectedLang } =
-    useContext(ResumeContext);
-    const { i18n, t } = useTranslation();
-    const language = i18n.language;
+  const {
+    resumeData,
+    setResumeData,
+    resumeStrength,
+    setResumeStrength,
+    selectedLang,
+  } = useContext(ResumeContext);
+  const { i18n, t } = useTranslation();
+  const language = i18n.language;
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [summaries, setSummaries] = useState([]);
@@ -50,19 +55,22 @@ const Summary = () => {
 
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`${BASE_URL}/api/user/ai-summery?lang=${language}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `${token}`,
-        },
-        body: JSON.stringify({
-          key: "summary",
-          keyword: "auto improve",
-          content: resumeData.summary,
-          job_title: resumeData.position,
-        }),
-      });
+      const response = await fetch(
+        `${BASE_URL}/api/user/ai-summery?lang=${language}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `${token}`,
+          },
+          body: JSON.stringify({
+            key: "summary",
+            keyword: "auto improve",
+            content: resumeData.summary,
+            job_title: resumeData.position,
+          }),
+        }
+      );
 
       if (response.ok) {
         const data = await response.json();
@@ -112,7 +120,7 @@ const Summary = () => {
           keyword: `professional summary in manner of description - ${Date.now()}`,
           content: resumeData.position,
           file_location: "",
-          lang: selectedLang
+          lang: selectedLang,
         },
         {
           headers: {
@@ -164,7 +172,9 @@ const Summary = () => {
       <div className="flex flex-col gap-2">
         <div className="flex justify-between mb-2 items-center">
           <div className="flex items-center gap-2">
-            <h2 className="input-title text-black text-3xl">{t("resumeStrength.sections.personalSummary")}</h2>
+            <h2 className="input-title text-black text-3xl">
+              {t("resumeStrength.sections.personalSummary")}
+            </h2>
             {improve && hasErrors() && (
               <button
                 type="button"
@@ -275,23 +285,22 @@ const Summary = () => {
           {resumeData.summary?.length || 0}/1000
         </div> */}
         <ReactQuill
-  placeholder="Enter your professional summary or use Smart Assist to generate one"
-  value={resumeData.summary || ""}
-  onChange={(content) => {
-    if (content.replace(/<[^>]*>/g, "").length <= 1000) {
-      handleQuillChange(content);
-    }
-  }}
-  className="w-full other-input h-100 border-black border rounded"
-  theme="snow"
-  modules={{
-    toolbar: [["bold", "italic", "underline"], ["clean"]],
-  }}
-/>
-{/* <div className="text-sm text-gray-500 mt-1 text-right">
+          placeholder="Enter your professional summary or use Smart Assist to generate one"
+          value={resumeData.summary || ""}
+          onChange={(content) => {
+            if (content.replace(/<[^>]*>/g, "").length <= 1000) {
+              handleQuillChange(content);
+            }
+          }}
+          className="w-full other-input h-100 border-black border rounded"
+          theme="snow"
+          modules={{
+            toolbar: [["bold", "italic", "underline"], ["clean"]],
+          }}
+        />
+        {/* <div className="text-sm text-gray-500 mt-1 text-right">
   {resumeData.summary?.replace(/<[^>]*>/g, "").length || 0}/1000
 </div> */}
-
       </div>
 
       {/* Popup/Modal for AI Summaries */}
