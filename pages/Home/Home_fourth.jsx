@@ -2,6 +2,7 @@ import Link from "next/link";
 import blog3 from "./Images/blog3.jpg";
 import Home_five from "./Home_five";
 import { useTranslation } from "react-i18next";
+import Home_six from "./Home_six";
 const Home_fourth = () => {
   const { t } = useTranslation();
   const course = [
@@ -72,8 +73,8 @@ const Home_fourth = () => {
           </div>
         </div>
       </div>
-
-      <Home_five />
+      <Home_six />
+      {/* <Home_five /> */}
     </>
   );
 };

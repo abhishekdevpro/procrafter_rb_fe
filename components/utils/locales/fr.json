@@ -277,7 +277,7 @@
             "childrensPrivacy": "Nos services ne sont pas destinés aux personnes de moins de 18 ans. Si un enfant fournit des données personnelles, nous les supprimerons.",
             "changesPolicy": "Nous pouvons mettre à jour cette Politique de Confidentialité. La poursuite de l'utilisation de nos services après des modifications signifie l'acceptation de la politique révisée.",
             "contactUs": "Si vous avez des questions, contactez-nous à :",
-            "email_name": "career@cibliJob.fr",
+            "email_name": "bonjour@cibli.fR",
           
             
               "title": "Générateur de CV IA",
@@ -478,7 +478,7 @@
                           "title": "10. Contact",
                           "list": [
                             "Si vous avez des questions concernant ces conditions générales, veuillez nous contacter à :",
-                            "Email : career@CibliJob.fr"
+                            "Email : bonjour@cibli.fR"
                           ]
                         }
                       ],
@@ -1098,8 +1098,100 @@
     "startUsingDesc": "Transformez votre recherche d'emploi avec l'outil IA-Correspondance & Candidature de Cibli Job. Inscrivez-vous maintenant pour découvrir des opportunités d'emploi qui correspondent parfaitement à votre profil et simplifier votre chemin vers le succès professionnel.",
     "getStartedTitle": "Commencer",
     "getStartedDesc": "Prêt à trouver l'emploi de vos rêves? Visitez notre page IA-Correspondance & Candidature et commencez à correspondre avec les meilleures opportunités d'emploi dès aujourd'hui!"
-  }
-  
+  },
+  "pricing": {
+    "title": "Plans tarifaires",
+    "subtitle": "Choisissez le plan qui vous convient le mieux",
+    "intro": "Nos forfaits sont conçus pour répondre à tous vos besoins en matière de création de CV.",
+    "bestValueLabel": "Meilleur rapport qualité-prix",
+    "freeLabel": "Gratuit",
+    
+    "freePlan": {
+      "title": "Plan Gratuit",
+      "price": "0",
+      "billingCycle":"Plan Gratuit",
+      "bestValue": "false",
+      "buttonText": "Commencer",
+      "feature1": "Modifications de CV illimitées",
+      "feature2": "Téléchargement en PDF",
+      "feature3": "Tableau de bord interactif",
+      "feature4": "2 modèles de CV uniques",
+      "feature5": "2 options de couleur et 2 polices",
+      "feature6": "Analyse de CV (compatible ATS)",
+      "feature7": "Support en langue française",
+      "feature8": "Recherche d'emploi et ressources de carrière",
+      "feature9": "Générateur de lettres de motivation",
+      "feature10": "Alertes et suivi des offres d'emploi"
+    },
+    
+    "singlePass": {
+      "title": "Pass Unique",
+      "price": "9.99",
+      "billingCycle":"Pass Unique",
+      "bestValue": "false",
+      "buttonText": "Commencer",
+      "feature1": "Tout dans Gratuit +",
+      "feature2": "27 modèles de CV uniques",
+      "feature3": "5 options de couleur et 6 polices",
+      "feature4": "Analyse de CV (compatible ATS)",
+      "feature5": "Générateur de lettres de motivation gratuit",
+      "feature6": "Score et retour d'information AI sur le CV",
+      "feature7": "Tests de compétences et analyse",
+      "feature8": "Contenu amélioré par IA",
+      "feature9": "Amélioration automatique",
+      "feature10": "Optimisation ATS"
+    },
+    
+    "aiProMonth": {
+      "title": "AI Pro Mensuel",
+      "price": "19.99",
+      "billingCycle": "mois",
+      "bestValue": "false",
+      "buttonText": "Commencer",
+      "feature1": "Tout dans Gratuit +",
+      "feature2": "37 modèles de CV uniques",
+      "feature3": "8 options de couleur et 6 polices",
+      "feature4": "Analyse de CV (compatible ATS)",
+      "feature5": "Générateur de lettres de motivation gratuit",
+      "feature6": "Score et retour d'information AI sur le CV",
+      "feature7": "Tests de compétences et analyse",
+      "feature8": "Contenu amélioré par IA",
+      "feature9": "Amélioration automatique",
+      "feature10": "Optimisation ATS"
+    },
+    
+    "aiProYearly": {
+      "title": "AI Pro Annuel",
+      "price": "149.99",
+      "billingCycle": "an",
+      "bestValue": "true",
+      "buttonText": "Commencer",
+      "feature1": "Tout dans Gratuit +",
+      "feature2": "37 modèles de CV uniques",
+      "feature3": "8 options de couleur et 6 polices",
+      "feature4": "Analyse de CV (compatible ATS)",
+      "feature5": "Générateur de lettres de motivation gratuit",
+      "feature6": "Score et retour d'information AI sur le CV",
+      "feature7": "Tests de compétences et analyse",
+      "feature8": "Contenu amélioré par IA",
+      "feature9": "Amélioration automatique",
+      "feature10": "Optimisation ATS",
+      "feature11": "Optimisation ATS la plus abordable"
+    }
+  },
+  "faq":{
+    "title": "Foire Aux Questions",
+    "subtitle": "Trouvez des réponses aux questions courantes sur nos services et abonnements.",
+    "question1": "Comment fonctionne la période d'essai de 7 jours ? Ai-je un accès complet avec l'essai ?",
+    "answer1": "Oui ! L'essai vous donne un accès total à tous les outils de CV, modèles, lettres de motivation et formats de téléchargement.",
+    "question2": "Offrez-vous une garantie de remboursement ?",
+    "answer2": "Oui. Nous offrons une garantie de remboursement de 7 jours, sans poser de questions. Si vous achetez un plan et décidez dans les 7 jours qu'il ne vous convient pas, nous vous rembourserons.",
+    "question3": "Puis-je changer mon abonnement ?",
+    "answer3": "Oui, vous pouvez passer à un plan supérieur, inférieur ou annuler votre abonnement à tout moment depuis l'application. Si vous avez besoin d'aide, contactez-nous via le lien ci-dessous.",
+    "question4": "Quels services proposez-vous ?",
+    "answer4": "Nous proposons la création de CV, le conseil en carrière et l'aide au placement professionnel."
+  },
+   "view_all_plans": "Voir tous les plans"
 }
                          
                   
