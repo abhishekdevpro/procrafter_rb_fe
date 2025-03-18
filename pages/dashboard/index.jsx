@@ -14,6 +14,7 @@ import AbroadiumCommunity from "../../components/dashboard/AbroadiumCommunity";
 import { BASE_URL } from "../../components/Constant/constant";
 import JobSearch from "../JobSearch";
 import { ResumeContext } from "../../components/context/ResumeContext";
+import PricingSection from "../../components/Pricing/PricingPlan";
 export default function DashboardPage() {
   const { t } = useTranslation();
   const {selectedLang} = useContext(ResumeContext)

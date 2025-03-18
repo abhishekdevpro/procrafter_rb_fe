@@ -99,6 +99,7 @@ import { appWithTranslation } from "next-i18next";
 import "../components/utils/i18n";
 import axios from "axios";
 import LanguageSelector from "./Navbar/LanguageSelector";
+import CookieConsent from "../components/Pricing/CookieConsent";
 
 function App({ Component, pageProps }) {
   const router = useRouter();
@@ -172,6 +173,7 @@ function App({ Component, pageProps }) {
         <CoverLetterProvider>
           <LanguageSelector />
           <Component {...pageProps} />
+          <CookieConsent />
           <ToastContainer position="top-right" autoClose={3000} pauseOnHover />
         </CoverLetterProvider>
       </ResumeProvider>

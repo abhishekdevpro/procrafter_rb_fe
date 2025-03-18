@@ -176,8 +176,8 @@
 //           conditions, please contact us at:
 //           <br />
 //           Email:{" "}
-//           <a href="mailto:career@CibliJob.fr" className="text-blue-500">
-//             career@CibliJob.fr
+//           <a href="mailto:bonjour@cibli.fR" className="text-blue-500">
+//             bonjour@cibli.fR
 //           </a>
 //         </p>
 
@@ -219,8 +219,8 @@
 //           {t.contact}:
 //           <br />
 //           Email:{" "}
-//           <a href="mailto:career@CibliJob.fr" className="text-blue-500">
-//             career@CibliJob.fr
+//           <a href="mailto:bonjour@cibli.fR" className="text-blue-500">
+//             bonjour@cibli.fR
 //           </a>
 //         </p>
 //       </div>
@@ -267,8 +267,8 @@ function TermsandConditions() {
           {termsData.contact}:
           <br />
           Email:{" "}
-          <a href="mailto:career@CibliJob.fr" className="text-blue-500">
-            career@CibliJob.fr
+          <a href="mailto:bonjour@cibli.fR" className="text-blue-500">
+            bonjour@cibli.fR
           </a>
         </p>
       </div>

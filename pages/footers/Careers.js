@@ -116,7 +116,7 @@
 //           of a dynamic, growth-oriented team, we’d love to hear from you. To
 //           apply for a position at Cibli Job, please send your resume and a cover
 //           letter to{" "}
-//           <a href="mailto:career@CibliJob.fr" className="text-blue-500">
+//           <a href="mailto:bonjour@cibli.fR" className="text-blue-500">
 //             career@CibliJob.ca
 //           </a>
 //           .

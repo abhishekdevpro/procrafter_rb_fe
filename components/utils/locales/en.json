@@ -285,7 +285,7 @@
               "childrensPrivacy": "Our services are not intended for individuals under 18. If a child provides personal data, we will delete it.",
               "changesPolicy": "We may update this Privacy Policy. Continued use of our services after changes means acceptance of the revised policy.",
               "contactUs": "If you have any questions, contact us at:",
-              "email_name": "career@cibliJob.fr",
+              "email_name": "bonjour@cibli.fR",
               
                 "title": "AI Resume Builder",
                 "introduction": "Revolutionizing the Job Application Process",
@@ -484,7 +484,7 @@
                           "title": "10. Contact Information",
                           "list": [
                             "If you have any questions or concerns about these terms and conditions, please contact us at:",
-                            "Email: career@CibliJob.fr"
+                            "Email: bonjour@cibli.fR"
                           ]
                         }
                       ],
@@ -1113,9 +1113,101 @@
     "startUsingDesc": "Transform your job search with Cibli Job's AI Job Match & Apply tool. Sign up now to discover job opportunities that perfectly match your profile and streamline your path to career success.",
     "getStartedTitle": "Get Started",
     "getStartedDesc": "Ready to find your dream job? Visit our AI Job Match & Apply page and start matching with top job opportunities today!"
-  }
-  
-}                      
+  },
+    "pricing": {
+    "title": "Pricing Plans",
+    "subtitle": "Choose the plan that works best for you",
+    "intro": "Our pricing plans are designed to accommodate all your resume building needs.",
+    "bestValueLabel": "Best Value",
+    "freeLabel": "Free",
+    
+    "freePlan": {
+      "title": "Free Plan",
+      "billingCycle":"Free Plan",
+      "price": "0",
+      "bestValue": "false",
+      "buttonText": "Get Started",
+      "feature1": "Unlimited Resume Edits",
+      "feature2": "Download in PDF",
+      "feature3": "Interactive Dashboard",
+      "feature4": "2 Unique Resume Templates",
+      "feature5": "2 Color Options & 2 Fonts",
+      "feature6": "Resume Parsing (ATS-Friendly)",
+      "feature7": "French Language Support",
+      "feature8": "Job Search & Career Resources",
+      "feature9": "Cover Letter Builder",
+      "feature10": "Job Alerts & Tracking"
+    },
+    
+    "singlePass": {
+      "title": "Single Pass",
+      "price": "9.99",
+      "billingCycle":"single",
+      "bestValue": "false",
+      "buttonText": "Get Started",
+      "feature1": "Everything in Free +",
+      "feature2": "27 Unique Resume Templates",
+      "feature3": "5 Color Options & 6 Fonts",
+      "feature4": "Resume Parsing (ATS-Friendly)",
+      "feature5": "Free Cover Letter Builder",
+      "feature6": "AI Resume Score & Feedback",
+      "feature7": "Skill Tests & Analysis",
+      "feature8": "AI-Enabled Content",
+      "feature9": "Auto-Improvement",
+      "feature10": "ATS Optimization"
+    },
+    
+    "aiProMonth": {
+      "title": "AI Pro Month",
+      "price": "19.99",
+      "billingCycle": "month",
+      "bestValue": "false",
+      "buttonText": "Get Started",
+      "feature1": "Everything in Free +",
+      "feature2": "37 Unique Resume Templates",
+      "feature3": "8 Color Options & 6 Fonts",
+      "feature4": "Resume Parsing (ATS-Friendly)",
+      "feature5": "Free Cover Letter Builder",
+      "feature6": "AI Resume Score & Feedback",
+      "feature7": "Skill Tests & Analysis",
+      "feature8": "AI-Enabled Content",
+      "feature9": "Auto-Improvement",
+      "feature10": "ATS Optimization"
+    },
+    
+    "aiProYearly": {
+      "title": "AI Pro Yearly",
+      "price": "149.99",
+      "billingCycle": "year",
+      "bestValue": "true",
+      "buttonText": "Get Started",
+      "feature1": "Everything in Free +",
+      "feature2": "37 Unique Resume Templates",
+      "feature3": "8 Color Options & 6 Fonts",
+      "feature4": "Resume Parsing (ATS-Friendly)",
+      "feature5": "Free Cover Letter Builder",
+      "feature6": "AI Resume Score & Feedback",
+      "feature7": "Skill Tests & Analysis",
+      "feature8": "AI-Enabled Content",
+      "feature9": "Auto-Improvement",
+      "feature10": "ATS Optimization",
+      "feature11": "Most Affordable ATS Optimization"
+    }
+  },
+  "faq":{
+      "title": "Frequently Asked Questions",
+      "subtitle": "Find answers to common questions about our services and plans.",
+      "question1": "How does the 7-day trial subscription period work? Do I get full access with the trial?",
+      "answer1": "Yes! The trial gives you 100% access to all resume tools, templates, cover letters, and download formats.",
+      "question2": "Do you have a money-back guarantee?",
+      "answer2": "Yes. We offer a no-questions-asked 7-day money-back guarantee. If you purchase a plan and decide within 7 days that it wasn’t worth it, we’ll give you a refund.",
+      "question3": "Can I change my plan?",
+      "answer3": "Yes, you can upgrade, downgrade, or cancel your plan at any time from the app. If you need help, reach out to us using the link below.",
+      "question4": "What services do you offer?",
+      "answer4": "We offer resume building, career counseling, and job placement assistance."
+    },
+    "view_all_plans": "View All Plans"
+}                     
       
                     
                     

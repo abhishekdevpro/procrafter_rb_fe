@@ -181,10 +181,10 @@ const ContactUs = () => {
             <div>
               <button className="border px-3 py-2 rounded-lg">
                 <a
-                  href="tel:123456789"
+                  href="tel:0625782947"
                   className="text-slate-800 font-semibold text-sm hover:underline flex items-center"
                 >
-                  123456789
+                  0625782947
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="ml-2 h-4 w-4"
@@ -219,10 +219,10 @@ const ContactUs = () => {
             <div>
               <button className="border px-3 py-2 rounded-lg">
                 <a
-                  href="mailto:info@ciblijob.fr"
+                  href="mailto:bonjour@cibli.fR"
                   className="text-slate-800 font-semibold text-sm hover:underline flex items-center"
                 >
-                  info@ciblijob.fr
+                  bonjour@cibli.fR
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="ml-2 h-4 w-4"
