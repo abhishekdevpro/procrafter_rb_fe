@@ -308,13 +308,13 @@ function CoverLetterBuilder() {
                     onClick={handleFinish}
                     className="bg-blue-950 text-white px-6 py-2 rounded-lg"
                   >
-                    Save Cover Letter
+                    {t("cvBuilder.save")}
                   </button>
                   <button
                     onClick={downloadAsPDF}
                     className="bg-yellow-500 text-black px-6 py-2 rounded-lg"
                   >
-                    Pay & Download
+                    {t("cvBuilder.download")}
                   </button>
                 </div>
               </div>

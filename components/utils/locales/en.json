@@ -1206,7 +1206,166 @@
       "question4": "What services do you offer?",
       "answer4": "We offer resume building, career counseling, and job placement assistance."
     },
-    "view_all_plans": "View All Plans"
+    "view_all_plans": "View All Plans",
+    "coverLetter": {
+      "title": "Welcome to Cover Letter Builder",
+      "description": "Click the button below to create your cover letter.",
+      "buttonText": "Create Your Cover Letter",
+      "loadingText": "Creating...",
+      "errorMessage": "An error occurred while generating your cover letter. Please try again."
+    },
+    "cvSelector": {
+    "title": "Choose Your CV Letter Template",
+    "description": "Select a professional template that matches your career goals",
+    "colorTheme": "Color Theme",
+    "categories": "Categories",
+    "back": "Back",
+    "next": "Next",
+    "saving": "Saving...",
+    "errorCoverLetterId": "Cover Letter ID or token not found",
+    "errorFetchingData": "Error fetching resume data",
+    "selectTemplateError": "Please select a CV template before proceeding",
+    "resumeSaved": "Resume saved successfully",
+    "errorSavingResume": "Error while saving the resume",
+    "template1": "Professional CV",
+    "template2": "Creative CV",
+    "template3": "Academic CV",
+    "template4": "Executive CV",
+    "template5": "Technical CV"
+  },
+  "cvUploadStep": {
+    "title": "Are you uploading an existing cover letter?",
+    "subtitle": "Just review, edit, and update it with new information",
+    "startFromScratch": "No, start from scratch",
+    "startFromScratchDescription": "We will guide you through the whole process so your skills can shine",
+    "back": "Back",
+    "error": "CoverLetter ID or token not found"
+  },
+  "personalInformation": {
+    "title": "Personal Information",
+    "name": "Name",
+    "namePlaceholder": "Enter your name",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email",
+    "address": "Address",
+    "addressPlaceholder": "Enter your address",
+    "contact": "Contact",
+    "contactPlaceholder": "Enter your contact number"
+  },
+  "letterDetails": {
+    "title": "Letter Details",
+    "date": "Date",
+    "datePlaceholder": "Select a date",
+    "jobTitle": "Job Title",
+    "jobTitlePlaceholder": "Enter the job title",
+    "reference": "Reference",
+    "referencePlaceholder": "Enter the reference (e.g., Ref#123)",
+    "companyName": "Company Name",
+    "companyNamePlaceholder": "Enter the company's name",
+    "salutation": "Salutation",
+    "salutationPlaceholder": "Enter the salutation (e.g., Ms. Smith)"
+  },
+  "introductionBody": {
+    "title": "Introduction & Body",
+    "introduction": "Introduction",
+    "introductionPlaceholder": "Write your introduction here",
+    "bodyParagraphs": "Body Paragraphs",
+    "paragraph": "Paragraph",
+    "paragraphPlaceholder": "Write paragraph {index}",
+    "addSection": "✙ Add section",
+    "remove": "Remove"
+  },
+  "closingGratitude": {
+    "title": "Closing & Gratitude",
+    "closing": "Closing",
+    "closingPlaceholder": "Write your closing statement here",
+    "gratitude": "Gratitude",
+    "gratitudePlaceholder": "Write your gratitude statement here",
+    "signature": "Signature",
+    "signaturePlaceholder": "Enter your signature (e.g., Sincerely, John Doe)"
+  },
+  "navigation": {
+    "previous": "Previous",
+    "next": "Next"
+  },
+  
+    "cvBuilder": {
+      "save": "Save Cover Letter",
+      "download": "Pay & Download"
+    },
+    "backgroundColor": {
+    "label": "Background Color",
+    "labelMobile": "Color"
+  },
+  "templateSelector": {
+    "selectedTemplate": "Selected: {{templateId}}",
+    "templateButton": "Template",
+    "modalTitle": "Select a Template",
+    "closeButton": "Close",
+    "templates": {
+      "template1": "Template 1",
+      "template2": "Template 2",
+      "template3": "Template 3",
+      "template4": "Template 4"
+    }
+  },
+  "buttons": {
+    "save": "Save Resume",
+    "saving": "Saving...",
+    "download": "Pay & Download",
+    "downloading": "Downloading...",
+    "backToDashboard": "Back to Dashboard",
+    "previous": "Previous",
+    "next": "Next",
+    "finish": "Finish"
+  },
+  "sidebar": {
+    "account": "Account",
+    "notification": "Notification",
+    "subscription": "Subscription"
+  },
+  "account": {
+    "title": "Account Settings",
+    "heading": "Account",
+    "accountId": "Account ID",
+    "email": "Email Address",
+    "loading": "Loading...",
+    "error": "Failed to load user data.",
+    "unauthorized": "Unauthorized. Please log in."
+  },
+  "notification": {
+    "title": "Account Settings",
+    "heading": "Notifications",
+    "product_notifications": "Product notifications",
+    "product_notifications_desc": "We’ll inform you about new job matches and applications that need your attention so you can be among the first applicants and maximize your chances of getting the dream job.",
+    "email_notifications": "Email notifications",
+    "sms_notifications": "SMS notifications",
+    "marketing_notifications": "Marketing notifications",
+    "marketing_optin": "I am open to receive marketing communications.",
+    "loading": "Loading...",
+    "error": "Failed to load notification settings.",
+    "unauthorized": "Unauthorized. Please log in."
+  },
+  "subscription": {
+    "title": "Account Settings",
+    "heading": "Subscription",
+    "help_support": "Need help or want to change your subscription?",
+    "contact_us": "Contact us at:",
+    "phone": "📞 855-695-3235",
+    "email": "📧 customersupport@CibliJob.fr",
+    "availability": "Available 7 days a week:",
+    "monday_friday": "Monday-Friday: 8 AM - 8 PM (CST)",
+    "saturday": "Saturday: 8 AM - 5 PM (CST)",
+    "sunday": "Sunday: 10 AM - 6 PM (CST)",
+    "account_id": "Account ID:",
+    "subscription_details": "Subscription details",
+    "status": "Status:",
+    "subscribe": "Subscribe",
+    "more_info": "For more information or changes to your subscription, contact us at"
+  }
+  
+  
+  
 }                     
       
                     

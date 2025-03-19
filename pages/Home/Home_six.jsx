@@ -1,12 +1,12 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
-import PricingSection from '../../components/Pricing/PricingPlan';
-import { Link } from 'react-router-dom';
-import { useRouter } from 'next/router';
+import React from "react";
+import { useTranslation } from "react-i18next";
+import PricingSection from "../../components/Pricing/PricingPlan";
+import { Link } from "react-router-dom";
+import { useRouter } from "next/router";
 
 const Home_six = () => {
   const { t } = useTranslation();
-  const router = useRouter()
+  const router = useRouter();
   return (
     <div className="py-16 bg-gray-50">
       <div className="mx-auto max-w-screen-lg text-center mb-12">
@@ -14,18 +14,19 @@ const Home_six = () => {
           {t("choose_plan")}
         </h2>
       </div>
-      
+
       {/* Pricing Section */}
       <PricingSection />
 
-      <div className='text-center'>
-      <button className="inline-block px-8 py-3 text-lg font-medium text-white bg-teal-600 rounded-xl hover:bg-teal-700 transition duration-300 "
-       onClick={()=>(router.push('/pricing'))}
-      >
-         View all plans
-      </button>
+      <div className="text-center">
+        <button
+          className="inline-block px-8 py-3 text-lg font-medium text-white bg-teal-600 rounded-xl hover:bg-teal-700 transition duration-300 "
+          onClick={() => router.push("/pricing")}
+        >
+          View all plans
+        </button>
       </div>
-      
+
       {/* Button for routing to Pricing page */}
       {/* <div className="text-center mt-8">
         <Link 

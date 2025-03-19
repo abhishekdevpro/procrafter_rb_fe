@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { User, Bell, CreditCard, Menu, X } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const Sidebar = () => {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
 
@@ -58,7 +60,7 @@ const Sidebar = () => {
               onClick={toggleSidebar}
             >
               <User className="mr-2" size={20} />
-              <span>Account</span>
+              <span>{t("sidebar.account")}</span>
             </Link>
           </li>
           <li>
@@ -68,7 +70,7 @@ const Sidebar = () => {
               onClick={toggleSidebar}
             >
               <Bell className="mr-2" size={20} />
-              <span>Notification</span>
+              <span>{t("sidebar.notification")}</span>
             </Link>
           </li>
           <li>
@@ -78,7 +80,7 @@ const Sidebar = () => {
               onClick={toggleSidebar}
             >
               <CreditCard className="mr-2" size={20} />
-              <span>Subscription</span>
+              <span>{t("sidebar.subscription")}</span>
             </Link>
           </li>
         </ul>
