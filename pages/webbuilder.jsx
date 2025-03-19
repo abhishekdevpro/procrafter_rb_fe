@@ -78,7 +78,6 @@ export default function WebBuilder() {
     selectedFont,
     backgroundColorss,
     headerColor,
-    
   } = useContext(ResumeContext);
 
   useEffect(() => {
@@ -215,11 +214,23 @@ export default function WebBuilder() {
     setResumeId(id);
   }, []);
   const sections = [
-    { label: t("resumeStrength.sections.personalInformation"), component: <PersonalInformation /> },
-    { label: t("resumeStrength.sections.socialLinks"), component: <SocialMedia /> },
-    { label: t("resumeStrength.sections.personalSummary"), component: <Summary /> },
+    {
+      label: t("resumeStrength.sections.personalInformation"),
+      component: <PersonalInformation />,
+    },
+    {
+      label: t("resumeStrength.sections.socialLinks"),
+      component: <SocialMedia />,
+    },
+    {
+      label: t("resumeStrength.sections.personalSummary"),
+      component: <Summary />,
+    },
     { label: t("resumeStrength.sections.education"), component: <Education /> },
-    { label: t("resumeStrength.sections.workHistory"), component: <WorkExperience /> },
+    {
+      label: t("resumeStrength.sections.workHistory"),
+      component: <WorkExperience />,
+    },
     { label: t("resumeStrength.sections.projects"), component: <Projects /> },
     {
       label: t("resumeStrength.sections.skills"),
@@ -232,7 +243,10 @@ export default function WebBuilder() {
       ),
     },
     { label: t("resumeStrength.sections.languages"), component: <Language /> },
-    { label: t("resumeStrength.sections.certification"), component: <Certification /> },
+    {
+      label: t("resumeStrength.sections.certification"),
+      component: <Certification />,
+    },
   ];
   // const sections = [
   //   { label: sections.personalInformation, component: <PersonalInformation /> },
@@ -357,7 +371,7 @@ export default function WebBuilder() {
       toast.error("Template reference not found");
       return;
     }
-   setLoading("download")
+    setLoading("download");
     try {
       // Get the HTML content from the template
       const htmlContent = templateRef.current.innerHTML;
@@ -398,16 +412,15 @@ export default function WebBuilder() {
 
       // toast.success('PDF generated and opened in a new tab!');
       // initiateCheckout();
-      downloadPDF()
+      downloadPDF();
       // toast.success("PDF generation request sent successfully!");
     } catch (error) {
       console.error("PDF generation error:", error);
       toast.error(
         error.response?.data?.message || "Failed to generate and open PDF"
       );
-    }
-    finally{
-      setLoading(null)
+    } finally {
+      setLoading(null);
     }
   };
   const initiateCheckout = async () => {
@@ -604,41 +617,38 @@ export default function WebBuilder() {
     </style>
     ${htmlContent}
   `;
-    
-      try {
-        const id = router.query.id || localStorage.getItem("resumeId");
-        if (!id) {
-          console.error("Resume ID not found.");
-          return;
-        }
 
-        const url = `${BASE_URL}/api/user/resume-update/${id}`;
-        const response = await axios.put(
-          url,
-          { ...templateData, resume_html: resumeHtml },
-          {
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: token,
-            },
-          }
-        );
-
-        if (response.data.code === 200 || response.data.status === "success") {
-          if (showToast) {
-            toast.success(
-              response.data.message || "Resume saved successfully."
-            );
-          }
-          // localStorage.setItem("isSaved", "true");
-        } else {
-          toast.error(response.data.error || "Error while saving the Resume");
-        }
-      } catch (error) {
-        toast.error(error?.message || "Error !!");
-        console.error("Error updating resume:", error);
+    try {
+      const id = router.query.id || localStorage.getItem("resumeId");
+      if (!id) {
+        console.error("Resume ID not found.");
+        return;
       }
-     
+
+      const url = `${BASE_URL}/api/user/resume-update/${id}`;
+      const response = await axios.put(
+        url,
+        { ...templateData, resume_html: resumeHtml },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: token,
+          },
+        }
+      );
+
+      if (response.data.code === 200 || response.data.status === "success") {
+        if (showToast) {
+          toast.success(response.data.message || "Resume saved successfully.");
+        }
+        // localStorage.setItem("isSaved", "true");
+      } else {
+        toast.error(response.data.error || "Error while saving the Resume");
+      }
+    } catch (error) {
+      toast.error(error?.message || "Error !!");
+      console.error("Error updating resume:", error);
+    }
   };
   const handleClick = async () => {
     setLoading("save");
@@ -718,14 +728,17 @@ export default function WebBuilder() {
                     disabled={currentSection === 0}
                     className="w-40 h-10 rounded-lg bg-green-500 text-white font-medium transition hover:bg-blue-900 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Previous
+                    {t("buttons.previous")}
                   </button>
+
                   <button
                     type="button"
                     onClick={handleNext}
                     className="w-40 h-10 rounded-lg bg-yellow-500 text-black font-medium transition hover:bg-yellow-400"
                   >
-                    {currentSection === sections.length - 1 ? "Finish" : "Next"}
+                    {currentSection === sections.length - 1
+                      ? t("buttons.finish")
+                      : t("buttons.next")}
                   </button>
                 </div>
 
@@ -882,14 +895,31 @@ export default function WebBuilder() {
                   onClick={handleClick}
                   className="bg-green-500 text-white px-6 py-2 rounded-lg"
                 >
-                  {loading=="save"? <SaveLoader loadingText={"Saving"} /> :"Save Resume"}
+                  {loading === "save" ? (
+                    <SaveLoader loadingText={t("buttons.saving")} />
+                  ) : (
+                    t("buttons.save")
+                  )}
                 </button>
+
                 <button
                   onClick={downloadAsPDF}
                   className="bg-yellow-500 text-black px-6 py-2 rounded-lg"
                 >
-                 {loading=="download"? <SaveLoader loadingText={"Downloading"} /> :"Pay & Download"}
+                  {loading === "download" ? (
+                    <SaveLoader loadingText={t("buttons.downloading")} />
+                  ) : (
+                    t("buttons.download")
+                  )}
                 </button>
+
+                <button
+                  onClick={handleBackToEditor}
+                  className="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors"
+                >
+                  {t("buttons.backToDashboard")}
+                </button>
+
                 {/* <PayAndDownload
                   resumeId={resumeId}
                   token={token}
@@ -1017,12 +1047,6 @@ export default function WebBuilder() {
                     </div>
                   </div>
                 )} */}
-                <button
-                  onClick={handleBackToEditor}
-                  className="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors"
-                >
-                  Back to Dashboard
-                </button>
               </div>
             </div>
 

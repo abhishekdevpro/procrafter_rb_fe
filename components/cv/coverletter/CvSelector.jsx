@@ -6,7 +6,9 @@ import cvletter2 from "./cvimgs/cvletter2.png";
 import cvletter3 from "./cvimgs/cvletter3.png";
 import cvletter4 from "./cvimgs/cvletter4.png";
 import cvletter5 from "./cvimgs/cvletter5.png";
+import { useTranslation } from "react-i18next";
 const TemplateSelector = ({ selectedTemplate, setSelectedTemplate }) => {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [templateId, setTemplateId] = useState(selectedTemplate);
@@ -61,20 +63,24 @@ const TemplateSelector = ({ selectedTemplate, setSelectedTemplate }) => {
         onClick={openModal}
         className="hidden md:block rounded-lg border-2 m-2 border-green-500 px-5 py-2 font-bold bg-white text-black"
       >
-        <span>Selected: {templateId || "template1"}</span>
+        <span>
+          {t("templateSelector.selectedTemplate", {
+            templateId: templateId || "template1",
+          })}
+        </span>
       </button>
       <button
         onClick={openModal}
         className="block md:hidden rounded-lg border-2 m-2 border-pink-600 px-5 py-2 font-bold bg-white text-pink-600"
       >
-        Template
+        {t("templateSelector.templateButton")}
       </button>
 
       {isOpen && (
         <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/75 p-4">
           <div className="bg-white rounded-xl p-6 w-full max-w-5xl relative shadow-2xl">
             <div className="text-lg font-bold mb-4 text-center border rounded-3xl py-2 text-white bg-gray-800">
-              Select a Template
+              {t("templateSelector.modalTitle")}
             </div>
 
             <div className="relative flex items-center mb-6">
@@ -159,7 +165,7 @@ const TemplateSelector = ({ selectedTemplate, setSelectedTemplate }) => {
               onClick={closeModal}
               className="w-full sm:w-auto px-6 py-2.5 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-700 transition-colors duration-200 flex items-center justify-center mx-auto"
             >
-              Close
+              {t("templateSelector.closeButton")}
             </button>
           </div>
         </div>

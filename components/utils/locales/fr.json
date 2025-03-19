@@ -1191,7 +1191,164 @@
     "question4": "Quels services proposez-vous ?",
     "answer4": "Nous proposons la création de CV, le conseil en carrière et l'aide au placement professionnel."
   },
-   "view_all_plans": "Voir tous les plans"
+   "view_all_plans": "Voir tous les plans",
+   "coverLetter": {
+    "title": "Bienvenue dans le Créateur de Lettres de Motivation",
+    "description": "Cliquez sur le bouton ci-dessous pour créer votre lettre de motivation.",
+    "buttonText": "Créez votre lettre de motivation",
+    "loadingText": "Création en cours...",
+    "errorMessage": "Une erreur s'est produite lors de la génération de votre lettre de motivation. Veuillez réessayer."
+  },
+  "cvSelector": {
+    "title": "Choisissez votre modèle de lettre de motivation",
+    "description": "Sélectionnez un modèle professionnel adapté à vos objectifs de carrière",
+    "colorTheme": "Thème de couleur",
+    "categories": "Catégories",
+    "back": "Retour",
+    "next": "Suivant",
+    "saving": "Enregistrement...",
+    "errorCoverLetterId": "ID de lettre de motivation ou jeton introuvable",
+    "errorFetchingData": "Erreur lors de la récupération des données du CV",
+    "selectTemplateError": "Veuillez sélectionner un modèle de CV avant de continuer",
+    "resumeSaved": "CV enregistré avec succès",
+    "errorSavingResume": "Erreur lors de l'enregistrement du CV",
+    "template1": "CV Professionnel",
+    "template2": "CV Créatif",
+    "template3": "CV Académique",
+    "template4": "CV Exécutif",
+    "template5": "CV Technique"
+  },
+  "cvUploadStep": {
+    "title": "Téléchargez-vous une lettre de motivation existante ?",
+    "subtitle": "Il suffit de la revoir, de la modifier et de la mettre à jour avec de nouvelles informations",
+    "startFromScratch": "Non, commencer de zéro",
+    "startFromScratchDescription": "Nous vous guiderons tout au long du processus afin que vos compétences brillent",
+    "back": "Retour",
+    "error": "ID de lettre de motivation ou jeton introuvable"
+  },
+  "personalInformation": {
+    "title": "Informations Personnelles",
+    "name": "Nom",
+    "namePlaceholder": "Entrez votre nom",
+    "email": "E-mail",
+    "emailPlaceholder": "Entrez votre e-mail",
+    "address": "Adresse",
+    "addressPlaceholder": "Entrez votre adresse",
+    "contact": "Contact",
+    "contactPlaceholder": "Entrez votre numéro de téléphone"
+  },
+  "letterDetails": {
+    "title": "Détails de la lettre",
+    "date": "Date",
+    "datePlaceholder": "Sélectionnez une date",
+    "jobTitle": "Intitulé du poste",
+    "jobTitlePlaceholder": "Entrez l'intitulé du poste",
+    "reference": "Référence",
+    "referencePlaceholder": "Entrez la référence (ex : Ref#123)",
+    "companyName": "Nom de l'entreprise",
+    "companyNamePlaceholder": "Entrez le nom de l'entreprise",
+    "salutation": "Salutation",
+    "salutationPlaceholder": "Entrez la salutation (ex : Mme Smith)"
+  },
+  "introductionBody": {
+    "title": "Introduction et Corps",
+    "introduction": "Introduction",
+    "introductionPlaceholder": "Écrivez votre introduction ici",
+    "bodyParagraphs": "Paragraphes du corps",
+    "paragraph": "Paragraphe",
+    "paragraphPlaceholder": "Écrivez le paragraphe {index}",
+    "addSection": "✙ Ajouter une section",
+    "remove": "Supprimer"
+  },
+  "closingGratitude": {
+    "title": "Clôture et Remerciements",
+    "closing": "Clôture",
+    "closingPlaceholder": "Écrivez votre déclaration de clôture ici",
+    "gratitude": "Remerciements",
+    "gratitudePlaceholder": "Écrivez votre déclaration de gratitude ici",
+    "signature": "Signature",
+    "signaturePlaceholder": "Entrez votre signature (ex. : Cordialement, John Doe)"
+  },
+  "navigation": {
+    "previous": "Précédent",
+    "next": "Suivant"
+  },
+  "cvBuilder": {
+    "save": "Enregistrer la lettre de motivation",
+    "download": "Payer et télécharger"
+  },
+  "backgroundColor": {
+    "label": "Couleur d'arrière-plan",
+    "labelMobile": "Couleur"
+  },
+  "templateSelector": {
+    "selectedTemplate": "Sélectionné : {{templateId}}",
+    "templateButton": "Modèle",
+    "modalTitle": "Sélectionnez un Modèle",
+    "closeButton": "Fermer",
+    "templates": {
+      "template1": "Modèle 1",
+      "template2": "Modèle 2",
+      "template3": "Modèle 3",
+      "template4": "Modèle 4"
+    }
+  },
+  "buttons": {
+    "save": "Enregistrer le CV",
+    "saving": "Enregistrement...",
+    "download": "Payer et Télécharger",
+    "downloading": "Téléchargement...",
+    "backToDashboard": "Retour au tableau de bord",
+    "previous": "Précédent",
+    "next": "Suivant",
+    "finish": "Terminer"
+  },
+  "sidebar": {
+    "account": "Compte",
+    "notification": "Notification",
+    "subscription": "Abonnement"
+  },
+  "account": {
+    "title": "Paramètres du compte",
+    "heading": "Compte",
+    "accountId": "ID du compte",
+    "email": "Adresse e-mail",
+    "loading": "Chargement...",
+    "error": "Échec du chargement des données utilisateur.",
+    "unauthorized": "Non autorisé. Veuillez vous connecter."
+  },
+  "notification": {
+    "title": "Paramètres du compte",
+    "heading": "Notifications",
+    "product_notifications": "Notifications sur les produits",
+    "product_notifications_desc": "Nous vous informerons des nouvelles offres d'emploi et des candidatures nécessitant votre attention afin que vous puissiez être parmi les premiers candidats et maximiser vos chances d'obtenir le poste de vos rêves.",
+    "email_notifications": "Notifications par e-mail",
+    "sms_notifications": "Notifications par SMS",
+    "marketing_notifications": "Notifications marketing",
+    "marketing_optin": "J'accepte de recevoir des communications marketing.",
+    "loading": "Chargement...",
+    "error": "Échec du chargement des paramètres de notification.",
+    "unauthorized": "Non autorisé. Veuillez vous connecter."
+  },
+  
+  "subscription": {
+    "title": "Paramètres du compte",
+    "heading": "Abonnement",
+    "help_support": "Besoin d'aide ou envie de modifier votre abonnement?",
+    "contact_us": "Contactez-nous à:",
+    "phone": "📞 855-695-3235",
+    "email": "📧 customersupport@CibliJob.fr",
+    "availability": "Disponible 7 jours sur 7:",
+    "monday_friday": "Lundi-Vendredi: 8h - 20h (CST)",
+    "saturday": "Samedi: 8h - 17h (CST)",
+    "sunday": "Dimanche: 10h - 18h (CST)",
+    "account_id": "ID du compte:",
+    "subscription_details": "Détails de l'abonnement",
+    "status": "Statut:",
+    "subscribe": "S'abonner",
+    "more_info": "Pour plus d'informations ou des modifications de votre abonnement, contactez-nous à"
+  }
+ 
 }
                          
                   

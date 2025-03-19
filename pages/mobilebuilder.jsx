@@ -209,12 +209,24 @@ export default function MobileBuilder() {
     const id = path.split("/").pop();
     setResumeId(id);
   }, []);
-const sections = [
-    { label: t("resumeStrength.sections.personalInformation"), component: <PersonalInformation /> },
-    { label: t("resumeStrength.sections.socialLinks"), component: <SocialMedia /> },
-    { label: t("resumeStrength.sections.personalSummary"), component: <Summary /> },
+  const sections = [
+    {
+      label: t("resumeStrength.sections.personalInformation"),
+      component: <PersonalInformation />,
+    },
+    {
+      label: t("resumeStrength.sections.socialLinks"),
+      component: <SocialMedia />,
+    },
+    {
+      label: t("resumeStrength.sections.personalSummary"),
+      component: <Summary />,
+    },
     { label: t("resumeStrength.sections.education"), component: <Education /> },
-    { label: t("resumeStrength.sections.workHistory"), component: <WorkExperience /> },
+    {
+      label: t("resumeStrength.sections.workHistory"),
+      component: <WorkExperience />,
+    },
     { label: t("resumeStrength.sections.projects"), component: <Projects /> },
     {
       label: t("resumeStrength.sections.skills"),
@@ -227,7 +239,10 @@ const sections = [
       ),
     },
     { label: t("resumeStrength.sections.languages"), component: <Language /> },
-    { label: t("resumeStrength.sections.certification"), component: <Certification /> },
+    {
+      label: t("resumeStrength.sections.certification"),
+      component: <Certification />,
+    },
   ];
   // const sections = [
   //   { label: "Personal Details", component: <PersonalInformation /> },
@@ -307,7 +322,7 @@ const sections = [
       toast.error("Template reference not found");
       return;
     }
-    setLoading("download")
+    setLoading("download");
     try {
       // Get the HTML content from the template
       const htmlContent = templateRef.current.innerHTML;
@@ -354,9 +369,8 @@ const sections = [
       toast.error(
         error.response?.data?.message || "Failed to generate and open PDF"
       );
-    }
-    finally{
-      setLoading(null)
+    } finally {
+      setLoading(null);
     }
   };
   const downloadPDF = async () => {
@@ -553,7 +567,7 @@ const sections = [
           disabled={currentSection === 0}
           className="px-4 py-2 bg-green-500 text-white rounded-lg disabled:opacity-50"
         >
-          Previous
+          {t("buttons.previous")}
         </button>
         <span className="text-sm font-medium">
           {sections[currentSection].label}
@@ -562,7 +576,9 @@ const sections = [
           onClick={handleNext}
           className="px-4 py-2 bg-yellow-500 text-black rounded-lg"
         >
-          {currentSection === sections.length - 1 ? "Finish" : "Next"}
+          {currentSection === sections.length - 1
+            ? t("buttons.finish")
+            : t("buttons.next")}
         </button>
       </div>
     </div>
@@ -732,14 +748,28 @@ const sections = [
                   onClick={handleClick}
                   className=" text-white px-4 py-2 rounded-lg bottom-btns"
                 >
-                  {loading=="save"? <SaveLoader loadingText={"Saving"} />:"Save"}
+                  {loading === "save" ? (
+                    <SaveLoader loadingText={t("buttons.saving")} />
+                  ) : (
+                    t("buttons.save")
+                  )}
                 </LoaderButton>
 
                 <button
                   onClick={downloadAsPDF}
                   className=" bg-yellow-500 text-black px-4 py-2 rounded-lg bottom-btns"
                 >
-                 {loading=="download"? <SaveLoader loadingText={"Downloading"} />:"Downlaod"}
+                  {loading === "download" ? (
+                    <SaveLoader loadingText={t("buttons.downloading")} />
+                  ) : (
+                    t("buttons.download")
+                  )}
+                </button>
+                <button
+                  onClick={handleBackToEditor}
+                  className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors bottom-btns"
+                >
+                  {t("buttons.backToDashboard")}
                 </button>
                 {/* <PayAndDownload
                   resumeId={resumeId}
@@ -869,12 +899,6 @@ const sections = [
                   </div>
                 </div>
               )} */}
-                <button
-                  onClick={handleBackToEditor}
-                  className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors bottom-btns"
-                >
-                  Back
-                </button>
               </div>
             </div>
           </>

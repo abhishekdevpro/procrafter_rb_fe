@@ -21,8 +21,10 @@ import PersonalInformation from "./PersonalInformation";
 import LetterDetails from "./LetterDetails";
 import IntroductionAndBodyForm from "./IntroductionAndBodyForm";
 import ClosingGratitudeAndSignatureForm from "./ClosingGratitudeAndSignatureForm";
+import { useTranslation } from "react-i18next";
 
 const CoverLetterEditor = () => {
+  const { t } = useTranslation();
   const [step, setStep] = useState(0);
 
   const steps = [
@@ -58,7 +60,7 @@ const CoverLetterEditor = () => {
               : "bg-[#00b38d] text-white"
           }`}
         >
-          Previous
+          {t("navigation.previous")}
         </button>
         <button
           onClick={nextStep}
@@ -69,7 +71,7 @@ const CoverLetterEditor = () => {
               : "bg-[#00b38d] text-white"
           }`}
         >
-          Next
+          {t("navigation.next")}
         </button>
       </div>
     </div>

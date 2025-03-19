@@ -19,8 +19,8 @@ const CVSelector = ({ onNext, onBack, onChange, value }) => {
   // const [coverLetterData, setCoverLetterData] = useState(null);
   const { coverLetterData, setCoverLetterData } =
     useContext(CoverLetterContext);
-      const { i18n, t } = useTranslation();
-      const language = i18n.language;
+  const { i18n, t } = useTranslation();
+  const language = i18n.language;
   const token =
     typeof window !== "undefined" ? localStorage.getItem("token") : null;
   const colors = [
@@ -90,31 +90,31 @@ const CVSelector = ({ onNext, onBack, onChange, value }) => {
     {
       key: "template1",
       imageUrl: cvletter1,
-      name: "Professional CV",
+      name: t("cvSelector.template1"),
       hasPhoto: true,
     },
     {
       key: "template2",
       imageUrl: cvletter2,
-      name: "Creative CV",
+      name: t("cvSelector.template2"),
       hasPhoto: false,
     },
     {
       key: "template3",
       imageUrl: cvletter3,
-      name: "Academic CV",
+      name: t("cvSelector.template3"),
       hasPhoto: false,
     },
     {
       key: "template4",
       imageUrl: cvletter4,
-      name: "Executive CV",
+      name: t("cvSelector.template4"),
       hasPhoto: false,
     },
     {
       key: "template5",
       imageUrl: cvletter5,
-      name: "Technical CV",
+      name: t("cvSelector.template5"),
       hasPhoto: true,
     },
   ];
@@ -148,7 +148,8 @@ const CVSelector = ({ onNext, onBack, onChange, value }) => {
       try {
         const coverletterId = router.query.id || localStorage.getItem("id");
         if (!coverletterId || !token) {
-          toast.error("Cover Letter ID or token not found");
+          // toast.error("Cover Letter ID or token not found");
+          toast.error(t("cvSelector.errorCoverLetterId"));
           return;
         }
 
@@ -236,7 +237,7 @@ const CVSelector = ({ onNext, onBack, onChange, value }) => {
     };
     console.log(coverLetterData, ">>>coverlettersdata");
     if (!value.template) {
-      toast.error("Please select a CV template before proceeding");
+      toast.error(t("cvSelector.selectTemplateError"));
       return;
     }
 
@@ -288,11 +289,9 @@ const CVSelector = ({ onNext, onBack, onChange, value }) => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Choose Your CV Letter Template
+            {t("cvSelector.title")}
           </h2>
-          <p className="text-xl text-gray-600">
-            Select a professional template that matches your career goals
-          </p>
+          <p className="text-xl text-gray-600">{t("cvSelector.description")}</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
@@ -300,7 +299,7 @@ const CVSelector = ({ onNext, onBack, onChange, value }) => {
           <div className="bg-white rounded-xl shadow-lg p-6 h-fit sticky top-8">
             <div className="mb-8">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                Color Theme
+                {t("cvSelector.colorTheme")}
               </h3>
               <div className="grid grid-cols-5 gap-4">
                 {colors.map((color) => (
@@ -331,7 +330,7 @@ const CVSelector = ({ onNext, onBack, onChange, value }) => {
             {/* Categories */}
             <div className="mb-8">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                Categories
+                {t("cvSelector.categories")}
               </h3>
               <div className="space-y-2">
                 {Array.from(new Set(cvTemplates.map((t) => t.category))).map(
@@ -398,7 +397,7 @@ const CVSelector = ({ onNext, onBack, onChange, value }) => {
             className="px-8 py-3 bg-white border-2 border-gray-300 rounded-xl text-gray-700 
               font-medium hover:bg-gray-50 hover:border-gray-400 transition-colors"
           >
-            Back
+            {t("cvSelector.back")}
           </button>
           <button
             onClick={handleSaveSelection}
@@ -407,7 +406,7 @@ const CVSelector = ({ onNext, onBack, onChange, value }) => {
             className="px-8 py-3 text-white rounded-xl font-medium
               hover:opacity-90 transition-colors shadow-lg hover:shadow-xl disabled:opacity-50"
           >
-            {loading ? t("saving") : "Next"}
+            {loading ? t("cvSelector.saving") : t("cvSelector.next")}
           </button>
         </div>
       </div>

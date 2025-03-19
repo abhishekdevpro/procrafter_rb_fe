@@ -5,20 +5,22 @@ import Sidebar from "./Sidebar";
 import Navbar from "../Navbar/Navbar";
 import { BASE_URL } from "../../components/Constant/constant";
 import { ResumeContext } from "../../components/context/ResumeContext";
+import { useTranslation } from "react-i18next";
 export default function Notification() {
+  const { t } = useTranslation();
   const [emailNotifications, setEmailNotifications] = useState(false);
   const [smsNotifications, setSmsNotifications] = useState(false);
   const [marketingNotifications, setMarketingNotifications] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const {selectedLang} = useContext(ResumeContext)
+  const { selectedLang } = useContext(ResumeContext);
   // Fetch Notification Preferences
   useEffect(() => {
     const fetchNotificationSettings = async () => {
       try {
         const token = localStorage.getItem("token");
         if (!token) {
-          setError("Unauthorized. Please log in.");
+          setError(t("notification.unauthorized"));
           setLoading(false);
           return;
         }
@@ -37,11 +39,11 @@ export default function Notification() {
           setSmsNotifications(is_sms);
           setMarketingNotifications(is_marketing_notification);
         } else {
-          setError("Failed to load notification settings.");
+          setError(t("notification.error"));
         }
       } catch (err) {
         console.error("Error fetching notification settings:", err);
-        setError("Failed to load notification settings.");
+        setError(t("notification.error"));
       } finally {
         setLoading(false);
       }
@@ -74,34 +76,41 @@ export default function Notification() {
     }
   };
 
-  if (loading) return <p className="text-center text-gray-500">Loading...</p>;
+  if (loading)
+    return (
+      <p className="text-center text-gray-500">{t("notification.loading")}</p>
+    );
   if (error) return <p className="text-center text-red-500">{error}</p>;
 
   return (
     <>
       <Navbar />
       <div className="p-4 md:p-10 max-w-5xl mx-auto">
-        <h2 className="text-2xl font-semibold mb-6">Account Settings</h2>
+        <h2 className="text-2xl font-semibold mb-6">
+          {t("notification.title")}
+        </h2>
         <div className="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-6">
           <div className="md:w-1/4 w-full">
             <Sidebar />
           </div>
           <div className="md:w-3/4 w-full">
             <div className="p-6 bg-white shadow-md rounded-md">
-              <h3 className="text-xl font-semibold mb-4">Notifications</h3>
+              <h3 className="text-xl font-semibold mb-4">
+                {t("notification.heading")}
+              </h3>
 
               {/* Product Notifications */}
               <div className="mb-6">
-                <h4 className="font-semibold">Product notifications</h4>
+                <h4 className="font-semibold">
+                  {t("notification.product_notifications")}
+                </h4>
                 <p className="text-gray-600 text-sm mb-4">
-                  We’ll inform you about new job matches and applications that
-                  need your attention so you can be among the first applicants
-                  and maximize your chances of getting the dream job.
+                  {t("notification.product_notifications_desc")}
                 </p>
 
                 {/* Email Notification Toggle */}
                 <ToggleSwitch
-                  label="Email notifications"
+                  label={t("notification.email_notifications")}
                   enabled={emailNotifications}
                   onChange={() => {
                     setEmailNotifications(!emailNotifications);
@@ -111,7 +120,7 @@ export default function Notification() {
 
                 {/* SMS Notification Toggle */}
                 <ToggleSwitch
-                  label="SMS notifications"
+                  label={t("notification.sms_notifications")}
                   enabled={smsNotifications}
                   onChange={() => {
                     setSmsNotifications(!smsNotifications);
@@ -122,9 +131,12 @@ export default function Notification() {
 
               {/* Marketing Notifications */}
               <div>
-                <h4 className="font-semibold">Marketing notifications</h4>
+                <h4 className="font-semibold">
+                  {" "}
+                  {t("notification.marketing_notifications")}
+                </h4>
                 <ToggleSwitch
-                  label="I am open to receive marketing communications."
+                  label={t("notification.marketing_optin")}
                   enabled={marketingNotifications}
                   onChange={() => {
                     setMarketingNotifications(!marketingNotifications);
