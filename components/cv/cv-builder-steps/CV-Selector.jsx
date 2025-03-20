@@ -84,6 +84,48 @@ const CVSelector = ({ onNext, onBack, onChange, value }) => {
       selectedClass: "ring-indigo-400",
       hexCode: "#4F46E5",
     },
+    {
+      name: "Navy Blue",
+      class: "bg-blue-900",
+      selectedClass: "ring-blue-700",
+      hexCode: "#1E3A8A",
+    },
+    {
+      name: "Light Blue",
+      class: "bg-blue-300",
+      selectedClass: "ring-blue-200",
+      hexCode: "#93C5FD",
+    },
+    {
+      name: "Light Red",
+      class: "bg-red-300",
+      selectedClass: "ring-red-200",
+      hexCode: "#FCA5A5",
+    },
+    {
+      name: "Light Green",
+      class: "bg-green-300",
+      selectedClass: "ring-green-200",
+      hexCode: "#86EFAC",
+    },
+    {
+      name: "Light Yellow",
+      class: "bg-yellow-300",
+      selectedClass: "ring-yellow-200",
+      hexCode: "#FDE047",
+    },
+    {
+      name: "Light Teal",
+      class: "bg-teal-300",
+      selectedClass: "ring-teal-200",
+      hexCode: "#5EEAD4",
+    },
+    {
+      name: "Light Purple",
+      class: "bg-purple-300",
+      selectedClass: "ring-purple-200",
+      hexCode: "#D8B4FE",
+    },
   ];
 
   const cvTemplates = [

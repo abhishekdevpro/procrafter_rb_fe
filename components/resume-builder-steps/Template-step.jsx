@@ -41,7 +41,7 @@ const TemplateStep = ({ onNext, onBack, onChange, value }) => {
   const [resumeData, setResumeData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isSaved, setIsSaved] = useState(false);
-  const {selectedLang} = useContext(ResumeContext)
+  const { selectedLang } = useContext(ResumeContext);
   const [selectedHexCode, setSelectedHexCode] = useState("#2563EB"); // Default blue hex code
   const token =
     typeof window !== "undefined" ? localStorage.getItem("token") : null;
@@ -82,6 +82,72 @@ const TemplateStep = ({ onNext, onBack, onChange, value }) => {
       class: "bg-yellow-500",
       selectedClass: "ring-yellow-400",
       hexCode: "#EAB308",
+    },
+    {
+      name: "Pink",
+      class: "bg-pink-500",
+      selectedClass: "ring-pink-400",
+      hexCode: "#EC4899",
+    },
+    {
+      name: "Teal",
+      class: "bg-teal-500",
+      selectedClass: "ring-teal-400",
+      hexCode: "#14B8A6",
+    },
+    {
+      name: "Orange",
+      class: "bg-orange-500",
+      selectedClass: "ring-orange-400",
+      hexCode: "#F97316",
+    },
+    {
+      name: "Indigo",
+      class: "bg-indigo-600",
+      selectedClass: "ring-indigo-400",
+      hexCode: "#4F46E5",
+    },
+    {
+      name: "Navy Blue",
+      class: "bg-blue-900",
+      selectedClass: "ring-blue-700",
+      hexCode: "#1E3A8A",
+    },
+    {
+      name: "Light Blue",
+      class: "bg-blue-300",
+      selectedClass: "ring-blue-200",
+      hexCode: "#93C5FD",
+    },
+    {
+      name: "Light Red",
+      class: "bg-red-300",
+      selectedClass: "ring-red-200",
+      hexCode: "#FCA5A5",
+    },
+    {
+      name: "Light Green",
+      class: "bg-green-300",
+      selectedClass: "ring-green-200",
+      hexCode: "#86EFAC",
+    },
+    {
+      name: "Light Yellow",
+      class: "bg-yellow-300",
+      selectedClass: "ring-yellow-200",
+      hexCode: "#FDE047",
+    },
+    {
+      name: "Light Teal",
+      class: "bg-teal-300",
+      selectedClass: "ring-teal-200",
+      hexCode: "#5EEAD4",
+    },
+    {
+      name: "Light Purple",
+      class: "bg-purple-300",
+      selectedClass: "ring-purple-200",
+      hexCode: "#D8B4FE",
     },
   ];
 
