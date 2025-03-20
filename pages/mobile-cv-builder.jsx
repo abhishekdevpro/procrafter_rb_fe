@@ -5,6 +5,7 @@ import CoverLetterEditor from "../components/cv/coverletterform/CoverLetterEdito
 import Navbar from "./Navbar/Navbar";
 import ColorPickers from "./ColorPickers";
 import CoverLetterPreview from "../components/cv/coverletter/CoverLetterPreview";
+import { useTranslation } from "react-i18next";
 
 const MobileCoverLetterBuilder = ({
   selectedFont,
@@ -18,7 +19,7 @@ const MobileCoverLetterBuilder = ({
   templateRef,
 }) => {
   const [isPreviewMode, setIsPreviewMode] = useState(false);
-
+  const { t } = useTranslation();
   const togglePreviewMode = () => {
     setIsPreviewMode(!isPreviewMode);
   };
@@ -44,7 +45,7 @@ const MobileCoverLetterBuilder = ({
               onClick={togglePreviewMode}
               className="w-full bg-pink-500 text-white px-6 py-3 rounded-lg text-lg font-medium"
             >
-              Next
+              {t("navigation.next")}
             </button>
           </div>
         </div>
