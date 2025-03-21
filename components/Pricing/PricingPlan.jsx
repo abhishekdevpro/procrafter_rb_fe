@@ -5,10 +5,10 @@
 
 // const PricingSection = () => {
 //   const { t } = useTranslation();
-  
+
 //   // Plan types
 //   const planTypes = ['freePlan', 'singlePass', 'aiProMonth', 'aiProYearly'];
-  
+
 //   return (
 //     <section className="py-16 bg-gray-50">
 //       <div className="max-w-7xl container mx-auto px-4">
@@ -20,10 +20,10 @@
 //             {t('pricing.intro')}
 //           </p>
 //         </div>
-        
+
 //         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 //           {planTypes.map((planType) => (
-//             <div 
+//             <div
 //               key={planType}
 //               className="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden"
 //             >
@@ -31,11 +31,11 @@
 //                 <h3 className="text-xl font-bold text-gray-800 mb-2">
 //                   {t(`pricing.${planType}.title`)}
 //                 </h3>
-                
+
 //                 <div className="flex items-baseline mb-1">
 //                   <span className="text-3xl font-bold text-gray-900">
-//                     {Number(t(`pricing.${planType}.price`)) === 0 
-//                       ? t('pricing.freeLabel') 
+//                     {Number(t(`pricing.${planType}.price`)) === 0
+//                       ? t('pricing.freeLabel')
 //                       : `$${t(`pricing.${planType}.price`)}`}
 //                   </span>
 //                   {t(`pricing.${planType}.billingCycle`) && (
@@ -45,7 +45,7 @@
 //                   )}
 //                 </div>
 //               </div>
-              
+
 //               <div className="p-6">
 //                 <ul className="space-y-3">
 //                   {Array.from({ length: 10 }).map((_, index) => {
@@ -61,7 +61,7 @@
 //                     );
 //                   })}
 //                 </ul>
-                
+
 //                 <button className="w-full mt-8 bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition duration-300"
 //                 >
 //                   {t(`pricing.${planType}.buttonText`)}
@@ -88,7 +88,7 @@
 //   const router = useRouter()
 //   // State to track if the component is mounted on the client
 //   const [isMounted, setIsMounted] = useState(false);
-  
+
 //   // Ensure the component only renders on the client side
 //   useEffect(() => {
 //     setIsMounted(true);
@@ -104,7 +104,7 @@
 //   if (!isMounted) {
 //     return null;
 //   }
-  
+
 //   return (
 //     <section className="py-16 bg-gray-50">
 //       <div className="max-w-7xl container mx-auto px-4">
@@ -116,10 +116,10 @@
 //             {t('pricing.intro')}
 //           </p>
 //         </div> */}
-        
+
 //         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 //           {planTypes.map((planType) => (
-//             <div 
+//             <div
 //               key={planType}
 //               className="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden"
 //             >
@@ -127,11 +127,11 @@
 //                 <h3 className="text-xl font-bold text-gray-800 mb-2">
 //                   {t(`pricing.${planType}.title`)}
 //                 </h3>
-                
+
 //                 <div className="flex items-baseline mb-1">
 //                   <span className="text-3xl font-bold text-gray-900">
-//                     {Number(t(`pricing.${planType}.price`)) === 0 
-//                       ? t('pricing.freeLabel') 
+//                     {Number(t(`pricing.${planType}.price`)) === 0
+//                       ? t('pricing.freeLabel')
 //                       : `$${t(`pricing.${planType}.price`)}`}
 //                   </span>
 //                   {t(`pricing.${planType}.billingCycle`) && (
@@ -141,7 +141,7 @@
 //                   )}
 //                 </div>
 //               </div>
-              
+
 //               <div className="p-6">
 //                 <ul className="space-y-3">
 //                   {Array.from({ length: 10 }).map((_, index) => {
@@ -157,7 +157,7 @@
 //                     );
 //                   })}
 //                 </ul>
-                
+
 //                 <button className="w-full mt-8 bg-teal-600 hover:bg-teal-700 text-white font-medium py-3 px-4 rounded-lg transition duration-300"
 //                   onClick={handleClick}
 //                 >
@@ -174,17 +174,17 @@
 
 // export default PricingSection;
 "use client";
-import React, { useState, useEffect } from 'react';
-import { useTranslation } from 'next-i18next';
-import { Check } from 'lucide-react';
-import { useRouter } from 'next/router';
+import React, { useState, useEffect } from "react";
+import { useTranslation } from "next-i18next";
+import { Check } from "lucide-react";
+import { useRouter } from "next/router";
 
 const PricingSection = () => {
   const { t } = useTranslation();
   const router = useRouter();
   // State to track if the component is mounted on the client
   const [isMounted, setIsMounted] = useState(false);
-  
+
   // Ensure the component only renders on the client side
   useEffect(() => {
     setIsMounted(true);
@@ -192,24 +192,24 @@ const PricingSection = () => {
 
   const handleClick = (planType) => {
     const token = localStorage.getItem("token");
-    
-    if (planType === 'freePlan') {
+
+    if (planType === "freePlan") {
       // If it's the free plan, route to dashboard if logged in, otherwise to login2
-      token ? router.push('/dashboard') : router.push('/login2');
+      token ? router.push("/dashboard") : router.push("/login2");
     } else {
       // For paid plans, route to payment if logged in, otherwise to login2
-      token ? router.push('/payment') : router.push('/login2');
+      token ? router.push("/payment") : router.push("/login2");
     }
   };
 
   // Plan types
-  const planTypes = ['freePlan', 'singlePass', 'aiProMonth', 'aiProYearly'];
-  
+  const planTypes = ["freePlan", "singlePass", "aiProMonth", "aiProYearly"];
+
   // If the component hasn't mounted yet, return null to avoid rendering on the server
   if (!isMounted) {
     return null;
   }
-  
+
   return (
     <section className="py-16 bg-gray-50">
       <div className="max-w-7xl container mx-auto px-4">
@@ -221,7 +221,7 @@ const PricingSection = () => {
             {t('pricing.intro')}
           </p>
         </div> */}
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {planTypes.map((planType) => (
             <div
@@ -232,12 +232,12 @@ const PricingSection = () => {
                 <h3 className="text-xl font-bold text-gray-800 mb-2">
                   {t(`pricing.${planType}.title`)}
                 </h3>
-                
+
                 <div className="flex items-baseline mb-1">
                   <span className="text-3xl font-bold text-gray-900">
                     {Number(t(`pricing.${planType}.price`)) === 0
-                      ? t('pricing.freeLabel')
-                      : `$${t(`pricing.${planType}.price`)}`}
+                      ? t("pricing.freeLabel")
+                      : `£${t(`pricing.${planType}.price`)}`}
                   </span>
                   {t(`pricing.${planType}.billingCycle`) && (
                     <span className="text-gray-500 ml-1 text-sm">
@@ -246,12 +246,17 @@ const PricingSection = () => {
                   )}
                 </div>
               </div>
-              
+
               <div className="p-6">
                 <ul className="space-y-3">
                   {Array.from({ length: 10 }).map((_, index) => {
-                    const feature = t(`pricing.${planType}.feature${index + 1}`);
-                    if (!feature || feature === `pricing.${planType}.feature${index + 1}`) {
+                    const feature = t(
+                      `pricing.${planType}.feature${index + 1}`
+                    );
+                    if (
+                      !feature ||
+                      feature === `pricing.${planType}.feature${index + 1}`
+                    ) {
                       return null;
                     }
                     return (
@@ -262,8 +267,8 @@ const PricingSection = () => {
                     );
                   })}
                 </ul>
-                
-                <button 
+
+                <button
                   className="w-full mt-8 bg-teal-600 hover:bg-teal-700 text-white font-medium py-3 px-4 rounded-lg transition duration-300"
                   onClick={() => handleClick(planType)}
                 >
