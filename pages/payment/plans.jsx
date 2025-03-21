@@ -629,9 +629,20 @@ export default function PaymentPage() {
             </p>
 
             {/* Start Applying Button */}
-            <button
+            {/* <button
               onClick={handleCheckout}
               className="mt-6 w-full bg-[#00b38d] text-white text-lg font-semibold py-3 rounded-lg "
+            >
+              {t("Start applying")}
+            </button> */}
+            <button
+              onClick={handleCheckout}
+              className={`mt-6 w-full text-white text-lg font-semibold py-3 rounded-lg ${
+                selectedPlan === "freePlan"
+                  ? "bg-gray-400 cursor-not-allowed"
+                  : "bg-[#00b38d]"
+              }`}
+              disabled={selectedPlan === "freePlan"}
             >
               {t("Start applying")}
             </button>
