@@ -99,16 +99,101 @@
 //   );
 // }
 "use client";
-import { useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import Sidebar from "./Sidebar";
 import Navbar from "../Navbar/Navbar";
 import Link from "next/link";
-
+import axios from "axios";
+import { BASE_URL } from "../../components/Constant/constant";
+import { ResumeContext } from "../../components/context/ResumeContext";
+import { toast } from "react-toastify";
 export default function Subscription() {
   const { t } = useTranslation();
   const [status, setStatus] = useState("Inactive");
+  const [accountId, setAccountId] = useState();
+  const [userData, setUserData] = useState(null);
+  const [error, setError] = useState(null);
+  const { selectedLang } = useContext(ResumeContext);
+  const handleCancelSubscription = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        toast.error("Unauthorized. Please log in.");
+        return;
+      }
 
+      const response = await axios.post(
+        `${BASE_URL}/api/user/payment/cancel-subscription`,
+        {}, // Empty body if API doesn't require data
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: token, // Add Bearer if required
+          },
+        }
+      );
+
+      if (response.status === 200) {
+        // Successfully canceled the subscription
+        toast.success("Your subscription has been canceled.");
+      } else {
+        toast.error(
+          response.data.message || "Failed to cancel the subscription."
+        );
+      }
+    } catch (error) {
+      console.error("Error canceling subscription:", error);
+
+      if (error.response?.status === 401) {
+        toast.error("Session expired. Please log in again.");
+        localStorage.removeItem("token"); // Remove token if expired
+        window.location.href = "/login"; // Redirect to login page
+      } else {
+        toast.error(
+          error.response?.data?.message ||
+            "An error occurred. Please try again later."
+        );
+      }
+    }
+  };
+
+  useEffect(() => {
+    const fetchUserProfile = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        if (!token) {
+          setError(t("account.unauthorized"));
+
+          return;
+        }
+
+        const response = await axios.get(
+          `${BASE_URL}/api/user/user-profile?lang=${selectedLang}`,
+          {
+            headers: { Authorization: token },
+          }
+        );
+
+        if (response.data?.status === "success") {
+          const userProfile = response.data.data; // Store response data in a variable
+          setUserData(userProfile);
+          setStatus(userProfile.is_active_plan ? "Active" : "Inactive");
+          // setUserData(response.data.data);
+          // setStatus(userData.is_active_plan ? "Active" : "Inactive");
+        } else {
+          setError(t("account.error"));
+        }
+      } catch (err) {
+        setStatus("Inactive");
+        console.error("Error fetching user profile:", err);
+        setError(t("account.error"));
+      } finally {
+      }
+    };
+
+    fetchUserProfile();
+  }, [selectedLang, t]);
   return (
     <>
       <Navbar />
@@ -164,7 +249,9 @@ export default function Subscription() {
               <div className="py-4 border-b border-gray-300">
                 <p className="font-semibold text-gray-900">
                   {t("subscription.account_id")}{" "}
-                  <span className="text-gray-600 font-medium">618744350</span>
+                  <span className="text-gray-600 font-medium">
+                    {userData?.account_id || "N/A"}
+                  </span>
                 </p>
               </div>
 
@@ -175,16 +262,54 @@ export default function Subscription() {
                 </h4>
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mt-3">
                   <p className="text-gray-700">
-                    {t("subscription.status")}{" "}
-                    <span className="font-medium text-gray-900">{status}</span>
+                    Status:{" "}
+                    <span
+                      className={`font-medium ${
+                        status === "Active" ? "text-green-600" : "text-red-600"
+                      }`}
+                    >
+                      {status}
+                    </span>
                   </p>
-                  <Link href="/payment">
+                  {/* <Link href="/payment">
                     <button className="mt-3 md:mt-0 text-[#00b38d] font-medium underline">
                       {t("subscription.subscribe")}
                     </button>
-                  </Link>
+                  </Link> */}
+                  <div className="flex space-x-4">
+                    <Link href="/payment">
+                      <button className="mt-3 md:mt-0 px-4 py-2 bg-[#00b38d] text-white rounded-md">
+                        {t("subscription.upgrade")}
+                      </button>
+                    </Link>
+                    <button
+                      onClick={handleCancelSubscription}
+                      disabled={
+                        userData?.plan_id === 1 || !userData?.is_active_plan
+                      } // Disable if Free Plan
+                      className={`mt-3 md:mt-0 px-4 py-2 rounded-md ${
+                        userData?.plan_id === 1 || !userData?.is_active_plan
+                          ? "bg-gray-400 cursor-not-allowed" // Disabled styling
+                          : "bg-red-600 text-white hover:bg-red-700" // Active styling
+                      }`}
+                    >
+                      {t("subscription.cancel_subscription")}
+                    </button>
+                  </div>
                 </div>
-
+                <p className="text-gray-700">
+                  Current Plan:{" "}
+                  {userData?.plan_id ? (
+                    <span className="font-medium">
+                      {userData.plan_id === 1 && "Free Plan"}
+                      {userData.plan_id === 2 && "Single Pass"}
+                      {userData.plan_id === 3 && "AI Pro Month"}
+                      {userData.plan_id === 4 && "AI Pro Yearly"}
+                    </span>
+                  ) : (
+                    "N/A"
+                  )}
+                </p>
                 <p className="mt-4 text-gray-700">
                   {t("subscription.more_info")}{" "}
                   <span className="text-[#00b38d] cursor-pointer">
