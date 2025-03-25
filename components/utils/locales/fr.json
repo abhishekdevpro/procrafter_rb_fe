@@ -1346,7 +1346,11 @@
     "subscription_details": "Détails de l'abonnement",
     "status": "Statut:",
     "subscribe": "S'abonner",
-    "more_info": "Pour plus d'informations ou des modifications de votre abonnement, contactez-nous à"
+    "more_info": "Pour plus d'informations ou des modifications de votre abonnement, contactez-nous à",
+    
+      "upgrade": "Améliorer",
+      "cancel_subscription": "Annuler l'abonnement"
+    
   }
  
 }
