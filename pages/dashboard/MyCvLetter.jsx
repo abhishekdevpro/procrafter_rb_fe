@@ -372,7 +372,7 @@ const MyCvLetter = () => {
                         <button
                           onClick={() => {
                             setIsDeleteModalOpen(true);
-                            setDeleteCoverLetterId(coverletter.id);
+                            setDeletecoverletterId(coverletter.id);
                           }}
                           className="text-red-600 hover:text-red-800"
                         >
@@ -408,7 +408,7 @@ const MyCvLetter = () => {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-lg p-6 max-w-sm mx-4">
             <h2 className="text-lg font-semibold text-gray-900 mb-4">
-              {t("mycvletter.delete_confirmation")}
+              {t("mycvletter.delete_confirm")}
             </h2>
             <div className="flex justify-end space-x-3">
               <button
