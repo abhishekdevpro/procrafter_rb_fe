@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-
-const colors = [
+import axios from "axios";
+import { BASE_URL } from "../components/Constant/constant";
+const allColors = [
   { name: "None", value: "" },
   { name: "Nobel Grey", value: "#6D7278" },
 
@@ -83,9 +84,35 @@ const colors = [
     value: "#D8B4FE",
   },
 ];
+const freeColors = allColors.slice(1, 3);
 const ColorPicker = ({ selectedColor, onChange }) => {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
+  const [userPlan, setUserPlan] = useState(null);
+
+  useEffect(() => {
+    const fetchUserProfile = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        if (!token) {
+          console.error("Unauthorized. Please log in.");
+          return;
+        }
+
+        const response = await axios.get(`${BASE_URL}/api/user/user-profile`, {
+          headers: { Authorization: token },
+        });
+
+        if (response.data?.status === "success") {
+          setUserPlan(response.data.data.plan_id);
+        }
+      } catch (err) {
+        console.error("Error fetching user profile:", err);
+      }
+    };
+
+    fetchUserProfile();
+  }, []);
 
   const handleToggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -93,9 +120,10 @@ const ColorPicker = ({ selectedColor, onChange }) => {
 
   const handleColorSelect = (color) => {
     onChange(color);
-    setIsOpen(false); // Close the dropdown after selection
+    setIsOpen(false); // Close dropdown after selection
   };
 
+  const colors = userPlan === 1 ? freeColors : allColors; // Apply restriction
   return (
     <div className="relative flex items-center m-2 z-20 ">
       <button

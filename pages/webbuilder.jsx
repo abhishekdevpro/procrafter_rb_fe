@@ -38,6 +38,7 @@ import PayAndDownload from "../components/PayDownload";
 import { BASE_URL } from "../components/Constant/constant";
 import { useTranslation } from "react-i18next";
 import { SaveLoader } from "../components/ResumeLoader/SaveLoader";
+import FontSelector from "./FontSelector";
 
 const Print = dynamic(() => import("../components/utility/WinPrint"), {
   ssr: false,
@@ -743,7 +744,7 @@ export default function WebBuilder() {
                 </div>
 
                 <div className="hidden lg:flex items-center gap-4">
-                  <select
+                  {/* <select
                     value={selectedFont}
                     onChange={handleFontChange}
                     className="w-40 h-10 rounded-lg border border-green-500 px-4 font-bold text-black bg-white focus:ring-2 focus:ring-green-600"
@@ -753,8 +754,8 @@ export default function WebBuilder() {
                     <option value="Georgia">Georgia</option>
                     <option value="Roboto">Roboto</option>
                     <option value="Poppins">Poppins</option>
-                  </select>
-
+                  </select> */}
+                  <FontSelector />
                   <div className="flex items-center gap-4">
                     {/* <ColorPicker
                       selectedColor={headerColor}
@@ -864,7 +865,7 @@ export default function WebBuilder() {
           <div className=" flex flex-col">
             <div className="hidden md:flex w-screen px-8 py-4 justify-between items-center bg-white shadow">
               <div className="flex gap-4 ">
-                <select
+                {/* <select
                   value={selectedFont}
                   onChange={handleFontChange}
                   className="w-40 h-10 rounded-lg border-2 border-green-500 px-8 p-1 font-bold  bg-white text-black mt-2"
@@ -874,7 +875,10 @@ export default function WebBuilder() {
                   <option value="Georgia">Georgia</option>
                   <option value="Roboto">Roboto</option>
                   <option value="Poppins">Poppins</option>
-                </select>
+                </select> */}
+                <div className="mt-3">
+                  <FontSelector />
+                </div>
                 {/* <ColorPicker
                   selectedColor={headerColor}
                   onChange={setHeaderColor}

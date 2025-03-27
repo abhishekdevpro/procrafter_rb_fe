@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useRouter } from "next/router";
 import { BASE_URL } from "../Constant/constant";
+
 import {
   User,
   Share2,
@@ -44,7 +45,7 @@ const TooltipContent = ({ improvements, resumeId, onClose }) => {
   const [Loading, setLoading] = useState(false);
   const router = useRouter();
   const { t } = useTranslation();
-  const {selectedLang} = useContext(ResumeContext)
+  const { selectedLang } = useContext(ResumeContext);
   const formatItems = [
     {
       label: t("formatting.bullet_points"),
@@ -181,7 +182,11 @@ const TooltipContent = ({ improvements, resumeId, onClose }) => {
         }`}
         disabled={improvements.ats_score === 10 || Loading}
       >
-        {Loading ?  <SaveLoader loadingText="Proceed To Improve" /> : t("button.improve")}
+        {Loading ? (
+          <SaveLoader loadingText="Proceed To Improve" />
+        ) : (
+          t("button.improve")
+        )}
       </button>
     </div>
   );
@@ -191,7 +196,7 @@ const ResumeStrength = ({ score, strength, resumeId }) => {
   const [showLoader, setShowLoader] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const router = useRouter();
-  
+
   // console.log(strength.ats_strenght, "strength");
   const { t } = useTranslation();
   const getSectionsList = (data) => {
@@ -270,16 +275,53 @@ const ResumeStrength = ({ score, strength, resumeId }) => {
     ];
   };
 
-  const handleImproveResume = () => {
-    setShowLoader(true);
-    setTimeout(() => {
-      router.push({
-        pathname: `/dashboard/aibuilder/${resumeId}`,
-        query: { improve: "true" },
-      });
-    }, 5000);
-  };
+  // const handleImproveResume = () => {
+  //   setShowLoader(true);
+  //   setTimeout(() => {
+  //     router.push({
+  //       pathname: `/dashboard/aibuilder/${resumeId}`,
+  //       query: { improve: "true" },
+  //     });
+  //   }, 5000);
+  // };
+  const handleImproveResume = async () => {
+    if (!resumeId) return;
 
+    setShowLoader(true);
+
+    try {
+      const token = localStorage.getItem("token");
+      // Call the API before navigating
+      const response = await axios.get(
+        `${BASE_URL}/api/user/auto-improve/${resumeId}?lang=${selectedLang}`,
+        {
+          headers: {
+            Authorization: token, // Ensure correct auth header
+          },
+        }
+      );
+
+      // If API request is successful, navigate to the AI Builder page
+      if (response.status === 200) {
+        toast.success(response?.data?.message);
+        setTimeout(() => {
+          router.push({
+            pathname: `/dashboard/aibuilder/${resumeId}`,
+            query: { improve: "true" },
+          });
+        }, 5000);
+      } else {
+        toast.error("Failed to improve resume. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error improving resume:", error);
+      toast.error(
+        error.response?.data?.message || "An error occurred. Try again."
+      );
+    } finally {
+      setShowLoader(false);
+    }
+  };
   const sectionsList = getSectionsList(strength);
 
   const getScoreColor = (score, maxScore) => {
