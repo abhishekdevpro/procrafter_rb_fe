@@ -22,7 +22,8 @@ import template18 from "./template/template18.png";
 import template19 from "./template/template19.png";
 import template20 from "./template/template20.png";
 import { useTranslation } from "react-i18next";
-
+import { BASE_URL } from "../Constant/constant";
+import axios from "axios";
 const TemplateSelector = ({
   selectedTemplate,
   setSelectedTemplate,
@@ -33,9 +34,10 @@ const TemplateSelector = ({
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [templateId, setTemplateId] = useState(selectedTemplate);
+  const [userData, setUserData] = useState(null);
   // Default PDF type
 
-  const templates = [
+  const allTemplates = [
     { key: "template1", imageUrl: template1, pdfType: 2 },
     { key: "template3", imageUrl: template3, pdfType: 3 },
     { key: "template4", imageUrl: template4, pdfType: 3 },
@@ -56,7 +58,32 @@ const TemplateSelector = ({
     { key: "template19", imageUrl: template19, pdfType: 1 },
     { key: "template20", imageUrl: template20, pdfType: 1 },
   ];
+  const basicTemplates = allTemplates.slice(0, 2);
+  useEffect(() => {
+    const fetchUserProfile = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        if (!token) {
+          console.error("Unauthorized. Please log in.");
+          return;
+        }
 
+        const response = await axios.get(`${BASE_URL}/api/user/user-profile`, {
+          headers: { Authorization: token },
+        });
+
+        if (response.data?.status === "success") {
+          const user = response.data.data;
+          setUserData(user);
+        }
+      } catch (err) {
+        console.error("Error fetching user profile:", err);
+        setStatus("Inactive");
+      }
+    };
+
+    fetchUserProfile();
+  }, []);
   useEffect(() => {
     const selectedIndex = templates.findIndex(
       (template) => template.key === selectedTemplate
@@ -66,7 +93,7 @@ const TemplateSelector = ({
       setSelectedPdfType(templates[selectedIndex].pdfType);
     }
   }, [selectedTemplate]);
-
+  const templates = userData?.plan_id === 1 ? basicTemplates : allTemplates;
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
 

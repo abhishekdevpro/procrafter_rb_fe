@@ -36,6 +36,7 @@ import PayAndDownload from "../components/PayDownload";
 import { BASE_URL } from "../components/Constant/constant";
 import { useTranslation } from "react-i18next";
 import { SaveLoader } from "../components/ResumeLoader/SaveLoader";
+import FontSelector from "./FontSelector";
 
 const Print = dynamic(() => import("../components/utility/WinPrint"), {
   ssr: false,
@@ -716,7 +717,7 @@ export default function MobileBuilder() {
                   selectmultiplecolor={backgroundColorss}
                   onChange={setBgColor}
                 />
-                <select
+                {/* <select
                   value={selectedFont}
                   onChange={handleFontChange}
                   className="rounded-lg border-2 border-green-500 px-5 py-2 font-bold  bg-white text-black"
@@ -726,8 +727,8 @@ export default function MobileBuilder() {
                   <option value="Georgia">Georgia</option>
                   <option value="Roboto">Roboto</option>
                   <option value="Poppins">Poppins</option>
-                </select>
-
+                </select> */}
+                <FontSelector />
                 <TemplateSelector
                   selectedTemplate={selectedTemplate}
                   setSelectedTemplate={setSelectedTemplate}
