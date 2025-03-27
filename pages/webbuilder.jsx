@@ -366,62 +366,117 @@ export default function WebBuilder() {
   const handleCloseModal = () => setShowModal(false);
   const handleShowModal = () => setShowModal(true);
 
+  // const downloadAsPDF = async () => {
+  //   handleFinish();
+  //   if (!templateRef.current) {
+  //     toast.error("Template reference not found");
+  //     return;
+  //   }
+  //   setLoading("download");
+  //   try {
+  //     // Get the HTML content from the template
+  //     const htmlContent = templateRef.current.innerHTML;
+
+  //     // Generate the full HTML for the PDF
+  //     const fullContent = `
+  //       <style>
+  //         @import url('https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css');
+  //       </style>
+  //       ${htmlContent}
+  //     `;
+
+  //     // API call to generate the PDF
+  //     const response = await axios.post(
+  //       `${BASE_URL}/api/user/generate-pdf-py`,
+  //       // { html: fullContent },
+  //       { html: fullContent, pdf_type: selectedPdfType },
+  //       {
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //           Authorization: token,
+  //         },
+  //       }
+  //     );
+
+  //     // Check if the file path was returned
+  //     // const filePath = response.data.data?.file_path;
+  //     // if (!filePath) {
+  //     //   throw new Error('PDF file path not received');
+  //     // }
+
+  //     // Construct the URL
+  //     // const downloadUrl = `${BASE_URL}${filePath}`;
+
+  //     // Open the URL in a new tab
+  //     // createPayment();
+  //     // window.open(downloadUrl, '_blank');
+
+  //     // toast.success('PDF generated and opened in a new tab!');
+  //     // initiateCheckout();
+  //     downloadPDF();
+  //     // toast.success("PDF generation request sent successfully!");
+  //   } catch (error) {
+  //     console.error("PDF generation error:", error);
+  //     toast.error(
+  //       error.response?.data?.message || "Failed to generate and open PDF"
+  //     );
+  //   } finally {
+  //     setLoading(null);
+  //   }
+  // };
   const downloadAsPDF = async () => {
     handleFinish();
     if (!templateRef.current) {
       toast.error("Template reference not found");
       return;
     }
-    setLoading("download");
+
+    setisDownloading(true); // Start loading before the async operation
+
     try {
-      // Get the HTML content from the template
+      const token = localStorage.getItem("token");
       const htmlContent = templateRef.current.innerHTML;
 
-      // Generate the full HTML for the PDF
       const fullContent = `
-        <style>
-          @import url('https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css');
-        </style>
-        ${htmlContent}
-      `;
+            <style>
+                @import url('https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css');
+            </style>
+            ${htmlContent}
+        `;
 
-      // API call to generate the PDF
-      const response = await axios.post(
-        `${BASE_URL}/api/user/generate-pdf-py`,
-        // { html: fullContent },
-        { html: fullContent, pdf_type: selectedPdfType },
+      const response = await axios.get(
+        `${BASE_URL}/api/user/download-resume/${resumeId}?pdf_type=${selectedPdfType}`,
+
         {
           headers: {
-            "Content-Type": "application/json",
             Authorization: token,
+            "Content-Type": "application/pdf",
           },
+          responseType: "blob",
         }
       );
+      const url = window.URL.createObjectURL(
+        new Blob([response.data], { type: "application/pdf" })
+      );
+      const link = document.createElement("a");
+      link.href = url;
 
-      // Check if the file path was returned
-      // const filePath = response.data.data?.file_path;
-      // if (!filePath) {
-      //   throw new Error('PDF file path not received');
-      // }
+      link.setAttribute("download", `resume.pdf`);
+      document.body.appendChild(link);
+      link.click();
 
-      // Construct the URL
-      // const downloadUrl = `${BASE_URL}${filePath}`;
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
 
-      // Open the URL in a new tab
-      // createPayment();
-      // window.open(downloadUrl, '_blank');
-
-      // toast.success('PDF generated and opened in a new tab!');
-      // initiateCheckout();
-      downloadPDF();
-      // toast.success("PDF generation request sent successfully!");
+      // downloadPDF();
+      // initiateCheckout(); // Call this only if the request is successful
     } catch (error) {
       console.error("PDF generation error:", error);
       toast.error(
         error.response?.data?.message || "Failed to generate and open PDF"
       );
     } finally {
-      setLoading(null);
+      setisDownloading(false); // Ensure loading is stopped after success or failure
     }
   };
   const initiateCheckout = async () => {
