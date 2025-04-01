@@ -44,6 +44,7 @@ const Modal = ({ isOpen, onClose, children }) => {
 const TooltipContent = ({ improvements, resumeId, onClose }) => {
   const [Loading, setLoading] = useState(false);
   const router = useRouter();
+  const { resumeData } = useContext(ResumeContext);
   const { t } = useTranslation();
   const { selectedLang } = useContext(ResumeContext);
   const formatItems = [
@@ -73,7 +74,10 @@ const TooltipContent = ({ improvements, resumeId, onClose }) => {
     const token = localStorage.getItem("token");
 
     setLoading(true); // Ensure loading is set to true when the request starts
-
+    if (!resumeData.position) {
+      toast.error("Job Title is required");
+      return;
+    }
     try {
       const response = await axios.get(
         `${BASE_URL}/api/user/ats-improve/${resumeId}?lang=${selectedLang}`,
@@ -193,6 +197,7 @@ const TooltipContent = ({ improvements, resumeId, onClose }) => {
 };
 
 const ResumeStrength = ({ score, strength, resumeId }) => {
+  const { selectedLang } = useContext(ResumeContext);
   const [showLoader, setShowLoader] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const router = useRouter();

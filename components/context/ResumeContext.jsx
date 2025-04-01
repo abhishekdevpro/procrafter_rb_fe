@@ -21,6 +21,10 @@ export const ResumeProvider = ({ children }) => {
       reader.readAsDataURL(file);
     }
   };
+  const deleteProfilePicture = (e) => {
+    e.preventDefault();
+    setResumeData({ ...resumeData, profilePicture: "" });
+  };
 
   const handleChange = (e) => {
     setResumeData({ ...resumeData, [e.target.name]: e.target.value });
@@ -43,6 +47,7 @@ export const ResumeProvider = ({ children }) => {
         setResumeStrength,
         selectedLang,
         setSelectedLang,
+        deleteProfilePicture,
       }}
     >
       {children}
