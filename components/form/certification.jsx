@@ -15,7 +15,6 @@ const Certification = () => {
   const [activeTooltip, setActiveTooltip] = useState(null);
   const { t } = useTranslation();
 
-
   const handleSkills = (e, index, skillType) => {
     const newSkills = [...resumeData[skillType]];
     newSkills[index] = e.target.value;
@@ -69,7 +68,9 @@ const Certification = () => {
 
   return (
     <div className="flex-col flex gap-3 w-full  mt-10 px-10">
-      <h2 className="input-title text-black  text-3xl">{t("resumeStrength.sections.certification")}</h2>
+      <h2 className="input-title text-black  text-3xl">
+        {t("resumeStrength.sections.certification")}
+      </h2>
       {resumeData[skillType].map((skill, index) => (
         <div key={index} className="f-col justify-center">
           <div className="relative flex justify-center items-center gap-2">
@@ -96,7 +97,7 @@ const Certification = () => {
             {improve && hasErrors(index, "certifications") && (
               <button
                 type="button"
-                className="absolute right-2 top-1/2 -translate-y-1/2 text-red-500 hover:text-red-600 transition-colors"
+                className="absolute right-20 top-1/2 -translate-y-1/2 text-red-500 hover:text-red-600 transition-colors"
                 onClick={() =>
                   setActiveTooltip(
                     activeTooltip === `certifications-${index}`
@@ -108,6 +109,7 @@ const Certification = () => {
                 <AlertCircle className="w-5 h-5" />
               </button>
             )}
+
             {activeTooltip === `certifications-${index}` && (
               <div className="absolute z-50 right-0 mt-2 w-80 bg-white rounded-lg shadow-xl transform transition-all duration-200 ease-in-out border border-gray-700">
                 <div className="p-4 border-b border-gray-700">

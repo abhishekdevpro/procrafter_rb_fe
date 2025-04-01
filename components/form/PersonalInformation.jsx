@@ -689,7 +689,7 @@
 // export default PersonalInformation;
 "use client";
 
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState, useEffect, useRef } from "react";
 import { ResumeContext } from "../context/ResumeContext";
 import { AlertCircle, X, Loader2, ChevronDown } from "lucide-react";
 import { useRouter } from "next/router";
@@ -707,6 +707,7 @@ const PersonalInformation = () => {
     handleChange,
     resumeStrength,
     setResumeStrength,
+    deleteProfilePicture,
   } = useContext(ResumeContext);
   const router = useRouter();
   const { improve } = router.query;
@@ -1198,7 +1199,15 @@ const PersonalInformation = () => {
 
     return rules.maxLength - value.length;
   };
+  const handleDelete = (e) => {
+    deleteProfilePicture(e);
 
+    // Reset the file input to clear the filename
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+    }
+  };
+  const fileInputRef = useRef(null);
   return (
     <div className="flex flex-col gap-3 w-full items-center md:mt-10 p-4 md:px-10">
       <h2 className="text-2xl md:text-3xl font-semibold text-black">
@@ -1206,13 +1215,41 @@ const PersonalInformation = () => {
       </h2>
 
       <div className="flex flex-col items-center gap-6 w-full">
-        <div className="flex flex-col items-center gap-4">
+        {/* <div className="flex flex-col items-center gap-4">
           <img
             src={resumeData.profilePicture || dummyImage}
             alt="Profile"
             className="w-28 h-28 md:w-32 md:h-32 rounded-lg object-cover"
           />
           <input
+            type="file"
+            name="profileImage"
+            accept="image/*"
+            className="bg-gray-300 text-sm text-black py-2 px-4 rounded-md cursor-pointer hover:bg-gray-400 transition-colors"
+            onChange={handleProfilePicture}
+          />
+        </div> */}
+        <div className="flex flex-col items-center gap-4">
+          <div className="relative">
+            <img
+              src={resumeData.profilePicture || dummyImage}
+              alt="Profile"
+              className="w-28 h-28 md:w-32 md:h-32 rounded-lg object-cover"
+            />
+
+            {resumeData.profilePicture && (
+              <button
+                onClick={handleDelete}
+                className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center hover:bg-red-600 transition-colors"
+                aria-label="Delete profile picture"
+              >
+                ✕
+              </button>
+            )}
+          </div>
+
+          <input
+            ref={fileInputRef}
             type="file"
             name="profileImage"
             accept="image/*"

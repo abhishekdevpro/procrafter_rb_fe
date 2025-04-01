@@ -500,7 +500,7 @@ const Navbar = () => {
   const changeLanguage = (event) => {
     i18n.changeLanguage(event.target.value);
   };
-  const {selectedLang} = useContext(ResumeContext)
+  const { selectedLang } = useContext(ResumeContext);
   useEffect(() => {
     const token = localStorage.getItem("token"); // Access localStorage here
 
@@ -761,7 +761,7 @@ const Navbar = () => {
                     </Link>
                     <Link
                       href="/settings"
-                      className="fblock px-4 py-2 hover:bg-gray-200"
+                      className="block px-4 py-2 hover:bg-gray-200"
                       onClick={() => setIsDropdownOpen(false)}
                     >
                       {/* <Settings className="mr-3 w-5 h-5 text-gray-500 group-hover:text-orange-500" /> */}
