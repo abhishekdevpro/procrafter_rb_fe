@@ -238,11 +238,11 @@ function Payment() {
                 <th className="px-6 py-4 bg-gradient-to-r from-pink-500 to-pink-700 text-white text-left text-sm font-medium uppercase tracking-wider">
                   Email
                 </th>
-                <th className="px-6 py-4 bg-gradient-to-r from-pink-500 to-pink-700 text-white text-left text-sm font-medium uppercase tracking-wider">
+                {/* <th className="px-6 py-4 bg-gradient-to-r from-pink-500 to-pink-700 text-white text-left text-sm font-medium uppercase tracking-wider">
                   Phone
-                </th>
+                </th> */}
                 <th className="px-6 py-4 bg-gradient-to-r from-pink-500 to-pink-700 text-white text-left text-sm font-medium uppercase tracking-wider">
-                  Amount
+                  Plan Name
                 </th>
                 <th className="px-6 py-4 bg-gradient-to-r from-pink-500 to-pink-700 text-white text-left text-sm font-medium uppercase tracking-wider">
                   Status
@@ -265,16 +265,17 @@ function Payment() {
                     {user.id || "N/A"}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
-                    {user.name || "N/A"}
+                    {user.user_first_name || "N/A"}{" "}
+                    {user.user_last_name || "N/A"}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
-                    {user.email || "N/A"}
+                    {user.user_email || "N/A"}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
+                  {/* <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
                     {user.phone || "N/A"}
-                  </td>
+                  </td> */}
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                    ₹{user.amount || "0"}
+                    {user.plan_name || "N/A"}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <span

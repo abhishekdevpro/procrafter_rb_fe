@@ -322,7 +322,7 @@ const MyCvLetter = () => {
                   {t("mycvletter.sr_no")}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">
-                  {t("mycvletter.cover_letter")}
+                  {t("mycvletter.my_cover_letters")}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">
                   {t("mycvletter.modification")}
@@ -394,7 +394,7 @@ const MyCvLetter = () => {
                     colSpan="7"
                     className="px-6 py-4 text-center text-sm text-gray-500"
                   >
-                    {t("mycvletter.upload_prompt")}
+                    {t("mycvletter.please_upload_coverletter")}
                   </td>
                 </tr>
               )}

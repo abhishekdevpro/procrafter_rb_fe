@@ -919,7 +919,8 @@
           "login_success": "Connexion réussie",
           "login_failed": "Échec de la connexion",
           "error_occurred": "Une erreur est survenue",
-          "google_failed": "Échec de la connexion Google."
+          "google_failed": "Échec de la connexion Google.",
+          "password_length_error": "Le mot de passe doit contenir entre 6 et 20 caractères."
         }
       },
       "forgotpage":{
@@ -949,7 +950,8 @@
         "signup_failed": "Échec de l'inscription",
         "error_occurred": "Une erreur s'est produite",
         "signup": "S'inscrire",
-        "signing_up": "Inscription en cours..."
+        "signing_up": "Inscription en cours...",
+          "password_length_error": "Le mot de passe doit contenir entre 6 et 20 caractères."
       },
       "builder_forms":{
         "personal_info": {

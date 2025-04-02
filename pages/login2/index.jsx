@@ -36,10 +36,16 @@ const Login2 = () => {
   };
 
   const handleLogin = async (e) => {
+    const { email, password } = formData;
+
     e.preventDefault();
 
-    if (!formData.email || !formData.password) {
+    if (!email || !password) {
       toast.error(t("loginpage.toast.email_required"));
+      return;
+    }
+    if (password.length < 6 || password.length > 20) {
+      toast.error(t("loginpage.toast.password_length_error"));
       return;
     }
 
@@ -156,6 +162,8 @@ const Login2 = () => {
                   placeholder={t("loginpage.password_placeholder")}
                   required
                   disabled={isLoading}
+                  minLength={6} // Minimum 8 characters
+                  maxLength={20} // Maximum 20 characters
                 />
                 <button
                   type="button"
@@ -168,14 +176,14 @@ const Login2 = () => {
               </div>
             </div>
             <div className="text-center py-2">
-              <button
-                type="button"
+              <Link
+                href="/signup"
                 className="text-[#00b38d] hover:text-[#00b38d]"
-                onClick={() => setThirdstepOpen(true)}
+                // onClick={() => setThirdstepOpen(true)}
                 disabled={isLoading}
               >
                 {t("loginpage.new_user")}
-              </button>
+              </Link>
             </div>
             <div className="text-center py-2">
               <Link href="/forgotpassword">

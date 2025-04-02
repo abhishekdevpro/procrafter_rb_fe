@@ -934,7 +934,8 @@
                     "login_success": "Login Successfully",
                     "login_failed": "Failed to login",
                     "error_occurred": "An error occurred",
-                    "google_failed": "Google sign-in failed."
+                    "google_failed": "Google sign-in failed.",
+                    "password_length_error": "Password must be between 6 and 20 characters."
                   }
                 },
                 "forgotpage":{
@@ -964,7 +965,8 @@
                   "signup_failed": "Failed to sign up",
                   "error_occurred": "An error occurred",
                   "signup": "Signup",
-                  "signing_up": "Signing up..."
+                  "signing_up": "Signing up...",
+                   "password_length_error": "Password must be between 6 and 20 characters."
                 },
                 "builder_forms":{
                   "personal_info": {
