@@ -24,12 +24,71 @@ const Signup = () => {
     password: "",
   });
   const router = useRouter();
-  const {selectedLang} = useContext(ResumeContext)
+  const { selectedLang } = useContext(ResumeContext);
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
+  // const handleSignup = async (e) => {
+  //   e.preventDefault();
+  //   console.log("called");
+
+  //   if (
+  //     !formData.first_name ||
+  //     !formData.last_name ||
+  //     !formData.email ||
+  //     !formData.phone ||
+  //     !formData.password
+  //   ) {
+  //     toast.error(t("loginpage.all_fields_required"));
+  //     return;
+  //   }
+
+  //   setIsLoading(true);
+
+  //   const body = {
+  //     first_name: formData.first_name,
+  //     last_name: formData.last_name,
+  //     email: formData.email,
+  //     phone: formData.phone,
+  //     password: formData.password,
+  //   };
+
+  //   try {
+  //     const response = await axios.post(
+  //       `${BASE_URL}/api/user/auth/signup?lang=${selectedLang}`,
+  //       body,
+  //       {
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //       }
+  //     );
+  //     console.log(response, response.status, "userinfoooo");
+  //     if (response.status === 200) {
+  //       toast.success(t("signuppage.verification_sent"));
+
+  //       setFormData({
+  //         first_name: "",
+  //         last_name: "",
+  //         email: "",
+  //         phone: "",
+  //         password: "",
+  //       });
+  //     } else {
+  //       toast.error(t("signuppage.signup_failed"));
+  //       router.push("/login2");
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //     toast.error(
+  //       error.response?.data?.error || t("signuppage.error_occurred")
+  //     );
+  //   } finally {
+  //     setIsLoading(false);
+  //   }
+  // };
   const handleSignup = async (e) => {
     e.preventDefault();
     console.log("called");
@@ -42,6 +101,12 @@ const Signup = () => {
       !formData.password
     ) {
       toast.error(t("loginpage.all_fields_required"));
+      return;
+    }
+
+    // Password length validation
+    if (formData.password.length < 6 || formData.password.length > 20) {
+      toast.error(t("signuppage.password_length_error"));
       return;
     }
 
@@ -65,6 +130,7 @@ const Signup = () => {
           },
         }
       );
+
       console.log(response, response.status, "userinfoooo");
       if (response.status === 200) {
         toast.success(t("signuppage.verification_sent"));
@@ -76,11 +142,7 @@ const Signup = () => {
           phone: "",
           password: "",
         });
-
-       
-      }
-      else {
-        
+      } else {
         toast.error(t("signuppage.signup_failed"));
         router.push("/login2");
       }
@@ -89,7 +151,6 @@ const Signup = () => {
       toast.error(
         error.response?.data?.error || t("signuppage.error_occurred")
       );
-      
     } finally {
       setIsLoading(false);
     }
@@ -192,7 +253,7 @@ const Signup = () => {
                   placeholder={t("signuppage.password_placeholder")}
                   required
                   minLength={6}
-                  maxLength={30}
+                  maxLength={20}
                   disabled={isLoading}
                 />
                 <button

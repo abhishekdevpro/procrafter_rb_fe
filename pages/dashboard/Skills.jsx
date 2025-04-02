@@ -17,7 +17,7 @@ const Skills = () => {
   const [showPopup, setShowPopup] = useState(true);
   const router = useRouter();
   const { result } = router.query; // Accessing result from query parameters
- const {selectedLang} = useContext(ResumeContext)
+  const { selectedLang } = useContext(ResumeContext);
   // Function to fetch skills data
   const fetchSkills = async () => {
     const token = localStorage.getItem("token");
@@ -28,11 +28,14 @@ const Skills = () => {
     }
 
     try {
-      const response = await axios.get(`${BASE_URL}/api/user/user-skills?lang=${selectedLang}`, {
-        headers: {
-          Authorization: token,
-        },
-      });
+      const response = await axios.get(
+        `${BASE_URL}/api/user/user-skills?lang=${selectedLang}`,
+        {
+          headers: {
+            Authorization: token,
+          },
+        }
+      );
 
       if (Array.isArray(response.data.data)) {
         const formattedSkills = response.data.data.map((skill) => ({
@@ -210,7 +213,7 @@ const Skills = () => {
               {t("skill.close")}
             </button>
             <h2 className="text-2xl font-bold mb-3">
-              {t("instructions_title")}
+              {t("skill.instructions_title")}
             </h2>
             <p className="text-lg mb-3 text-start">
               <strong>{t("skill.common_instructions")}</strong>
