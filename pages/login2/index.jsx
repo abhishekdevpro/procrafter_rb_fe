@@ -44,11 +44,21 @@ const Login2 = () => {
       toast.error(t("loginpage.toast.email_required"));
       return;
     }
-    if (password.length < 6 || password.length > 20) {
+    if (password.length < 6 || password.length > 30) {
       toast.error(t("loginpage.toast.password_length_error"));
       return;
     }
-
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      toast.error(t("loginpage.toast.invalid_email"));
+      return;
+    }
+    const passwordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&.]{6,30}$/;
+    if (!passwordRegex.test(password)) {
+      toast.error(t("loginpage.toast.password_strength_error"));
+      return;
+    }
     setIsLoading(true);
     try {
       const response = await axios.post(
@@ -163,7 +173,7 @@ const Login2 = () => {
                   required
                   disabled={isLoading}
                   minLength={6} // Minimum 8 characters
-                  maxLength={20} // Maximum 20 characters
+                  maxLength={30} // Maximum 20 characters
                 />
                 <button
                   type="button"

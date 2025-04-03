@@ -193,12 +193,118 @@ const ProfileForm = () => {
     }
   };
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   const token = localStorage.getItem("token");
+  //   const formDataToSend = new FormData();
+
+  //   formDataToSend.append("first_name", formData.first_name);
+  //   formDataToSend.append("last_name", formData.last_name);
+  //   formDataToSend.append("professional_title", formData.professional_title);
+  //   formDataToSend.append("languages", formData.languages);
+  //   formDataToSend.append("age", formData.age);
+  //   formDataToSend.append("current_salary", formData.current_salary);
+  //   formDataToSend.append("expected_salary", formData.expected_salary);
+  //   formDataToSend.append("description", formData.description);
+  //   formDataToSend.append("country_id", formData.country_id);
+  //   formDataToSend.append("state_id", formData.state_id);
+  //   formDataToSend.append("city_id", formData.city_id);
+  //   formDataToSend.append("phone", formData.phone);
+
+  //   if (formData.uploadPhoto) {
+  //     formDataToSend.append("upload_photo", formData.uploadPhoto);
+  //   }
+
+  //   try {
+  //     const response = await axios.patch(
+  //       `${BASE_URL}/api/user/user-profile?lang=${language}`,
+  //       formDataToSend,
+  //       {
+  //         headers: {
+  //           "Content-Type": "multipart/form-data",
+  //           Authorization: token,
+  //         },
+  //       }
+  //     );
+  //     console.log(response.code, response.status, ">>>>response");
+  //     if (response.status === 200) {
+  //       toast.success(t("profile_updated"));
+  //     } else {
+  //       toast.error(t("profile_update_failed"), response.data.message);
+  //     }
+  //   } catch (error) {
+  //     toast.error("An error occurred during profile update:", error);
+  //   }
+  // };
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const token = localStorage.getItem("token");
-    const formDataToSend = new FormData();
+    if (!token) {
+      toast.error(t("auth.token_missing"));
+      return;
+    }
 
+    // Field validations
+    if (
+      !formData.first_name ||
+      !formData.last_name ||
+      !formData.professional_title ||
+      !formData.languages ||
+      !formData.age ||
+      !formData.current_salary ||
+      !formData.expected_salary ||
+      !formData.description ||
+      !formData.country_id ||
+      !formData.state_id ||
+      !formData.city_id ||
+      !formData.phone
+    ) {
+      toast.error(t("profile_error.all_fields_required"));
+      return;
+    }
+
+    // Age validation (Must be between 18 and 100)
+    if (
+      !/^\d+$/.test(formData.age) ||
+      formData.age < 18 ||
+      formData.age > 100
+    ) {
+      toast.error(t("profile_error.invalid_age"));
+      return;
+    }
+
+    // Salary validation (Must be a number and positive)
+    if (!/^\d+$/.test(formData.current_salary) || formData.current_salary < 0) {
+      toast.error(t("profile_error.invalid_current_salary"));
+      return;
+    }
+    if (
+      !/^\d+$/.test(formData.expected_salary) ||
+      formData.expected_salary < 0
+    ) {
+      toast.error(t("profile_error.invalid_expected_salary"));
+      return;
+    }
+
+    // Phone number validation (8 to 15 digits)
+    const phoneRegex = /^[0-9]{8,15}$/;
+    if (!phoneRegex.test(formData.phone)) {
+      toast.error(t("profile_error.invalid_phone"));
+      return;
+    }
+
+    // File validation (Only images allowed)
+    if (formData.uploadPhoto) {
+      const allowedTypes = ["image/jpeg", "image/png", "image/jpg"];
+      if (!allowedTypes.includes(formData.uploadPhoto.type)) {
+        toast.error(t("profile_error.invalid_image_format"));
+        return;
+      }
+    }
+
+    const formDataToSend = new FormData();
     formDataToSend.append("first_name", formData.first_name);
     formDataToSend.append("last_name", formData.last_name);
     formDataToSend.append("professional_title", formData.professional_title);
@@ -227,14 +333,16 @@ const ProfileForm = () => {
           },
         }
       );
-      console.log(response.code, response.status, ">>>>response");
+
+      console.log(response.status, ">>>>response");
       if (response.status === 200) {
-        toast.success(t("profile_updated"));
+        toast.success(t("profile.profile_updated"));
       } else {
-        toast.error(t("profile_update_failed"), response.data.message);
+        toast.error(t("profile.profile_update_failed"), response.data.message);
       }
     } catch (error) {
-      toast.error("An error occurred during profile update:", error);
+      console.error(error);
+      toast.error(error.response?.data?.message || t("profile.update_error"));
     }
   };
 

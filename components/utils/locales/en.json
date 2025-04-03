@@ -600,7 +600,17 @@
                     "remove_photo": "Remove Photo",
                     "photo_removed": "Profile photo removed successfully",
                     "photo_remove_failed": "Failed to remove profile photo",
-                    
+                    "profile_error": {
+    "all_fields_required": "All fields are required",
+    "invalid_age": "Age must be between 18 and 100",
+    "invalid_phone": "Phone number must be 8-15 digits",
+    "invalid_current_salary": "Current salary must be a positive number",
+    "invalid_expected_salary": "Expected salary must be a positive number",
+    "invalid_image_format": "Only JPEG, JPG, and PNG images are allowed",
+    "profile_updated": "Profile updated successfully",
+    "profile_update_failed": "Profile update failed",
+    "update_error": "An error occurred while updating the profile"
+  },
                      
                       "profile": "Profile",
                       "ai_resume_builder": "AI Resume Builder",
@@ -935,7 +945,9 @@
                     "login_failed": "Failed to login",
                     "error_occurred": "An error occurred",
                     "google_failed": "Google sign-in failed.",
-                    "password_length_error": "Password must be between 6 and 20 characters."
+                    "password_length_error": "Password must be between 6 and 30 caractères.",
+                     "invalid_email": "Please enter a valid email address.",
+      "password_strength_error": "Password must contain 6-30 characters, at least one uppercase, one lowercase, and one number."
                   }
                 },
                 "forgotpage":{
@@ -966,8 +978,26 @@
                   "error_occurred": "An error occurred",
                   "signup": "Signup",
                   "signing_up": "Signing up...",
-                   "password_length_error": "Password must be between 6 and 20 characters."
+                   "password_length_error": "Password must be between 6 and 30 caractères.",
+                   "all_fields_required": "All fields are required.",
+                   "invalid_first_name": "First name must contain only letters and be 2-40 characters long.",
+                   "invalid_last_name": "Last name must contain only letters and be 2-40 characters long.",
+                   "invalid_email": "Please enter a valid email address.",
+                   "invalid_phone": "Phone number must be between 8 and 15 digits.",
+                   "password_strength_error": "Password must be 6-30 characters, include one uppercase, one lowercase, and a number.",
+                   "verification_sent": "Verification email has been sent!",
+                   "signup_failed": "Signup failed. Please try again.",
+                   "error_occurred": "An error occurred. Please try again."
                 },
+                 "resetpassword": {
+    "both_fields_required": "Both fields are required.",
+    "password_strength_error": "Password must be 6-30 characters, include one uppercase, one lowercase, and a number.",
+    "passwords_do_not_match": "Passwords do not match.",
+    "invalid_token": "Invalid token.",
+    "password_reset_success": "Password reset successfully.",
+    "failed_to_reset": "Failed to reset password.",
+    "error_occurred": "An error occurred. Please try again."
+  },
                 "builder_forms":{
                   "personal_info": {
                     "details_info": "Detail Information",

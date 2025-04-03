@@ -43,7 +43,7 @@ export default function DashboardPage() {
           </div>
 
           {/* Content area */}
-          <div className="flex-1 w-full max-w-8xl p-6 overflow-auto">
+          <div className="flex-1 w-full max-w-8xl p-6 ml-8 overflow-auto">
             {/* 🙋‍♀️ Notification Coming Soon
              */}
             {t("notification_coming_soon")}

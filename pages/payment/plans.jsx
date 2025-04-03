@@ -298,6 +298,7 @@ import Navbar from "../Navbar/Navbar";
 import axios from "axios";
 import { BASE_URL } from "../../components/Constant/constant";
 import { toast } from "react-toastify";
+import Link from "next/link";
 // Pricing data from your JSON
 const pricingData = {
   title: "Pricing Plans",
@@ -614,13 +615,19 @@ export default function PaymentPage() {
               {t("By clicking")}{" "}
               <strong>&quot;{t("Start applying")}&quot;</strong>{" "}
               {t("below, you agree to our")}{" "}
-              <a href="#" className="text-[#00b38d] underline">
+              <Link
+                href="/TermsandConditions"
+                className="text-[#00b38d] underline"
+              >
                 {t("Terms of Use")}
-              </a>{" "}
+              </Link>{" "}
               {t("and")}{" "}
-              <a href="#" className="text-[#00b38d] underline">
+              <Link
+                href="/footers/PrivacyPolicy"
+                className="text-[#00b38d] underline"
+              >
                 {t("Privacy Policy")}
-              </a>
+              </Link>
               . {t("You also understand that you will be billed")}{" "}
               <strong>{planDetails ? formatPrice(planDetails) : ""}</strong>,{" "}
               {t("which will automatically renew")}{" "}
