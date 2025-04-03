@@ -582,7 +582,17 @@
                           "remove_photo": "Supprimer la photo",
                           "photo_removed": "Photo de profil supprimée avec succès",
                           "photo_remove_failed": "Échec de la suppression de la photo de profil",
-                          
+                          "profile_error": {
+    "all_fields_required": "Tous les champs sont obligatoires",
+    "invalid_age": "L'âge doit être compris entre 18 et 100 ans",
+    "invalid_phone": "Le numéro de téléphone doit contenir entre 8 et 15 chiffres",
+    "invalid_current_salary": "Le salaire actuel doit être un nombre positif",
+    "invalid_expected_salary": "Le salaire attendu doit être un nombre positif",
+    "invalid_image_format": "Seules les images JPEG, JPG et PNG sont autorisées",
+    "profile_updated": "Profil mis à jour avec succès",
+    "profile_update_failed": "Échec de la mise à jour du profil",
+    "update_error": "Une erreur s'est produite lors de la mise à jour du profil"
+  },
                             "dashboard": "Tableau de bord",
                             "profile": "Profil",
                             "ai_resume_builder": "Générateur de CV IA",
@@ -920,7 +930,9 @@
           "login_failed": "Échec de la connexion",
           "error_occurred": "Une erreur est survenue",
           "google_failed": "Échec de la connexion Google.",
-          "password_length_error": "Le mot de passe doit contenir entre 6 et 20 caractères."
+          "password_length_error": "Le mot de passe doit contenir entre 6 et 30 caractères.",
+          "invalid_email": "Veuillez entrer une adresse e-mail valide.",
+      "password_strength_error": "Le mot de passe doit contenir entre 6 et 30 caractères, au moins une majuscule, une minuscule et un chiffre."
         }
       },
       "forgotpage":{
@@ -951,8 +963,26 @@
         "error_occurred": "Une erreur s'est produite",
         "signup": "S'inscrire",
         "signing_up": "Inscription en cours...",
-          "password_length_error": "Le mot de passe doit contenir entre 6 et 20 caractères."
+          "password_length_error": "Le mot de passe doit contenir entre 6 et 30 caractères.",
+          "all_fields_required": "Tous les champs sont obligatoires.",
+          "invalid_first_name": "Le prénom doit contenir uniquement des lettres et avoir entre 2 et 40 caractères.",
+          "invalid_last_name": "Le nom de famille doit contenir uniquement des lettres et avoir entre 2 et 40 caractères.",
+          "invalid_email": "Veuillez entrer une adresse e-mail valide.",
+          "invalid_phone": "Le numéro de téléphone doit contenir entre 8 et 15 chiffres.",
+          "password_strength_error": "Le mot de passe doit contenir entre 6 et 30 caractères, avec une majuscule, une minuscule et un chiffre.",
+          "verification_sent": "E-mail de vérification envoyé !",
+          "signup_failed": "Échec de l'inscription. Veuillez réessayer.",
+          "error_occurred": "Une erreur est survenue. Veuillez réessayer."
       },
+      "resetpassword": {
+    "both_fields_required": "Tous les champs sont obligatoires.",
+    "password_strength_error": "Le mot de passe doit contenir entre 6 et 30 caractères, avec une majuscule, une minuscule et un chiffre.",
+    "passwords_do_not_match": "Les mots de passe ne correspondent pas.",
+    "invalid_token": "Token invalide.",
+    "password_reset_success": "Mot de passe réinitialisé avec succès.",
+    "failed_to_reset": "Échec de la réinitialisation du mot de passe.",
+    "error_occurred": "Une erreur est survenue. Veuillez réessayer."
+  },
       "builder_forms":{
         "personal_info": {
           "details_info": "Informations détaillées",

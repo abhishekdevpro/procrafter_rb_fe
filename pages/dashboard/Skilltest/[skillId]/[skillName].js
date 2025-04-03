@@ -7,6 +7,8 @@ import { BASE_URL } from "../../../../components/Constant/constant";
 import { useTranslation } from "react-i18next";
 import { useContext } from "react";
 import { ResumeContext } from "../../../../components/context/ResumeContext";
+import { toast } from "react-toastify";
+import { Check } from "lucide-react";
 
 const Testpaper = () => {
   const { t } = useTranslation();
@@ -20,7 +22,7 @@ const Testpaper = () => {
   const [showResults, setShowResults] = useState(false);
   const [results, setResults] = useState({});
   const [skillAssessmentId, setSkillAssessmentId] = useState(null);
-  const {selectedLang} = useContext(ResumeContext)
+  const { selectedLang } = useContext(ResumeContext);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -37,7 +39,9 @@ const Testpaper = () => {
           const response = await axios.get(
             ` ${BASE_URL}/api/user/skill-assessment?skill_id=${parseInt(
               skillId
-            )}&skill_name=${encodeURIComponent(skillName)}&lang=${selectedLang}`,
+            )}&skill_name=${encodeURIComponent(
+              skillName
+            )}&lang=${selectedLang}`,
             {
               headers: {
                 Authorization: token,
@@ -50,6 +54,7 @@ const Testpaper = () => {
           setSkillAssessmentId(skill_assessment_id);
           setLoading(false);
         } catch (error) {
+          toast.error(error?.message);
           console.error("Error fetching questions:", error);
           setError(error.message || "Error fetching questions");
           setLoading(false);
@@ -60,16 +65,16 @@ const Testpaper = () => {
     }
   }, [skillId, skillName, router]);
 
-  const handleAnswerChange = (questionId, answer) => {
-    setQuestions((prevQuestions) =>
-      prevQuestions.map((question) =>
-        question.id === questionId
-          ? { ...question, user_answer: answer }
-          : question
-      )
-    );
+  const handleAnswerChange = (questionIndex, answer) => {
+    setQuestions((prevQuestions) => {
+      const updatedQuestions = [...prevQuestions];
+      updatedQuestions[questionIndex] = {
+        ...updatedQuestions[questionIndex],
+        user_answer: answer,
+      };
+      return updatedQuestions;
+    });
   };
-
   const handleSubmit = async () => {
     const token = localStorage.getItem("token");
     const jobSeekerId = 1; // Replace with the actual JobSeekerId if needed
@@ -203,14 +208,55 @@ const Testpaper = () => {
                 <h1 className="text-2xl mb-4 ms-20">
                   {questions[currentQuestionIndex].question}
                 </h1>
-                <ul className="mb-4">
+                <div className="space-y-3 mb-8">
+                  {questions[currentQuestionIndex].options.map(
+                    (option, index) => (
+                      <div
+                        key={index}
+                        className={`p-4 border rounded-lg cursor-pointer transition-all duration-200 hover:bg-blue-50 ${
+                          questions[currentQuestionIndex].user_answer === option
+                            ? "border-[#00b38d] bg-blue-50 ring-2 ring-blue-200"
+                            : "border-gray-200"
+                        }`}
+                        onClick={() =>
+                          handleAnswerChange(currentQuestionIndex, option)
+                        }
+                      >
+                        <div className="flex items-start">
+                          <div className="flex-shrink-0">
+                            <div
+                              className={`w-5 h-5 rounded-full flex items-center justify-center mr-3 mt-0.5 border ${
+                                questions[currentQuestionIndex].user_answer ===
+                                option
+                                  ? "bg-[#00b38d] border-[#00b38d]"
+                                  : "border-gray-400"
+                              }`}
+                            >
+                              {questions[currentQuestionIndex].user_answer ===
+                                option && (
+                                <Check className="w-3 h-3 text-white" />
+                              )}
+                            </div>
+                          </div>
+                          <label className="text-gray-700 cursor-pointer select-none">
+                            {option}
+                          </label>
+                        </div>
+                      </div>
+                    )
+                  )}
+                </div>
+                {/* <ul className="mb-4">
                   {questions[currentQuestionIndex].options.map(
                     (option, index) => (
                       <li key={index} className="mb-2 ms-20">
                         <input
                           type="radio"
-                          id={`option-${index}`}
-                          name="option"
+                          // id={`option-${index}`}
+                          id={`option-${
+                            questions[currentQuestionIndex]?.id || index
+                          }-${index}`}
+                          name={`option-${questions[currentQuestionIndex].id}`}
                           value={option}
                           checked={
                             questions[currentQuestionIndex].user_answer ===
@@ -228,7 +274,7 @@ const Testpaper = () => {
                       </li>
                     )
                   )}
-                </ul>
+                </ul> */}
                 <div className="flex justify-between">
                   <button
                     className={`p-2 bg-[#00b38d] rounded-md text-white hover:bg-[#00b38d] mt-4 ${

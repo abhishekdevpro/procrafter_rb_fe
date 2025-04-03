@@ -399,7 +399,7 @@ const Sidebar = ({ onClose }) => {
             <span>{t("skill_history")}</span>
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link
             href="/dashboard/paymentpage"
             className={getLinkClassName("/dashboard/paymentpage")}
@@ -408,7 +408,7 @@ const Sidebar = ({ onClose }) => {
             <span className="mr-2">💳</span>
             <span>{t("payment")}</span>
           </Link>
-        </li>
+        </li> */}
         <li>
           <Link
             href="/"

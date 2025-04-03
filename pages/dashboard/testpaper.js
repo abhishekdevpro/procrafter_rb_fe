@@ -252,6 +252,7 @@ import axios from "axios";
 import { BASE_URL } from "../../components/Constant/constant";
 import { useTranslation } from "next-i18next";
 import { ResumeContext } from "../../components/context/ResumeContext";
+import { toast } from "react-toastify";
 
 function Testpaper() {
   const router = useRouter();
@@ -265,7 +266,7 @@ function Testpaper() {
   const [showResults, setShowResults] = useState(false);
   const [results, setResults] = useState({});
   const [skillAssessmentId, setSkillAssessmentId] = useState(null);
- const {selectedLang} = useContext(ResumeContext)
+  const { selectedLang } = useContext(ResumeContext);
   useEffect(() => {
     const token = localStorage.getItem("token");
 
@@ -280,7 +281,9 @@ function Testpaper() {
           const response = await axios.get(
             ` ${BASE_URL}/api/user/skill-assessment?skill_id=${parseInt(
               skillId
-            )}&skill_name=${encodeURIComponent(skillName)}&lang=${selectedLang}`,
+            )}&skill_name=${encodeURIComponent(
+              skillName
+            )}&lang=${selectedLang}`,
             {
               headers: {
                 Authorization: token,
@@ -293,6 +296,7 @@ function Testpaper() {
           setSkillAssessmentId(skill_assessment_id);
           setLoading(false);
         } catch (error) {
+          toast.error(error?.message);
           console.error("Error fetching questions:", error);
           setError(t("testPaper.errorFetching"));
           setLoading(false);
