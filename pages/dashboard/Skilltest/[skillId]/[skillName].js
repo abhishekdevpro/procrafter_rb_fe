@@ -215,7 +215,7 @@ const Testpaper = () => {
                         key={index}
                         className={`p-4 border rounded-lg cursor-pointer transition-all duration-200 hover:bg-blue-50 ${
                           questions[currentQuestionIndex].user_answer === option
-                            ? "border-blue-900 bg-blue-50 ring-2 ring-blue-200"
+                            ? "border-[#00b38d] bg-blue-50 ring-2 ring-blue-200"
                             : "border-gray-200"
                         }`}
                         onClick={() =>
@@ -228,7 +228,7 @@ const Testpaper = () => {
                               className={`w-5 h-5 rounded-full flex items-center justify-center mr-3 mt-0.5 border ${
                                 questions[currentQuestionIndex].user_answer ===
                                 option
-                                  ? "bg-blue-900 border-blue-900"
+                                  ? "bg-[#00b38d] border-[#00b38d]"
                                   : "border-gray-400"
                               }`}
                             >
