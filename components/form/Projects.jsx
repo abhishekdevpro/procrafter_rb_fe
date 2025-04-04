@@ -491,7 +491,7 @@ const Projects = () => {
                     </label>
                     <button
                       type="button"
-                      className="border bg-black text-white px-3 rounded-3xl"
+                      className=" p-2 text-white bg-black rounded-lg text-sm mb-2"
                       onClick={() => handleAIAssistDescription(projectIndex)}
                       disabled={
                         loadingStates[`description_${projectIndex}`] || false
@@ -619,7 +619,7 @@ const Projects = () => {
                     </label>
                     <button
                       type="button"
-                      className="border bg-black text-white px-3 rounded-3xl"
+                      className="p-2 text-white bg-black rounded-lg text-sm mb-2"
                       onClick={() => handleAIAssistKey(projectIndex)}
                       disabled={loadingStates[`key_${projectIndex}`]}
                     >
@@ -723,9 +723,7 @@ const Projects = () => {
           </div>
         ))
       ) : (
-        <p className="text-black ">
-          No projects available. Add a new project to get started.
-        </p>
+        <p className="text-black mt-2  mb-4">{t("project.no_project")}</p>
       )}
       {/* <button onClick={addProjects} className="bg-blue-500 text-white px-4 py-2 rounded mt-4" type="button">
         Add Project

@@ -439,7 +439,7 @@ const Skill = ({ title, currentSkillIndex }) => {
           <button
             type="button"
             onClick={handleAIAssist}
-            className="border bg-black text-white px-3 rounded-3xl"
+            className="border bg-black text-white px-3 rounded-3xl  mb-2"
             disabled={loading}
           >
             {loading ? "Loading..." : " + Smart Assist"}

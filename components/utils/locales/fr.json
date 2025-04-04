@@ -52,7 +52,7 @@
             "certified_by_recruiters": "Certifié par des recruteurs et admiré par les chercheurs d'emploi",
             "looking_cover_letter": "Vous recherchez des lettres de motivation impressionnantes ?",
             "explore_cover_letters": "Découvrez nos 25+ lettres de motivation premium, exclusivement conçues par nos experts.",
-            "create_cv": "Créez votre CV",
+            "create_cv": "Créez votre lettre de motivation",
            
   "alt1_h3": "Exemple de CV d'éditeur adjoint",
   "alt2_h3": "Modèle de CV d'agriculteur",
@@ -282,7 +282,7 @@
             
               "title": "Générateur de CV IA",
               "introduction": "Révolutionner le processus de candidature",
-              "description": "Bienvenue sur le Générateur de CV IA de Cibli Job – une solution innovante conçue pour simplifier la création de CV et vous aider à décrocher l’emploi de vos rêves. Notre technologie IA avancée facilite la rédaction de CV en mettant en valeur vos compétences et réalisations de la meilleure façon possible.",
+              "description_ai": "Bienvenue sur le Générateur de CV IA de Cibli Job – une solution innovante conçue pour simplifier la création de CV et vous aider à décrocher l’emploi de vos rêves. Notre technologie IA avancée facilite la rédaction de CV en mettant en valeur vos compétences et réalisations de la meilleure façon possible.",
               "key_features": "Principales Fonctionnalités",
               "features": [
                 {
@@ -1383,6 +1383,10 @@
       "upgrade": "Améliorer",
       "cancel_subscription": "Annuler l'abonnement"
     
+  },
+  "project":{
+    "no_project":"Aucun projet disponible. Ajoutez un nouveau projet pour commencer."
+  
   }
  
 }

@@ -407,9 +407,9 @@ import image1 from "./Images/homeimage1.jpg";
 import image2 from "./Images/homeimage2.jpg";
 import image3 from "./Images/homeimage3.jpg";
 import image4 from "./Images/homeimage4.jpg";
-import CV1 from "./Images/FrenchCV1.jpg"
-import CV2 from "./Images/FrenchCV2.jpg"
-import CV3 from "./Images/FrenchCV3.png"
+import CV1 from "./Images/FrenchCV1.jpg";
+import CV2 from "./Images/FrenchCV2.jpg";
+import CV3 from "./Images/FrenchCV3.png";
 import frenchimage1 from "./Images/frenchresume1.jpg";
 import frenchimage2 from "./Images/frenchresume2.jpg";
 // import frenchimage3 from "./Images/frenchresume3.png";
@@ -619,9 +619,11 @@ function Home_third() {
               <h1 className="font-bold  text-xl text-center mt-2" id="homecard">
                 {t(template.title)}
               </h1>
-              <button className="absolute top-0 left-0 right-0 bottom-0 m-auto w-fit h-fit bg-[#00b38d] text-white font-bold py-2 px-4 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                {t("create_cv")}
-              </button>
+              <Link href="/dashboard/cv-builder">
+                <button className="absolute top-0 left-0 right-0 bottom-0 m-auto w-fit h-fit bg-[#00b38d] text-white font-bold py-2 px-4 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  {t("create_cv")}
+                </button>
+              </Link>
             </div>
           ))}
         </div>

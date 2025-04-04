@@ -248,13 +248,13 @@ const ProfileForm = () => {
       !formData.last_name ||
       !formData.professional_title ||
       !formData.languages ||
-      !formData.age ||
+      // !formData.age ||
       !formData.current_salary ||
       !formData.expected_salary ||
       !formData.description ||
-      !formData.country_id ||
-      !formData.state_id ||
-      !formData.city_id ||
+      // !formData.country_id ||
+      // !formData.state_id ||
+      // !formData.city_id ||
       !formData.phone
     ) {
       toast.error(t("profile_error.all_fields_required"));
@@ -262,14 +262,14 @@ const ProfileForm = () => {
     }
 
     // Age validation (Must be between 18 and 100)
-    if (
-      !/^\d+$/.test(formData.age) ||
-      formData.age < 18 ||
-      formData.age > 100
-    ) {
-      toast.error(t("profile_error.invalid_age"));
-      return;
-    }
+    // if (
+    //   !/^\d+$/.test(formData.age) ||
+    //   formData.age < 18 ||
+    //   formData.age > 100
+    // ) {
+    //   toast.error(t("profile_error.invalid_age"));
+    //   return;
+    // }
 
     // Salary validation (Must be a number and positive)
     if (!/^\d+$/.test(formData.current_salary) || formData.current_salary < 0) {
@@ -332,9 +332,9 @@ const ProfileForm = () => {
 
       console.log(response.status, ">>>>response");
       if (response.status === 200) {
-        toast.success(t("profile.profile_updated"));
+        toast.success(t("profile_updated"));
       } else {
-        toast.error(t("profile.profile_update_failed"), response.data.message);
+        toast.error(t("profile_update_failed"), response.data.message);
       }
     } catch (error) {
       console.error(error);

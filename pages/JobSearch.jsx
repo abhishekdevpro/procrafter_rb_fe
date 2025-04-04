@@ -284,16 +284,37 @@ const JobSearch = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedJob, setSelectedJob] = useState(null);
 
+  // useEffect(() => {
+  //   const fetchJobs = async () => {
+  //     console.log("called");
+  //     try {
+  //       const response = await fetch(
+  //         "https://api.ciblijob.fr/api/user/job-list"
+  //       );
+  //       if (!response.ok) {
+  //         throw new Error("Failed to fetch job data");
+  //       }
+  //       const data = await response.json();
+  //       console.log(response, ">>>data");
+  //       setJobResults(data.data);
+  //     } catch (err) {
+  //       setError(t("jobsearch.error_message"));
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+
+  //   fetchJobs();
+  // }, [t]);
   useEffect(() => {
     const fetchJobs = async () => {
+      console.log("called");
       try {
         const response = await axiosInstance.get("/api/user/job-list");
-        if (!response.ok) {
-          throw new Error("Failed to fetch job data");
-        }
-        const data = await response.json();
-        setJobResults(data.data);
+        console.log(response, ">>>data");
+        setJobResults(response.data.data);
       } catch (err) {
+        console.error(err);
         setError(t("jobsearch.error_message"));
       } finally {
         setLoading(false);
@@ -312,7 +333,7 @@ const JobSearch = () => {
     setIsModalOpen(false);
     setSelectedJob(null);
   };
-
+  console.log(jobResults, ">>>>>>>job result");
   return (
     <div className="w-full max-w-7xl mx-auto px-4 py-8">
       <div className="bg-white rounded-lg shadow-sm p-4 mb-6">

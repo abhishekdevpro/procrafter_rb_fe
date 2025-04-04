@@ -731,6 +731,7 @@ import image4 from "./Images/4.png";
 import image5 from "./Images/5.png";
 import { useTranslation } from "react-i18next";
 import Home_third from "./Home_third";
+import Link from "next/link";
 
 function Home_Second() {
   const { t } = useTranslation();
@@ -763,9 +764,11 @@ function Home_Second() {
           ))}
         </div>
         <div className="flex justify-center mt-4">
-          <button className="px-5 py-3 rounded-full text-lg text-white bg-[#00b38d] font-bold hover:px-8 hover:shadow-2xl hover:bg-[#00b38d] hover:shadow-[#00b38d]">
-            {t("create_resume")}
-          </button>
+          <Link href="/dashboard/resume-builder">
+            <button className="px-5 py-3 rounded-full text-lg text-white bg-[#00b38d] font-bold hover:px-8 hover:shadow-2xl hover:bg-[#00b38d] hover:shadow-[#00b38d]">
+              {t("create_resume")}
+            </button>
+          </Link>
         </div>
       </div>
 

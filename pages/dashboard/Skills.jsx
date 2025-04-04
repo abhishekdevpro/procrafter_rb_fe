@@ -121,13 +121,13 @@ const Skills = () => {
 
     return (
       <div className="py-16 px-5 text-center text-3xl">
-        <h1>{t("create_or_upload")}</h1>
+        <h1>{t("skill.create_or_upload")}</h1>
         <div className="flex justify-center mt-5">
           <button
             onClick={handleCreateResume}
             className="flex justify-center items-center px-4 py-2 w-full sm:w-auto bg-[#00b38d] text-white rounded-lg hover:bg-[#369984] transition-colors duration-200 font-medium shadow-sm"
           >
-            <Plus className="w-5 h-5 mr-2" /> {t("create_new_resume")}
+            <Plus className="w-5 h-5 mr-2" /> {t("skill.create_new_resume")}
           </button>
         </div>
       </div>
