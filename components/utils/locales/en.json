@@ -58,7 +58,7 @@
       "certified_by_recruiters": "Certified By Recruiters & Admired By Job Seekers",
       "looking_cover_letter": "Looking For Impressive Cover Letters?",
       "explore_cover_letters": "Explore from our 25+ premium Cover Letters, which are exclusively crafted by our Experts.",
-      "create_cv": "Create Your CV",
+      "create_cv": "Create Your Cover Letter",
       "alt1_h3":"Assistant Editor Resume Example",
       "alt2_h3":"Farmer Resume Template",
       "alt3_h3":"Doctor Resume Template",
@@ -289,7 +289,7 @@
               
                 "title": "AI Resume Builder",
                 "introduction": "Revolutionizing the Job Application Process",
-                "description": "Welcome to Cibli Job’s AI Resume Builder – an innovative solution designed to streamline the resume creation process and help you land your dream job. Our cutting-edge AI technology simplifies resume writing, ensuring that your skills and achievements are presented in the best possible light.",
+                "description_ai": "Welcome to Cibli Job’s AI Resume Builder – an innovative solution designed to streamline the resume creation process and help you land your dream job. Our cutting-edge AI technology simplifies resume writing, ensuring that your skills and achievements are presented in the best possible light.",
                 "key_features": "Key Features",
                 "features": [
                   {

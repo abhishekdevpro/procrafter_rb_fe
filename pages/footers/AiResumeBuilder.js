@@ -169,7 +169,7 @@ function AiResumeBuilder() {
         </h1>
 
         <h2 className="text-2xl font-bold my-5">{t("introduction")}</h2>
-        <p className="text-gray-700">{t("description")}</p>
+        <p className="text-gray-700">{t("description_ai")}</p>
 
         <h2 className="text-xl font-bold my-5">{t("key_features")}</h2>
 
