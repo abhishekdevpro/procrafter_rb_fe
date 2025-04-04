@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import { BASE_URL } from "../Constant/constant";
 import { useTranslation } from "react-i18next";
+import axiosInstance from "../utils/axiosInstance";
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 const WorkExperience = () => {
@@ -120,8 +121,8 @@ const WorkExperience = () => {
 
     setIsLoading((prev) => ({ ...prev, location: true }));
     try {
-      const response = await fetch(
-        `${BASE_URL}/api/user/locations?locations=${encodeURIComponent(
+      const response = await axiosInstance.get(
+        `/api/user/locations?locations=${encodeURIComponent(
           keyword
         )}&lang=${language}`
       );
@@ -144,8 +145,8 @@ const WorkExperience = () => {
     }
 
     try {
-      const response = await axios.get(
-        `${BASE_URL}/api/user/job-title?job_title_keyword=${encodeURIComponent(
+      const response = await axiosInstance.get(
+        `/api/user/job-title?job_title_keyword=${encodeURIComponent(
           keyword
         )}&lang=${language}`
       );
@@ -165,8 +166,8 @@ const WorkExperience = () => {
     }
 
     try {
-      const response = await axios.get(
-        `${BASE_URL}/api/user/compnay-list?company_keyword=${encodeURIComponent(
+      const response = await axiosInstance.get(
+        `/api/user/compnay-list?company_keyword=${encodeURIComponent(
           keyword
         )}&lang=${language}`
       );

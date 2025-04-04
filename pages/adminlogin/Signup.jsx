@@ -8,6 +8,7 @@ import logo from "../login2/logo.png";
 import { useRouter } from "next/router";
 import { BASE_URL } from "../../components/Constant/constant";
 import { useTranslation } from "react-i18next";
+import axiosInstance from "../../components/utils/axiosInstance";
 // Ensure this file exists and is correctly linked
 
 function Signup() {
@@ -51,8 +52,8 @@ function Signup() {
     };
 
     try {
-      const response = await axios.post(
-        `${BASE_URL}/api/user/auth/signup?lang=${language}`,
+      const response = await axiosInstance.post(
+        `/api/user/auth/signup?lang=${language}`,
         body,
         {
           headers: {

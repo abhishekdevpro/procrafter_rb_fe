@@ -10,11 +10,12 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import { BASE_URL } from "../../components/Constant/constant";
 import { ResumeContext } from "../../components/context/ResumeContext";
+import axiosInstance from "../../components/utils/axiosInstance";
 const LoginCode = () => {
   const [otp, setOtp] = useState("");
   const [captchaVerified, setCaptchaVerified] = useState(false);
   const router = useRouter();
-  const {selectedLang} = useContext(ResumeContext)
+  const { selectedLang } = useContext(ResumeContext);
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(true);
   const handleOtpChange = (e) => {
@@ -40,8 +41,8 @@ const LoginCode = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post(
-        `${BASE_URL}/api/user/auth/login-verify-otp?lang=${selectedLang}`,
+      const response = await axiosInstance.post(
+        `/api/user/auth/login-verify-otp?lang=${selectedLang}`,
 
         { email, otp }
       );

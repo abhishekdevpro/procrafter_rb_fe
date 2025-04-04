@@ -328,6 +328,7 @@ import logo from "./logo.png";
 import { BASE_URL } from "../../components/Constant/constant";
 import { useTranslation } from "react-i18next";
 import { ResumeContext } from "../../components/context/ResumeContext";
+import axiosInstance from "../../components/utils/axiosInstance";
 
 const Signup = () => {
   const { t } = useTranslation();
@@ -469,10 +470,14 @@ const Signup = () => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post(
-        `${BASE_URL}/api/user/auth/signup?lang=${selectedLang}`,
+      const response = await axiosInstance.post(
+        `/api/user/auth/signup?lang=${selectedLang}`,
         formData,
-        { headers: { "Content-Type": "application/json" } }
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
       );
 
       if (response.status === 200) {

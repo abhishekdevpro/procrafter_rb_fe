@@ -1,5 +1,3 @@
-
-
 import React, { useState } from "react";
 import logo from "./logo.png";
 import Modal from "./Modal";
@@ -9,6 +7,7 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import { toast, ToastContainer } from "react-toastify";
 import { BASE_URL } from "../../components/Constant/constant";
+import axiosInstance from "../../components/utils/axiosInstance";
 // import Navbar from "../Navbar/Navbar";
 
 function AdminLogin() {
@@ -33,16 +32,16 @@ function AdminLogin() {
     }
 
     try {
-      const response = await axios.post(
-        `${BASE_URL}/api/admin/auth/login`,
-        formData,
+      const response = await axiosInstance.post(
+        `/api/admin/auth/login`,
+        formData
       );
 
       if (response.data.status === "success" || response.data.code === 200) {
-        toast.success(response.data.message ||"Login successfully");
-        console.log(response)
-        console.log("Token", response.data.data.token)
-        localStorage.setItem("token",response.data.data.token)
+        toast.success(response.data.message || "Login successfully");
+        console.log(response);
+        console.log("Token", response.data.data.token);
+        localStorage.setItem("token", response.data.data.token);
         Router.push("/admin/profile");
       } else {
         toast.error("Failed to Login");
@@ -55,15 +54,15 @@ function AdminLogin() {
   return (
     <>
       <div className="flex justify-center items-center h-screen w-full">
-        <ToastContainer/>
+        <ToastContainer />
         <div className="p-8 rounded-xl shadow-lg shadow-slate-700 w-full max-w-lg bg-gray-100">
           <div className="flex justify-center mb-6">
             <Image src={logo} className=" " alt="Logo" />
           </div>
           <div className="text-3xl text-black text-center font-bold mb-9">
-          🛡️ Admin Login
+            🛡️ Admin Login
           </div>
-          
+
           <form onSubmit={handleLogin}>
             <div className="mb-4">
               <label className="block  mb-2 text-black">🛡️ Admin ID</label>
@@ -87,12 +86,12 @@ function AdminLogin() {
                 placeholder="Enter your password"
               />
             </div>
-          
+
             <button
               type="submit"
               className="w-full bg-yellow-500 mt-10 text-black font-bold px-4 py-2 rounded-md hover:bg-yellow-600 transition-colors duration-300"
             >
-              Login 
+              Login
             </button>
           </form>
         </div>
@@ -105,5 +104,3 @@ function AdminLogin() {
 }
 
 export default AdminLogin;
-
-  

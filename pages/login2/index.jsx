@@ -13,6 +13,7 @@ import { FcGoogle } from "react-icons/fc";
 import { BASE_URL } from "../../components/Constant/constant";
 import { useTranslation } from "react-i18next";
 import { ResumeContext } from "../../components/context/ResumeContext";
+import axiosInstance from "../../components/utils/axiosInstance";
 const Login2 = () => {
   const { t } = useTranslation();
   const [isThirdstepOpen, setThirdstepOpen] = useState(false);
@@ -61,8 +62,8 @@ const Login2 = () => {
     }
     setIsLoading(true);
     try {
-      const response = await axios.post(
-        `${BASE_URL}/api/user/auth/login?lang=${selectedLang}`,
+      const response = await axiosInstance.post(
+        `/api/user/auth/login?lang=${selectedLang}`,
         formData
       );
 
@@ -91,10 +92,10 @@ const Login2 = () => {
     setShowPassword(!showPassword);
   };
   const handleGoogleSignin = async () => {
-    const url = `${BASE_URL}/api/user/auth/google?lang=${selectedLang}`;
+    const url = `/api/user/auth/google?lang=${selectedLang}`;
 
     try {
-      const response = await axios.get(
+      const response = await axiosInstance.get(
         url,
         {},
         {

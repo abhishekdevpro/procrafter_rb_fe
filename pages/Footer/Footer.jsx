@@ -207,18 +207,19 @@ import { BASE_URL } from "../../components/Constant/constant";
 import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
 import { ResumeContext } from "../../components/context/ResumeContext";
+import axiosInstance from "../../components/utils/axiosInstance";
 const Footer = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const {selectedLang} = useContext(ResumeContext)
+  const { selectedLang } = useContext(ResumeContext);
   const { t } = useTranslation();
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevent form default behavior
 
     // Sending raw JSON data in the POST request
-    axios
+    axiosInstance
       .post(
-        `${BASE_URL}/api/user/user-subscribe?lang=${selectedLang}`,
+        `/api/user/user-subscribe?lang=${selectedLang}`,
         JSON.stringify({ email }), // Sending email in raw JSON
         {
           headers: {
@@ -230,7 +231,7 @@ const Footer = () => {
         // Handle the response, show a success message
         setMessage("Subscribed successfully!");
         toast.success(t("footer.toast_success"));
-        setEmail("")
+        setEmail("");
       })
       .catch((error) => {
         // Handle the error, show an error message

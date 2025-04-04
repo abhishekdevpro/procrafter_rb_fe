@@ -4,6 +4,7 @@ import { BASE_URL } from "../../components/Constant/constant";
 import { toast } from "react-toastify";
 import { Trash2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import axiosInstance from "../../components/utils/axiosInstance";
 const ProfileForm = () => {
   const { i18n, t } = useTranslation();
   const language = i18n.language;
@@ -67,8 +68,8 @@ const ProfileForm = () => {
           }));
 
           // Fetch countries
-          const countriesResponse = await axios.get(
-            `${BASE_URL}/api/user/countries?lang=${language}`
+          const countriesResponse = await axiosInstance.get(
+            `/api/user/countries?lang=${language}`
           );
           if (countriesResponse.data.status === "success") {
             setCountries(countriesResponse.data.data);
@@ -89,13 +90,8 @@ const ProfileForm = () => {
       if (formData.country_id) {
         try {
           const token = localStorage.getItem("token");
-          const response = await axios.get(
-            `${BASE_URL}/api/user/stats/${formData.country_id}?lang=${language}`,
-            {
-              headers: {
-                Authorization: token, // Ensure token is included correctly
-              },
-            }
+          const response = await axiosInstance.get(
+            `/api/user/stats/${formData.country_id}?lang=${language}`
           );
           if (response.data.status === "success") {
             setStates(response.data.data);
@@ -118,8 +114,8 @@ const ProfileForm = () => {
       if (formData.state_id) {
         setLoading(true); // Set loading state to true
         try {
-          const citiesResponse = await axios.get(
-            `${BASE_URL}/api/user/cities/${formData.state_id}?lang=${language}`
+          const citiesResponse = await axiosInstance.get(
+            `/api/user/cities/${formData.state_id}?lang=${language}`
           );
 
           if (citiesResponse.data.status === "success") {

@@ -4,6 +4,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { BASE_URL } from "../components/Constant/constant";
 import { useTranslation } from "react-i18next";
+import axiosInstance from "../components/utils/axiosInstance";
 const Gauth = () => {
   const [loading, setLoading] = useState(true);
   const { i18n, t } = useTranslation();
@@ -24,8 +25,8 @@ const Gauth = () => {
     if (code) {
       const sendAuthCode = async () => {
         try {
-          const response = await axios.get(
-            `${BASE_URL}/api/user/auth/callback?code=${code}&lang=${language}`
+          const response = await axiosInstance.get(
+            `/api/user/auth/callback?code=${code}&lang=${language}`
           );
           console.log(response);
           const token = response.data.data.token;
