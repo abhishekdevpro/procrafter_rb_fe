@@ -347,7 +347,7 @@ const ResumeStrength = ({ score, strength, resumeId }) => {
       </Modal>
 
       <div className="bg-blue-50 p-6 rounded-lg mb-6">
-        <div className="flex justify-between items-start mb-6">
+        {/* <div className="flex justify-between items-start mb-6">
           <div>
             <h2 className="text-xl font-semibold mb-1">
               {" "}
@@ -385,6 +385,53 @@ const ResumeStrength = ({ score, strength, resumeId }) => {
                 disabled={!resumeId}
                 onClick={() => setIsModalOpen(true)}
                 className={`px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors ${
+                  !resumeId ? "opacity-50 cursor-not-allowed" : ""
+                }`}
+              >
+                {t("resumeStrength.improveATS")}
+              </button>
+            </div>
+          </div>
+        </div> */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4 md:gap-0">
+          {/* Left Side: Score Display */}
+          <div className="w-full md:w-auto">
+            <h2 className="text-xl font-semibold mb-1">
+              {t("resumeStrength.resumeStrength")}
+            </h2>
+            <div className="flex items-center gap-2">
+              <span className="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-lg font-semibold">
+                {score}%
+              </span>
+            </div>
+          </div>
+
+          {/* Right Side: Improve Buttons */}
+          <div className="w-full md:w-auto flex flex-col items-start md:items-end">
+            <h3 className="text-xl font-semibold mb-1">
+              {t("resumeStrength.fixResume")}
+            </h3>
+            <p className="text-gray-600">
+              {t("resumeStrength.foundErrors", {
+                errors: strength.total_errors,
+              })}
+            </p>
+            <p className="text-gray-600 mb-2">{t("resumeStrength.useTool")}</p>
+
+            <div className="flex flex-col sm:flex-row gap-2 w-full md:w-auto">
+              <button
+                onClick={handleImproveResume}
+                disabled={!resumeId}
+                className={`w-full sm:w-auto px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors ${
+                  !resumeId ? "opacity-50 cursor-not-allowed" : ""
+                }`}
+              >
+                {t("resumeStrength.improveResume")}
+              </button>
+              <button
+                disabled={!resumeId}
+                onClick={() => setIsModalOpen(true)}
+                className={`w-full sm:w-auto px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors ${
                   !resumeId ? "opacity-50 cursor-not-allowed" : ""
                 }`}
               >

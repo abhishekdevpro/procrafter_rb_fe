@@ -54,9 +54,14 @@ const Testpaper = () => {
           setSkillAssessmentId(skill_assessment_id);
           setLoading(false);
         } catch (error) {
-          toast.error(error?.message);
+          const errorMessage =
+            error.response?.data?.message ||
+            error.message ||
+            "Error fetching questions";
+
+          toast.error(errorMessage);
           console.error("Error fetching questions:", error);
-          setError(error.message || "Error fetching questions");
+          setError(errorMessage);
           setLoading(false);
         }
       };
@@ -163,7 +168,7 @@ const Testpaper = () => {
   if (error) {
     return (
       <div>
-        {t("testPaper.error")}
+        {/* {t("testPaper.error")} */}
         {error}
       </div>
     );

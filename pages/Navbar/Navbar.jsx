@@ -785,13 +785,13 @@ const Navbar = () => {
               <>
                 <Link
                   href="/login2"
-                  className="bg-[#00b38d] text-white  px-4 py-2 text-md font-semibold border-2 rounded-xl"
+                  className="block w-full text-left px-4 py-2 hover:bg-gray-200"
                 >
                   {t("login")}
                 </Link>
                 <Link
                   href="/signup"
-                  className="bg-[#00b38d] text-white  px-4 py-2 text-md font-semibold border-2 rounded-xl"
+                  className="block w-full text-left px-4 py-2 hover:bg-gray-200"
                 >
                   {t("signup")}
                 </Link>
