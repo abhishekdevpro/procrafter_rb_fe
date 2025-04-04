@@ -916,7 +916,7 @@ const WorkExperience = () => {
 
                     <button
                       type="button"
-                      className="border bg-black text-white px-3 rounded-3xl"
+                      className="p-2 text-white bg-black rounded-lg text-sm mb-2"
                       onClick={() => {
                         if (experience?.position) {
                           handleAIAssistDescription(index, experience);
@@ -1048,7 +1048,7 @@ const WorkExperience = () => {
                     </label>
                     <button
                       type="button"
-                      className="border bg-black text-white px-3 rounded-3xl"
+                      className="p-2 text-white bg-black rounded-lg text-sm mb-2"
                       // onClick={() => handleAIAssistKey(index)}
                       onClick={() => {
                         if (experience?.position) {

@@ -4,6 +4,7 @@ import { ResumeContext } from "../context/ResumeContext";
 import { useRouter } from "next/router";
 import { ChevronDown, ChevronUp, AlertCircle, X, Trash } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { toast } from "react-toastify";
 
 const Certification = () => {
   const { resumeData, setResumeData, resumeStrength } =
@@ -34,20 +35,26 @@ const Certification = () => {
       newSkills.splice(-1, 1);
       setResumeData({ ...resumeData, [skillType]: newSkills });
     } else {
-      alert("At least one certification is required.");
+      toast.error("At least one certification is required.");
     }
   };
 
+  //
   const deleteCertification = (indexToDelete) => {
-    if (resumeData[skillType].length) {
-      const newCertifications = resumeData[skillType].filter(
-        (_, index) => index !== indexToDelete
-      );
-      setResumeData({
-        ...resumeData,
-        [skillType]: newCertifications,
-      });
+    const currentLength = resumeData[skillType].length;
+
+    if (currentLength <= 1) {
+      toast.error("At least one certification is required.");
+      return;
     }
+
+    const newCertifications = resumeData[skillType].filter(
+      (_, index) => index !== indexToDelete
+    );
+    setResumeData({
+      ...resumeData,
+      [skillType]: newCertifications,
+    });
   };
 
   const hasErrors = (index, field) => {

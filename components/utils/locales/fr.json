@@ -1383,6 +1383,10 @@
       "upgrade": "Améliorer",
       "cancel_subscription": "Annuler l'abonnement"
     
+  },
+  "project":{
+    "no_project":"Aucun projet disponible. Ajoutez un nouveau projet pour commencer."
+  
   }
  
 }

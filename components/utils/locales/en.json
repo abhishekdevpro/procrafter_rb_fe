@@ -1398,6 +1398,11 @@
       "upgrade": "Upgrade",
       "cancel_subscription": "Cancel Subscription"
     
+  },
+  
+  "project":{
+    "no_project":"No projects available. Add a new project to get started."
+  
   }
   
   
