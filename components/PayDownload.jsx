@@ -3,6 +3,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { BASE_URL } from "./Constant/constant";
+import axiosInstance from "./utils/axiosInstance";
 
 const PayAndDownload = ({ resumeId, token, PayerID }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -36,8 +37,8 @@ const PayAndDownload = ({ resumeId, token, PayerID }) => {
       `;
 
       // API call to generate the PDF
-      await axios.post(
-        `${BASE_URL}/api/user/generate-pdf-py`,
+      await axiosInstance.post(
+        `/api/user/generate-pdf-py`,
         { html: fullContent },
         {
           headers: {

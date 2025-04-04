@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { MdRemoveCircle } from "react-icons/md";
 import { BASE_URL } from "../Constant/constant";
 import { useTranslation } from "react-i18next";
+import axiosInstance from "../utils/axiosInstance";
 const Education = () => {
   const { i18n, t } = useTranslation();
   const language = i18n.language;
@@ -50,8 +51,8 @@ const Education = () => {
 
     setIsLoading((prev) => ({ ...prev, university: true }));
     try {
-      const response = await fetch(
-        `${BASE_URL}/api/user/university-lists?university_keyword=${encodeURIComponent(
+      const response = await axiosInstance.get(
+        `/api/user/university-lists?university_keyword=${encodeURIComponent(
           keyword
         )}&lang=${language}`
       );
@@ -73,8 +74,8 @@ const Education = () => {
 
     setIsLoading((prev) => ({ ...prev, degree: true }));
     try {
-      const response = await fetch(
-        `${BASE_URL}/api/user/degree?degree_keyword=${encodeURIComponent(
+      const response = await axiosInstance.get(
+        `api/user/degree?degree_keyword=${encodeURIComponent(
           keyword
         )}&lang=${language}`
       );
@@ -97,8 +98,8 @@ const Education = () => {
 
     setIsLoading((prev) => ({ ...prev, location: true }));
     try {
-      const response = await fetch(
-        `${BASE_URL}/api/user/locations?locations=${encodeURIComponent(
+      const response = await axiosInstance.get(
+        `/api/user/locations?locations=${encodeURIComponent(
           keyword
         )}&lang=${language}`
       );
@@ -258,7 +259,9 @@ const Education = () => {
 
   return (
     <div className="flex-col gap-3 w-full mt-10 px-10">
-      <h2 className="input-title text-black text-3xl">{t("resumeStrength.sections.education")}</h2>
+      <h2 className="input-title text-black text-3xl">
+        {t("resumeStrength.sections.education")}
+      </h2>
       {resumeData.education.map((education, index) => (
         <div key={index} className="f-col">
           <div className="relative mb-4">
@@ -407,7 +410,9 @@ const Education = () => {
           </div>
 
           <div className="">
-            <label className="text-black">{t("builder_forms.work_experience.start_date")}</label>
+            <label className="text-black">
+              {t("builder_forms.work_experience.start_date")}
+            </label>
             <div className="flex-wrap-gap-2">
               <select
                 className={`border other-input flex-1 ${
@@ -443,7 +448,9 @@ const Education = () => {
               </select>
             </div>
 
-            <label className="text-black">{t("builder_forms.work_experience.end_date")}</label>
+            <label className="text-black">
+              {t("builder_forms.work_experience.end_date")}
+            </label>
             <div className="flex-wrap-gap-2">
               <select
                 className={`other-input border flex-1 ${
@@ -492,7 +499,9 @@ const Education = () => {
           </div>
 
           <div className="relative">
-            <label className="mt-2 text-black">{t("builder_forms.work_experience.location")}</label>
+            <label className="mt-2 text-black">
+              {t("builder_forms.work_experience.location")}
+            </label>
             <div className="relative">
               <input
                 type="text"

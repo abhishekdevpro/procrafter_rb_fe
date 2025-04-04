@@ -6,6 +6,7 @@ import { AlertCircle, X, Loader2, ChevronDown } from "lucide-react";
 import { useRouter } from "next/router";
 import { BASE_URL } from "../Constant/constant";
 import { useTranslation } from "react-i18next";
+import axiosInstance from "../utils/axiosInstance";
 
 const PersonalInformation = () => {
   const { i18n, t } = useTranslation();
@@ -74,8 +75,8 @@ const PersonalInformation = () => {
     const fetchCountryCodes = async () => {
       setIsLoading((prev) => ({ ...prev, countryCodes: true }));
       try {
-        const response = await fetch(
-          `${BASE_URL}/api/user/countries?lang=${language}`
+        const response = await axiosInstance.get(
+          `/api/user/countries?lang=${language}`
         );
         if (response.ok) {
           const data = await response.json();
@@ -101,8 +102,8 @@ const PersonalInformation = () => {
 
     setIsLoading((prev) => ({ ...prev, jobTitle: true }));
     try {
-      const response = await fetch(
-        `${BASE_URL}/api/user/job-title?job_title_keyword=${encodeURIComponent(
+      const response = await axiosInstance.get(
+        `/api/user/job-title?job_title_keyword=${encodeURIComponent(
           keyword
         )}&lang=${language}`
       );
@@ -126,8 +127,8 @@ const PersonalInformation = () => {
 
     setIsLoading((prev) => ({ ...prev, location: true }));
     try {
-      const response = await fetch(
-        `${BASE_URL}/api/user/locations?locations=${encodeURIComponent(
+      const response = await axiosInstance.get(
+        `/api/user/locations?locations=${encodeURIComponent(
           keyword
         )}&lang=${language}`
       );

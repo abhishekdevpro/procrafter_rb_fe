@@ -6,6 +6,7 @@ import { AlertCircle, Trash } from "lucide-react";
 import { useRouter } from "next/router";
 import { BASE_URL } from "../Constant/constant";
 import { useTranslation } from "react-i18next";
+import axiosInstance from "../utils/axiosInstance";
 const Skill = ({ title, currentSkillIndex }) => {
   const { i18n, t } = useTranslation();
   const language = i18n.language;
@@ -52,15 +53,15 @@ const Skill = ({ title, currentSkillIndex }) => {
 
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get(
-        `${BASE_URL}/api/user/skills-names?skill_keyword=${encodeURIComponent(
+      const response = await axiosInstance.get(
+        `/api/user/skills-names?skill_keyword=${encodeURIComponent(
           query
-        )}&lang=${language}`,
-        {
-          headers: {
-            Authorization: token,
-          },
-        }
+        )}&lang=${language}`
+        // {
+        //   headers: {
+        //     Authorization: token,
+        //   },
+        // }
       );
 
       if (response.data.status === "success" && response.data.data) {

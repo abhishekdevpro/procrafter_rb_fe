@@ -274,6 +274,7 @@
 
 import { useEffect, useState } from "react";
 import { useTranslation } from "next-i18next";
+import axiosInstance from "../components/utils/axiosInstance";
 
 const JobSearch = () => {
   const { t } = useTranslation();
@@ -286,9 +287,7 @@ const JobSearch = () => {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const response = await fetch(
-          "https://api.ciblijob.fr/api/user/job-list"
-        );
+        const response = await axiosInstance.get("/api/user/job-list");
         if (!response.ok) {
           throw new Error("Failed to fetch job data");
         }
