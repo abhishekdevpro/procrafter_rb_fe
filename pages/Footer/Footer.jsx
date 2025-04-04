@@ -241,26 +241,169 @@ const Footer = () => {
   };
 
   return (
+    // <>
+    //   <footer className="bg-gray-300 text-black py-8" id="footerbg">
+    //     <div className="container mx-auto flex flex-col gap-7 justify-between px-6">
+    //       <div className="flex flex-wrap justify-between px-2 md:px-[65px]">
+    //         <div className="w-auto h mb-6 md:mb-0">
+    //           <Link href="/">
+    //             <Image src={logo} alt="logo" className="h-12 w-[200px]" />
+    //           </Link>
+    //           <p className="text-lg text-bold px-5">
+    //             {t("footer.building_careers")}
+    //           </p>
+    //         </div>
+
+    //         <div className="w-full md:w-auto mb-6 md:mb-0">
+    //           <h2 className="text-lg font-semibold text-[#00b38d]">
+    //             {t("footer.get_our_weekly")}
+    //           </h2>
+    //           <form
+    //             onSubmit={handleSubmit}
+    //             className="flex flex-col md:flex-row gap-3"
+    //           >
+    //             <input
+    //               type="email"
+    //               placeholder={t("footer.type_your_email")}
+    //               value={email}
+    //               onChange={(e) => setEmail(e.target.value)}
+    //               required
+    //               className="p-2 rounded text-black"
+    //             />
+    //             <button
+    //               type="submit"
+    //               className="md:px-4 md:py-1 p-1 rounded-full bg-white text-black hover:bg-green-500"
+    //             >
+    //               {t("footer.subscribe")}
+    //             </button>
+    //           </form>
+    //           {/* {message && <p>{message}</p>} */}
+    //         </div>
+    //       </div>
+
+    //       <div className="flex flex-wrap justify-around">
+    //         <div className="w-full md:w-auto mb-6 md:mb-0">
+    //           <h2 className="text-lg font-bold text-[#00b38d]">
+    //             {t("footer.cibli_job")}
+    //           </h2>
+    //           <ul>
+    //             <li>
+    //               <Link href="/footers/Aboutus">
+    //                 <span>{t("footer.about_us")}</span>
+    //               </Link>
+    //             </li>
+    //             <li>
+    //               <Link href="/footers/Careers">
+    //                 <span>{t("footer.careers")}</span>
+    //               </Link>
+    //             </li>
+    //             <li>
+    //               <Link href="https://blog.ciblijob.fr/">
+    //                 <span>{t("footer.resources")}</span>
+    //               </Link>
+    //             </li>
+    //           </ul>
+    //         </div>
+    //         <div className="w-full md:w-auto mb-6 md:mb-0">
+    //           <h2 className="text-lg font-bold text-[#00b38d]">
+    //             {t("footer.support")}
+    //           </h2>
+    //           <ul>
+    //             <li>
+    //               <Link href="/footers/Salarytools">
+    //                 <span>{t("footer.salary_tool")}</span>
+    //               </Link>
+    //             </li>
+    //             <li>
+    //               <Link href="/TermsandConditions">
+    //                 <span>{t("footer.terms_conditions")}</span>
+    //               </Link>
+    //             </li>
+    //             <li>
+    //               <Link href="/footers/PrivacyPolicy">
+    //                 <span>{t("footer.privacy_policy")}</span>
+    //               </Link>
+    //             </li>
+    //           </ul>
+    //         </div>
+    //         <div className="w-full md:w-auto mb-6 md:mb-0">
+    //           <h2 className="text-lg font-bold text-[#00b38d]">
+    //             {t("footer.scope_products")}
+    //           </h2>
+    //           <ul>
+    //             <li>
+    //               <Link href="/footers/AiResumeBuilder">
+    //                 <span>{t("footer.ai_resume_builder")}</span>
+    //               </Link>
+    //             </li>
+    //             <li>
+    //               <Link href="/footers/AiSkillTests">
+    //                 <span>{t("footer.ai_skill_tests")}</span>
+    //               </Link>
+    //             </li>
+    //             <li>
+    //               <Link href="/footers/AiCVParsing">
+    //                 <span>{t("footer.ai_cv_parsing")}</span>
+    //               </Link>
+    //             </li>
+    //           </ul>
+    //         </div>
+    //         <div className="w-full md:w-auto mb-6 md:mb-0">
+    //           <h2 className="text-lg font-bold text-[#00b38d]">
+    //             {t("footer.ai_resources")}
+    //           </h2>
+    //           <ul>
+    //             <li>
+    //               <Link href="/footers/AIEnhancedResumeAccuracy">
+    //                 <span>{t("footer.ai_resume_accuracy")}</span>
+    //               </Link>
+    //             </li>
+    //             <li>
+    //               <Link href="/footers/AiResumeEnhancer">
+    //                 <span>{t("footer.ai_resume_enhancer")}</span>
+    //               </Link>
+    //             </li>
+    //             <li>
+    //               <Link href="/footers/AiJobMatchApply">
+    //                 <span>{t("footer.ai_job_match_apply")}</span>
+    //               </Link>
+    //             </li>
+    //           </ul>
+    //         </div>
+    //       </div>
+    //     </div>
+    //     <div className="container text-base md:mx-auto text-center border-t border-white pt-6 mt-6">
+    //       <p className="text-[#00b38d] text-right">{t("footer.copyright")}</p>
+    //     </div>
+    //   </footer>
+    // </>
     <>
       <footer className="bg-gray-300 text-black py-8" id="footerbg">
-        <div className="container mx-auto flex flex-col gap-7 justify-between px-6">
-          <div className="flex flex-wrap justify-between px-2 md:px-[65px]">
-            <div className="w-auto h mb-6 md:mb-0">
+        <div className="container mx-auto flex flex-col gap-7 px-6">
+          {/* Top Section */}
+          <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-6 md:px-[65px]">
+            {/* Logo and Tagline */}
+            <div className="text-center md:text-left">
               <Link href="/">
-                <Image src={logo} alt="logo" className="h-12 w-[200px]" />
+                <Image
+                  src={logo}
+                  alt="logo"
+                  className="h-12 w-[200px] mx-auto md:mx-0"
+                />
               </Link>
-              <p className="text-lg text-bold px-5">
+              <p className="text-lg font-bold mt-2">
                 {t("footer.building_careers")}
               </p>
             </div>
 
-            <div className="w-full md:w-auto mb-6 md:mb-0">
+            {/* Subscribe */}
+            <div className="text-center md:text-left w-full md:w-auto">
               <h2 className="text-lg font-semibold text-[#00b38d]">
                 {t("footer.get_our_weekly")}
               </h2>
               <form
                 onSubmit={handleSubmit}
-                className="flex flex-col md:flex-row gap-3"
+                className="flex flex-col md:flex-row gap-3 mt-2 justify-center md:justify-start"
               >
                 <input
                   type="email"
@@ -268,112 +411,117 @@ const Footer = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="p-2 rounded text-black"
+                  className="p-2 rounded text-black w-full md:w-auto"
                 />
                 <button
                   type="submit"
-                  className="md:px-4 md:py-1 p-1 rounded-full bg-white text-black hover:bg-green-500"
+                  className="px-4 py-2 rounded-full bg-white text-black hover:bg-green-500"
                 >
                   {t("footer.subscribe")}
                 </button>
               </form>
-              {/* {message && <p>{message}</p>} */}
             </div>
           </div>
 
-          <div className="flex flex-wrap justify-around">
-            <div className="w-full md:w-auto mb-6 md:mb-0">
+          {/* Footer Links */}
+          <div className="flex flex-col md:flex-row flex-wrap justify-center md:justify-around text-center md:text-left gap-6">
+            {/* Section 1 */}
+            <div>
               <h2 className="text-lg font-bold text-[#00b38d]">
                 {t("footer.cibli_job")}
               </h2>
-              <ul>
+              <ul className="mt-2 space-y-1">
                 <li>
-                  <Link href="/footers/Aboutus">
-                    <span>{t("footer.about_us")}</span>
-                  </Link>
+                  <Link href="/footers/Aboutus">{t("footer.about_us")}</Link>
                 </li>
                 <li>
-                  <Link href="/footers/Careers">
-                    <span>{t("footer.careers")}</span>
-                  </Link>
+                  <Link href="/footers/Careers">{t("footer.careers")}</Link>
                 </li>
                 <li>
                   <Link href="https://blog.ciblijob.fr/">
-                    <span>{t("footer.resources")}</span>
+                    {t("footer.resources")}
                   </Link>
                 </li>
               </ul>
             </div>
-            <div className="w-full md:w-auto mb-6 md:mb-0">
+
+            {/* Section 2 */}
+            <div>
               <h2 className="text-lg font-bold text-[#00b38d]">
                 {t("footer.support")}
               </h2>
-              <ul>
+              <ul className="mt-2 space-y-1">
                 <li>
                   <Link href="/footers/Salarytools">
-                    <span>{t("footer.salary_tool")}</span>
+                    {t("footer.salary_tool")}
                   </Link>
                 </li>
                 <li>
                   <Link href="/TermsandConditions">
-                    <span>{t("footer.terms_conditions")}</span>
+                    {t("footer.terms_conditions")}
                   </Link>
                 </li>
                 <li>
                   <Link href="/footers/PrivacyPolicy">
-                    <span>{t("footer.privacy_policy")}</span>
+                    {t("footer.privacy_policy")}
                   </Link>
                 </li>
               </ul>
             </div>
-            <div className="w-full md:w-auto mb-6 md:mb-0">
+
+            {/* Section 3 */}
+            <div>
               <h2 className="text-lg font-bold text-[#00b38d]">
                 {t("footer.scope_products")}
               </h2>
-              <ul>
+              <ul className="mt-2 space-y-1">
                 <li>
                   <Link href="/footers/AiResumeBuilder">
-                    <span>{t("footer.ai_resume_builder")}</span>
+                    {t("footer.ai_resume_builder")}
                   </Link>
                 </li>
                 <li>
                   <Link href="/footers/AiSkillTests">
-                    <span>{t("footer.ai_skill_tests")}</span>
+                    {t("footer.ai_skill_tests")}
                   </Link>
                 </li>
                 <li>
                   <Link href="/footers/AiCVParsing">
-                    <span>{t("footer.ai_cv_parsing")}</span>
+                    {t("footer.ai_cv_parsing")}
                   </Link>
                 </li>
               </ul>
             </div>
-            <div className="w-full md:w-auto mb-6 md:mb-0">
+
+            {/* Section 4 */}
+            <div>
               <h2 className="text-lg font-bold text-[#00b38d]">
                 {t("footer.ai_resources")}
               </h2>
-              <ul>
+              <ul className="mt-2 space-y-1">
                 <li>
                   <Link href="/footers/AIEnhancedResumeAccuracy">
-                    <span>{t("footer.ai_resume_accuracy")}</span>
+                    {t("footer.ai_resume_accuracy")}
                   </Link>
                 </li>
                 <li>
                   <Link href="/footers/AiResumeEnhancer">
-                    <span>{t("footer.ai_resume_enhancer")}</span>
+                    {t("footer.ai_resume_enhancer")}
                   </Link>
                 </li>
                 <li>
                   <Link href="/footers/AiJobMatchApply">
-                    <span>{t("footer.ai_job_match_apply")}</span>
+                    {t("footer.ai_job_match_apply")}
                   </Link>
                 </li>
               </ul>
             </div>
           </div>
-        </div>
-        <div className="container text-base md:mx-auto text-center border-t border-white pt-6 mt-6">
-          <p className="text-[#00b38d] text-right">{t("footer.copyright")}</p>
+
+          {/* Copyright */}
+          <div className="border-t border-white pt-6 mt-6 text-center">
+            <p className="text-[#00b38d]">{t("footer.copyright")}</p>
+          </div>
         </div>
       </footer>
     </>

@@ -11,7 +11,7 @@ import { useTranslation } from "react-i18next";
 const MyResume = () => {
   const { t } = useTranslation();
 
-  const { setResumeData,selectedLang } = useContext(ResumeContext);
+  const { setResumeData, selectedLang } = useContext(ResumeContext);
   const [resumes, setResumes] = useState([]);
   const [deleteresumeid, setDeleteresumeid] = useState(null);
   const [isDeleteModalOpen, setisDeleteModalOpen] = useState(false);
@@ -175,7 +175,7 @@ const MyResume = () => {
           {t("myresume.title")}
         </h1>
         <Link href={"/dashboard/resume-builder"}>
-          <button className="flex items-center px-4 py-2 bg-[#00b38d] text-white rounded-lg hover:bg-[#369984] transition-colors duration-200 font-medium shadow-sm">
+          <button className="flex mt-4 items-center px-4 py-2 bg-[#00b38d] text-white rounded-lg hover:bg-[#369984] transition-colors duration-200 font-medium shadow-sm">
             <Plus className="w-5 h-5 mr-2" />
             {t("myresume.create_new_resume")}
           </button>

@@ -54,12 +54,12 @@ const Login2 = () => {
       toast.error(t("loginpage.toast.invalid_email"));
       return;
     }
-    const passwordRegex =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&.]{6,30}$/;
-    if (!passwordRegex.test(password)) {
-      toast.error(t("loginpage.toast.password_strength_error"));
-      return;
-    }
+    // const passwordRegex =
+    //   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&.]{6,30}$/;
+    // if (!passwordRegex.test(password)) {
+    //   toast.error(t("loginpage.toast.password_strength_error"));
+    //   return;
+    // }
     setIsLoading(true);
     try {
       const response = await axiosInstance.post(
