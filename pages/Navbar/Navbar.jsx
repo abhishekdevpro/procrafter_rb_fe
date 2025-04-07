@@ -785,13 +785,13 @@ const Navbar = () => {
               <>
                 <Link
                   href="/login2"
-                  className="block w-full text-left px-4 py-2 hover:bg-gray-200"
+                  className="bg-[#00b38d] text-white  px-4 py-2 text-md font-semibold border-2 rounded-xl"
                 >
                   {t("login")}
                 </Link>
                 <Link
                   href="/signup"
-                  className="block w-full text-left px-4 py-2 hover:bg-gray-200"
+                  className="bg-[#00b38d] text-white  px-4 py-2 text-md font-semibold border-2 rounded-xl"
                 >
                   {t("signup")}
                 </Link>
@@ -888,7 +888,7 @@ const Navbar = () => {
                   </Link>
                   <Link
                     href="/"
-                    className="bg-[#00b38d] text-white block px-3 py-2 rounded-md text-base font-semibold"
+                    className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
                     onClick={() => {
                       handleLogout();
                       handleLinkClick();
@@ -901,14 +901,14 @@ const Navbar = () => {
                 <>
                   <Link
                     href="/login2"
-                    className="bg-[#00b38d] text-white block px-3 py-2 rounded-md text-base font-semibold"
+                    className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
                     onClick={handleLinkClick}
                   >
                     {t("login")}
                   </Link>
                   <Link
                     href="/signup"
-                    className="bg-[#00b38d] text-white block px-3 py-2 rounded-md text-base font-semibold"
+                    className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
                     onClick={handleLinkClick}
                   >
                     {t("signup")}

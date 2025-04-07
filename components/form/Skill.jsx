@@ -322,7 +322,7 @@ const Skill = ({ title, currentSkillIndex }) => {
 
   return (
     <>
-      <div className=" overflow-y-auto flex-col-gap-3 w-full mt-10 px-10">
+      <div className="  flex-col-gap-3 w-full mt-10 px-10">
         <h2 className="input-title text-black text-xl">{title}</h2>
         {skillType.skills.map((skill, index) => (
           <div key={index} className="relative flex items-center space-x-2">

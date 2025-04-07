@@ -629,8 +629,9 @@ const Projects = () => {
                     </button>
                   </div>
                   <textarea
+                    name="KeyAchievements"
                     placeholder="Enter key achievements (one per line)"
-                    className="w-full other-input border-black border h-24 max-w-[33rem] p-2 mb-2"
+                    className="w-full other-input border-black border "
                     value={project.keyAchievements}
                     onChange={(e) => handleKeyAchievement(e, projectIndex)}
                     maxLength={1000}
