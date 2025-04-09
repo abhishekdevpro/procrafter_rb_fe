@@ -69,6 +69,7 @@ const WorkExperience = () => {
     { length: 50 },
     (_, i) => new Date().getFullYear() - i
   );
+
   const handleMonthChange = (e, index, field) => {
     const newWorkExperience = [...resumeData.workExperience];
     const currentDate = newWorkExperience[index][field] || "Jan,2024";
@@ -95,13 +96,17 @@ const WorkExperience = () => {
   const handleWorkExperience = (e, index) => {
     const { name, value } = e.target;
     const newWorkExperience = [...resumeData.workExperience];
-    if (name === "KeyAchievements") {
-      newWorkExperience[index][name] = value
+
+    if (name === "keyAchievements") {
+      const lines = value
         .split("\n")
-        .filter((item) => item.trim() !== "");
+        .map((line) => line.trim())
+        .filter((line) => line.length > 0);
+      newWorkExperience[index][name] = lines.length > 0 ? lines : [];
     } else {
       newWorkExperience[index][name] = value;
     }
+
     setResumeData({ ...resumeData, workExperience: newWorkExperience });
 
     if (name === "position") {
@@ -112,7 +117,6 @@ const WorkExperience = () => {
       fetchLocations(value);
     }
   };
-
   const fetchLocations = async (keyword) => {
     if (!keyword || keyword.length < 1) {
       setLocationSuggestions([]);
@@ -209,7 +213,13 @@ const WorkExperience = () => {
   };
 
   const handleAIAssistDescription = async (index) => {
-    // setLoadingStates((prev) => ({ ...prev, [index]: true }));
+    if (
+      !resumeData.workExperience[index].startYear ||
+      !resumeData.workExperience[index].endYear
+    ) {
+      toast.warn("Date is Required");
+      return;
+    }
     setLoadingStates((prev) => ({
       ...prev,
       [`description_${index}`]: true, // ✅ Separate loading state for description
@@ -227,7 +237,8 @@ const WorkExperience = () => {
           company_name: resumeData.workExperience[index].company,
           job_title: resumeData.workExperience[index].position,
           location: resumeData.workExperience[index].location,
-          lang: language,
+          start_date: resumeData.workExperience[index].startYear,
+          end_date: resumeData.workExperience[index].endYear,
         },
         {
           headers: {
@@ -237,7 +248,7 @@ const WorkExperience = () => {
       );
 
       setDescriptions(
-        response.data.data.resume_analysis.professional_summaries || []
+        response.data.data.resume_analysis.professional_summaries
       ); // ✅ Store in descriptions state
       setPopupIndex(index);
       setPopupType("description");
@@ -245,7 +256,6 @@ const WorkExperience = () => {
     } catch (err) {
       setError(err.message);
     } finally {
-      // setLoadingStates((prev) => ({ ...prev, [index]: false }));
       setLoadingStates((prev) => ({
         ...prev,
         [`description_${index}`]: false, // ✅ Reset only description button
@@ -254,6 +264,13 @@ const WorkExperience = () => {
   };
 
   const handleAIAssistKey = async (index) => {
+    if (
+      !resumeData.workExperience[index].startYear ||
+      !resumeData.workExperience[index].endYear
+    ) {
+      toast.warn("Date is Required");
+      return;
+    }
     setLoadingStates((prev) => ({
       ...prev,
       [`key_${index}`]: true, // ✅ Separate loading state for key achievements
@@ -271,7 +288,8 @@ const WorkExperience = () => {
           company_name: resumeData.workExperience[index].company,
           job_title: resumeData.workExperience[index].position,
           location: resumeData.workExperience[index].location,
-          lang: language,
+          start_date: resumeData.workExperience[index].startYear,
+          end_date: resumeData.workExperience[index].endYear,
         },
         {
           headers: {
@@ -280,9 +298,7 @@ const WorkExperience = () => {
         }
       );
 
-      setKeyAchievements(
-        response.data.data.resume_analysis.responsibilities || []
-      ); // ✅ Store in keyAchievements state
+      setKeyAchievements(response.data.data.resume_analysis.responsibilities); // ✅ Store in keyAchievements state
       setPopupIndex(index);
       setPopupType("keyAchievements");
       setShowPopup(true);
@@ -745,7 +761,7 @@ const WorkExperience = () => {
                           ? "border-red-500"
                           : "border-black"
                       }`}
-                      value={(experience.startYear || "Jan,2024").split(",")[0]}
+                      value={experience.startYear.split(",")[0]}
                       onChange={(e) => handleMonthChange(e, index, "startYear")}
                     >
                       {months.map((month, idx) => (
@@ -760,7 +776,7 @@ const WorkExperience = () => {
                           ? "border-red-500"
                           : "border-black"
                       }`}
-                      value={(experience.startYear || "Jan,2024").split(",")[1]}
+                      value={experience.startYear.split(",")[1]}
                       onChange={(e) => handleYearChange(e, index, "startYear")}
                     >
                       {years.map((year, idx) => (
@@ -769,6 +785,49 @@ const WorkExperience = () => {
                         </option>
                       ))}
                     </select>
+                    {improve && hasErrors(index, "startYear") && (
+                      <button
+                        type="button"
+                        className="absolute right-2 top-10 text-red-500 hover:text-red-600 transition-colors"
+                        onClick={() =>
+                          setActiveTooltip(
+                            activeTooltip === `startYear-${index}`
+                              ? null
+                              : `startYear-${index}`
+                          )
+                        }
+                      >
+                        <AlertCircle className="w-5 h-5" />
+                      </button>
+                    )}
+                    {activeTooltip === `startYear-${index}` && (
+                      <div className="absolute z-50 right-0 mt-2 w-80 bg-white rounded-lg shadow-xl transition-all border border-gray-700">
+                        <div className="p-4 border-b border-gray-700 flex items-center justify-between">
+                          <div className="flex items-center space-x-2">
+                            <AlertCircle className="w-5 h-5 text-red-400" />
+                            <span className="font-medium text-black">
+                              Start Date Issue
+                            </span>
+                          </div>
+                          <button onClick={() => setActiveTooltip(null)}>
+                            <X className="w-5 h-5 text-black" />
+                          </button>
+                        </div>
+                        <div className="p-4">
+                          {getErrorMessages(index, "startYear").map(
+                            (msg, i) => (
+                              <div
+                                key={i}
+                                className="flex items-start space-x-3 mb-3 last:mb-0"
+                              >
+                                <div className="w-1.5 h-1.5 rounded-full bg-red-400 mt-2" />
+                                <p className="text-black text-sm">{msg}</p>
+                              </div>
+                            )
+                          )}
+                        </div>
+                      </div>
+                    )}
                   </div>
 
                   <label className="text-black">
@@ -784,7 +843,7 @@ const WorkExperience = () => {
                       value={
                         experience.endYear === "Present"
                           ? ""
-                          : (experience.endYear || "Dec,2024").split(",")[0]
+                          : experience.endYear.split(",")[0]
                       }
                       onChange={(e) => handleMonthChange(e, index, "endYear")}
                       disabled={experience.endYear === "Present"}
@@ -804,7 +863,7 @@ const WorkExperience = () => {
                       value={
                         experience.endYear === "Present"
                           ? ""
-                          : (experience.endYear || "Dec,2024").split(",")[1]
+                          : experience.endYear.split(",")[1]
                       }
                       onChange={(e) => handleYearChange(e, index, "endYear")}
                       disabled={experience.endYear === "Present"}
@@ -815,6 +874,7 @@ const WorkExperience = () => {
                         </option>
                       ))}
                     </select>
+
                     <label className="flex flex-1 items-center gap-1 other-input text-xl">
                       <input
                         type="checkbox"
@@ -824,7 +884,50 @@ const WorkExperience = () => {
                       />
                       Present
                     </label>
+                    {/* Tooltip Icon */}
+                    {improve && hasErrors(index, "endYear") && (
+                      <button
+                        type="button"
+                        className="absolute right-2 top-10 text-red-500 hover:text-red-600 transition-colors"
+                        onClick={() =>
+                          setActiveTooltip(
+                            activeTooltip === `endYear-${index}`
+                              ? null
+                              : `endYear-${index}`
+                          )
+                        }
+                      >
+                        <AlertCircle className="w-5 h-5" />
+                      </button>
+                    )}
                   </div>
+                  {/* Tooltip Message */}
+                  {activeTooltip === `endYear-${index}` && (
+                    <div className="absolute z-50 right-0 mt-2 w-80 bg-white rounded-lg shadow-xl transition-all border border-gray-700">
+                      <div className="p-4 border-b border-gray-700 flex items-center justify-between">
+                        <div className="flex items-center space-x-2">
+                          <AlertCircle className="w-5 h-5 text-red-400" />
+                          <span className="font-medium text-black">
+                            End Date Issue
+                          </span>
+                        </div>
+                        <button onClick={() => setActiveTooltip(null)}>
+                          <X className="w-5 h-5 text-black" />
+                        </button>
+                      </div>
+                      <div className="p-4">
+                        {getErrorMessages(index, "endYear").map((msg, i) => (
+                          <div
+                            key={i}
+                            className="flex items-start space-x-3 mb-3 last:mb-0"
+                          >
+                            <div className="w-1.5 h-1.5 rounded-full bg-red-400 mt-2" />
+                            <p className="text-black text-sm">{msg}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
                 <div className="relative mb-4">
                   <label className="mt-2 text-black">
@@ -1073,7 +1176,7 @@ const WorkExperience = () => {
                         ? "border-red-500"
                         : "border-black"
                     }`}
-                    value={experience.KeyAchievements.join("\n")}
+                    value={experience.KeyAchievements}
                     onChange={(e) => handleWorkExperience(e, index)}
                     rows={4}
                   />
@@ -1144,7 +1247,6 @@ const WorkExperience = () => {
         add={addWorkExperience}
         remove={removeWorkExperience}
       />
-
       {showPopup && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
           <div className="bg-white p-6 rounded-lg w-[90%] max-w-lg">
@@ -1153,40 +1255,86 @@ const WorkExperience = () => {
                 ? "Select Description"
                 : "Select Key Achievements"}
             </h3>
+
             <div className="space-y-3 max-h-96 overflow-y-auto">
-              {(popupType === "description"
-                ? descriptions || []
-                : keyAchievements || []
-              ).map((item, index) => (
-                <div key={index} className="flex items-start gap-3">
-                  {/* Radio for description (Single Select) */}
-                  {popupType === "description" ? (
-                    <input
-                      type="radio"
-                      name="description" // Ensures only one can be selected
-                      checked={selectedDescriptions.includes(item)}
-                      onChange={() => setSelectedDescriptions([item])} // Only one selection
-                      className="mt-1"
-                    />
-                  ) : (
-                    // Checkbox for key achievements (Multi Select)
-                    <input
-                      type="checkbox"
-                      checked={selectedKeyAchievements.includes(item)}
-                      onChange={() => handleSummarySelect(item)}
-                      className="mt-1"
-                    />
-                  )}
-                  <p className="text-gray-800">{item}</p>
+              {(popupType === "description" ? descriptions : keyAchievements)
+                ?.length > 0 ? (
+                (popupType === "description"
+                  ? descriptions
+                  : keyAchievements
+                )?.map((item, index) => (
+                  <div key={index} className="flex items-start gap-3">
+                    {popupType === "description" ? (
+                      <input
+                        type="radio"
+                        name="description"
+                        checked={selectedDescriptions.includes(item)}
+                        onChange={() => setSelectedDescriptions([item])}
+                        className="mt-1"
+                      />
+                    ) : (
+                      <input
+                        type="checkbox"
+                        checked={selectedKeyAchievements.includes(item)}
+                        onChange={() => handleSummarySelect(item)}
+                        className="mt-1"
+                      />
+                    )}
+                    <p className="text-gray-800">{item}</p>
+                  </div>
+                ))
+              ) : (
+                <div className="text-center py-6">
+                  <p className="text-gray-500 mb-4">
+                    {popupType === "description"
+                      ? "No descriptions available."
+                      : "No key achievements available."}
+                  </p>
+                  <button
+                    onClick={() => {
+                      if (popupType === "description") {
+                        handleAIAssistDescription(popupIndex);
+                      } else {
+                        handleAIAssistKey(popupIndex);
+                      }
+                    }}
+                    className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+                    disabled={
+                      loadingStates[
+                        `${
+                          popupType === "description" ? "description" : "key"
+                        }_${popupIndex}`
+                      ]
+                    }
+                  >
+                    {loadingStates[
+                      `${
+                        popupType === "description" ? "description" : "key"
+                      }_${popupIndex}`
+                    ]
+                      ? "Retrying..."
+                      : "Retry"}
+                  </button>
                 </div>
-              ))}
+              )}
             </div>
+
             <button
               onClick={(e) => handleSaveSelectedSummary(popupIndex, e)}
-              className="mt-4 bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-600"
+              className={`mt-4 px-4 py-2 rounded text-white ${
+                (popupType === "description" ? descriptions : keyAchievements)
+                  ?.length > 0
+                  ? "bg-gray-800 hover:bg-gray-600"
+                  : "bg-gray-400 cursor-not-allowed"
+              }`}
+              disabled={
+                (popupType === "description" ? descriptions : keyAchievements)
+                  ?.length === 0
+              }
             >
               Save Selection
             </button>
+
             <button
               onClick={() => setShowPopup(false)}
               className="mt-2 ml-2 bg-gray-400 text-black px-4 py-2 rounded hover:bg-gray-300"
