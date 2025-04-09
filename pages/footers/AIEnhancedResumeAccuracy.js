@@ -7,9 +7,11 @@ function AIEnhancedResumeAccuracy() {
   return (
     <div>
       <Navbar />
-      <div className="max-w-4xl mx-auto my-5 p-6 sm:p-10 shadow-lg bg-white rounded-lg">
-        <h1 className="text-3xl font-bold my-4 ">{t("AI-Enhanced_h")}</h1>
-        <h2> {t("AI-Enhanced_h1")}</h2>
+      <div className="m-4 sm:mx-10 lg:mx-40 p-4 sm:p-6 shadow-2xl">
+        <h1 className="text-4xl font-semibold my-4 underline text-center">
+          {t("AI-Enhanced_h")}
+        </h1>
+        <h2 className="font-semibold"> {t("AI-Enhanced_h1")}</h2>
         {t("AI-Enhanced_p1")}
         <h1 className="text-xl font-bold my-5">{t("AI-Enhanced_h1A")}</h1>
         <h1 className="text-sm font-semibold my-2">1. {t("AI-Enhanced_h2")}</h1>

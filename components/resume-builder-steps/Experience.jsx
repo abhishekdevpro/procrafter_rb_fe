@@ -82,9 +82,11 @@ export default function ExperienceStep({ onNext, onBack, onChange, value }) {
         );
 
         if (response.data.code == 200 || response.data.status == "success") {
-          const parsedAIData = response.data.data.ai_resume_parse_data;
+          const parsedAIData = JSON.parse(
+            response.data.data.ai_resume_parse_data
+          );
           setResumeData(parsedAIData.templateData);
-
+          console.log(">>>>>parse data", parsedAIData.templateData);
           // Set initial experience value if it exists
           if (parsedAIData.templateData.no_of_experience) {
             const experienceValue = parsedAIData.templateData.no_of_experience;
@@ -166,6 +168,7 @@ export default function ExperienceStep({ onNext, onBack, onChange, value }) {
       setIsLoading(false);
     }
   };
+  console.log(exp, "no-of exp");
   return (
     <div className="space-y-6">
       <div className="text-center">

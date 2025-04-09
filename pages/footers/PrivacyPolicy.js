@@ -165,9 +165,9 @@ function PrivacyPolicy() {
   const { t } = useTranslation();
 
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className="">
       <Navbar />
-      <div className="max-w-4xl mx-auto my-5 p-6 sm:p-10 shadow-lg bg-white rounded-lg">
+      <div className="m-4 sm:mx-10 lg:mx-40 p-4 sm:p-6 shadow-2xl">
         <h1 className="text-3xl sm:text-4xl font-semibold text-center underline mb-6">
           {t("privacyPolicy")}
         </h1>
