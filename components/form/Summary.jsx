@@ -28,7 +28,7 @@ const Summary = () => {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [isAutoFixLoading, setIsAutoFixLoading] = useState(false);
   const router = useRouter();
-  const { improve } = router.query;
+  const { id, improve } = router.query;
   // console.log(resumeStrength.personal_summery_strenght.summery, ">>>>");
   const hasErrors = () => {
     return (
@@ -114,7 +114,7 @@ const Summary = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        `${BASE_URL}/api/user/ai-resume-summery-data?lang=${language}`,
+        `${BASE_URL}/api/user/ai-resume-summery-data/${id}?lang=${language}`,
         {
           key: "resumesummery",
           keyword: `professional summary in manner of description - ${Date.now()}`,
@@ -142,7 +142,13 @@ const Summary = () => {
       }
     } catch (error) {
       console.error("Error getting AI summaries:", error);
-      setError("An error occurred while fetching summaries. Please try again.");
+      // setError("An error occurred while fetching summaries. Please try again.");
+      const errorMessage =
+        error?.response?.data?.message ||
+        "An error occurred while fetching summaries.";
+
+      toast.error(errorMessage); // show toast with API message
+      setError(errorMessage);
     } finally {
       setLoading(false);
     }

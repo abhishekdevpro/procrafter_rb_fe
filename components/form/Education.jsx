@@ -1,7 +1,7 @@
 import { ResumeContext } from "../context/ResumeContext";
 import FormButton from "./FormButton";
 import React, { useContext, useState } from "react";
-import { AlertCircle, X, Loader2 } from "lucide-react";
+import { AlertCircle, X, Loader2, Trash } from "lucide-react";
 import { useRouter } from "next/router";
 import { MdRemoveCircle } from "react-icons/md";
 import { BASE_URL } from "../Constant/constant";
@@ -148,22 +148,55 @@ const Education = () => {
     { length: 50 },
     (_, i) => new Date().getFullYear() - i
   );
-
+  const formatDateValue = (month, year) => {
+    if (month && year) {
+      return `${month},${year}`;
+    } else if (month) {
+      return month;
+    } else if (year) {
+      return year;
+    } else {
+      return "";
+    }
+  };
   const handleMonthChange = (e, index, field) => {
     const newEducation = [...resumeData.education];
-    const currentDate = newEducation[index][field] || "Aug,2020";
-    const [_, year] = currentDate.split(",");
     const newMonth = e.target.value;
-    newEducation[index][field] = `${newMonth},${year || ""}`;
+
+    // Get the current year value
+    let year = "";
+    if (newEducation[index][field]) {
+      const parts = newEducation[index][field].split(",");
+      if (parts.length > 1) {
+        year = parts[1];
+      } else if (parts.length === 1 && !months.includes(parts[0])) {
+        // If there's only one part and it's not a month, it must be a year
+        year = parts[0];
+      }
+    }
+
+    // Format the new value
+    newEducation[index][field] = formatDateValue(newMonth, year);
+
     setResumeData({ ...resumeData, education: newEducation });
   };
 
   const handleYearChange = (e, index, field) => {
     const newEducation = [...resumeData.education];
-    const currentDate = newEducation[index][field] || "Aug,2020";
-    const [month, _] = currentDate.split(",");
     const newYear = e.target.value;
-    newEducation[index][field] = `${month || ""},${newYear}`;
+
+    // Get the current month value
+    let month = "";
+    if (newEducation[index][field]) {
+      const parts = newEducation[index][field].split(",");
+      if (parts.length > 0 && months.includes(parts[0])) {
+        month = parts[0];
+      }
+    }
+
+    // Format the new value
+    newEducation[index][field] = formatDateValue(month, newYear);
+
     setResumeData({ ...resumeData, education: newEducation });
   };
   const handlePresentToggle = (index) => {
@@ -181,8 +214,8 @@ const Education = () => {
         {
           school: "",
           degree: "",
-          startYear: "Aug,2020",
-          endYear: "Jul,2024",
+          startYear: "",
+          endYear: "",
           location: "",
         },
       ],
@@ -208,6 +241,31 @@ const Education = () => {
     return null;
   };
 
+  const getDatePart = (dateStr, part) => {
+    if (!dateStr) return "";
+    if (dateStr === "Present") return part === "month" ? "" : dateStr;
+
+    const parts = dateStr.split(",");
+
+    // If there's only one part, determine if it's a month or year
+    if (parts.length === 1) {
+      if (months.includes(parts[0]) && part === "month") {
+        return parts[0];
+      } else if (!isNaN(parts[0]) && part === "year") {
+        return parts[0];
+      } else {
+        return "";
+      }
+    }
+
+    // If there are two parts, return the appropriate one
+    if (part === "month") {
+      return parts[0] || "";
+    } else {
+      return parts[1] || "";
+    }
+  };
+
   // Close dropdowns when clicking outside
   React.useEffect(() => {
     const handleClickOutside = () => {
@@ -218,6 +276,26 @@ const Education = () => {
 
     document.addEventListener("click", handleClickOutside);
     return () => document.removeEventListener("click", handleClickOutside);
+  }, []);
+
+  // Clean up any existing data that might have just commas
+  React.useEffect(() => {
+    const needsCleanup = resumeData.education?.some(
+      (edu) => edu.startYear === "," || edu.endYear === ","
+    );
+
+    if (needsCleanup) {
+      const cleanedEducation = resumeData.education.map((edu) => ({
+        ...edu,
+        startYear: edu.startYear === "," ? "" : edu.startYear,
+        endYear: edu.endYear === "," ? "" : edu.endYear,
+      }));
+
+      setResumeData({
+        ...resumeData,
+        education: cleanedEducation,
+      });
+    }
   }, []);
 
   const renderTooltip = (index, field, title) => {
@@ -413,14 +491,14 @@ const Education = () => {
             <label className="text-black">
               {t("builder_forms.work_experience.start_date")}
             </label>
-            <div className="flex-wrap-gap-2">
+            <div className="flex-wrap-gap-2 relative">
               <select
                 className={`border other-input flex-1 ${
                   improve && hasErrors(index, "startYear")
                     ? "border-red-500"
                     : "border-black"
                 }`}
-                value={(education.startYear || "Aug,2020").split(",")[0]}
+                value={getDatePart(education.startYear, "month")}
                 onChange={(e) => handleMonthChange(e, index, "startYear")}
               >
                 <option value="">Month</option>
@@ -436,7 +514,7 @@ const Education = () => {
                     ? "border-red-500"
                     : "border-black"
                 }`}
-                value={(education.startYear || "Aug,2020").split(",")[1]}
+                value={getDatePart(education.startYear, "year")}
                 onChange={(e) => handleYearChange(e, index, "startYear")}
               >
                 <option value="">Year</option>
@@ -446,6 +524,55 @@ const Education = () => {
                   </option>
                 ))}
               </select>
+              {improve && hasErrors(index, "startYear") && (
+                <>
+                  <button
+                    type="button"
+                    className="absolute -right-8 top-1 text-red-500"
+                    onClick={() =>
+                      setActiveTooltip(
+                        activeTooltip === `startYear-${index}`
+                          ? null
+                          : `startYear-${index}`
+                      )
+                    }
+                  >
+                    <AlertCircle className="w-5 h-5" />
+                  </button>
+
+                  {activeTooltip === `startYear-${index}` && (
+                    <div className="absolute right-0 top-14 w-80 bg-white rounded-lg shadow-xl border border-gray-700 z-50">
+                      <div className="p-4 border-b border-gray-700">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center space-x-2">
+                            <AlertCircle className="w-5 h-5 text-red-400" />
+                            <span className="font-medium text-black">
+                              Start Date Issues
+                            </span>
+                          </div>
+                          <button
+                            onClick={() => setActiveTooltip(null)}
+                            className="text-black transition-colors"
+                          >
+                            <X className="w-5 h-5" />
+                          </button>
+                        </div>
+                      </div>
+                      <div className="p-4">
+                        {getErrorMessage(index, "startYear").map((msg, i) => (
+                          <div
+                            key={i}
+                            className="flex items-start space-x-3 mb-3 last:mb-0"
+                          >
+                            <div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-red-400 mt-2" />
+                            <p className="text-black text-sm">{msg}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </>
+              )}
             </div>
 
             <label className="text-black">
@@ -458,7 +585,7 @@ const Education = () => {
                     ? "border-red-500"
                     : "border-black"
                 }`}
-                value={(education.endYear || "Jul,2024").split(",")[0]}
+                value={getDatePart(education.endYear, "month")}
                 onChange={(e) => handleMonthChange(e, index, "endYear")}
                 disabled={education.endYear === "Present"} // Disable the month select if "Present" is checked
               >
@@ -475,7 +602,7 @@ const Education = () => {
                     ? "border-red-500"
                     : "border-black"
                 }`}
-                value={(education.endYear || "Jul,2024").split(",")[1]}
+                value={getDatePart(education.endYear, "year")}
                 onChange={(e) => handleYearChange(e, index, "endYear")}
                 disabled={education.endYear === "Present"} // Disable the year select if "Present" is checked
               >
@@ -495,6 +622,55 @@ const Education = () => {
                 />
                 Present
               </label>
+              {improve && hasErrors(index, "endYear") && (
+                <>
+                  <button
+                    type="button"
+                    className="absolute -right-8 top-1 text-red-500"
+                    onClick={() =>
+                      setActiveTooltip(
+                        activeTooltip === `endYear-${index}`
+                          ? null
+                          : `endYear-${index}`
+                      )
+                    }
+                  >
+                    <AlertCircle className="w-5 h-5" />
+                  </button>
+
+                  {activeTooltip === `endYear-${index}` && (
+                    <div className="absolute right-0 top-14 w-80 bg-white rounded-lg shadow-xl border border-gray-700 z-50">
+                      <div className="p-4 border-b border-gray-700">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center space-x-2">
+                            <AlertCircle className="w-5 h-5 text-red-400" />
+                            <span className="font-medium text-black">
+                              End Date Issues
+                            </span>
+                          </div>
+                          <button
+                            onClick={() => setActiveTooltip(null)}
+                            className="text-black transition-colors"
+                          >
+                            <X className="w-5 h-5" />
+                          </button>
+                        </div>
+                      </div>
+                      <div className="p-4">
+                        {getErrorMessage(index, "endYear")?.map((msg, i) => (
+                          <div
+                            key={i}
+                            className="flex items-start space-x-3 mb-3 last:mb-0"
+                          >
+                            <div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-red-400 mt-2" />
+                            <p className="text-black text-sm">{msg}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </>
+              )}
             </div>
           </div>
 

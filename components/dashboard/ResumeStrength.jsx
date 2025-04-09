@@ -43,6 +43,7 @@ const Modal = ({ isOpen, onClose, children }) => {
 
 const TooltipContent = ({ improvements, resumeId, onClose }) => {
   const [Loading, setLoading] = useState(false);
+  const [improveBy, setImproveBy] = useState(null); // Track selected improvement option
   const router = useRouter();
   const { resumeData } = useContext(ResumeContext);
   const { t } = useTranslation();
@@ -71,6 +72,8 @@ const TooltipContent = ({ improvements, resumeId, onClose }) => {
   ];
 
   const handleATS = async () => {
+    if (!improveBy) return; // Don't proceed if no option is selected
+
     const token = localStorage.getItem("token");
 
     setLoading(true); // Ensure loading is set to true when the request starts
@@ -80,7 +83,7 @@ const TooltipContent = ({ improvements, resumeId, onClose }) => {
     }
     try {
       const response = await axios.get(
-        `${BASE_URL}/api/user/ats-improve/${resumeId}?lang=${selectedLang}`,
+        `${BASE_URL}/api/user/ats-improve/${resumeId}?improve_by=${improveBy}&lang=${selectedLang}`,
         {
           headers: {
             Authorization: token,
@@ -172,19 +175,74 @@ const TooltipContent = ({ improvements, resumeId, onClose }) => {
         </div>
       </div>
 
+      {/* Keywords Section */}
+      <div className="w-full flex flex-col md:flex-row justify-between items-start gap-2 md:gap-6 mt-6">
+        <div className="w-full md:w-1/2 p-4 bg-green-100 text-green-700 rounded-lg">
+          <h4 className="font-bold text-lg">Keywords Found</h4>
+          {improvements.keywords_found?.length > 0 ? (
+            <ul className="list-disc list-inside">
+              {improvements.keywords_found.map((keyword, index) => (
+                <li key={index}>{keyword}</li>
+              ))}
+            </ul>
+          ) : (
+            <p>No missing keywords</p>
+          )}
+        </div>
+        <div className="w-full md:w-1/2 p-4 bg-red-100 text-red-700 rounded-lg">
+          <h4 className="font-bold text-lg">Keywords Missing</h4>
+          {improvements.keywords_missing?.length > 0 ? (
+            <ul className="list-disc list-inside">
+              {improvements.keywords_missing.map((keyword, index) => (
+                <li key={index}>{keyword}</li>
+              ))}
+            </ul>
+          ) : (
+            <p>No missing keywords</p>
+          )}
+        </div>
+      </div>
       {/* Overall Comments */}
       <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl p-6 mt-6 text-white">
         <h3 className="text-lg font-bold">{t("overall_comments")}</h3>
         <p>{improvements?.overall_comments}</p>
       </div>
+      {/* Improvement Option Selection */}
+      <div className="flex flex-col gap-2 mt-4">
+        <h4 className="font-medium text-gray-800">
+          Select Improvement Method:
+        </h4>
+        <label className="flex items-center gap-2 text-sm text-gray-800">
+          <input
+            type="radio"
+            name="improveBy"
+            value="jobtitle"
+            checked={improveBy === "jobtitle"}
+            onChange={() => setImproveBy("jobtitle")}
+            className="text-blue-600 focus:ring-blue-500"
+          />
+          Improve by Job Title
+        </label>
+        <label className="flex items-center gap-2 text-sm text-gray-800">
+          <input
+            type="radio"
+            name="improveBy"
+            value="overall"
+            checked={improveBy === "overall"}
+            onChange={() => setImproveBy("overall")}
+            className="text-blue-600 focus:ring-blue-500"
+          />
+          Improve Overall
+        </label>
+      </div>
       <button
         onClick={handleATS}
         className={`mt-6 px-6 py-2 w-full bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors ${
-          improvements.ats_score === 10 || Loading
+          !improveBy || improvements.ats_score === 10 || Loading
             ? "opacity-50 cursor-not-allowed"
             : ""
         }`}
-        disabled={improvements.ats_score === 10 || Loading}
+        disabled={!improveBy || improvements.ats_score === 10 || Loading}
       >
         {Loading ? (
           <SaveLoader loadingText="Proceed To Improve" />
