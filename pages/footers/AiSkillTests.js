@@ -7,8 +7,8 @@ function AiSkillTests() {
   return (
     <div>
       <Navbar />
-      <div className=" max-w-4xl mx-auto my-5 p-6 sm:p-10 shadow-lg bg-white rounded-lg">
-        <h1 className="text-4xl font-semibold my-4 underline ">
+      <div className=" m-4 sm:mx-10 lg:mx-40 p-4 sm:p-6 shadow-2xl">
+        <h1 className="text-4xl font-semibold my-4 underline text-center ">
           {t("Ai_Skill_Tests")}
         </h1>
         <h1 className="text-2xl font-semibold my-2 mt-5 ">
@@ -19,15 +19,15 @@ function AiSkillTests() {
           {t("Ai_Skill_Tests_heading2")}
         </h1>
         <h1 className="text-sm font-semibold my-2">
-          {t("Ai_Skill_Tests_heading3")}
+          1. {t("Ai_Skill_Tests_heading3")}
         </h1>
         {t("Ai_Skill_Tests_paragraph2")}
         <h1 className="text-sm font-semibold my-2">
-          {t("Ai_Skill_Tests_heading4")}
+          2. {t("Ai_Skill_Tests_heading4")}
         </h1>
         {t("Ai_Skill_Tests_paragraph3")}
         <h1 className="text-sm font-semibold my-2">
-          {t("Ai_Skill_Tests_heading5")}
+          3. {t("Ai_Skill_Tests_heading5")}
         </h1>
         {t("Ai_Skill_Tests_paragraph4")}
         <h1 className="text-sm font-semibold my-2">

@@ -133,7 +133,7 @@ function Salarytools() {
     <div>
       <Navbar />
       <div className="m-4 sm:mx-10 lg:mx-40 p-4 sm:p-6 shadow-2xl">
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold my-4 underline">
+        <h1 className="text-4xl font-semibold my-4 underline text-center">
           {t("salary_tools_title")}
         </h1>
 

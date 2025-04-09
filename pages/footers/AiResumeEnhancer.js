@@ -124,123 +124,120 @@ import { useTranslation } from "react-i18next";
 
 function AiResumeEnhancer() {
   const { t } = useTranslation();
-  
 
   return (
     <div>
       <Navbar />
-      <div className="m-10 shadow-2xl max-w-4xl mx-auto my-5 p-6 sm:p-10 bg-white rounded-lg">
-        
-
+      <div className="m-4 sm:mx-10 lg:mx-40 p-4 sm:p-6 shadow-2xl">
         <h1 className="my-4 text-3xl sm:text-4xl font-semibold text-center underline">
-          {t('aiResumeEnhancer.title')}
+          {t("aiResumeEnhancer.title")}
         </h1>
         <h2 className="text-xl font-bold my-5">
-          {t('aiResumeEnhancer.subtitle')}
+          {t("aiResumeEnhancer.subtitle")}
         </h2>
-        {t('aiResumeEnhancer.intro')}
+        {t("aiResumeEnhancer.intro")}
 
         <h1 className="text-xl font-bold my-5">
-          {t('aiResumeEnhancer.featuresTitle')}
+          {t("aiResumeEnhancer.featuresTitle")}
         </h1>
 
         <h1 className="text-sm font-semibold my-2">
-          {t('aiResumeEnhancer.feature1Title')}
+          {t("aiResumeEnhancer.feature1Title")}
         </h1>
-        {t('aiResumeEnhancer.feature1Desc')}
+        {t("aiResumeEnhancer.feature1Desc")}
 
         <h1 className="text-sm font-semibold my-2">
-          {t('aiResumeEnhancer.feature2Title')}
+          {t("aiResumeEnhancer.feature2Title")}
         </h1>
-        {t('aiResumeEnhancer.feature2Desc')}
+        {t("aiResumeEnhancer.feature2Desc")}
 
         <h1 className="text-sm font-semibold my-2">
-          {t('aiResumeEnhancer.feature3Title')}
+          {t("aiResumeEnhancer.feature3Title")}
         </h1>
-        {t('aiResumeEnhancer.feature3Desc')}
+        {t("aiResumeEnhancer.feature3Desc")}
 
         <h1 className="text-sm font-semibold my-2">
-          {t('aiResumeEnhancer.feature4Title')}
+          {t("aiResumeEnhancer.feature4Title")}
         </h1>
-        {t('aiResumeEnhancer.feature4Desc')}
+        {t("aiResumeEnhancer.feature4Desc")}
 
         <h1 className="text-sm font-semibold my-2">
-          {t('aiResumeEnhancer.feature5Title')}
+          {t("aiResumeEnhancer.feature5Title")}
         </h1>
-        {t('aiResumeEnhancer.feature5Desc')}
+        {t("aiResumeEnhancer.feature5Desc")}
 
         <h1 className="text-sm font-semibold my-2">
-          {t('aiResumeEnhancer.feature6Title')}
+          {t("aiResumeEnhancer.feature6Title")}
         </h1>
-        {t('aiResumeEnhancer.feature6Desc')}
+        {t("aiResumeEnhancer.feature6Desc")}
 
         <h1 className="text-sm font-semibold my-2">
-          {t('aiResumeEnhancer.feature7Title')}
+          {t("aiResumeEnhancer.feature7Title")}
         </h1>
-        {t('aiResumeEnhancer.feature7Desc')}
+        {t("aiResumeEnhancer.feature7Desc")}
 
         <h1 className="text-sm font-semibold my-2">
-          {t('aiResumeEnhancer.feature8Title')}
+          {t("aiResumeEnhancer.feature8Title")}
         </h1>
-        {t('aiResumeEnhancer.feature8Desc')}
+        {t("aiResumeEnhancer.feature8Desc")}
 
         <h1 className="text-lg font-bold my-4">
-          {t('aiResumeEnhancer.howItWorksTitle')}
+          {t("aiResumeEnhancer.howItWorksTitle")}
         </h1>
 
         <h1 className="text-sm font-semibold my-2">
-          {t('aiResumeEnhancer.step1Title')}
+          {t("aiResumeEnhancer.step1Title")}
         </h1>
-        {t('aiResumeEnhancer.step1Desc')}
+        {t("aiResumeEnhancer.step1Desc")}
 
         <h1 className="text-sm font-semibold my-2">
-          {t('aiResumeEnhancer.step2Title')}
+          {t("aiResumeEnhancer.step2Title")}
         </h1>
-        {t('aiResumeEnhancer.step2Desc')}
+        {t("aiResumeEnhancer.step2Desc")}
 
         <h1 className="text-sm font-semibold my-2">
-          {t('aiResumeEnhancer.step3Title')}
+          {t("aiResumeEnhancer.step3Title")}
         </h1>
-        {t('aiResumeEnhancer.step3Desc')}
+        {t("aiResumeEnhancer.step3Desc")}
 
         <h1 className="text-sm font-semibold my-2">
-          {t('aiResumeEnhancer.step4Title')}
+          {t("aiResumeEnhancer.step4Title")}
         </h1>
-        {t('aiResumeEnhancer.step4Desc')}
+        {t("aiResumeEnhancer.step4Desc")}
 
         <h1 className="text-lg font-bold my-2">
-          {t('aiResumeEnhancer.benefitsTitle')}
+          {t("aiResumeEnhancer.benefitsTitle")}
         </h1>
 
         <h1 className="text-sm font-semibold my-2">
-          {t('aiResumeEnhancer.benefit1Title')}
+          {t("aiResumeEnhancer.benefit1Title")}
         </h1>
-        {t('aiResumeEnhancer.benefit1Desc')}
+        {t("aiResumeEnhancer.benefit1Desc")}
 
         <h1 className="text-sm font-semibold my-2">
-          {t('aiResumeEnhancer.benefit2Title')}
+          {t("aiResumeEnhancer.benefit2Title")}
         </h1>
-        {t('aiResumeEnhancer.benefit2Desc')}
+        {t("aiResumeEnhancer.benefit2Desc")}
 
         <h1 className="text-sm font-semibold my-2">
-          {t('aiResumeEnhancer.benefit3Title')}
+          {t("aiResumeEnhancer.benefit3Title")}
         </h1>
-        {t('aiResumeEnhancer.benefit3Desc')}
+        {t("aiResumeEnhancer.benefit3Desc")}
 
         <h1 className="text-sm font-semibold my-2">
-          {t('aiResumeEnhancer.benefit4Title')}
+          {t("aiResumeEnhancer.benefit4Title")}
         </h1>
-        {t('aiResumeEnhancer.benefit4Desc')}
+        {t("aiResumeEnhancer.benefit4Desc")}
 
         <h1 className="text-sm font-semibold my-2">
-          {t('aiResumeEnhancer.startEnhancingTitle')}
+          {t("aiResumeEnhancer.startEnhancingTitle")}
         </h1>
-        {t('aiResumeEnhancer.startEnhancingDesc')}
+        {t("aiResumeEnhancer.startEnhancingDesc")}
 
         <h1 className="text-lg font-bold my-2">
-          {t('aiResumeEnhancer.getStartedTitle')}
+          {t("aiResumeEnhancer.getStartedTitle")}
         </h1>
-        {t('aiResumeEnhancer.getStartedDesc')}
+        {t("aiResumeEnhancer.getStartedDesc")}
       </div>
       <Footer />
     </div>

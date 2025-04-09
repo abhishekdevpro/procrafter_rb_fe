@@ -135,134 +135,132 @@ import { useTranslation } from "react-i18next";
 
 function AiJobMatchApply() {
   const { t } = useTranslation();
- 
 
   return (
     <div>
       <Navbar />
-      <div className="max-w-4xl mx-auto my-5 p-6 sm:p-10 shadow-lg bg-white rounded-lg">
+      <div className="m-4 sm:mx-10 lg:mx-40 p-4 sm:p-6 shadow-2xl">
         {/* Language Toggle Button */}
-       
 
-        <h1 className="text-4xl font-semibold my-4 underline">
-          {t('aiJobMatchApply.title')}
+        <h1 className="text-4xl font-semibold my-4 underline text-center">
+          {t("aiJobMatchApply.title")}
         </h1>
         <h2 className="text-xl font-bold my-5">
-          {t('aiJobMatchApply.subtitle')}
+          {t("aiJobMatchApply.subtitle")}
         </h2>
-        {t('aiJobMatchApply.intro')}
+        {t("aiJobMatchApply.intro")}
 
         <h1 className="text-xl font-bold my-5">
-          {t('aiJobMatchApply.featuresTitle')}
+          {t("aiJobMatchApply.featuresTitle")}
         </h1>
 
         <h1 className="text-sm font-semibold my-2">
-          {t('aiJobMatchApply.feature1Title')}
+          {t("aiJobMatchApply.feature1Title")}
         </h1>
-        {t('aiJobMatchApply.feature1Desc')}
+        {t("aiJobMatchApply.feature1Desc")}
 
         <h1 className="text-sm font-semibold my-2">
-          {t('aiJobMatchApply.feature2Title')}
+          {t("aiJobMatchApply.feature2Title")}
         </h1>
-        {t('aiJobMatchApply.feature2Desc')}
+        {t("aiJobMatchApply.feature2Desc")}
 
         <h1 className="text-sm font-semibold my-2">
-          {t('aiJobMatchApply.feature3Title')}
+          {t("aiJobMatchApply.feature3Title")}
         </h1>
-        {t('aiJobMatchApply.feature3Desc')}
+        {t("aiJobMatchApply.feature3Desc")}
 
         <h1 className="text-sm font-semibold my-2">
-          {t('aiJobMatchApply.feature4Title')}
+          {t("aiJobMatchApply.feature4Title")}
         </h1>
-        {t('aiJobMatchApply.feature4Desc')}
+        {t("aiJobMatchApply.feature4Desc")}
 
         <h1 className="text-sm font-semibold my-2">
-          {t('aiJobMatchApply.feature5Title')}
+          {t("aiJobMatchApply.feature5Title")}
         </h1>
-        {t('aiJobMatchApply.feature5Desc')}
+        {t("aiJobMatchApply.feature5Desc")}
 
         <h1 className="text-sm font-semibold my-2">
-          {t('aiJobMatchApply.feature6Title')}
+          {t("aiJobMatchApply.feature6Title")}
         </h1>
-        {t('aiJobMatchApply.feature6Desc')}
+        {t("aiJobMatchApply.feature6Desc")}
 
         <h1 className="text-sm font-semibold my-2">
-          {t('aiJobMatchApply.feature7Title')}
+          {t("aiJobMatchApply.feature7Title")}
         </h1>
-        {t('aiJobMatchApply.feature7Desc')}
+        {t("aiJobMatchApply.feature7Desc")}
 
         <h1 className="text-sm font-semibold my-2">
-          {t('aiJobMatchApply.feature8Title')}
+          {t("aiJobMatchApply.feature8Title")}
         </h1>
-        {t('aiJobMatchApply.feature8Desc')}
+        {t("aiJobMatchApply.feature8Desc")}
 
         <h1 className="text-lg font-bold my-4">
-          {t('aiJobMatchApply.howItWorksTitle')}
+          {t("aiJobMatchApply.howItWorksTitle")}
         </h1>
 
         <h1 className="text-sm font-semibold my-2">
-          {t('aiJobMatchApply.step1Title')}
+          {t("aiJobMatchApply.step1Title")}
         </h1>
-        {t('aiJobMatchApply.step1Desc')}
+        {t("aiJobMatchApply.step1Desc")}
 
         <h1 className="text-sm font-semibold my-2">
-          {t('aiJobMatchApply.step2Title')}
+          {t("aiJobMatchApply.step2Title")}
         </h1>
-        {t('aiJobMatchApply.step2Desc')}
+        {t("aiJobMatchApply.step2Desc")}
 
         <h1 className="text-sm font-semibold my-2">
-          {t('aiJobMatchApply.step3Title')}
+          {t("aiJobMatchApply.step3Title")}
         </h1>
-        {t('aiJobMatchApply.step3Desc')}
+        {t("aiJobMatchApply.step3Desc")}
 
         <h1 className="text-sm font-semibold my-2">
-          {t('aiJobMatchApply.step4Title')}
+          {t("aiJobMatchApply.step4Title")}
         </h1>
-        {t('aiJobMatchApply.step4Desc')}
+        {t("aiJobMatchApply.step4Desc")}
 
         <h1 className="text-sm font-semibold my-2">
-          {t('aiJobMatchApply.step5Title')}
+          {t("aiJobMatchApply.step5Title")}
         </h1>
-        {t('aiJobMatchApply.step5Desc')}
+        {t("aiJobMatchApply.step5Desc")}
 
         <h1 className="text-sm font-semibold my-2">
-          {t('aiJobMatchApply.step6Title')}
+          {t("aiJobMatchApply.step6Title")}
         </h1>
-        {t('aiJobMatchApply.step6Desc')}
+        {t("aiJobMatchApply.step6Desc")}
 
         <h1 className="text-lg font-bold my-2">
-          {t('aiJobMatchApply.benefitsTitle')}
+          {t("aiJobMatchApply.benefitsTitle")}
         </h1>
 
         <h1 className="text-sm font-semibold my-2">
-          {t('aiJobMatchApply.benefit1Title')}
+          {t("aiJobMatchApply.benefit1Title")}
         </h1>
-        {t('aiJobMatchApply.benefit1Desc')}
+        {t("aiJobMatchApply.benefit1Desc")}
 
         <h1 className="text-sm font-semibold my-2">
-          {t('aiJobMatchApply.benefit2Title')}
+          {t("aiJobMatchApply.benefit2Title")}
         </h1>
-        {t('aiJobMatchApply.benefit2Desc')}
+        {t("aiJobMatchApply.benefit2Desc")}
 
         <h1 className="text-sm font-semibold my-2">
-          {t('aiJobMatchApply.benefit3Title')}
+          {t("aiJobMatchApply.benefit3Title")}
         </h1>
-        {t('aiJobMatchApply.benefit3Desc')}
+        {t("aiJobMatchApply.benefit3Desc")}
 
         <h1 className="text-sm font-semibold my-2">
-          {t('aiJobMatchApply.benefit4Title')}
+          {t("aiJobMatchApply.benefit4Title")}
         </h1>
-        {t('aiJobMatchApply.benefit4Desc')}
+        {t("aiJobMatchApply.benefit4Desc")}
 
         <h1 className="text-sm font-semibold my-2">
-          {t('aiJobMatchApply.startUsingTitle')}
+          {t("aiJobMatchApply.startUsingTitle")}
         </h1>
-        {t('aiJobMatchApply.startUsingDesc')}
+        {t("aiJobMatchApply.startUsingDesc")}
 
         <h1 className="text-lg font-bold my-2">
-          {t('aiJobMatchApply.getStartedTitle')}
+          {t("aiJobMatchApply.getStartedTitle")}
         </h1>
-        {t('aiJobMatchApply.getStartedDesc')}
+        {t("aiJobMatchApply.getStartedDesc")}
       </div>
       <Footer />
     </div>
