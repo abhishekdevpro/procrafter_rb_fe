@@ -103,12 +103,11 @@ const Education = () => {
           keyword
         )}&lang=${language}`
       );
-      if (response.ok) {
-        const data = await response.json();
-        const locations = data.data.location_names.map((item) => item);
-        setLocationSuggestions(locations);
-        setShowLocationDropdown(true);
-      }
+
+      const data = response.data;
+      const locations = data.data.location_names.map((item) => item);
+      setLocationSuggestions(locations);
+      setShowLocationDropdown(true);
     } catch (error) {
       console.error("Error fetching locations:", error);
     }
