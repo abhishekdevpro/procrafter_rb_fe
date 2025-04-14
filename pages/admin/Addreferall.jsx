@@ -3,7 +3,10 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Link from "next/link";
+import { useTranslation } from "react-i18next";
 function Addreferall() {
+  const { t } = useTranslation();
+
   const boxes = [
     // <Link href="#" key="box1">
     //   <div className="bg-pink-500 hover:bg-gray-300 hover:text-black rounded-lg shadow-md pt-16 w-80 h-60 text-center text-white cursor-pointer text-3xl font-semibold">
@@ -23,28 +26,28 @@ function Addreferall() {
       <div className="bg-pink-500 hover:bg-gray-300 hover:text-black rounded-lg shadow-md pt-16 w-80 h-60 text-center text-white cursor-pointer text-3xl font-semibold">
         <div className="text-5xl">📫</div>
         <br />
-        Request Service
+        {t("admin.leads.requestService")}
       </div>
     </Link>,
     <Link href="#" key="box2">
       <div className="bg-pink-500 hover:bg-gray-300 hover:text-black rounded-lg shadow-md pt-16 w-80 h-60 text-center text-white cursor-pointer text-3xl font-semibold">
         <div className="text-5xl">📑</div>
         <br />
-        New Template
+        {t("admin.leads.newTemplate")}
       </div>
     </Link>,
     <Link href="#" key="box1">
       <div className="bg-pink-500 hover:bg-gray-300 hover:text-black rounded-lg shadow-md pt-16 w-80 h-60 text-center text-white cursor-pointer text-3xl font-semibold">
         <div className="text-5xl">📝</div>
         <br />
-        New Cover Letter
+        {t("admin.leads.newCoverLetter")}
       </div>
     </Link>,
     <Link href="#" key="box2">
       <div className="bg-pink-500 hover:bg-gray-300 hover:text-black rounded-lg shadow-md pt-16 w-80 h-60 text-center text-white cursor-pointer text-3xl font-semibold">
         <div className="text-5xl">🛠️</div>
         <br />
-        Support
+        {t("admin.leads.support")}
       </div>
     </Link>,
     // <Link href="#" key="box2">

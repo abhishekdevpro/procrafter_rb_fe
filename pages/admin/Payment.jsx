@@ -116,8 +116,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { BASE_URL } from "../../components/Constant/constant";
 import { toast } from "react-toastify";
-
+import { useTranslation } from "react-i18next";
 function Payment() {
+  const { t } = useTranslation();
+
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [remarks, setRemarks] = useState({});
@@ -155,7 +157,7 @@ function Payment() {
     const remark = remarks[Id];
 
     if (!remark || remark.trim() === "") {
-      toast.error("Please enter a remark before submitting");
+      toast.error(t("admin.payment.remarkEmpty"));
       return;
     }
 
@@ -174,7 +176,9 @@ function Payment() {
       )
       .then((response) => {
         console.log("Remark submitted successfully:", response.data);
-        toast.success(response.data.message || "Remark submitted successfully");
+        toast.success(
+          response.data.message || t("admin.payment.remarkSuccess")
+        );
 
         // Update the user data to reflect the new remark
         setUsers(
@@ -185,7 +189,9 @@ function Payment() {
       })
       .catch((error) => {
         console.error("Error submitting remark:", error);
-        toast.error(error.response?.data?.message || "Failed to submit remark");
+        toast.error(
+          error.response?.data?.message || t("radmin.payment.emarkFailed")
+        );
       });
   };
 
@@ -193,7 +199,7 @@ function Payment() {
     <div className="container mx-auto p-4">
       <div className="bg-gradient-to-r from-pink-500 to-pink-700 p-6 rounded-lg shadow-lg mb-8">
         <h2 className="text-start text-3xl text-white font-bold">
-          Payment History
+          {t("admin.payment.paymentHistory")}
         </h2>
       </div>
 
@@ -218,10 +224,10 @@ function Payment() {
             ></path>
           </svg>
           <h3 className="text-xl font-semibold text-gray-800 mb-2">
-            No Payment History Found
+            {t("admin.payment.noPaymentFound")}
           </h3>
           <p className="text-gray-600">
-            There are no payment records available at this time.
+            {t("admin.payment.noRecordsAvailable")}
           </p>
         </div>
       ) : (
@@ -230,28 +236,28 @@ function Payment() {
             <thead>
               <tr>
                 <th className="px-6 py-4 bg-gradient-to-r from-pink-500 to-pink-700 text-white text-left text-sm font-medium uppercase tracking-wider rounded-tl-lg">
-                  ID
+                  {t("admin.payment.id")}
                 </th>
                 <th className="px-6 py-4 bg-gradient-to-r from-pink-500 to-pink-700 text-white text-left text-sm font-medium uppercase tracking-wider">
-                  Name
+                  {t("admin.payment.name")}
                 </th>
                 <th className="px-6 py-4 bg-gradient-to-r from-pink-500 to-pink-700 text-white text-left text-sm font-medium uppercase tracking-wider">
-                  Email
+                  {t("admin.payment.email")}
                 </th>
                 {/* <th className="px-6 py-4 bg-gradient-to-r from-pink-500 to-pink-700 text-white text-left text-sm font-medium uppercase tracking-wider">
-                  Phone
+                 {t("admin.payment.phone")}
                 </th> */}
                 <th className="px-6 py-4 bg-gradient-to-r from-pink-500 to-pink-700 text-white text-left text-sm font-medium uppercase tracking-wider">
-                  Plan Name
+                  {t("admin.payment.planName")}
                 </th>
                 <th className="px-6 py-4 bg-gradient-to-r from-pink-500 to-pink-700 text-white text-left text-sm font-medium uppercase tracking-wider">
-                  Status
+                  {t("admin.payment.status")}
                 </th>
                 <th className="px-6 py-4 bg-gradient-to-r from-pink-500 to-pink-700 text-white text-left text-sm font-medium uppercase tracking-wider">
-                  Remark
+                  {t("admin.payment.remark")}
                 </th>
                 <th className="px-6 py-4 bg-gradient-to-r from-pink-500 to-pink-700 text-white text-left text-sm font-medium uppercase tracking-wider rounded-tr-lg">
-                  Action
+                  {t("admin.payment.action")}
                 </th>
               </tr>
             </thead>
@@ -311,7 +317,7 @@ function Payment() {
                       onClick={() => handleRemarkSubmit(user.id)}
                       className="bg-gradient-to-r from-pink-500 to-pink-700 hover:from-pink-600 hover:to-pink-800 text-white px-4 py-2 rounded-md transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-50"
                     >
-                      Submit
+                      {t("admin.payment.submit")}
                     </button>
                   </td>
                 </tr>
