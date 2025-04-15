@@ -224,7 +224,7 @@ const Login2 = () => {
               <label htmlFor="terms" className="text-gray-700 text-sm">
                 {t("loginpage.agree_terms")}{" "}
                 <Link
-                  href="/TermsandConditions"
+                  href="/terms&conditions"
                   className="text-[#00b38d] underline"
                 >
                   {t("loginpage.terms_conditions")}

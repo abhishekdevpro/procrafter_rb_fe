@@ -7,9 +7,9 @@
 //     <div className="bg-gray-50 min-h-screen">
 //       <Navbar/>
 //       <div className="max-w-4xl mx-auto my-5 p-6 sm:p-10 shadow-lg bg-white rounded-lg">
-//         <h1 className="text-3xl sm:text-4xl font-semibold text-center underline mb-6">
+//         <h2 className="text-3xl sm:text-4xl font-semibold text-center underline mb-6">
 //           Privacy Policy
-//         </h1>
+//         </h2>
 
 //         <div className="mb-6">
 //           <h2 className="text-xl font-semibold">Introduction</h2>
@@ -168,9 +168,9 @@ function PrivacyPolicy() {
     <div className="">
       <Navbar />
       <div className="m-4 sm:mx-10 lg:mx-40 p-4 sm:p-6 shadow-2xl">
-        <h1 className="text-3xl sm:text-4xl font-semibold text-center underline mb-6">
+        <h2 className="text-3xl sm:text-4xl font-semibold text-center underline mb-6">
           {t("privacyPolicy")}
-        </h1>
+        </h2>
 
         <p className="text-gray-700">{t("intro")}</p>
 

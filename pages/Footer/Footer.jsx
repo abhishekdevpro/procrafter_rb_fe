@@ -432,10 +432,10 @@ const Footer = () => {
               </h2>
               <ul className="mt-2 space-y-1">
                 <li>
-                  <Link href="/footers/Aboutus">{t("footer.about_us")}</Link>
+                  <Link href="/about-us">{t("footer.about_us")}</Link>
                 </li>
                 <li>
-                  <Link href="/footers/Careers">{t("footer.careers")}</Link>
+                  <Link href="/careers">{t("footer.careers")}</Link>
                 </li>
                 <li>
                   <Link href="https://blog.ciblijob.fr/">
@@ -452,17 +452,17 @@ const Footer = () => {
               </h2>
               <ul className="mt-2 space-y-1">
                 <li>
-                  <Link href="/footers/Salarytools">
+                  <Link href="/salary-tools">
                     {t("footer.salary_tool")}
                   </Link>
                 </li>
                 <li>
-                  <Link href="/TermsandConditions">
+                  <Link href="/terms&conditions">
                     {t("footer.terms_conditions")}
                   </Link>
                 </li>
                 <li>
-                  <Link href="/footers/PrivacyPolicy">
+                  <Link href="/privacy-policy">
                     {t("footer.privacy_policy")}
                   </Link>
                 </li>
@@ -476,17 +476,17 @@ const Footer = () => {
               </h2>
               <ul className="mt-2 space-y-1">
                 <li>
-                  <Link href="/footers/AiResumeBuilder">
+                  <Link href="/ai-resume-builder-online">
                     {t("footer.ai_resume_builder")}
                   </Link>
                 </li>
                 <li>
-                  <Link href="/footers/AiSkillTests">
+                  <Link href="/ai-skill-tests">
                     {t("footer.ai_skill_tests")}
                   </Link>
                 </li>
                 <li>
-                  <Link href="/footers/AiCVParsing">
+                  <Link href="/ai-cv-parsing">
                     {t("footer.ai_cv_parsing")}
                   </Link>
                 </li>
@@ -500,17 +500,17 @@ const Footer = () => {
               </h2>
               <ul className="mt-2 space-y-1">
                 <li>
-                  <Link href="/footers/AIEnhancedResumeAccuracy">
+                  <Link href="/ai-enhanced-resume-accuracy">
                     {t("footer.ai_resume_accuracy")}
                   </Link>
                 </li>
                 <li>
-                  <Link href="/footers/AiResumeEnhancer">
+                  <Link href="/ai-resume-enhancer">
                     {t("footer.ai_resume_enhancer")}
                   </Link>
                 </li>
                 <li>
-                  <Link href="/footers/AiJobMatchApply">
+                  <Link href="/ai-job-match-apply">
                     {t("footer.ai_job_match_apply")}
                   </Link>
                 </li>

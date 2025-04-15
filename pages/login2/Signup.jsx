@@ -199,7 +199,10 @@ function Signup() {
                 className="mr-2"
                 disabled={isLoading}
               />
-              <Link href={"/TermsandConditions"}>
+              <Link
+               className="text-[#00b38d] underline"
+              href={"/terms&conditions"}
+              >
                 {" "}
                 {t("loginpage.agree_terms")}
                 {t("loginpage.terms_conditions")}

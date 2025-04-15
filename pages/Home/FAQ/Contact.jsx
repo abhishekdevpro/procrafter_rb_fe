@@ -52,12 +52,12 @@ const ContactUs = () => {
   return (
     <div className="bg-gray-100 py-12 lg:py-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 ">
-        <h1
+        <h2
           className="text-3xl font-bold text-center mb-8 sm:mb-12 text-[#00b38d]"
           id="phone"
         >
           {t("getintouch")}
-        </h1>
+        </h2>
         <p className="text-center mb-8 sm:mb-12">{t("contact_paragraph")}</p>
         {/* <div className="flex flex-col md:flex-row items-center justify-center gap-8 border border-green-500 ">
           <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg p-6 ">
