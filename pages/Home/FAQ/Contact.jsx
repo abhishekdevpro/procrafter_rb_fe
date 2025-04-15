@@ -28,24 +28,19 @@ const ContactUs = () => {
     try {
       const response = await axiosInstance.post(
         `/api/user/contact-us?lang=${selectedLang}`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
+        formData
       );
 
-      if (!response.ok) {
+      const data = response.data;
+
+      if (data.status !== "success") {
         throw new Error(t("form.error_message"));
       }
 
-      const data = await response.json();
       setSuccessMessage(t("form.success_message"));
       setFormData({ name: "", phone: "", email: "", remark: "" });
     } catch (error) {
-      setError(error.message);
+      setError(error.response?.data?.message || error.message);
     }
   };
 

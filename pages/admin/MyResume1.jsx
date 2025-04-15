@@ -111,6 +111,7 @@
 // };
 
 // export default MyResume1;
+
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "../../components/Constant/constant";
@@ -208,7 +209,7 @@ const MyResume1 = () => {
               <th className="py-2 px-4">{t("admin.customers.updatedAt")}</th>
             </tr>
           </thead>
-          <tbody>
+          {/* <tbody>
             {users.map((user, index) => (
               <tr key={index} className="border-t border-gray-700 text-center">
                 <td className="py-2 px-4">{user.first_name || "N/A"}</td>
@@ -223,6 +224,33 @@ const MyResume1 = () => {
                 </td>
               </tr>
             ))}
+          </tbody> */}
+          <tbody>
+            {users.length === 0 ? (
+              <tr>
+                <td colSpan="6" className="py-4 text-center text-gray-500">
+                  {t("admin.customers.noData")} {/* 👈 Translation key */}
+                </td>
+              </tr>
+            ) : (
+              users.map((user, index) => (
+                <tr
+                  key={index}
+                  className="border-t border-gray-700 text-center"
+                >
+                  <td className="py-2 px-4">{user.first_name || "N/A"}</td>
+                  <td className="py-2 px-4">{user.last_name || "N/A"}</td>
+                  <td className="py-2 px-4">{user.email || "N/A"}</td>
+                  <td className="py-2 px-4">{user.mobile || "N/A"}</td>
+                  <td className="py-2 px-4">
+                    {new Date(user.created_at).toLocaleDateString()}
+                  </td>
+                  <td className="py-2 px-4">
+                    {new Date(user.updated_at).toLocaleDateString()}
+                  </td>
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
       </div>

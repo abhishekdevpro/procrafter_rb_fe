@@ -870,7 +870,11 @@
             "3-5": "3-5 Years",
             "5-10": "5-10 Years",
             "10-plus": "10+ Years"
-          }
+            
+          },
+          "back": "Back",
+             "next": "Next",
+              "saving": "Saving"
         },
         
           "templateStep": {
@@ -1434,7 +1438,8 @@
       "mobile": "Mobile",
       "createdAt": "Created At",
       "updatedAt": "Updated At",
-      "na": "N/A"
+      "na": "N/A",
+      "noData": "No data found"
     },
     "templatelist":{
       "myResume": "My Resume",
@@ -1546,7 +1551,10 @@
   "Got questions?": "Got questions?",
   "Contact our 24/7 customer support.": "Contact our 24/7 customer support.",
   "You may cancel by email, online, or by calling us toll-free at 855-695-3235.": "You may cancel by email, online, or by calling us toll-free at 855-695-3235."
-}
+},
+"addSection": "✙ Add section",
+ "smartAssist": "✙ Smart Assist",
+  "keyAssist": "✙ Key Assist"
 
   
   

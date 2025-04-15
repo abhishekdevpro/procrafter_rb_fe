@@ -442,7 +442,7 @@ const Skill = ({ title, currentSkillIndex }) => {
             className="border bg-black text-white px-3 rounded-3xl  mb-2"
             disabled={loading}
           >
-            {loading ? "Loading..." : " + Smart Assist"}
+            {loading ? "Loading..." : t("smartAssist")}
           </button>
         </div>
 

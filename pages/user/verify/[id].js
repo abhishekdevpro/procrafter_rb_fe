@@ -11,9 +11,41 @@ const VerificationPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const { selectedLang } = useContext(ResumeContext);
 
+  // useEffect(() => {
+  //   const { id } = router.query;
+  //   console.log(id, router.query, "token huu");
+
+  //   if (!id) return;
+
+  //   const verifyUser = async () => {
+  //     try {
+  //       const response = await axiosInstance.get(
+  //         `/api/user/verify-account/${id}?lang=${selectedLang}`
+  //       );
+  //       console.log(response);
+  //       if (response.ok) {
+  //         toast.success("Account verified successfully!");
+  //         // Redirect to login after 3 seconds
+  //         setTimeout(() => {
+  //           router.push("/login2");
+  //         }, 3000);
+  //       } else {
+  //         toast.error(
+  //           "Verification failed. Please try again or contact support."
+  //         );
+  //         router.push("/login2");
+  //       }
+  //     } catch (error) {
+  //       toast.error("An error occurred during verification. Please try again.");
+  //     } finally {
+  //       setIsLoading(false);
+  //     }
+  //   };
+
+  //   verifyUser();
+  // }, [router]);
   useEffect(() => {
     const { id } = router.query;
-    console.log(id, router.query, "token huu");
 
     if (!id) return;
 
@@ -22,10 +54,8 @@ const VerificationPage = () => {
         const response = await axiosInstance.get(
           `/api/user/verify-account/${id}?lang=${selectedLang}`
         );
-        console.log(response);
-        if (response.ok) {
+        if (response.data?.status === "success") {
           toast.success("Account verified successfully!");
-          // Redirect to login after 3 seconds
           setTimeout(() => {
             router.push("/login2");
           }, 3000);
@@ -37,6 +67,7 @@ const VerificationPage = () => {
         }
       } catch (error) {
         toast.error("An error occurred during verification. Please try again.");
+        router.push("/login2");
       } finally {
         setIsLoading(false);
       }

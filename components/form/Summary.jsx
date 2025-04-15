@@ -216,7 +216,7 @@ const Summary = () => {
                 Loading...
               </span>
             ) : (
-              "+ Smart Assist"
+              t("smartAssist")
             )}
           </button>
         </div>
@@ -306,6 +306,7 @@ const Summary = () => {
             toolbar: [["bold", "italic", "underline"], ["clean"]],
           }}
         />
+
         <div className="text-sm text-gray-500 mt-1 text-right">
           {resumeData.summary?.replace(/<[^>]*>/g, "").length || 0}/1000
         </div>
