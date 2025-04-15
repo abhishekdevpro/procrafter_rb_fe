@@ -33,9 +33,9 @@ const Home_fourth = () => {
     <>
       <div id="course" className="bg-gray-100 py-10 ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl lg:text-5xl font-bold px-4 lg:px-0 py-5 text-center text-[#00b38d]">
+          <h2 className="text-4xl lg:text-5xl font-bold px-4 lg:px-0 py-5 text-center text-[#00b38d]">
             {t("neweststratigies")}
-          </h1>
+          </h2>
           <p className="mx-auto px-4 lg:px-0 text-lg lg:text-base text-gray-700 max-w-4xl text-center mb-8">
             {t("paragraphhome_fourth")}
           </p>

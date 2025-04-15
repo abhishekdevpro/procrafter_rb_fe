@@ -30,7 +30,7 @@ const CookieConsent = () => {
       <div>
         <p className="text-sm sm:text-base">
           This site uses cookies to ensure you get the best experience on our website. 
-          To learn more visit our <Link href="/footers/PrivacyPolicy" className="text-teal-600 hover:underline">Cookie policy</Link> and <Link href="/TermsandConditions" className="text-teal-600 hover:underline">Privacy Policy</Link>.
+          To learn more visit our <Link href="/privacy-policy" className="text-teal-600 hover:underline">Cookie policy</Link> and <Link href="/terms&conditions" className="text-teal-600 hover:underline">Privacy Policy</Link>.
         </p>
       </div>
       <button 

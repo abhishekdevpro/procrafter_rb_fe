@@ -8,9 +8,9 @@
 //     <div>
 //       <Navbar />
 //       {/* <div className="m-4 sm:mx-10 lg:mx-40 p-4 sm:p-6 shadow-2xl">
-//         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold my-4 underline">
+//         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold my-4 underline">
 //           Terms and Conditions
-//         </h1>
+//         </h2>
 
 //         <p className="text-base sm:text-lg">
 //           Welcome to Cibli Job. These terms and conditions outline the rules and
@@ -189,9 +189,9 @@
 //         </p>
 //       </div> */}
 //       <div className="m-4 sm:mx-10 lg:mx-40 p-4 sm:p-6 shadow-2xl">
-//         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold my-4 underline">
+//         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold my-4 underline">
 //           {t.title}
-//         </h1>
+//         </h2>
 //         <p className="text-base sm:text-lg">{t.introduction}</p>
 
 //         {t.sections.map((section, index) => (
@@ -231,8 +231,8 @@
 
 // export default TermsandConditions;
 import React from "react";
-import Footer from "./Footer/Footer";
-import Navbar from "./Navbar/Navbar";
+import Footer from "../Footer/Footer";
+import Navbar from "../Navbar/Navbar";
 import { useTranslation } from "react-i18next";
 function TermsandConditions() {
   const { t } = useTranslation();
@@ -242,9 +242,9 @@ function TermsandConditions() {
       <Navbar />
 
       <div className="m-4 sm:mx-10 lg:mx-40 p-4 sm:p-6 shadow-2xl">
-        <h1 className="text-4xl font-semibold my-4 underline text-center">
+        <h2 className="text-4xl font-semibold my-4 underline text-center">
           {termsData.title}
-        </h1>
+        </h2>
         <p className="text-base sm:text-lg">{termsData.introduction}</p>
 
         {termsData.sections?.map((section, index) => (
