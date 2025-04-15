@@ -651,7 +651,7 @@ const Projects = () => {
                     >
                       {loadingStates[`description_${projectIndex}`]
                         ? "Loading..."
-                        : "+ Smart Assist"}
+                        : t("smartAssist")}
                     </button>
                   </div>
 
@@ -777,7 +777,7 @@ const Projects = () => {
                     >
                       {loadingStates[`key_${projectIndex}`]
                         ? "Loading..."
-                        : "+ Key Assist"}
+                        : t("keyAssist")}
                     </button>
                   </div>
                   <textarea

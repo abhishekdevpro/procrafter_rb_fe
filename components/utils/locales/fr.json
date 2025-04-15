@@ -857,7 +857,11 @@
         "3-5": "3-5 ans",
         "5-10": "5-10 ans",
         "10-plus": "10+ ans"
-      }
+      
+      },
+      "back": "Retour",
+      "next": "Suivant",
+       "saving": "Enregistrement en cours"
     },
     "templateStep": {
     "choose_template": "Choisissez votre modèle parfait",
@@ -1418,7 +1422,8 @@
       "mobile": "Téléphone",
       "createdAt": "Créé le",
       "updatedAt": "Mis à jour le",
-      "na": "N/D"
+      "na": "N/D",
+       "noData": "Aucune donnée trouvée"
     },
     "templatelist":{
       "myResume": "Mon CV",
@@ -1537,7 +1542,10 @@
     "Got questions?": "Des questions ?",
     "Contact our 24/7 customer support.": "Contactez notre support client 24/7.",
     "You may cancel by email, online, or by calling us toll-free at 855-695-3235.": "Vous pouvez annuler par email, en ligne ou en appelant gratuitement le 855-695-3235."
-  }
+  },
+   "addSection": "✙ Ajouter une section",
+   "smartAssist": "✙ Assistance intelligente",
+   "keyAssist": "✙ Assistance clé"
   
   
  

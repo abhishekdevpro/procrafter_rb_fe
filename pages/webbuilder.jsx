@@ -431,7 +431,7 @@ export default function WebBuilder() {
       return;
     }
 
-    setisDownloading(true); // Start loading before the async operation
+    // setisDownloading(true); // Start loading before the async operation
 
     try {
       const token = localStorage.getItem("token");
@@ -476,7 +476,7 @@ export default function WebBuilder() {
         error.response?.data?.message || "Failed to generate and open PDF"
       );
     } finally {
-      setisDownloading(false); // Ensure loading is stopped after success or failure
+      // setisDownloading(false); // Ensure loading is stopped after success or failure
     }
   };
   const initiateCheckout = async () => {

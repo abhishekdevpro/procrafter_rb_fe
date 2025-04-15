@@ -3,6 +3,7 @@ import axios from "axios";
 import { BASE_URL } from "../../components/Constant/constant";
 import { useTranslation } from "react-i18next";
 import axiosInstance from "../../components/utils/axiosInstance";
+import { toast } from "react-toastify";
 
 function Subscriberslist1() {
   const [users, setUsers] = useState([]);
@@ -34,19 +35,47 @@ function Subscriberslist1() {
       .finally(() => setLoading(false));
   }, []);
 
+  // const handleUnsubscribe = async (email) => {
+  //   const token = localStorage.getItem("token");
+
+  //   try {
+  //     await axiosInstance.put(
+  //       `/api/user/user-unsubscribe?lang=${language}`,
+  //       { email } // Sending email in the body
+  //       // {
+  //       //   headers: {
+  //       //     Authorization: token,
+  //       //   },
+  //       // }
+  //     );
+
+  //     // Update the user subscription status after unsubscribing
+  //     setUsers((prevUsers) =>
+  //       prevUsers.map((user) =>
+  //         user.email === email ? { ...user, is_subscribe: 0 } : user
+  //       )
+  //     );
+  //   } catch (error) {
+  //     console.error("Error unsubscribing user:", error);
+  //     alert("Failed to unsubscribe user.");
+  //   }
+  // };
   const handleUnsubscribe = async (email) => {
     const token = localStorage.getItem("token");
 
     try {
-      await axiosInstance.post(
-        `/api/user/user-subscribe?lang=${language}`,
-        { email } // Sending email in the body
+      const response = await axiosInstance.put(
+        `/api/user/user-unsubscribe?lang=${language}`,
+        { email }
         // {
         //   headers: {
         //     Authorization: token,
         //   },
         // }
       );
+
+      // Show the success message from API
+      toast.success(response.data.message);
 
       // Update the user subscription status after unsubscribing
       setUsers((prevUsers) =>
@@ -56,7 +85,9 @@ function Subscriberslist1() {
       );
     } catch (error) {
       console.error("Error unsubscribing user:", error);
-      alert("Failed to unsubscribe user.");
+      toast.error(
+        error.response?.data?.message || "Failed to unsubscribe user."
+      );
     }
   };
 

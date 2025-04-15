@@ -210,9 +210,14 @@ const Testpaper = () => {
           <>
             {questions.length > 0 && (
               <>
+                {/* <h1 className="text-2xl mb-4 ms-20">
+                  {questions[currentQuestionIndex].question}
+                </h1> */}
                 <h1 className="text-2xl mb-4 ms-20">
+                  {currentQuestionIndex + 1}:{" "}
                   {questions[currentQuestionIndex].question}
                 </h1>
+
                 <div className="space-y-3 mb-8">
                   {questions[currentQuestionIndex].options.map(
                     (option, index) => (

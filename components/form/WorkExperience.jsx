@@ -1172,7 +1172,7 @@ const WorkExperience = () => {
                     >
                       {loadingStates[`description_${index}`]
                         ? "Loading..."
-                        : "+ Smart Assist"}
+                        : t("smartAssist")}
                     </button>
                   </div>
                   <ReactQuill
@@ -1281,7 +1281,7 @@ const WorkExperience = () => {
                     >
                       {loadingStates[`key_${index}`]
                         ? "Loading..."
-                        : "+ Key Assist"}
+                        : t("keyAssist")}
                     </button>
                   </div>
                   {/* <textarea

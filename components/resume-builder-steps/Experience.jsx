@@ -46,6 +46,7 @@ import { toast } from "react-toastify";
 import { SaveLoader } from "../ResumeLoader/SaveLoader";
 import { ResumeContext } from "../context/ResumeContext";
 import { BASE_URL } from "../Constant/constant";
+import Link from "next/link";
 export default function ExperienceStep({ onNext, onBack, onChange, value }) {
   const { t } = useTranslation();
   const router = useRouter();
@@ -200,13 +201,15 @@ export default function ExperienceStep({ onNext, onBack, onChange, value }) {
         ))}
       </div>
       <div className="flex justify-between mt-12">
-        <button
-          onClick={onBack}
-          className="px-8 py-3 bg-white border-2 border-gray-300 rounded-xl text-gray-700 
+        <Link href="/dashboard/resume-builder/">
+          <button
+            onClick={onBack}
+            className="px-8 py-3 bg-white border-2 border-gray-300 rounded-xl text-gray-700 
               font-medium hover:bg-gray-50 hover:border-gray-400 transition-colors"
-        >
-          Back
-        </button>
+          >
+            {t("experienceStep.back")}
+          </button>
+        </Link>
         <button
           onClick={handleSaveExperience}
           disabled={loading || !value.experience}
@@ -217,7 +220,11 @@ export default function ExperienceStep({ onNext, onBack, onChange, value }) {
                   : "hover:bg-green-700 hover:shadow-xl"
               }`}
         >
-          {isLoading ? <SaveLoader loadingText="Saving" /> : "Next"}
+          {isLoading ? (
+            <SaveLoader loadingText={t("experienceStep.saving")} />
+          ) : (
+            t("experienceStep.next")
+          )}
         </button>
       </div>
     </div>
