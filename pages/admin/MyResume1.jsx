@@ -114,8 +114,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "../../components/Constant/constant";
+import { useTranslation } from "react-i18next";
 
 const MyResume1 = () => {
+  const { t } = useTranslation();
+
   const [users, setUsers] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
@@ -158,21 +161,21 @@ const MyResume1 = () => {
     <div className="container mx-auto p-4 text-center">
       <div className="bg-gradient-to-r from-pink-500 to-pink-700 p-6 rounded-lg shadow-lg mb-8">
         <h2 className="text-start text-3xl text-white font-bold">
-          All Customers
+          {t("admin.customers.title")}
         </h2>
       </div>
 
       <div className="flex justify-center gap-4 mb-4">
         <input
           type="text"
-          placeholder="Search by Email"
+          placeholder={t("admin.customers.searchEmail")}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="px-4 py-2 border rounded-md"
         />
         <input
           type="text"
-          placeholder="Search by Phone"
+          placeholder={t("admin.customers.searchPhone")}
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
           className="px-4 py-2 border rounded-md"
@@ -182,14 +185,14 @@ const MyResume1 = () => {
           onChange={(e) => setSortOrder(e.target.value)}
           className="px-4 py-2 border rounded-md"
         >
-          <option value="asc">Ascending</option>
-          <option value="desc">Descending</option>
+          <option value="asc">{t("admin.customers.ascending")}</option>
+          <option value="desc">{t("admin.customers.descending")}</option>
         </select>
         <button
           onClick={handleSearch}
           className="px-4 py-2 bg-pink-500 text-white rounded-md hover:bg-pink-600"
         >
-          Search
+          {t("admin.customers.search")}
         </button>
       </div>
 
@@ -197,12 +200,12 @@ const MyResume1 = () => {
         <table className="min-w-full bg-dark text-black rounded-md text-center">
           <thead>
             <tr className="bg-pink-500 text-white">
-              <th className="py-2 px-4">First Name</th>
-              <th className="py-2 px-4">Last Name</th>
-              <th className="py-2 px-4">Email</th>
-              <th className="py-2 px-4">Mobile</th>
-              <th className="py-2 px-4">Created At</th>
-              <th className="py-2 px-4">Updated At</th>
+              <th className="py-2 px-4">{t("admin.customers.firstName")}</th>
+              <th className="py-2 px-4">{t("admin.customers.lastName")}</th>
+              <th className="py-2 px-4">{t("admin.customers.email")}</th>
+              <th className="py-2 px-4">{t("admin.customers.mobile")}</th>
+              <th className="py-2 px-4">{t("admin.customers.createdAt")}</th>
+              <th className="py-2 px-4">{t("admin.customers.updatedAt")}</th>
             </tr>
           </thead>
           <tbody>

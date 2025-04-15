@@ -312,9 +312,11 @@ export default function Subscription() {
                 </p>
                 <p className="mt-4 text-gray-700">
                   {t("subscription.more_info")}{" "}
-                  <span className="text-[#00b38d] cursor-pointer">
-                    {t("subscription.email")}
-                  </span>
+                  <a href="mailto:customersupport@CibliJob.fr.">
+                    <span className="text-[#00b38d] cursor-pointer">
+                      {t("subscription.email")}
+                    </span>
+                  </a>
                   .
                 </p>
               </div>

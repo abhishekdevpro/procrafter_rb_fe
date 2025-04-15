@@ -1387,7 +1387,159 @@
   "project":{
     "no_project":"Aucun projet disponible. Ajoutez un nouveau projet pour commencer."
   
+  },
+  "admin":{
+    "navbar":{
+     
+        "logout": "Déconnexion"
+     
+      
+    },
+    "sidebar":{
+      "home": "Accueil",
+      "admin": "Administrateur",
+      "customers": "Tous les clients",
+      "templates": "Mes modèles",
+      "leads": "Prospects",
+      "payment": "Paiement",
+      "subscribers": "Liste des abonnés",
+      "logout": "Se déconnecter"
+    },
+    "customers":{
+      "title": "Tous les clients",
+      "searchEmail": "Rechercher par e-mail",
+      "searchPhone": "Rechercher par téléphone",
+      "ascending": "Croissant",
+      "descending": "Décroissant",
+      "search": "Rechercher",
+      "firstName": "Prénom",
+      "lastName": "Nom de famille",
+      "email": "E-mail",
+      "mobile": "Téléphone",
+      "createdAt": "Créé le",
+      "updatedAt": "Mis à jour le",
+      "na": "N/D"
+    },
+    "templatelist":{
+      "myResume": "Mon CV",
+  "myCoverLetter": "Ma lettre de motivation"
+    },
+    "leads":{
+      "requestService": "Demander un service",
+      "newTemplate": "Nouveau modèle",
+      "newCoverLetter": "Nouvelle lettre de motivation",
+      "support": "Assistance"
+    },
+    "payment":{
+      "id": "Identifiant",
+      "name": "Nom",
+      "email": "E-mail",
+      "planName": "Nom du plan",
+      "status": "Statut",
+      "remark": "Remarque",
+      "action": "Action",
+
+      "paymentHistory": "Historique des paiements",
+      "noPaymentFound": "Aucun historique de paiement trouvé",
+      "noRecordsAvailable": "Aucun enregistrement de paiement disponible pour le moment.",
+      "addRemarkPlaceholder": "Ajouter une remarque...",
+      "submit": "Soumettre",
+      "remarkEmpty": "Veuillez entrer une remarque avant de soumettre",
+      "remarkSuccess": "Remarque soumise avec succès",
+      "remarkFailed": "Échec de la soumission de la remarque"
+    },
+    "subscriberlist":{
+      "subscriberList": "Liste des abonnés",
+      "noData": "Aucune donnée disponible.",
+      "createdAt": "Créé le",
+      "email": "E-mail",
+      "status": "Statut d'abonnement",
+      "action": "Action d'abonnement",
+      "subscribed": "🔔 Abonné",
+      "notSubscribed": "🔕 Non abonné",
+      "unsubscribe": "🔕 Se désabonner",
+      "loading": "Chargement...",
+      "error": "Échec du chargement des utilisateurs.",
+      "unsubscribeError": "Échec de la désinscription de l'utilisateur."
+    },
+    "login":{
+      "adminLogin": "🛡️ Connexion Admin",
+      "adminId": "🛡️ Identifiant Admin",
+      "password": "🔒 Mot de passe",
+      "enterEmail": "Entrez votre adresse e-mail",
+      "enterPassword": "Entrez votre mot de passe",
+      "login": "Connexion",
+      "loginSuccess": "Connexion réussie",
+      "loginFail": "Échec de la connexion",
+      "errorOccurred": "Une erreur s'est produite",
+      "emailPasswordRequired": "L'e-mail et le mot de passe sont requis"
+    }
+    
+    
+    
+    
+    
+    
+    
+  },
+  "paymentplans":{
+    "Cast a wider net – 10x your job applications": "Multipliez vos candidatures par 10",
+    "Our AI-powered platform scours millions of jobs to continuously find and apply to relevant job openings until you're hired.": "Notre plateforme alimentée par l'IA explore des millions d'offres pour vous postuler automatiquement jusqu'à l'embauche.",
+    "Kudos! You're one step closer to success": "Bravo ! Vous êtes plus proche du succès 🎉",
+    "Pricing Plans": "Formules tarifaires",
+    "Choose the plan that works best for you": "Choisissez le plan qui vous convient le mieux",
+    "Our pricing plans are designed to accommodate all your resume building needs.": "Nos formules sont conçues pour répondre à tous vos besoins en création de CV.",
+    "Best Value": "Meilleur rapport qualité/prix",
+    "Free": "Gratuit",
+    "Free Plan": "Plan gratuit",
+    "single": "Achat unique",
+    "month": "Mensuel",
+    "year": "Annuel",
+    "mo": "mois",
+    "yr": "an",
+    "Get Started": "Commencer",
+    "Everything in Free +": "Tout ce qui est inclus dans Gratuit +",
+    "Unlimited Resume Edits": "Modifications illimitées du CV",
+    "Download in PDF": "Téléchargement en PDF",
+    "Interactive Dashboard": "Tableau de bord interactif",
+    "2 Unique Resume Templates": "2 modèles de CV uniques",
+    "2 Color Options & 2 Fonts": "2 couleurs & 2 polices",
+    "Resume Parsing (ATS-Friendly)": "Analyse de CV (compatible ATS)",
+    "French Language Support": "Support en langue française",
+    "Job Search & Career Resources": "Recherche d'emploi & ressources de carrière",
+    "Cover Letter Builder": "Créateur de lettre de motivation",
+    "Job Alerts & Tracking": "Alertes emploi & suivi",
+    "27 Unique Resume Templates": "27 modèles de CV uniques",
+    "5 Color Options & 6 Fonts": "5 couleurs & 6 polices",
+    "Free Cover Letter Builder": "Créateur de lettre de motivation gratuit",
+    "AI Resume Score & Feedback": "Note de CV IA & retour",
+    "Skill Tests & Analysis": "Tests de compétences & analyse",
+    "AI-Enabled Content": "Contenu optimisé par IA",
+    "Auto-Improvement": "Amélioration automatique",
+    "ATS Optimization": "Optimisation ATS",
+    "37 Unique Resume Templates": "37 modèles de CV uniques",
+    "8 Color Options & 6 Fonts": "8 couleurs & 6 polices",
+    "Most Affordable ATS Optimization": "Optimisation ATS la plus abordable",
+    "All subscription features": "Toutes les fonctionnalités de l'abonnement",
+    "Automate your job search": "Automatisez votre recherche d'emploi",
+    "We continuously scan millions of openings to find your top matches.": "Nous analysons en continu des millions d'offres pour trouver les meilleures correspondances.",
+    "10x your job applications": "Multipliez vos candidatures par 10",
+    "Submit 10x as many applications with less effort than one manual application.": "Envoyez 10 fois plus de candidatures avec moins d'effort.",
+    "Wake up to your best matches": "Commencez votre journée avec les meilleures offres",
+    "Start each day with a list of roles matched to your skills and preferences.": "Recevez chaque jour des offres correspondant à vos compétences et préférences.",
+    "Save valuable hours every week": "Gagnez de précieuses heures chaque semaine",
+    "Reclaim your time by letting our AI handle the grunt work of job searching.": "Laissez notre IA faire le travail et gagnez du temps.",
+    "Money-back guarantee": "Garantie satisfait ou remboursé",
+    "If you are unhappy for any reason during the trial, just let us know - we'll refund your money.": "Pas satisfait ? Faites-le nous savoir, nous vous rembourserons.",
+    "24/7 customer support": "Assistance client 24/7",
+    "Get assistance anytime with our award-winning customer care service.": "Obtenez de l'aide à tout moment avec notre service primé.",
+    "Next": "Suivant",
+    "Got questions?": "Des questions ?",
+    "Contact our 24/7 customer support.": "Contactez notre support client 24/7.",
+    "You may cancel by email, online, or by calling us toll-free at 855-695-3235.": "Vous pouvez annuler par email, en ligne ou en appelant gratuitement le 855-695-3235."
   }
+  
+  
  
 }
                          

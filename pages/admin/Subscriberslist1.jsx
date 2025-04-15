@@ -61,31 +61,47 @@ function Subscriberslist1() {
   };
 
   if (loading) {
-    return <div className="text-center py-4">Loading...</div>;
+    return (
+      <div className="text-center py-4">
+        {t("admin.subscriberlist.loading")}
+      </div>
+    );
   }
 
   if (error) {
-    return <div className="text-center py-4 text-red-500">{error}</div>;
+    return (
+      <div className="text-center py-4 text-red-500">
+        {t("admin.subscriberlist.error")}
+      </div>
+    );
   }
 
   return (
     <div className="container mx-auto p-4 text-center">
       <div className="bg-gradient-to-r from-pink-500 to-pink-700 p-6 rounded-lg shadow-lg mb-8">
         <h2 className="text-start text-3xl text-white font-bold">
-          Subscriber List
+          {t("admin.subscriberlist.subscriberList")}
         </h2>
       </div>
       <div className="overflow-x-auto">
         {users.length === 0 ? (
-          <p className="text-lg text-gray-500">There is no data available.</p>
+          <p className="text-lg text-gray-500">
+            {t("admin.subscriberlist.noData")}
+          </p>
         ) : (
           <table className="min-w-full bg-dark text-black rounded-md text-center">
             <thead>
               <tr className="bg-pink-500 text-white">
-                <th className="py-2 px-4">Created At</th>
-                <th className="py-2 px-4">Email</th>
-                <th className="py-2 px-4">Subscription Status</th>
-                <th className="py-2 px-4">Subscription Action</th>
+                <th className="py-2 px-4">
+                  {t("admin.subscriberlist.createdAt")}
+                </th>
+                <th className="py-2 px-4">{t("admin.subscriberlist.email")}</th>
+                <th className="py-2 px-4">
+                  {t("admin.subscriberlist.status")}
+                </th>
+                <th className="py-2 px-4">
+                  {t("admin.subscriberlist.action")}
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -103,8 +119,8 @@ function Subscriberslist1() {
                       } text-white`}
                     >
                       {user.is_subscribe === 1
-                        ? "🔔 Subscribed"
-                        : "🔕 Not Subscribed"}
+                        ? t("admin.subscriberlist.subscribed")
+                        : t("admin.subscriberlist.notSubscribed")}
                     </button>
                   </td>
                   <td className="py-2 px-4">
@@ -113,7 +129,7 @@ function Subscriberslist1() {
                         onClick={() => handleUnsubscribe(user.email)}
                         className="bg-red-500 text-white px-4 py-2 rounded-3xl"
                       >
-                        🔕Unsubscribe
+                        {t("admin.subscriberlist.unsubscribe")}
                       </button>
                     )}
                   </td>

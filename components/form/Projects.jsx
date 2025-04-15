@@ -46,6 +46,17 @@ const Projects = () => {
     "Dec",
   ];
   const years = Array.from({ length: 40 }, (_, index) => 2000 + index);
+  const formatDateValue = (month, year) => {
+    if (month && year) {
+      return `${month},${year}`;
+    } else if (month) {
+      return month;
+    } else if (year) {
+      return year;
+    } else {
+      return "";
+    }
+  };
   const router = useRouter();
   const { improve } = router.query;
 
@@ -64,15 +75,29 @@ const Projects = () => {
     setResumeData({ ...resumeData, projects: newProjects });
   };
 
+  // const handleKeyAchievement = (e, projectIndex) => {
+  //   // const newProjects = [...resumeData.projects]
+  //   // newProjects[projectIndex].keyAchievements = e.target.value
+  //   // setResumeData({ ...resumeData, projects: newProjects })
+  //   const newProjects = [...resumeData.projects];
+  //   const achievements = e.target.value
+  //     .split("\n")
+  //     .filter((item) => item.trim());
+  //   newProjects[projectIndex].keyAchievements = achievements;
+  //   setResumeData({ ...resumeData, projects: newProjects });
+  // };
   const handleKeyAchievement = (e, projectIndex) => {
-    // const newProjects = [...resumeData.projects]
-    // newProjects[projectIndex].keyAchievements = e.target.value
-    // setResumeData({ ...resumeData, projects: newProjects })
     const newProjects = [...resumeData.projects];
     const achievements = e.target.value
       .split("\n")
-      .filter((item) => item.trim());
+      .map((item) => item.trim())
+      .filter((item) => item !== "");
+
     newProjects[projectIndex].keyAchievements = achievements;
+
+    // Optional: Track user-modified achievements separately if needed
+    setSelectedKeyAchievements(achievements); // sync with popup logic
+
     setResumeData({ ...resumeData, projects: newProjects });
   };
 
@@ -96,18 +121,54 @@ const Projects = () => {
     });
     setExpandedProjects([...expandedProjects, resumeData.projects.length]);
   };
-  const handleYearChange = (e, index, field) => {
-    const newProjects = [...resumeData.projects];
-    const currentDate = newProjects[index][field];
-    const [month, _] = currentDate.split(",");
-    newProjects[index][field] = `${month || ""},${e.target.value}`;
-    setResumeData({ ...resumeData, projects: newProjects });
-  };
+  // const handleYearChange = (e, index, field) => {
+  //   const newProjects = [...resumeData.projects];
+  //   const currentDate = newProjects[index][field];
+  //   const [month, _] = currentDate.split(",");
+  //   newProjects[index][field] = `${month || ""},${e.target.value}`;
+  //   setResumeData({ ...resumeData, projects: newProjects });
+  // };
+  // const handleMonthChange = (e, index, field) => {
+  //   const newProjects = [...resumeData.projects];
+  //   const currentDate = newProjects[index][field] || "Jan,2024";
+  //   const [_, year] = currentDate.split(",");
+  //   newProjects[index][field] = `${e.target.value},${year || ""}`;
+  //   setResumeData({ ...resumeData, projects: newProjects });
+  // };
   const handleMonthChange = (e, index, field) => {
     const newProjects = [...resumeData.projects];
-    const currentDate = newProjects[index][field] || "Jan,2024";
-    const [_, year] = currentDate.split(",");
-    newProjects[index][field] = `${e.target.value},${year || ""}`;
+    const newMonth = e.target.value;
+    let year = "";
+    if (newProjects[index][field]) {
+      const parts = newProjects[index][field].split(",");
+      if (parts.length > 1) {
+        year = parts[1];
+      } else if (parts.length === 1 && !months.includes(parts[0])) {
+        // If there's only one part and it's not a month, it must be a year
+        year = parts[0];
+      }
+    }
+
+    newProjects[index][field] = formatDateValue(newMonth, year);
+    setResumeData({ ...resumeData, projects: newProjects });
+  };
+
+  const handleYearChange = (e, index, field) => {
+    const newProjects = [...resumeData.projects];
+    const newYear = e.target.value;
+
+    // Get the current month value
+    let month = "";
+    if (newProjects[index][field]) {
+      const parts = newProjects[index][field].split(",");
+      if (parts.length > 0 && months.includes(parts[0])) {
+        month = parts[0];
+      }
+    }
+
+    // Format the new value
+    newProjects[index][field] = formatDateValue(month, newYear);
+
     setResumeData({ ...resumeData, projects: newProjects });
   };
   const removeProjects = (index) => {
@@ -196,24 +257,52 @@ const Projects = () => {
       );
     }
   };
-
   const handleSaveSelectedSummary = (index, e) => {
     e.preventDefault();
+
     const newProjects = [...resumeData.projects];
 
-    if (popupType === "description") {
-      newProjects[index].description = selectedDescriptions.join(" ");
-    } else {
-      newProjects[index].keyAchievements = selectedKeyAchievements;
+    if (popupType === "keyAchievements") {
+      const currentAchievements = newProjects[index].keyAchievements || [];
+
+      // Avoid duplicates
+      const filteredSelected = selectedKeyAchievements.filter(
+        (item) => !currentAchievements.includes(item)
+      );
+
+      const updatedAchievements = [...currentAchievements, ...filteredSelected];
+
+      newProjects[index].keyAchievements = updatedAchievements;
+      setSelectedKeyAchievements([]);
+    } else if (popupType === "description") {
+      if (selectedDescriptions.length > 0) {
+        newProjects[index].description = selectedDescriptions[0]; // 🟢 Select only one description
+        setSelectedDescriptions([]);
+      }
     }
 
-    setResumeData({
-      ...resumeData,
-      projects: newProjects,
-    });
+    setResumeData({ ...resumeData, projects: newProjects });
 
+    // Close popup
     setShowPopup(false);
   };
+  // const handleSaveSelectedSummary = (index, e) => {
+  //   e.preventDefault();
+  //   const newProjects = [...resumeData.projects];
+
+  //   if (popupType === "description") {
+  //     newProjects[index].description = selectedDescriptions.join(" ");
+  //   } else {
+  //     newProjects[index].keyAchievements = selectedKeyAchievements;
+  //   }
+
+  //   setResumeData({
+  //     ...resumeData,
+  //     projects: newProjects,
+  //   });
+
+  //   setShowPopup(false);
+  // };
   const hasErrors = (index, field) => {
     const workStrength = resumeStrength?.project_strenght?.[index];
     return (
@@ -363,7 +452,31 @@ const Projects = () => {
       }));
     }
   };
+  // Parse date string to get month and year
+  const getDatePart = (dateStr, part) => {
+    if (!dateStr) return "";
+    if (dateStr === "Present") return part === "month" ? "" : dateStr;
 
+    const parts = dateStr.split(",");
+
+    // If there's only one part, determine if it's a month or year
+    if (parts.length === 1) {
+      if (months.includes(parts[0]) && part === "month") {
+        return parts[0];
+      } else if (!isNaN(parts[0]) && part === "year") {
+        return parts[0];
+      } else {
+        return "";
+      }
+    }
+
+    // If there are two parts, return the appropriate one
+    if (part === "month") {
+      return parts[0] || "";
+    } else {
+      return parts[1] || "";
+    }
+  };
   return (
     <div className="flex-col-gap-3 w-full mt-10 px-10">
       <h2 className="input-title text-black text-3xl">
@@ -677,56 +790,55 @@ const Projects = () => {
                   />
                 </div>
 
-                <div className="space-y-6 relative">
+                <div className="relative">
                   {/* Start Date */}
-                  <div className="relative">
-                    <label className="text-black">
-                      {t("builder_forms.work_experience.start_date")}
-                    </label>
-                    <div className="flex flex-wrap gap-2">
-                      {/* Month */}
-                      <select
-                        className={`other-input border flex-1 ${
-                          improve && hasErrors(projectIndex, "startYear")
-                            ? "border-red-500"
-                            : "border-black"
-                        }`}
-                        value={project.startYear.split(",")[0]}
-                        onChange={(e) =>
-                          handleMonthChange(e, projectIndex, "startYear")
-                        }
-                      >
-                        {months.map((month, idx) => (
-                          <option key={idx} value={month}>
-                            {month}
-                          </option>
-                        ))}
-                      </select>
+                  <label className="text-black">
+                    {" "}
+                    {t("builder_forms.work_experience.start_date")}
+                  </label>
+                  <div className="flex flex-wrap gap-2 relative">
+                    <select
+                      className={`border other-input flex-1 ${
+                        improve && hasErrors(projectIndex, "startYear")
+                          ? "border-red-500"
+                          : "border-black"
+                      }`}
+                      value={getDatePart(project.startYear, "month")}
+                      onChange={(e) =>
+                        handleMonthChange(e, projectIndex, "startYear")
+                      }
+                    >
+                      <option value="">Month</option>
+                      {months.map((month, idx) => (
+                        <option key={idx} value={month}>
+                          {month}
+                        </option>
+                      ))}
+                    </select>
+                    <select
+                      className={`border other-input flex-1 ${
+                        improve && hasErrors(projectIndex, "startYear")
+                          ? "border-red-500"
+                          : "border-black"
+                      }`}
+                      value={getDatePart(project.startYear, "year")}
+                      onChange={(e) =>
+                        handleYearChange(e, projectIndex, "startYear")
+                      }
+                    >
+                      <option value="">Year</option>
+                      {years.map((year, idx) => (
+                        <option key={idx} value={year}>
+                          {year}
+                        </option>
+                      ))}
+                    </select>
 
-                      {/* Year */}
-                      <select
-                        className={`other-input border flex-1 ${
-                          improve && hasErrors(projectIndex, "startYear")
-                            ? "border-red-500"
-                            : "border-black"
-                        }`}
-                        value={project.startYear.split(",")[1]}
-                        onChange={(e) =>
-                          handleYearChange(e, projectIndex, "startYear")
-                        }
-                      >
-                        {years.map((year, idx) => (
-                          <option key={idx} value={year}>
-                            {year}
-                          </option>
-                        ))}
-                      </select>
-
-                      {/* Tooltip Icon */}
-                      {improve && hasErrors(projectIndex, "startYear") && (
+                    {improve && hasErrors(projectIndex, "startYear") && (
+                      <>
                         <button
                           type="button"
-                          className="absolute right-2 top-10 text-red-500 hover:text-red-600 transition-colors"
+                          className="absolute right-[2px] top-[-1.5rem] text-red-500"
                           onClick={() =>
                             setActiveTooltip(
                               activeTooltip === `startYear-${projectIndex}`
@@ -737,111 +849,103 @@ const Projects = () => {
                         >
                           <AlertCircle className="w-5 h-5" />
                         </button>
-                      )}
-                    </div>
 
-                    {/* Tooltip Message */}
-                    {activeTooltip === `startYear-${projectIndex}` && (
-                      <div className="absolute z-50 right-0 mt-2 w-80 bg-white rounded-lg shadow-xl transition-all border border-gray-700">
-                        <div className="p-4 border-b border-gray-700 flex items-center justify-between">
-                          <div className="flex items-center space-x-2">
-                            <AlertCircle className="w-5 h-5 text-red-400" />
-                            <span className="font-medium text-black">
-                              Start Date Issue
-                            </span>
-                          </div>
-                          <button onClick={() => setActiveTooltip(null)}>
-                            <X className="w-5 h-5 text-black" />
-                          </button>
-                        </div>
-                        <div className="p-4">
-                          {getErrorMessages(projectIndex, "startYear").map(
-                            (msg, i) => (
-                              <div
-                                key={i}
-                                className="flex items-start space-x-3 mb-3 last:mb-0"
-                              >
-                                <div className="w-1.5 h-1.5 rounded-full bg-red-400 mt-2" />
-                                <p className="text-black text-sm">{msg}</p>
+                        {activeTooltip === `startYear-${projectIndex}` && (
+                          <div className="absolute right-0 top-14 w-80 bg-white rounded-lg shadow-xl border border-gray-700 z-50">
+                            <div className="p-4 border-b border-gray-700">
+                              <div className="flex items-center justify-between">
+                                <div className="flex items-center space-x-2">
+                                  <AlertCircle className="w-5 h-5 text-red-400" />
+                                  <span className="font-medium text-black">
+                                    Start Date Issues
+                                  </span>
+                                </div>
+                                <button
+                                  onClick={() => setActiveTooltip(null)}
+                                  className="text-black transition-colors"
+                                >
+                                  <X className="w-5 h-5" />
+                                </button>
                               </div>
-                            )
-                          )}
-                        </div>
-                      </div>
+                            </div>
+                            <div className="p-4">
+                              {getErrorMessages(projectIndex, "startYear").map(
+                                (msg, i) => (
+                                  <div
+                                    key={i}
+                                    className="flex items-start space-x-3 mb-3 last:mb-0"
+                                  >
+                                    <div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-red-400 mt-2" />
+                                    <p className="text-black text-sm">{msg}</p>
+                                  </div>
+                                )
+                              )}
+                            </div>
+                          </div>
+                        )}
+                      </>
                     )}
                   </div>
 
                   {/* End Date */}
-                  <div className="relative">
-                    <label className="text-black">
-                      {" "}
-                      {t("builder_forms.work_experience.end_date")}
+                  <label className="mt-4 block text-black">
+                    {" "}
+                    {t("builder_forms.work_experience.end_date")}
+                  </label>
+                  <div className="flex flex-wrap gap-2 relative">
+                    <select
+                      className={`border other-input flex-1 ${
+                        improve && hasErrors(projectIndex, "endYear")
+                          ? "border-red-500"
+                          : "border-black"
+                      }`}
+                      value={getDatePart(project.endYear, "month")}
+                      onChange={(e) =>
+                        handleMonthChange(e, projectIndex, "endYear")
+                      }
+                      disabled={project.endYear === "Present"}
+                    >
+                      <option value="">Month</option>
+                      {months.map((month, idx) => (
+                        <option key={idx} value={month}>
+                          {month}
+                        </option>
+                      ))}
+                    </select>
+                    <select
+                      className={`border other-input flex-1 ${
+                        improve && hasErrors(projectIndex, "endYear")
+                          ? "border-red-500"
+                          : "border-black"
+                      }`}
+                      value={getDatePart(project.endYear, "year")}
+                      onChange={(e) =>
+                        handleYearChange(e, projectIndex, "endYear")
+                      }
+                      disabled={project.endYear === "Present"}
+                    >
+                      <option value="">Year</option>
+                      {years.map((year, idx) => (
+                        <option key={idx} value={year}>
+                          {year}
+                        </option>
+                      ))}
+                    </select>
+                    <label className="flex flex-1 items-center gap-1 other-input text-xl">
+                      <input
+                        type="checkbox"
+                        checked={project.endYear === "Present"}
+                        onChange={() => handlePresentToggle(index)}
+                        className="w-6 h-6"
+                      />
+                      Present
                     </label>
-                    <div className="flex flex-wrap gap-2 items-center">
-                      {/* Month */}
-                      <select
-                        className={`other-input border flex-1 ${
-                          improve && hasErrors(projectIndex, "endYear")
-                            ? "border-red-500"
-                            : "border-black"
-                        }`}
-                        value={
-                          project.endYear === "Present"
-                            ? ""
-                            : project.endYear.split(",")[0]
-                        }
-                        onChange={(e) =>
-                          handleMonthChange(e, projectIndex, "endYear")
-                        }
-                        disabled={project.endYear === "Present"}
-                      >
-                        {months.map((month, idx) => (
-                          <option key={idx} value={month}>
-                            {month}
-                          </option>
-                        ))}
-                      </select>
 
-                      {/* Year */}
-                      <select
-                        className={`other-input border flex-1 ${
-                          improve && hasErrors(projectIndex, "endYear")
-                            ? "border-red-500"
-                            : "border-black"
-                        }`}
-                        value={
-                          project.endYear === "Present"
-                            ? ""
-                            : project.endYear.split(",")[1]
-                        }
-                        onChange={(e) =>
-                          handleYearChange(e, projectIndex, "endYear")
-                        }
-                        disabled={project.endYear === "Present"}
-                      >
-                        {years.map((year, idx) => (
-                          <option key={idx} value={year}>
-                            {year}
-                          </option>
-                        ))}
-                      </select>
-
-                      {/* Present Checkbox */}
-                      <label className="flex items-center gap-1 text-xl flex-1 other-input">
-                        <input
-                          type="checkbox"
-                          checked={project.endYear === "Present"}
-                          onChange={() => handlePresentToggle(projectIndex)}
-                          className="w-6 h-6"
-                        />
-                        Present
-                      </label>
-
-                      {/* Tooltip Icon */}
-                      {improve && hasErrors(projectIndex, "endYear") && (
+                    {improve && hasErrors(projectIndex, "endYear") && (
+                      <>
                         <button
                           type="button"
-                          className="absolute right-2 top-10 text-red-500 hover:text-red-600 transition-colors"
+                          className="absolute right-[2px] top-[-1.5rem] text-red-500"
                           onClick={() =>
                             setActiveTooltip(
                               activeTooltip === `endYear-${projectIndex}`
@@ -852,37 +956,41 @@ const Projects = () => {
                         >
                           <AlertCircle className="w-5 h-5" />
                         </button>
-                      )}
-                    </div>
 
-                    {/* Tooltip Message */}
-                    {activeTooltip === `endYear-${projectIndex}` && (
-                      <div className="absolute z-50 right-0 mt-2 w-80 bg-white rounded-lg shadow-xl transition-all border border-gray-700">
-                        <div className="p-4 border-b border-gray-700 flex items-center justify-between">
-                          <div className="flex items-center space-x-2">
-                            <AlertCircle className="w-5 h-5 text-red-400" />
-                            <span className="font-medium text-black">
-                              End Date Issue
-                            </span>
-                          </div>
-                          <button onClick={() => setActiveTooltip(null)}>
-                            <X className="w-5 h-5 text-black" />
-                          </button>
-                        </div>
-                        <div className="p-4">
-                          {getErrorMessages(projectIndex, "endYear").map(
-                            (msg, i) => (
-                              <div
-                                key={i}
-                                className="flex items-start space-x-3 mb-3 last:mb-0"
-                              >
-                                <div className="w-1.5 h-1.5 rounded-full bg-red-400 mt-2" />
-                                <p className="text-black text-sm">{msg}</p>
+                        {activeTooltip === `endYear-${projectIndex}` && (
+                          <div className="absolute right-0 top-14 w-80 bg-white rounded-lg shadow-xl border border-gray-700 z-50">
+                            <div className="p-4 border-b border-gray-700">
+                              <div className="flex items-center justify-between">
+                                <div className="flex items-center space-x-2">
+                                  <AlertCircle className="w-5 h-5 text-red-400" />
+                                  <span className="font-medium text-black">
+                                    End Date Issues
+                                  </span>
+                                </div>
+                                <button
+                                  onClick={() => setActiveTooltip(null)}
+                                  className="text-black transition-colors"
+                                >
+                                  <X className="w-5 h-5" />
+                                </button>
                               </div>
-                            )
-                          )}
-                        </div>
-                      </div>
+                            </div>
+                            <div className="p-4">
+                              {getErrorMessages(projectIndex, "endYear")?.map(
+                                (msg, i) => (
+                                  <div
+                                    key={i}
+                                    className="flex items-start space-x-3 mb-3 last:mb-0"
+                                  >
+                                    <div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-red-400 mt-2" />
+                                    <p className="text-black text-sm">{msg}</p>
+                                  </div>
+                                )
+                              )}
+                            </div>
+                          </div>
+                        )}
+                      </>
                     )}
                   </div>
                 </div>

@@ -1403,7 +1403,151 @@
   "project":{
     "no_project":"No projects available. Add a new project to get started."
   
-  }
+  },
+  "admin":{
+    "navbar":{
+     
+        "logout": "Logout"
+     
+      
+    },
+    "sidebar":{
+      "home": "Home",
+      "admin": "Admin",
+      "customers": "All Customers",
+      "templates": "My Templates",
+      "leads": "Leads",
+      "payment": "Payment",
+      "subscribers": "Subscribers List",
+      "logout": "Log Out"
+    },
+    "customers":{
+      "title": "All Customers",
+      "searchEmail": "Search by Email",
+      "searchPhone": "Search by Phone",
+      "ascending": "Ascending",
+      "descending": "Descending",
+      "search": "Search",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "mobile": "Mobile",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "na": "N/A"
+    },
+    "templatelist":{
+      "myResume": "My Resume",
+      "myCoverLetter": "My Cover Letter"
+    },
+    "leads":{
+      "requestService": "Request Service",
+      "newTemplate": "New Template",
+      "newCoverLetter": "New Cover Letter",
+      "support": "Support"
+    },
+    "payment":{
+      "id": "ID",
+      "name": "Name",
+      "email": "Email",
+      "planName": "Plan Name",
+      "status": "Status",
+      "remark": "Remark",
+      "action": "Action",
+      "paymentHistory": "Payment History",
+      "noPaymentFound": "No Payment History Found",
+      "noRecordsAvailable": "There are no payment records available at this time.",
+      "addRemarkPlaceholder": "Add remark...",
+      "submit": "Submit",
+      "remarkEmpty": "Please enter a remark before submitting",
+      "remarkSuccess": "Remark submitted successfully",
+      "remarkFailed": "Failed to submit remark"
+    },
+    "subscriberlist":{
+      "subscriberList": "Subscriber List",
+      "noData": "There is no data available.",
+      "createdAt": "Created At",
+      "email": "Email",
+      "status": "Subscription Status",
+      "action": "Subscription Action",
+      "subscribed": "🔔 Subscribed",
+      "notSubscribed": "🔕 Not Subscribed",
+      "unsubscribe": "🔕 Unsubscribe",
+      "loading": "Loading...",
+      "error": "Failed to load users.",
+      "unsubscribeError": "Failed to unsubscribe user."
+    },
+    "login":{
+      "adminLogin": "🛡️ Admin Login",
+      "adminId": "🛡️ Admin ID",
+      "password": "🔒 Password",
+      "enterEmail": "Enter your email ID",
+      "enterPassword": "Enter your password",
+      "login": "Login",
+      "loginSuccess": "Login successfully",
+      "loginFail": "Failed to Login",
+      "errorOccurred": "An error occurred",
+      "emailPasswordRequired": "Email and Password are Required"
+    }
+    
+},
+"paymentplans":{
+  "Cast a wider net – 10x your job applications": "Cast a wider net – 10x your job applications",
+  "Our AI-powered platform scours millions of jobs to continuously find and apply to relevant job openings until you're hired.": "Our AI-powered platform scours millions of jobs to continuously find and apply to relevant job openings until you're hired.",
+  "Kudos! You're one step closer to success": "Kudos! You're one step closer to success",
+  "Pricing Plans": "Pricing Plans",
+  "Choose the plan that works best for you": "Choose the plan that works best for you",
+  "Our pricing plans are designed to accommodate all your resume building needs.": "Our pricing plans are designed to accommodate all your resume building needs.",
+  "Best Value": "Best Value",
+  "Free": "Free",
+  "Free Plan": "Free Plan",
+  "single": "Single Purchase",
+  "month": "Monthly",
+  "year": "Yearly",
+  "mo": "mo",
+  "yr": "yr",
+  "Get Started": "Get Started",
+  "Everything in Free +": "Everything in Free +",
+  "Unlimited Resume Edits": "Unlimited Resume Edits",
+  "Download in PDF": "Download in PDF",
+  "Interactive Dashboard": "Interactive Dashboard",
+  "2 Unique Resume Templates": "2 Unique Resume Templates",
+  "2 Color Options & 2 Fonts": "2 Color Options & 2 Fonts",
+  "Resume Parsing (ATS-Friendly)": "Resume Parsing (ATS-Friendly)",
+  "French Language Support": "French Language Support",
+  "Job Search & Career Resources": "Job Search & Career Resources",
+  "Cover Letter Builder": "Cover Letter Builder",
+  "Job Alerts & Tracking": "Job Alerts & Tracking",
+  "27 Unique Resume Templates": "27 Unique Resume Templates",
+  "5 Color Options & 6 Fonts": "5 Color Options & 6 Fonts",
+  "Free Cover Letter Builder": "Free Cover Letter Builder",
+  "AI Resume Score & Feedback": "AI Resume Score & Feedback",
+  "Skill Tests & Analysis": "Skill Tests & Analysis",
+  "AI-Enabled Content": "AI-Enabled Content",
+  "Auto-Improvement": "Auto-Improvement",
+  "ATS Optimization": "ATS Optimization",
+  "37 Unique Resume Templates": "37 Unique Resume Templates",
+  "8 Color Options & 6 Fonts": "8 Color Options & 6 Fonts",
+  "Most Affordable ATS Optimization": "Most Affordable ATS Optimization",
+  "All subscription features": "All subscription features",
+  "Automate your job search": "Automate your job search",
+  "We continuously scan millions of openings to find your top matches.": "We continuously scan millions of openings to find your top matches.",
+  "10x your job applications": "10x your job applications",
+  "Submit 10x as many applications with less effort than one manual application.": "Submit 10x as many applications with less effort than one manual application.",
+  "Wake up to your best matches": "Wake up to your best matches",
+  "Start each day with a list of roles matched to your skills and preferences.": "Start each day with a list of roles matched to your skills and preferences.",
+  "Save valuable hours every week": "Save valuable hours every week",
+  "Reclaim your time by letting our AI handle the grunt work of job searching.": "Reclaim your time by letting our AI handle the grunt work of job searching.",
+  "Money-back guarantee": "Money-back guarantee",
+  "If you are unhappy for any reason during the trial, just let us know - we'll refund your money.": "If you are unhappy for any reason during the trial, just let us know - we'll refund your money.",
+  "24/7 customer support": "24/7 customer support",
+  "Get assistance anytime with our award-winning customer care service.": "Get assistance anytime with our award-winning customer care service.",
+  "Next": "Next",
+  "Got questions?": "Got questions?",
+  "Contact our 24/7 customer support.": "Contact our 24/7 customer support.",
+  "You may cancel by email, online, or by calling us toll-free at 855-695-3235.": "You may cancel by email, online, or by calling us toll-free at 855-695-3235."
+}
+
   
   
   

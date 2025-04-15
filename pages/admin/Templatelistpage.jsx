@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import CoverLetterListPage from "./coverletterlist";
 import Resumelistpage from "./resumelist";
+import { useTranslation } from "react-i18next";
 
 const Templatelistpage = () => {
+  const { t } = useTranslation();
+
   const [activeTab, setActiveTab] = useState("resume");
 
   return (
@@ -17,7 +20,7 @@ const Templatelistpage = () => {
               : "bg-gray-300 text-gray-800"
           }`}
         >
-          My Resume
+          {t("admin.templatelist.myResume")}
         </button>
         <button
           onClick={() => setActiveTab("coverLetter")}
@@ -27,7 +30,7 @@ const Templatelistpage = () => {
               : "bg-gray-300 text-gray-800"
           }`}
         >
-          My Cover Letter
+          {t("admin.templatelist.myCoverLetter")}
         </button>
       </div>
 
