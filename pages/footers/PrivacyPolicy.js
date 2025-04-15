@@ -177,8 +177,10 @@ function PrivacyPolicy() {
         {Object.keys(t("sections", { returnObjects: true })).map(
           (key, index) => (
             <div key={index} className="mb-6">
-              <h2 className="text-xl font-semibold">{t(`sections.${key}`)}</h2>
-              <p className="text-gray-700 mt-2">{t(key)}</p>
+              <h2 className="text-xl sm:text-2xl font-semibold my-2 mt-5">
+                {t(`sections.${key}`)}
+              </h2>
+              <p className="text-base sm:text-lg">{t(key)}</p>
             </div>
           )
         )}

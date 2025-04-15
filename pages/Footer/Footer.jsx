@@ -208,10 +208,14 @@ import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
 import { ResumeContext } from "../../components/context/ResumeContext";
 import axiosInstance from "../../components/utils/axiosInstance";
+import SupportPopup from "./supportpopup";
+
 const Footer = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const { selectedLang } = useContext(ResumeContext);
+  const [showPopup, setShowPopup] = useState(false);
+
   const { t } = useTranslation();
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevent form default behavior
@@ -241,142 +245,6 @@ const Footer = () => {
   };
 
   return (
-    // <>
-    //   <footer className="bg-gray-300 text-black py-8" id="footerbg">
-    //     <div className="container mx-auto flex flex-col gap-7 justify-between px-6">
-    //       <div className="flex flex-wrap justify-between px-2 md:px-[65px]">
-    //         <div className="w-auto h mb-6 md:mb-0">
-    //           <Link href="/">
-    //             <Image src={logo} alt="logo" className="h-12 w-[200px]" />
-    //           </Link>
-    //           <p className="text-lg text-bold px-5">
-    //             {t("footer.building_careers")}
-    //           </p>
-    //         </div>
-
-    //         <div className="w-full md:w-auto mb-6 md:mb-0">
-    //           <h2 className="text-lg font-semibold text-[#00b38d]">
-    //             {t("footer.get_our_weekly")}
-    //           </h2>
-    //           <form
-    //             onSubmit={handleSubmit}
-    //             className="flex flex-col md:flex-row gap-3"
-    //           >
-    //             <input
-    //               type="email"
-    //               placeholder={t("footer.type_your_email")}
-    //               value={email}
-    //               onChange={(e) => setEmail(e.target.value)}
-    //               required
-    //               className="p-2 rounded text-black"
-    //             />
-    //             <button
-    //               type="submit"
-    //               className="md:px-4 md:py-1 p-1 rounded-full bg-white text-black hover:bg-green-500"
-    //             >
-    //               {t("footer.subscribe")}
-    //             </button>
-    //           </form>
-    //           {/* {message && <p>{message}</p>} */}
-    //         </div>
-    //       </div>
-
-    //       <div className="flex flex-wrap justify-around">
-    //         <div className="w-full md:w-auto mb-6 md:mb-0">
-    //           <h2 className="text-lg font-bold text-[#00b38d]">
-    //             {t("footer.cibli_job")}
-    //           </h2>
-    //           <ul>
-    //             <li>
-    //               <Link href="/footers/Aboutus">
-    //                 <span>{t("footer.about_us")}</span>
-    //               </Link>
-    //             </li>
-    //             <li>
-    //               <Link href="/footers/Careers">
-    //                 <span>{t("footer.careers")}</span>
-    //               </Link>
-    //             </li>
-    //             <li>
-    //               <Link href="https://blog.ciblijob.fr/">
-    //                 <span>{t("footer.resources")}</span>
-    //               </Link>
-    //             </li>
-    //           </ul>
-    //         </div>
-    //         <div className="w-full md:w-auto mb-6 md:mb-0">
-    //           <h2 className="text-lg font-bold text-[#00b38d]">
-    //             {t("footer.support")}
-    //           </h2>
-    //           <ul>
-    //             <li>
-    //               <Link href="/footers/Salarytools">
-    //                 <span>{t("footer.salary_tool")}</span>
-    //               </Link>
-    //             </li>
-    //             <li>
-    //               <Link href="/TermsandConditions">
-    //                 <span>{t("footer.terms_conditions")}</span>
-    //               </Link>
-    //             </li>
-    //             <li>
-    //               <Link href="/footers/PrivacyPolicy">
-    //                 <span>{t("footer.privacy_policy")}</span>
-    //               </Link>
-    //             </li>
-    //           </ul>
-    //         </div>
-    //         <div className="w-full md:w-auto mb-6 md:mb-0">
-    //           <h2 className="text-lg font-bold text-[#00b38d]">
-    //             {t("footer.scope_products")}
-    //           </h2>
-    //           <ul>
-    //             <li>
-    //               <Link href="/footers/AiResumeBuilder">
-    //                 <span>{t("footer.ai_resume_builder")}</span>
-    //               </Link>
-    //             </li>
-    //             <li>
-    //               <Link href="/footers/AiSkillTests">
-    //                 <span>{t("footer.ai_skill_tests")}</span>
-    //               </Link>
-    //             </li>
-    //             <li>
-    //               <Link href="/footers/AiCVParsing">
-    //                 <span>{t("footer.ai_cv_parsing")}</span>
-    //               </Link>
-    //             </li>
-    //           </ul>
-    //         </div>
-    //         <div className="w-full md:w-auto mb-6 md:mb-0">
-    //           <h2 className="text-lg font-bold text-[#00b38d]">
-    //             {t("footer.ai_resources")}
-    //           </h2>
-    //           <ul>
-    //             <li>
-    //               <Link href="/footers/AIEnhancedResumeAccuracy">
-    //                 <span>{t("footer.ai_resume_accuracy")}</span>
-    //               </Link>
-    //             </li>
-    //             <li>
-    //               <Link href="/footers/AiResumeEnhancer">
-    //                 <span>{t("footer.ai_resume_enhancer")}</span>
-    //               </Link>
-    //             </li>
-    //             <li>
-    //               <Link href="/footers/AiJobMatchApply">
-    //                 <span>{t("footer.ai_job_match_apply")}</span>
-    //               </Link>
-    //             </li>
-    //           </ul>
-    //         </div>
-    //       </div>
-    //     </div>
-    //     <div className="container text-base md:mx-auto text-center border-t border-white pt-6 mt-6">
-    //       <p className="text-[#00b38d] text-right">{t("footer.copyright")}</p>
-    //     </div>
-    //   </footer>
-    // </>
     <>
       <footer className="bg-gray-300 text-black py-8" id="footerbg">
         <div className="container mx-auto flex flex-col gap-7 px-6">
@@ -450,7 +318,26 @@ const Footer = () => {
               <h2 className="text-lg font-bold text-[#00b38d]">
                 {t("footer.support")}
               </h2>
+              <div>
+                {/* <button
+                  className="bg-blue-500 text-white px-4 py-2 rounded"
+                  onClick={() => setShowPopup(true)}
+                >
+                  Open Support Form
+                </button> */}
+
+                <SupportPopup
+                  isOpen={showPopup}
+                  onClose={() => setShowPopup(false)}
+                />
+              </div>
               <ul className="mt-2 space-y-1">
+                <li
+                  onClick={() => setShowPopup(true)}
+                  className=" cursor-pointer"
+                >
+                  {t("footer.support")}
+                </li>
                 <li>
                   <Link href="/footers/Salarytools">
                     {t("footer.salary_tool")}

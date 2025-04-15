@@ -90,7 +90,36 @@ function Subscriberslist1() {
       );
     }
   };
+  const handleSubscribe = async (email) => {
+    const token = localStorage.getItem("token");
 
+    try {
+      const response = await axiosInstance.post(
+        `/api/user/user-subscribe?lang=${language}`,
+        { email }
+        // {
+        //   headers: {
+        //     Authorization: token,
+        //   },
+        // }
+      );
+
+      // Show the success message from API
+      toast.success(response.data.message);
+
+      // Update the user subscription status after unsubscribing
+      setUsers((prevUsers) =>
+        prevUsers.map((user) =>
+          user.email === email ? { ...user, is_subscribe: 0 } : user
+        )
+      );
+    } catch (error) {
+      console.error("Error unsubscribing user:", error);
+      toast.error(
+        error.response?.data?.message || "Failed to unsubscribe user."
+      );
+    }
+  };
   if (loading) {
     return (
       <div className="text-center py-4">
@@ -153,6 +182,20 @@ function Subscriberslist1() {
                         ? t("admin.subscriberlist.subscribed")
                         : t("admin.subscriberlist.notSubscribed")}
                     </button>
+                    {/* <button
+                      className={`border px-8 rounded-3xl py-2 ${
+                        user.is_subscribe === 1 ? "bg-green-700" : "bg-red-700"
+                      } text-white`}
+                      onClick={() => {
+                        if (user.is_subscribe === 0) {
+                          handleSubscribe(user.email); // call API if user is NOT subscribed
+                        }
+                      }}
+                    >
+                      {user.is_subscribe === 1
+                        ? t("admin.subscriberlist.subscribed")
+                        : t("admin.subscriberlist.notSubscribed")}
+                    </button> */}
                   </td>
                   <td className="py-2 px-4">
                     {user.is_subscribe === 1 && (
