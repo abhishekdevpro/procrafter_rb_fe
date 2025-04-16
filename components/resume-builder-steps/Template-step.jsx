@@ -262,6 +262,7 @@ const TemplateStep = ({ onNext, onBack, onChange, value }) => {
           degree: edu.degree || "",
           startYear: edu.startYear || "",
           endYear: edu.endYear || "",
+          location: edu.location || "",
         })) || [],
       workExperience:
         data.workExperience?.map((exp) => ({
@@ -273,6 +274,7 @@ const TemplateStep = ({ onNext, onBack, onChange, value }) => {
             : [exp.keyAchievements || ""],
           startYear: exp.startYear || "",
           endYear: exp.endYear || "",
+          location: exp.location || "",
         })) || [],
       projects:
         data.projects?.map((project) => ({

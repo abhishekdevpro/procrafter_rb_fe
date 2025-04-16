@@ -35,31 +35,6 @@ function Subscriberslist1() {
       .finally(() => setLoading(false));
   }, []);
 
-  // const handleUnsubscribe = async (email) => {
-  //   const token = localStorage.getItem("token");
-
-  //   try {
-  //     await axiosInstance.put(
-  //       `/api/user/user-unsubscribe?lang=${language}`,
-  //       { email } // Sending email in the body
-  //       // {
-  //       //   headers: {
-  //       //     Authorization: token,
-  //       //   },
-  //       // }
-  //     );
-
-  //     // Update the user subscription status after unsubscribing
-  //     setUsers((prevUsers) =>
-  //       prevUsers.map((user) =>
-  //         user.email === email ? { ...user, is_subscribe: 0 } : user
-  //       )
-  //     );
-  //   } catch (error) {
-  //     console.error("Error unsubscribing user:", error);
-  //     alert("Failed to unsubscribe user.");
-  //   }
-  // };
   const handleUnsubscribe = async (email) => {
     const token = localStorage.getItem("token");
 
@@ -94,14 +69,9 @@ function Subscriberslist1() {
     const token = localStorage.getItem("token");
 
     try {
-      const response = await axiosInstance.post(
-        `/api/user/user-subscribe?lang=${language}`,
+      const response = await axiosInstance.put(
+        `/api/user/user-resubscribe?lang=${language}`,
         { email }
-        // {
-        //   headers: {
-        //     Authorization: token,
-        //   },
-        // }
       );
 
       // Show the success message from API
@@ -173,7 +143,7 @@ function Subscriberslist1() {
                   <td className="py-2 px-4">{user.created_at || "N/A"}</td>
                   <td className="py-2 px-4">{user.email || "N/A"}</td>
                   <td className="py-2 px-4">
-                    <button
+                    {/* <button
                       className={`border px-8 rounded-3xl py-2 ${
                         user.is_subscribe === 1 ? "bg-green-700" : "bg-red-700"
                       } text-white`}
@@ -181,8 +151,8 @@ function Subscriberslist1() {
                       {user.is_subscribe === 1
                         ? t("admin.subscriberlist.subscribed")
                         : t("admin.subscriberlist.notSubscribed")}
-                    </button>
-                    {/* <button
+                    </button> */}
+                    <button
                       className={`border px-8 rounded-3xl py-2 ${
                         user.is_subscribe === 1 ? "bg-green-700" : "bg-red-700"
                       } text-white`}
@@ -195,7 +165,7 @@ function Subscriberslist1() {
                       {user.is_subscribe === 1
                         ? t("admin.subscriberlist.subscribed")
                         : t("admin.subscriberlist.notSubscribed")}
-                    </button> */}
+                    </button>
                   </td>
                   <td className="py-2 px-4">
                     {user.is_subscribe === 1 && (

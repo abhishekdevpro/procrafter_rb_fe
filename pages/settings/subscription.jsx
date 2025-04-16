@@ -115,6 +115,8 @@ export default function Subscription() {
   const [userData, setUserData] = useState(null);
   const [error, setError] = useState(null);
   const { selectedLang } = useContext(ResumeContext);
+  const [showCancelConfirm, setShowCancelConfirm] = useState(false);
+
   const handleCancelSubscription = async () => {
     try {
       const token = localStorage.getItem("token");
@@ -282,7 +284,7 @@ export default function Subscription() {
                         {t("subscription.upgrade")}
                       </button>
                     </Link>
-                    <button
+                    {/* <button
                       onClick={handleCancelSubscription}
                       disabled={
                         userData?.plan_id === 1 || !userData?.is_active_plan
@@ -294,7 +296,50 @@ export default function Subscription() {
                       }`}
                     >
                       {t("subscription.cancel_subscription")}
+                    </button> */}
+                    <button
+                      onClick={() => setShowCancelConfirm(true)}
+                      disabled={
+                        userData?.plan_id === 1 || !userData?.is_active_plan
+                      }
+                      className={`mt-3 md:mt-0 px-4 py-2 rounded-md ${
+                        userData?.plan_id === 1 || !userData?.is_active_plan
+                          ? "bg-gray-400 cursor-not-allowed"
+                          : "bg-red-600 text-white hover:bg-red-700"
+                      }`}
+                    >
+                      {t("subscription.cancel_subscription")}
                     </button>
+                    {showCancelConfirm && (
+                      <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center">
+                        <div className="bg-white p-6 rounded-md shadow-lg w-full max-w-sm text-center">
+                          <h2 className="text-lg font-semibold mb-4">
+                            {t("subscription.confirm_title") || "Are you sure?"}
+                          </h2>
+                          <p className="mb-6">
+                            {t("subscription.confirm_message") ||
+                              "Do you really want to cancel your subscription?"}
+                          </p>
+                          <div className="flex justify-center gap-4">
+                            <button
+                              onClick={() => {
+                                handleCancelSubscription();
+                                setShowCancelConfirm(false);
+                              }}
+                              className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded"
+                            >
+                              {t("subscription.confirm_yes") || "Yes, Cancel"}
+                            </button>
+                            <button
+                              onClick={() => setShowCancelConfirm(false)}
+                              className="bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded"
+                            >
+                              {t("subscription.confirm_no") || "No, Go Back"}
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
                 <p className="text-gray-700">
