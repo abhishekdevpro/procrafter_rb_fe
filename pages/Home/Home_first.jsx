@@ -185,9 +185,9 @@ function Home_first() {
             {/* Content Section */}
             <div className="px-3 py-3 w-full md:w-[500px]">
               <div className="flex flex-col gap-4">
-                <div className="font-extrabold text-5xl font-sans">
+                <h1 className="font-extrabold text-5xl font-sans">
                   {t("resume_tool_live")}
-                </div>
+                </h1>
 
                 <div className="text-lg font-medium text-slate-700">
                   {t("resume_features")}

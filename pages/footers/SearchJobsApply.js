@@ -7,9 +7,9 @@ function SearchJobsApply() {
     <div>
       <Navbar/>
       <div className="m-10 mx-40 p-5  shadow-2xl">
-        <h1 className="text-4xl font-semibold my-4 underline ">
+        <h2 className="text-4xl font-semibold my-4 underline ">
           Search Jobs & Apply
-        </h1>
+        </h2>
         <h2 className="text-lg font-bold my-5">
           Find Your Dream Job with Cibli Job ’s Advanced Job Search & Apply Tool
         </h2>

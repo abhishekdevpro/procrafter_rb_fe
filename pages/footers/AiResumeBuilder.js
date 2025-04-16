@@ -7,9 +7,9 @@
 //     <div className="bg-gray-50 min-h-screen">
 //       <Navbar/>
 //       <div className="max-w-4xl mx-auto my-5 p-6 sm:p-10 shadow-lg bg-white rounded-lg">
-//         <h1 className="text-3xl sm:text-4xl font-semibold text-center underline mb-6">
+//         <h2 className="text-3xl sm:text-4xl font-semibold text-center underline mb-6">
 //           AI Resume Builder
-//         </h1>
+//         </h2>
 
 //         <h2 className="text-xl sm:text-2xl font-semibold my-2 mt-5">
 //           Revolutionizing the Job Application Process
@@ -164,9 +164,9 @@ function AiResumeBuilder() {
     <div className="">
       <Navbar />
       <div className="m-4 sm:mx-10 lg:mx-40 p-4 sm:p-6 shadow-2xl">
-        <h1 className="text-3xl sm:text-4xl font-semibold text-center underline mb-6">
+        <h2 className="text-3xl sm:text-4xl font-semibold text-center underline mb-6">
           {t("title")}
-        </h1>
+        </h2>
 
         <h2 className="text-xl sm:text-2xl font-semibold my-2 mt-5">
           {t("introduction")}

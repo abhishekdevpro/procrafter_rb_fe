@@ -1,7 +1,7 @@
 import Head from "next/head";
 
 export default function Meta({ title, keywords, description }) {
-  const homepage = "https://ciblijob.fr//";
+  const homepage = "https://ciblijob.fr/";
   const logo = "/assets/logo.png";
   const favicon = "/assets/favicon.ico";
 
@@ -38,7 +38,7 @@ export default function Meta({ title, keywords, description }) {
           availableLanguage: "en",
         },
         sameAs: [
-          "https://ciblijob.fr//",
+          "https://ciblijob.fr/",
           "https://www.facebook.com/people/CibliJob/61564845718534/",
         ],
       }),
@@ -52,7 +52,7 @@ export default function Meta({ title, keywords, description }) {
         name: "CibliJob",
         image:
           "https://ciblijob.fr//_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.2cfd75d8.jpg&w=640&q=75",
-        url: "https://ciblijob.fr//",
+        url: "https://ciblijob.fr/",
         telephone: "18882008168",
         priceRange: "$269",
         address: {
