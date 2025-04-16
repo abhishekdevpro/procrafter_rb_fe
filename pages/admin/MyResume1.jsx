@@ -201,6 +201,7 @@ const MyResume1 = () => {
         <table className="min-w-full bg-dark text-black rounded-md text-center">
           <thead>
             <tr className="bg-pink-500 text-white">
+              <th className="py-2 px-4">Sr No.</th> {/* 👈 New Sr No. header */}
               <th className="py-2 px-4">{t("admin.customers.firstName")}</th>
               <th className="py-2 px-4">{t("admin.customers.lastName")}</th>
               <th className="py-2 px-4">{t("admin.customers.email")}</th>
@@ -209,22 +210,7 @@ const MyResume1 = () => {
               <th className="py-2 px-4">{t("admin.customers.updatedAt")}</th>
             </tr>
           </thead>
-          {/* <tbody>
-            {users.map((user, index) => (
-              <tr key={index} className="border-t border-gray-700 text-center">
-                <td className="py-2 px-4">{user.first_name || "N/A"}</td>
-                <td className="py-2 px-4">{user.last_name || "N/A"}</td>
-                <td className="py-2 px-4">{user.email || "N/A"}</td>
-                <td className="py-2 px-4">{user.mobile || "N/A"}</td>
-                <td className="py-2 px-4">
-                  {new Date(user.created_at).toLocaleDateString()}
-                </td>
-                <td className="py-2 px-4">
-                  {new Date(user.updated_at).toLocaleDateString()}
-                </td>
-              </tr>
-            ))}
-          </tbody> */}
+
           <tbody>
             {users.length === 0 ? (
               <tr>
@@ -238,6 +224,9 @@ const MyResume1 = () => {
                   key={index}
                   className="border-t border-gray-700 text-center"
                 >
+                  <td className="py-2 px-4">
+                    {(currentPage - 1) * recordsPerPage + index + 1}
+                  </td>
                   <td className="py-2 px-4">{user.first_name || "N/A"}</td>
                   <td className="py-2 px-4">{user.last_name || "N/A"}</td>
                   <td className="py-2 px-4">{user.email || "N/A"}</td>

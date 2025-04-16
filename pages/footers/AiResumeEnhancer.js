@@ -135,12 +135,11 @@ function AiResumeEnhancer() {
         <h2 className="text-xl font-bold my-5">
           {t("aiResumeEnhancer.subtitle")}
         </h2>
-        {t("aiResumeEnhancer.intro")}
+        <p className="text-base sm:text-lg"> {t("aiResumeEnhancer.intro")} </p>
 
         <h2 className="text-xl font-bold my-5">
           {t("aiResumeEnhancer.featuresTitle")}
         </h2>
-
         <h2 className="text-sm font-semibold my-2">
           {t("aiResumeEnhancer.feature1Title")}
         </h2>
@@ -184,7 +183,6 @@ function AiResumeEnhancer() {
         <h2 className="text-lg font-bold my-4">
           {t("aiResumeEnhancer.howItWorksTitle")}
         </h2>
-
         <h2 className="text-sm font-semibold my-2">
           {t("aiResumeEnhancer.step1Title")}
         </h2>
@@ -204,6 +202,7 @@ function AiResumeEnhancer() {
           {t("aiResumeEnhancer.step4Title")}
         </h2>
         {t("aiResumeEnhancer.step4Desc")}
+
 
         <h2 className="text-lg font-bold my-2">
           {t("aiResumeEnhancer.benefitsTitle")}
@@ -238,6 +237,7 @@ function AiResumeEnhancer() {
           {t("aiResumeEnhancer.getStartedTitle")}
         </h2>
         {t("aiResumeEnhancer.getStartedDesc")}
+
       </div>
       <Footer />
     </div>

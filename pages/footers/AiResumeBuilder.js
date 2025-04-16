@@ -11,10 +11,10 @@
 //           AI Resume Builder
 //         </h2>
 
-//         <h2 className="text-2xl font-bold my-5">
+//         <h2 className="text-xl sm:text-2xl font-semibold my-2 mt-5">
 //           Revolutionizing the Job Application Process
 //         </h2>
-//         <p className="text-gray-700">
+//         <p className="text-base sm:text-lg">
 //           Welcome to Cibli Job’s AI Resume Builder – an innovative solution
 //           designed to streamline the resume creation process and help you land
 //           your dream job. Our cutting-edge AI technology simplifies resume
@@ -63,7 +63,7 @@
 //         ].map((feature, index) => (
 //           <div key={index} className="mb-4">
 //             <h3 className="text-lg font-semibold">{feature.title}</h3>
-//             <p className="text-gray-700">{feature.description}</p>
+//             <p className="text-base sm:text-lg">{feature.description}</p>
 //           </div>
 //         ))}
 
@@ -93,7 +93,7 @@
 //         ].map((step, index) => (
 //           <div key={index} className="mb-4">
 //             <h3 className="text-lg font-semibold">{step.title}</h3>
-//             <p className="text-gray-700">{step.description}</p>
+//             <p className="text-base sm:text-lg">{step.description}</p>
 //           </div>
 //         ))}
 
@@ -125,14 +125,14 @@
 //         ].map((benefit, index) => (
 //           <div key={index} className="mb-4">
 //             <h3 className="text-lg font-semibold">{benefit.title}</h3>
-//             <p className="text-gray-700">{benefit.description}</p>
+//             <p className="text-base sm:text-lg">{benefit.description}</p>
 //           </div>
 //         ))}
 
 //         <h2 className="text-xl font-bold my-5">
 //           Start Building Your Resume Today
 //         </h2>
-//         <p className="text-gray-700">
+//         <p className="text-base sm:text-lg">
 //           Transform your job application process with Cibli Job’s AI Resume
 //           Builder. Sign up now and take the first step toward landing your dream
 //           job with a professionally crafted resume that showcases your unique
@@ -140,7 +140,7 @@
 //         </p>
 
 //         <h2 className="text-lg font-bold my-4 text-center">Get Started</h2>
-//         <p className="text-center text-gray-700 ">
+//         <p className="text-center text-base sm:text-lg ">
 //           Ready to create your Cibli Job ? Visit our AI Resume Builder page and
 //           start building your resume today!
 //         </p>
@@ -168,15 +168,17 @@ function AiResumeBuilder() {
           {t("title")}
         </h2>
 
-        <h2 className="text-2xl font-bold my-5">{t("introduction")}</h2>
-        <p className="text-gray-700">{t("description_ai")}</p>
+        <h2 className="text-xl sm:text-2xl font-semibold my-2 mt-5">
+          {t("introduction")}
+        </h2>
+        <p className="text-base sm:text-lg">{t("description_ai")}</p>
 
         <h2 className="text-xl font-bold my-5">{t("key_features")}</h2>
 
         {t("features", { returnObjects: true }).map((feature, index) => (
           <div key={index} className="mb-4">
             <h3 className="text-lg font-semibold">{feature.title}</h3>
-            <p className="text-gray-700">{feature.description}</p>
+            <p className="text-base sm:text-lg">{feature.description}</p>
           </div>
         ))}
 
@@ -185,7 +187,7 @@ function AiResumeBuilder() {
         {t("steps", { returnObjects: true }).map((step, index) => (
           <div key={index} className="mb-4">
             <h3 className="text-lg font-semibold">{step.title}</h3>
-            <p className="text-gray-700">{step.description}</p>
+            <p className="text-base sm:text-lg">{step.description}</p>
           </div>
         ))}
 
@@ -194,17 +196,19 @@ function AiResumeBuilder() {
         {t("benefits", { returnObjects: true }).map((benefit, index) => (
           <div key={index} className="mb-4">
             <h3 className="text-lg font-semibold">{benefit.title}</h3>
-            <p className="text-gray-700">{benefit.description}</p>
+            <p className="text-base sm:text-lg">{benefit.description}</p>
           </div>
         ))}
 
         <h2 className="text-xl font-bold my-5">{t("cta.title")}</h2>
-        <p className="text-gray-700">{t("cta.description")}</p>
+        <p className="text-base sm:text-lg">{t("cta.description")}</p>
 
         <h2 className="text-lg font-bold my-4 text-center">
           {t("cta.button")}
         </h2>
-        <p className="text-center text-gray-700">{t("cta.description")}</p>
+        <p className="text-center text-base sm:text-lg">
+          {t("cta.description")}
+        </p>
       </div>
 
       <Footer />
