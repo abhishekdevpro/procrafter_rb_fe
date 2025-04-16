@@ -1385,8 +1385,11 @@
     "more_info": "Pour plus d'informations ou des modifications de votre abonnement, contactez-nous à",
     
       "upgrade": "Améliorer",
-      "cancel_subscription": "Annuler l'abonnement"
-    
+      "cancel_subscription": "Annuler l'abonnement",
+      "confirm_title": "Êtes-vous sûr ?",
+      "confirm_message": "Voulez-vous vraiment annuler votre abonnement ?",
+      "confirm_yes": "Oui, annuler",
+      "confirm_no": "Non, revenir"
   },
   "project":{
     "no_project":"Aucun projet disponible. Ajoutez un nouveau projet pour commencer."
@@ -1453,6 +1456,7 @@
       "remarkSuccess": "Remarque soumise avec succès",
       "remarkFailed": "Échec de la soumission de la remarque"
     },
+  
     "subscriberlist":{
       "subscriberList": "Liste des abonnés",
       "noData": "Aucune donnée disponible.",
@@ -1486,6 +1490,12 @@
     
     
     
+  },
+  "plan": {
+    "confirm_title": "Êtes-vous sûr ?",
+    "confirm_message": "Voulez-vous vraiment acheter ce plan ?",
+    "confirm_yes": "Oui, acheter",
+    "confirm_no": "Non, revenir"
   },
   "paymentplans":{
     "Cast a wider net – 10x your job applications": "Multipliez vos candidatures par 10",
@@ -1545,7 +1555,15 @@
   },
    "addSection": "✙ Ajouter une section",
    "smartAssist": "✙ Assistance intelligente",
-   "keyAssist": "✙ Assistance clé"
+   "keyAssist": "✙ Assistance clé",
+   "cookie": {
+    "message": "Ce site utilise des cookies pour vous garantir la meilleure expérience sur notre site Web.",
+    "cookiePolicy": "Politique de cookies",
+    "privacyPolicy": "Conditions générales",
+    "and": "et",
+    "button": "J'ai compris !"
+  }
+  
   
   
  

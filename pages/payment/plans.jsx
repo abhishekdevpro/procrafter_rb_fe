@@ -383,7 +383,7 @@ export default function PaymentPage() {
   const { t } = useTranslation();
   const [selectedPlan, setSelectedPlan] = useState(null);
   const [planDetails, setPlanDetails] = useState(null);
-
+  const [showPlanPurchase, setShowPlanPurchase] = useState(false);
   // Get features for a plan
   const getPlanFeatures = (planId) => {
     const plan = pricingData[planId];
@@ -643,7 +643,7 @@ export default function PaymentPage() {
               {t("Start applying")}
             </button> */}
             <button
-              onClick={handleCheckout}
+              onClick={() => setShowPlanPurchase(true)}
               className={`mt-6 w-full text-white text-lg font-semibold py-3 rounded-lg ${
                 selectedPlan === "freePlan"
                   ? "bg-gray-400 cursor-not-allowed"
@@ -654,6 +654,36 @@ export default function PaymentPage() {
               {t("Start applying")}
             </button>
 
+            {showPlanPurchase && (
+              <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center">
+                <div className="bg-white p-6 rounded-md shadow-lg w-full max-w-sm text-center">
+                  <h2 className="text-lg font-semibold mb-4">
+                    {t("plan.confirm_title") || "Are you sure?"}
+                  </h2>
+                  <p className="mb-6">
+                    {t("plan.confirm_message") ||
+                      "Do you really want to purchase this plan?"}
+                  </p>
+                  <div className="flex justify-center gap-4">
+                    <button
+                      onClick={() => {
+                        handleCheckout();
+                        setShowPlanPurchase(false);
+                      }}
+                      className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded"
+                    >
+                      {t("plan.confirm_yes") || "Yes"}
+                    </button>
+                    <button
+                      onClick={() => setShowPlanPurchase(false)}
+                      className="bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded"
+                    >
+                      {t("plan.confirm_no") || "No, Go Back"}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
             {/* Secure Checkout */}
             <div className="flex items-center mt-4 text-sm text-gray-600">
               <Lock className="text-green-500 mr-2" size={20} />
