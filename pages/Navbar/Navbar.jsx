@@ -135,19 +135,19 @@
 //               <div>
 //                 <Link
 //                   href="/dashboard"
-//                   className="text-black hover:text-[#00b38d] px-3 py-2 rounded-md text-lg font-semibold"
+//                   className="text-black hover:text-pink-600 px-3 py-2 rounded-md text-lg font-semibold"
 //                 >
 //                   Dashboard
 //                 </Link>
 //                 <Link
 //                   href="/dashboard/resumelist"
-//                   className="text-black hover:text-[#00b38d] px-3 py-2 rounded-md text-lg font-semibold"
+//                   className="text-black hover:text-pink-600 px-3 py-2 rounded-md text-lg font-semibold"
 //                 >
 //                   My Resumes
 //                 </Link>
 //                 <Link
 //                   href="/dashboard/cvletterlist"
-//                   className="text-black hover:text-[#00b38d] px-3 py-2 rounded-md text-lg font-semibold"
+//                   className="text-black hover:text-pink-600 px-3 py-2 rounded-md text-lg font-semibold"
 //                 >
 //                   Cover Letter
 //                 </Link>
@@ -167,39 +167,39 @@
 //             </select>
 //             <Link
 //               href="/navbarcontent"
-//               className="text-black hover:text-[#00b38d] px-3 py-2 rounded-md text-lg font-semibold"
+//               className="text-black hover:text-pink-600 px-3 py-2 rounded-md text-lg font-semibold"
 //             >
 //               AI Resume Builder
 //             </Link>
 //             <Link
 //               href="/dashboard/Jobs"
-//               className="text-black hover:text-[#00b38d] px-3 py-2 rounded-md text-lg font-semibold"
+//               className="text-black hover:text-pink-600 px-3 py-2 rounded-md text-lg font-semibold"
 //             >
 //               Jobs
 //             </Link>
 //             <Link
 //               href="https://blog.ciblijob.fr/"
-//               className="text-black hover:text-[#00b38d] px-3 py-2 rounded-md text-lg font-semibold"
+//               className="text-black hover:text-pink-600 px-3 py-2 rounded-md text-lg font-semibold"
 //             >
 //               Resources
 //             </Link>
 //             <Link
 //               href=""
 //               onClick={handleOpenPopup}
-//               className="text-black hover:text-[#00b38d] px-3 py-2 rounded-md text-lg font-semibold"
+//               className="text-black hover:text-pink-600 px-3 py-2 rounded-md text-lg font-semibold"
 //             >
 //               CibliJob ID
 //             </Link>
 //             <CibliJobId isOpen={isPopupOpen} onClose={handleClosePopup} />
 //             {/* <Link
 //               href="/footers/Aboutus"
-//               className="text-black hover:text-[#00b38d] px-3 py-2 rounded-md text-lg font-semibold"
+//               className="text-black hover:text-pink-600 px-3 py-2 rounded-md text-lg font-semibold"
 //             >
 //               About Us
 //             </Link> */}
 //             {/* <Link
 //               href="#phone"
-//               className="text-black hover:text-[#00b38d] px-3 py-2 rounded-md text-lg font-semibold"
+//               className="text-black hover:text-pink-600 px-3 py-2 rounded-md text-lg font-semibold"
 //             >
 //               📞 Contact us
 //             </Link> */}
@@ -209,7 +209,7 @@
 //               <div className="relative">
 //                 <button
 //                   onClick={toggleDropdown}
-//                   className="flex items-center bg-[#00b38d] text-white px-4 py-2 text-md font-semibold border-2 rounded-xl"
+//                   className="flex items-center bg-pink-600 text-white px-4 py-2 text-md font-semibold border-2 rounded-xl"
 //                 >
 //                   {/* <img
 //                     src="https://img.freepik.com/premium-vector/businessman-avatar-illustration-cartoon-user-portrait-user-profile-icon_118339-4382.jpg"
@@ -268,13 +268,13 @@
 //               <>
 //                 <Link
 //                   href="/login2"
-//                   className="bg-[#00b38d] text-white  px-4 py-2 text-md font-semibold border-2 rounded-xl"
+//                   className="bg-pink-600 text-white  px-4 py-2 text-md font-semibold border-2 rounded-xl"
 //                 >
 //                   Log in
 //                 </Link>
 //                 {/* <Link
 //                   href="/signup"
-//                   className="bg-[#00b38d] text-white  px-4 py-2 text-md font-semibold border-2 rounded-xl"
+//                   className="bg-pink-600 text-white  px-4 py-2 text-md font-semibold border-2 rounded-xl"
 //                 >
 //                   Sign up
 //                 </Link> */}
@@ -284,7 +284,7 @@
 //           <div className="md:hidden ">
 //             <button
 //               onClick={handleMenuClick}
-//               className="text-black hover:text-[#00b38d] focus:outline-none px-3 py-2 rounded-md text-sm font-medium"
+//               className="text-black hover:text-pink-600 focus:outline-none px-3 py-2 rounded-md text-sm font-medium"
 //             >
 //               <svg
 //                 className="w-6 h-6"
@@ -308,50 +308,50 @@
 //             <div className="px-2 pt-2 pb-3 space-y-1 relative z-30">
 //               <Link
 //                 href="/dashboard"
-//                 className="text-black hover:text-[#00b38d] block  px-3 py-2 rounded-md text-base font-semibold"
+//                 className="text-black hover:text-pink-600 block  px-3 py-2 rounded-md text-base font-semibold"
 //               >
 //                 Dashboard
 //               </Link>
 //               <Link
 //                 href="/dashboard/resumelist"
-//                 className="text-black hover:text-[#00b38d] block  px-3 py-2 rounded-md text-base font-semibold"
+//                 className="text-black hover:text-pink-600 block  px-3 py-2 rounded-md text-base font-semibold"
 //               >
 //                 My Resumes
 //               </Link>
 //               <Link
 //                 href="/dashboard/cvletterlist"
-//                 className="text-black hover:text-[#00b38d] block  px-3 py-2 rounded-md text-base font-semibold"
+//                 className="text-black hover:text-pink-600 block  px-3 py-2 rounded-md text-base font-semibold"
 //               >
 //                 Cover Letter
 //               </Link>
 //               <Link
 //                 href="/dashboard/MyJobs"
-//                 className="text-black hover:text-[#00b38d] block  px-3 py-2 rounded-md text-base font-semibold"
+//                 className="text-black hover:text-pink-600 block  px-3 py-2 rounded-md text-base font-semibold"
 //               >
 //                 Jobs
 //               </Link>
 //               <Link
 //                 href="/navbarcontent"
-//                 className="text-black hover:text-[#00b38d] block  px-3 py-2 rounded-md text-base font-semibold"
+//                 className="text-black hover:text-pink-600 block  px-3 py-2 rounded-md text-base font-semibold"
 //               >
 //                 AI Resume Builder
 //               </Link>
 //               <Link
 //                 href="https://blog.ciblijob.fr/"
-//                 className="text-black hover:text-[#00b38d] block  px-3 py-2 rounded-md text-base font-semibold"
+//                 className="text-black hover:text-pink-600 block  px-3 py-2 rounded-md text-base font-semibold"
 //               >
 //                 Resources
 //               </Link>
 //               <Link
 //                 href=""
-//                 className="text-black hover:text-[#00b38d] block  px-3 py-2 rounded-md text-base font-semibold"
+//                 className="text-black hover:text-pink-600 block  px-3 py-2 rounded-md text-base font-semibold"
 //               >
 //                 CibliJob ID
 //               </Link>
 //               {isLoggedIn ? (
 //                 <Link
 //                   href="/"
-//                   className="bg-[#00b38d] text-white  block px-3 py-2 rounded-md text-base font-semibold"
+//                   className="bg-pink-600 text-white  block px-3 py-2 rounded-md text-base font-semibold"
 //                   onClick={() => {
 //                     handleLogout();
 //                     handleLinkClick();
@@ -363,14 +363,14 @@
 //                 <>
 //                   <Link
 //                     href="/login2"
-//                     className="bg-[#00b38d] text-white  block px-3 py-2 rounded-md text-base font-semibold"
+//                     className="bg-pink-600 text-white  block px-3 py-2 rounded-md text-base font-semibold"
 //                     onClick={handleLinkClick}
 //                   >
 //                     Log in
 //                   </Link>
 //                   <Link
 //                     href="/signup"
-//                     className="bg-[#00b38d] text-white  block px-3 py-2 rounded-md text-base font-semibold"
+//                     className="bg-pink-600 text-white  block px-3 py-2 rounded-md text-base font-semibold"
 //                     onClick={handleLinkClick}
 //                   >
 //                     Sign up
@@ -385,26 +385,26 @@
 //             <div className="px-2 pt-2 pb-3 space-y-1">
 //               <Link
 //                 href="/dashboard/MyJobs"
-//                 className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
+//                 className="text-black hover:text-pink-600 block px-3 py-2 rounded-md text-base font-semibold"
 //               >
 //                 Jobs
 //               </Link>
 //               <Link
 //                 href="/navbarcontent"
-//                 className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
+//                 className="text-black hover:text-pink-600 block px-3 py-2 rounded-md text-base font-semibold"
 //               >
 //                 AI Resume Builder
 //               </Link>
 //               <Link
 //                 href="https://blog.ciblijob.fr/"
-//                 className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
+//                 className="text-black hover:text-pink-600 block px-3 py-2 rounded-md text-base font-semibold"
 //               >
 //                 Resources
 //               </Link>
 //               <Link
 //                 href=""
 //                 onClick={handleOpenPopup}
-//                 className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
+//                 className="text-black hover:text-pink-600 block px-3 py-2 rounded-md text-base font-semibold"
 //               >
 //                 CibliJob ID
 //               </Link>
@@ -413,31 +413,31 @@
 //                 <>
 //                   <Link
 //                     href="/dashboard"
-//                     className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
+//                     className="text-black hover:text-pink-600 block px-3 py-2 rounded-md text-base font-semibold"
 //                   >
 //                     Dashboard
 //                   </Link>
 //                   <Link
 //                     href="/dashboard/resumelist"
-//                     className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
+//                     className="text-black hover:text-pink-600 block px-3 py-2 rounded-md text-base font-semibold"
 //                   >
 //                     My Resumes
 //                   </Link>
 //                   <Link
 //                     href="/dashboard/cvletterlist"
-//                     className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
+//                     className="text-black hover:text-pink-600 block px-3 py-2 rounded-md text-base font-semibold"
 //                   >
 //                     Cover Letter
 //                   </Link>
 //                   <Link
 //                     href="/dashboard/page"
-//                     className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
+//                     className="text-black hover:text-pink-600 block px-3 py-2 rounded-md text-base font-semibold"
 //                   >
 //                     Profile
 //                   </Link>
 //                   <Link
 //                     href="/"
-//                     className="bg-[#00b38d] text-white block px-3 py-2 rounded-md text-base font-semibold"
+//                     className="bg-pink-600 text-white block px-3 py-2 rounded-md text-base font-semibold"
 //                     onClick={() => {
 //                       handleLogout();
 //                       handleLinkClick();
@@ -450,14 +450,14 @@
 //                 <>
 //                   <Link
 //                     href="/login2"
-//                     className="bg-[#00b38d] text-white block px-3 py-2 rounded-md text-base font-semibold"
+//                     className="bg-pink-600 text-white block px-3 py-2 rounded-md text-base font-semibold"
 //                     onClick={handleLinkClick}
 //                   >
 //                     Log in
 //                   </Link>
 //                   {/* <Link
 //                     href="/signup"
-//                     className="bg-[#00b38d] text-white block px-3 py-2 rounded-md text-base font-semibold"
+//                     className="bg-pink-600 text-white block px-3 py-2 rounded-md text-base font-semibold"
 //                     onClick={handleLinkClick}
 //                   >
 //                     Sign up
@@ -647,7 +647,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0 flex items-center">
             <Link href="/">
-              <Image src={logo} alt="logo" className="h-10  w-[140px]" />
+              <Image src={logo} alt="logo" className="h-60  w-[240px]" />
             </Link>
           </div>
           <div className="hidden md:flex justify-center items-center space-x-4">
@@ -655,19 +655,19 @@ const Navbar = () => {
               <div>
                 <Link
                   href="/dashboard"
-                  className="text-black hover:text-[#00b38d] px-3 py-2 rounded-md text-lg font-semibold"
+                  className="text-black hover:text-pink-600 px-3 py-2 rounded-md text-lg font-semibold"
                 >
                   {t("dashboard")}
                 </Link>
                 {/* <Link
                   href="/dashboard/resumelist"
-                  className="text-black hover:text-[#00b38d] px-3 py-2 rounded-md text-lg font-semibold"
+                  className="text-black hover:text-pink-600 px-3 py-2 rounded-md text-lg font-semibold"
                 >
                   {t("my_resumes")}
                 </Link>
                 <Link
                   href="/dashboard/cvletterlist"
-                  className="text-black hover:text-[#00b38d] px-3 py-2 rounded-md text-lg font-semibold"
+                  className="text-black hover:text-pink-600 px-3 py-2 rounded-md text-lg font-semibold"
                 >
                   {t("cover_letter")}
                 </Link> */}
@@ -678,26 +678,26 @@ const Navbar = () => {
             {/* <LanguageSelector /> */}
             <Link
               href="/ai-resume-builder"
-              className="text-black hover:text-[#00b38d] px-3 py-2 rounded-md text-lg font-semibold"
+              className="text-black hover:text-pink-600 px-3 py-2 rounded-md text-lg font-semibold"
             >
               {t("ai_resume_builder")}
             </Link>
             <Link
               href="/dashboard/myjobs"
-              className="text-black hover:text-[#00b38d] px-3 py-2 rounded-md text-lg font-semibold"
+              className="text-black hover:text-pink-600 px-3 py-2 rounded-md text-lg font-semibold"
             >
               {t("jobs")}
             </Link>
             <Link
               href="https://blog.ciblijob.fr/"
-              className="text-black hover:text-[#00b38d] px-3 py-2 rounded-md text-lg font-semibold"
+              className="text-black hover:text-pink-600 px-3 py-2 rounded-md text-lg font-semibold"
             >
               {t("resources")}
             </Link>
             <Link
               href=""
               onClick={handleOpenPopup}
-              className="text-black hover:text-[#00b38d] px-3 py-2 rounded-md text-lg font-semibold"
+              className="text-black hover:text-pink-600 px-3 py-2 rounded-md text-lg font-semibold"
             >
               {t("cibli_job_id")}
               {/* CibliJob ID */}
@@ -709,7 +709,7 @@ const Navbar = () => {
               <div className="relative">
                 <button
                   onClick={toggleDropdown}
-                  className="flex items-center bg-[#00b38d] text-white px-4 py-2 text-md font-semibold border-2 rounded-xl"
+                  className="flex items-center bg-pink-600 text-white px-4 py-2 text-md font-semibold border-2 rounded-xl"
                 >
                   <img
                     src={
@@ -785,13 +785,13 @@ const Navbar = () => {
               <>
                 <Link
                   href="/login2"
-                  className="bg-[#00b38d] text-white  px-4 py-2 text-md font-semibold border-2 rounded-xl"
+                  className="bg-pink-600 text-white  px-4 py-2 text-md font-semibold border-2 rounded-xl"
                 >
                   {t("login")}
                 </Link>
                 <Link
                   href="/signup"
-                  className="bg-[#00b38d] text-white  px-4 py-2 text-md font-semibold border-2 rounded-xl"
+                  className="bg-pink-600 text-white  px-4 py-2 text-md font-semibold border-2 rounded-xl"
                 >
                   {t("signup")}
                 </Link>
@@ -801,7 +801,7 @@ const Navbar = () => {
           <div className="md:hidden ">
             <button
               onClick={handleMenuClick}
-              className="text-black hover:text-[#00b38d] focus:outline-none px-3 py-2 rounded-md text-sm font-medium"
+              className="text-black hover:text-pink-600 focus:outline-none px-3 py-2 rounded-md text-sm font-medium"
             >
               <svg
                 className="w-6 h-6"
@@ -826,26 +826,26 @@ const Navbar = () => {
             <div className="px-2 pt-2 pb-3 space-y-1">
               <Link
                 href="/dashboard/myjobs"
-                className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
+                className="text-black hover:text-pink-600 block px-3 py-2 rounded-md text-base font-semibold"
               >
                 {t("jobs")}
               </Link>
               <Link
                 href="/footers/AiResumeBuilder"
-                className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
+                className="text-black hover:text-pink-600 block px-3 py-2 rounded-md text-base font-semibold"
               >
                 {t("ai_resume_builder")}
               </Link>
               <Link
                 href="https://blog.ciblijob.fr/"
-                className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
+                className="text-black hover:text-pink-600 block px-3 py-2 rounded-md text-base font-semibold"
               >
                 {t("resources")}
               </Link>
               <Link
                 href=""
                 onClick={handleOpenPopup}
-                className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
+                className="text-black hover:text-pink-600 block px-3 py-2 rounded-md text-base font-semibold"
               >
                 {t("cibli_job_id")}
               </Link>
@@ -854,31 +854,31 @@ const Navbar = () => {
                 <>
                   <Link
                     href="/dashboard"
-                    className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
+                    className="text-black hover:text-pink-600 block px-3 py-2 rounded-md text-base font-semibold"
                   >
                     {t("dashboard")}
                   </Link>
                   <Link
                     href="/dashboard/resumelist"
-                    className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
+                    className="text-black hover:text-pink-600 block px-3 py-2 rounded-md text-base font-semibold"
                   >
                     {t("my_resumes")}
                   </Link>
                   <Link
                     href="/dashboard/cvletterlist"
-                    className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
+                    className="text-black hover:text-pink-600 block px-3 py-2 rounded-md text-base font-semibold"
                   >
                     {t("cover_letter")}
                   </Link>
                   <Link
                     href="/dashboard/page"
-                    className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
+                    className="text-black hover:text-pink-600 block px-3 py-2 rounded-md text-base font-semibold"
                   >
                     {t("profile")}
                   </Link>
                   <Link
                     href="/settings"
-                    className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
+                    className="text-black hover:text-pink-600 block px-3 py-2 rounded-md text-base font-semibold"
                     onClick={() => setIsDropdownOpen(false)}
                   >
                     {/* <Settings className="mr-3 w-5 h-5 text-gray-500 group-hover:text-orange-500" /> */}
@@ -888,7 +888,7 @@ const Navbar = () => {
                   </Link>
                   <Link
                     href="/"
-                    className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
+                    className="text-black hover:text-pink-600 block px-3 py-2 rounded-md text-base font-semibold"
                     onClick={() => {
                       handleLogout();
                       handleLinkClick();
@@ -901,14 +901,14 @@ const Navbar = () => {
                 <>
                   <Link
                     href="/login2"
-                    className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
+                    className="text-black hover:text-pink-600 block px-3 py-2 rounded-md text-base font-semibold"
                     onClick={handleLinkClick}
                   >
                     {t("login")}
                   </Link>
                   <Link
                     href="/signup"
-                    className="text-black hover:text-[#00b38d] block px-3 py-2 rounded-md text-base font-semibold"
+                    className="text-black hover:text-pink-600 block px-3 py-2 rounded-md text-base font-semibold"
                     onClick={handleLinkClick}
                   >
                     {t("signup")}

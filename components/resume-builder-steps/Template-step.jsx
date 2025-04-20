@@ -55,7 +55,7 @@ const TemplateStep = ({ onNext, onBack, onChange, value }) => {
     },
     {
       name: "Blue",
-      class: "bg-[#00b38d]",
+      class: "bg-pink-600",
       selectedClass: "ring-blue-400",
       hexCode: "#00b38d",
     },
@@ -66,9 +66,9 @@ const TemplateStep = ({ onNext, onBack, onChange, value }) => {
       hexCode: "#9333EA",
     },
     {
-      name: "Green",
-      class: "bg-green-600",
-      selectedClass: "ring-green-400",
+      name: "pink",
+      class: "bg-pink-600",
+      selectedClass: "ring-pink-400",
       hexCode: "#16A34A",
     },
     {
@@ -126,9 +126,9 @@ const TemplateStep = ({ onNext, onBack, onChange, value }) => {
       hexCode: "#FCA5A5",
     },
     {
-      name: "Light Green",
-      class: "bg-green-300",
-      selectedClass: "ring-green-200",
+      name: "Light pink",
+      class: "bg-pink-300",
+      selectedClass: "ring-pink-200",
       hexCode: "#86EFAC",
     },
     {
@@ -453,7 +453,7 @@ const TemplateStep = ({ onNext, onBack, onChange, value }) => {
                           hasPhoto: option === t("templateStep.with_photo"),
                         })
                       }
-                      className="w-5 h-5 text-[#00b38d] border-gray-300 focus:ring-blue-500"
+                      className="w-5 h-5 text-pink-600 border-gray-300 focus:ring-blue-500"
                     />
                     <span className="ml-3 text-gray-700 font-medium">
                       {option}

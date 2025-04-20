@@ -42,12 +42,11 @@ const LoginEmail = () => {
           <span className="mr-2">←</span> Back
         </Link>
         <div className="flex justify-center mb-6">
-          <Image
+          <img
             src={logo}
             alt="Logo"
-            width={200}
-            height={100}
-            className="h-auto"
+           
+            className="h-80"
           />
         </div>
 
@@ -58,7 +57,7 @@ const LoginEmail = () => {
         {/* User Email */}
         {/* <p className="mb-6">
           Continue as <strong>abc@gmail.com</strong>{' '}
-          <a href="#" className="text-[#00b38d] hover:text-[#009977]">
+          <a href="#" className="text-pink-600 hover:text-[#009977]">
             (not you?)
           </a>
         </p> */}
@@ -80,7 +79,7 @@ const LoginEmail = () => {
           UltraAura will only use your information as described in our{' '}
           <Link 
             href="/privacy-policy" 
-            className="text-[#00b38d] hover:text-[#009977]"
+            className="text-pink-600 hover:text-[#009977]"
           >
             Privacy Policy
           </Link>
@@ -91,7 +90,7 @@ const LoginEmail = () => {
         {/* Alternative Sign-In */}
         <Link
           href="/login2/login-code"
-          className="text-[#00b38d] hover:text-[#009977] inline-block"
+          className="text-pink-600 hover:text-[#009977] inline-block"
         >
           Sign in with login code instead
         </Link>

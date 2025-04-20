@@ -33,7 +33,7 @@ const Home_fourth = () => {
     <>
       <div id="course" className="bg-gray-100 py-10 ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl lg:text-5xl font-bold px-4 lg:px-0 py-5 text-center text-[#00b38d]">
+          <h2 className="text-4xl lg:text-5xl font-bold px-4 lg:px-0 py-5 text-center text-pink-600">
             {t("neweststratigies")}
           </h2>
           <p className="mx-auto px-4 lg:px-0 text-lg lg:text-base text-gray-700 max-w-4xl text-center mb-8">
@@ -66,7 +66,7 @@ const Home_fourth = () => {
 
           <div className="flex justify-center mt-10">
             <Link href={"https://blog.ciblijob.fr/"}>
-              <button className="px-6 py-3 text-lg font-semibold text-white bg-[#00b38d] hover:bg-[#00b38d] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00b38d]">
+              <button className="px-6 py-3 text-lg font-semibold text-white bg-pink-600 hover:bg-pink-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00b38d]">
                 {t("get_moreadvice")}
               </button>
             </Link>

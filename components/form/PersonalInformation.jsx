@@ -1375,7 +1375,7 @@ const PersonalInformation = () => {
                           )}
                           <button
                             onClick={() => markAsResolved(field)}
-                            className="px-3 py-1 text-sm font-medium text-white bg-green-600 rounded-md shadow hover:bg-green-700 transition-all"
+                            className="px-3 py-1 text-sm font-medium text-white bg-pink-600 rounded-md shadow hover:bg-pink-700 transition-all"
                           >
                             Mark Resolved
                           </button>

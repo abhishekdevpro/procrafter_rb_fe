@@ -31,8 +31,8 @@
 //             </p>
 //           </div>
 //         </div>
-//         <Link href={`https://blog.ciblijob.fr/`}>
-//           <button className="px-6 py-2 border border-[#00b38d] text-[#00b38d] rounded-lg hover:bg-blue-50">
+//         <Link href={`https://blog.procrafr/`}>
+//           <button className="px-6 py-2 border border-[#00b38d] text-pink-600 rounded-lg hover:bg-blue-50">
 //             {t("dashboard_interview.visitResources")}
 //           </button>
 //         </Link>
@@ -77,8 +77,8 @@ const InterviewSection = () => {
         </div>
 
         <div className="w-full md:w-auto">
-          <Link href={`https://blog.ciblijob.fr/`}>
-            <button className="w-full md:w-auto px-6 py-2 border border-[#00b38d] text-[#00b38d] rounded-lg hover:bg-blue-50">
+          <Link href={`https://blog.procrafr/`}>
+            <button className="w-full md:w-auto px-6 py-2 border border-[#00b38d] text-pink-600 rounded-lg hover:bg-blue-50">
               {t("dashboard_interview.visitResources")}
             </button>
           </Link>

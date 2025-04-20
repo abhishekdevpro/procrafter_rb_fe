@@ -57,7 +57,7 @@ const CoverLetterEditor = () => {
           className={`px-4 py-2 rounded-lg ${
             step === 0
               ? "bg-gray-300 cursor-not-allowed"
-              : "bg-[#00b38d] text-white"
+              : "bg-pink-600 text-white"
           }`}
         >
           {t("navigation.previous")}
@@ -68,7 +68,7 @@ const CoverLetterEditor = () => {
           className={`px-4 py-2 rounded-lg ${
             step === steps.length - 1
               ? "bg-gray-300 cursor-not-allowed"
-              : "bg-[#00b38d] text-white"
+              : "bg-pink-600 text-white"
           }`}
         >
           {t("navigation.next")}

@@ -1,7 +1,7 @@
 import Head from "next/head";
 
 export default function Meta({ title, keywords, description }) {
-  const homepage = "https://ciblijob.fr/";
+  const homepage = "https://procrafr/";
   const logo = "/assets/logo.png";
   const favicon = "/assets/favicon.ico";
 
@@ -14,7 +14,7 @@ export default function Meta({ title, keywords, description }) {
         url: homepage,
         potentialAction: {
           "@type": "SearchAction",
-          target: "https://blog.ciblijob.fr/{search_term_string}",
+          target: "https://blog.procrafr/{search_term_string}",
           "query-input": "required name=search_term_string",
         },
       }),
@@ -38,7 +38,7 @@ export default function Meta({ title, keywords, description }) {
           availableLanguage: "en",
         },
         sameAs: [
-          "https://ciblijob.fr/",
+          "https://procrafr/",
           "https://www.facebook.com/people/CibliJob/61564845718534/",
         ],
       }),
@@ -51,8 +51,8 @@ export default function Meta({ title, keywords, description }) {
         "@type": "LocalBusiness",
         name: "CibliJob",
         image:
-          "https://ciblijob.fr//_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.2cfd75d8.jpg&w=640&q=75",
-        url: "https://ciblijob.fr/",
+          "https://procrafr//_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.2cfd75d8.jpg&w=640&q=75",
+        url: "https://procrafr/",
         telephone: "18882008168",
         priceRange: "$269",
         address: {

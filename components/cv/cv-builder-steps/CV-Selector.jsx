@@ -32,7 +32,7 @@ const CVSelector = ({ onNext, onBack, onChange, value }) => {
     },
     {
       name: "Blue",
-      class: "bg-[#00b38d]",
+      class: "bg-pink-600",
       selectedClass: "ring-blue-400",
       hexCode: "#00b38d",
     },
@@ -43,9 +43,9 @@ const CVSelector = ({ onNext, onBack, onChange, value }) => {
       hexCode: "#9333EA",
     },
     {
-      name: "Green",
-      class: "bg-green-600",
-      selectedClass: "ring-green-400",
+      name: "pink",
+      class: "bg-pink-600",
+      selectedClass: "ring-pink-400",
       hexCode: "#16A34A",
     },
     {
@@ -103,9 +103,9 @@ const CVSelector = ({ onNext, onBack, onChange, value }) => {
       hexCode: "#FCA5A5",
     },
     {
-      name: "Light Green",
-      class: "bg-green-300",
-      selectedClass: "ring-green-200",
+      name: "Light pink",
+      class: "bg-pink-300",
+      selectedClass: "ring-pink-200",
       hexCode: "#86EFAC",
     },
     {
@@ -383,7 +383,7 @@ const CVSelector = ({ onNext, onBack, onChange, value }) => {
                       w-full text-left px-4 py-2 rounded-lg
                       ${
                         value.category === category
-                          ? "bg-blue-50 text-[#00b38d]"
+                          ? "bg-blue-50 text-pink-600"
                           : "text-gray-600 hover:bg-gray-50"
                       }
                     `}

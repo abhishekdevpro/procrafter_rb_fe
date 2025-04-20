@@ -9,7 +9,7 @@ const allColors = [
   { name: "Electric Lilac", value: "#b19cd9" },
   { name: "Purple", value: "#9333EA" },
   { name: "Turquoise", value: "#00b5ad" },
-  { name: "Jungle Green", value: "#16A34A" },
+  { name: "Jungle pink", value: "#16A34A" },
 
   {
     name: "Red",
@@ -64,7 +64,7 @@ const allColors = [
     value: "#FCA5A5",
   },
   {
-    name: "Light Green",
+    name: "Light pink",
 
     value: "#86EFAC",
   },
@@ -128,14 +128,14 @@ const ColorPicker = ({ selectedColor, onChange }) => {
     <div className="relative flex items-center m-2 z-20 ">
       <button
         onClick={handleToggleDropdown}
-        className="hidden sm:block rounded-lg border-2 border-green-500 px-8 p-1 font-bold  bg-white text-black"
+        className="hidden sm:block rounded-lg border-2 border-pink-500 px-8 p-1 font-bold  bg-white text-black"
         style={{ backgroundColor: selectedColor || "transparent" }}
       >
         <span className="">{t("backgroundColor.label")}</span>
       </button>
       <button
         onClick={handleToggleDropdown}
-        className="sm:hidden rounded-lg border-2 border-green-500 px-5 py-2 font-bold  bg-white text-black"
+        className="sm:hidden rounded-lg border-2 border-pink-500 px-5 py-2 font-bold  bg-white text-black"
         style={{ backgroundColor: selectedColor || "transparent" }}
       >
         {t("backgroundColor.labelMobile")}

@@ -7,7 +7,7 @@ export const SaveLoader = ({ loadingText = t("saving") }) => {
           <div className="absolute inset-0 border-4 border-[#00b38d] border-t-transparent rounded-full animate-spin"></div>
 
           {/* Inner pulsing circle */}
-          <div className="absolute inset-2 bg-[#00b38d] rounded-full animate-pulse"></div>
+          <div className="absolute inset-2 bg-pink-600 rounded-full animate-pulse"></div>
         </div>
 
         <div className="text-white text-lg font-semibold animate-pulse">

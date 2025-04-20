@@ -106,7 +106,7 @@
 //         <h2 className="text-lg font-semibold">{resumeTitle}</h2>
 //         <Link
 //           href="/dashboard/resumelist"
-//           className="text-[#00b38d] hover:text-[#369984]"
+//           className="text-pink-600 hover:text-[#369984]"
 //         >
 //           View All
 //         </Link>
@@ -159,7 +159,7 @@
 //             <span className="bg-teal-100 text-teal-800 px-2 py-1 rounded-full text-sm">
 //               {score}
 //             </span>
-//             <button className="text-[#00b38d] hover:text-blue-700 text-sm">
+//             <button className="text-pink-600 hover:text-blue-700 text-sm">
 //               Improve
 //             </button>
 //           </div>
@@ -169,7 +169,7 @@
 //       {/* Create New Resume Button */}
 //       <button
 //         onClick={handleCreate}
-//         className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-[#00b38d] text-white rounded-lg hover:bg-[#00b38d]"
+//         className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-pink-600 text-white rounded-lg hover:bg-pink-600"
 //       >
 //         <svg
 //           className="w-5 h-5"
@@ -314,7 +314,7 @@ const Sidebar = ({ score, resumeId }) => {
         <h2 className="text-lg font-semibold">{resumeTitle}</h2>
         <Link
           href="/dashboard/resumelist"
-          className="text-[#00b38d] hover:text-[#369984]"
+          className="text-pink-600 hover:text-[#369984]"
         >
           {t("dashboard_sidebar.viewAll")}
         </Link>
@@ -358,7 +358,7 @@ const Sidebar = ({ score, resumeId }) => {
             <span className="bg-teal-100 text-teal-800 px-2 py-1 rounded-full text-sm">
               {score}
             </span>
-            <button className="text-[#00b38d] hover:text-blue-700 text-sm">
+            <button className="text-pink-600 hover:text-blue-700 text-sm">
               {t("dashboard_sidebar.improve")}
             </button>
           </div>
@@ -368,7 +368,7 @@ const Sidebar = ({ score, resumeId }) => {
       {/* Create New Resume Button */}
       <button
         onClick={handleCreate}
-        className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-[#00b38d] text-white rounded-lg hover:bg-[#00b38d]"
+        className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-pink-600 text-white rounded-lg hover:bg-pink-600"
       >
         <svg
           className="w-5 h-5"

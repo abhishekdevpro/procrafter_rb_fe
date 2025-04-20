@@ -25,8 +25,8 @@
 //               }}
 //               className={`p-4 rounded-lg border-2 transition-all ${
 //                 value === exp.id
-//                   ? 'border-green-500 bg-blue-50'
-//                   : 'border-gray-200 hover:border-green-400'
+//                   ? 'border-pink-500 bg-blue-50'
+//                   : 'border-gray-200 hover:border-pink-400'
 //               }`}
 //             >
 //               {exp.label}
@@ -190,8 +190,8 @@ export default function ExperienceStep({ onNext, onBack, onChange, value }) {
             }}
             className={`p-6 rounded-lg border-2 transition-all hover:shadow-md ${
               value.experience === experience.id
-                ? "border-green-600 bg-greeb-50"
-                : "border-gray-200 hover:border-green-400"
+                ? "border-pink-600 bg-greeb-50"
+                : "border-gray-200 hover:border-pink-400"
             }`}
           >
             <span className="block text-lg font-medium">
@@ -213,11 +213,11 @@ export default function ExperienceStep({ onNext, onBack, onChange, value }) {
         <button
           onClick={handleSaveExperience}
           disabled={loading || !value.experience}
-          className={`px-8 py-3 bg-green-600 text-white rounded-xl font-medium transition-all shadow-lg 
+          className={`px-8 py-3 bg-pink-600 text-white rounded-xl font-medium transition-all shadow-lg 
               ${
                 loading || !value.experience
                   ? "opacity-70 cursor-not-allowed"
-                  : "hover:bg-green-700 hover:shadow-xl"
+                  : "hover:bg-pink-700 hover:shadow-xl"
               }`}
         >
           {isLoading ? (

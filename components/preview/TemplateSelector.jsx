@@ -136,7 +136,7 @@ const TemplateSelector = ({
       <div className="flex flex-col md:flex-row gap-2 m-2">
         <button
           onClick={openModal}
-          className="hidden md:block rounded-lg border-2 border-green-500 px-5 py-2 font-bold bg-white text-black"
+          className="hidden md:block rounded-lg border-2 border-pink-500 px-5 py-2 font-bold bg-white text-black"
         >
           <span>
             {t("templateSelector.selectedTemplate", {
@@ -146,7 +146,7 @@ const TemplateSelector = ({
         </button>
         <button
           onClick={openModal}
-          className="block md:hidden rounded-lg border-2 border-green-500 px-5 py-2 font-bold bg-white text-black"
+          className="block md:hidden rounded-lg border-2 border-pink-500 px-5 py-2 font-bold bg-white text-black"
         >
           {t("templateSelector.templateButton")}
         </button>
@@ -221,7 +221,7 @@ const TemplateSelector = ({
                             ${
                               template.key === templateId
                                 ? "bg-pink-500 text-white font-semibold"
-                                : "text-gray-600 group-hover:text-[#00b38d]"
+                                : "text-gray-600 group-hover:text-pink-600"
                             }
                           `}
                           >

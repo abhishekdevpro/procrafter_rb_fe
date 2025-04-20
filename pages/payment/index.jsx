@@ -124,7 +124,7 @@ export default function Payment() {
       <Navbar />
       <div className="p-6 max-w-7xl w-full mx-auto font-sans">
         {/* Intro Section */}
-        <div className="bg-green-100 p-4 rounded-lg text-center">
+        <div className="bg-pink-100 p-4 rounded-lg text-center">
           <h2 className="text-lg md:text-xl font-semibold">
             ✨ {t("paymentplans.Cast a wider net – 10x your job applications")}
           </h2>
@@ -157,7 +157,7 @@ export default function Payment() {
                     key={planId}
                     className={`border rounded-lg p-4 flex flex-col w-full md:w-64 relative ${
                       selectedPlan === planId
-                        ? "border-[#00b38d] bg-green-50"
+                        ? "border-[#00b38d] bg-pink-50"
                         : "bg-white"
                     }`}
                     onClick={() => handlePlanSelection(planId)}
@@ -173,7 +173,7 @@ export default function Payment() {
                         type="checkbox"
                         checked={selectedPlan === planId}
                         onChange={() => {}}
-                        className="h-5 w-5 text-[#00b38d]"
+                        className="h-5 w-5 text-pink-600"
                       />
                     </div>
 
@@ -199,7 +199,7 @@ export default function Payment() {
                       <ul className="space-y-2 text-sm">
                         {getPlanFeatures(planId).map((feature, idx) => (
                           <li key={idx} className="flex items-start">
-                            <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                            <CheckCircle className="h-4 w-4 text-pink-500 mr-2 mt-1 flex-shrink-0" />
                             <span>{t(feature)}</span>
                           </li>
                         ))}
@@ -230,42 +230,42 @@ export default function Payment() {
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Feature
-                  icon={<CheckCircle className="text-green-500" />}
+                  icon={<CheckCircle className="text-pink-500" />}
                   title={t("paymentplans.Automate your job search")}
                   description={t(
                     "We continuously scan millions of openings to find your top matches."
                   )}
                 />
                 <Feature
-                  icon={<RefreshCw className="text-green-500" />}
+                  icon={<RefreshCw className="text-pink-500" />}
                   title={t("paymentplans.10x your job applications")}
                   description={t(
                     "Submit 10x as many applications with less effort than one manual application."
                   )}
                 />
                 <Feature
-                  icon={<Bell className="text-green-500" />}
+                  icon={<Bell className="text-pink-500" />}
                   title={t("paymentplans.Wake up to your best matches")}
                   description={t(
                     "Start each day with a list of roles matched to your skills and preferences."
                   )}
                 />
                 <Feature
-                  icon={<Clock className="text-green-500" />}
+                  icon={<Clock className="text-pink-500" />}
                   title={t("paymentplans.Save valuable hours every week")}
                   description={t(
                     "Reclaim your time by letting our AI handle the grunt work of job searching."
                   )}
                 />
                 <Feature
-                  icon={<DollarSign className="text-green-500" />}
+                  icon={<DollarSign className="text-pink-500" />}
                   title={t("paymentplans.Money-back guarantee")}
                   description={t(
                     "If you are unhappy for any reason during the trial, just let us know - we'll refund your money."
                   )}
                 />
                 <Feature
-                  icon={<CheckCircle className="text-green-500" />}
+                  icon={<CheckCircle className="text-pink-500" />}
                   title={t("paymentplans.24/7 customer support")}
                   description={t(
                     "Get assistance anytime with our award-winning customer care service."
@@ -275,7 +275,7 @@ export default function Payment() {
               <div className="mt-6">
                 <button
                   onClick={goToNextPage}
-                  className="w-full bg-[#00b38d] text-white text-lg font-semibold py-3 rounded-lg"
+                  className="w-full bg-pink-600 text-white text-lg font-semibold py-3 rounded-lg"
                 >
                   {t("paymentplans.Next")}
                 </button>

@@ -72,8 +72,8 @@ export default function ExperienceStep({ onNext, onChange, value }) {
             }}
             className={`p-4 rounded-lg border-2 transition-all ${
               value === exp.id
-                ? "border-green-500 bg-blue-50"
-                : "border-gray-200 hover:border-green-400"
+                ? "border-pink-500 bg-blue-50"
+                : "border-gray-200 hover:border-pink-400"
             }`}
           >
             {exp.label}

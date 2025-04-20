@@ -7,7 +7,7 @@ const colors = [
   { name: 'Electric Lilac', value: '#b19cd9' },
   { name: 'Olympic Blue', value: '#0094c6' },
   { name: 'Turquoise', value: '#00b5ad' },
-  { name: 'Jungle Green', value: '#029e73' },
+  { name: 'Jungle pink', value: '#029e73' },
   { name: 'Indian Red', value: '#cd5c5c' },
   { name: 'Tuscan Yellow', value: '#f7c52b' },
 ];
@@ -28,7 +28,7 @@ const ColorPicker = ({ selectedColor, onChange }) => {
     <div className="relative flex items-center m-2 z-20">
       <button
         onClick={handleToggleDropdown}
-      className="rounded-lg border-2 border-green-500 px-8 p-1 font-bold  bg-white text-black"
+      className="rounded-lg border-2 border-pink-500 px-8 p-1 font-bold  bg-white text-black"
         style={{ backgroundColor: selectedColor || 'transparent' }}
       >
         Selected Text color 
