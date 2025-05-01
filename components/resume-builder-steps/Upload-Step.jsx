@@ -45,7 +45,7 @@ export default function UploadStep({ onNext, onBack, onChange, value }) {
     //       className="p-6 border-2 rounded-lg text-center hover:border-blue-400"
     //     >
     //       <div className="w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center">
-    //         <FaUpload className="text-pink-600 w-8 h-8" />
+    //         <FaUpload className="text-purple-600 w-8 h-8" />
     //       </div>
     //       <h3 className="font-bold mb-2">Yes, upload from my resume</h3>
     //       <p className="text-gray-600 text-sm">
@@ -59,7 +59,7 @@ export default function UploadStep({ onNext, onBack, onChange, value }) {
     //       className="p-6 border-2 rounded-lg text-center hover:border-blue-400"
     //     >
     //       <div className="w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center">
-    //         <FaFileAlt className="text-pink-600 w-8 h-8" />
+    //         <FaFileAlt className="text-purple-600 w-8 h-8" />
     //       </div>
     //       <h3 className="font-bold mb-2">No, start from scratch</h3>
     //       <p className="text-gray-600 text-sm">
@@ -94,7 +94,7 @@ export default function UploadStep({ onNext, onBack, onChange, value }) {
           className="p-6 border-2 rounded-lg text-center hover:border-blue-400"
         >
           <div className="w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center">
-            <FaUpload className="text-pink-600 w-8 h-8" />
+            <FaUpload className="text-purple-600 w-8 h-8" />
           </div>
           <h3 className="font-bold mb-2">{t("uploadStep.yes_upload")}</h3>
           <p className="text-gray-600 text-sm">
@@ -107,7 +107,7 @@ export default function UploadStep({ onNext, onBack, onChange, value }) {
           className="p-6 border-2 rounded-lg text-center hover:border-blue-400"
         >
           <div className="w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center">
-            <FaFileAlt className="text-pink-600 w-8 h-8" />
+            <FaFileAlt className="text-purple-600 w-8 h-8" />
           </div>
           <h3 className="font-bold mb-2">{t("uploadStep.no_start_scratch")}</h3>
           <p className="text-gray-600 text-sm">

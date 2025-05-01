@@ -171,7 +171,7 @@ function App({ Component, pageProps }) {
     <>
       <ResumeProvider>
         <CoverLetterProvider>
-          <LanguageSelector />
+          {/* <LanguageSelector /> */}
           <Component {...pageProps} />
           <CookieConsent />
           <ToastContainer position="top-right" autoClose={3000} pauseOnHover />

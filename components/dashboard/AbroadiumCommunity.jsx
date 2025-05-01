@@ -28,7 +28,7 @@ const AbroadiumCommunity = () => {
             </p>
           </div>
         </div>
-        <button className="px-6 py-2 border border-[#00b38d] text-pink-600 rounded-lg hover:bg-blue-50">
+        <button className="px-6 py-2 border border-purple-600 text-purple-600 rounded-lg hover:bg-blue-50">
           I’m In!
         </button>
       </div>

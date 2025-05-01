@@ -122,12 +122,12 @@ const Login2 = () => {
       <div className="flex justify-center items-center h-screen w-full">
         <div className="p-8 rounded-xl shadow-lg shadow-slate-700 w-full max-w-lg bg-white">
           <div className="flex justify-center ">
-            <Image src={logo} className="w-40 " alt="Logo" />
+            <Image src={logo} className="h-60  w-[240px]" alt="Logo" />
           </div>
-          <div className="text-2xl text-black text-center font-bold mb-2">
+          <div className="text-2xl text-black text-center font-bold mb-4">
             {t("loginpage.welcome")}
           </div>
-          <p className="text-black text-base text-center mb-4">
+          <p className="text-black text-base text-center mb-6">
             {t("loginpage.description")}
           </p>
           <button
@@ -138,7 +138,7 @@ const Login2 = () => {
             <FcGoogle className="h-6 w-6 mr-2" />
             {t("loginpage.continue_google")}
           </button>
-          <div className="p-3 flex justify-center items-center">
+          <div className="p-4 flex justify-center items-center">
             <p> {t("loginpage.or")}</p>
           </div>
 
@@ -186,10 +186,10 @@ const Login2 = () => {
                 </button>
               </div>
             </div>
-            <div className="text-center py-">
+            <div className="text-center py-2">
               <Link
                 href="/signup"
-                className="text-pink-600 hover:text-pink-600"
+                className="text-purple-600 hover:text-purple-600"
                 // onClick={() => setThirdstepOpen(true)}
                 disabled={isLoading}
               >
@@ -225,7 +225,7 @@ const Login2 = () => {
                 {t("loginpage.agree_terms")}{" "}
                 <Link
                   href="/terms&conditions"
-                  className="text-pink-600 underline"
+                  className="text-purple-600 underline"
                 >
                   {t("loginpage.terms_conditions")}
                 </Link>
@@ -234,12 +234,12 @@ const Login2 = () => {
 
             <button
               type="submit"
-              // className="w-full bg-pink-600 text-white px-4 py-2 rounded-md hover:bg-pink-600 transition-colors duration-300 relative"
+              // className="w-full bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-600 transition-colors duration-300 relative"
               className={`w-full text-white px-4 py-2 rounded-md transition-colors duration-300 relative 
                 ${
                   !isChecked || isLoading
                     ? "bg-gray-400 cursor-not-allowed "
-                    : "bg-pink-600 hover:bg-[#008f6f]"
+                    : "bg-purple-600 hover:bg-pink-600"
                 }`}
               disabled={!isChecked || isLoading} // Disabled when terms are not checked or loading
             >
@@ -349,7 +349,7 @@ export default Login2;
 //       <div className="flex justify-center items-center h-screen w-full">
 //         <div className="p-8 rounded-xl shadow-lg shadow-slate-700 w-full max-w-lg bg-white">
 //           <div className="flex justify-center mb-6">
-//             <Image src={logo} className="w-40 h-10" alt="Logo" />
+//             <Image src={logo} className="h-60  w-[240px]" alt="Logo" />
 //           </div>
 //           <div className="text-2xl text-black text-center font-bold mb-4">
 //             Welcome Back
@@ -398,7 +398,7 @@ export default Login2;
 //                 I agree to the{" "}
 //                 <Link
 //                   href="/TermsandConditions"
-//                   className="text-pink-600 underline"
+//                   className="text-purple-600 underline"
 //                 >
 //                   Terms & Conditions
 //                 </Link>
@@ -407,7 +407,7 @@ export default Login2;
 
 //             <button
 //               type="submit"
-//               className="w-full bg-pink-600 text-white px-4 py-2 rounded-md hover:bg-pink-600 transition-colors duration-300 relative"
+//               className="w-full bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-600 transition-colors duration-300 relative"
 //               disabled={isLoading}
 //             >
 //               Send OTP
@@ -415,7 +415,7 @@ export default Login2;
 //           </form>
 //           {/* <button
 //             // type="submit"
-//             className="w-full bg-pink-600 text-white px-4 py-2 rounded-md hover:bg-pink-600 transition-colors duration-300 relative"
+//             className="w-full bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-600 transition-colors duration-300 relative"
 //             // disabled={isLoading}
 //           >
 //             Send OTP

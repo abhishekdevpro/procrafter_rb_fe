@@ -14,9 +14,9 @@ const CoverLetterSection = ({ letterCount }) => {
     }, 2000); // 3-second delay
   };
   return (
-    <div className="border border-gray-200 rounded-lg p-6">
-      <div className="flex justify-between items-center">
-        <div className="flex items-center gap-3">
+    <div className="border border-gray-200 rounded-lg p-4 md:p-6 mb-6">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
           <div className="p-2 bg-pink-100 rounded-lg">
             <svg
               className="w-6 h-6 text-pink-600"
@@ -41,7 +41,7 @@ const CoverLetterSection = ({ letterCount }) => {
         </div>
         <button
           onClick={handleClick}
-          className="px-6 py-2 border border-[#00b38d] text-pink-600 rounded-lg hover:bg-blue-50"
+          className="px-6 py-2 border border-purple-600 text-purple-600 rounded-lg hover:bg-blue-50"
         >
           {t("dashboard_cvletter.viewCoverLetters")}
         </button>

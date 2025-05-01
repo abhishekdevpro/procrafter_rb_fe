@@ -536,9 +536,14 @@ export default function MobileBuilder() {
             company: exp.company || "",
             position: exp.position || "",
             description: exp.description,
-            KeyAchievements: Array.isArray(exp.KeyAchievements)
-              ? exp.KeyAchievements
-              : [exp.KeyAchievements],
+            // KeyAchievements: Array.isArray(exp.KeyAchievements)
+            //   ? exp.KeyAchievements
+            //   : [exp.KeyAchievements],
+            keyAchievements: Array.isArray(exp.keyAchievements)
+              ? exp.keyAchievements.filter((item) => item?.trim?.()) // filter out empty strings or undefined
+              : exp.keyAchievements && exp.keyAchievements.trim?.()
+              ? [exp.keyAchievements.trim()]
+              : [],
             startYear: exp.startYear,
             endYear: exp.endYear,
             location: exp.location || "",
@@ -546,11 +551,17 @@ export default function MobileBuilder() {
         projects:
           resumeData.projects?.map((project) => ({
             title: project.title || "",
+
             link: project.link || "",
             description: project.description,
+            // keyAchievements: Array.isArray(project.keyAchievements)
+            //   ? project.keyAchievements
+            //   : [project.keyAchievements],
             keyAchievements: Array.isArray(project.keyAchievements)
-              ? project.keyAchievements
-              : [project.keyAchievements],
+              ? project.keyAchievements.filter((item) => item?.trim?.()) // filter out empty strings or undefined
+              : project.keyAchievements && project.keyAchievements.trim?.()
+              ? [project.keyAchievements.trim()]
+              : [],
             startYear: project.startYear,
             endYear: project.endYear,
             name: project.name || "",
@@ -579,7 +590,7 @@ export default function MobileBuilder() {
           return;
         }
 
-        const url = `${BASE_URL}/api/user/resume-update/${id}`;
+        const url = `${BASE_URL}/api/user/resume-update/${id}?lang=${language}`;
         const response = await axios.put(url, templateData, {
           headers: {
             "Content-Type": "application/json",
@@ -620,7 +631,7 @@ export default function MobileBuilder() {
         <button
           onClick={handlePrevious}
           disabled={currentSection === 0}
-          className="px-4 py-2 bg-pink-500 text-white rounded-lg disabled:opacity-50"
+          className="px-4 py-2 bg-pink-600 text-white rounded-lg disabled:opacity-50"
         >
           {t("buttons.previous")}
         </button>
@@ -650,7 +661,7 @@ export default function MobileBuilder() {
                 onClick={() => handleSectionClick(index)}
                 className={`w-full p-3 mb-2 rounded-lg text-left ${
                   currentSection === index
-                    ? "bg-pink-500 text-white"
+                    ? "bg-pink-600 text-white"
                     : "bg-gray-100 text-blue-950"
                 }`}
               >
@@ -715,7 +726,7 @@ export default function MobileBuilder() {
   return (
     <>
       <Meta
-        title="ProCraftr  - AI Resume Builder"
+        title="Procrafter  - AI Resume Builder"
         description="ATSResume is a cutting-edge resume builder that helps job seekers create a professional, ATS-friendly resume in minutes..."
         keywords="ATS-friendly, Resume optimization..."
       />
@@ -726,7 +737,7 @@ export default function MobileBuilder() {
             <div className="flex flex-col md:flex-row flex-grow ">
               <button
                 onClick={toggleMobileSidebar}
-                className="fixed z-10 bottom-20 right-4  bg-pink-500 text-white p-3 rounded-full shadow-lg"
+                className="fixed z-10 bottom-20 right-4  bg-pink-600 text-white p-3 rounded-full shadow-lg"
               >
                 {isMobileSidebarOpen ? (
                   <X className="h-6 w-6 stroke-2" />
@@ -774,7 +785,7 @@ export default function MobileBuilder() {
                 {/* <select
                   value={selectedFont}
                   onChange={handleFontChange}
-                  className="rounded-lg border-2 border-pink-500 px-5 py-2 font-bold  bg-white text-black"
+                  className="rounded-lg border-2 border-pink-600 px-5 py-2 font-bold  bg-white text-black"
                 >
                   <option value="Ubuntu">Ubuntu</option>
                   <option value="Calibri">Calibri</option>
@@ -822,7 +833,7 @@ export default function MobileBuilder() {
                 </button>
                 <button
                   onClick={handleBackToEditor}
-                  className="bg-pink-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors bottom-btns"
+                  className="bg-pink-600 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors bottom-btns"
                 >
                   {t("buttons.backToDashboard")}
                 </button>
@@ -883,7 +894,7 @@ export default function MobileBuilder() {
                             </label>
                             <input
                               type="text"
-                              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500"
+                              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-600"
                               value={`${formData.first_name} ${formData.last_name}`.trim()}
                               name="full name"
                               required
@@ -897,7 +908,7 @@ export default function MobileBuilder() {
                             </label>
                             <input
                               type="email"
-                              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500"
+                              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-600"
                               value={formData.email}
                               name="email"
                               required
@@ -911,7 +922,7 @@ export default function MobileBuilder() {
                             </label>
                             <input
                               type="number"
-                              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500"
+                              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-600"
                               name="phone"
                               value={formData.phone}
                               required

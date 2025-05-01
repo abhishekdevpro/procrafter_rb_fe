@@ -48,13 +48,13 @@ const ContactUs = () => {
     <div className="bg-gray-100 py-12 lg:py-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 ">
         <h2
-          className="text-3xl font-bold text-center mb-8 sm:mb-12 text-pink-600"
+          className="text-3xl font-bold text-center mb-8 sm:mb-12 text-purple-600"
           id="phone"
         >
           {t("getintouch")}
         </h2>
         <p className="text-center mb-8 sm:mb-12">{t("contact_paragraph")}</p>
-        {/* <div className="flex flex-col md:flex-row items-center justify-center gap-8 border border-pink-500 ">
+        {/* <div className="flex flex-col md:flex-row items-center justify-center gap-8 border border-pink-600 ">
           <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg p-6 ">
             <div className="flex items-center mb-4">
               <div className="text-3xl">✉</div>
@@ -65,10 +65,10 @@ const ContactUs = () => {
             <div className="">
               <button className="border px-3 p-2 rounded-lg">
                 <a
-                  href="mailto:info@procrafr"
+                  href="mailto:info@ciblijob.fr"
                   className="text-slate-800 font-semibold text-sm hover:underline flex items-center"
                 >
-                  info@procrafr
+                  info@ciblijob.fr
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="ml-2 h-4 w-4"
@@ -154,8 +154,8 @@ const ContactUs = () => {
                     />
                   </div>
                   {error && <p className="text-red-500 mb-2">{error}</p>}
-                  {successMessage && <p className="text-pink-500 mb-2">{successMessage}</p>}
-                  <button type="submit" className="bg-pink-400 text-white px-4 py-2 rounded-lg">
+                  {successMessage && <p className="text-pink-600 mb-2">{successMessage}</p>}
+                  <button type="submit" className="bg-purple-600 text-white px-4 py-2 rounded-lg">
                     Send
                   </button>
                 </form>
@@ -218,10 +218,10 @@ const ContactUs = () => {
             <div>
               <button className="border px-3 py-2 rounded-lg">
                 <a
-                  href="mailto:bonjour@procrafr"
+                  href="mailto:bonjour@procrafter.ca"
                   className="text-slate-800 font-semibold text-sm hover:underline flex items-center"
                 >
-                  bonjour@procrafr
+                  bonjour@procrafter.ca
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="ml-2 h-4 w-4"
@@ -333,11 +333,11 @@ const ContactUs = () => {
                   </div>
                   {error && <p className="text-red-500 mb-2">{error}</p>}
                   {successMessage && (
-                    <p className="text-pink-500 mb-2">{successMessage}</p>
+                    <p className="text-pink-600 mb-2">{successMessage}</p>
                   )}
                   <button
                     type="submit"
-                    className="bg-pink-400 text-white px-4 py-2 rounded-lg"
+                    className="bg-purple-600 text-white px-4 py-2 rounded-lg"
                   >
                     {t("form.send")}
                   </button>

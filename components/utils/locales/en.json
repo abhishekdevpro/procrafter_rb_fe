@@ -6,7 +6,7 @@
   "ai_resume_builder": "AI Resume Builder",
   "jobs": "Jobs",
   "resources": "Resources",
-  "cibli_job_id": "CibliJob ID",
+  "cibli_job_id": "ProCraftr ID",
   "home": "Home",
   "profile": "Profile",
   "logout": "Logout",
@@ -55,7 +55,7 @@
       
       
       "ready_in_15_minutes": "Get it ready in less than 15 minutes",
-      "certified_by_recruiters": "Certified By Recruiters & Admired By Job Seekers",
+      "certified_by_recruiters": "Created by Recruiters, to help you impress.",
       "looking_cover_letter": "Looking For Impressive Cover Letters?",
       "explore_cover_letters": "Explore from our 25+ premium Cover Letters, which are exclusively crafted by our Experts.",
       "create_cv": "Create Your Cover Letter",
@@ -78,7 +78,7 @@
         "resume_builder": "Resume Builder",
         "resume_description": "Relevant for automation & one time download.",
         "starting_price": "Starting",
-        "price_currency": "£",
+        "price_currency": "€",
         "price_amount": "0",
         "feature1": "Create optimized resumes",
         "feature2": "Copy and paste content from site",
@@ -100,7 +100,7 @@
   
     "combo_title": "French English Combo",
     "combo_description": "Built by expert resume writers",
-    "combo_price_currency": "£",
+    "combo_price_currency": "€",
     "combo_price_amount": "29",
     "combo_price_per_resume": "/Resume",
     "feature1_c": "Create optimized resumes",
@@ -151,7 +151,7 @@
         "ai_resume_accuracy": "AI - Resume Accuracy",
         "ai_resume_enhancer": "AI - Resume Enhancer",
         "ai_job_match_apply": "AI - Job Match & Apply",
-        "copyright": "© Copyright By procrafr All Rights Reserved",
+        "copyright": "© Copyright By ProCraftr.ca All Rights Reserved",
         "toast_success":"Subscribed successfully!"
       
       },
@@ -213,7 +213,7 @@
           
           "how_to_apply": "How to Apply",
           "how_to_apply_description": "If you’re passionate about helping others succeed and want to be part of a dynamic, growth-oriented team, we’d love to hear from you. To apply for a position at ProCraftr, please send your resume and a cover letter to",
-          "apply_email": "career@CibliJob.ca",
+          "apply_email": "career@ProCraftr.ca",
           
           "join_us": "Join Us and Make a Difference",
           "join_us_description": "At ProCraftr, you’ll have the opportunity to make a meaningful impact every day. Join us and help shape the future of job seekers around the world. We look forward to welcoming you to our team!",
@@ -285,7 +285,7 @@
               "childrensPrivacy": "Our services are not intended for individuals under 18. If a child provides personal data, we will delete it.",
               "changesPolicy": "We may update this Privacy Policy. Continued use of our services after changes means acceptance of the revised policy.",
               "contactUs": "If you have any questions, contact us at:",
-              "email_name": "bonjour@procrafr",
+              "email_name": "bonjour@procraftr.ca",
               
                 "title": "AI Resume Builder",
                 "introduction": "Revolutionizing the Job Application Process",
@@ -407,6 +407,16 @@
                   "Ai_Skill_Tests_paragraph17":"Reduce the costs associated with traditional hiring methods. Our AI Skill Tests minimize the need for multiple interview rounds and help you identify top talent early in the process.",
                   "Ai_Skill_Tests_paragraph18":" Transform your hiring process with ProCraftr ’s AI Skill Tests. Sign up now to experience the benefits of accurate, efficient, and unbiased candidate assessments.",
                   "Ai_Skill_Tests_paragraph19"  :"Ready to elevate your hiring process? Visit our AI Skill Tests page and start creating customized skill assessments today!",
+                  "Ai_Skill_Tests_paragraph20": "Use our intuitive platform to create the AI Skill Test. Choose from a variety of question types and formats, and set the difficulty level and time limits according to your requirements.",
+                  "Ai_Skill_Tests_paragraph21":"Send test invitations to candidates via email or integrate the test link into your job postings. Candidates can complete the test online at their convenience.",
+                  "Ai_Skill_Tests_paragraph22":"Review the real-time results and detailed analytics provided by our AI. Compare candidates performance and identify the best fit for your job role.",
+                  "Ai_Skill_Tests_paragraph23":"Use the insights gained from the AI Skill Tests to make confident, data-driven hiring decisions. The comprehensive assessment results ensure you select the most qualified candidates for your organization.",
+                  "Ai_Skill_Tests_paragraph24":"Automate the initial screening process and reduce the time spent on manual evaluations. Our AI Skill Tests provide quick and accurate assessments, speeding up your hiring process.",
+                  "Ai_Skill_Tests_paragraph25":"Gain a deeper understanding of candidates abilities with precise and objective evaluations. Our AI technology ensures consistent and reliable results.",
+                  "Ai_Skill_Tests_paragraph26":"Offer candidates a seamless and user-friendly testing experience. The adaptive nature of our tests keeps candidates engaged and motivated.",
+                  "Ai_Skill_Tests_paragraph27":"Reduce the costs associated with traditional hiring methods. Our AI Skill Tests minimize the need for multiple interview rounds and help you identify top talent early in the process.",
+                  "Ai_Skill_Tests_paragraph28":"Transform your hiring process with Resume Intellect’s AI Skill Tests. Sign up now to experience the benefits of accurate, efficient, and unbiased candidate assessments.",
+                  "Ai_Skill_Tests_paragraph29":"Ready to elevate your hiring process? Visit our AI Skill Tests page and start creating customized skill assessments today!",
                   
                     "Terms-and-Conditions": {
                       "title": "Terms and Conditions",
@@ -484,7 +494,7 @@
                           "title": "10. Contact Information",
                           "list": [
                             "If you have any questions or concerns about these terms and conditions, please contact us at:",
-                            "Email: bonjour@procrafr"
+                            "Email: bonjour@procraftr.ca"
                           ]
                         }
                       ],
@@ -515,6 +525,14 @@
                   "Ai_CV_Parsing_h20":"Scalability",
                   "Ai_CV_Parsing_h21":"Start Using AI CV Parsing Today",
                   "Ai_CV_Parsing_h22":"Get Started",
+                  "Ai_CV_Parsing_h23":"Review and Analyze",
+                  "Ai_CV_Parsing_h24":"Automate Candidate Matching",
+                  "Ai_CV_Parsing_h25":"Make Informed Hiring Decisions",
+                  "Ai_CV_Parsing_h26":"Benefits of Using AI CV Parsing",
+                  "Ai_CV_Parsing_h27":"Efficiency and Speed",
+                  "Ai_CV_Parsing_h28":"Improved Accuracy",
+                  "Ai_CV_Parsing_h29":"Enhanced Candidate Experience",
+               
                   "Ai_CV_Parsing_p1":"At ProCraftr , we leverage cutting-edge AI CV parsing technology to streamline the recruitment process, making it faster and more efficient for both employers and job seekers. Our AI CV parsing tool accurately extracts and analyzes key information from CVs, helping you identify the best candidates quickly and effectively.",
                   "Ai_CV_Parsing_p2":"Our AI CV parser uses sophisticated algorithms to extract essential details from CVs, including personal information, contact details, work experience, education, skills, and certifications. The extracted data is organized in a structured format, making it easy to review and compare candidates.",
                   "Ai_CV_Parsing_p3":"Our parser can handle CVs in various formats, such as PDF, DOC, DOCX, and TXT. This flexibility ensures that no matter how candidates submit their CVs, our tool can process and analyze them efficiently.",
@@ -541,6 +559,7 @@
                     "AI-Enhanced_h1A": "Key Features of AI-Enhanced Resume Accuracy",
                     "AI-Enhanced_h2": "Grammar and Spell Check",
                     "AI-Enhanced_h3": "Consistency and Formatting",
+                      "AI-Enhanced_h2A": "Key Features of AI-Enhanced Resume Accuracy",
                     "AI-Enhanced_h3A": "Data Verification",
                     "AI-Enhanced_h4": "Skills and Keywords Matching",
                     "AI-Enhanced_h5": "Quantitative Achievements",
@@ -558,6 +577,17 @@
                     "AI-Enhanced_h17": "Higher Success Rate",
                     "AI-Enhanced_h18": "Time and Effort Savings",
                     "AI-Enhanced_h19": "Start Enhancing Your Resume Accuracy Today",
+                    "AI-Enhanced_h20": "Step 2: AI Analysis",
+                    "AI-Enhanced_h21": "Step 3: Receive Feedback",
+                    "AI-Enhanced_h22": "Step 4: Make Adjustments",
+                    "AI-Enhanced_h23": "Step 5: Final Review",
+                    "AI-Enhanced_h24": "Benefits of AI-Enhanced Resume Accuracy",
+                    "AI-Enhanced_h25": "Professional Presentation",
+                    "AI-Enhanced_h26": "Increased Confidence",
+                    "AI-Enhanced_h27": "Higher Success Rate",
+                    "AI-Enhanced_h28": "Time and Effort Savings",
+                    "AI-Enhanced_h29": "Start Enhancing Your Resume Accuracy Today",
+                   
                     "AI-Enhanced_p1": "At ProCraftr, we understand that the accuracy of your resume can significantly impact your chances of landing your dream job. Our AI-enhanced resume accuracy tools ensure that your resume is not only compelling but also precise and error-free. Leveraging advanced AI technology, we help you create resumes that truly reflect your qualifications and experiences.",
                     "AI-Enhanced_p2": "Our AI-powered tools meticulously check for grammar, spelling, and punctuation errors. This ensures that your resume is polished and professional, making a strong impression on potential employers.",
                     "AI-Enhanced_p3": "The AI reviews your resume for consistency in formatting, including font styles, sizes, bullet points, and spacing. This creates a visually appealing and uniform document that is easy to read.",
@@ -585,8 +615,8 @@
                     "professional_title": "Professional Title",
                     "languages": "Languages",
                     "age": "Age",
-                    "current_salary": "Current Salary (£)",
-                    "expected_salary": "Expected Salary (£)",
+                    "current_salary": "Current Salary (€)",
+                    "expected_salary": "Expected Salary (€)",
                     "description": "Description",
                     "phone_number": "Phone Number",
                     "email": "Email",
@@ -769,13 +799,13 @@
   },
   
     "modal": {
-      "title": "CibliJob ID",
+      "title": "ProCraftr ID",
       "subtitle": "Your One-Stop Access to Career Solutions",
       "coming_soon": "Coming Soon!",
       "status": "Development Status:",
       "progress": "90% Complete",
-      "description": "CibliJob ID will allow you to seamlessly connect to all our services with a single account. Stay tuned for the launch!",
-      "signup": "Want to know when CibliJob ID is live? Sign up for updates!",
+      "description": "ProCraftr ID will allow you to seamlessly connect to all our services with a single account. Stay tuned for the launch!",
+      "signup": "Want to know when ProCraftr ID is live? Sign up for updates!",
       "email_placeholder": "Enter your email ID",
       "notify_button": "Notify Me",
       "close_button": "Close",
@@ -819,7 +849,8 @@
     "improvements": {
       "title": "Areas for Improvement",
       "file_format": "File Formatting",
-      "keyword_optimization": "Keyword Optimization"
+      "keyword_optimization": "Keyword Optimization",
+      "sectionOrder": "Section Order"
     },
     "formatting": {
       "title": "Formatting Checklist",
@@ -830,7 +861,11 @@
       "consistent_font": "Consistent Font",
       "consistent_font_desc": "Consistent font usage throughout the resume",
       "contact_info": "Contact Info Visible",
-      "contact_info_desc": "Contact information is clearly visible"
+      "contact_info_desc": "Contact information is clearly visible",
+       "clear_exp": "Clear Experience",
+      "clear_exp_desc": "Work experience section is clearly structured and readable",
+        "clear_summary": "Clear Summary",
+      "clear_summary_desc": "Summary section is well-written and clearly presented"
     },
     "overall_comments": "Overall Comments",
     "button": {
@@ -851,7 +886,7 @@
         "viewCoverLetters": "View Cover Letters"
       },
       "createResume":{
-        "welcome_resumebuilder":"Welcome to Resume Builder",
+        "welcome_resumebuilder":"Welcome to ProCraftr",
         "create_resume":"Click the button below to create your resume.",
          "resume_btn":"Create Your Resume",
          "creating":"Creating..."
@@ -874,7 +909,16 @@
           },
           "back": "Back",
              "next": "Next",
-              "saving": "Saving"
+              "saving": "Saving",
+              "toast": {
+                "selectExperience": "Please select an experience level before proceeding.",
+                "resumeDataNotLoaded": "Resume data not loaded yet. Please wait.",
+                "resumeIdNotFound": "Resume ID not found.",
+                "experienceSaved": "Experience saved successfully.",
+                "errorSavingExperience": "Error while saving the experience.",
+                "errorUpdatingResume": "Error updating resume!",
+                "errorFetchingResume": "Error fetching resume data."
+              }
         },
         
           "templateStep": {
@@ -887,6 +931,7 @@
             "back": "Back",
             "next": "Next",
             "loading": "Loading...",
+            "usethistemplate":"Use This Template",
             "toast": {
               "resume_not_found": "Resume ID or token not found",
               "fetch_error": "Error fetching resume data",
@@ -1012,7 +1057,16 @@
                     "address_placeholder": "Address",
                     "suggestions": "Suggestions",
                     "auto_fix": "Auto Fix",
-                    "add_section": "✙ Add section"
+                    "fixing": "Fixing...",
+                    "add_section": "✙ Add section",
+                     "mark_resolved": "Mark Resolved",
+                    "placeholders": {
+                      "name": "Full Name",
+                      "position": "Job Title",
+                      "address": "Location",
+                      "contactInformation": "Phone Number",
+                      "email": "Email Address"
+                    }
                   },
                   "social_media": {
     "title": "Social Media",
@@ -1023,7 +1077,32 @@
     "remove_button": "Remove",
     "add_section": "✙ Add section"
   },
+  "education":{
+"placeholders": {
+    "school": "School",
+    "degree": "Degree",
+    "location": "Location"
+  },
+  "tooltips": {
+    "school": "School Suggestions",
+    "degree": "Degree Suggestions",
+    "location": "Location Suggestions",
+    "start_date": "Start Date Issues",
+    "end_date": "End Date Issues"
+  },
+  "dropdown": {
+    "month": "Month",
+    "year": "Year",
+    "present": "Present"
+  }
+  },
+  "certification":{
+  "placeholderTitle": "Enter certification title",
+   "certificationSuggestion": "Certifications Suggestion"
+  }
+  ,
   "work_experience": {
+    
     "title": "Work Experience",
     "fresher_question": "Are you a fresher?",
     "company_name": "Company Name",
@@ -1035,7 +1114,40 @@
     "location": "Location",
     "save_button": "Save",
     "cancel_button": "Cancel",
-    "add_section": "✙ Add section"
+    "add_section": "✙ Add section",
+    "company":"Company",
+    "companySuggestions": "Company Suggestions",
+    "position": "Position",
+    "positionSuggestions": "Position Suggestions",
+  
+    "locationSuggestions": "Location Suggestions",
+   
+    "descriptionSuggestions": "Description Suggestions",
+    "keyAchievementsPlaceholder": "Enter key achievements (one per line)",
+    "keyAchievementsSuggestions": "Key Achievement Suggestions",
+    "removeWorkExperience": "Remove Work Experience",
+    "popup": {
+    "selectDescription": "Select Description",
+    "selectKeyAchievements": "Select Key Achievements",
+    "noDescriptions": "No descriptions available.",
+    "noKeyAchievements": "No key achievements available.",
+    "retry": "Retry",
+    "retrying": "Retrying...",
+    "saveSelection": "Save Selection",
+    "close": "Close"
+  }
+  },
+  "skill":{
+    "noSkillsFound": "No skills found.",
+    "addSkill": "Add Skill",
+    "skillError": "Skill Error",
+    "dismiss": "Dismiss",
+    "deleteAllSkills": "Delete All Skills",
+    "smartAssist": "Smart Assist",
+    "selectAISkills": "Select AI Skills",
+    "noAISkillsAvailable": "No AI skills available.",
+    "addSelectedSkills": "Add Selected Skills",
+    "close": "Close"
   },
   "language": {
     "title": "Languages",
@@ -1056,8 +1168,50 @@
     "good": "Good",
     "basicKnowledge": "Basic Knowledge",
     "justStarting": "Just Starting"
+  },
+  "project":{
+     "placeholderName": "Project Name",
+      "placeholderLink": "Link",
+      "project":"Project",
+       "remove": "Remove Project",
+       "nameSuggestion": "Project Name Suggestion",
+         "link": "Project Link",
+         "popup": {
+          "select_description": "Select Description",
+          "select_key_achievements": "Select Key Achievements",
+          "no_descriptions": "No descriptions available.",
+          "no_key_achievements": "No key achievements available.",
+          "retrying": "Retrying...",
+          "retry": "Retry",
+          "save_selection": "Save Selection",
+          "close": "Close"
+        }
   }
+
+  
                 },
+                "summaryperosnal": {
+    "sections": {
+      "personalSummary": "Personal Summary"
+    },
+    "suggestions": {
+      "title": "Summary Suggestions",
+      "autoFix": "Auto Fix"
+    }
+  },
+  "smartAssist": "Smart Assist",
+  "summary": {
+    "placeholder": "Enter your professional summary or use Smart Assist to generate one",
+    "charCount": "{{count}}/1000"
+  },
+  "popup": {
+    "selectSummary": "Select a Summary",
+    "close": "Close",
+    "add": "Add"
+  },
+  "error": {
+    "jobTitleRequired": "Job Title is required in Detail Information"
+  },
                 "aiResumeEnhancer": {
                     "title": "AI Resume Enhancer",
                     "subtitle": "Elevate Your Job Applications with AI-Driven Enhancements",
@@ -1311,6 +1465,17 @@
     "addSection": "✙ Add section",
     "remove": "Remove"
   },
+  "coverLetterSection": {
+    "title": "Cover Letter Sections",
+    "sections": [
+      "Introduction: Stating Intent Clearly",
+      "Hook: Why You’re a Fit",
+      "Proof & Sign-Off: Show Value and Close Strong"
+    ],
+    "placeholder": "Write {{sectionTitle}}",
+   
+  "aiAssist": "AI Assist"
+  },
   "closingGratitude": {
     "title": "Closing & Gratitude",
     "closing": "Closing",
@@ -1322,7 +1487,11 @@
   },
   "navigation": {
     "previous": "Previous",
-    "next": "Next"
+    "next": "Next",
+     "finish": "Finish",
+     "toast":{
+      "pleaseSaveCoverLetter":"Please save your cover letter"
+     }
   },
   
     "cvBuilder": {
@@ -1343,7 +1512,8 @@
       "template2": "Template 2",
       "template3": "Template 3",
       "template4": "Template 4"
-    }
+    },
+    "premium": "Premium"
   },
   "buttons": {
     "save": "Save Resume",
@@ -1388,7 +1558,7 @@
     "help_support": "Need help or want to change your subscription?",
     "contact_us": "Contact us at:",
     "phone": "📞 855-695-3235",
-    "email": "📧 customersupport@procrafr",
+    "email": "📧 customersupport@ProCraftr.fr",
     "availability": "Available 7 days a week:",
     "monday_friday": "Monday-Friday: 8 AM - 8 PM (CST)",
     "saturday": "Saturday: 8 AM - 5 PM (CST)",
@@ -1513,11 +1683,11 @@
 },
 "paymentplans":{
   "Cast a wider net – 10x your job applications": "Cast a wider net – 10x your job applications",
-  "Our AI-powered platform scours millions of jobs to continuously find and apply to relevant job openings until you're hired.": "Our AI-powered platform scours millions of jobs to continuously find and apply to relevant job openings until you're hired.",
+  "Our AI-powered platform scours": "Our AI-powered platform scours millions of jobs to continuously find and apply to relevant job openings until you're hired.",
   "Kudos! You're one step closer to success": "Kudos! You're one step closer to success",
   "Pricing Plans": "Pricing Plans",
-  "Choose the plan that works best for you": "Choose the plan that works best for you",
-  "Our pricing plans are designed to accommodate all your resume building needs.": "Our pricing plans are designed to accommodate all your resume building needs.",
+  "title": "Choose the plan that works best for you",
+  "subtitle": "Our pricing plans are designed to accommodate all your resume building needs.",
   "Best Value": "Best Value",
   "Free": "Free",
   "Free Plan": "Free Plan",
@@ -1567,6 +1737,7 @@
   "Contact our 24/7 customer support.": "Contact our 24/7 customer support.",
   "You may cancel by email, online, or by calling us toll-free at 855-695-3235.": "You may cancel by email, online, or by calling us toll-free at 855-695-3235."
 },
+
 "addSection": "✙ Add section",
  "smartAssist": "✙ Smart Assist",
   "keyAssist": "✙ Key Assist",
@@ -1576,7 +1747,56 @@
     "privacyPolicy": "Terms & Conditions",
     "and": "and",
     "button": "Got it!"
+  },
+  "plans":{
+    "mo": "mo",
+  "one-time payment": "one-time payment",
+  "every month": "every month",
+  "Review your order": "Review your order",
+  "Plan": "Plan",
+  "Automatically renews": "Automatically renews",
+  "Total due today": "Total due today",
+  "By clicking": "By clicking",
+  "below, you agree to our": "below, you agree to our",
+  "Terms of Use": "Terms of Use",
+  "and": "and",
+  "Privacy Policy": "Privacy Policy",
+  "You also understand that you will be billed": "You also understand that you will be billed",
+  "which will automatically renew": "which will automatically renew",
+  "You can cancel at any time.": "You can cancel at any time.",
+  "Start applying": "Start applying",
+  "plan.confirm_title": "Are you sure?",
+  "plan.confirm_message": "Do you really want to purchase this plan?",
+  "plan.confirm_yes": "Yes",
+  "plan.confirm_no": "No, Go Back",
+  "SECURE CHECKOUT": "SECURE CHECKOUT"
+  },
+  "paymentss": {
+  "selectPlan": "Please select a plan before proceeding.",
+  "authRequired": "Authentication required. Please log in.",
+  "redirecting": "Redirecting to payment...",
+  "alreadySubscribed": "You already have an active subscription for this plan.",
+  "genericError": "Error processing payment."
+},
+
+  "job_title_required": "Job Title is required",
+  "resumePreview":{
+     "summary": "Summary",
+     "education":"Education",
+      "workExperience": "Work Experience",
+       "projects": "Projects",
+        "skills": "Skills",
+         "languages": "Languages"
+  },
+  "errorPopup": {
+    "title": "Error",
+    "message": "An error occurred. Please try again.",
+    "cancel": "Cancel",
+    "upgradePlan": "Upgrade Plan"
   }
+
+
+
   }
   
 

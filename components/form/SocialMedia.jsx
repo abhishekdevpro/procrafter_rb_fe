@@ -202,6 +202,7 @@ import { AlertCircle, X } from "lucide-react";
 
 import { useRouter } from "next/router";
 import { useTranslation } from "react-i18next";
+import { toast } from "react-toastify";
 
 const SOCIAL_MEDIA_OPTIONS = [
   { name: "GitHub", baseUrl: "https://github.com/" },
@@ -341,6 +342,20 @@ const SocialMedia = () => {
 
   // Remove a social media entry
   const removeSocialMedia = (index) => {
+    if (resumeData.socialMedia.length <= 1) {
+      toast.warn("At least one social media profile is required");
+
+      setValidationErrors({
+        ...validationErrors,
+        general: "At least one social media profile is required",
+      });
+      setTimeout(() => {
+        const updatedErrors = { ...validationErrors };
+        delete updatedErrors.general;
+        setValidationErrors(updatedErrors);
+      }, 3000);
+      return; // Don't remove if it's the last one
+    }
     const newSocialMedia = [...resumeData.socialMedia];
     newSocialMedia.splice(index, 1); // Remove the entry at the given index
 
@@ -386,7 +401,7 @@ const SocialMedia = () => {
   };
 
   return (
-    <div className="flex-col flex gap-3 w-full mt-10 px-10">
+    <div className="flex-col flex gap-3 w-full mt-10 px-10 max-h-[400px] overflow-y-auto">
       <h2 className="input-title text-black text-3xl">
         {t("resumeStrength.sections.socialLinks")}
       </h2>
@@ -498,7 +513,7 @@ const SocialMedia = () => {
               type="button"
               onClick={() => removeSocialMedia(index)}
               aria-label="Remove"
-              className="p-2 text-white bg-red-700 rounded-lg text-xl mb-2"
+              className="p-2 mt-0 text-white bg-red-700 rounded-lg text-xl mb-4"
             >
               <MdRemoveCircle />
             </button>

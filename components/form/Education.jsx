@@ -7,6 +7,7 @@ import { MdRemoveCircle } from "react-icons/md";
 import { BASE_URL } from "../Constant/constant";
 import { useTranslation } from "react-i18next";
 import axiosInstance from "../utils/axiosInstance";
+import { toast } from "react-toastify";
 const Education = () => {
   const { i18n, t } = useTranslation();
   const language = i18n.language;
@@ -50,22 +51,29 @@ const Education = () => {
     }
 
     setIsLoading((prev) => ({ ...prev, university: true }));
+
     try {
       const response = await axiosInstance.get(
         `/api/user/university-lists?university_keyword=${encodeURIComponent(
           keyword
         )}&lang=${language}`
       );
-      if (response.ok) {
-        const data = await response.json();
-        setUniversitySuggestions(data.data.map((item) => item.name));
-        setShowUniversityDropdown(true);
-      }
+
+      // ✅ Axios returns parsed data directly
+      const data = response.data;
+      const universityList = data?.data || [];
+
+      setUniversitySuggestions(universityList.map((item) => item.name));
+      setShowUniversityDropdown(true);
+      // setUniversitySuggestions(data.data.map((item) => item.name));
+      // setShowUniversityDropdown(true);
     } catch (error) {
       console.error("Error fetching universities:", error);
     }
+
     setIsLoading((prev) => ({ ...prev, university: false }));
   };
+
   const fetchDegrees = async (keyword, index) => {
     if (!keyword || keyword.length < 1) {
       setDegreeSuggestions([]);
@@ -222,6 +230,17 @@ const Education = () => {
   };
 
   const removeEducation = (index) => {
+    if (resumeData.education.length <= 1) {
+      toast.warn("At least one Education is required");
+
+      // Clear the error message after 3 seconds
+      // setTimeout(() => {
+      //   // const updatedErrors = {...validationErrors};
+      //   delete updatedErrors.general;
+      //   setValidationErrors(updatedErrors);
+      // }, 3000);
+      return; // Don't remove if it's the last one
+    }
     const newEducation = [...resumeData.education];
     newEducation.splice(index, 1);
     setResumeData({ ...resumeData, education: newEducation });
@@ -300,7 +319,7 @@ const Education = () => {
   const renderTooltip = (index, field, title) => {
     if (activeTooltip === `${field}-${index}`) {
       return (
-        <div className="absolute z-50 right-0 w-80 bg-white rounded-lg shadow-xl transform transition-all duration-200 ease-in-out border border-gray-700">
+        <div className="absolute z-50 right-0 w-80 bg-white rounded-lg shadow-xl transform transition-all duration-200 ease-in-out border border-gray-700 ">
           <div className="p-4 border-b border-gray-700">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-2">
@@ -335,7 +354,7 @@ const Education = () => {
   };
 
   return (
-    <div className="flex-col gap-3 w-full mt-10 px-10">
+    <div className="flex-col gap-3 w-full mt-10 px-10 max-h-[400px] overflow-y-auto">
       <h2 className="input-title text-black text-3xl">
         {t("resumeStrength.sections.education")}
       </h2>
@@ -358,7 +377,7 @@ const Education = () => {
             <div className="relative">
               <input
                 type="text"
-                placeholder="School"
+                placeholder={t("builder_forms.education.placeholders.school")}
                 name="school"
                 maxLength={150}
                 className={`w-full other-input border ${
@@ -367,6 +386,12 @@ const Education = () => {
                 value={education.school}
                 onChange={(e) => handleEducation(e, index)}
                 onClick={(e) => e.stopPropagation()}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    e.preventDefault(); // prevent form submission if needed
+                    setShowUniversityDropdown(false); // ✅ hide suggestions
+                  }
+                }}
               />
               {isLoading.university && (
                 <div className="absolute right-8 top-1/2 -translate-y-1/2">
@@ -404,7 +429,11 @@ const Education = () => {
               </div>
             )}
 
-            {renderTooltip(index, "school", "School Suggestions")}
+            {renderTooltip(
+              index,
+              "school",
+              t(" builder_forms.education.tooltips.school")
+            )}
           </div>
 
           {/* <div className="relative mb-4">
@@ -432,7 +461,7 @@ const Education = () => {
           <div className="relative mb-4">
             <input
               type="text"
-              placeholder="Degree"
+              placeholder={t("builder_forms.education.placeholders.degree")}
               name="degree"
               maxLength={150}
               className={`w-full other-input border ${
@@ -463,7 +492,11 @@ const Education = () => {
                 <AlertCircle className="w-5 h-5" />
               </button>
             )}
-            {renderTooltip(index, "degree", "Degree Suggestions")}
+            {renderTooltip(
+              index,
+              "degree",
+              t(" builder_forms.education.tooltips.degree")
+            )}
 
             {showDegreeDropdown && degreeSuggestions.length > 0 && (
               <ul className="absolute z-10 w-full bg-white border border-gray-300 rounded-md  shadow-lg">
@@ -486,7 +519,7 @@ const Education = () => {
             )}
           </div>
 
-          <div className="">
+          <div className="relative">
             <label className="text-black">
               {t("builder_forms.work_experience.start_date")}
             </label>
@@ -500,7 +533,9 @@ const Education = () => {
                 value={getDatePart(education.startYear, "month")}
                 onChange={(e) => handleMonthChange(e, index, "startYear")}
               >
-                <option value="">Month</option>
+                <option value="">
+                  {t("builder_forms.education.dropdown.month")}
+                </option>
                 {months.map((month, idx) => (
                   <option key={idx} value={month}>
                     {month}
@@ -516,7 +551,10 @@ const Education = () => {
                 value={getDatePart(education.startYear, "year")}
                 onChange={(e) => handleYearChange(e, index, "startYear")}
               >
-                <option value="">Year</option>
+                <option value="">
+                  {" "}
+                  {t("builder_forms.education.dropdown.year")}
+                </option>
                 {years.map((year, idx) => (
                   <option key={idx} value={year}>
                     {year}
@@ -527,7 +565,7 @@ const Education = () => {
                 <>
                   <button
                     type="button"
-                    className="absolute -right-8 top-1 text-red-500"
+                    className="absolute right-[2px] top-[-1.5rem] text-red-500"
                     onClick={() =>
                       setActiveTooltip(
                         activeTooltip === `startYear-${index}`
@@ -546,7 +584,7 @@ const Education = () => {
                           <div className="flex items-center space-x-2">
                             <AlertCircle className="w-5 h-5 text-red-400" />
                             <span className="font-medium text-black">
-                              Start Date Issues
+                              {t("builder_forms.education.tooltips.start_date")}
                             </span>
                           </div>
                           <button
@@ -577,7 +615,7 @@ const Education = () => {
             <label className="text-black">
               {t("builder_forms.work_experience.end_date")}
             </label>
-            <div className="flex-wrap-gap-2">
+            <div className="flex-wrap-gap-2 relative">
               <select
                 className={`other-input border flex-1 ${
                   improve && hasErrors(index, "endYear")
@@ -588,7 +626,10 @@ const Education = () => {
                 onChange={(e) => handleMonthChange(e, index, "endYear")}
                 disabled={education.endYear === "Present"} // Disable the month select if "Present" is checked
               >
-                <option value="">Month</option>
+                <option value="">
+                  {" "}
+                  {t("builder_forms.education.dropdown.month")}
+                </option>
                 {months.map((month, idx) => (
                   <option key={idx} value={month}>
                     {month}
@@ -605,7 +646,10 @@ const Education = () => {
                 onChange={(e) => handleYearChange(e, index, "endYear")}
                 disabled={education.endYear === "Present"} // Disable the year select if "Present" is checked
               >
-                <option value="">Year</option>
+                <option value="">
+                  {" "}
+                  {t("builder_forms.education.dropdown.year")}
+                </option>
                 {years.map((year, idx) => (
                   <option key={idx} value={year}>
                     {year}
@@ -619,13 +663,13 @@ const Education = () => {
                   onChange={() => handlePresentToggle(index)}
                   className="w-6 h-6"
                 />
-                Present
+                {t("builder_forms.education.dropdown.present")}
               </label>
               {improve && hasErrors(index, "endYear") && (
                 <>
                   <button
                     type="button"
-                    className="absolute -right-8 top-1 text-red-500"
+                    className="absolute right-[2px] top-[-1.5rem] text-red-500"
                     onClick={() =>
                       setActiveTooltip(
                         activeTooltip === `endYear-${index}`
@@ -644,7 +688,7 @@ const Education = () => {
                           <div className="flex items-center space-x-2">
                             <AlertCircle className="w-5 h-5 text-red-400" />
                             <span className="font-medium text-black">
-                              End Date Issues
+                              {t("builder_forms.education.tooltips.end_date")}
                             </span>
                           </div>
                           <button
@@ -680,7 +724,7 @@ const Education = () => {
             <div className="relative">
               <input
                 type="text"
-                placeholder="Location"
+                placeholder={t("builder_forms.education.placeholders.location")}
                 name="location"
                 className={`w-full other-input border ${
                   improve && hasErrors(index, "location")
@@ -690,6 +734,12 @@ const Education = () => {
                 value={education.location}
                 onChange={(e) => handleEducation(e, index)}
                 onClick={(e) => e.stopPropagation()}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    e.preventDefault(); // prevent form submission if needed
+                    setShowLocationDropdown(false); // ✅ hide suggestions
+                  }
+                }}
               />
               {isLoading.location && (
                 <div className="absolute right-8 top-1/2 -translate-y-1/2">

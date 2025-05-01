@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import { BASE_URL } from "../Constant/constant";
 import { useTranslation } from "react-i18next";
+import ErrorPopup from "../utility/ErrorPopUp";
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 const Summary = () => {
@@ -19,6 +20,7 @@ const Summary = () => {
     selectedLang,
   } = useContext(ResumeContext);
   const { i18n, t } = useTranslation();
+
   const language = i18n.language;
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -29,6 +31,11 @@ const Summary = () => {
   const [isAutoFixLoading, setIsAutoFixLoading] = useState(false);
   const router = useRouter();
   const { id, improve } = router.query;
+  const [limitExceeded, setLimitExceeded] = useState(false);
+  const [errorPopup, setErrorPopup] = useState({
+    show: false,
+    message: "",
+  });
   // console.log(resumeStrength.personal_summery_strenght.summery, ">>>>");
   const hasErrors = () => {
     return (
@@ -106,6 +113,53 @@ const Summary = () => {
     }
   };
 
+  // const handleAIAssist = async () => {
+  //   setLoading(true);
+  //   setError(null);
+  //   setSelectedSummaryIndex(null);
+
+  //   try {
+  //     const token = localStorage.getItem("token");
+  //     const response = await axios.post(
+  //       `${BASE_URL}/api/user/ai-resume-summery-data/${id}?lang=${language}`,
+  //       {
+  //         key: "resumesummery",
+  //         keyword: `professional summary in manner of description - ${Date.now()}`,
+  //         content: resumeData.position,
+  //         file_location: "",
+  //         lang: selectedLang,
+  //       },
+  //       {
+  //         headers: {
+  //           Authorization: token,
+  //         },
+  //       }
+  //     );
+
+  //     if (
+  //       response.data.status === "success" &&
+  //       response.data.data?.resume_analysis?.professional_summaries
+  //     ) {
+  //       setSummaries(
+  //         response.data.data.resume_analysis.professional_summaries || []
+  //       );
+  //       setShowPopup(true);
+  //     } else {
+  //       setError("Unable to fetch summaries. Please try again.");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error getting AI summaries:", error);
+  //     // setError("An error occurred while fetching summaries. Please try again.");
+  //     const errorMessage =
+  //       error?.response?.data?.message ||
+  //       "An error occurred while fetching summaries.";
+
+  //     toast.error(errorMessage); // show toast with API message
+  //     setError(errorMessage);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
   const handleAIAssist = async () => {
     setLoading(true);
     setError(null);
@@ -129,25 +183,33 @@ const Summary = () => {
         }
       );
 
+      const { status, message, data } = response.data;
+
       if (
-        response.data.status === "success" &&
-        response.data.data?.resume_analysis?.professional_summaries
+        status === "success" &&
+        data?.resume_analysis?.professional_summaries
       ) {
-        setSummaries(
-          response.data.data.resume_analysis.professional_summaries || []
-        );
+        setSummaries(data.resume_analysis.professional_summaries || []);
         setShowPopup(true);
+        toast.success(message || "AI summaries fetched successfully.");
       } else {
-        setError("Unable to fetch summaries. Please try again.");
+        const fallbackMessage =
+          message || "Unable to fetch summaries. Please try again.";
+        toast.error(fallbackMessage);
+        setError(fallbackMessage);
       }
     } catch (error) {
       console.error("Error getting AI summaries:", error);
-      // setError("An error occurred while fetching summaries. Please try again.");
       const errorMessage =
         error?.response?.data?.message ||
         "An error occurred while fetching summaries.";
-
-      toast.error(errorMessage); // show toast with API message
+      toast.error(errorMessage);
+      setErrorPopup({
+        show: true,
+        message:
+          error.response?.data?.message ||
+          "Your API Limit is Exhausted. Please upgrade your plan.",
+      });
       setError(errorMessage);
     } finally {
       setLoading(false);
@@ -168,11 +230,29 @@ const Summary = () => {
     }
   };
 
+  // const handleQuillChange = (content) => {
+  //   setResumeData({
+  //     ...resumeData,
+  //     summary: content,
+  //   });
+  // };
   const handleQuillChange = (content) => {
-    setResumeData({
-      ...resumeData,
-      summary: content,
-    });
+    const plainText = content.replace(/<[^>]*>/g, ""); // Remove HTML tags
+    if (plainText.length <= 1000) {
+      setResumeData({
+        ...resumeData,
+        summary: content,
+      });
+      setLimitExceeded(false);
+    } else {
+      // Limit reached, cut off extra characters
+      const allowedText = plainText.substring(0, 1000);
+      setResumeData({
+        ...resumeData,
+        summary: allowedText,
+      });
+      setLimitExceeded(true);
+    }
   };
 
   return (
@@ -205,7 +285,7 @@ const Summary = () => {
               if (resumeData?.position) {
                 handleAIAssist();
               } else {
-                toast.error("Job Title is required in Detail Information");
+                toast.error(t("error.jobTitleRequired"));
               }
             }}
             disabled={loading}
@@ -213,7 +293,7 @@ const Summary = () => {
             {loading ? (
               <span className="flex items-center gap-2">
                 <Loader />
-                Loading...
+                {t("loading")}
               </span>
             ) : (
               t("smartAssist")
@@ -243,7 +323,7 @@ const Summary = () => {
                     {isAutoFixLoading ? (
                       <Loader2 className="w-4 h-4 animate-spin" />
                     ) : (
-                      "Auto Fix"
+                      t("summarypersonal.suggestions.autoFix")
                     )}
                   </button>
                   <button
@@ -279,8 +359,8 @@ const Summary = () => {
 
       {/* ReactQuill Editor */}
       <div className="grid-1 w-full">
-        {/* <ReactQuill
-          placeholder="Enter your professional summary or use Smart Assist to generate one"
+        <ReactQuill
+          placeholder={t("summary.placeholder")}
           value={resumeData.summary || ""}
           onChange={handleQuillChange}
           className="w-full other-input h-100 border-black border rounded"
@@ -289,34 +369,28 @@ const Summary = () => {
             toolbar: [["bold", "italic", "underline"], ["clean"]],
           }}
         />
-        <div className="text-sm text-gray-500 mt-1 text-right">
-          {resumeData.summary?.length || 0}/1000
-        </div> */}
-        <ReactQuill
-          placeholder="Enter your professional summary or use Smart Assist to generate one"
-          value={resumeData.summary || ""}
-          onChange={(content) => {
-            if (content.replace(/<[^>]*>/g, "").length <= 1000) {
-              handleQuillChange(content);
-            }
-          }}
-          className="w-full other-input h-100 border-black border rounded"
-          theme="snow"
-          modules={{
-            toolbar: [["bold", "italic", "underline"], ["clean"]],
-          }}
-        />
 
         <div className="text-sm text-gray-500 mt-1 text-right">
-          {resumeData.summary?.replace(/<[^>]*>/g, "").length || 0}/1000
+          {t("summary.charCount", {
+            count: resumeData.summary?.replace(/<[^>]*>/g, "").length || 0,
+          })}
         </div>
+
+        {limitExceeded && (
+          <div className="text-red-500 text-sm mt-1">
+            {t("summary.charLimitExceeded") ||
+              "Only 1000 characters are allowed."}
+          </div>
+        )}
       </div>
 
       {/* Popup/Modal for AI Summaries */}
       {showPopup && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
           <div className="bg-white p-6 rounded-lg w-[90%] max-w-4xl">
-            <h3 className="text-xl font-bold mb-4">Select a Summary</h3>
+            <h3 className="text-xl font-bold mb-4">
+              {t("popup.selectSummary")}
+            </h3>
             <div className="space-y-3 max-h-96 overflow-y-auto">
               {summaries.map((summary, index) => (
                 <div key={index} className="flex items-start gap-3">
@@ -336,18 +410,24 @@ const Summary = () => {
                 onClick={() => setShowPopup(false)}
                 className="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-600"
               >
-                Close
+                {t("popup.close")}
               </button>
               <button
                 onClick={handleAddSummary}
                 className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-500"
                 disabled={selectedSummaryIndex === null}
               >
-                Add
+                {t("popup.add")}
               </button>
             </div>
           </div>
         </div>
+      )}
+      {errorPopup.show && (
+        <ErrorPopup
+          message={errorPopup.message}
+          onClose={() => setErrorPopup({ show: false, message: "" })}
+        />
       )}
     </div>
   );

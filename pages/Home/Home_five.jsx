@@ -10,47 +10,47 @@
 //         setIsAuthenticated(!!token);
 //     }, []);
 //   return (
-//     <div className="bg-pink-100 py-10">
+//     <div className="bg-green-100 py-10">
 //       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 //         <h1 className="text-center font-bold text-3xl py-5">Want To Supercharge Your Career Growth With Our AI Tool?</h1>
 //         <div className="flex justify-center">
 //           <div className="bg-white rounded-lg shadow-md p-4 sm:p-6 md:p-8">
-//             <h1 className="font-bold text-xl mb-4">ProCraftr  Builder</h1>
+//             <h1 className="font-bold text-xl mb-4">Cibli Job  Builder</h1>
 //             <div className="flex items-center gap-2 font-medium mb-2">
-//               <i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-pink-500"></i>
+//               <i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-pink-600"></i>
 //               <span>AI Score</span>
 //             </div>
 //             <div className="flex items-center gap-2 font-medium mb-2">
-//               <i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-pink-500"></i>
+//               <i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-pink-600"></i>
 //               <span>AI Parsing</span>
 //             </div>
 //             <div className="flex items-center gap-2 font-medium mb-2">
-//               <i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-pink-500"></i>
+//               <i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-pink-600"></i>
 //               <span>Resume Building</span>
 //             </div>
 //             <div className="flex items-center gap-2 font-medium mb-2">
-//               <i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-pink-500"></i>
+//               <i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-pink-600"></i>
 //               <span>AI Enhancer</span>
 //             </div>
 //             <div className="flex items-center gap-2 font-medium mb-2">
-//               <i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-pink-500"></i>
+//               <i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-pink-600"></i>
 //               <span>Match & Apply</span>
 //             </div>
 //             <div className="flex items-center gap-2 font-medium mb-2">
-//               <i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-pink-500"></i>
+//               <i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-pink-600"></i>
 //               <span>AI Skill Test</span>
 //             </div>
 //             <div className="flex items-center gap-2 font-medium mb-2">
-//               <i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-pink-500"></i>
+//               <i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-pink-600"></i>
 //               <span>Skill Badges</span>
 //             </div>
 //             <div className="flex items-center gap-2 font-medium mb-2">
-//               <i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-pink-500"></i>
+//               <i className="fa-solid fa-check border-2 px-2 py-2 rounded-full text-white bg-pink-600"></i>
 //               <span>& More</span>
 //             </div>
 //             <div className="flex justify-center mt-6">
 //             <Link href={isAuthenticated?"/dashboard":"/login2"}>
-//               <button className="px-6 py-3 rounded-2xl font-semibold text-black bg-pink-400 hover:bg-pink-500 shadow-md">
+//               <button className="px-6 py-3 rounded-2xl font-semibold text-black bg-purple-600 hover:bg-pink-600 shadow-md">
 //                 Get Started For Free
 //               </button>
 //               </Link>
@@ -111,9 +111,13 @@ function Home_five() {
     };
 
     axios
-      .post(`${BASE_URL}/api/user/paypal/create-payment?lang=${selectedLang}`, payload, {
-        headers: { "Content-Type": "application/json" },
-      })
+      .post(
+        `${BASE_URL}/api/user/paypal/create-payment?lang=${selectedLang}`,
+        payload,
+        {
+          headers: { "Content-Type": "application/json" },
+        }
+      )
       .then((response) => {
         const data = response.data;
         if (data && data.data) {
@@ -130,7 +134,7 @@ function Home_five() {
   const [name1, setName1] = useState("");
   const [email1, setEmail1] = useState("");
   const [phone1, setPhone1] = useState("");
-  const {selectedLang} = useContext(ResumeContext)
+  const { selectedLang } = useContext(ResumeContext);
   // Fixed price
 
   const handleCloseModal1 = () => setShowModal1(false);
@@ -149,9 +153,13 @@ function Home_five() {
     };
 
     axios
-      .post(`${BASE_URL}/api/user/paypal/create-payment?lang=${selectedLang}`, payload, {
-        headers: { "Content-Type": "application/json" },
-      })
+      .post(
+        `${BASE_URL}/api/user/paypal/create-payment?lang=${selectedLang}`,
+        payload,
+        {
+          headers: { "Content-Type": "application/json" },
+        }
+      )
       .then((response) => {
         const data = response.data;
         if (data && data.data) {
@@ -193,7 +201,7 @@ function Home_five() {
         <section className=" ">
           <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
             <div className="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
-              <h2 className="mb-4 text-4xl tracking-tight font-extrabold  rounded-2xl text-pink-600 border p-3 border-gray">
+              <h2 className="mb-4 text-4xl tracking-tight font-extrabold  rounded-2xl text-purple-600 border p-3 border-gray">
                 {t("choose_plan")}
               </h2>
             </div>
@@ -223,7 +231,7 @@ function Home_five() {
                     <li key={index} className="flex items-center space-x-3">
                       {/* Check Icon */}
                       <svg
-                        className="flex-shrink-0 w-5 h-5 text-pink-500 dark:text-pink-400"
+                        className="flex-shrink-0 w-5 h-5 text-pink-600 dark:text-purple-600"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -270,7 +278,7 @@ function Home_five() {
                     <li key={index} className="flex items-center space-x-3">
                       {/* Check Icon */}
                       <svg
-                        className="flex-shrink-0 w-5 h-5 text-pink-500 dark:text-pink-400"
+                        className="flex-shrink-0 w-5 h-5 text-pink-600 dark:text-purple-600"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -341,7 +349,7 @@ function Home_five() {
                       <div className="md:w-1/2 w-full p-4 ">
                         <div className="text-left mb-6">
                           <h2 className="text-2xl font-bold text-gray-900">
-                            £19
+                            €19
                           </h2>
                           <p className="text-sm text-gray-500">Total Amount</p>
                         </div>
@@ -353,7 +361,7 @@ function Home_five() {
                             </label>
                             <input
                               type="text"
-                              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500"
+                              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-600"
                               value={name}
                               onChange={(e) => setName(e.target.value)}
                               required
@@ -365,7 +373,7 @@ function Home_five() {
                             </label>
                             <input
                               type="email"
-                              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500"
+                              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-600"
                               value={email}
                               onChange={(e) => setEmail(e.target.value)}
                               required
@@ -377,7 +385,7 @@ function Home_five() {
                             </label>
                             <input
                               type="tel"
-                              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500"
+                              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-600"
                               value={phone}
                               onChange={(e) => setPhone(e.target.value)}
                               required
@@ -468,7 +476,7 @@ function Home_five() {
                       <div className="md:w-1/2 w-full p-4 ">
                         <div className="text-left mb-6">
                           <h2 className="text-2xl font-bold text-gray-900">
-                            £29
+                            €29
                           </h2>
                           <p className="text-sm text-gray-500">Total Amount</p>
                         </div>
@@ -480,7 +488,7 @@ function Home_five() {
                             </label>
                             <input
                               type="text"
-                              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500"
+                              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-600"
                               value={name1}
                               onChange={(e) => setName1(e.target.value)}
                               required
@@ -492,7 +500,7 @@ function Home_five() {
                             </label>
                             <input
                               type="email"
-                              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500"
+                              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-600"
                               value={email1}
                               onChange={(e) => setEmail1(e.target.value)}
                               required
@@ -504,7 +512,7 @@ function Home_five() {
                             </label>
                             <input
                               type="tel"
-                              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500"
+                              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-600"
                               value={phone1}
                               onChange={(e) => setPhone1(e.target.value)}
                               required
@@ -571,7 +579,7 @@ function Home_five() {
                     <li key={index} className="flex items-center space-x-3">
                       {/* Check Icon */}
                       <svg
-                        className="flex-shrink-0 w-5 h-5 text-pink-500 dark:text-pink-400"
+                        className="flex-shrink-0 w-5 h-5 text-pink-600 dark:text-purple-600"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"

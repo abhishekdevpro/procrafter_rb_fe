@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import { BASE_URL } from "../../components/Constant/constant";
+import { useTranslation } from "react-i18next";
 
 const Index = () => {
+  const { t } = useTranslation();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const router = useRouter();
@@ -52,7 +54,7 @@ const Index = () => {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-screen">
-        Loading...
+        {t("loading")}
       </div>
     );
   }
@@ -73,7 +75,7 @@ const Index = () => {
                 </p>
                 <button
                   onClick={() => router.push("/dashboard/aibuilder")}
-                  className="sm:w-full lg:w-auto my-2 border rounded md py-4 px-8 text-center bg-pink-600 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-700 focus:ring-opacity-50"
+                  className="sm:w-full lg:w-auto my-2 border rounded md py-4 px-8 text-center bg-purple-600 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-700 focus:ring-opacity-50"
                 >
                   Take me there!
                 </button>

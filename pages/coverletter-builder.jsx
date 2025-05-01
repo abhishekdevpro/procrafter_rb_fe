@@ -283,7 +283,7 @@ function CoverLetterBuilder() {
                   <select
                     value={selectedFont}
                     onChange={handleFontChange}
-                    className="w-40 h-10 rounded-lg border border-pink-500 px-4 font-bold text-black bg-white focus:ring-2 focus:ring-pink-500"
+                    className="w-40 h-10 rounded-lg border border-pink-600 px-4 font-bold text-black bg-white focus:ring-2 focus:ring-pink-600"
                   >
                     <option value="Ubuntu">Ubuntu</option>
                     <option value="Calibri">Calibri</option>
@@ -306,13 +306,13 @@ function CoverLetterBuilder() {
                 <div className="flex gap-4">
                   <button
                     onClick={handleFinish}
-                    className="bg-blue-950 text-white px-6 py-2 rounded-lg"
+                    className="bg-purple-600 hover:bg-pink-600 text-white px-6 py-2 rounded-lg"
                   >
                     {t("cvBuilder.save")}
                   </button>
                   <button
                     onClick={downloadAsPDF}
-                    className="bg-yellow-500 text-black px-6 py-2 rounded-lg"
+                    className="bg-pink-600 text-white px-6 py-2 rounded-lg  hover:bg-purple-600"
                   >
                     {t("cvBuilder.download")}
                   </button>

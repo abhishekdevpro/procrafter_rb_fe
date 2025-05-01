@@ -54,12 +54,12 @@ const MobileCoverLetterBuilder = ({
         <div className="flex flex-col min-h-screen bg-gray-50">
           {/* Sticky Options Bar */}
           <div className="sticky top-[64px] z-40 bg-gray-200 p-4 shadow-sm">
-            <div className="flex flex-row flex-wrap justify-center items-center ">
+            <div className="flex items-center absolute justify-center gap-2 p-2  top-26 left-0 right-0 bg-white shadow-lg ">
               {/* Font Selector */}
               <select
                 value={selectedFont}
                 onChange={handleFontChange}
-                className=" h-10 rounded-lg border border-pink-500 px-4 font-bold text-black bg-white"
+                className=" h-10 rounded-lg border border-pink-600 px-4 font-bold text-black bg-white"
               >
                 <option value="Ubuntu">Ubuntu</option>
                 <option value="Calibri">Calibri</option>
@@ -102,7 +102,7 @@ const MobileCoverLetterBuilder = ({
             </button>
             <button
               onClick={handleFinish}
-              className="w-full flex items-center justify-center gap-2 bg-[#369984] text-white px-6 py-3 rounded-lg"
+              className="w-full flex items-center justify-center gap-2 bg-pink-600 text-white px-6 py-3 rounded-lg"
             >
               <Save size={20} />
               {/* Save Cover Letter */}

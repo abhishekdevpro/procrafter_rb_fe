@@ -69,16 +69,26 @@ const TooltipContent = ({ improvements, resumeId, onClose }) => {
       value: improvements?.formatting?.contact_info_visible,
       description: t("formatting.contact_info_desc"),
     },
+    {
+      label: t("formatting.clear_exp"),
+      value: improvements?.formatting?.clear_experience,
+      description: t("formatting.clear_exp_desc"),
+    },
+    {
+      label: t("formatting.clear_summary"),
+      value: improvements?.formatting?.clear_summary,
+      description: t("formatting.clear_summary_desc"),
+    },
   ];
 
   const handleATS = async () => {
-    if (!improveBy) return; // Don't proceed if no option is selected
+    // if (!improveBy) return; // Don't proceed if no option is selected
 
     const token = localStorage.getItem("token");
 
     setLoading(true); // Ensure loading is set to true when the request starts
     if (!resumeData.position) {
-      toast.error("Job Title is required");
+      toast.error(t("job_title_required"));
       return;
     }
     try {
@@ -138,6 +148,18 @@ const TooltipContent = ({ improvements, resumeId, onClose }) => {
                 </p>
               </li>
             )}
+            {improvements?.areas_for_improvement?.section_order && (
+              <li className="flex items-start gap-3">
+                <div className="w-2 h-2 mt-2 bg-blue-500 rounded-full" />
+                <p className="text-gray-700">
+                  <span className="font-bold text-black">
+                    {" "}
+                    {t("improvements.sectionOrder")}{" "}
+                  </span>
+                  {improvements.areas_for_improvement.section_order}
+                </p>
+              </li>
+            )}
           </ul>
         </div>
 
@@ -155,7 +177,7 @@ const TooltipContent = ({ improvements, resumeId, onClose }) => {
                 <div
                   className={`rounded-full p-1.5 ${
                     item.value
-                      ? "bg-pink-100 text-pink-600"
+                      ? "bg-green-100 text-purple-600"
                       : "bg-red-100 text-red-600"
                   }`}
                 >
@@ -177,7 +199,7 @@ const TooltipContent = ({ improvements, resumeId, onClose }) => {
 
       {/* Keywords Section */}
       <div className="w-full flex flex-col md:flex-row justify-between items-start gap-2 md:gap-6 mt-6">
-        <div className="w-full md:w-1/2 p-4 bg-pink-100 text-pink-700 rounded-lg">
+        <div className="w-full md:w-1/2 p-4 bg-green-100 text-pink-600 rounded-lg">
           <h4 className="font-bold text-lg">Keywords Found</h4>
           {improvements.keywords_found?.length > 0 ? (
             <ul className="list-disc list-inside">
@@ -208,7 +230,7 @@ const TooltipContent = ({ improvements, resumeId, onClose }) => {
         <p>{improvements?.overall_comments}</p>
       </div>
       {/* Improvement Option Selection */}
-      <div className="flex flex-col gap-2 mt-4">
+      {/* <div className="flex flex-col gap-2 mt-4">
         <h4 className="font-medium text-gray-800">
           Select Improvement Method:
         </h4>
@@ -234,18 +256,18 @@ const TooltipContent = ({ improvements, resumeId, onClose }) => {
           />
           Improve Overall
         </label>
-      </div>
+      </div> */}
       <button
         onClick={handleATS}
-        className={`mt-6 px-6 py-2 w-full bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition-colors ${
-          !improveBy || improvements.ats_score === 10 || Loading
+        className={`mt-6 px-6 py-2 w-full bg-purple-600 text-white rounded-lg hover:bg-pink-600 transition-colors ${
+          improvements.ats_score === 10 || Loading
             ? "opacity-50 cursor-not-allowed"
             : ""
         }`}
-        disabled={!improveBy || improvements.ats_score === 10 || Loading}
+        disabled={improvements.ats_score === 10 || Loading}
       >
         {Loading ? (
-          <SaveLoader loadingText="Proceed To Improve" />
+          <SaveLoader loadingText={t("button.improve")} />
         ) : (
           t("button.improve")
         )}
@@ -338,15 +360,6 @@ const ResumeStrength = ({ score, strength, resumeId }) => {
     ];
   };
 
-  // const handleImproveResume = () => {
-  //   setShowLoader(true);
-  //   setTimeout(() => {
-  //     router.push({
-  //       pathname: `/dashboard/aibuilder/${resumeId}`,
-  //       query: { improve: "true" },
-  //     });
-  //   }, 5000);
-  // };
   const handleImproveResume = async () => {
     if (!resumeId) return;
 
@@ -389,7 +402,7 @@ const ResumeStrength = ({ score, strength, resumeId }) => {
 
   const getScoreColor = (score, maxScore) => {
     const percentage = (score / maxScore) * 100;
-    if (percentage >= 70) return "bg-pink-500";
+    if (percentage >= 50) return "bg-pink-600";
     return "bg-red-600";
   };
 
@@ -442,7 +455,7 @@ const ResumeStrength = ({ score, strength, resumeId }) => {
               <button
                 disabled={!resumeId}
                 onClick={() => setIsModalOpen(true)}
-                className={`px-6 py-2 bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition-colors ${
+                className={`px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-pink-600 transition-colors ${
                   !resumeId ? "opacity-50 cursor-not-allowed" : ""
                 }`}
               >
@@ -489,7 +502,7 @@ const ResumeStrength = ({ score, strength, resumeId }) => {
               <button
                 disabled={!resumeId}
                 onClick={() => setIsModalOpen(true)}
-                className={`w-full sm:w-auto px-6 py-2 bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition-colors ${
+                className={`w-full sm:w-auto px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-pink-600 transition-colors ${
                   !resumeId ? "opacity-50 cursor-not-allowed" : ""
                 }`}
               >

@@ -125,7 +125,7 @@ const Skills = () => {
         <div className="flex justify-center mt-5">
           <button
             onClick={handleCreateResume}
-            className="flex justify-center items-center px-4 py-2 w-full sm:w-auto bg-pink-600 text-white rounded-lg hover:bg-[#369984] transition-colors duration-200 font-medium shadow-sm"
+            className="flex justify-center items-center px-4 py-2 w-full sm:w-auto bg-purple-600 text-white rounded-lg hover:bg-pink-600 transition-colors duration-200 font-medium shadow-sm"
           >
             <Plus className="w-5 h-5 mr-2" /> {t("skill.create_new_resume")}
           </button>
@@ -165,10 +165,10 @@ const Skills = () => {
               skills.map((skill, index) => (
                 <div
                   key={index}
-                  className="bg-pink-600 rounded-xl shadow-2xl border-2 border-slate-600 px-5 py-4 text-center"
+                  className="bg-purple-600 rounded-xl shadow-2xl border-2 border-slate-600 px-5 py-4 text-center"
                 >
                   <h3 className="text-2xl sm:text-3xl text-white font-semibold py-3">
-                    {skill.name || "Add skill from CV"}
+                    {skill.name}
                   </h3>
                   <p className="text-center text-white py-1">
                     {t("skill.total_questions")}: {skill.total_question || "15"}

@@ -11,6 +11,7 @@ import {
   Globe2,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { toast } from "react-toastify";
 
 const Language = () => {
   const { resumeData, setResumeData, resumeStrength } =
@@ -79,7 +80,7 @@ const Language = () => {
         [skillType]: newLanguages,
       });
     } else {
-      alert("At least one language is required.");
+      toast.warn("At least one language is required.");
     }
   };
 
@@ -100,7 +101,7 @@ const Language = () => {
   };
 
   return (
-    <div className="flex-col-gap-3 w-full mt-10 px-10">
+    <div className="flex-col-gap-3 w-full mt-10 px-10 max-h-[400px] overflow-y-auto">
       <div className="flex items-center gap-3 mb-4">
         {/* <Globe2 className="w-8 h-8 text-black" /> */}
         <h2 className="input-title text-black text-3xl">
@@ -149,7 +150,7 @@ const Language = () => {
                   {improve && hasErrors(index, "language") && (
                     <button
                       type="button"
-                      className="absolute right-3 top-[55%] -translate-y-1/2 text-red-500 hover:text-red-600 transition"
+                      className="absolute right-2 top-[68%] -translate-y-1/2 text-red-500 hover:text-red-600 transition"
                       onClick={() =>
                         setActiveTooltip(
                           activeTooltip === `language-${index}`

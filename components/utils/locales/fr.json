@@ -12,7 +12,7 @@
   "login": "Se connecter",
   "signup":"S'inscrire",
   "settings": "Paramètres",
-   "resume_tool_live": "L'outil de CV basé sur l'IA « ProCraftr » est désormais disponible !",
+   "resume_tool_live": "L'outil de CV basé sur l'IA « Cibli Job » est désormais disponible !",
    "resume_features":"Score de CV , CV amélioré et bien plus encore. Postulez dès maintenant en toute confiance grâce à notre solution tout-en-un sous un même toit.",
     "contact_us": "Contactez-nous",
  
@@ -49,7 +49,7 @@
   "english_resume": "CV Anglais",
             "powered_by_ai": "Propulsé par notre IA robuste",
             "ready_in_15_minutes": "Préparez-le en moins de 15 minutes",
-            "certified_by_recruiters": "Certifié par des recruteurs et admiré par les chercheurs d'emploi",
+            "certified_by_recruiters": "Créé par des recruteurs, pour vous aider à convaincre",
             "looking_cover_letter": "Vous recherchez des lettres de motivation impressionnantes ?",
             "explore_cover_letters": "Découvrez nos 25+ lettres de motivation premium, exclusivement conçues par nos experts.",
             "create_cv": "Créez votre lettre de motivation",
@@ -72,7 +72,7 @@
                 "resume_builder": "Générateur de CV",
   "resume_description": "Pertinent pour l'automatisation et le téléchargement unique.",
   "starting_price": "À partir de",
-  "price_currency": "£",
+  "price_currency": "€",
   "price_amount": "0",
   "feature1": "Créer des CV optimisés",
   "feature2": "Copier et coller du contenu depuis le site",
@@ -94,7 +94,7 @@
   "get_started_b": "Commencer",
   "combo_title": "Combo Français-Anglais",
   "combo_description": "Conçu par des rédacteurs de CV experts",
-  "combo_price_currency": "£",
+  "combo_price_currency": "€",
   "combo_price_amount": "29",
   "combo_price_per_resume": "/CV",
   "feature1_c": "Créer des CV optimisés",
@@ -128,7 +128,7 @@
       "get_our_weekly": "Recevez notre bulletin hebdomadaire",
       "type_your_email": "Saisissez votre e-mail...",
       "subscribe": "S'abonner",
-      "cibli_job": "ProCraftr",
+      "cibli_job": "Cibli Job",
       "about_us": "À propos de nous",
       "careers": "Carrières",
       "resources": "Ressources",
@@ -144,14 +144,14 @@
       "ai_resume_accuracy": "IA - Précision du CV",
       "ai_resume_enhancer": "IA - Amélioration du CV",
       "ai_job_match_apply": "IA - Correspondance et candidature aux emplois",
-      "copyright": "© Copyright By procrafr Tous droits réservés",
+      "copyright": "© Copyright By CibliJob.ca Tous droits réservés",
        "toast_success":"Abonné avec succès !"
     },
     
       "about_us": "À propos de nous",
-      "welcome_message": "Bienvenue chez ProCraftr, votre partenaire de confiance pour créer le CV idéal qui ouvre les portes à de nouvelles opportunités de carrière. Nous nous spécialisons dans la création de CV personnalisés et professionnels mettant en valeur vos compétences, expériences et réalisations uniques.",
+      "welcome_message": "Bienvenue chez Cibli Job, votre partenaire de confiance pour créer le CV idéal qui ouvre les portes à de nouvelles opportunités de carrière. Nous nous spécialisons dans la création de CV personnalisés et professionnels mettant en valeur vos compétences, expériences et réalisations uniques.",
       "our_mission": "Notre Mission",
-      "mission_description": "Chez ProCraftr, notre mission est d’aider les chercheurs d’emploi en fournissant des CV conçus par des experts qui laissent une impression durable. Nous comprenons que votre CV est bien plus qu’un simple document ; c’est un reflet de votre parcours professionnel et de vos aspirations. Notre objectif est de vous aider à vous démarquer sur un marché du travail compétitif et à obtenir le poste que vous méritez.",
+      "mission_description": "Chez Cibli Job, notre mission est d’aider les chercheurs d’emploi en fournissant des CV conçus par des experts qui laissent une impression durable. Nous comprenons que votre CV est bien plus qu’un simple document ; c’est un reflet de votre parcours professionnel et de vos aspirations. Notre objectif est de vous aider à vous démarquer sur un marché du travail compétitif et à obtenir le poste que vous méritez.",
       "why_choose_us": "Pourquoi nous choisir ?",
       "expertise_experience": "Expertise et Expérience",
       "expertise_description": "Notre équipe de rédacteurs de CV expérimentés et de coachs de carrière apporte des années d’expérience dans l’industrie. Nous restons à jour avec les dernières tendances en matière de mise en forme et de contenu des CV, garantissant que votre CV répond aux normes et attentes actuelles.",
@@ -169,23 +169,23 @@
       "career_coaching": "Coaching de carrière",
       "career_coaching_description": "Nos services de coaching de carrière vous offrent l’accompagnement et le soutien nécessaires pour naviguer dans votre recherche d’emploi, préparer vos entretiens et prendre des décisions éclairées concernant votre carrière.",
       "join_community": "Rejoignez Notre Communauté",
-      "join_community_description": "Chez ProCraftr, nous sommes plus qu’un service de rédaction de CV. Nous sommes une communauté de professionnels engagés à se soutenir mutuellement dans leur développement de carrière. Rejoignez-nous dès aujourd’hui et faites le premier pas vers la réalisation de vos aspirations professionnelles.",
+      "join_community_description": "Chez Cibli Job, nous sommes plus qu’un service de rédaction de CV. Nous sommes une communauté de professionnels engagés à se soutenir mutuellement dans leur développement de carrière. Rejoignez-nous dès aujourd’hui et faites le premier pas vers la réalisation de vos aspirations professionnelles.",
      
-      "contact_us_description": "Prêt à transformer votre CV et à saisir de nouvelles opportunités ? Contactez-nous dès aujourd’hui et laissez ProCraftr vous aider à rédiger le CV parfait pour votre parcours professionnel.",
+      "contact_us_description": "Prêt à transformer votre CV et à saisir de nouvelles opportunités ? Contactez-nous dès aujourd’hui et laissez Cibli Job vous aider à rédiger le CV parfait pour votre parcours professionnel.",
       
-        "careers_title": "Carrières chez ProCraftr",
+        "careers_title": "Carrières chez Cibli Job",
         "join_our_team": "Rejoignez notre équipe",
-        "join_our_team_description": "Chez ProCraftr, nous nous engageons à aider les individus à atteindre leurs objectifs de carrière grâce à des CV soigneusement rédigés et des services de carrière personnalisés. Notre équipe est passionnée par l’idée d’avoir un impact positif sur la vie des chercheurs d’emploi, et nous sommes toujours à la recherche de talents partageant notre vision et notre engagement.",
+        "join_our_team_description": "Chez Cibli Job, nous nous engageons à aider les individus à atteindre leurs objectifs de carrière grâce à des CV soigneusement rédigés et des services de carrière personnalisés. Notre équipe est passionnée par l’idée d’avoir un impact positif sur la vie des chercheurs d’emploi, et nous sommes toujours à la recherche de talents partageant notre vision et notre engagement.",
         
         "why_work_with_us": "Pourquoi travailler avec nous ?",
         "innovative_environment": "Environnement innovant",
         "innovative_environment_description": "Nous favorisons une culture de l'innovation et de l'apprentissage continu. Notre équipe reste à la pointe des tendances du secteur, garantissant ainsi des services de qualité à nos clients. Vous aurez l’opportunité de travailler avec les outils et techniques les plus récents en matière de rédaction de CV et de coaching de carrière.",
         
         "collaborative_culture": "Culture collaborative",
-        "collaborative_culture_description": "Chez ProCraftr, nous croyons en la puissance de la collaboration. Nos membres travaillent en étroite collaboration, partagent leurs idées et se soutiennent mutuellement pour atteindre des objectifs communs. Vous ferez partie d’une communauté bienveillante qui valorise vos contributions et encourage votre développement professionnel.",
+        "collaborative_culture_description": "Chez Cibli Job, nous croyons en la puissance de la collaboration. Nos membres travaillent en étroite collaboration, partagent leurs idées et se soutiennent mutuellement pour atteindre des objectifs communs. Vous ferez partie d’une communauté bienveillante qui valorise vos contributions et encourage votre développement professionnel.",
         
         "impactful_work": "Travail impactant",
-        "impactful_work_description": "Votre travail chez ProCraftr aura un impact direct sur la vie de nos clients. En aidant les chercheurs d’emploi à se présenter sous leur meilleur jour auprès des employeurs, vous jouerez un rôle clé dans leur réussite professionnelle. Il n’y a rien de plus gratifiant que de savoir que vous avez contribué au succès de quelqu'un.",
+        "impactful_work_description": "Votre travail chez Cibli Job aura un impact direct sur la vie de nos clients. En aidant les chercheurs d’emploi à se présenter sous leur meilleur jour auprès des employeurs, vous jouerez un rôle clé dans leur réussite professionnelle. Il n’y a rien de plus gratifiant que de savoir que vous avez contribué au succès de quelqu'un.",
         
         "career_development": "Développement de carrière",
         "career_development_description": "Nous investissons dans la croissance et le développement de notre équipe. Vous bénéficierez de formations continues et d'opportunités de développement professionnel, vous permettant d’améliorer vos compétences et de progresser dans votre carrière. Que vous soyez un professionnel expérimenté ou débutant, nous offrons un chemin clair pour votre progression.",
@@ -201,19 +201,19 @@
         "linkedin_specialist_description": "Optimisez les profils LinkedIn de nos clients pour augmenter leur visibilité et leur présence professionnelle. Vous créerez des profils convaincants qui mettront en avant leurs compétences et expériences, les connectant ainsi à de nouvelles opportunités.",
         
         "customer_support": "Représentant du service client",
-        "customer_support_description": "Offrez un support exceptionnel à nos clients en répondant à leurs questions et en résolvant les problèmes liés à nos services. Vous veillerez à ce que chaque client vive une expérience positive avec ProCraftr.",
+        "customer_support_description": "Offrez un support exceptionnel à nos clients en répondant à leurs questions et en résolvant les problèmes liés à nos services. Vous veillerez à ce que chaque client vive une expérience positive avec Cibli Job.",
         
         "how_to_apply": "Comment postuler",
-        "how_to_apply_description": "Si vous êtes passionné par l’aide aux autres et souhaitez faire partie d’une équipe dynamique et en pleine croissance, nous aimerions vous entendre. Pour postuler à un poste chez ProCraftr, veuillez envoyer votre CV et une lettre de motivation à",
+        "how_to_apply_description": "Si vous êtes passionné par l’aide aux autres et souhaitez faire partie d’une équipe dynamique et en pleine croissance, nous aimerions vous entendre. Pour postuler à un poste chez Cibli Job, veuillez envoyer votre CV et une lettre de motivation à",
         "apply_email": "career@CibliJob.ca",
         
         "join_us": "Rejoignez-nous et faites la différence",
-        "join_us_description": "Chez ProCraftr, vous aurez l’opportunité d’avoir un impact significatif chaque jour. Rejoignez-nous et contribuez à façonner l’avenir des chercheurs d’emploi à travers le monde. Nous avons hâte de vous accueillir dans notre équipe !",
+        "join_us_description": "Chez Cibli Job, vous aurez l’opportunité d’avoir un impact significatif chaque jour. Rejoignez-nous et contribuez à façonner l’avenir des chercheurs d’emploi à travers le monde. Nous avons hâte de vous accueillir dans notre équipe !",
         
           "salary_tools_title": "Outils de Salaire",
           "salary_tools_for_job_seekers": "Outils de Salaire pour les Chercheurs d'Emploi",
           "navigate_your_career": "Naviguez dans Votre Carrière en Toute Confiance",
-          "salary_tools_intro": "Comprendre votre valeur sur le marché et négocier votre salaire sont des étapes cruciales dans votre recherche d'emploi et votre avancement de carrière. Chez ProCraftr, nous vous donnons accès à divers outils et ressources pour vous aider à prendre des décisions éclairées sur votre rémunération.",
+          "salary_tools_intro": "Comprendre votre valeur sur le marché et négocier votre salaire sont des étapes cruciales dans votre recherche d'emploi et votre avancement de carrière. Chez Cibli Job, nous vous donnons accès à divers outils et ressources pour vous aider à prendre des décisions éclairées sur votre rémunération.",
         
           "comprehensive_salary_tools": "Outils de Salaire Complets",
           "salary_calculators": "Calculatrices de Salaire",
@@ -228,18 +228,18 @@
           "company_reviews": "Avis sur les Entreprises",
           "company_reviews_desc": "Des sites comme Glassdoor et Indeed offrent des avis d'employés actuels et anciens, partageant leurs expériences, y compris des informations sur les salaires et les avantages sociaux.",
         
-          "how_cibli_job_can_help": "Comment ProCraftr Peut Vous Aider",
+          "how_cibli_job_can_help": "Comment Cibli Job Peut Vous Aider",
           "one_on_one_coaching": "Coaching Individuel",
           "one_on_one_coaching_desc": "Nos coachs de carrière vous guident dans la recherche salariale et la négociation. Nous vous aidons à préparer les discussions sur le salaire et à développer des stratégies de négociation efficaces.",
         
           "exclusive_resources": "Ressources Exclusives",
-          "exclusive_resources_desc": "En tant que client de ProCraftr, vous aurez accès à des ressources exclusives, notamment des rapports sur l'industrie, des enquêtes salariales et des ateliers de négociation.",
+          "exclusive_resources_desc": "En tant que client de Cibli Job, vous aurez accès à des ressources exclusives, notamment des rapports sur l'industrie, des enquêtes salariales et des ateliers de négociation.",
         
           "maximize_earning": "Maximisez Votre Potentiel de Revenu",
-          "maximize_earning_desc": "Ne laissez pas votre salaire au hasard. Prenez le contrôle de votre carrière et maximisez votre potentiel de revenus avec l'aide des outils et ressources de ProCraftr.",
+          "maximize_earning_desc": "Ne laissez pas votre salaire au hasard. Prenez le contrôle de votre carrière et maximisez votre potentiel de revenus avec l'aide des outils et ressources de Cibli Job.",
           
             "privacyPolicy": "Politique de Confidentialité",
-            "intro": "Chez ProCraftr, nous accordons une grande importance à votre confidentialité et nous nous engageons à protéger vos informations personnelles. Cette Politique de Confidentialité explique comment nous collectons, utilisons et protégeons vos données lorsque vous utilisez notre site Web et nos services.",
+            "intro": "Chez Cibli Job, nous accordons une grande importance à votre confidentialité et nous nous engageons à protéger vos informations personnelles. Cette Politique de Confidentialité explique comment nous collectons, utilisons et protégeons vos données lorsque vous utilisez notre site Web et nos services.",
             "sections": {
               "informationWeCollect": "1. Informations que Nous Collectons",
               "howWeUse": "2. Comment Nous Utilisons Vos Informations",
@@ -277,12 +277,12 @@
             "childrensPrivacy": "Nos services ne sont pas destinés aux personnes de moins de 18 ans. Si un enfant fournit des données personnelles, nous les supprimerons.",
             "changesPolicy": "Nous pouvons mettre à jour cette Politique de Confidentialité. La poursuite de l'utilisation de nos services après des modifications signifie l'acceptation de la politique révisée.",
             "contactUs": "Si vous avez des questions, contactez-nous à :",
-            "email_name": "bonjour@procrafr",
+            "email_name": "bonjour@procrafter.ca",
           
             
               "title": "Générateur de CV IA",
               "introduction": "Révolutionner le processus de candidature",
-              "description_ai": "Bienvenue sur le Générateur de CV IA de ProCraftr – une solution innovante conçue pour simplifier la création de CV et vous aider à décrocher l’emploi de vos rêves. Notre technologie IA avancée facilite la rédaction de CV en mettant en valeur vos compétences et réalisations de la meilleure façon possible.",
+              "description_ai": "Bienvenue sur le Générateur de CV IA de Cibli Job – une solution innovante conçue pour simplifier la création de CV et vous aider à décrocher l’emploi de vos rêves. Notre technologie IA avancée facilite la rédaction de CV en mettant en valeur vos compétences et réalisations de la meilleure façon possible.",
               "key_features": "Principales Fonctionnalités",
               "features": [
                 {
@@ -318,7 +318,7 @@
               "steps": [
                 {
                   "title": "Étape 1 : Inscription et Saisie de vos Informations",
-                  "description": "Créez un compte sur ProCraftr et renseignez vos informations professionnelles, y compris votre expérience, formation, compétences et réalisations."
+                  "description": "Créez un compte sur Cibli Job et renseignez vos informations professionnelles, y compris votre expérience, formation, compétences et réalisations."
                 },
                 {
                   "title": "Étape 2 : Choisissez un Modèle",
@@ -354,7 +354,7 @@
               ],
               "cta": {
                 "title": "Commencez à Créer votre CV dès Aujourd'hui",
-                "description": "Transformez votre processus de candidature avec le Générateur de CV IA de ProCraftr. Inscrivez-vous dès maintenant et franchissez la première étape vers votre emploi idéal avec un CV professionnel qui met en valeur vos compétences et qualifications uniques.",
+                "description": "Transformez votre processus de candidature avec le Générateur de CV IA de Cibli Job. Inscrivez-vous dès maintenant et franchissez la première étape vers votre emploi idéal avec un CV professionnel qui met en valeur vos compétences et qualifications uniques.",
                 "button": "Commencer"
               },
               
@@ -382,7 +382,7 @@
                   "Ai_Skill_Tests_heading20": "Recrutement rentable",
                   "Ai_Skill_Tests_heading21": "Commencez à utiliser les tests de compétences en IA dès aujourd’hui",
                   "Ai_Skill_Tests_heading22": "Commencer",
-                  "Ai_Skill_Tests_paragraph1": "Chez ProCraftr, nous comprenons l'importance de trouver le bon talent pour votre organisation. Nos tests de compétences en IA sont conçus pour simplifier le processus de recrutement en évaluant avec précision les capacités des candidats et en les associant aux exigences du poste. Grâce à une technologie IA avancée, nos tests offrent un moyen fiable, efficace et impartial d’évaluer les candidats potentiels.",
+                  "Ai_Skill_Tests_paragraph1": "Chez Cibli Job, nous comprenons l'importance de trouver le bon talent pour votre organisation. Nos tests de compétences en IA sont conçus pour simplifier le processus de recrutement en évaluant avec précision les capacités des candidats et en les associant aux exigences du poste. Grâce à une technologie IA avancée, nos tests offrent un moyen fiable, efficace et impartial d’évaluer les candidats potentiels.",
                   "Ai_Skill_Tests_paragraph2": "Nos tests de compétences en IA couvrent un large éventail de compétences dans divers secteurs, notamment les compétences techniques, les compétences interpersonnelles et les compétences spécifiques à un rôle. Que vous recrutiez pour l'informatique, le marketing, la finance ou tout autre domaine, nos tests peuvent être adaptés à vos besoins spécifiques.",
                   "Ai_Skill_Tests_paragraph3": "Recevez des résultats instantanés et des analyses détaillées sur la performance des candidats. Notre IA analyse les résultats des tests pour fournir des informations sur les forces et les domaines d'amélioration de chaque candidat, vous aidant ainsi à prendre des décisions de recrutement basées sur les données.",
                   "Ai_Skill_Tests_paragraph4": "Créez des tests alignés sur vos besoins de recrutement. Vous pouvez choisir parmi plusieurs formats de questions, notamment les choix multiples, les défis de codage, les études de cas et les tests de jugement situationnels. Personnalisez le niveau de difficulté et la durée en fonction du poste.",
@@ -399,19 +399,28 @@
                   "Ai_Skill_Tests_paragraph15": "Obtenez une meilleure compréhension des capacités des candidats grâce à des évaluations précises et objectives. Notre technologie IA garantit des résultats cohérents et fiables.",
                   "Ai_Skill_Tests_paragraph16": "Offrez aux candidats une expérience de test fluide et conviviale. La nature adaptative de nos tests maintient leur engagement et leur motivation.",
                   "Ai_Skill_Tests_paragraph17": "Réduisez les coûts associés aux méthodes de recrutement traditionnelles. Nos tests de compétences en IA minimisent le besoin de multiples tours d’entretiens et vous aident à identifier rapidement les meilleurs talents.",
-                  "Ai_Skill_Tests_paragraph18": "Transformez votre processus de recrutement avec les tests de compétences en IA de ProCraftr. Inscrivez-vous dès maintenant pour découvrir les avantages d’une évaluation précise, efficace et impartiale des candidats.",
+                  "Ai_Skill_Tests_paragraph18": "Transformez votre processus de recrutement avec les tests de compétences en IA de Cibli Job. Inscrivez-vous dès maintenant pour découvrir les avantages d’une évaluation précise, efficace et impartiale des candidats.",
                   "Ai_Skill_Tests_paragraph19": "Prêt à améliorer votre processus de recrutement ? Visitez notre page sur les tests de compétences en IA et commencez à créer des évaluations de compétences personnalisées dès aujourd’hui !",
-                
+                  "Ai_Skill_Tests_paragraph20":"Utilisez notre plateforme intuitive pour créer le test de compétences IA. Choisissez parmi une variété de types de questions et de formats, et définissez le niveau de difficulté ainsi que les limites de temps selon vos besoins.",
+                  "Ai_Skill_Tests_paragraph21":"Envoyez des invitations aux candidats par e-mail ou intégrez le lien du test à vos offres d’emploi. Les candidats peuvent passer le test en ligne à leur convenance.",
+                  "Ai_Skill_Tests_paragraph22":"Consultez les résultats en temps réel et les analyses détaillées fournies par notre IA. Comparez les performances des candidats et identifiez le meilleur profil pour votre poste.",
+                  "Ai_Skill_Tests_paragraph23":"Utilisez les informations issues des tests de compétences IA pour prendre des décisions d’embauche confiantes et basées sur les données. Les résultats complets des évaluations garantissent la sélection des candidats les plus qualifiés pour votre entreprise.",
+                  "Ai_Skill_Tests_paragraph24":"Automatisez le processus de présélection initiale et réduisez le temps consacré aux évaluations manuelles. Nos tests de compétences IA offrent des évaluations rapides et précises, accélérant votre processus de recrutement.",
+                  "Ai_Skill_Tests_paragraph25":"Obtenez une compréhension approfondie des compétences des candidats grâce à des évaluations précises et objectives. Notre technologie IA garantit des résultats cohérents et fiables.",
+                  "Ai_Skill_Tests_paragraph26":"Offrez aux candidats une expérience de test fluide et conviviale. La nature adaptative de nos tests maintient les candidats engagés et motivés.",
+                  "Ai_Skill_Tests_paragraph27":"Réduisez les coûts associés aux méthodes de recrutement traditionnelles. Nos tests de compétences IA minimisent le besoin de multiples entretiens et vous aident à identifier les meilleurs talents dès le début du processus.",
+                  "Ai_Skill_Tests_paragraph28":"Transformez votre processus de recrutement avec les tests de compétences IA de Resume Intellect. Inscrivez-vous maintenant pour bénéficier d’évaluations précises, efficaces et impartiales.",
+                  "Ai_Skill_Tests_paragraph29":"Prêt à améliorer votre processus de recrutement ? Visitez notre page de tests de compétences IA et commencez à créer des évaluations personnalisées dès aujourd’hui !",
                     "Terms-and-Conditions": {
                       "title": "Conditions Générales",
-                      "introduction": "Bienvenue sur ProCraftr. Ces conditions générales définissent les règles et réglementations d'utilisation du site web et des services de ProCraftr. En accédant à ce site et en utilisant nos services, vous acceptez ces conditions générales dans leur intégralité. Si vous n'êtes pas d'accord avec une partie de ces conditions, veuillez ne pas utiliser notre site ou nos services.",
+                      "introduction": "Bienvenue sur Cibli Job. Ces conditions générales définissent les règles et réglementations d'utilisation du site web et des services de Cibli Job. En accédant à ce site et en utilisant nos services, vous acceptez ces conditions générales dans leur intégralité. Si vous n'êtes pas d'accord avec une partie de ces conditions, veuillez ne pas utiliser notre site ou nos services.",
                       "sections": [
                         {
                           "title": "1. Définitions",
                           "list": [
-                            "Client : Toute personne physique ou morale utilisant les services de ProCraftr.",
-                            "Entreprise : ProCraftr.",
-                            "Services : Rédaction de CV, coaching de carrière, optimisation du profil LinkedIn et autres services liés à la carrière fournis par ProCraftr."
+                            "Client : Toute personne physique ou morale utilisant les services de Cibli Job.",
+                            "Entreprise : Cibli Job.",
+                            "Services : Rédaction de CV, coaching de carrière, optimisation du profil LinkedIn et autres services liés à la carrière fournis par Cibli Job."
                           ]
                         },
                         {
@@ -433,7 +442,7 @@
                         {
                           "title": "4. Propriété intellectuelle",
                           "list": [
-                            "Tout le contenu, les matériaux et les services fournis par ProCraftr sont protégés par des lois sur la propriété intellectuelle.",
+                            "Tout le contenu, les matériaux et les services fournis par Cibli Job sont protégés par des lois sur la propriété intellectuelle.",
                             "Les clients bénéficient d'une licence limitée pour utiliser le contenu à des fins personnelles et non commerciales.",
                             "Toute reproduction, distribution ou modification sans consentement écrit préalable est interdite."
                           ]
@@ -441,7 +450,7 @@
                         {
                           "title": "5. Confidentialité",
                           "list": [
-                            "ProCraftr respecte la vie privée et la confidentialité de ses clients.",
+                            "Cibli Job respecte la vie privée et la confidentialité de ses clients.",
                             "Toute information personnelle fournie sera utilisée uniquement pour la prestation des services et ne sera pas partagée avec des tiers sans consentement explicite.",
                             "Les clients s'engagent à ne pas divulguer les informations confidentielles obtenues via nos services."
                           ]
@@ -449,28 +458,28 @@
                         {
                           "title": "6. Limitation de responsabilité",
                           "list": [
-                            "ProCraftr ne sera pas responsable des dommages directs, indirects ou consécutifs résultant de l'utilisation de nos services.",
+                            "Cibli Job ne sera pas responsable des dommages directs, indirects ou consécutifs résultant de l'utilisation de nos services.",
                             "Nous ne garantissons pas un emploi ou des résultats spécifiques après l'utilisation de nos services."
                           ]
                         },
                         {
                           "title": "7. Clause de non-garantie",
                           "list": [
-                            "Nos services sont fournis 'tels quels' et 'selon disponibilité'. ProCraftr ne garantit pas l'exactitude ou l'exhaustivité des services.",
+                            "Nos services sont fournis 'tels quels' et 'selon disponibilité'. Cibli Job ne garantit pas l'exactitude ou l'exhaustivité des services.",
                             "Nous ne garantissons pas que nos services répondront aux attentes des clients."
                           ]
                         },
                         {
                           "title": "8. Modifications des conditions générales",
                           "list": [
-                            "ProCraftr se réserve le droit de modifier ces conditions générales à tout moment sans préavis.",
+                            "Cibli Job se réserve le droit de modifier ces conditions générales à tout moment sans préavis.",
                             "L'utilisation continue de nos services après toute modification implique l'acceptation des nouvelles conditions."
                           ]
                         },
                         {
                           "title": "9. Droit applicable",
                           "list": [
-                            "Ces conditions générales sont régies par les lois du pays où opère ProCraftr.",
+                            "Ces conditions générales sont régies par les lois du pays où opère Cibli Job.",
                             "Tout litige sera soumis à la juridiction exclusive des tribunaux compétents."
                           ]
                         },
@@ -478,11 +487,11 @@
                           "title": "10. Contact",
                           "list": [
                             "Si vous avez des questions concernant ces conditions générales, veuillez nous contacter à :",
-                            "Email : bonjour@procrafr"
+                            "Email : bonjour@procrafter.ca"
                           ]
                         }
                       ],
-                      "closing": "Ces conditions garantissent une compréhension claire de nos services et des responsabilités de ProCraftr et de ses clients.",
+                      "closing": "Ces conditions garantissent une compréhension claire de nos services et des responsabilités de Cibli Job et de ses clients.",
                       "contact": "Si vous avez des questions, contactez-nous."
                     }    ,
                     
@@ -509,7 +518,15 @@
                       "Ai_CV_Parsing_h20": "Évolutivité",
                       "Ai_CV_Parsing_h21": "Commencez à utiliser l'analyse de CV par IA dès aujourd'hui",
                       "Ai_CV_Parsing_h22": "Commencer",
-                      "Ai_CV_Parsing_p1": "Chez ProCraftr, nous exploitons une technologie avancée d'analyse de CV par IA pour rationaliser le processus de recrutement, le rendant plus rapide et plus efficace pour les employeurs et les candidats. Notre outil d'analyse de CV par IA extrait et analyse avec précision les informations clés des CV, vous aidant à identifier rapidement et efficacement les meilleurs candidats.",
+                      "Ai_CV_Parsing_h23": "Analyser et examiner",
+"Ai_CV_Parsing_h24": "Automatiser la mise en correspondance des candidats",
+"Ai_CV_Parsing_h25": "Prendre des décisions d'embauche éclairées",
+"Ai_CV_Parsing_h26": "Avantages de l’analyse de CV par l’IA",
+"Ai_CV_Parsing_h27": "Efficacité et rapidité",
+"Ai_CV_Parsing_h28": "Précision améliorée",
+"Ai_CV_Parsing_h29": "Expérience candidat optimisée",
+
+                      "Ai_CV_Parsing_p1": "Chez Cibli Job, nous exploitons une technologie avancée d'analyse de CV par IA pour rationaliser le processus de recrutement, le rendant plus rapide et plus efficace pour les employeurs et les candidats. Notre outil d'analyse de CV par IA extrait et analyse avec précision les informations clés des CV, vous aidant à identifier rapidement et efficacement les meilleurs candidats.",
                       "Ai_CV_Parsing_p2": "Notre analyseur de CV par IA utilise des algorithmes sophistiqués pour extraire les informations essentielles des CV, notamment les informations personnelles, les coordonnées, l'expérience professionnelle, l'éducation, les compétences et les certifications. Les données extraites sont organisées dans un format structuré, facilitant ainsi l'examen et la comparaison des candidats.",
                       "Ai_CV_Parsing_p3": "Notre analyseur peut traiter des CV dans divers formats, tels que PDF, DOC, DOCX et TXT. Cette flexibilité garantit que, quelle que soit la manière dont les candidats soumettent leurs CV, notre outil peut les traiter et les analyser efficacement.",
                       "Ai_CV_Parsing_p4": "Grâce à des techniques avancées de NLP, notre analyseur de CV par IA comprend le contexte et les nuances du langage humain. Cela lui permet d'interpréter avec précision les titres de poste, les compétences et les responsabilités, même s'ils sont formulés différemment dans les CV.",
@@ -526,49 +543,69 @@
                       "Ai_CV_Parsing_p15": "Éliminez les erreurs humaines et les biais du processus de sélection des CV. Notre technologie IA garantit une extraction de données cohérente et précise, menant à de meilleures décisions de recrutement.",
                       "Ai_CV_Parsing_p16": "Offrez une expérience de recrutement plus fluide et plus rapide aux candidats. Grâce à un traitement rapide et précis des CV, les candidats reçoivent des retours et des mises à jour en temps opportun.",
                       "Ai_CV_Parsing_p17": "Gérez sans effort de gros volumes de CV. Notre outil d'analyse de CV par IA peut s'adapter aux besoins des campagnes de recrutement à grande échelle, garantissant qu'aucun candidat n'est négligé.",
-                      "Ai_CV_Parsing_p18": "Révolutionnez votre processus de recrutement avec l'outil d'analyse de CV par IA de ProCraftr. Inscrivez-vous dès maintenant pour découvrir les avantages d'un traitement des CV efficace, précis et automatisé.",
+                      "Ai_CV_Parsing_p18": "Révolutionnez votre processus de recrutement avec l'outil d'analyse de CV par IA de Cibli Job. Inscrivez-vous dès maintenant pour découvrir les avantages d'un traitement des CV efficace, précis et automatisé.",
                       "Ai_CV_Parsing_p19": "Prêt à transformer votre processus de recrutement ? Visitez notre page d'analyse de CV par IA et commencez à optimiser votre sélection de candidats dès aujourd'hui !",
                       
-                        "AI-Enhanced_h": "Précision du CV Améliorée par l'IA",
-                        "AI-Enhanced_h1": "Garantir la précision et la fiabilité dans la création de CV",
-                        "AI-Enhanced_h1A": "Principales caractéristiques de la précision du CV améliorée par l'IA",
-                        "AI-Enhanced_h2": "Vérification de la grammaire et de l'orthographe",
-                        "AI-Enhanced_h3": "Cohérence et mise en forme",
-                        "AI-Enhanced_h3A": "Vérification des données",
-                        "AI-Enhanced_h4": "Correspondance des compétences et des mots-clés",
-                        "AI-Enhanced_h5": "Réalisations quantitatives",
-                        "AI-Enhanced_h6": "Pertinence et clarté",
-                        "AI-Enhanced_h7": "Détection du plagiat",
-                        "AI-Enhanced_h8": "Comment ça marche",
-                        "AI-Enhanced_h9": "Étape 1 : Téléchargez votre CV",
-                        "AI-Enhanced_h10": "Étape 2 : Analyse par IA",
-                        "AI-Enhanced_h11": "Étape 3 : Recevez des commentaires",
-                        "AI-Enhanced_h12": "Étape 4 : Apportez des ajustements",
-                        "AI-Enhanced_h13": "Étape 5 : Revue finale",
-                        "AI-Enhanced_h14": "Avantages de la précision du CV améliorée par l'IA",
-                        "AI-Enhanced_h15": "Présentation professionnelle",
-                        "AI-Enhanced_h16": "Confiance accrue",
-                        "AI-Enhanced_h17": "Taux de réussite plus élevé",
-                        "AI-Enhanced_h18": "Gain de temps et d'efforts",
-                        "AI-Enhanced_h19": "Améliorez la précision de votre CV dès aujourd'hui",
-                        "AI-Enhanced_p1": "Chez ProCraftr, nous comprenons que la précision de votre CV peut avoir un impact significatif sur vos chances d'obtenir votre emploi de rêve. Nos outils de précision de CV améliorés par l'IA garantissent que votre CV est non seulement attrayant mais aussi précis et sans erreur.",
-                        "AI-Enhanced_p2": "Nos outils alimentés par l'IA vérifient minutieusement les erreurs de grammaire, d'orthographe et de ponctuation, garantissant un CV professionnel et sans fautes.",
-                        "AI-Enhanced_p3": "L'IA examine la mise en forme de votre CV pour assurer une cohérence visuelle et une présentation uniforme.",
-                        "AI-Enhanced_p4": "Notre IA vérifie les informations clés telles que les dates d'emploi, les titres de poste et les qualifications éducatives pour éviter toute incohérence.",
-                        "AI-Enhanced_p5": "L'IA compare votre CV aux descriptions de poste pour s'assurer qu'il contient les compétences et mots-clés pertinents.",
-                        "AI-Enhanced_p6": "L'IA vous aide à quantifier vos réalisations avec des chiffres concrets.",
-                        "AI-Enhanced_p7": "Elle analyse la pertinence et la clarté de votre contenu.",
-                        "AI-Enhanced_p8": "L'IA détecte le plagiat pour garantir un contenu unique.",
-                        "AI-Enhanced_p18": "Transformez votre CV avec ProCraftr. Inscrivez-vous maintenant !",
-                        
+                       "AI-Enhanced_h": "Précision Améliorée des CV par l’IA",
+  "AI-Enhanced_h1": "Garantir la Précision et la Fiabilité dans la Création de CV",
+  "AI-Enhanced_h1A": "Principales Fonctionnalités de la Précision des CV Améliorée par l’IA",
+  "AI-Enhanced_h2": "Correction Grammaticale et Orthographique",
+  "AI-Enhanced_h3": "Cohérence et Mise en Forme",
+  "AI-Enhanced_h2A": "Principales Fonctionnalités de la Précision des CV Améliorée par l’IA",
+  "AI-Enhanced_h3A": "Vérification des Données",
+  "AI-Enhanced_h4": "Correspondance Compétences et Mots-clés",
+  "AI-Enhanced_h5": "Réalisations Quantifiées",
+  "AI-Enhanced_h6": "Pertinence et Clarté",
+  "AI-Enhanced_h7": "Détection du Plagiat",
+  "AI-Enhanced_h8": "Comment Ça Marche",
+  "AI-Enhanced_h9": "Étape 1 : Téléversez Votre CV",
+  "AI-Enhanced_h10": "Étape 2 : Analyse par l’IA",
+  "AI-Enhanced_h11": "Étape 3 : Recevez des Commentaires",
+  "AI-Enhanced_h12": "Étape 4 : Apportez des Ajustements",
+  "AI-Enhanced_h13": "Étape 5 : Révision Finale",
+  "AI-Enhanced_h14": "Avantages de la Précision des CV Améliorée par l’IA",
+  "AI-Enhanced_h15": "Présentation Professionnelle",
+  "AI-Enhanced_h16": "Confiance Accrue",
+  "AI-Enhanced_h17": "Taux de Réussite Plus Élevé",
+  "AI-Enhanced_h18": "Gain de Temps et d’Efforts",
+  "AI-Enhanced_h19": "Commencez à Améliorer la Précision de Votre CV Aujourd’hui",
+  "AI-Enhanced_h20": "Étape 2 : Analyse par l’IA",
+  "AI-Enhanced_h21": "Étape 3 : Recevez des Commentaires",
+  "AI-Enhanced_h22": "Étape 4 : Apportez des Ajustements",
+  "AI-Enhanced_h23": "Étape 5 : Révision Finale",
+  "AI-Enhanced_h24": "Avantages de la Précision des CV Améliorée par l’IA",
+  "AI-Enhanced_h25": "Présentation Professionnelle",
+  "AI-Enhanced_h26": "Confiance Accrue",
+  "AI-Enhanced_h27": "Taux de Réussite Plus Élevé",
+  "AI-Enhanced_h28": "Gain de Temps et d’Efforts",
+  "AI-Enhanced_h29": "Commencez à Améliorer la Précision de Votre CV Aujourd’hui",
+
+  "AI-Enhanced_p1": "Chez Cibli Job, nous comprenons que la précision de votre CV peut grandement influencer vos chances d’obtenir l’emploi de vos rêves. Nos outils de précision améliorée par l’IA garantissent que votre CV soit non seulement percutant, mais aussi précis et sans erreurs. En tirant parti des technologies avancées de l’IA, nous vous aidons à créer des CV qui reflètent véritablement vos qualifications et vos expériences.",
+  "AI-Enhanced_p2": "Nos outils alimentés par l’IA vérifient minutieusement les fautes de grammaire, d’orthographe et de ponctuation. Cela garantit que votre CV soit soigné et professionnel, laissant une impression forte aux recruteurs.",
+  "AI-Enhanced_p3": "L’IA examine la cohérence de la mise en forme de votre CV, y compris les styles de police, les tailles, les puces et les espacements. Cela permet de créer un document visuellement attrayant et uniforme, facile à lire.",
+  "AI-Enhanced_p4": "Notre IA vérifie les informations clés telles que les dates d’emploi, les intitulés de poste et les diplômes. Cela réduit les risques d’inexactitudes et de divergences susceptibles d’inquiéter les employeurs.",
+  "AI-Enhanced_p5": "L’IA analyse les offres d’emploi pour identifier les compétences et mots-clés pertinents. Elle vérifie ensuite que ces éléments essentiels sont inclus dans votre CV, augmentant vos chances de passer les systèmes de suivi des candidatures (ATS).",
+  "AI-Enhanced_p6": "L’IA vous encourage à quantifier vos réalisations, en ajoutant par exemple des chiffres et des indicateurs précis. Cela donne de la crédibilité à votre CV et met en avant des preuves concrètes de vos succès.",
+  "AI-Enhanced_p7": "Notre IA évalue la pertinence et la clarté de votre contenu. Elle met en évidence les sections floues ou hors sujet et propose des améliorations pour rendre votre CV plus percutant et ciblé.",
+  "AI-Enhanced_p8": "L’IA vérifie si votre CV contient du plagiat potentiel, garantissant que tout le contenu est original et vous est propre. Cela renforce l’intégrité de votre CV et vous différencie des autres candidats.",
+  "AI-Enhanced_p9": "Téléversez votre CV sur la plateforme Cibli Job. Notre IA commencera immédiatement l’analyse de votre document.",
+  "AI-Enhanced_p10": "L’IA scanne votre CV à la recherche d’erreurs, d’incohérences et d’informations manquantes. Elle évalue la grammaire, la mise en forme, l’exactitude des données et la pertinence des mots-clés.",
+  "AI-Enhanced_p11": "En quelques minutes, vous recevrez un rapport détaillé mettant en évidence les points à améliorer. L’IA fournit des suggestions précises pour corriger les erreurs, améliorer le contenu et optimiser la mise en forme.",
+  "AI-Enhanced_p12": "Mettez en œuvre les modifications suggérées pour perfectionner votre CV. Utilisez les commentaires de l’IA pour garantir un CV précis, professionnel et adapté au poste visé.",
+  "AI-Enhanced_p13": "Effectuez une révision finale de votre CV à l’aide de notre outil d’IA pour vous assurer que toutes les modifications ont été apportées et que votre CV est au meilleur niveau.",
+  "AI-Enhanced_p14": "Un CV soigné et sans fautes démontre votre souci du détail et votre professionnalisme, ce qui impressionne positivement les recruteurs.",
+  "AI-Enhanced_p15": "Avec un CV précis et bien conçu, vous pouvez postuler avec confiance, sachant que votre candidature est solide et fiable.",
+  "AI-Enhanced_p16": "L’optimisation de votre CV pour plus de précision et de pertinence augmente vos chances de franchir les filtres ATS et d’être présélectionné pour des entretiens.",
+  "AI-Enhanced_p17": "Nos outils d’IA automatisent le processus de révision du CV, vous faisant gagner du temps et de l’énergie tout en garantissant un haut niveau de qualité.",
+  "AI-Enhanced_p18": "Transformez votre CV avec les outils de précision améliorée de Cibli Job. Inscrivez-vous dès maintenant pour créer un CV soigné, précis et professionnel.",
                           "basic_information": "INFORMATIONS DE BASE",
                           "first_name": "Prénom",
                           "last_name": "Nom de famille",
                           "professional_title": "Titre professionnel",
                           "languages": "Langues",
                           "age": "Âge",
-                          "current_salary": "Salaire actuel (£)",
-                          "expected_salary": "Salaire attendu (£)",
+                          "current_salary": "Salaire actuel (€)",
+                          "expected_salary": "Salaire attendu (€)",
                           "description": "Description",
                           "phone_number": "Numéro de téléphone",
                           "email": "E-mail",
@@ -805,7 +842,8 @@
   "improvements": {
     "title": "Domaines d'amélioration",
     "file_format": "Format de fichier",
-    "keyword_optimization": "Optimisation des mots-clés"
+    "keyword_optimization": "Optimisation des mots-clés",
+    "sectionOrder": "Ordre des sections"
   },
   "formatting": {
     "title": "Liste de vérification du formatage",
@@ -816,7 +854,11 @@
     "consistent_font": "Police cohérente",
     "consistent_font_desc": "Utilisation cohérente des polices dans tout le CV",
     "contact_info": "Informations de contact visibles",
-    "contact_info_desc": "Les informations de contact sont clairement visibles"
+    "contact_info_desc": "Les informations de contact sont clairement visibles",
+    "clear_exp": "Expérience claire",
+    "clear_exp_desc": "La section expérience professionnelle est clairement structurée et lisible",
+      "clear_summary": "Résumé clair",
+    "clear_summary_desc": "La section résumé est bien rédigée et clairement présentée"
   },
   "overall_comments": "Commentaires généraux",
   "button": {
@@ -838,7 +880,7 @@
     "viewCoverLetters": "Voir les lettres de motivation"
   },
   "createResume":{
-    "welcome_resumebuilder":"Bienvenue sur Resume Builder",
+    "welcome_resumebuilder":"Bienvenue sur Cibli Job",
     "create_resume":"Cliquez sur le bouton ci-dessous pour créer votre CV.",
     "resume_btn":"Créez votre CV",
     "creating":"Création..."
@@ -861,7 +903,16 @@
       },
       "back": "Retour",
       "next": "Suivant",
-       "saving": "Enregistrement en cours"
+       "saving": "Enregistrement en cours",
+       "toast": {
+      "selectExperience": "Veuillez sélectionner un niveau d'expérience avant de continuer.",
+      "resumeDataNotLoaded": "Les données du CV ne sont pas encore chargées. Veuillez patienter.",
+      "resumeIdNotFound": "Identifiant du CV introuvable.",
+      "experienceSaved": "Expérience enregistrée avec succès.",
+      "errorSavingExperience": "Erreur lors de l'enregistrement de l'expérience.",
+      "errorUpdatingResume": "Erreur lors de la mise à jour du CV !",
+      "errorFetchingResume": "Erreur lors de la récupération des données du CV."
+    }
     },
     "templateStep": {
     "choose_template": "Choisissez votre modèle parfait",
@@ -873,6 +924,7 @@
     "back": "Retour",
     "next": "Suivant",
     "loading": "Chargement...",
+    "usethistemplate":"Utilisez ce modèle",
     "toast": {
       "resume_not_found": "ID de CV ou jeton introuvable",
       "fetch_error": "Erreur lors de la récupération des données du CV",
@@ -997,8 +1049,40 @@
           "address_placeholder": "Adresse",
           "suggestions": "Suggestions",
           "auto_fix": "Correction automatique",
-          "add_section": "✙ Ajouter une section"
+          "fixing": "Réparation...",
+          "add_section": "✙ Ajouter une section",
+          "mark_resolved": "Marquer comme résolu",
+          "placeholders": {
+            "name": "Nom complet",
+            "position": "Intitulé du poste",
+            "address": "Emplacement",
+            "contactInformation": "Numéro de téléphone",
+            "email": "Adresse e-mail"
+          }
         },
+        "education":{
+          "placeholders": {
+            "school": "École",
+            "degree": "Diplôme",
+            "location": "Lieu"
+          },
+          "tooltips": {
+            "school": "Suggestions d'école",
+            "degree": "Suggestions de diplôme",
+            "location": "Suggestions de lieu",
+            "start_date": "Problèmes de date de début",
+            "end_date": "Problèmes de date de fin"
+          },
+          "dropdown": {
+            "month": "Mois",
+            "year": "Année",
+            "present": "Actuel"
+          }
+        },
+        "certification":{
+          "placeholderTitle": "Entrez le titre de la certification",
+           "certificationSuggestion": "Suggestion de certifications"
+          },
                   "social_media": {
     "title": "Réseaux Sociaux",
     "subtitle": "Veuillez mentionner la plateforme et son lien",
@@ -1020,8 +1104,44 @@
       "key_achievements": "Réalisations Clés",
       "save_button": "Enregistrer",
       "cancel_button": "Annuler",
-      "add_section": "✙ Ajouter une section"
-    },"language": {
+      "add_section": "✙ Ajouter une section",
+         "company": "Entreprise",
+         "companySuggestions": "Suggestions d'entreprise",
+         "position": "Poste",
+         "positionSuggestions": "Suggestions de poste",
+      
+         "locationSuggestions": "Suggestions de lieu",
+        
+         "descriptionSuggestions": "Suggestions de description",
+         "keyAchievementsPlaceholder": "Entrez les principales réalisations (une par ligne)",
+         "keyAchievementsSuggestions": "Suggestions de réalisations clés",
+         "removeWorkExperience": "Supprimer l'expérience professionnelle",
+         "popup": {
+          "selectDescription": "Sélectionner une description",
+          "selectKeyAchievements": "Sélectionner les réalisations clés",
+          "noDescriptions": "Aucune description disponible.",
+          "noKeyAchievements": "Aucune réalisation clé disponible.",
+          "retry": "Réessayer",
+          "retrying": "Nouvelle tentative...",
+          "saveSelection": "Enregistrer la sélection",
+          "close": "Fermer"
+        }
+    },
+  "skill":{
+    "noSkillsFound": "Aucune compétence trouvée.",
+    "addSkill": "Ajouter une compétence",
+    "skillError": "Erreur de compétence",
+    "dismiss": "Fermer",
+    "deleteAllSkills": "Supprimer toutes les compétences",
+    "smartAssist": "Assistance intelligente",
+    "selectAISkills": "Sélectionner des compétences IA",
+    "noAISkillsAvailable": "Aucune compétence IA disponible.",
+    "addSelectedSkills": "Ajouter les compétences sélectionnées",
+    "close": "Fermer"
+  }
+,  
+    
+    "language": {
     "title": "Langues",
     "description": "Si vous maîtrisez une ou plusieurs langues, mentionnez-les dans cette section.",
     "firstLanguage": "Première langue",
@@ -1040,13 +1160,53 @@
     "good": "Bon niveau",
     "basicKnowledge": "Connaissance de base",
     "justStarting": "Débutant"
+  },
+  "project": {
+    "placeholderName": "Nom du projet",
+    "placeholderLink": "Lien",
+     "project":"Projet",
+      "remove": "Supprimer le projet",
+       "nameSuggestion": "Suggestion de nom de projet",
+        "link": "Lien du projet",
+        "popup": {
+    "select_description": "Sélectionner une description",
+    "select_key_achievements": "Sélectionner des réalisations clés",
+    "no_descriptions": "Aucune description disponible.",
+    "no_key_achievements": "Aucune réalisation clé disponible.",
+    "retrying": "Nouvelle tentative...",
+    "retry": "Réessayer",
+    "save_selection": "Enregistrer la sélection",
+    "close": "Fermer"
   }
+  }
+                },
+                "summarypersonal": {
+                  "sections": {
+                    "personalSummary": "Résumé personnel"
+                  },
+                  "suggestions": {
+                    "title": "Suggestions de résumé",
+                    "autoFix": "Correction automatique"
+                  }
+                },
+                "smartAssist": "Assistance intelligente",
+                "summary": {
+                  "placeholder": "Entrez votre résumé professionnel ou utilisez l'assistance intelligente pour en générer un",
+                  "charCount": "{{count}}/1000"
+                },
+                "popup": {
+                  "selectSummary": "Sélectionnez un résumé",
+                  "close": "Fermer",
+                  "add": "Ajouter"
+                },
+                "error": {
+                  "jobTitleRequired": "Le titre du poste est requis dans les informations détaillées"
                 },
                 
                   "aiResumeEnhancer": {
                     "title": "Optimiseur de CV par IA",
                     "subtitle": "Améliorez vos candidatures avec des optimisations basées sur l'IA",
-                    "intro": "Chez ProCraftr, nous croyons que chaque chercheur d'emploi mérite un CV exceptionnel qui met efficacement en valeur ses compétences et expériences. Notre Optimiseur de CV par IA est conçu pour améliorer votre CV, en s'assurant qu'il répond aux normes de l'industrie et capte l'attention des recruteurs. En utilisant une technologie d'IA avancée, nous transformons votre CV en un outil puissant pour votre réussite professionnelle",
+                    "intro": "Chez Cibli Job, nous croyons que chaque chercheur d'emploi mérite un CV exceptionnel qui met efficacement en valeur ses compétences et expériences. Notre Optimiseur de CV par IA est conçu pour améliorer votre CV, en s'assurant qu'il répond aux normes de l'industrie et capte l'attention des recruteurs. En utilisant une technologie d'IA avancée, nous transformons votre CV en un outil puissant pour votre réussite professionnelle",
                     "featuresTitle": "Caractéristiques principales de notre Optimiseur de CV par IA",
                     "feature1Title": "1. Optimisation du contenu",
                     "feature1Desc": "Notre IA analyse le contenu de votre CV pour s'assurer qu'il est concis, pertinent et percutant. Elle vous aide à mettre en évidence les réalisations, compétences et expériences clés qui correspondent au poste auquel vous postulez.",
@@ -1066,7 +1226,7 @@
                     "feature8Desc": "L'IA vérifie et corrige les erreurs grammaticales, d'orthographe et de ponctuation. Cela garantit que votre CV est soigné et professionnel, sans erreurs distrayantes.",
                     "howItWorksTitle": "Comment ça marche",
                     "step1Title": "Étape 1: Téléchargez votre CV",
-                    "step1Desc": "Téléchargez votre CV existant sur la plateforme ProCraftr. Notre IA commencera à analyser votre document immédiatement.",
+                    "step1Desc": "Téléchargez votre CV existant sur la plateforme Cibli Job. Notre IA commencera à analyser votre document immédiatement.",
                     "step2Title": "Étape 2: Analyse par IA",
                     "step2Desc": "L'IA évalue votre CV, examinant le contenu, la structure, les mots-clés et la présentation générale. Elle identifie les domaines qui nécessitent une amélioration et génère un plan d'amélioration complet.",
                     "step3Title": "Étape 3: Recevez des recommandations",
@@ -1083,14 +1243,14 @@
                     "benefit4Title": "Efficacité et commodité",
                     "benefit4Desc": "Économisez du temps et des efforts grâce à des améliorations automatisées qui garantissent que votre CV est complet et percutant.",
                     "startEnhancingTitle": "Commencez à améliorer votre CV aujourd'hui",
-                    "startEnhancingDesc": "Transformez votre CV avec l'Optimiseur de CV par IA de ProCraftr. Inscrivez-vous maintenant pour créer un CV qui se démarque et ouvre les portes à de nouvelles opportunités de carrière.",
+                    "startEnhancingDesc": "Transformez votre CV avec l'Optimiseur de CV par IA de Cibli Job. Inscrivez-vous maintenant pour créer un CV qui se démarque et ouvre les portes à de nouvelles opportunités de carrière.",
                     "getStartedTitle": "Commencer",
                     "getStartedDesc": "Prêt à améliorer votre CV? Visitez notre page d'Optimiseur de CV par IA et commencez à peaufiner votre CV dès aujourd'hui!"
                   },
                   "aiJobMatchApply": {
     "title": "IA-Correspondance & Candidature d'Emploi",
     "subtitle": "Simplifier Votre Recherche d'Emploi avec la Technologie IA",
-    "intro": "Chez ProCraftr, nous visons à rendre votre recherche d'emploi efficiente et efficace avec notre outil IA-Correspondance & Candidature. Cette technologie innovante utilise des algorithmes avancés pour faire correspondre vos compétences et expériences avec des opportunités d'emploi pertinentes, simplifiant le processus de candidature et augmentant vos chances de décrocher l'emploi parfait.",
+    "intro": "Chez Cibli Job, nous visons à rendre votre recherche d'emploi efficiente et efficace avec notre outil IA-Correspondance & Candidature. Cette technologie innovante utilise des algorithmes avancés pour faire correspondre vos compétences et expériences avec des opportunités d'emploi pertinentes, simplifiant le processus de candidature et augmentant vos chances de décrocher l'emploi parfait.",
     "featuresTitle": "Caractéristiques Principales de Notre Outil IA-Correspondance & Candidature",
     "feature1Title": "1. Correspondance d'Emploi Personnalisée",
     "feature1Desc": "Notre IA analyse votre CV et votre profil pour identifier les opportunités d'emploi qui correspondent à vos compétences, expérience et objectifs de carrière. Cela garantit que vous postulez à des postes où vous êtes le plus susceptible de réussir.",
@@ -1110,7 +1270,7 @@
     "feature8Desc": "Obtenez des aperçus sur les employeurs potentiels avec des profils d'entreprise détaillés. Renseignez-vous sur la culture d'entreprise, les valeurs, les avantages et les actualités récentes pour prendre des décisions éclairées sur où postuler.",
     "howItWorksTitle": "Comment Ça Marche",
     "step1Title": "Étape 1: Créez Votre Profil",
-    "step1Desc": "Inscrivez-vous sur la plateforme ProCraftr et créez votre profil. Téléchargez votre CV et fournissez des détails sur vos compétences, expériences et aspirations de carrière.",
+    "step1Desc": "Inscrivez-vous sur la plateforme Cibli Job et créez votre profil. Téléchargez votre CV et fournissez des détails sur vos compétences, expériences et aspirations de carrière.",
     "step2Title": "Étape 2: Analyse IA",
     "step2Desc": "L'IA analyse votre profil et votre CV, analysant vos qualifications et préférences. Elle vous met en correspondance avec des opportunités d'emploi appropriées à partir de notre vaste base de données.",
     "step3Title": "Étape 3: Recevez des Correspondances d'Emploi",
@@ -1131,7 +1291,7 @@
     "benefit4Title": "Support Complet",
     "benefit4Desc": "Gérez l'ensemble de votre processus de recherche d'emploi à partir d'une seule plateforme. Suivez les candidatures, recevez des alertes en temps réel et obtenez des insights précieux sur les employeurs potentiels.",
     "startUsingTitle": "Commencez à Utiliser l'IA-Correspondance & Candidature Aujourd'hui",
-    "startUsingDesc": "Transformez votre recherche d'emploi avec l'outil IA-Correspondance & Candidature de ProCraftr. Inscrivez-vous maintenant pour découvrir des opportunités d'emploi qui correspondent parfaitement à votre profil et simplifier votre chemin vers le succès professionnel.",
+    "startUsingDesc": "Transformez votre recherche d'emploi avec l'outil IA-Correspondance & Candidature de Cibli Job. Inscrivez-vous maintenant pour découvrir des opportunités d'emploi qui correspondent parfaitement à votre profil et simplifier votre chemin vers le succès professionnel.",
     "getStartedTitle": "Commencer",
     "getStartedDesc": "Prêt à trouver l'emploi de vos rêves? Visitez notre page IA-Correspondance & Candidature et commencez à correspondre avec les meilleures opportunités d'emploi dès aujourd'hui!"
   },
@@ -1296,6 +1456,17 @@
     "addSection": "✙ Ajouter une section",
     "remove": "Supprimer"
   },
+  "coverLetterSection": {
+    "title": "Sections de la lettre de motivation",
+    "sections": [
+      "Introduction : Exprimer clairement votre intention",
+      "Accroche : Pourquoi vous êtes un bon choix",
+      "Preuve et conclusion : Montrez votre valeur et terminez fort"
+    ],
+    "placeholder": "Écrivez {{sectionTitle}}",
+    "aiAssist": "Assistance IA"
+
+  },
   "closingGratitude": {
     "title": "Clôture et Remerciements",
     "closing": "Clôture",
@@ -1307,7 +1478,11 @@
   },
   "navigation": {
     "previous": "Précédent",
-    "next": "Suivant"
+    "next": "Suivant",
+     "finish": "Terminer",
+     "toast": {
+      "pleaseSaveCoverLetter": "Veuillez enregistrer votre lettre de motivation"
+    }
   },
   "cvBuilder": {
     "save": "Enregistrer la lettre de motivation",
@@ -1327,7 +1502,8 @@
       "template2": "Modèle 2",
       "template3": "Modèle 3",
       "template4": "Modèle 4"
-    }
+    },
+     "premium": "Premium (réservé aux abonnés)"
   },
   "buttons": {
     "save": "Enregistrer le CV",
@@ -1373,7 +1549,7 @@
     "help_support": "Besoin d'aide ou envie de modifier votre abonnement?",
     "contact_us": "Contactez-nous à:",
     "phone": "📞 855-695-3235",
-    "email": "📧 customersupport@procrafr",
+    "email": "📧 customersupport@CibliJob.fr",
     "availability": "Disponible 7 jours sur 7:",
     "monday_friday": "Lundi-Vendredi: 8h - 20h (CST)",
     "saturday": "Samedi: 8h - 17h (CST)",
@@ -1499,11 +1675,11 @@
   },
   "paymentplans":{
     "Cast a wider net – 10x your job applications": "Multipliez vos candidatures par 10",
-    "Our AI-powered platform scours millions of jobs to continuously find and apply to relevant job openings until you're hired.": "Notre plateforme alimentée par l'IA explore des millions d'offres pour vous postuler automatiquement jusqu'à l'embauche.",
+    "Our AI-powered platform scours": "Notre plateforme alimentée par l'IA explore des millions d'offres pour vous postuler automatiquement jusqu'à l'embauche.",
     "Kudos! You're one step closer to success": "Bravo ! Vous êtes plus proche du succès 🎉",
     "Pricing Plans": "Formules tarifaires",
-    "Choose the plan that works best for you": "Choisissez le plan qui vous convient le mieux",
-    "Our pricing plans are designed to accommodate all your resume building needs.": "Nos formules sont conçues pour répondre à tous vos besoins en création de CV.",
+    "title": "Choisissez le plan qui vous convient le mieux",
+    "subtitle": "Nos formules sont conçues pour répondre à tous vos besoins en création de CV.",
     "Best Value": "Meilleur rapport qualité/prix",
     "Free": "Gratuit",
     "Free Plan": "Plan gratuit",
@@ -1562,7 +1738,53 @@
     "privacyPolicy": "Conditions générales",
     "and": "et",
     "button": "J'ai compris !"
-  }
+  },
+  "plans":{
+  "mo": "mois",
+  "one-time payment": "paiement unique",
+  "every month": "chaque mois",
+  "Review your order": "Vérifiez votre commande",
+  "Plan": "Plan",
+  "Automatically renews": "Renouvellement automatique",
+  "Total due today": "Total dû aujourd'hui",
+  "By clicking": "En cliquant sur",
+  "below, you agree to our": "ci-dessous, vous acceptez nos",
+  "Terms of Use": "Conditions d'utilisation",
+  "and": "et",
+  "Privacy Policy": "Politique de confidentialité",
+  "You also understand that you will be billed": "Vous comprenez également que vous serez facturé",
+  "which will automatically renew": "qui se renouvellera automatiquement",
+  "You can cancel at any time.": "Vous pouvez annuler à tout moment.",
+  "Start applying": "Commencer à postuler",
+  "plan.confirm_title": "Êtes-vous sûr ?",
+  "plan.confirm_message": "Souhaitez-vous vraiment acheter ce plan ?",
+  "plan.confirm_yes": "Oui",
+  "plan.confirm_no": "Non, retour",
+  "SECURE CHECKOUT": "PAIEMENT SÉCURISÉ"
+  },
+  "paymentss": {
+  "selectPlan": "Veuillez sélectionner un plan avant de continuer.",
+  "authRequired": "Authentification requise. Veuillez vous connecter.",
+  "redirecting": "Redirection vers le paiement...",
+  "alreadySubscribed": "Vous avez déjà un abonnement actif pour ce plan.",
+  "genericError": "Erreur lors du traitement du paiement."
+},
+"job_title_required": "Le titre du poste est requis",
+"resumePreview":{
+  "summary": "Résumé",
+   "education":"Éducation",
+    "workExperience": "Expérience professionnelle",
+     "projects": "Projets",
+        "skills": "Compétences",
+          "languages": "Langues"
+},
+"errorPopup": {
+  "title": "Erreur",
+  "message": "Une erreur s'est produite. Veuillez réessayer.",
+  "cancel": "Annuler",
+  "upgradePlan": "Mettre à niveau le plan"
+}
+
   
   
   

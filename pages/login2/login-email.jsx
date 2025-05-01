@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { FcGoogle } from 'react-icons/fc';
-import axios from 'axios';
-import logo from './logo.png'
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { FcGoogle } from "react-icons/fc";
+import axios from "axios";
+import logo from "./logo.png";
 
 const LoginEmail = () => {
   const handleGoogleSignin = async () => {
@@ -42,11 +42,12 @@ const LoginEmail = () => {
           <span className="mr-2">←</span> Back
         </Link>
         <div className="flex justify-center mb-6">
-          <img
+          <Image
             src={logo}
             alt="Logo"
-           
-            className="h-80"
+            width={200}
+            height={100}
+            className="h-auto"
           />
         </div>
 
@@ -57,7 +58,7 @@ const LoginEmail = () => {
         {/* User Email */}
         {/* <p className="mb-6">
           Continue as <strong>abc@gmail.com</strong>{' '}
-          <a href="#" className="text-pink-600 hover:text-[#009977]">
+          <a href="#" className="text-purple-600 hover:text-[#009977]">
             (not you?)
           </a>
         </p> */}
@@ -76,10 +77,10 @@ const LoginEmail = () => {
 
         {/* Privacy Policy */}
         <p className="text-sm text-gray-600 mb-6">
-          UltraAura will only use your information as described in our{' '}
-          <Link 
-            href="/privacy-policy" 
-            className="text-pink-600 hover:text-[#009977]"
+          UltraAura will only use your information as described in our{" "}
+          <Link
+            href="/privacy-policy"
+            className="text-purple-600 hover:text-[#009977]"
           >
             Privacy Policy
           </Link>
@@ -90,7 +91,7 @@ const LoginEmail = () => {
         {/* Alternative Sign-In */}
         <Link
           href="/login2/login-code"
-          className="text-pink-600 hover:text-[#009977] inline-block"
+          className="text-purple-600 hover:text-[#009977] inline-block"
         >
           Sign in with login code instead
         </Link>

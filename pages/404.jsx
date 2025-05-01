@@ -9,7 +9,7 @@ const Custom404 = () => {
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 text-center p-6">
       <div className="flex-shrink-0 flex items-center">
         <Link href="/">
-          <Image src={logo} alt="logo" className="h-10 w-40" />
+          <Image src={logo} alt="logo" className="h-60  w-[240px]" />
         </Link>
       </div>
       <h1 className="text-6xl font-bold text-red-600">404</h1>
@@ -29,7 +29,7 @@ const Custom404 = () => {
         </button>
         <button
           onClick={() => router.push("/login2")}
-          className="px-6 py-2 bg-pink-600 text-white rounded-md shadow-md hover:bg-pink-700 transition"
+          className="px-6 py-2 bg-purple-600 text-white rounded-md shadow-md hover:bg-pink-600 transition"
         >
           Go to Login
         </button>

@@ -175,7 +175,7 @@
 //                 Percentage: {Math.floor(results.Percentage)}%
 //               </h3>
 //               <button
-//                 className="p-2 bg-pink-600 rounded-md text-white hover:bg-pink-600 mt-4"
+//                 className="p-2 bg-purple-600 rounded-md text-white hover:bg-purple-600 mt-4"
 //                 onClick={handleBack}
 //               >
 //                 Back
@@ -212,10 +212,10 @@
 //             </ul>
 //             <div className="flex justify-between">
 //               <button
-//                 className={`p-2 bg-pink-600 rounded-md text-white hover:bg-pink-600 mt-4 ${
+//                 className={`p-2 bg-purple-600 rounded-md text-white hover:bg-purple-600 mt-4 ${
 //                   currentQuestionIndex === 0
 //                     ? "opacity-50 cursor-not-allowed"
-//                     : "hover:bg-pink-600"
+//                     : "hover:bg-purple-600"
 //                 }`}
 //                 onClick={handlePrevious}
 //                 disabled={currentQuestionIndex === 0}
@@ -224,14 +224,14 @@
 //               </button>
 //               {currentQuestionIndex === questions.length - 1 ? (
 //                 <button
-//                   className="p-2 bg-pink-500 rounded-md text-white hover:bg-pink-700"
+//                   className="p-2 bg-pink-600 rounded-md text-white hover:bg-pink-600"
 //                   onClick={handleSubmit}
 //                 >
 //                   🎓 Submit
 //                 </button>
 //               ) : (
 //                 <button
-//                   className="p-2 bg-pink-600 rounded-md text-white hover:bg-pink-600 mt-4"
+//                   className="p-2 bg-purple-600 rounded-md text-white hover:bg-purple-600 mt-4"
 //                   onClick={handleNext}
 //                 >
 //                   ↪️ Next
@@ -428,7 +428,7 @@ function Testpaper() {
                 {t("testPaper.percentage")}: {Math.floor(results.Percentage)}%
               </h3>
               <button
-                className="p-2 bg-pink-600 rounded-md text-white hover:bg-pink-600 mt-4"
+                className="p-2 bg-purple-600 rounded-md text-white hover:bg-purple-600 mt-4"
                 onClick={handleBack}
               >
                 {t("testPaper.back")}
@@ -442,14 +442,14 @@ function Testpaper() {
             </h1>
             <div className="flex justify-between">
               <button
-                className="p-2 bg-pink-600 rounded-md text-white"
+                className="p-2 bg-purple-600 rounded-md text-white"
                 onClick={handlePrevious}
                 disabled={currentQuestionIndex === 0}
               >
                 {t("testPaper.previous")}
               </button>
               <button
-                className="p-2 bg-pink-500 rounded-md text-white hover:bg-pink-700"
+                className="p-2 bg-pink-600 rounded-md text-white hover:bg-pink-600"
                 onClick={handleSubmit}
               >
                 {t("testPaper.submit")}

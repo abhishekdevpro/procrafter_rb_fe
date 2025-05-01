@@ -94,7 +94,7 @@ function Signup() {
     <div className="flex justify-center items-center">
       <div className="p-8 rounded-xl shadow-lg shadow-slate-700 w-full max-w-lg m-5">
         <div className="flex justify-center mb-4">
-          <Image src={logo} className="w-40 " alt="Logo" />
+          <Image src={logo} className="h-60  w-[240px]" alt="Logo" />
         </div>
         <div className="text-2xl text-black text-center font-bold">
           {t("signuppage.create_account")}
@@ -200,8 +200,8 @@ function Signup() {
                 disabled={isLoading}
               />
               <Link
-               className="text-pink-600 underline"
-              href={"/terms&conditions"}
+                className="text-purple-600 underline"
+                href={"/terms&conditions"}
               >
                 {" "}
                 {t("loginpage.agree_terms")}
@@ -211,7 +211,7 @@ function Signup() {
           </div>
           <button
             type="submit"
-            className="w-full bg-pink-600 text-white px-4 py-2 rounded-md flex items-center justify-center gap-2 hover:bg-pink-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full bg-purple-600 text-white px-4 py-2 rounded-md flex items-center justify-center gap-2 hover:bg-purple-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             disabled={isLoading}
           >
             {isLoading ? (

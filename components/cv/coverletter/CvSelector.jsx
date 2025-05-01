@@ -61,7 +61,7 @@ const TemplateSelector = ({ selectedTemplate, setSelectedTemplate }) => {
     <div className="font-sans">
       <button
         onClick={openModal}
-        className="hidden md:block rounded-lg border-2 m-2 border-pink-500 px-5 py-2 font-bold bg-white text-black"
+        className="hidden md:block rounded-lg border-2 m-2 border-pink-600 px-5 py-2 font-bold bg-white text-black"
       >
         <span>
           {t("templateSelector.selectedTemplate", {
@@ -141,7 +141,7 @@ const TemplateSelector = ({ selectedTemplate, setSelectedTemplate }) => {
                           ${
                             template.key === templateId
                               ? "bg-pink-500 text-white font-semibold"
-                              : "text-gray-600 group-hover:text-pink-600"
+                              : "text-gray-600 group-hover:text-purple-600"
                           }
                         `}
                         >

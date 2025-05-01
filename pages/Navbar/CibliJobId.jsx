@@ -126,7 +126,7 @@ function CibliJobId({ isOpen, onClose }) {
         <div className="hero">
           <div className="flex justify-center items-center mb-2">
             <Link href="/">
-              <Image src={logo} alt="logo" className="h-10 w-[140px]" />
+              <Image src={logo} alt="logo" className="h-60 w-[240px]" />
             </Link>
           </div>
           <h1>{t("modal.title")}</h1>

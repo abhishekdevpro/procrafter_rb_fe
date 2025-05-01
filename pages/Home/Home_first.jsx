@@ -48,7 +48,7 @@
 //             <div className="px-3 py-3 w-full md:w-[500px]">
 //               <div className=" flex flex-col gap-4 ">
 //                 <div className="font-extrabold text-5xl font-sans">
-//                   &quot;ProCraftr&quot; AI Powered Resume Tool, Is Live NOW
+//                   &quot;Cibli Job&quot; AI Powered Resume Tool, Is Live NOW
 //                 </div>
 
 //                 <div className=" text-lg font-medium text-slate-700">
@@ -57,7 +57,7 @@
 //                 </div>
 //                 <div className=" flex flex-wrap gap-4">
 //                   {/* <Link href={isAuthenticated ? "/dashboard" : "/signup"}>
-//                         <button className='  px-6 py-2 text-lg text-white bg-pink-600 rounded-full font-bold hover:shadow-2xl hover:shadow-slate-500'
+//                         <button className='  px-6 py-2 text-lg text-white bg-purple-600 rounded-full font-bold hover:shadow-2xl hover:shadow-slate-500'
 
 //                         > Sign Up! Its 100% Free!</button>
 //                         </Link> */}

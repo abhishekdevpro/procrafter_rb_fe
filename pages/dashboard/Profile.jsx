@@ -144,9 +144,9 @@
 
 //    <>
 //    <Navbar/>
-//     <div className="bg-pink-600 p-4">
+//     <div className="bg-purple-600 p-4">
 //       <div className="max-w-4xl mx-auto">
-//         <div className="rounded-lg shadow-lg p-6 bg-pink-600 flex flex-col md:flex-row justify-between items-center md:h-44">
+//         <div className="rounded-lg shadow-lg p-6 bg-purple-600 flex flex-col md:flex-row justify-between items-center md:h-44">
 //           <div className="space-y-4 mb-6 md:mb-0 md:mr-6 md:pr-6 w-full">
 //             <div className="flex flex-col md:flex-row md:items-center md:space-x-4">
 //               <img
@@ -200,7 +200,7 @@
 //             </div>
 //             <Link href="/dashboard/ai-resume-builder">
 //               <button
-//                 className="bg-blue-500 text-white px-1 py-2 rounded-lg hover:bg-pink-600 w-full md:w-auto"
+//                 className="bg-blue-500 text-white px-1 py-2 rounded-lg hover:bg-purple-600 w-full md:w-auto"
 //           >
 //             Upload Resume
 //           </button>
@@ -259,7 +259,7 @@ const ProfilePage = () => {
   const [modalResumeName, setModalResumeName] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
-  const {selectedLang} = useContext(ResumeContext)
+  const { selectedLang } = useContext(ResumeContext);
   const [formData, setFormData] = useState({
     photo: "",
     first_name: "",
@@ -348,9 +348,12 @@ const ProfilePage = () => {
     const token = localStorage.getItem("token");
     if (token) {
       try {
-        const response = await axios.get(`${BASE_URL}/api/user/resume-list?lang=${selectedLang}`, {
-          headers: { Authorization: token },
-        });
+        const response = await axios.get(
+          `${BASE_URL}/api/user/resume-list?lang=${selectedLang}`,
+          {
+            headers: { Authorization: token },
+          }
+        );
 
         const resumes = response.data.resumelist || [];
 
@@ -504,7 +507,7 @@ const ProfilePage = () => {
   return (
     <>
       <Navbar />
-      {/* <div className="bg-pink-600 p-4">
+      {/* <div className="bg-purple-600 p-4">
         <div className="max-w-4xl mx-auto">
           <div className="rounded-lg shadow-lg p-6 bg-pink-600 flex flex-col md:flex-row justify-between items-center md:h-44">
             <div className="space-y-4 mb-6 md:mb-0 md:mr-6 md:pr-6 w-full">
@@ -593,7 +596,7 @@ const ProfilePage = () => {
                 />
                 <label
                   htmlFor="fileInput"
-                  className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-pink-600 cursor-pointer w-full md:w-auto text-center"
+                  className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-purple-600 cursor-pointer w-full md:w-auto text-center"
                 >
                   {isLoading ? (
                     <span className="flex items-center justify-center">
@@ -644,7 +647,7 @@ const ProfilePage = () => {
                 <div className="flex mt-4">
                   <button
                     onClick={copyToClipboard}
-                    className="bg-blue-500 text-white py-1 px-4 rounded mr-2 hover:bg-pink-600"
+                    className="bg-blue-500 text-white py-1 px-4 rounded mr-2 hover:bg-purple-600"
                   >
                     Copy
                   </button>

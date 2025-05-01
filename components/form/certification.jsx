@@ -74,16 +74,17 @@ const Certification = () => {
   };
 
   return (
-    <div className="flex-col flex gap-3 w-full  mt-10 px-10">
+    <div className="flex-col flex gap-3 w-full  mt-10 px-10 max-h-[400px] overflow-y-auto ">
       <h2 className="input-title text-black  text-3xl">
         {t("resumeStrength.sections.certification")}
       </h2>
+
       {resumeData[skillType].map((skill, index) => (
         <div key={index} className="f-col justify-center">
           <div className="relative flex justify-center items-center gap-2">
             <input
               type="text"
-              placeholder={title}
+              placeholder={t("builder_forms.certification.placeholderTitle")}
               name={title}
               maxLength={150}
               className={`w-full h-full px-4 py-2 rounded-md border  ${
@@ -124,7 +125,9 @@ const Certification = () => {
                     <div className="flex items-center space-x-2">
                       <AlertCircle className="w-5 h-5 text-red-400" />
                       <span className="font-medium text-black">
-                        Certifications Suggestion
+                        {t(
+                          "builder_forms.certification.certificationSuggestion"
+                        )}
                       </span>
                     </div>
                     <button

@@ -879,12 +879,10 @@ const PersonalInformation = () => {
           keyword
         )}&lang=${language}`
       );
-      if (response.ok) {
-        const data = await response.json();
-        const jobTitles = data.data.map((item) => item.name);
-        setJobTitleSuggestions(jobTitles);
-        setShowJobTitleDropdown(true);
-      }
+
+      const jobTitles = response.data.data.map((item) => item.name);
+      setJobTitleSuggestions(jobTitles);
+      setShowJobTitleDropdown(true);
     } catch (error) {
       console.error("Error fetching job titles:", error);
     }
@@ -904,12 +902,10 @@ const PersonalInformation = () => {
           keyword
         )}&lang=${language}`
       );
-      if (response.ok) {
-        const data = await response.json();
-        const locations = data.data.location_names.map((item) => item);
-        setLocationSuggestions(locations);
-        setShowLocationDropdown(true);
-      }
+      const data = response.data;
+      const locations = data.data.location_names.map((item) => item);
+      setLocationSuggestions(locations);
+      setShowLocationDropdown(true);
     } catch (error) {
       console.error("Error fetching locations:", error);
     }
@@ -1001,6 +997,18 @@ const PersonalInformation = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+    const maxLengths = {
+      name: 30,
+      position: 20,
+      contactInformation: 10,
+      email: 50,
+      address: 50,
+    };
+
+    // Check if value exceeds max length for the field
+    if (maxLengths[name] && value.length > maxLengths[name]) {
+      return;
+    }
     handleChange(e);
 
     if (name === "position") {
@@ -1151,7 +1159,7 @@ const PersonalInformation = () => {
   };
 
   return (
-    <div className="flex flex-col gap-3 w-full items-center md:mt-10 md:px-10">
+    <div className="flex flex-col gap-3 w-full items-center md:mt-10 md:px-10 max-h-[400px] overflow-y-auto">
       <h2 className="text-2xl md:text-3xl font-semibold text-black">
         {t("builder_forms.personal_info.details_info")}
       </h2>
@@ -1229,7 +1237,9 @@ const PersonalInformation = () => {
                         )} */}
                         <input
                           type={type}
-                          placeholder={placeholder}
+                          placeholder={t(
+                            `builder_forms.personal_info.placeholders.${field}`
+                          )}
                           name={field}
                           className={`w-full p-2 pl-2 border rounded-md outline-none transition-colors ${
                             improve && hasErrors(field)
@@ -1275,7 +1285,10 @@ const PersonalInformation = () => {
                       {/* Input Field */}
                       <input
                         type={type}
-                        placeholder={placeholder}
+                        // placeholder={placeholder}
+                        placeholder={t(
+                          `builder_forms.personal_info.placeholders.${field}`
+                        )}
                         name={field}
                         className={`w-full p-2 border rounded-md outline-none transition-colors ${
                           improve && hasErrors(field)
@@ -1289,6 +1302,14 @@ const PersonalInformation = () => {
                             setShowJobTitleDropdown(true);
                           if (field === "address")
                             setShowLocationDropdown(true);
+                        }}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter") {
+                            if (field === "address")
+                              setShowLocationDropdown(false);
+                            if (field === "position")
+                              setShowJobTitleDropdown(false);
+                          }
                         }}
                       />
 
@@ -1315,7 +1336,7 @@ const PersonalInformation = () => {
                         isLoading[
                           field === "position" ? "jobTitle" : "location"
                         ] && (
-                          <div className="absolute right-8">
+                          <div className="absolute right-8 top-2">
                             <Loader2 className="w-5 h-5 animate-spin text-gray-400" />
                           </div>
                         )}
@@ -1351,7 +1372,7 @@ const PersonalInformation = () => {
                         <div className="flex items-center space-x-2">
                           <AlertCircle className="w-5 h-5 text-red-400" />
                           <span className="font-medium text-black">
-                            Suggestions
+                            {t("builder_forms.personal_info.suggestions")}
                           </span>
                         </div>
 
@@ -1369,15 +1390,15 @@ const PersonalInformation = () => {
                               {isLoading.autoFix ? (
                                 <Loader2 className="w-4 h-4 animate-spin" />
                               ) : (
-                                "Auto Fix"
+                                t("builder_forms.personal_info.auto_fix")
                               )}
                             </button>
                           )}
                           <button
                             onClick={() => markAsResolved(field)}
-                            className="px-3 py-1 text-sm font-medium text-white bg-pink-600 rounded-md shadow hover:bg-pink-700 transition-all"
+                            className="px-3 py-1 text-sm font-medium text-white bg-purple-600 rounded-md shadow hover:bg-pink-600 transition-all"
                           >
-                            Mark Resolved
+                            {t("builder_forms.personal_info.mark_resolved")}
                           </button>
                           <button
                             onClick={() => setActiveTooltip(null)}

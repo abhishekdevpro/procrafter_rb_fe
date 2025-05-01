@@ -199,7 +199,7 @@ const Testpaper = () => {
                 {t("testPaper.percentage")}: {Math.floor(results.Percentage)}%
               </h3>
               <button
-                className="p-2 bg-pink-600 rounded-md text-white hover:bg-pink-600 mt-4"
+                className="p-2 bg-purple-600 rounded-md text-white hover:bg-purple-600 mt-4"
                 onClick={handleBack}
               >
                 {t("testPaper.back")}
@@ -225,7 +225,7 @@ const Testpaper = () => {
                         key={index}
                         className={`p-4 border rounded-lg cursor-pointer transition-all duration-200 hover:bg-blue-50 ${
                           questions[currentQuestionIndex].user_answer === option
-                            ? "border-[#00b38d] bg-blue-50 ring-2 ring-blue-200"
+                            ? "border-purple-600 bg-blue-50 ring-2 ring-blue-200"
                             : "border-gray-200"
                         }`}
                         onClick={() =>
@@ -238,7 +238,7 @@ const Testpaper = () => {
                               className={`w-5 h-5 rounded-full flex items-center justify-center mr-3 mt-0.5 border ${
                                 questions[currentQuestionIndex].user_answer ===
                                 option
-                                  ? "bg-pink-600 border-[#00b38d]"
+                                  ? "bg-purple-600 border-purple-600"
                                   : "border-gray-400"
                               }`}
                             >
@@ -287,10 +287,10 @@ const Testpaper = () => {
                 </ul> */}
                 <div className="flex justify-between">
                   <button
-                    className={`p-2 bg-pink-600 rounded-md text-white hover:bg-pink-600 mt-4 ${
+                    className={`p-2 bg-purple-600 rounded-md text-white hover:bg-purple-600 mt-4 ${
                       currentQuestionIndex === 0
                         ? "opacity-50 cursor-not-allowed"
-                        : "hover:bg-pink-600"
+                        : "hover:bg-purple-600"
                     }`}
                     onClick={handlePrevious}
                     disabled={currentQuestionIndex === 0}
@@ -299,14 +299,14 @@ const Testpaper = () => {
                   </button>
                   {currentQuestionIndex === questions.length - 1 ? (
                     <button
-                      className="p-2 bg-pink-500 rounded-md text-white hover:bg-pink-700"
+                      className="p-2 bg-pink-600 rounded-md text-white hover:bg-pink-600"
                       onClick={handleSubmit}
                     >
                       {t("testPaper.submit")}
                     </button>
                   ) : (
                     <button
-                      className="p-2 bg-pink-600 rounded-md text-white hover:bg-pink-600 mt-4"
+                      className="p-2 bg-purple-600 rounded-md text-white hover:bg-purple-600 mt-4"
                       onClick={handleNext}
                     >
                       {t("testPaper.next")}
