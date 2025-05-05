@@ -357,7 +357,7 @@ export default function Subscription() {
                 </p>
                 <p className="mt-4 text-gray-700">
                   {t("subscription.more_info")}{" "}
-                  <a href="mailto:customersupport@CibliJob.fr.">
+                  <a href="mailto:customersupport@procrafter.com.">
                     <span className="text-purple-600 cursor-pointer">
                       {t("subscription.email")}
                     </span>

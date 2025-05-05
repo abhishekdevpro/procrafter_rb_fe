@@ -712,7 +712,8 @@
                           "search_jobs": "Search Jobs",
                           "loading": "Loading...",
                           "error_message": "Failed to fetch jobs. Please try again later.",
-                          "apply_now": "Apply Now"
+                          "apply_now": "Apply Now",
+                           "no_jobs_found": "No jobs found."
                         },
                          "notification_coming_soon": "🙋‍♀️ Notification Coming Soon",
                          "skill": {
@@ -1558,7 +1559,7 @@
     "help_support": "Need help or want to change your subscription?",
     "contact_us": "Contact us at:",
     "phone": "📞 855-695-3235",
-    "email": "📧 customersupport@ProCraftr.fr",
+    "email": "📧 customersupport@ProCraftr.com",
     "availability": "Available 7 days a week:",
     "monday_friday": "Monday-Friday: 8 AM - 8 PM (CST)",
     "saturday": "Saturday: 8 AM - 5 PM (CST)",

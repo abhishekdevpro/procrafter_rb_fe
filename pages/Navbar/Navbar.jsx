@@ -219,7 +219,7 @@
 //                   <img
 //                     src={
 //                       photo
-//                         ? `https://api.ciblijob.fr${photo}`
+//                         ? `https://api.procraftrresumebuilder.com${photo}`
 //                         : "https://img.freepik.com/premium-vector/businessman-avatar-illustration-cartoon-user-portrait-user-profile-icon_118339-4382.jpg"
 //                     }
 //                     alt="User"
@@ -714,7 +714,7 @@ const Navbar = () => {
                   <img
                     src={
                       photo
-                        ? `https://api.ciblijob.fr${photo}`
+                        ? `https://api.procraftrresumebuilder.com${photo}`
                         : "https://img.freepik.com/premium-vector/businessman-avatar-illustration-cartoon-user-portrait-user-profile-icon_118339-4382.jpg"
                     }
                     alt="User"

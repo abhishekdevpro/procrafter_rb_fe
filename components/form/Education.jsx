@@ -98,6 +98,29 @@ const Education = () => {
     setIsLoading((prev) => ({ ...prev, degree: false }));
   };
 
+  // const fetchLocations = async (keyword) => {
+  //   if (!keyword || keyword.length < 1) {
+  //     setLocationSuggestions([]);
+  //     return;
+  //   }
+
+  //   setIsLoading((prev) => ({ ...prev, location: true }));
+  //   try {
+  //     const response = await axiosInstance.get(
+  //       `/api/user/locations?locations=${encodeURIComponent(
+  //         keyword
+  //       )}&lang=${language}`
+  //     );
+
+  //     const data = response.data;
+  //     const locations = data.data.location_names.map((item) => item);
+  //     setLocationSuggestions(locations);
+  //     setShowLocationDropdown(true);
+  //   } catch (error) {
+  //     console.error("Error fetching locations:", error);
+  //   }
+  //   setIsLoading((prev) => ({ ...prev, location: false }));
+  // };
   const fetchLocations = async (keyword) => {
     if (!keyword || keyword.length < 1) {
       setLocationSuggestions([]);
@@ -111,7 +134,6 @@ const Education = () => {
           keyword
         )}&lang=${language}`
       );
-
       const data = response.data;
       const locations = data.data.location_names.map((item) => item);
       setLocationSuggestions(locations);
@@ -121,7 +143,6 @@ const Education = () => {
     }
     setIsLoading((prev) => ({ ...prev, location: false }));
   };
-
   const selectUniversity = (value, index) => {
     const newEducation = [...resumeData.education];
     newEducation[index].school = value;

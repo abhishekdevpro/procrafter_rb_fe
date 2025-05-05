@@ -391,7 +391,7 @@ const ProfileForm = () => {
               {formData.photo && (
                 <div className="relative">
                   <img
-                    src={`https://api.ciblijob.fr${formData.photo}`}
+                    src={`https://api.procraftrresumebuilder.com${formData.photo}`}
                     alt="Profile"
                     className="w-20 h-20 rounded-full border"
                   />
@@ -421,7 +421,7 @@ const ProfileForm = () => {
                   src={
                     formData.uploadPhoto
                       ? URL.createObjectURL(formData.uploadPhoto)
-                      : `https://api.ciblijob.fr${formData.photo}`
+                      : `https://api.procraftrresumebuilder.com${formData.photo}`
                   }
                   alt="Profile"
                   className="w-20 h-20 rounded-full border"
@@ -464,7 +464,7 @@ const ProfileForm = () => {
                   src={
                     formData.uploadPhoto
                       ? URL.createObjectURL(formData.uploadPhoto)
-                      : `https://api.ciblijob.fr${formData.photo}`
+                      : `https://api.procraftrresumebuilder.com${formData.photo}`
                   }
                   alt="Profile"
                   className="w-20 h-20 rounded-full border object-cover"

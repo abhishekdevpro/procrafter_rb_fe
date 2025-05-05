@@ -103,7 +103,7 @@ const VerificationPage = () => {
                 <p className="mt-4 text-sm text-gray-600">
                   If the problem persists, please{" "}
                   <a
-                    href="mailto:support@ciblijob.fr"
+                    href="mailto:support@procrafter.com"
                     className="text-blue-500 hover:underline"
                   >
                     contact support
