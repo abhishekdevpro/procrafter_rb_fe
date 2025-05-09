@@ -843,7 +843,10 @@ const TemplateStep = ({ onNext, onBack, onChange, value }) => {
 
   const handleSaveTemplate = async () => {
     if (!resumeData) return;
-
+    if (!value.template) {
+      toast.error("Please select a template before proceeding");
+      return;
+    }
     const templateData = {
       templateData: formatResumeData(resumeData),
     };
@@ -915,115 +918,103 @@ const TemplateStep = ({ onNext, onBack, onChange, value }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
-      <div className="max-w-8xl mx-auto px-2">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            {t("templateStep.choose_template")}
-          </h2>
-          <p className="text-xl text-gray-600">
-            {t("templateStep.select_design")}
-          </p>
+    <div className="min-h-screen bg-gradient-to-b from-white to-purple-200 flex flex-col">
+      <div className="bg-purple-600 text-white py-3 px-6 rounded-b-3xl mx-auto mt-4   items-center gap-3 shadow-md">
+        <h2 className="text-3xl font-bold text-white">
+          {t("templateStep.choose_template")}
+        </h2>
+        <p className="text-lg text-white mt-2">
+          {t("templateStep.select_design")}
+        </p>
+      </div>
+
+      <div className="flex flex-col lg:flex-row gap-6 px-4 md:px-12 py-10 flex-1 overflow-hidden">
+        <div className="bg-white rounded-2xl shadow-md p-6 h-fit sticky top-10 w-full lg:max-w-[250px]">
+          <h3 className="text-xl font-semibold text-gray-900 mb-4">
+            {t("templateStep.color_theme")}
+          </h3>
+          <div className="grid grid-cols-5 gap-4">
+            {colors.map((color) => (
+              <button
+                key={color.name}
+                className={`
+                w-8 h-8 rounded-full ${color.class}
+                transform hover:scale-110 transition-all duration-200
+                ${
+                  selectedHexCode === color.hexCode
+                    ? `ring-2 ring-offset-2 ${color.selectedClass}`
+                    : "hover:ring-2 hover:ring-offset-2 hover:ring-gray-300"
+                }
+              `}
+                onClick={() => handleColorChange(color.hexCode, color.name)}
+                title={color.name}
+              />
+            ))}
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          <div className="bg-white rounded-xl shadow-lg p-4 h-fit sticky top-8">
-            <div className="mb-10">
-              <h3 className="text-xl font-semibold text-gray-900 mb-6">
-                {t("templateStep.color_theme")}
-              </h3>
-              <div className="grid grid-cols-3 gap-4">
-                {colors.map((color) => (
-                  <div
-                    key={color.name}
-                    className="flex items-center justify-center"
-                  >
-                    <button
-                      className={`
-                        w-8 h-8 rounded-full ${color.class}
-                        transform hover:scale-110 transition-all duration-200
-                        ${
-                          selectedHexCode === color.hexCode
-                            ? `ring-2 ring-offset-2 ${color.selectedClass} outline-none focus:outline-none`
-                            : "hover:ring-2 hover:ring-offset-2 hover:ring-gray-300"
-                        }
-                      `}
-                      onClick={() =>
-                        handleColorChange(color.hexCode, color.name)
-                      }
-                      title={color.name}
-                    />
+        {/* Templates */}
+        <div className="flex-1 overflow-y-auto max-h-[calc(100vh-200px)] scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {templates.map((template) => (
+              <button
+                key={template.key}
+                onClick={() => onChange({ ...value, template: template.key })}
+                style={{
+                  borderColor:
+                    value.template === template.key
+                      ? selectedHexCode
+                      : "transparent",
+                }}
+                className={`group bg-white rounded-xl shadow-md overflow-hidden border-4 transition-all duration-300 
+             ${
+               value.template === template.key
+                 ? ""
+                 : "hover:border-gray-300 hover:scale-105"
+             }`}
+              >
+                <div className="relative aspect-[3/4] overflow-hidden">
+                  <Image
+                    src={template.imageUrl}
+                    alt={template.name}
+                    layout="fill"
+                    objectFit="contain"
+                    className="transition-transform duration-300 group-hover:scale-105"
+                    priority={templates.indexOf(template) < 6}
+                  />
+                  <div className="absolute inset-0 flex items-end justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-to-t from-black/60 to-transparent p-4">
+                    <span className="bg-white text-black font-semibold px-4 py-2 rounded-full shadow-md">
+                      {t("templateStep.usethistemplate")}
+                    </span>
                   </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="lg:col-span-3">
-            <div className="overflow-y-auto max-h-[430px] scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200 p-2 md:p-4">
-              <div className="text-center px-4 py-8 bg-gradient-to-r from-pink-100 via-white to-purple-100">
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                  {templates.map((template) => (
-                    <button
-                      key={template.key}
-                      onClick={() =>
-                        onChange({ ...value, template: template.key })
-                      }
-                      className="group relative rounded-2xl overflow-hidden border bg-white shadow-lg transition-transform hover:scale-105"
-                      style={getHoverStyle(template.key)}
-                    >
-                      <div className="relative aspect-[3/4] w-full overflow-hidden">
-                        <Image
-                          src={template.imageUrl}
-                          alt={template.name}
-                          layout="fill"
-                          objectFit="cover"
-                          className="transition-transform duration-300 group-hover:scale-105"
-                          priority={templates.indexOf(template) < 6}
-                        />
-                      </div>
-
-                      {/* Button on hover */}
-                      <div className="absolute inset-0 flex items-end justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-to-t from-black/60 to-transparent p-4">
-                        <span className="bg-gradient-to-r from-orange-400 to-pink-500 text-white font-semibold px-4 py-2 rounded-full shadow-md">
-                          {t("templateStep.usethistemplate")}
-                        </span>
-                      </div>
-                    </button>
-                  ))}
                 </div>
-              </div>
-            </div>
+              </button>
+            ))}
           </div>
         </div>
+      </div>
 
-        <div className="flex justify-between mt-12">
-          <button
-            onClick={onBack}
-            className="px-8 py-3 bg-white border-2 border-gray-300 rounded-xl text-gray-700 
-              font-medium hover:bg-gray-50 hover:border-gray-400 transition-colors"
-          >
-            {t("templateStep.back")}
-          </button>
-          <button
-            disabled={loading}
-            onClick={handleSaveTemplate}
-            style={{ backgroundColor: selectedHexCode }}
-            className={`px-8 py-3 text-white rounded-xl font-medium transition-all shadow-lg 
-              ${
-                loading
-                  ? "opacity-70 cursor-not-allowed"
-                  : "hover:opacity-90 hover:shadow-xl"
-              }`}
-          >
-            {isLoading ? (
-              <SaveLoader loadingText={t("saving")} />
-            ) : (
-              t("templateStep.next")
-            )}
-            {/* {t("templateStep.next")} */}
-          </button>
-        </div>
+      {/* Bottom Bar */}
+      <div className="sticky bottom-0 bg-white border-t border-gray-200 p-4 flex justify-between items-center shadow-md px-6">
+        <button
+          onClick={onBack}
+          className="text-purple-600 hover:underline text-base font-medium"
+        >
+          {t("templateStep.back")}
+        </button>
+        <button
+          onClick={handleSaveTemplate}
+          disabled={loading}
+          style={{ backgroundColor: selectedHexCode }}
+          className={`px-6 py-2 text-white rounded-xl font-semibold shadow-md transition-all
+          ${loading ? "opacity-70 cursor-not-allowed" : "hover:opacity-90"}`}
+        >
+          {isLoading ? (
+            <SaveLoader loadingText={t("saving")} />
+          ) : (
+            t("templateStep.next")
+          )}
+        </button>
       </div>
     </div>
   );

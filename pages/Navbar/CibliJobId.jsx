@@ -114,8 +114,9 @@ function CibliJobId({ isOpen, onClose }) {
       }}
     >
       <div
+        className=" bg-gradient-to-b from-white to-purple-200"
         style={{
-          backgroundColor: "white",
+          // backgroundColor: "white",
           padding: "20px",
           borderRadius: "8px",
           maxWidth: "600px",

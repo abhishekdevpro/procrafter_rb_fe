@@ -27,9 +27,9 @@ export default function Payment() {
   return (
     <>
       <Navbar />
-      <div className="p-6 max-w-7xl w-full mx-auto font-sans">
+      <div className="p-6 max-w-7xl w-full mx-auto font-sans  bg-gradient-to-b from-white to-purple-200">
         {/* Intro Section */}
-        <div className="bg-green-100 p-4 rounded-lg text-center">
+        <div className="bg-purple-200 p-4 rounded-lg text-center">
           <h2 className="text-lg md:text-xl font-semibold">
             ✨ {t("paymentplans.Cast a wider net – 10x your job applications")}
           </h2>
@@ -59,7 +59,7 @@ export default function Payment() {
                   key={planType}
                   className={`border rounded-lg p-4 flex flex-col w-full md:w-64 relative ${
                     selectedPlan === planType
-                      ? "border-purple-600 bg-green-50"
+                      ? "border-purple-600 bg-pink-100"
                       : "bg-white"
                   }`}
                   onClick={() => handlePlanSelection(planType)}

@@ -51,7 +51,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <main className="min-h-screen bg-gradient-to-b from-white to-purple-200 flex items-center justify-center">
         <div className="bg-white rounded-lg shadow-lg p-8 text-center">
           <h1 className="text-2xl font-bold mb-4">
             {t("createResume.welcome_resumebuilder")}
@@ -65,7 +65,7 @@ export default function Home() {
           <button
             onClick={handleCreateResume}
             className={`px-6 py-3 text-white font-semibold rounded-lg ${
-              loading ? "bg-gray-400" : "bg-purple-600 hover:bg-purple-600"
+              loading ? "bg-gray-400" : "bg-purple-600 hover:bg-purple-700"
             }`}
             disabled={loading}
           >
