@@ -947,6 +947,7 @@ const WorkExperience = () => {
                     onChange={(e) => handleWorkExperience(e, index)}
                   /> */}
                   <input
+                    maxLength={40}
                     type="text"
                     placeholder={t("builder_forms.work_experience.position")}
                     name="position"

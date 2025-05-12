@@ -198,7 +198,7 @@ const PersonalInformation = () => {
     const { name, value } = e.target;
     const maxLengths = {
       name: 30,
-      position: 20,
+      position: 40,
       contactInformation: 10,
       email: 50,
       address: 50,
