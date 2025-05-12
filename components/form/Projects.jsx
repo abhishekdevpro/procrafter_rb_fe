@@ -586,7 +586,7 @@ const Projects = () => {
                     type="text"
                     placeholder={t("builder_forms.project.placeholderName")}
                     name="name"
-                    maxLength={150}
+                    maxLength={50}
                     className={`w-full other-input border  ${
                       improve && hasErrors(projectIndex, "name")
                         ? "border-red-500"
