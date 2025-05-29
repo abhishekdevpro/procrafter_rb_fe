@@ -181,7 +181,7 @@ function Signup() {
           <div className="mb-4">
             <label className="flex items-center">
               <input type="checkbox" required className="mr-2" />
-              <Link href={"/TermsandConditions"}>
+              <Link href={"/terms&conditions"}>
                 {" "}
                 Agree to terms & conditions
               </Link>

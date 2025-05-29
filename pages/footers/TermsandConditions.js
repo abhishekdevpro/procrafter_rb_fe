@@ -264,8 +264,8 @@ function TermsandConditions() {
 
         <p className="text-base sm:text-lg mt-5">{termsData.closing}</p>
         <p className="text-base sm:text-lg">
-          {termsData.contact}:
-          <br />
+          {/* {termsData.contact}: */}
+          {/* <br /> */}
           Email:{" "}
           <a href="mailto:bonjour@procrafter.ca" className="text-blue-500">
             bonjour@procrafter.ca

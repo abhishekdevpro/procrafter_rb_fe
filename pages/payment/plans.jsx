@@ -506,7 +506,7 @@ export default function PaymentPage() {
               <strong>&quot;{t("plans.Start applying")}&quot;</strong>{" "}
               {t("plans.below, you agree to our")}{" "}
               <Link
-                href="/TermsandConditions"
+                href="/terms&conditions"
                 className="text-purple-600 underline"
               >
                 {t("plans.Terms of Use")}
