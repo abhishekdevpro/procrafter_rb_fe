@@ -306,7 +306,9 @@ const Footer = () => {
                   <Link href="/careers">{t("footer.careers")}</Link>
                 </li>
                 <li>
-                  <Link href="">{t("footer.resources")}</Link>
+                  <Link href="https://blog.procraftrresumebuilder.com/">
+                    {t("footer.resources")}
+                  </Link>
                 </li>
               </ul>
             </div>

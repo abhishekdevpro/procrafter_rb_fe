@@ -689,7 +689,7 @@ const Navbar = () => {
               {t("jobs")}
             </Link>
             <Link
-              href=""
+              href="https://blog.procraftrresumebuilder.com/"
               className="text-black hover:text-purple-600 px-3 py-2 rounded-md text-lg font-semibold"
             >
               {t("resources")}
@@ -837,7 +837,7 @@ const Navbar = () => {
                 {t("ai_resume_builder")}
               </Link>
               <Link
-                href=""
+                href="https://blog.procraftrresumebuilder.com/"
                 className="text-black hover:text-purple-600 block px-3 py-2 rounded-md text-base font-semibold"
               >
                 {t("resources")}

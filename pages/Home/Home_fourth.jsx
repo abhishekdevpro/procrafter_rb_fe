@@ -7,26 +7,30 @@ const Home_fourth = () => {
   const { t } = useTranslation();
   const course = [
     {
-      img: "wp-content/uploads/2025/01/Ciblijob-blog-How-AI-is-Revolutionizing-Resume-Building-A-Beginners-Guide-1.png",
-      title: "card_title1",
-      link: "?p=1",
+      img: "https://blog.procraftrresumebuilder.com/wp-content/uploads/2025/06/Copy-of-Procraftr-Blog-10-Salary-Negotiation-Secrets.jpg",
+      title:
+        "Salary Negotiation Secrets: How Your Resume Can Help You Earn More in the US",
+      link: "https://blog.procraftrresumebuilder.com/2025/06/19/salary-negotiation-secrets-how-your-resume-can-help-you-earn-more-in-the-us/",
     },
     {
-      img: "wp-content/uploads/2025/01/Blog-2-CibliJob-AI-Powered-Resume-Builders-vs-Traditional-Methods-Whats-Better.png",
-      title: "card_title2",
-      link: "?p=23",
-    },
-
-    {
-      img: "wp-content/uploads/2025/01/Blog-3-CibliJob-Top-5-Benefits-of-Using-an-AI-Resume-Builder.png",
-      title: "card_title3",
-      link: "?p=27",
+      img: "https://blog.procraftrresumebuilder.com/wp-content/uploads/2025/06/Copy-of-Procraftr-Blog-9-Navigating-the-Remote-Job-Market.jpg",
+      title:
+        "Navigating the Remote Job Market: Optimizing Your Resume for US Virtual Roles",
+      link: "https://blog.procraftrresumebuilder.com/2025/06/19/navigating-the-remote-job-market-optimizing-your-resume-for-us-virtual-roles/",
     },
 
     {
-      img: "wp-content/uploads/2025/01/Blog-4-Step-by-Step-Guide-to-Creating-a-Job-Winning-Resume-with-AI-Tools.png",
-      title: "card_title4",
-      link: "?p=30",
+      img: "https://blog.procraftrresumebuilder.com/wp-content/uploads/2025/06/Copy-of-Procraftr-Blog-8-Targeted-Resumes.jpg",
+      title:
+        "Targeted Resumes: Tailoring Your Application for Specific Industries in the USA",
+      link: "https://blog.procraftrresumebuilder.com/2025/06/19/targeted-resumes-tailoring-your-application-for-specific-industries-in-the-usa/",
+    },
+
+    {
+      img: "https://blog.procraftrresumebuilder.com/wp-content/uploads/2025/06/Copy-of-Procraftr-Blog-7-The-Ultimate-Guide.jpg",
+      title:
+        "The Ultimate Guide to US Resume Formatting: Dos and Don’ts for 2025",
+      link: "https://blog.procraftrresumebuilder.com/2025/06/19/32/",
     },
   ];
   return (
@@ -65,7 +69,7 @@ const Home_fourth = () => {
           </div>
 
           <div className="flex justify-center mt-10">
-            <Link href={""}>
+            <Link href={"https://blog.procraftrresumebuilder.com/"}>
               <button className="px-6 py-3 text-lg font-semibold text-white bg-purple-600 hover:bg-purple-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-600">
                 {t("get_moreadvice")}
               </button>
