@@ -218,10 +218,10 @@ const ContactUs = () => {
             <div>
               <button className="border px-3 py-2 rounded-lg">
                 <a
-                  href="mailto:bonjour@procrafter.ca"
+                  href="mailto:support@procraftrresumebuilder.com"
                   className="text-slate-800 font-semibold text-sm hover:underline flex items-center"
                 >
-                  bonjour@procrafter.ca
+                  support@procraftrresumebuilder.com
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="ml-2 h-4 w-4"

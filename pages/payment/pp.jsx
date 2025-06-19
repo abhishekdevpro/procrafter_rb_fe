@@ -114,14 +114,14 @@
 //     }
 
 //     if (plan.billingCycle === "single") {
-//       return `€${plan.price}`;
+//       return `$${plan.price}`;
 //     } else if (plan.billingCycle === "month") {
-//       return `€${plan.price}/${t("mo")}`;
+//       return `$${plan.price}/${t("mo")}`;
 //     } else if (plan.billingCycle === "year") {
-//       return `€${plan.price}/${t("yr")}`;
+//       return `$${plan.price}/${t("yr")}`;
 //     }
 
-//     return `€${plan.price}`;
+//     return `$${plan.price}`;
 //   };
 
 //   // Get renewal period text
@@ -392,12 +392,12 @@ export default function PaymentPage() {
     }
 
     if (plan.billingCycle === "single") {
-      return `€${plan.price}`;
+      return `$${plan.price}`;
     } else if (plan.billingCycle === "month") {
-      return `€${plan.price}/${t("mo")}`;
+      return `$${plan.price}/${t("mo")}`;
     }
 
-    return `€${plan.price}`;
+    return `$${plan.price}`;
   };
 
   // Get renewal period text

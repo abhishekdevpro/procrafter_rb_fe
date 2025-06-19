@@ -349,7 +349,7 @@ function Home_five() {
                       <div className="md:w-1/2 w-full p-4 ">
                         <div className="text-left mb-6">
                           <h2 className="text-2xl font-bold text-gray-900">
-                            €19
+                            $19
                           </h2>
                           <p className="text-sm text-gray-500">Total Amount</p>
                         </div>
@@ -476,7 +476,7 @@ function Home_five() {
                       <div className="md:w-1/2 w-full p-4 ">
                         <div className="text-left mb-6">
                           <h2 className="text-2xl font-bold text-gray-900">
-                            €29
+                            $29
                           </h2>
                           <p className="text-sm text-gray-500">Total Amount</p>
                         </div>

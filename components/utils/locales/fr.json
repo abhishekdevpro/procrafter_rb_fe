@@ -72,7 +72,7 @@
                 "resume_builder": "Générateur de CV",
   "resume_description": "Pertinent pour l'automatisation et le téléchargement unique.",
   "starting_price": "À partir de",
-  "price_currency": "€",
+  "price_currency": "$",
   "price_amount": "0",
   "feature1": "Créer des CV optimisés",
   "feature2": "Copier et coller du contenu depuis le site",
@@ -94,7 +94,7 @@
   "get_started_b": "Commencer",
   "combo_title": "Combo Français-Anglais",
   "combo_description": "Conçu par des rédacteurs de CV experts",
-  "combo_price_currency": "€",
+  "combo_price_currency": "$",
   "combo_price_amount": "29",
   "combo_price_per_resume": "/CV",
   "feature1_c": "Créer des CV optimisés",
@@ -277,7 +277,7 @@
             "childrensPrivacy": "Nos services ne sont pas destinés aux personnes de moins de 18 ans. Si un enfant fournit des données personnelles, nous les supprimerons.",
             "changesPolicy": "Nous pouvons mettre à jour cette Politique de Confidentialité. La poursuite de l'utilisation de nos services après des modifications signifie l'acceptation de la politique révisée.",
             "contactUs": "Si vous avez des questions, contactez-nous à :",
-            "email_name": "bonjour@procrafter.ca",
+            "email_name": "support@procraftrresumebuilder.com",
           
             
               "title": "Générateur de CV IA",
@@ -487,7 +487,7 @@
                           "title": "10. Contact",
                           "list": [
                             "Si vous avez des questions concernant ces conditions générales, veuillez nous contacter à :",
-                            "Email : bonjour@procrafter.ca"
+                            "Email : support@procraftrresumebuilder.com"
                           ]
                         }
                       ],
@@ -604,8 +604,8 @@
                           "professional_title": "Titre professionnel",
                           "languages": "Langues",
                           "age": "Âge",
-                          "current_salary": "Salaire actuel (€)",
-                          "expected_salary": "Salaire attendu (€)",
+                          "current_salary": "Salaire actuel ($)",
+                          "expected_salary": "Salaire attendu ($)",
                           "description": "Description",
                           "phone_number": "Numéro de téléphone",
                           "email": "E-mail",

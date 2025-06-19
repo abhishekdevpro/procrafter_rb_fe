@@ -116,7 +116,7 @@
 //           of a dynamic, growth-oriented team, we’d love to hear from you. To
 //           apply for a position at Cibli Job, please send your resume and a cover
 //           letter to{" "}
-//           <a href="mailto:bonjour@procrafter.ca" className="text-blue-500">
+//           <a href="mailto:support@procraftrresumebuilder.com" className="text-blue-500">
 //             career@CibliJob.ca
 //           </a>
 //           .

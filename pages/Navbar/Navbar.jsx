@@ -789,12 +789,12 @@ const Navbar = () => {
                 >
                   {t("login")}
                 </Link>
-                <Link
+                {/* <Link
                   href="/signup"
                   className="bg-purple-600 text-white  px-4 py-2 text-md font-semibold border-2 rounded-xl"
                 >
                   {t("signup")}
-                </Link>
+                </Link> */}
               </>
             )}
           </div>
@@ -906,13 +906,13 @@ const Navbar = () => {
                   >
                     {t("login")}
                   </Link>
-                  <Link
+                  {/* <Link
                     href="/signup"
                     className="text-black hover:text-purple-600 block px-3 py-2 rounded-md text-base font-semibold"
                     onClick={handleLinkClick}
                   >
                     {t("signup")}
-                  </Link>
+                  </Link> */}
                 </>
               )}
             </div>

@@ -78,7 +78,7 @@ export default function Payment() {
                   <div className="text-2xl font-bold mb-1">
                     {Number(t(`pricing.${planType}.price`)) === 0
                       ? t("pricing.freeLabel")
-                      : `€${t(`pricing.${planType}.price`)}`}
+                      : `$${t(`pricing.${planType}.price`)}`}
 
                     {t(`pricing.${planType}.billingCycle`) && (
                       <span className="text-gray-500 ml-1 text-sm">

@@ -147,7 +147,7 @@ const DefaultResumeData = {
       description:
         "Heller est un éditeur de logiciels spécialisé dans la gestion logistique.",
       keyAchievements:
-        "Développement de plusieurs systèmes d'automatisation - économisant plus de 50 000 € par an.\nIntégration en tant que 10ᵉ employé dans l'équipe, travaillant directement avec les plus gros clients.\nDéveloppement conforme aux exigences, livraison anticipée permettant d’économiser 20 % du coût du projet.\nRéduction de la taille de la base de données de près de 50 % et amélioration de ses performances de 20 %.\nRéduction du temps de livraison des marchandises de 50 %. ",
+        "Développement de plusieurs systèmes d'automatisation - économisant plus de 50 000 $ par an.\nIntégration en tant que 10ᵉ employé dans l'équipe, travaillant directement avec les plus gros clients.\nDéveloppement conforme aux exigences, livraison anticipée permettant d’économiser 20 % du coût du projet.\nRéduction de la taille de la base de données de près de 50 % et amélioration de ses performances de 20 %.\nRéduction du temps de livraison des marchandises de 50 %. ",
       startYear: "2023-02-22",
       endYear: "2023-03-09",
     },
