@@ -3,7 +3,25 @@ import axios from "axios";
 import { ResumeContext } from "../components/context/ResumeContext"; // Adjust path as needed
 import { BASE_URL } from "../components/Constant/constant";
 
-const allFonts = ["Ubuntu", "Calibri", "Georgia", "Roboto", "Poppins"];
+const allFonts = [
+  "font",
+  "Ubuntu",
+  "Calibri",
+  "Georgia",
+  "Roboto",
+  "Poppins",
+  "Arial",
+  "Times New Roman",
+  "Helvetica",
+  "Courier New",
+  "Tahoma",
+  "Verdana",
+  "Trebuchet MS",
+  "Lucida Console",
+  "Comic Sans MS",
+  "Source Sans Pro",
+  "Inter",
+];
 const freeFonts = ["Ubuntu", "Calibri"]; // Restricted fonts for free users
 
 const FontSelector = () => {
@@ -40,7 +58,7 @@ const FontSelector = () => {
     <select
       value={selectedFont}
       onChange={(e) => setSelectedFont(e.target.value)}
-      className="w-40 h-10 rounded-lg border border-pink-600 px-4 font-bold text-black bg-white focus:ring-2 focus:ring-purple-600"
+      className="w-40 h-10 rounded-lg border-2 border-pink-600 px-4 font-bold text-black bg-white focus:ring-2 focus:ring-purple-600"
     >
       {fonts.map((font) => (
         <option key={font} value={font}>

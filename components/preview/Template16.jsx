@@ -49,8 +49,13 @@ const Draggable = dynamic(
   { ssr: false }
 );
 const Template16 = () => {
-  const { resumeData, setResumeData, headerColor, backgroundColorss } =
-    useContext(ResumeContext);
+  const {
+    resumeData,
+    setResumeData,
+    headerColor,
+    backgroundColorss,
+    selectedFont,
+  } = useContext(ResumeContext);
   const templateRef = useRef(null);
 
   const extractHtml = () => {
@@ -71,7 +76,8 @@ const Template16 = () => {
   return (
     <div
       ref={templateRef}
-      // className="max-w-4xl mx-auto bg-white border"
+      className=""
+      style={{ fontFamily: `${selectedFont}` }}
     >
       <section className="flex justify-between">
         <aside

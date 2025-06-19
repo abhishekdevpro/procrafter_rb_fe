@@ -98,7 +98,7 @@ export default function FileUploadStep({ onNext, onBack }) {
       >
         <input {...getInputProps()} disabled={isUploading} />
         <div className="w-20 h-20 mx-auto mb-6 bg-blue-100 rounded-full flex items-center justify-center">
-          <Upload className="w-10 h-10 text-purple-600" />
+          <Upload className="w-10 h-10 text-pink-600" />
         </div>
 
         {isUploading ? (
@@ -106,7 +106,7 @@ export default function FileUploadStep({ onNext, onBack }) {
             <div className="text-lg font-medium">Uploading your resume...</div>
             <div className="w-64 h-3 bg-gray-200 rounded-full mx-auto overflow-hidden">
               <div
-                className="h-full bg-purple-600 rounded-full transition-all duration-300"
+                className="h-full bg-pink-600 rounded-full transition-all duration-300"
                 style={{ width: `${uploadProgress}%` }}
               />
             </div>
@@ -117,7 +117,7 @@ export default function FileUploadStep({ onNext, onBack }) {
             <p className="text-xl font-medium mb-4">
               Drag and drop your resume here
             </p>
-            <button className="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-600 transition-colors">
+            <button className="px-6 py-3 bg-pink-600 text-white rounded-lg hover:bg-purple-600 transition-colors">
               Select PDF File
             </button>
             <p className="mt-4 text-sm text-gray-500">
@@ -137,8 +137,8 @@ export default function FileUploadStep({ onNext, onBack }) {
         <button
           onClick={onNext}
           disabled={!uploadSuccess || isUploading}
-          className="px-8 py-3 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-600 transition-colors
-            disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-purple-600"
+          className="px-8 py-3 bg-purple-600 text-white rounded-lg font-medium hover:bg-pink-600 transition-colors
+            disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-pink-600"
         >
           Next
         </button>

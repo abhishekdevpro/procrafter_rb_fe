@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-
+import parse from "html-react-parser";
 const IntroductionBodyWrapper = ({
   introduction,
   body,
@@ -32,24 +32,13 @@ const IntroductionBodyWrapper = ({
 
       {/* Body Section */}
 
-      <div className="space-y-4">
+      <div className="">
         {body.map((paragraph, index) => (
           <div key={index} className="mb-4">
             <h4
               className="text-lg font-medium"
               style={{ color: headerColor }}
             ></h4>
-            {/* <p
-              className={`text-gray-800 ${
-                editable
-                  ? "hover:outline-dashed hover:outline-2 hover:outline-gray-400"
-                  : ""
-              }`}
-              contentEditable={editable}
-              suppressContentEditableWarning={true}
-            >
-              {paragraph}
-            </p> */}
             <p
               className={`text-gray-800 ${
                 editable
@@ -58,8 +47,9 @@ const IntroductionBodyWrapper = ({
               }`}
               contentEditable={editable}
               suppressContentEditableWarning={true}
-              dangerouslySetInnerHTML={{ __html: paragraph }}
-            />
+            >
+              {parse(paragraph)}
+            </p>
           </div>
         ))}
         {/* {closing && (
@@ -79,37 +69,25 @@ const IntroductionBodyWrapper = ({
         )} */}
 
         {/* Gratitude Section */}
-        {/* {gratitude && (
-          <div className="mb-6">
-            <p
-              className={`text-gray-800 ${
-                editable
-                  ? "hover:outline-dashed hover:outline-2 hover:outline-gray-400"
-                  : ""
-              }`}
-              contentEditable={editable}
-              suppressContentEditableWarning={true}
-            >
-              {gratitude}
-            </p>
-          </div>
-        )} */}
+        {gratitude && (
+          <p
+            className={`text-gray-800 font-bold mt-4 `}
+            contentEditable={editable}
+            suppressContentEditableWarning={true}
+          >
+            {gratitude}
+          </p>
+        )}
 
         {/* Signature Section */}
         {signature && (
-          <div>
-            <p
-              className={`text-gray-800 ${
-                editable
-                  ? "hover:outline-dashed hover:outline-2 hover:outline-gray-400"
-                  : ""
-              }`}
-              contentEditable={editable}
-              suppressContentEditableWarning={true}
-            >
-              {signature}
-            </p>
-          </div>
+          <p
+            className={`text-gray-800 font-bold  `}
+            contentEditable={editable}
+            suppressContentEditableWarning={true}
+          >
+            {signature}
+          </p>
         )}
       </div>
     </div>
@@ -117,9 +95,9 @@ const IntroductionBodyWrapper = ({
 };
 
 IntroductionBodyWrapper.propTypes = {
-  introduction: PropTypes.string.isRequired,
+  // introduction: PropTypes.string.isRequired,
   body: PropTypes.arrayOf(PropTypes.string).isRequired,
-  closing: PropTypes.string.isRequired,
+  // closing: PropTypes.string.isRequired,
   gratitude: PropTypes.string.isRequired,
   signature: PropTypes.string.isRequired,
   editable: PropTypes.bool,

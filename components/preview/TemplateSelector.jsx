@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, FileText } from "lucide-react";
 import template1 from "./template/template1.png";
 import template2 from "./template/template2.png";
 import template3 from "./template/template3.png";
@@ -21,16 +21,23 @@ import template17 from "./template/template17.png";
 import template18 from "./template/template18.png";
 import template19 from "./template/template19.png";
 import template20 from "./template/template20.png";
-import { useTranslation } from "react-i18next";
+import template21 from "./template/template21.png";
+import template22 from "./template/template22.png";
+import template23 from "./template/template23.png";
+import template24 from "./template/template24.png";
+import template25 from "./template/template25.png";
+import template26 from "./template/template26.png";
+import template27 from "./template/template27.png";
+import template28 from "./template/template28.png";
 import { BASE_URL } from "../Constant/constant";
 import axios from "axios";
+import Link from "next/link";
 const TemplateSelector = ({
   selectedTemplate,
   setSelectedTemplate,
   selectedPdfType,
   setSelectedPdfType,
 }) => {
-  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [templateId, setTemplateId] = useState(selectedTemplate);
@@ -38,12 +45,13 @@ const TemplateSelector = ({
   // Default PDF type
 
   const allTemplates = [
-    { key: "template1", imageUrl: template1, pdfType: 2 },
+    { key: "template1", imageUrl: template1, pdfType: 1 },
+    { key: "template2", imageUrl: template2, pdfType: 3 },
     { key: "template3", imageUrl: template3, pdfType: 3 },
-    { key: "template4", imageUrl: template4, pdfType: 3 },
+    { key: "template4", imageUrl: template4, pdfType: 1 },
     { key: "template5", imageUrl: template5, pdfType: 3 },
-    { key: "template6", imageUrl: template6, pdfType: 1 },
-    { key: "template7", imageUrl: template7, pdfType: 1 },
+    { key: "template6", imageUrl: template6, pdfType: 2 },
+    { key: "template7", imageUrl: template7, pdfType: 2 },
     { key: "template8", imageUrl: template8, pdfType: 2 },
     { key: "template9", imageUrl: template9, pdfType: 1 },
     { key: "template10", imageUrl: template10, pdfType: 3 },
@@ -53,12 +61,24 @@ const TemplateSelector = ({
     { key: "template14", imageUrl: template14, pdfType: 3 },
     { key: "template15", imageUrl: template15, pdfType: 3 },
     { key: "template16", imageUrl: template16, pdfType: 2 },
-    { key: "template17", imageUrl: template17, pdfType: 2 },
+    { key: "template17", imageUrl: template17, pdfType: 4 },
     { key: "template18", imageUrl: template18, pdfType: 2 },
     { key: "template19", imageUrl: template19, pdfType: 1 },
     { key: "template20", imageUrl: template20, pdfType: 1 },
+    { key: "template21", imageUrl: template21, pdfType: 2 },
+    { key: "template22", imageUrl: template22, pdfType: 3 },
+    { key: "template23", imageUrl: template23, pdfType: 2 },
+    { key: "template24", imageUrl: template24, pdfType: 3 },
+    { key: "template25", imageUrl: template25, pdfType: 1 },
+    { key: "template26", imageUrl: template26, pdfType: 3 },
+    { key: "template27", imageUrl: template27, pdfType: 3 },
+    { key: "template28", imageUrl: template28, pdfType: 2 },
   ];
-  const basicTemplates = allTemplates.slice(0, 2);
+
+  const templates = allTemplates;
+  const isBasicUser = userData?.plan_id === 1;
+  const [showUpgradeMessage, setShowUpgradeMessage] = useState(false);
+
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
@@ -93,14 +113,24 @@ const TemplateSelector = ({
       setSelectedPdfType(templates[selectedIndex].pdfType);
     }
   }, [selectedTemplate]);
-  // const templates = userData?.plan_id === 1 ? basicTemplates : allTemplates;
-  const templates = allTemplates;
-  const isBasicUser = userData?.plan_id === 1;
 
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
 
+  // const handleTemplateClick = (template) => {
+  //   setSelectedTemplate(template.key);
+  //   setTemplateId(template.key);
+  //   setSelectedPdfType(template.pdfType);
+  //   closeModal();
+  // };
   const handleTemplateClick = (template) => {
+    const templateIndex = templates.findIndex((t) => t.key === template.key);
+    if (isBasicUser && templateIndex > 1) {
+      setShowUpgradeMessage(true);
+      setTimeout(() => setShowUpgradeMessage(false), 2500);
+      return;
+    }
+
     setSelectedTemplate(template.key);
     setTemplateId(template.key);
     setSelectedPdfType(template.pdfType);
@@ -124,208 +154,118 @@ const TemplateSelector = ({
     const end = Math.min(templates.length, currentIndex + 2);
     return templates.slice(start, end);
   };
+  const scrollRef = React.useRef(null);
 
-  // const getPdfTypeLabel = (type) => {
-  //   switch (type) {
-  //     case '1': return 'Type 1';
-  //     case '2': return 'Type 2';
-  //     case '3': return 'Type 3';
-  //     default: return 'Unknown Type';
-  //   }
-  // };
+  const scrollContainer = (direction) => {
+    if (!scrollRef.current) return;
+    const scrollAmount = 250;
+    scrollRef.current.scrollBy({
+      left: direction === "left" ? -scrollAmount : scrollAmount,
+      behavior: "smooth",
+    });
+  };
 
   return (
-    <div className="font-sans">
+    <div className="font-sans ">
       <div className="flex flex-col md:flex-row gap-2 m-2">
         <button
           onClick={openModal}
-          className="hidden md:block rounded-lg border-2 border-pink-600 px-5 py-2 font-bold bg-white text-black"
+          className="flex items-center gap-2 rounded-lg border-2 border-pink-600 px-5 py-2 bg-white text-black font-medium 
+    transition-transform duration-200 ease-in-out hover:scale-[1.02] hover:bg-blue-50 hover:text-pink-6000"
         >
-          <span>
-            {t("templateSelector.selectedTemplate", {
-              templateId: templateId || "template1",
-            })}
+          <FileText size={18} />
+          <span className="hidden md:inline">
+            {templateId.charAt(0).toUpperCase() + templateId.slice(1) ||
+              "Template1"}
           </span>
         </button>
-        <button
-          onClick={openModal}
-          className="block md:hidden rounded-lg border-2 border-pink-600 px-5 py-2 font-bold bg-white text-black"
-        >
-          {t("templateSelector.templateButton")}
-        </button>
-        {/* <div className="rounded-lg border-2 border-blue-800 px-5 py-2 font-bold bg-white text-blue-800">
-          PDF Type: {selectedPdfType}
-        </div> */}
       </div>
 
       {isOpen && (
-        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/75 p-4">
-          <div className="bg-white rounded-xl p-6 w-full max-w-5xl relative shadow-2xl">
-            <div className="text-lg font-bold mb-4 text-center border rounded-3xl py-2 text-white bg-gray-800">
-              {t("templateSelector.modalTitle")}
-            </div>
-
-            <div className="relative flex items-center mb-6">
-              <button
-                onClick={goToPrevious}
-                className="absolute -left-3 z-10 flex items-center justify-center w-10 h-10 bg-white rounded-full shadow-lg border border-gray-200 hover:bg-gray-50 transition-colors duration-200"
-              >
-                <ChevronLeft className="w-6 h-6 text-gray-600" />
-              </button>
-
-              <div className="flex justify-center w-full overflow-hidden px-8">
-                <div className="flex gap-4">
-                  {/* {getDisplayedTemplates().map((template) => (
-                    <div
-                      key={template.key}
-                      onClick={() => handleTemplateClick(template)}
-                      className={`
-                        relative group cursor-pointer transition-all duration-300
-                        ${
-                          template.key === templateId
-                            ? "transform scale-105"
-                            : "hover:scale-102"
-                        }
-                      `}
-                    >
-                      <div
-                        className={`
-                        w-64 p-2 rounded-lg transition-all duration-300
-                        ${
-                          template.key === templateId
-                            ? "bg-pink-100 ring-4 ring-pink-500 ring-offset-2"
-                            : "hover:bg-gray-50"
-                        }
-                      `}
-                      >
-                        <div className="relative">
-                          <Image
-                            src={template.imageUrl}
-                            alt={template.key}
-                            width={300}
-                            height={400}
-                            className={`
-                              w-full h-80 object-cover rounded-lg shadow-md transition-transform duration-300
-                              ${
-                                template.key === templateId
-                                  ? "ring-2 ring-pink-400"
-                                  : "group-hover:ring-2 group-hover:ring-pink-300"
-                              }
-                            `}
-                          />
-                          {template.key === templateId && (
-                            <div className="absolute inset-0 border-4 border-pink-500 rounded-lg pointer-events-none" />
-                          )}
-                        </div>
-                        <div className="flex flex-col gap-1">
-                          <div
-                            className={`
-                            mt-2 text-center py-2 px-4 rounded-md transition-colors duration-300
-                            ${
-                              template.key === templateId
-                                ? "bg-pink-500 text-white font-semibold"
-                                : "text-gray-600 group-hover:text-purple-600"
-                            }
-                          `}
-                          >
-                            {template.key}
-                          </div>
-                         
-                        </div>
-                      </div>
-                    </div>
-                  ))} */}
-                  {getDisplayedTemplates().map((template, idx) => {
-                    const isPremium =
-                      isBasicUser &&
-                      !basicTemplates.some((b) => b.key === template.key);
-
-                    return (
-                      <div
-                        key={template.key}
-                        onClick={() => {
-                          if (!isPremium) {
-                            handleTemplateClick(template);
-                          }
-                        }}
-                        className={`
-        relative group cursor-pointer transition-all duration-300
-        ${
-          template.key === templateId
-            ? "transform scale-105"
-            : "hover:scale-102"
-        }
-        ${isPremium ? "opacity-50 cursor-not-allowed" : ""}
-      `}
-                      >
-                        <div
-                          className={`
-          w-64 p-2 rounded-lg transition-all duration-300
-          ${
-            template.key === templateId
-              ? "bg-pink-100 ring-4 ring-pink-500 ring-offset-2"
-              : "hover:bg-gray-50"
-          }
-        `}
-                        >
-                          <div className="relative">
-                            <Image
-                              src={template.imageUrl}
-                              alt={template.key}
-                              width={300}
-                              height={400}
-                              className={`
-              w-full h-80 object-cover rounded-lg shadow-md transition-transform duration-300
-              ${
-                template.key === templateId
-                  ? "ring-2 ring-pink-400"
-                  : "group-hover:ring-2 group-hover:ring-pink-300"
-              }
-            `}
-                            />
-                            {isPremium && (
-                              <div className="absolute inset-0 bg-black bg-opacity-50 text-white flex items-center justify-center rounded-lg text-lg font-bold">
-                                {t("templateSelector.premium")}
-                              </div>
-                            )}
-                            {template.key === templateId && (
-                              <div className="absolute inset-0 border-4 border-pink-500 rounded-lg pointer-events-none" />
-                            )}
-                          </div>
-                          <div className="flex flex-col gap-1">
-                            <div
-                              className={`
-              mt-2 text-center py-2 px-4 rounded-md transition-colors duration-300
-              ${
-                template.key === templateId
-                  ? "bg-pink-500 text-white font-semibold"
-                  : "text-gray-600 group-hover:text-purple-600"
-              }
-            `}
-                            >
-                              {template.key}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-
-              <button
-                onClick={goToNext}
-                className="absolute -right-3 z-10 flex items-center justify-center w-10 h-10 bg-white rounded-full shadow-lg border border-gray-200 hover:bg-gray-50 transition-colors duration-200"
-              >
-                <ChevronRight className="w-6 h-6 text-gray-600" />
-              </button>
-            </div>
-
+        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/75 p-4 ">
+          <div className="bg-gradient-to-b from-white to-blue-100 rounded-xl p-6 w-full max-w-5xl relative shadow-2xl ">
             <button
               onClick={closeModal}
-              className="w-full sm:w-auto px-6 py-2.5 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-700 transition-colors duration-200 flex items-center justify-center mx-auto"
+              className="absolute top-3 right-3 text-gray-600 hover:text-black text-xl font-bold"
+              aria-label="Close"
             >
-              {t("templateSelector.closeButton")}
+              &times;
+            </button>
+            <div className="text-lg font-bold mb-4 text-center border rounded-3xl py-2 text-white bg-pink-600">
+              Select a Template
+            </div>
+
+            <div className="max-h-[70vh] overflow-y-auto px-4 py-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {templates.map((template, index) => {
+                const isLocked = isBasicUser && index > 1;
+
+                {
+                  showUpgradeMessage && (
+                    <div className="fixed top-5 left-1/2 -translate-x-1/2 bg-red-600 text-white px-4 py-2 rounded shadow-lg z-[9999]">
+                      Please upgrade your plan to use this template.
+                    </div>
+                  );
+                }
+                return (
+                  <div
+                    key={template.key}
+                    onClick={() => handleTemplateClick(template)}
+                    className={`cursor-pointer transition-transform duration-200 ${
+                      template.key === templateId
+                        ? "scale-105"
+                        : "hover:scale-105"
+                    } ${isLocked ? "opacity-50 pointer-events-auto" : ""}`}
+                  >
+                    <div
+                      className={`rounded-xl p-2 border-2 relative transition-colors duration-300 ${
+                        template.key === templateId
+                          ? "border-pink-600 bg-purple-100"
+                          : "border-transparent hover:border-purple-300"
+                      }`}
+                    >
+                      <div className="relative w-full h-full aspect-[3/4] overflow-hidden rounded-lg shadow-md">
+                        <Image
+                          src={template.imageUrl}
+                          alt={template.key}
+                          fill
+                          className="object-fill"
+                        />
+                        {isLocked && (
+                          <Link href={"/payment"}>
+                            <div className="absolute inset-0 bg-white bg-opacity-70 flex items-center justify-center text-center text-sm font-semibold text-red-600 px-2">
+                              🔒 Upgrade to use
+                            </div>
+                          </Link>
+                        )}
+                      </div>
+                      <div
+                        className={`text-center mt-2 font-medium ${
+                          template.key === templateId
+                            ? "text-pink-600"
+                            : "text-gray-600"
+                        }`}
+                      >
+                        {template.key}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            {isBasicUser && (
+              <div className="text-center mt-6">
+                <Link href={"/payment"}>
+                  <button className="bg-pink-600 hover:bg-pink-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition">
+                    Upgrade Your Plan to Unlock All Templates
+                  </button>
+                </Link>
+              </div>
+            )}
+            <button
+              onClick={closeModal}
+              className="w-full sm:w-auto px-6 py-2.5 my-4 bg-purple-600 text-white font-semibold rounded-lg hover:bg-pink-600 transition-colors duration-200 flex items-center justify-center mx-auto"
+            >
+              Close
             </button>
           </div>
         </div>

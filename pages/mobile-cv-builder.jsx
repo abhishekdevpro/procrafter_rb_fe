@@ -6,6 +6,7 @@ import Navbar from "./Navbar/Navbar";
 import ColorPickers from "./ColorPickers";
 import CoverLetterPreview from "../components/cv/coverletter/CoverLetterPreview";
 import { useTranslation } from "react-i18next";
+import CoverLetterFontSelector from "./CoverLetterFontSelector";
 
 const MobileCoverLetterBuilder = ({
   selectedFont,
@@ -19,6 +20,7 @@ const MobileCoverLetterBuilder = ({
   templateRef,
 }) => {
   const [isPreviewMode, setIsPreviewMode] = useState(false);
+  const [selectedPdfType, setSelectedPdfType] = useState("1");
   const { t } = useTranslation();
   const togglePreviewMode = () => {
     setIsPreviewMode(!isPreviewMode);
@@ -56,17 +58,7 @@ const MobileCoverLetterBuilder = ({
           <div className="sticky top-[64px] z-40 bg-gray-200 p-4 shadow-sm">
             <div className="flex items-center absolute justify-center gap-2 p-2  top-26 left-0 right-0 bg-white shadow-lg ">
               {/* Font Selector */}
-              <select
-                value={selectedFont}
-                onChange={handleFontChange}
-                className=" h-10 rounded-lg border border-pink-600 px-4 font-bold text-black bg-white"
-              >
-                <option value="Ubuntu">Ubuntu</option>
-                <option value="Calibri">Calibri</option>
-                <option value="Georgia">Georgia</option>
-                <option value="Roboto">Roboto</option>
-                <option value="Poppins">Poppins</option>
-              </select>
+              <CoverLetterFontSelector />
 
               {/* Color Picker */}
               <ColorPickers
@@ -78,6 +70,8 @@ const MobileCoverLetterBuilder = ({
               <TemplateSelector
                 selectedTemplate={selectedTemplate}
                 setSelectedTemplate={setSelectedTemplate}
+                selectedPdfType={selectedPdfType}
+                setSelectedPdfType={setSelectedPdfType}
               />
             </div>
           </div>

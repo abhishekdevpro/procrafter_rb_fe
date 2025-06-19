@@ -198,8 +198,8 @@ const CoverLetterEditor = () => {
           onClick={step === steps.length - 1 ? handleFinish : nextStep}
           className={`px-4 py-2 rounded-lg ${
             step === steps.length - 1
-              ? "bg-purple-600 text-white"
-              : "bg-purple-600 text-white"
+              ? "bg-[#00b38d] text-white"
+              : "bg-[#00b38d] text-white"
           }`}
         >
           {step === steps.length - 1
@@ -214,7 +214,7 @@ const CoverLetterEditor = () => {
               nextStep();
             }
           }}
-          className="px-4 py-2 rounded-lg bg-purple-600 text-white"
+          className="px-4 py-2 rounded-lg bg-pink-600 text-white"
         >
           {step === steps.length - 1
             ? t("navigation.finish")

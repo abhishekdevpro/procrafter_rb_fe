@@ -558,7 +558,7 @@ export default function FileUploadStep({ onNext, onBack, onChange, value }) {
             <p className="text-xl font-medium mb-4">
               {value ? value.name : t("fileUploadStep.dragDrop")}
             </p>
-            <button className="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-[#008f6b]">
+            <button className="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-pink-600">
               {t("fileUploadStep.selectFile")}
             </button>
             <p className="mt-4 text-sm text-gray-500">
@@ -595,7 +595,7 @@ export default function FileUploadStep({ onNext, onBack, onChange, value }) {
         <button
           onClick={() => router.push(`/dashboard/aibuilder/${resumeId}`)}
           disabled={!uploadSuccess || isUploading}
-          className="px-8 py-3 bg-purple-600 text-white rounded-lg font-medium hover:bg-[#008f6b] disabled:opacity-50 disabled:cursor-not-allowed"
+          className="px-8 py-3 bg-purple-600 text-white rounded-lg font-medium hover:bg-pink-600 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {t("fileUploadStep.next")}
         </button>

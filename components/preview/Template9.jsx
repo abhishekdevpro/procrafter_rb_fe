@@ -49,8 +49,13 @@ const Draggable = dynamic(
   { ssr: false }
 );
 const Template9 = () => {
-  const { resumeData, setResumeData, headerColor, backgroundColorss } =
-    useContext(ResumeContext);
+  const {
+    resumeData,
+    setResumeData,
+    headerColor,
+    backgroundColorss,
+    selectedFont,
+  } = useContext(ResumeContext);
   const templateRef = useRef(null);
 
   const extractHtml = () => {
@@ -71,9 +76,10 @@ const Template9 = () => {
   return (
     <div
       ref={templateRef}
-      //  className="max-w-4xl mx-auto bg-white border"
+      className=""
+      style={{ fontFamily: `${selectedFont}` }}
     >
-      <header className=" border-b-2 border-gray-200   p-4">
+      <header className="    p-4">
         <TextWrapper
           name={resumeData.name}
           position={resumeData.position}
@@ -103,7 +109,7 @@ const Template9 = () => {
       </header>
 
       <section className="flex justify-between">
-        <div className="w-8/12 p-4">
+        <div className="w-8/12 p-4 mt-4">
           <WorkExperience
             itemClassNames={{
               title: "text-lg font-bold mb-1  editable",

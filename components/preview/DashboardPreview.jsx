@@ -30,7 +30,7 @@ import Template24 from "./Template24";
 import Template25 from "./Template25";
 import Template26 from "./Template26";
 import Template27 from "./Template27";
-
+import Template28 from "./Template28";
 // Importing draggable components dynamically
 const DragDropContext = dynamic(
   () => import("react-beautiful-dnd").then((mod) => mod.DragDropContext),
@@ -39,7 +39,7 @@ const DragDropContext = dynamic(
 
 const DashboardPreview = forwardRef(({ selectedTemplate }, ref) => {
   const { resumeData, setResumeData, selectedFont } = useContext(ResumeContext);
-  console.log(resumeData, ">>>previewdashboard");
+  // console.log(resumeData, ">>>previewdashboard")
 
   const templates = {
     template1: <Template1 />,
@@ -69,6 +69,7 @@ const DashboardPreview = forwardRef(({ selectedTemplate }, ref) => {
     template25: <Template25 />,
     template26: <Template26 />,
     template27: <Template27 />,
+    template28: <Template28 />,
   };
 
   const onDragEnd = (result) => {
@@ -128,7 +129,7 @@ const DashboardPreview = forwardRef(({ selectedTemplate }, ref) => {
   };
 
   return (
-    <A4PageWrapper>
+    <div className="a4-wrapper-dashboard">
       <div
         ref={ref}
         className="preview-dashboard"
@@ -138,7 +139,7 @@ const DashboardPreview = forwardRef(({ selectedTemplate }, ref) => {
           {templates[selectedTemplate]}
         </DragDropContext>
       </div>
-    </A4PageWrapper>
+    </div>
   );
 });
 
@@ -151,9 +152,7 @@ const A4PageWrapper = ({ children }) => {
       const previewHeight = preview.offsetHeight;
       console.log(previewHeight);
       if (previewHeight > 1122) {
-        alert(
-          "Resume now in multipage format. Please adjust the content accordingly."
-        );
+        alert("A4 size exceeded");
       }
     } else {
       console.error("Element with class 'preview' not found.");
@@ -161,7 +160,7 @@ const A4PageWrapper = ({ children }) => {
   };
 
   return (
-    <div className="a4-wrapper-dashboard    " onLoad={alertA4Size}>
+    <div className="a4-wrapper-dashboard" onLoad={alertA4Size}>
       {children}
     </div>
   );

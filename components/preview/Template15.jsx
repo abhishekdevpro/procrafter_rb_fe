@@ -50,8 +50,13 @@ const Draggable = dynamic(
   { ssr: false }
 );
 const Template15 = () => {
-  const { resumeData, setResumeData, headerColor, backgroundColorss } =
-    useContext(ResumeContext);
+  const {
+    resumeData,
+    setResumeData,
+    headerColor,
+    backgroundColorss,
+    selectedFont,
+  } = useContext(ResumeContext);
   const icons = [
     { name: "github", icon: <FaGithub /> },
     { name: "linkedin", icon: <FaLinkedin /> },
@@ -63,9 +68,7 @@ const Template15 = () => {
   ];
 
   return (
-    <div
-    // className="max-w-3xl mx-auto border-2 p-2 "
-    >
+    <div className=" " style={{ fontFamily: `${selectedFont}` }}>
       <header className="mb-6">
         <TextWrapper
           name={resumeData.name}
@@ -84,7 +87,7 @@ const Template15 = () => {
           layout="row" // or "row"
           contactClass=""
           socialMediaClass=""
-          className="items-start justify-start"
+          className="items-start justify-start mt-6"
         />
       </header>
 
@@ -136,6 +139,7 @@ const Template15 = () => {
         droppableId="skills-section-1"
         className="mt-4"
         layout="row"
+        textColor="black"
       />
       {console.log(backgroundColorss, "fhgjh")}
       <Language

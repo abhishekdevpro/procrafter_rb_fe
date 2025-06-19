@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import Image from "next/image";
 import PropTypes from "prop-types";
 import { ResumeContext } from "../context/ResumeContext";
-import { useTranslation } from "react-i18next";
 
 const ImageWrapper = ({
   src,
@@ -62,6 +61,8 @@ const TextWrapper = ({
   headerColor = "black",
   orientation = "column",
   className = "",
+  nameclassName = "",
+  positionclassName = "",
 }) => {
   return (
     <div
@@ -72,7 +73,7 @@ const TextWrapper = ({
       <h1
         contentEditable
         suppressContentEditableWarning
-        className="text-2xl font-bold"
+        className={`text-5xl font-extrabold  ${nameclassName}`}
         style={{ color: headerColor }}
       >
         {name}
@@ -80,7 +81,7 @@ const TextWrapper = ({
       <p
         contentEditable
         suppressContentEditableWarning
-        className="text-lg font-semibold text-gray-700"
+        className={`text-3xl font-bold text-gray-700 ${positionclassName}`}
       >
         {position}
       </p>
@@ -108,8 +109,8 @@ const SummaryWrapper = ({
   headerColor = "black",
   editable = true,
   className = "",
+  summaryclassName = "",
 }) => {
-  const { t } = useTranslation();
   const { backgroundColorss } = useContext(ResumeContext);
   return (
     summary &&
@@ -120,29 +121,24 @@ const SummaryWrapper = ({
             color: `${
               headerColor == "black" ? `${backgroundColorss}` : headerColor
             }`,
-            borderBottom: `2px solid ${
+            borderBottom: `1px solid ${
               headerColor == "black" ? `${backgroundColorss}` : headerColor
             }`,
           }}
-          className="text-lg font-bold mb-1 "
+          contentEditable
+          suppressContentEditableWarning
+          className="text-xl font-semibold mb-1 "
         >
-          {t("resumePreview.summary")}
+          Summary
         </h2>
-        {/* <p
-        style={{color:headerColor}}
-          className="break-words hover:outline-dashed hover:scale-105 hover:outline-2 hover:outline-gray-400"
-          contentEditable={editable}
-          suppressContentEditableWarning={true}
-        >
-          {summary}
-        </p> */}
-        <p
+
+        <div
           style={{ color: headerColor }}
-          className="break-words hover:outline-dashed hover:scale-105 hover:outline-2 hover:outline-gray-400"
-          contentEditable={editable}
-          suppressContentEditableWarning={true}
+          className={` hover:outline-dashed hover:scale-105 hover:outline-2 hover:outline-gray-400 font-light mt-2 text-sm  `}
+          contentEditable
+          suppressContentEditableWarning
           dangerouslySetInnerHTML={{ __html: summary }}
-        ></p>
+        ></div>
       </div>
     )
   );

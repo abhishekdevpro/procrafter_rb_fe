@@ -11,6 +11,7 @@ import { toast } from "react-toastify";
 import MobileCoverLetterBuilder from "./mobile-cv-builder";
 import { BASE_URL } from "../components/Constant/constant";
 import { useTranslation } from "react-i18next";
+import CoverLetterFontSelector from "./CoverLetterFontSelector";
 function CoverLetterBuilder() {
   const {
     coverLetterData,
@@ -29,7 +30,7 @@ function CoverLetterBuilder() {
   const [coverletterId, setCoverLetterId] = useState(null);
   const [selectedTemplate, setSelectedTemplate] = useState("template1");
   const [isMobile, setIsMobile] = useState(false);
-
+  const [selectedPdfType, setSelectedPdfType] = useState("1");
   useEffect(() => {
     const checkIsMobile = () => {
       setIsMobile(window.innerWidth < 768); // 768px is typical tablet/mobile breakpoint
@@ -221,7 +222,7 @@ function CoverLetterBuilder() {
   const downloadPDF = async () => {
     try {
       const response = await axios.get(
-        `${BASE_URL}/api/user/download-coverletter/${coverletterId}?lang=${language}`,
+        `${BASE_URL}/api/user/download-coverletter/${coverletterId}?lang=${language}&pdf_type=${selectedPdfType}`,
 
         {
           headers: {
@@ -280,17 +281,7 @@ function CoverLetterBuilder() {
               <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
                 {/* Font Selector and Options */}
                 <div className="flex items-center gap-4">
-                  <select
-                    value={selectedFont}
-                    onChange={handleFontChange}
-                    className="w-40 h-10 rounded-lg border border-pink-600 px-4 font-bold text-black bg-white focus:ring-2 focus:ring-pink-600"
-                  >
-                    <option value="Ubuntu">Ubuntu</option>
-                    <option value="Calibri">Calibri</option>
-                    <option value="Georgia">Georgia</option>
-                    <option value="Roboto">Roboto</option>
-                    <option value="Poppins">Poppins</option>
-                  </select>
+                  <CoverLetterFontSelector />
 
                   <ColorPickers
                     selectmultiplecolor={backgroundColorss}
@@ -299,6 +290,8 @@ function CoverLetterBuilder() {
                   <TemplateSelector
                     selectedTemplate={selectedTemplate}
                     setSelectedTemplate={setSelectedTemplate}
+                    selectedPdfType={selectedPdfType}
+                    setSelectedPdfType={setSelectedPdfType}
                   />
                 </div>
 
