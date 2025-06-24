@@ -37,6 +37,7 @@ import { BASE_URL } from "../components/Constant/constant";
 import { useTranslation } from "react-i18next";
 import { SaveLoader } from "../components/ResumeLoader/SaveLoader";
 import FontSelector from "./FontSelector";
+import Highlightmenubar from "../components/preview/highlightmenu";
 
 const Print = dynamic(() => import("../components/utility/WinPrint"), {
   ssr: false,
@@ -47,7 +48,7 @@ export default function MobileBuilder() {
   const [selectedPdfType, setSelectedPdfType] = useState("1");
   const [selectedTemplate, setSelectedTemplate] = useState("template1");
   const [isFinished, setIsFinished] = useState(false);
-
+  const [isDownloading, setisDownloading] = useState(false);
   const [token, setToken] = useState(null);
   const [resumeId, setResumeId] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -61,6 +62,7 @@ export default function MobileBuilder() {
   const templateRef = useRef(null);
   const [loading, setLoading] = useState(null);
   const { i18n, t } = useTranslation();
+  const [showUpgradeModal, setShowUpgradeModal] = useState(false);
   const language = i18n.language;
   const {
     setResumeStrength,
@@ -316,61 +318,7 @@ export default function MobileBuilder() {
   const handleFontChange = (e) => {
     setSelectedFont(e.target.value);
   };
-  const downloadAsPDF = async () => {
-    handleFinish();
-    if (!templateRef.current) {
-      toast.error("Template reference not found");
-      return;
-    }
 
-    // setisDownloading(true); // Start loading before the async operation
-
-    try {
-      const token = localStorage.getItem("token");
-      const htmlContent = templateRef.current.innerHTML;
-
-      const fullContent = `
-            <style>
-                @import url('https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css');
-            </style>
-            ${htmlContent}
-        `;
-
-      const response = await axios.get(
-        `${BASE_URL}/api/user/download-resume/${resumeId}?pdf_type=${selectedPdfType}`,
-
-        {
-          headers: {
-            Authorization: token,
-            "Content-Type": "application/pdf",
-          },
-          responseType: "blob",
-        }
-      );
-      const url = window.URL.createObjectURL(
-        new Blob([response.data], { type: "application/pdf" })
-      );
-      const link = document.createElement("a");
-      link.href = url;
-
-      link.setAttribute("download", `resume.pdf`);
-      document.body.appendChild(link);
-      link.click();
-
-      document.body.removeChild(link);
-      window.URL.revokeObjectURL(url);
-
-      // downloadPDF();
-      // initiateCheckout(); // Call this only if the request is successful
-    } catch (error) {
-      console.error("PDF generation error:", error);
-      toast.error(
-        error.response?.data?.message || "Failed to generate and open PDF"
-      );
-    } finally {
-      // setisDownloading(false); // Ensure loading is stopped after success or failure
-    }
-  };
   // const downloadAsPDF = async () => {
   //   handleFinish();
   //   if (!templateRef.current) {
@@ -428,16 +376,38 @@ export default function MobileBuilder() {
   //     setLoading(null);
   //   }
   // };
-  const downloadPDF = async () => {
-    handleFinish();
+  const downloadAsBackend = async () => {
+    setisDownloading(true);
+
+    if (!templateRef.current) {
+      toast.error("Template reference not found");
+      setisDownloading(false);
+      return;
+    }
+
     try {
-      const response = await axios.get(
-        `${BASE_URL}/api/user/download-file/11/${resumeId}?lang=${language}`,
+      const token = localStorage.getItem("token");
+      const htmlContent = templateRef.current.innerHTML;
+
+      const fullHtml = `
+        <style>
+          @import url('https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css');
+        </style>
+        ${htmlContent}
+      `;
+
+      const response = await axios.post(
+        `${BASE_URL}/api/user/download-resume/${resumeId}?pdf_type=${selectedPdfType}`,
+        {
+          html: fullHtml,
+          pdf_type: selectedPdfType, // ✅ Move pdf_type here
+        },
         {
           headers: {
             Authorization: token,
+            "Content-Type": "application/json",
           },
-          responseType: "blob", // Important for file download
+          responseType: "blob",
         }
       );
 
@@ -446,62 +416,28 @@ export default function MobileBuilder() {
       );
       const link = document.createElement("a");
       link.href = url;
-
-      // Set the file name
       link.setAttribute("download", `resume.pdf`);
       document.body.appendChild(link);
       link.click();
-
-      // Cleanup
       document.body.removeChild(link);
       window.URL.revokeObjectURL(url);
-
-      toast.success("PDF downloaded successfully!");
     } catch (error) {
-      console.error("PDF Download Error:", error);
-      toast.error("Failed to download the PDF. Please try again.");
-    }
-  };
+      console.error("PDF generation error:", error);
 
-  useEffect(() => {
-    if (PayerID) {
-      verifyPayment();
-    }
-  }, [PayerID]);
+      const apiError = error.response?.data;
+      const statusCode = error.response?.status;
 
-  const verifyPayment = async () => {
-    try {
-      const orderId = localStorage.getItem("orderid");
-      const token = localStorage.getItem("token");
-
-      if (orderId && token && PayerID) {
-        const response = await axios.get(
-          `${BASE_URL}/api/user/paypal/verify-order?orderid=${orderId}?lang=${language}`,
-          {
-            headers: {
-              Authorization: token,
-              "Content-Type": "application/json",
-            },
-          }
-        );
-
-        if (response.data.status === "success") {
-          setPaymentVerified(true);
-          toast.success("Payment verified successfully!");
-
-          localStorage.removeItem("orderid");
-          await downloadPDF(orderId, resumeId, token);
-        } else {
-          toast.error("Payment verification failed. Please try again.");
-          router.push("/payment-failed");
-        }
+      if (statusCode === 403) {
+        setShowUpgradeModal(true); // Show upgrade popup
+      } else if (apiError?.error) {
+        toast.error(apiError.error);
+      } else if (apiError?.message) {
+        toast.error(apiError.message);
+      } else {
+        toast.error("Something went wrong. Please try again.");
       }
-    } catch (error) {
-      console.error("Payment Verification Error:", error);
-      toast.error(
-        error?.response?.data?.message || "Payment verification failed"
-      );
-      router.push("/payment-failed");
+    } finally {
+      setisDownloading(false);
     }
   };
 
@@ -616,6 +552,53 @@ export default function MobileBuilder() {
       }
     });
   };
+
+  const downloadAsPDF = () => {
+    downloadAsBackend();
+    handleFinish();
+  };
+  useEffect(() => {
+    if (PayerID) {
+      verifyPayment();
+    }
+  }, [PayerID]);
+
+  const verifyPayment = async () => {
+    try {
+      const orderId = localStorage.getItem("orderid");
+      const token = localStorage.getItem("token");
+
+      if (orderId && token && PayerID) {
+        const response = await axios.get(
+          `${BASE_URL}/api/user/paypal/verify-order?orderid=${orderId}?lang=${language}`,
+          {
+            headers: {
+              Authorization: token,
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        if (response.data.status === "success") {
+          setPaymentVerified(true);
+          toast.success("Payment verified successfully!");
+
+          localStorage.removeItem("orderid");
+          await downloadPDF(orderId, resumeId, token);
+        } else {
+          toast.error("Payment verification failed. Please try again.");
+          router.push("/payment-failed");
+        }
+      }
+    } catch (error) {
+      console.error("Payment Verification Error:", error);
+      toast.error(
+        error?.response?.data?.message || "Payment verification failed"
+      );
+      router.push("/payment-failed");
+    }
+  };
+
   const handleClick = async () => {
     setLoading("save");
     try {
@@ -631,7 +614,7 @@ export default function MobileBuilder() {
         <button
           onClick={handlePrevious}
           disabled={currentSection === 0}
-          className="px-4 py-2 bg-pink-600 text-white rounded-lg disabled:opacity-50"
+          className="px-4 py-2 bg-green-500 text-white rounded-lg disabled:opacity-50"
         >
           {t("buttons.previous")}
         </button>
@@ -661,7 +644,7 @@ export default function MobileBuilder() {
                 onClick={() => handleSectionClick(index)}
                 className={`w-full p-3 mb-2 rounded-lg text-left ${
                   currentSection === index
-                    ? "bg-pink-600 text-white"
+                    ? "bg-green-500 text-white"
                     : "bg-gray-100 text-blue-950"
                 }`}
               >
@@ -726,7 +709,7 @@ export default function MobileBuilder() {
   return (
     <>
       <Meta
-        title="Procrafter  - AI Resume Builder"
+        title="Create My Resume | Build ATS-Friendly Resumes in Minutes"
         description="ATSResume is a cutting-edge resume builder that helps job seekers create a professional, ATS-friendly resume in minutes..."
         keywords="ATS-friendly, Resume optimization..."
       />
@@ -737,7 +720,7 @@ export default function MobileBuilder() {
             <div className="flex flex-col md:flex-row flex-grow ">
               <button
                 onClick={toggleMobileSidebar}
-                className="fixed z-10 bottom-20 right-4  bg-pink-600 text-white p-3 rounded-full shadow-lg"
+                className="fixed z-10 bottom-20 right-4  bg-green-500 text-white p-3 rounded-full shadow-lg"
               >
                 {isMobileSidebarOpen ? (
                   <X className="h-6 w-6 stroke-2" />
@@ -766,10 +749,17 @@ export default function MobileBuilder() {
                   </div>
                 </div>
               </aside>
-
-              <main className="flex-1 w-full max-w-2xl mx-auto p-4 sm:p-6 md:p-8 overflow-y-auto h-screen  max-h-[600px]">
-                <form>{sections[currentSection].component}</form>
-              </main>
+              <div
+                className="w-screen flex justify-start min-h-screen "
+                // style={{ backgroundColor: "#002a48" }}
+              >
+                <main
+                  className="flex-1 h-full w-full mx-auto p-4 pb-10 mb-8 overflow-visible"
+                  // className="flex-1 w-full max-w-2xl mx-auto p-4 sm:p-6 md:p-8 overflow-y-auto h-screen  max-h-[600px]"
+                >
+                  <form>{sections[currentSection].component}</form>
+                </main>
+              </div>
             </div>
 
             <MobileNavigation />
@@ -785,7 +775,7 @@ export default function MobileBuilder() {
                 {/* <select
                   value={selectedFont}
                   onChange={handleFontChange}
-                  className="rounded-lg border-2 border-pink-600 px-5 py-2 font-bold  bg-white text-black"
+                  className="rounded-lg border-2 border-green-500 px-5 py-2 font-bold  bg-white text-black"
                 >
                   <option value="Ubuntu">Ubuntu</option>
                   <option value="Calibri">Calibri</option>
@@ -802,6 +792,7 @@ export default function MobileBuilder() {
                 />
               </div>
               <div className=" ">
+                <Highlightmenubar />
                 <Preview
                   ref={templateRef}
                   selectedTemplate={selectedTemplate}
@@ -825,15 +816,20 @@ export default function MobileBuilder() {
                   onClick={downloadAsPDF}
                   className=" bg-yellow-500 text-black px-4 py-2 rounded-lg bottom-btns"
                 >
-                  {loading === "download" ? (
+                  {/* {loading === "download" ? (
                     <SaveLoader loadingText={t("buttons.downloading")} />
                   ) : (
                     t("buttons.download")
+                  )} */}
+                  {isDownloading ? (
+                    <SaveLoader loadingText="Downloading" />
+                  ) : (
+                    "Download"
                   )}
                 </button>
                 <button
                   onClick={handleBackToEditor}
-                  className="bg-pink-600 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors bottom-btns"
+                  className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors bottom-btns"
                 >
                   {t("buttons.backToDashboard")}
                 </button>
@@ -894,7 +890,7 @@ export default function MobileBuilder() {
                             </label>
                             <input
                               type="text"
-                              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-600"
+                              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
                               value={`${formData.first_name} ${formData.last_name}`.trim()}
                               name="full name"
                               required
@@ -908,7 +904,7 @@ export default function MobileBuilder() {
                             </label>
                             <input
                               type="email"
-                              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-600"
+                              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
                               value={formData.email}
                               name="email"
                               required
@@ -922,7 +918,7 @@ export default function MobileBuilder() {
                             </label>
                             <input
                               type="number"
-                              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-600"
+                              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
                               name="phone"
                               value={formData.phone}
                               required
@@ -970,6 +966,33 @@ export default function MobileBuilder() {
           </>
         )}
       </div>
+      {showUpgradeModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full text-center">
+            <h2 className="text-xl font-semibold mb-4 text-gray-800">
+              Upgrade Required
+            </h2>
+            <p className="text-gray-600 mb-6">
+              You’ve reached your download limit. Please upgrade your plan to
+              continue.
+            </p>
+            <div className="flex justify-center gap-4">
+              <button
+                onClick={() => setShowUpgradeModal(false)}
+                className="px-4 py-2 border border-gray-400 rounded-md text-gray-700 hover:bg-gray-100"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={() => router.push("/payment")}
+                className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+              >
+                Upgrade Plan
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

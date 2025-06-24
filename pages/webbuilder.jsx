@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect, useContext } from "react";
+import { useRouter } from "next/router";
 import Language from "../components/form/Language";
 import axios from "axios";
 import Meta from "../components/meta/Meta";
@@ -20,7 +21,7 @@ import TemplateSelector from "../components/preview/TemplateSelector";
 import { PDFExport } from "@progress/kendo-react-pdf";
 // import LoadUnload from "../components/form/LoadUnload";
 import MyResume from "./dashboard/MyResume";
-import { useRouter } from "next/router";
+
 import Sidebar from "./dashboard/Sidebar";
 import { toast } from "react-toastify";
 import LoaderButton from "../components/utility/LoaderButton";
@@ -39,6 +40,7 @@ import { BASE_URL } from "../components/Constant/constant";
 import { useTranslation } from "react-i18next";
 import { SaveLoader } from "../components/ResumeLoader/SaveLoader";
 import FontSelector from "./FontSelector";
+import Highlightmenubar from "../components/preview/highlightmenu";
 
 const Print = dynamic(() => import("../components/utility/WinPrint"), {
   ssr: false,
@@ -68,6 +70,8 @@ export default function WebBuilder() {
   const templateRef = useRef(null);
   const [loading, setLoading] = useState(null);
   const { i18n, t } = useTranslation();
+  const [isDownloading, setisDownloading] = useState(false);
+  const [showUpgradeModal, setShowUpgradeModal] = useState(false);
   const language = i18n.language;
   const { improve } = router.query;
   const {
@@ -445,154 +449,39 @@ export default function WebBuilder() {
   //     setLoading(null);
   //   }
   // };
-  const downloadAsPDF = async () => {
-    handleFinish();
+
+  const downloadAsBackend = async () => {
+    setisDownloading(true);
+
     if (!templateRef.current) {
       toast.error("Template reference not found");
+      setisDownloading(false);
       return;
     }
-
-    // setisDownloading(true); // Start loading before the async operation
 
     try {
       const token = localStorage.getItem("token");
       const htmlContent = templateRef.current.innerHTML;
 
-      const fullContent = `
-            <style>
-                @import url('https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css');
-            </style>
-            ${htmlContent}
-        `;
+      const fullHtml = `
+      <style>
+        @import url('https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css');
+      </style>
+      ${htmlContent}
+    `;
 
-      const response = await axios.get(
+      const response = await axios.post(
         `${BASE_URL}/api/user/download-resume/${resumeId}?pdf_type=${selectedPdfType}`,
-
         {
-          headers: {
-            Authorization: token,
-            "Content-Type": "application/pdf",
-          },
-          responseType: "blob",
-        }
-      );
-      const url = window.URL.createObjectURL(
-        new Blob([response.data], { type: "application/pdf" })
-      );
-      const link = document.createElement("a");
-      link.href = url;
-
-      link.setAttribute("download", `resume.pdf`);
-      document.body.appendChild(link);
-      link.click();
-
-      document.body.removeChild(link);
-      window.URL.revokeObjectURL(url);
-
-      // downloadPDF();
-      // initiateCheckout(); // Call this only if the request is successful
-    } catch (error) {
-      console.error("PDF generation error:", error);
-      toast.error(
-        error.response?.data?.message || "Failed to generate and open PDF"
-      );
-    } finally {
-      // setisDownloading(false); // Ensure loading is stopped after success or failure
-    }
-  };
-  const initiateCheckout = async () => {
-    try {
-      // Ensure resumeId is a valid integer
-      const parsedResumeId = parseInt(resumeId, 10);
-      if (isNaN(parsedResumeId)) {
-        throw new Error("Invalid resume ID; unable to convert to an integer.");
-      }
-
-      // Step 2: Checkout API Call
-      const checkoutResponse = await axios.post(
-        `${BASE_URL}/api/user/payment/checkout`,
-        {
-          plan_id: 1,
-          resume_id: parsedResumeId, // Use integer here
+          html: fullHtml,
+          pdf_type: selectedPdfType, // ✅ Move pdf_type here
         },
         {
           headers: {
             Authorization: token,
+            "Content-Type": "application/json",
           },
-        }
-      );
-
-      // Check for successful response
-      const redirectUrl = checkoutResponse.data.data; // Adjust the key if necessary
-      if (redirectUrl) {
-        toast.success("Checkout successful! Redirecting...");
-        window.location.href = redirectUrl; // Redirects user to payment page
-      } else {
-        throw new Error("No redirect URL found in checkout response.");
-      }
-    } catch (error) {
-      console.error("Error during checkout:", error);
-      toast.error(
-        error.response?.data?.message ||
-          "Failed to initiate the payment process."
-      );
-    }
-  };
-
-  useEffect(() => {
-    if (PayerID) {
-      verifyPayment();
-    }
-  }, [PayerID]);
-
-  const verifyPayment = async () => {
-    try {
-      const orderId = localStorage.getItem("orderid");
-      const token = localStorage.getItem("token");
-
-      if (orderId && token && PayerID) {
-        const response = await axios.get(
-          `${BASE_URL}/api/user/paypal/verify-order?orderid=${orderId}?lang=${language}`,
-          {
-            headers: {
-              Authorization: token,
-              "Content-Type": "application/json",
-            },
-          }
-        );
-
-        if (response.data.status === "success") {
-          setPaymentVerified(true);
-          toast.success("Payment verified successfully!");
-          downloadPDF();
-          localStorage.removeItem("orderid");
-
-          if (pdfExportComponent.current) {
-            pdfExportComponent.current.save();
-          }
-        } else {
-          toast.error("Payment verification failed. Please try again.");
-          router.push("/payment-failed");
-        }
-      }
-    } catch (error) {
-      console.error("Payment Verification Error:", error);
-      toast.error(
-        error?.response?.data?.message || "Payment verification failed"
-      );
-      router.push("/payment-failed");
-    }
-  };
-  const downloadPDF = async () => {
-    handleFinish();
-    try {
-      const response = await axios.get(
-        `${BASE_URL}/api/user/download-file/11/${resumeId}?lang=${language}`,
-        {
-          headers: {
-            Authorization: token,
-          },
-          responseType: "blob", // Important for file download
+          responseType: "blob",
         }
       );
 
@@ -601,20 +490,28 @@ export default function WebBuilder() {
       );
       const link = document.createElement("a");
       link.href = url;
-
-      // Set the file name
       link.setAttribute("download", `resume.pdf`);
       document.body.appendChild(link);
       link.click();
-
-      // Cleanup
       document.body.removeChild(link);
       window.URL.revokeObjectURL(url);
-
-      toast.success("PDF downloaded successfully!");
     } catch (error) {
-      console.error("PDF Download Error:", error);
-      toast.error("Failed to download the PDF. Please try again.");
+      console.error("PDF generation error:", error);
+
+      const apiError = error.response?.data;
+      const statusCode = error.response?.status;
+
+      if (statusCode === 403) {
+        setShowUpgradeModal(true); // Show upgrade popup
+      } else if (apiError?.error) {
+        toast.error(apiError.error);
+      } else if (apiError?.message) {
+        toast.error(apiError.message);
+      } else {
+        toast.error("Something went wrong. Please try again.");
+      }
+    } finally {
+      setisDownloading(false);
     }
   };
 
@@ -737,6 +634,11 @@ export default function WebBuilder() {
       console.error("Error updating resume:", error);
     }
   };
+
+  const downloadAsPDF = () => {
+    downloadAsBackend();
+    handleFinish();
+  };
   const handleClick = async () => {
     setLoading("save");
     try {
@@ -798,7 +700,7 @@ export default function WebBuilder() {
   return (
     <>
       <Meta
-        title="Procrafter - AI Resume Builder"
+        title="Create My Resume | Build ATS-Friendly Resumes in Minutes"
         description="ATSResume is a cutting-edge resume builder that helps job seekers create a professional, ATS-friendly resume in minutes..."
         keywords="ATS-friendly, Resume optimization..."
       />
@@ -813,7 +715,7 @@ export default function WebBuilder() {
                     type="button"
                     onClick={handlePrevious}
                     disabled={currentSection === 0}
-                    className="w-40 h-10 rounded-lg bg-pink-600 text-white font-medium transition hover:bg-purple-600 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-40 h-10 rounded-lg bg-teal-600 text-white font-medium transition hover:bg-teal-900 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {t("buttons.previous")}
                   </button>
@@ -821,7 +723,7 @@ export default function WebBuilder() {
                   <button
                     type="button"
                     onClick={handleNext}
-                    className="w-40 h-10 rounded-lg bg-purple-600 text-white font-medium transition hover:bg-pink-600"
+                    className="w-40 h-10 rounded-lg bg-yellow-500 text-black font-medium transition hover:bg-yellow-400"
                   >
                     {currentSection === sections.length - 1
                       ? t("buttons.finish")
@@ -833,7 +735,7 @@ export default function WebBuilder() {
                   {/* <select
                     value={selectedFont}
                     onChange={handleFontChange}
-                    className="w-40 h-10 rounded-lg border border-pink-600 px-4 font-bold text-black bg-white focus:ring-2 focus:ring-purple-600"
+                    className="w-40 h-10 rounded-lg border border-teal-600 px-4 font-bold text-black bg-white focus:ring-2 focus:ring-green-600"
                   >
                     <option value="Ubuntu">Ubuntu</option>
                     <option value="Calibri">Calibri</option>
@@ -881,8 +783,8 @@ export default function WebBuilder() {
                             key={index}
                             className={`flex items-center justify-between gap-2 px-4 py-2 cursor-pointer transition-all duration-200 rounded-lg border-2 ${
                               currentSection === index
-                                ? "border-pink-600 font-semibold bg-pink-600 text-white"
-                                : "border-pink-600 bg-white text-black hover:bg-blue-50"
+                                ? "border-teal-600 font-semibold bg-teal-600 text-white"
+                                : "border-teal-600 bg-white text-black hover:bg-blue-50"
                             }`}
                             onClick={() => handleSectionClick(index)}
                           >
@@ -957,7 +859,7 @@ export default function WebBuilder() {
                 {/* <select
                   value={selectedFont}
                   onChange={handleFontChange}
-                  className="w-40 h-10 rounded-lg border-2 border-pink-600 px-8 p-1 font-bold  bg-white text-black mt-2"
+                  className="w-40 h-10 rounded-lg border-2 border-teal-600 px-8 p-1 font-bold  bg-white text-black mt-2"
                 >
                   <option value="Ubuntu">Ubuntu</option>
                   <option value="Calibri">Calibri</option>
@@ -986,7 +888,7 @@ export default function WebBuilder() {
               <div className="flex gap-4">
                 <button
                   onClick={handleClick}
-                  className="bg-pink-600 text-white px-6 py-2 rounded-lg hover:bg-purple-600"
+                  className="bg-teal-600 text-white px-6 py-2 rounded-lg"
                 >
                   {loading === "save" ? (
                     <SaveLoader loadingText={t("buttons.saving")} />
@@ -997,12 +899,12 @@ export default function WebBuilder() {
 
                 <button
                   onClick={downloadAsPDF}
-                  className="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-pink-600"
+                  className="bg-yellow-500 text-black px-6 py-2 rounded-lg"
                 >
-                  {loading === "download" ? (
-                    <SaveLoader loadingText={t("buttons.downloading")} />
+                  {isDownloading ? (
+                    <SaveLoader loadingText="Downloading" />
                   ) : (
-                    t("buttons.download")
+                    "Download"
                   )}
                 </button>
 
@@ -1057,7 +959,7 @@ export default function WebBuilder() {
                         <div className="md:w-1/2 w-full p-4 ">
                           <div className="text-center mb-6">
                             <h2 className="text-2xl font-bold text-gray-900">
-                              $49
+                              ₹49
                             </h2>
                             <p className="text-sm text-gray-500">
                               Total Amount
@@ -1071,7 +973,7 @@ export default function WebBuilder() {
                               </label>
                               <input
                                 type="text"
-                                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-600"
+                                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-teal-600"
                                 value={`${formData.first_name} ${formData.last_name}`.trim()}
                                 name="full name"
                                 required
@@ -1084,7 +986,7 @@ export default function WebBuilder() {
                               </label>
                               <input
                                 type="email"
-                                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-600"
+                                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-teal-600"
                                 value={formData.email}
                                 required
                                 name="email"
@@ -1096,7 +998,7 @@ export default function WebBuilder() {
                                 ☎️ Phone
                               </label>
                               <input
-                                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-600"
+                                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-teal-600"
                                 required
                                 disabled
                                 type="number"
@@ -1144,11 +1046,39 @@ export default function WebBuilder() {
             </div>
 
             <div className="z-10">
+              <Highlightmenubar />
               <Preview ref={templateRef} selectedTemplate={selectedTemplate} />
             </div>
           </div>
         )}
       </div>
+      {showUpgradeModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full text-center">
+            <h2 className="text-xl font-semibold mb-4 text-gray-800">
+              Upgrade Required
+            </h2>
+            <p className="text-gray-600 mb-6">
+              You’ve reached your download limit. Please upgrade your plan to
+              continue.
+            </p>
+            <div className="flex justify-center gap-4">
+              <button
+                onClick={() => setShowUpgradeModal(false)}
+                className="px-4 py-2 border border-gray-400 rounded-md text-gray-700 hover:bg-gray-100"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={() => router.push("/payment")}
+                className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+              >
+                Upgrade Plan
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }
