@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import Navbar from "../Navbar/Navbar";
 
 export default function Payment() {
-  const [selectedPlan, setSelectedPlan] = useState("freePlan");
+  const [selectedPlan, setSelectedPlan] = useState("singlePass");
   const { t } = useTranslation();
   const router = useRouter();
 
@@ -22,7 +22,7 @@ export default function Payment() {
     });
   };
 
-  const planTypes = ["freePlan", "singlePass", "aiProMonth"];
+  const planTypes = ["singlePass", "aiProMonth"];
 
   return (
     <>

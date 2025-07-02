@@ -164,7 +164,7 @@ const ContactUs = () => {
           </div>
         </div> */}
         <div className="flex flex-col md:flex-row items-center justify-center gap-8 max-w-4xl mx-auto">
-          <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg p-6 flex-grow max-w-md">
+          {/* <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg p-6 flex-grow max-w-md">
             <div className="flex items-center mb-4">
               <div className="text-3xl"> 📞</div>
               <h5 className="ml-3 text-slate-800 text-xl font-semibold">
@@ -201,7 +201,7 @@ const ContactUs = () => {
                 </a>
               </button>
             </div>
-          </div>
+          </div> */}
           <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg p-6 flex-grow max-w-md">
             <div className="flex items-center mb-4">
               <div className="text-3xl">✉</div>

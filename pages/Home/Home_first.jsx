@@ -136,9 +136,9 @@ import "slick-carousel/slick/slick-theme.css";
 import image4 from "./Images/homeimage1.jpg";
 import image5 from "./Images/homeimage2.jpg";
 import image6 from "./Images/homeimage3.jpg";
-import image1 from "./Images/frenchresume1.jpg";
-import image2 from "./Images/frenchresume2.jpg";
-import image3 from "./Images/frenchresume3.jpg";
+// import image1 from "./Images/frenchresume1.jpg";
+// import image2 from "./Images/frenchresume2.jpg";
+// import image3 from "./Images/frenchresume3.jpg";
 import Image from "next/image";
 import Home_second from "./Home_second";
 import { useEffect, useState } from "react";
@@ -166,7 +166,7 @@ function Home_first() {
     autoplaySpeed: 3000,
   };
 
-  const images = [image1, image2, image3, image4, image5, image6];
+  const images = [image4, image5, image6];
 
   return (
     <>
@@ -260,9 +260,9 @@ function Home_first() {
                         height={240}
                         className="transition-transform transform hover:scale-105 md:h-auto md:w-96"
                       />
-                      <p className="mt-2 text-lg font-semibold text-gray-700">
+                      {/* <p className="mt-2 text-lg font-semibold text-gray-700">
                         {index < 3 ? t("french_resume") : t("english_resume")}
-                      </p>
+                      </p> */}
                     </div>
                   ))}
                 </Slider>

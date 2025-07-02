@@ -1324,7 +1324,7 @@
       "feature4": "2 Unique Resume Templates",
       "feature5": "2 Color Options & 2 Fonts",
       "feature6": "Resume Parsing (ATS-Friendly)",
-      "feature7": "French Language Support",
+    
       "feature8": "Job Search & Career Resources",
       "feature9": "Cover Letter Builder",
       "feature10": "Job Alerts & Tracking"
@@ -1337,8 +1337,8 @@
       "bestValue": "false",
       "buttonText": "Get Started",
       "feature1": "Everything in Free +",
-      "feature2": "27 Unique Resume Templates",
-      "feature3": "5 Color Options & 6 Fonts",
+      "feature2": "28 Unique Resume Templates & 5 CoverLetter Templates",
+      "feature3": "20+ Colors Options & 10+ Fonts",
       "feature4": "Resume Parsing (ATS-Friendly)",
       "feature5": "Free Cover Letter Builder",
       "feature6": "AI Resume Score & Feedback",
@@ -1355,8 +1355,8 @@
       "bestValue": "false",
       "buttonText": "Get Started",
       "feature1": "Everything in Free +",
-      "feature2": "37 Unique Resume Templates",
-      "feature3": "8 Color Options & 6 Fonts",
+      "feature2": "28 Unique Resume Templates & 5 CoverLetter Templates",
+      "feature3": "20+ Colors Options & 10+ Fonts",
       "feature4": "Resume Parsing (ATS-Friendly)",
       "feature5": "Free Cover Letter Builder",
       "feature6": "AI Resume Score & Feedback",
@@ -1373,8 +1373,8 @@
       "bestValue": "true",
       "buttonText": "Get Started",
       "feature1": "Everything in Free +",
-      "feature2": "37 Unique Resume Templates",
-      "feature3": "8 Color Options & 6 Fonts",
+      "feature2": "28 Unique Resume Templates & 5+ CoverLetter Templates",
+      "feature3": "15+ Colors Options & 10+ Fonts",
       "feature4": "Resume Parsing (ATS-Friendly)",
       "feature5": "Free Cover Letter Builder",
       "feature6": "AI Resume Score & Feedback",
@@ -1497,7 +1497,7 @@
   
     "cvBuilder": {
       "save": "Save Cover Letter",
-      "download": "Pay & Download"
+      "download": "Download"
     },
     "backgroundColor": {
     "label": "Background Color",
@@ -1705,7 +1705,7 @@
   "2 Unique Resume Templates": "2 Unique Resume Templates",
   "2 Color Options & 2 Fonts": "2 Color Options & 2 Fonts",
   "Resume Parsing (ATS-Friendly)": "Resume Parsing (ATS-Friendly)",
-  "French Language Support": "French Language Support",
+
   "Job Search & Career Resources": "Job Search & Career Resources",
   "Cover Letter Builder": "Cover Letter Builder",
   "Job Alerts & Tracking": "Job Alerts & Tracking",

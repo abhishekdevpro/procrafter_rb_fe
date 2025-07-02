@@ -17,9 +17,10 @@ import CV3 from "./Images/FrenchCV3.png";
 import frenchimage1 from "./Images/frenchresume1.jpg";
 import frenchimage2 from "./Images/frenchresume2.jpg";
 // import frenchimage3 from "./Images/frenchresume3.png";
-import cvimage1 from "./Images/cv4.jpg";
-import cvimage2 from "./Images/homeimage3.jpg";
-import cvimage3 from "./Images/cv3.jpg";
+import cvimage1 from "./Images/cv1.png";
+import cvimage2 from "./Images/cv2.png";
+import cvimage3 from "./Images/cv3.png";
+import cvimage4 from "./Images/cv4.png";
 import Home_fourth from "./Home_fourth";
 import video from "./Images/video2.mp4";
 
@@ -118,12 +119,12 @@ function Home_third() {
           <div className=" flex flex-col justify-center gap-5 items-center md:flex-row md:gap-10">
             {[
               {
-                src: frenchimage1,
+                src: image1,
                 alt: "alt1_h3",
                 title: "title1_h3",
               },
               {
-                src: frenchimage2,
+                src: image2,
                 alt: "alt2_h3",
                 title: "title2_h3",
               },
@@ -194,22 +195,22 @@ function Home_third() {
         <div className="flex flex-col justify-center gap-5 items-center md:flex-row">
           {[
             {
-              src: CV1,
+              src: cvimage1,
               alt: "Assistant Editor Resume Example",
               title: "title_h4",
             },
             {
-              src: CV2,
+              src: cvimage2,
               alt: "Farmer Resume Template",
               title: "title_h4",
             },
             {
-              src: CV3,
+              src: cvimage3,
               alt: "Farmer Resume Template",
               title: "title_h4",
             },
             {
-              src: image4,
+              src: cvimage4,
               alt: "Farmer Resume Template",
               title: "title_h4",
             },

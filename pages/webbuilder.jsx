@@ -715,7 +715,7 @@ export default function WebBuilder() {
                     type="button"
                     onClick={handlePrevious}
                     disabled={currentSection === 0}
-                    className="w-40 h-10 rounded-lg bg-teal-600 text-white font-medium transition hover:bg-teal-900 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-40 h-10 rounded-lg bg-purple-600 text-white font-medium transition hover:bg-pink-600 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {t("buttons.previous")}
                   </button>
@@ -723,7 +723,7 @@ export default function WebBuilder() {
                   <button
                     type="button"
                     onClick={handleNext}
-                    className="w-40 h-10 rounded-lg bg-yellow-500 text-black font-medium transition hover:bg-yellow-400"
+                    className="w-40 h-10 rounded-lg bg-pink-600 text-white font-medium transition hover:bg-purple-600"
                   >
                     {currentSection === sections.length - 1
                       ? t("buttons.finish")
@@ -735,7 +735,7 @@ export default function WebBuilder() {
                   {/* <select
                     value={selectedFont}
                     onChange={handleFontChange}
-                    className="w-40 h-10 rounded-lg border border-teal-600 px-4 font-bold text-black bg-white focus:ring-2 focus:ring-green-600"
+                    className="w-40 h-10 rounded-lg border border-purple-600 px-4 font-bold text-black bg-white focus:ring-2 focus:ring-green-600"
                   >
                     <option value="Ubuntu">Ubuntu</option>
                     <option value="Calibri">Calibri</option>
@@ -783,8 +783,8 @@ export default function WebBuilder() {
                             key={index}
                             className={`flex items-center justify-between gap-2 px-4 py-2 cursor-pointer transition-all duration-200 rounded-lg border-2 ${
                               currentSection === index
-                                ? "border-teal-600 font-semibold bg-teal-600 text-white"
-                                : "border-teal-600 bg-white text-black hover:bg-blue-50"
+                                ? "border-purple-600 font-semibold bg-purple-600 text-white"
+                                : "border-purple-600 bg-white text-black hover:bg-purple-50"
                             }`}
                             onClick={() => handleSectionClick(index)}
                           >
@@ -859,7 +859,7 @@ export default function WebBuilder() {
                 {/* <select
                   value={selectedFont}
                   onChange={handleFontChange}
-                  className="w-40 h-10 rounded-lg border-2 border-teal-600 px-8 p-1 font-bold  bg-white text-black mt-2"
+                  className="w-40 h-10 rounded-lg border-2 border-purple-600 px-8 p-1 font-bold  bg-white text-black mt-2"
                 >
                   <option value="Ubuntu">Ubuntu</option>
                   <option value="Calibri">Calibri</option>
@@ -888,7 +888,7 @@ export default function WebBuilder() {
               <div className="flex gap-4">
                 <button
                   onClick={handleClick}
-                  className="bg-teal-600 text-white px-6 py-2 rounded-lg"
+                  className="bg-purple-600 hover:bg-pink-600 text-white px-6 py-2 rounded-lg"
                 >
                   {loading === "save" ? (
                     <SaveLoader loadingText={t("buttons.saving")} />
@@ -899,7 +899,7 @@ export default function WebBuilder() {
 
                 <button
                   onClick={downloadAsPDF}
-                  className="bg-yellow-500 text-black px-6 py-2 rounded-lg"
+                  className="bg-pink-600 text-white hover:bg-purple-600 px-6 py-2 rounded-lg"
                 >
                   {isDownloading ? (
                     <SaveLoader loadingText="Downloading" />
@@ -973,7 +973,7 @@ export default function WebBuilder() {
                               </label>
                               <input
                                 type="text"
-                                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-teal-600"
+                                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-purple-600"
                                 value={`${formData.first_name} ${formData.last_name}`.trim()}
                                 name="full name"
                                 required
@@ -986,7 +986,7 @@ export default function WebBuilder() {
                               </label>
                               <input
                                 type="email"
-                                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-teal-600"
+                                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-purple-600"
                                 value={formData.email}
                                 required
                                 name="email"
@@ -998,7 +998,7 @@ export default function WebBuilder() {
                                 ☎️ Phone
                               </label>
                               <input
-                                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-teal-600"
+                                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-purple-600"
                                 required
                                 disabled
                                 type="number"

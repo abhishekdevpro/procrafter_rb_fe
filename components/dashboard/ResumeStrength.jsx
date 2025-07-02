@@ -177,7 +177,7 @@ const TooltipContent = ({ improvements, resumeId, onClose }) => {
                 <div
                   className={`rounded-full p-1.5 ${
                     item.value
-                      ? "bg-green-100 text-purple-600"
+                      ? "bg-purple-100 text-purple-600"
                       : "bg-red-100 text-red-600"
                   }`}
                 >
@@ -402,7 +402,7 @@ const ResumeStrength = ({ score, strength, resumeId }) => {
 
   const getScoreColor = (score, maxScore) => {
     const percentage = (score / maxScore) * 100;
-    if (percentage >= 50) return "bg-pink-600";
+    if (percentage >= 50) return "bg-blue-600";
     return "bg-red-600";
   };
 
