@@ -4,7 +4,7 @@ import { useContext, useState } from "react";
 import dynamic from "next/dynamic";
 import "react-quill/dist/quill.snow.css";
 import { ResumeContext } from "../context/ResumeContext";
-import { ChevronDown, ChevronUp, AlertCircle, X } from "lucide-react";
+import { ChevronDown, ChevronUp, AlertCircle, X, Trash } from "lucide-react";
 import axios from "axios";
 import FormButton from "./FormButton";
 import { useRouter } from "next/router";
@@ -577,6 +577,13 @@ const Projects = () => {
                 ) : (
                   <ChevronDown />
                 )}
+              </button>
+              <button
+                onClick={() => removeProjects(projectIndex)}
+                className="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded bg-red-500 text-white hover:bg-red-600 transition-colors md:ml-2"
+                type="button"
+              >
+                <Trash className="w-5 h-5" />
               </button>
             </div>
             {expandedProjects.includes(projectIndex) && (

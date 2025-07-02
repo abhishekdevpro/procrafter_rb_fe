@@ -709,7 +709,7 @@ export default function MobileBuilder() {
   return (
     <>
       <Meta
-        title="Create My Resume | Build ATS-Friendly Resumes in Minutes"
+        title="Procrafter | Build ATS-Friendly Resumes in Minutes"
         description="ATSResume is a cutting-edge resume builder that helps job seekers create a professional, ATS-friendly resume in minutes..."
         keywords="ATS-friendly, Resume optimization..."
       />

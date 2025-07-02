@@ -223,7 +223,10 @@ function Careers() {
         </h3>
         <p className="text-base sm:text-lg">
           {t("how_to_apply_description")}{" "}
-          <a href="mailto:career@CibliJob.ca" className="text-blue-500">
+          <a
+            href="mailto:support@procraftrresumebuilder.com"
+            className="text-blue-500"
+          >
             {t("apply_email")}
           </a>
           .

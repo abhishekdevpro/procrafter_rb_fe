@@ -13,15 +13,55 @@ const ContactUs = () => {
   });
   const { selectedLang } = useContext(ResumeContext);
   const [error, setError] = useState("");
+  const [errors, setErrors] = useState({});
   const [successMessage, setSuccessMessage] = useState("");
   const { t } = useTranslation();
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+
+    if (name === "phone") {
+      // Allow only numbers, limit to 10 digits
+      const numericValue = value.replace(/\D/g, "").slice(0, 10);
+      setFormData((prev) => ({ ...prev, [name]: numericValue }));
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    }
+
+    // Clear field-level error
+    setErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const newErrors = {};
+
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required";
+    }
+
+    if (!formData.phone.trim()) {
+      newErrors.phone = "Phone number is required";
+    } else if (!/^[0-9]{10}$/.test(formData.phone)) {
+      newErrors.phone = "Phone must be 10 digits";
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = "Invalid email format";
+    }
+
+    if (!formData.remark.trim()) {
+      newErrors.remark = "Remark is required";
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      setError("Please fix the errors above");
+      return;
+    }
+    setErrors({});
     setError("");
     setSuccessMessage("");
 
@@ -279,7 +319,7 @@ const ContactUs = () => {
 
             {isFormVisible && (
               <div className="bg-white shadow-md border rounded-lg p-6 w-full mt-4 z-10">
-                <form onSubmit={handleSubmit}>
+                {/* <form onSubmit={handleSubmit}>
                   <div className="mb-4">
                     <label className="block text-sm font-semibold mb-1">
                       {t("form.name")}
@@ -335,6 +375,88 @@ const ContactUs = () => {
                   {successMessage && (
                     <p className="text-pink-600 mb-2">{successMessage}</p>
                   )}
+                  <button
+                    type="submit"
+                    className="bg-purple-600 text-white px-4 py-2 rounded-lg"
+                  >
+                    {t("form.send")}
+                  </button>
+                </form> */}
+                <form onSubmit={handleSubmit}>
+                  {/* Name Field */}
+                  <div className="mb-4">
+                    <label className="block text-sm font-semibold mb-1">
+                      {t("form.name")}
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      className="w-full border px-2 py-1 rounded-lg"
+                    />
+                    {errors.name && (
+                      <p className="text-red-500 text-sm">{errors.name}</p>
+                    )}
+                  </div>
+
+                  {/* Phone Field */}
+                  <div className="mb-4">
+                    <label className="block text-sm font-semibold mb-1">
+                      {t("form.phone")}
+                    </label>
+                    <input
+                      type="text"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      className="w-full border px-2 py-1 rounded-lg"
+                    />
+                    {errors.phone && (
+                      <p className="text-red-500 text-sm">{errors.phone}</p>
+                    )}
+                  </div>
+
+                  {/* Email Field */}
+                  <div className="mb-4">
+                    <label className="block text-sm font-semibold mb-1">
+                      {t("form.email")}
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      className="w-full border px-2 py-1 rounded-lg"
+                    />
+                    {errors.email && (
+                      <p className="text-red-500 text-sm">{errors.email}</p>
+                    )}
+                  </div>
+
+                  {/* Remark Field */}
+                  <div className="mb-4">
+                    <label className="block text-sm font-semibold mb-1">
+                      {t("form.remark")}
+                    </label>
+                    <textarea
+                      name="remark"
+                      value={formData.remark}
+                      onChange={handleInputChange}
+                      className="w-full border px-2 py-1 rounded-lg"
+                    />
+                    {errors.remark && (
+                      <p className="text-red-500 text-sm">{errors.remark}</p>
+                    )}
+                  </div>
+
+                  {/* Global Error or Success */}
+                  {error && <p className="text-red-500 mb-2">{error}</p>}
+                  {successMessage && (
+                    <p className="text-green-600 mb-2">{successMessage}</p>
+                  )}
+
+                  {/* Submit Button */}
                   <button
                     type="submit"
                     className="bg-purple-600 text-white px-4 py-2 rounded-lg"

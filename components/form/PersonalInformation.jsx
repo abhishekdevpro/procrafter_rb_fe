@@ -314,8 +314,10 @@ const PersonalInformation = () => {
 
   const handleContactChange = (e) => {
     const { value } = e.target;
-    const fullContactValue = `${value.replace(/^(\+\d+\s*)?/, "")}`;
-
+    // const fullContactValue = `${value
+    //   .replace(/^(\+\d+\s*)?/, "")
+    //   .slice(0, 10)}`;
+    const fullContactValue = value.replace(/\D/g, "").slice(0, 10);
     const updatedContact = {
       target: {
         name: "contactInformation",

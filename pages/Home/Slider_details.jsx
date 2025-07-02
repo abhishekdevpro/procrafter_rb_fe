@@ -41,11 +41,11 @@ const ImageSlider = () => {
       </h2>
       <div className="relative flex justify-center items-center w-full md:w-[100%] h-64 md:h-[600px] mx-auto">
         <FaArrowLeft
-          className="absolute top-1/2 left-2 md:left-28 transform -translate-y-1/2 text-[##00b38d] cursor-pointer z-10"
+          className="absolute top-1/2 left-2 md:left-28 transform -translate-y-1/2 text-purple-600 cursor-pointer z-10"
           onClick={prevSlide}
         />
         <FaArrowRight
-          className="absolute top-1/2 right-2 md:right-28 transform -translate-y-1/2 text-[##00b38d] cursor-pointer z-10"
+          className="absolute top-1/2 right-2 md:right-28 transform -translate-y-1/2 text-purple-600 cursor-pointer z-10"
           onClick={nextSlide}
         />
         <div className="slider-container">
@@ -56,11 +56,10 @@ const ImageSlider = () => {
                 index === currentIndex ? "active" : ""
               } ${direction}`}
             >
-              {/* <img src={image} alt={`Slide ${index}`} className="w-full h-full rounded-3xl object-cover" /> */}
               <Image
                 src={image}
                 alt={`slide ${index}`}
-                className="w-full h-full rounded-3xl object-cover"
+                className="w-full h-full rounded-3xl  "
               />
             </div>
           ))}

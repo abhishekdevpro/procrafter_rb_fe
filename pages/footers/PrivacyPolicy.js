@@ -1,198 +1,153 @@
-// import React from "react";
-// import Footer from "../Footer/Footer";
-// import Navbar from "../Navbar/Navbar";
-
-// function PrivacyPolicy() {
-//   return (
-//     <div className="bg-gray-50 min-h-screen">
-//       <Navbar/>
-//       <div className="max-w-4xl mx-auto my-5 p-6 sm:p-10 shadow-lg bg-white rounded-lg">
-//         <h2 className="text-3xl sm:text-4xl font-semibold text-center underline mb-6">
-//           Privacy Policy
-//         </h2>
-
-//         <div className="mb-6">
-//           <h2 className="text-xl font-semibold">Introduction</h2>
-//           <p className="text-gray-700 mt-2">
-//             At Cibli Job, we value your privacy and are committed to protecting
-//             your personal information. This Privacy Policy outlines how we
-//             collect, use, and safeguard your data when you use our website and
-//             services.
-//           </p>
-//         </div>
-
-//         <div className="mb-6">
-//           <h2 className="text-xl font-semibold">1. Information We Collect</h2>
-//           <h3 className="font-semibold mt-3">Personal Information</h3>
-//           <p className="text-gray-700">
-//             We may collect personal information such as your name, email, phone
-//             number, mailing address, resume details, and payment information.
-//           </p>
-
-//           <h3 className="font-semibold mt-3">Non-Personal Information</h3>
-//           <p className="text-gray-700">
-//             We also collect non-personal information like IP address, browser
-//             type, and website behavior to improve our services.
-//           </p>
-//         </div>
-
-//         <div className="mb-6">
-//           <h2 className="text-xl font-semibold">
-//             2. How We Use Your Information
-//           </h2>
-//           <h3 className="font-semibold mt-3">Service Delivery</h3>
-//           <p className="text-gray-700">
-//             We use your information to provide resume writing, career coaching,
-//             and LinkedIn profile optimization.
-//           </p>
-
-//           <h3 className="font-semibold mt-3">Communication</h3>
-//           <p className="text-gray-700">
-//             We may contact you about our services, updates, and promotional
-//             offers. You can opt-out at any time.
-//           </p>
-
-//           <h3 className="font-semibold mt-3">Improvement & Analysis</h3>
-//           <p className="text-gray-700">
-//             Non-personal data helps us analyze website usage and improve
-//             security.
-//           </p>
-//         </div>
-
-//         <div className="mb-6">
-//           <h2 className="text-xl font-semibold">3. Data Security</h2>
-//           <p className="text-gray-700">
-//             We use appropriate security measures to protect your data but cannot
-//             guarantee absolute security.
-//           </p>
-//         </div>
-
-//         <div className="mb-6">
-//           <h2 className="text-xl font-semibold">4. Sharing Your Information</h2>
-//           <h3 className="font-semibold mt-3">Third-Party Service Providers</h3>
-//           <p className="text-gray-700">
-//             We may share data with trusted partners like payment processors and
-//             email services.
-//           </p>
-
-//           <h3 className="font-semibold mt-3">Business Transfers</h3>
-//           <p className="text-gray-700">
-//             If we undergo a merger or sale, your information may be transferred.
-//           </p>
-
-//           <h3 className="font-semibold mt-3">Legal Requirements</h3>
-//           <p className="text-gray-700">
-//             We may disclose your data if required by law.
-//           </p>
-//         </div>
-
-//         <div className="mb-6">
-//           <h2 className="text-xl font-semibold">5. Your Rights and Choices</h2>
-//           <h3 className="font-semibold mt-3">Access & Correction</h3>
-//           <p className="text-gray-700">
-//             You can update or correct your personal data anytime.
-//           </p>
-
-//           <h3 className="font-semibold mt-3">Data Deletion</h3>
-//           <p className="text-gray-700">
-//             You may request data deletion, subject to legal obligations.
-//           </p>
-
-//           <h3 className="font-semibold mt-3">Opt-Out</h3>
-//           <p className="text-gray-700">
-//             You can opt out of promotional emails anytime.
-//           </p>
-//         </div>
-
-//         <div className="mb-6">
-//           <h2 className="text-xl font-semibold">6. Cookies & Tracking</h2>
-//           <p className="text-gray-700">
-//             We use cookies to improve your experience. You can manage cookie
-//             settings in your browser.
-//           </p>
-//         </div>
-
-//         <div className="mb-6">
-//           <h2 className="text-xl font-semibold">7. Third-Party Links</h2>
-//           <p className="text-gray-700">
-//             Our website may link to third-party sites. We are not responsible
-//             for their privacy policies.
-//           </p>
-//         </div>
-
-//         <div className="mb-6">
-//           <h2 className="text-xl font-semibold">8. Childrens Privacy</h2>
-//           <p className="text-gray-700">
-//             Our services are not intended for individuals under 18. If a child
-//             provides personal data, we will delete it.
-//           </p>
-//         </div>
-
-//         <div className="mb-6">
-//           <h2 className="text-xl font-semibold">9. Changes to This Policy</h2>
-//           <p className="text-gray-700">
-//             We may update this Privacy Policy. Continued use of our services
-//             after changes means acceptance of the revised policy.
-//           </p>
-//         </div>
-
-//         <div className="mb-6">
-//           <h2 className="text-xl font-semibold">10. Contact Us</h2>
-//           <p className="text-gray-700">
-//             If you have any questions, contact us at:{" "}
-//             <a
-//               href="mailto:career@ciblJob.fr"
-//               className="text-blue-600 underline"
-//             >
-//               career@ciblJob.fr
-//             </a>
-//           </p>
-//         </div>
-//       </div>
-
-//       <Footer />
-//     </div>
-//   );
-// }
-
-// export default PrivacyPolicy;
 import React from "react";
-import { useTranslation } from "react-i18next";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 
 function PrivacyPolicy() {
-  const { t } = useTranslation();
-
   return (
-    <div className="">
+    <div className="bg-gray-50 min-h-screen">
       <Navbar />
       <div className="m-4 sm:mx-10 lg:mx-40 p-4 sm:p-6 shadow-2xl">
         <h2 className="text-3xl sm:text-4xl font-semibold text-center underline mb-6">
-          {t("privacyPolicy")}
+          Privacy Policy
         </h2>
 
-        <p className="text-gray-700">{t("intro")}</p>
+        <div className="mb-6">
+          <h2 className="text-xl font-semibold">Introduction</h2>
+          <p className="text-gray-700 mt-2">
+            At ProCraftr, we value your privacy and are committed to protecting
+            your personal information. This Privacy Policy outlines how we
+            collect, use, and safeguard your data when you use our website and
+            services.
+          </p>
+        </div>
 
-        {Object.keys(t("sections", { returnObjects: true })).map(
-          (key, index) => (
-            <div key={index} className="mb-6">
-              <h2 className="text-xl sm:text-2xl font-semibold my-2 mt-5">
-                {t(`sections.${key}`)}
-              </h2>
-              <p className="text-base sm:text-lg">{t(key)}</p>
-            </div>
-          )
-        )}
+        <div className="mb-6">
+          <h2 className="text-xl font-semibold">1. Information We Collect</h2>
+          <h3 className="font-semibold mt-3">Personal Information</h3>
+          <p className="text-gray-700">
+            We may collect personal information such as your name, email, phone
+            number, mailing address, resume details, and payment information.
+          </p>
 
-        {/* <h2 className="text-xl font-semibold">{t("sections.contactUs")}</h2> */}
+          <h3 className="font-semibold mt-3">Non-Personal Information</h3>
+          <p className="text-gray-700">
+            We also collect non-personal information like IP address, browser
+            type, and website behavior to improve our services.
+          </p>
+        </div>
 
-        <a
-          href={`mailto:${t("email_name")}`}
-          className="text-blue-600 underline"
-        >
-          {t("email_name")}
-        </a>
+        <div className="mb-6">
+          <h2 className="text-xl font-semibold">
+            2. How We Use Your Information
+          </h2>
+          <h3 className="font-semibold mt-3">Service Delivery</h3>
+          <p className="text-gray-700">
+            We use your information to provide resume writing, career coaching,
+            and LinkedIn profile optimization.
+          </p>
+
+          <h3 className="font-semibold mt-3">Communication</h3>
+          <p className="text-gray-700">
+            We may contact you about our services, updates, and promotional
+            offers. You can opt-out at any time.
+          </p>
+
+          <h3 className="font-semibold mt-3">Improvement & Analysis</h3>
+          <p className="text-gray-700">
+            Non-personal data helps us analyze website usage and improve
+            security.
+          </p>
+        </div>
+
+        <div className="mb-6">
+          <h2 className="text-xl font-semibold">3. Data Security</h2>
+          <p className="text-gray-700">
+            We use appropriate security measures to protect your data but cannot
+            guarantee absolute security.
+          </p>
+        </div>
+
+        <div className="mb-6">
+          <h2 className="text-xl font-semibold">4. Sharing Your Information</h2>
+          <h3 className="font-semibold mt-3">Third-Party Service Providers</h3>
+          <p className="text-gray-700">
+            We may share data with trusted partners like payment processors and
+            email services.
+          </p>
+
+          <h3 className="font-semibold mt-3">Business Transfers</h3>
+          <p className="text-gray-700">
+            If we undergo a merger or sale, your information may be transferred.
+          </p>
+
+          <h3 className="font-semibold mt-3">Legal Requirements</h3>
+          <p className="text-gray-700">
+            We may disclose your data if required by law.
+          </p>
+        </div>
+
+        <div className="mb-6">
+          <h2 className="text-xl font-semibold">5. Your Rights and Choices</h2>
+          <h3 className="font-semibold mt-3">Access & Correction</h3>
+          <p className="text-gray-700">
+            You can update or correct your personal data anytime.
+          </p>
+
+          <h3 className="font-semibold mt-3">Data Deletion</h3>
+          <p className="text-gray-700">
+            You may request data deletion, subject to legal obligations.
+          </p>
+
+          <h3 className="font-semibold mt-3">Opt-Out</h3>
+          <p className="text-gray-700">
+            You can opt out of promotional emails anytime.
+          </p>
+        </div>
+
+        <div className="mb-6">
+          <h2 className="text-xl font-semibold">6. Cookies & Tracking</h2>
+          <p className="text-gray-700">
+            We use cookies to improve your experience. You can manage cookie
+            settings in your browser.
+          </p>
+        </div>
+
+        <div className="mb-6">
+          <h2 className="text-xl font-semibold">7. Third-Party Links</h2>
+          <p className="text-gray-700">
+            Our website may link to third-party sites. We are not responsible
+            for their privacy policies.
+          </p>
+        </div>
+
+        <div className="mb-6">
+          <h2 className="text-xl font-semibold">8. Childrens Privacy</h2>
+          <p className="text-gray-700">
+            Our services are not intended for individuals under 18. If a child
+            provides personal data, we will delete it.
+          </p>
+        </div>
+
+        <div className="mb-6">
+          <h2 className="text-xl font-semibold">9. Changes to This Policy</h2>
+          <p className="text-gray-700">
+            We may update this Privacy Policy. Continued use of our services
+            after changes means acceptance of the revised policy.
+          </p>
+        </div>
+
+        <div className="mb-6">
+          <h2 className="text-xl font-semibold">10. Contact Us</h2>
+          <p className="text-gray-700">
+            If you have any questions, contact us at:{" "}
+            <a
+              href="mailto:support@procraftrresumebuilder.com"
+              className="text-blue-600 underline"
+            >
+              support@procraftrresumebuilder.com
+            </a>
+          </p>
+        </div>
       </div>
 
       <Footer />
@@ -201,3 +156,62 @@ function PrivacyPolicy() {
 }
 
 export default PrivacyPolicy;
+
+// import React from "react";
+// import { useTranslation } from "react-i18next";
+// import Footer from "../Footer/Footer";
+// import Navbar from "../Navbar/Navbar";
+
+// function PrivacyPolicy() {
+//   const { t } = useTranslation();
+
+//   return (
+//     <div className="">
+//       <Navbar />
+//       <div className="m-4 sm:mx-10 lg:mx-40 p-4 sm:p-6 shadow-2xl">
+//         <h2 className="text-3xl sm:text-4xl font-semibold text-center underline mb-6">
+//           {t("privacyPolicy")}
+//         </h2>
+
+//         <p className="text-gray-700">{t("intro")}</p>
+
+//         {Object.keys(t("sections", { returnObjects: true })).map(
+//           (key, index) => {
+//             const content = t(key, { returnObjects: true });
+
+//             return (
+//               <div key={index} className="mb-6">
+//                 <h2 className="text-xl sm:text-2xl font-semibold my-2 mt-5">
+//                   {t(`sections.${key}`)}
+//                 </h2>
+
+//                 {typeof content === "string" ? (
+//                   <p className="text-base sm:text-lg">{content}</p>
+//                 ) : (
+//                   Object.values(content).map((line, i) => (
+//                     <p key={i} className="text-base sm:text-lg mb-2">
+//                       {line}
+//                     </p>
+//                   ))
+//                 )}
+//               </div>
+//             );
+//           }
+//         )}
+
+//         {/* <h2 className="text-xl font-semibold">{t("sections.contactUs")}</h2> */}
+
+//         <a
+//           href={`mailto:${t("email_name")}`}
+//           className="text-blue-600 underline"
+//         >
+//           {t("email_name")}
+//         </a>
+//       </div>
+
+//       <Footer />
+//     </div>
+//   );
+// }
+
+// export default PrivacyPolicy;
