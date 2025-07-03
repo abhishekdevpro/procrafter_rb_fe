@@ -39,16 +39,16 @@ const ImageSlider = () => {
       <h2 className="text-center text-4xl py-3 font-bold">
         {t("explore_resume_services")}
       </h2>
-      <div className="relative flex justify-center items-center w-full md:w-[100%] h-64 md:h-[600px] mx-auto">
+      <div className="relative flex justify-center items-center w-full max-w-6xl h-64 md:h-[600px] mx-auto px-4">
         <FaArrowLeft
-          className="absolute top-1/2 left-2 md:left-28 transform -translate-y-1/2 text-purple-600 cursor-pointer z-10"
+          className="absolute top-1/2 left-2 md:left-8 transform -translate-y-1/2 text-purple-600 cursor-pointer z-10 hover:text-purple-700 transition-colors"
           onClick={prevSlide}
         />
         <FaArrowRight
-          className="absolute top-1/2 right-2 md:right-28 transform -translate-y-1/2 text-purple-600 cursor-pointer z-10"
+          className="absolute top-1/2 right-2 md:right-8 transform -translate-y-1/2 text-purple-600 cursor-pointer z-10 hover:text-purple-700 transition-colors"
           onClick={nextSlide}
         />
-        <div className="slider-container">
+        <div className="slider-container w-full h-full">
           {images.map((image, index) => (
             <div
               key={index}
@@ -59,7 +59,9 @@ const ImageSlider = () => {
               <Image
                 src={image}
                 alt={`slide ${index}`}
-                className="w-full h-full rounded-3xl  "
+                fill
+                style={{ objectFit: "cover" }}
+                priority={index === 0}
               />
             </div>
           ))}
@@ -69,7 +71,7 @@ const ImageSlider = () => {
             <div
               key={index}
               onClick={() => setCurrentIndex(index)}
-              className={`w-3 h-3 mx-1 rounded-full cursor-pointer ${
+              className={`w-3 h-3 mx-1 rounded-full cursor-pointer transition-colors ${
                 currentIndex === index ? "bg-gray-800" : "bg-gray-400"
               }`}
             ></div>

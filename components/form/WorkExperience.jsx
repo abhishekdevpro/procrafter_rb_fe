@@ -243,7 +243,19 @@ const WorkExperience = () => {
   };
 
   const handleDescriptionChange = (value, index) => {
-    handleWorkExperience({ target: { name: "description", value } }, index);
+    // Remove HTML tags to count actual characters
+    const plainText = value.replace(/<[^>]*>/g, "");
+
+    // Set character limit for description
+    const charLimit = 1000;
+
+    if (plainText.length <= charLimit) {
+      handleWorkExperience({ target: { name: "description", value } }, index);
+    }
+  };
+
+  const getCharacterCount = (htmlContent) => {
+    return htmlContent ? htmlContent.replace(/<[^>]*>/g, "").length : 0;
   };
 
   const handleAIAssistDescription = async (index) => {
@@ -407,16 +419,22 @@ const WorkExperience = () => {
   // };
   const handleKeyAchievement = (e, index) => {
     const newWorkExperience = [...resumeData.workExperience];
+    const value = e.target.value;
 
-    // Don't filter out empty strings - this is the key change
-    const achievements = e.target.value.split("\n");
+    // Set character limit for key achievements
+    const charLimit = 2000;
 
-    newWorkExperience[index].keyAchievements = achievements;
+    if (value.length <= charLimit) {
+      // Don't filter out empty strings - this is the key change
+      const achievements = value.split("\n");
 
-    // Optional: Track user-modified achievements separately if needed
-    setSelectedKeyAchievements(achievements); // sync with popup logic
+      newWorkExperience[index].keyAchievements = achievements;
 
-    setResumeData({ ...resumeData, workExperience: newWorkExperience });
+      // Optional: Track user-modified achievements separately if needed
+      setSelectedKeyAchievements(achievements); // sync with popup logic
+
+      setResumeData({ ...resumeData, workExperience: newWorkExperience });
+    }
   };
   const handleSummarySelect = (item) => {
     if (popupType === "description") {
@@ -863,7 +881,11 @@ const WorkExperience = () => {
                         setShowCompanyDropdown(false); // ✅ hide suggestions
                       }
                     }}
+                    maxLength={100}
                   />
+                  <div className="text-xs text-gray-500 mt-1 text-right">
+                    {experience.company?.length || 0}/100
+                  </div>
 
                   {showCompanyDropdown && companySuggestions.length > 0 && (
                     <div className="absolute z-50 w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg">
@@ -947,7 +969,7 @@ const WorkExperience = () => {
                     onChange={(e) => handleWorkExperience(e, index)}
                   /> */}
                   <input
-                    maxLength={40}
+                    maxLength={100}
                     type="text"
                     placeholder={t("builder_forms.work_experience.position")}
                     name="position"
@@ -960,6 +982,9 @@ const WorkExperience = () => {
                     onChange={(e) => handleWorkExperience(e, index)}
                     onKeyDown={(e) => handleJobTitleKeyDown(e, index)}
                   />
+                  <div className="text-xs text-gray-500 mt-1 text-right">
+                    {experience.position?.length || 0}/100
+                  </div>
 
                   {showJobTitleDropdown && jobTitleSuggestions.length > 0 && (
                     <div className="absolute z-50 w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg">
@@ -1257,7 +1282,11 @@ const WorkExperience = () => {
                         setShowLocationDropdown(false); // ✅ hide suggestions
                       }
                     }}
+                    maxLength={100}
                   />
+                  <div className="text-xs text-gray-500 mt-1 text-right">
+                    {experience.location?.length || 0}/100
+                  </div>
                   {isLoading.location && (
                     <div className="absolute right-3 top-1/2 transform translate-y-1">
                       <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-gray-900"></div>
@@ -1364,6 +1393,9 @@ const WorkExperience = () => {
                       toolbar: [["bold", "italic", "underline"], ["clean"]],
                     }}
                   />
+                  <div className="text-xs text-gray-500 mt-1 text-right">
+                    {getCharacterCount(experience.description)}/1000 characters
+                  </div>
                   {improve && hasErrors(index, "descriptionDetails") && (
                     <button
                       type="button"
@@ -1485,7 +1517,17 @@ const WorkExperience = () => {
                         : experience?.keyAchievements
                     }
                     onChange={(e) => handleKeyAchievement(e, index)}
+                    maxLength={2000}
                   />
+                  <div className="text-xs text-gray-500 mt-1 text-right">
+                    {
+                      (Array.isArray(experience?.keyAchievements)
+                        ? experience.keyAchievements.join("\n")
+                        : experience?.keyAchievements || ""
+                      ).length
+                    }
+                    /2000
+                  </div>
 
                   {improve && hasErrors(index, "keyAchievements") && (
                     <button

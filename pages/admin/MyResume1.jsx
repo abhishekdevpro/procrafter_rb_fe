@@ -166,35 +166,37 @@ const MyResume1 = () => {
         </h2>
       </div>
 
-      <div className="flex justify-center gap-4 mb-4">
-        <input
-          type="text"
-          placeholder={t("admin.customers.searchEmail")}
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="px-4 py-2 border rounded-md"
-        />
-        <input
-          type="text"
-          placeholder={t("admin.customers.searchPhone")}
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-          className="px-4 py-2 border rounded-md"
-        />
-        <select
-          value={sortOrder}
-          onChange={(e) => setSortOrder(e.target.value)}
-          className="px-4 py-2 border rounded-md"
-        >
-          <option value="asc">{t("admin.customers.ascending")}</option>
-          <option value="desc">{t("admin.customers.descending")}</option>
-        </select>
-        <button
-          onClick={handleSearch}
-          className="px-4 py-2 bg-pink-500 text-white rounded-md hover:bg-pink-600"
-        >
-          {t("admin.customers.search")}
-        </button>
+      <div className="overflow-x-auto">
+        <div className="flex justify-start gap-4 mb-4 w-max min-w-full px-2">
+          <input
+            type="text"
+            placeholder={t("admin.customers.searchEmail")}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="px-4 py-2 border rounded-md whitespace-nowrap"
+          />
+          <input
+            type="text"
+            placeholder={t("admin.customers.searchPhone")}
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            className="px-4 py-2 border rounded-md whitespace-nowrap"
+          />
+          <select
+            value={sortOrder}
+            onChange={(e) => setSortOrder(e.target.value)}
+            className="px-4 py-2 border rounded-md whitespace-nowrap"
+          >
+            <option value="asc">{t("admin.customers.ascending")}</option>
+            <option value="desc">{t("admin.customers.descending")}</option>
+          </select>
+          <button
+            onClick={handleSearch}
+            className="px-4 py-2 bg-pink-500 text-white rounded-md hover:bg-pink-600 whitespace-nowrap"
+          >
+            {t("admin.customers.search")}
+          </button>
+        </div>
       </div>
 
       <div className="overflow-x-auto">

@@ -220,7 +220,11 @@ const LetterDetails = () => {
             }
             className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder={t("letterDetails.jobTitlePlaceholder")}
+            maxLength={50}
           />
+          <div className="text-xs text-gray-500 mt-1 text-right">
+            {coverLetterData.letterDetails.jobTitle?.length || 0}/50
+          </div>
         </div>
 
         {/* Reference */}
@@ -242,7 +246,11 @@ const LetterDetails = () => {
             }
             className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder={t("letterDetails.referencePlaceholder")}
+            maxLength={50}
           />
+          <div className="text-xs text-gray-500 mt-1 text-right">
+            {coverLetterData.letterDetails.reference?.length || 0}/50
+          </div>
         </div>
 
         {/* Company Name */}
@@ -264,7 +272,11 @@ const LetterDetails = () => {
             }
             className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder={t("letterDetails.companyNamePlaceholder")}
+            maxLength={50}
           />
+          <div className="text-xs text-gray-500 mt-1 text-right">
+            {coverLetterData.letterDetails.companyName?.length || 0}/50
+          </div>
         </div>
 
         {/* Salutation */}
@@ -286,7 +298,11 @@ const LetterDetails = () => {
             }
             className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder={t("letterDetails.salutationPlaceholder")}
+            maxLength={50}
           />
+          <div className="text-xs text-gray-500 mt-1 text-right">
+            {coverLetterData.letterDetails.salutation?.length || 0}/50
+          </div>
         </div>
       </div>
     </div>
