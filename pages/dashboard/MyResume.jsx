@@ -168,18 +168,19 @@ const MyResume = () => {
   };
 
   return (
-    <div className="container mx-auto p-6 max-w-7xl">
+    <div className="container mx-auto  max-w-7xl">
       {/* Header Section */}
       <div className="flex flex-col sm:flex-row justify-between items-center mb-8">
         <h1 className="text-2xl font-bold text-gray-800">
           {t("myresume.title")}
         </h1>
         <Link href={"/dashboard/resume-builder"}>
-          <button className="flex mt-4 items-center px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-pink-600 transition-colors duration-200 font-medium shadow-sm">
+          <button className="flex items-center px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-pink-600 transition-colors duration-200 font-medium shadow-sm">
             <Plus className="w-5 h-5 mr-2" />
             {t("myresume.create_new_resume")}
           </button>
         </Link>
+        {/* <UploadResumeBtn /> */}
       </div>
 
       {/* Resume Table */}

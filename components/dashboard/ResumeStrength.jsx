@@ -43,9 +43,7 @@ const Modal = ({ isOpen, onClose, children }) => {
 
 const TooltipContent = ({ improvements, resumeId, onClose }) => {
   const [Loading, setLoading] = useState(false);
-  const [improveBy, setImproveBy] = useState(null); // Track selected improvement option
   const router = useRouter();
-  const { resumeData } = useContext(ResumeContext);
   const { t } = useTranslation();
   const { selectedLang } = useContext(ResumeContext);
   const formatItems = [
@@ -69,31 +67,16 @@ const TooltipContent = ({ improvements, resumeId, onClose }) => {
       value: improvements?.formatting?.contact_info_visible,
       description: t("formatting.contact_info_desc"),
     },
-    {
-      label: t("formatting.clear_exp"),
-      value: improvements?.formatting?.clear_experience,
-      description: t("formatting.clear_exp_desc"),
-    },
-    {
-      label: t("formatting.clear_summary"),
-      value: improvements?.formatting?.clear_summary,
-      description: t("formatting.clear_summary_desc"),
-    },
   ];
 
   const handleATS = async () => {
-    // if (!improveBy) return; // Don't proceed if no option is selected
-
     const token = localStorage.getItem("token");
 
     setLoading(true); // Ensure loading is set to true when the request starts
-    if (!resumeData.position) {
-      toast.error(t("job_title_required"));
-      return;
-    }
+
     try {
       const response = await axios.get(
-        `${BASE_URL}/api/user/ats-improve/${resumeId}?improve_by=${improveBy}&lang=${selectedLang}`,
+        `${BASE_URL}/api/user/ats-improve/${resumeId}?lang=${selectedLang}`,
         {
           headers: {
             Authorization: token,
@@ -148,18 +131,6 @@ const TooltipContent = ({ improvements, resumeId, onClose }) => {
                 </p>
               </li>
             )}
-            {improvements?.areas_for_improvement?.section_order && (
-              <li className="flex items-start gap-3">
-                <div className="w-2 h-2 mt-2 bg-blue-500 rounded-full" />
-                <p className="text-gray-700">
-                  <span className="font-bold text-black">
-                    {" "}
-                    {t("improvements.sectionOrder")}{" "}
-                  </span>
-                  {improvements.areas_for_improvement.section_order}
-                </p>
-              </li>
-            )}
           </ul>
         </div>
 
@@ -177,7 +148,7 @@ const TooltipContent = ({ improvements, resumeId, onClose }) => {
                 <div
                   className={`rounded-full p-1.5 ${
                     item.value
-                      ? "bg-purple-100 text-purple-600"
+                      ? "bg-green-100 text-green-600"
                       : "bg-red-100 text-red-600"
                   }`}
                 >
@@ -197,69 +168,14 @@ const TooltipContent = ({ improvements, resumeId, onClose }) => {
         </div>
       </div>
 
-      {/* Keywords Section */}
-      <div className="w-full flex flex-col md:flex-row justify-between items-start gap-2 md:gap-6 mt-6">
-        <div className="w-full md:w-1/2 p-4 bg-green-100 text-pink-600 rounded-lg">
-          <h4 className="font-bold text-lg">Keywords Found</h4>
-          {improvements.keywords_found?.length > 0 ? (
-            <ul className="list-disc list-inside">
-              {improvements.keywords_found.map((keyword, index) => (
-                <li key={index}>{keyword}</li>
-              ))}
-            </ul>
-          ) : (
-            <p>No missing keywords</p>
-          )}
-        </div>
-        <div className="w-full md:w-1/2 p-4 bg-red-100 text-red-700 rounded-lg">
-          <h4 className="font-bold text-lg">Keywords Missing</h4>
-          {improvements.keywords_missing?.length > 0 ? (
-            <ul className="list-disc list-inside">
-              {improvements.keywords_missing.map((keyword, index) => (
-                <li key={index}>{keyword}</li>
-              ))}
-            </ul>
-          ) : (
-            <p>No missing keywords</p>
-          )}
-        </div>
-      </div>
       {/* Overall Comments */}
       <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl p-6 mt-6 text-white">
         <h3 className="text-lg font-bold">{t("overall_comments")}</h3>
         <p>{improvements?.overall_comments}</p>
       </div>
-      {/* Improvement Option Selection */}
-      {/* <div className="flex flex-col gap-2 mt-4">
-        <h4 className="font-medium text-gray-800">
-          Select Improvement Method:
-        </h4>
-        <label className="flex items-center gap-2 text-sm text-gray-800">
-          <input
-            type="radio"
-            name="improveBy"
-            value="jobtitle"
-            checked={improveBy === "jobtitle"}
-            onChange={() => setImproveBy("jobtitle")}
-            className="text-blue-600 focus:ring-blue-500"
-          />
-          Improve by Job Title
-        </label>
-        <label className="flex items-center gap-2 text-sm text-gray-800">
-          <input
-            type="radio"
-            name="improveBy"
-            value="overall"
-            checked={improveBy === "overall"}
-            onChange={() => setImproveBy("overall")}
-            className="text-blue-600 focus:ring-blue-500"
-          />
-          Improve Overall
-        </label>
-      </div> */}
       <button
         onClick={handleATS}
-        className={`mt-6 px-6 py-2 w-full bg-purple-600 text-white rounded-lg hover:bg-pink-600 transition-colors ${
+        className={`mt-6 px-6 py-2 w-full bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors ${
           improvements.ats_score === 10 || Loading
             ? "opacity-50 cursor-not-allowed"
             : ""
@@ -267,7 +183,7 @@ const TooltipContent = ({ improvements, resumeId, onClose }) => {
         disabled={improvements.ats_score === 10 || Loading}
       >
         {Loading ? (
-          <SaveLoader loadingText={t("button.improve")} />
+          <SaveLoader loadingText="Proceed To Improve" />
         ) : (
           t("button.improve")
         )}
@@ -360,6 +276,15 @@ const ResumeStrength = ({ score, strength, resumeId }) => {
     ];
   };
 
+  // const handleImproveResume = () => {
+  //   setShowLoader(true);
+  //   setTimeout(() => {
+  //     router.push({
+  //       pathname: `/dashboard/aibuilder/${resumeId}`,
+  //       query: { improve: "true" },
+  //     });
+  //   }, 5000);
+  // };
   const handleImproveResume = async () => {
     if (!resumeId) return;
 
@@ -402,10 +327,9 @@ const ResumeStrength = ({ score, strength, resumeId }) => {
 
   const getScoreColor = (score, maxScore) => {
     const percentage = (score / maxScore) * 100;
-    if (percentage >= 50) return "bg-blue-600";
+    if (percentage >= 70) return "bg-green-500";
     return "bg-red-600";
   };
-
   return (
     <>
       {showLoader && <FullScreenLoader />}
@@ -418,14 +342,14 @@ const ResumeStrength = ({ score, strength, resumeId }) => {
       </Modal>
 
       <div className="bg-blue-50 p-6 rounded-lg mb-6">
-        {/* <div className="flex justify-between items-start mb-6">
+        <div className="flex justify-between items-start mb-6">
           <div>
             <h2 className="text-xl font-semibold mb-1">
               {" "}
               {t("resumeStrength.resumeStrength")}
             </h2>
             <div className="flex items-center gap-2">
-              <span className="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-lg font-semibold">
+              <span className="bg-teal-100 text-pink-600 px-3 py-1 rounded-full text-lg font-semibold">
                 {score}%
               </span>
             </div>
@@ -446,68 +370,23 @@ const ResumeStrength = ({ score, strength, resumeId }) => {
               <button
                 onClick={handleImproveResume}
                 disabled={!resumeId}
-                className={`px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors ${
-                  !resumeId ? "opacity-50 cursor-not-allowed" : ""
-                }`}
-              >
-                {t("resumeStrength.improveResume")}
-              </button>
-              <button
-                disabled={!resumeId}
-                onClick={() => setIsModalOpen(true)}
                 className={`px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-pink-600 transition-colors ${
                   !resumeId ? "opacity-50 cursor-not-allowed" : ""
                 }`}
               >
-                {t("resumeStrength.improveATS")}
-              </button>
-            </div>
-          </div>
-        </div> */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4 md:gap-0">
-          {/* Left Side: Score Display */}
-          <div className="w-full md:w-auto">
-            <h2 className="text-xl font-semibold mb-1">
-              {t("resumeStrength.resumeStrength")}
-            </h2>
-            <div className="flex items-center gap-2">
-              <span className="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-lg font-semibold">
-                {score}%
-              </span>
-            </div>
-          </div>
-
-          {/* Right Side: Improve Buttons */}
-          <div className="w-full md:w-auto flex flex-col items-start md:items-end">
-            <h3 className="text-xl font-semibold mb-1">
-              {t("resumeStrength.fixResume")}
-            </h3>
-            <p className="text-gray-600">
-              {t("resumeStrength.foundErrors", {
-                errors: strength.total_errors,
-              })}
-            </p>
-            <p className="text-gray-600 mb-2">{t("resumeStrength.useTool")}</p>
-
-            <div className="flex flex-col sm:flex-row gap-2 w-full md:w-auto">
-              <button
-                onClick={handleImproveResume}
-                disabled={!resumeId}
-                className={`w-full sm:w-auto px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors ${
-                  !resumeId ? "opacity-50 cursor-not-allowed" : ""
-                }`}
-              >
                 {t("resumeStrength.improveResume")}
               </button>
-              <button
-                disabled={!resumeId}
+              {/* <button
+                disabled={strength.ats_score === 10 || !resumeId}
                 onClick={() => setIsModalOpen(true)}
-                className={`w-full sm:w-auto px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-pink-600 transition-colors ${
-                  !resumeId ? "opacity-50 cursor-not-allowed" : ""
+                className={`px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-pink-600 transition-colors ${
+                  strength.ats_score === 10 || !resumeId
+                    ? "opacity-50 cursor-not-allowed"
+                    : ""
                 }`}
               >
                 {t("resumeStrength.improveATS")}
-              </button>
+              </button> */}
             </div>
           </div>
         </div>

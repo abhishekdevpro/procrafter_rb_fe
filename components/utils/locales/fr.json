@@ -72,7 +72,7 @@
                 "resume_builder": "Générateur de CV",
   "resume_description": "Pertinent pour l'automatisation et le téléchargement unique.",
   "starting_price": "À partir de",
-  "price_currency": "$",
+  "price_currency": "₹",
   "price_amount": "0",
   "feature1": "Créer des CV optimisés",
   "feature2": "Copier et coller du contenu depuis le site",
@@ -94,7 +94,7 @@
   "get_started_b": "Commencer",
   "combo_title": "Combo Français-Anglais",
   "combo_description": "Conçu par des rédacteurs de CV experts",
-  "combo_price_currency": "$",
+  "combo_price_currency": "₹",
   "combo_price_amount": "29",
   "combo_price_per_resume": "/CV",
   "feature1_c": "Créer des CV optimisés",
@@ -144,7 +144,7 @@
       "ai_resume_accuracy": "IA - Précision du CV",
       "ai_resume_enhancer": "IA - Amélioration du CV",
       "ai_job_match_apply": "IA - Correspondance et candidature aux emplois",
-      "copyright": "© Copyright By CibliJob.ca Tous droits réservés",
+      "copyright": "© Copyright By CibliJob.fr Tous droits réservés",
        "toast_success":"Abonné avec succès !"
     },
     
@@ -205,7 +205,7 @@
         
         "how_to_apply": "Comment postuler",
         "how_to_apply_description": "Si vous êtes passionné par l’aide aux autres et souhaitez faire partie d’une équipe dynamique et en pleine croissance, nous aimerions vous entendre. Pour postuler à un poste chez Cibli Job, veuillez envoyer votre CV et une lettre de motivation à",
-        "apply_email": "career@CibliJob.ca",
+        "apply_email": "career@CibliJob.in",
         
         "join_us": "Rejoignez-nous et faites la différence",
         "join_us_description": "Chez Cibli Job, vous aurez l’opportunité d’avoir un impact significatif chaque jour. Rejoignez-nous et contribuez à façonner l’avenir des chercheurs d’emploi à travers le monde. Nous avons hâte de vous accueillir dans notre équipe !",
@@ -277,7 +277,7 @@
             "childrensPrivacy": "Nos services ne sont pas destinés aux personnes de moins de 18 ans. Si un enfant fournit des données personnelles, nous les supprimerons.",
             "changesPolicy": "Nous pouvons mettre à jour cette Politique de Confidentialité. La poursuite de l'utilisation de nos services après des modifications signifie l'acceptation de la politique révisée.",
             "contactUs": "Si vous avez des questions, contactez-nous à :",
-            "email_name": "support@procraftrresumebuilder.com",
+            "email_name": "dummy@procraftr.com",
           
             
               "title": "Générateur de CV IA",
@@ -487,7 +487,7 @@
                           "title": "10. Contact",
                           "list": [
                             "Si vous avez des questions concernant ces conditions générales, veuillez nous contacter à :",
-                            "Email : support@procraftrresumebuilder.com"
+                            "Email : dummy@procraftr.com"
                           ]
                         }
                       ],
@@ -604,8 +604,8 @@
                           "professional_title": "Titre professionnel",
                           "languages": "Langues",
                           "age": "Âge",
-                          "current_salary": "Salaire actuel ($)",
-                          "expected_salary": "Salaire attendu ($)",
+                          "current_salary": "Salaire actuel (₹)",
+                          "expected_salary": "Salaire attendu (₹)",
                           "description": "Description",
                           "phone_number": "Numéro de téléphone",
                           "email": "E-mail",
@@ -1180,7 +1180,7 @@
   }
   }
                 },
-                "summaryperosnal": {
+                "summarypersonal": {
                   "sections": {
                     "personalSummary": "Résumé personnel"
                   },
@@ -1320,9 +1320,9 @@
       "feature10": "Alertes et suivi des offres d'emploi"
     },
     
-    "singlePass": {
+    "threeDays": {
       "title": "Pass Unique",
-      "price": "9.99",
+      "price": "59",
       "billingCycle":"Pass Unique",
       "bestValue": "false",
       "buttonText": "Commencer",
@@ -1338,9 +1338,9 @@
       "feature10": "Optimisation ATS"
     },
     
-    "aiProMonth": {
+    "weeklyplan": {
       "title": "AI Pro Mensuel",
-      "price": "19.99",
+      "price": "109 ",
       "billingCycle": "mois",
       "bestValue": "false",
       "buttonText": "Commencer",
@@ -1356,9 +1356,9 @@
       "feature10": "Optimisation ATS"
     },
     
-    "aiProYearly": {
+    "aiProMonth": {
       "title": "AI Pro Annuel",
-      "price": "149.99",
+      "price": "179",
       "billingCycle": "an",
       "bestValue": "true",
       "buttonText": "Commencer",
@@ -1549,7 +1549,7 @@
     "help_support": "Besoin d'aide ou envie de modifier votre abonnement?",
     "contact_us": "Contactez-nous à:",
     "phone": "📞 855-695-3235",
-    "email": "📧 customersupport@CibliJob.com",
+    "email": "📧 customersupport@CibliJob.fr",
     "availability": "Disponible 7 jours sur 7:",
     "monday_friday": "Lundi-Vendredi: 8h - 20h (CST)",
     "saturday": "Samedi: 8h - 17h (CST)",

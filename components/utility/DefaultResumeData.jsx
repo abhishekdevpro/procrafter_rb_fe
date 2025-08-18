@@ -90,32 +90,32 @@
 // export default DefaultResumeData;
 
 const DefaultResumeData = {
-  name: "Louis Moreau",
-  position: "Développeur",
-  contactInformation: "+33-6-55-10-00-00",
-  email: "louis.moreau@email.com",
-  address: "Paris, France",
+  name: "Ayesha Sen",
+  position: "Business Analyst",
+  contactInformation: "9876543210",
+  email: "ayesha.sen@example.in",
+  address: "Hyderabad, Telangana",
   profilePicture: "",
   socialMedia: [
     {
       socialMedia: "Github",
-      link: "github.com//louis-moreau",
+      link: "https://github.com/ayesha",
     },
     {
       socialMedia: "LinkedIn",
-      link: "linkedin.com/in/louis-moreau",
+      link: "https://www.linkedin.com/authwall?trk=bf&trkInfo=AQHGXj38H8c5KQAAAZebWkWQrJ0KLt1HkvcKZDv2OW9ijcBmXw44vCmodj64cqpf_1CW-zGBKN0Q3zhx4R34Uow1PI5ApV9qTgSdHnaRFz-IGwLbyTsEScDNnzzFu0bEc3e_2sU=&original_referer=&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fayesha",
     },
     {
       socialMedia: "Site Web",
-      link: "louis-moreau.github.io",
+      link: "https://ayesha.com/",
     },
   ],
   summary:
-    "Développeur ingénieux avec 11 ans d'expérience dans la conception et le développement d'interfaces utilisateur, les tests et la formation des employés. Compétent dans l'utilisation d'une grande variété d'outils et de programmes pour fournir des applications efficaces.",
+    "Analytical and detail-oriented business analyst with 5+ years of experience in IT and consulting sectors. Skilled in process optimization, stakeholder communication, and data-driven decision-making. Proficient in tools such as Power BI, Excel, and JIRA.",
   education: [
     {
-      school: "Université de Paris",
-      degree: "Licence en Informatique",
+      school: "Bachelor of Computer Science",
+      degree: "New York University",
       startYear: "2020-08-20",
       endYear: "2024-07-01",
     },
@@ -123,31 +123,31 @@ const DefaultResumeData = {
   workExperience: [
     {
       company: "Torph TTC",
-      position: "Développeur",
+      position: "Developer",
       description:
-        "Torph TTC est une entreprise de logiciels mondiale qui propose des outils de développement d'interfaces utilisateur UI et des composants pour diverses applications sur toutes les plateformes.",
+        "Torph TTC is a global software company that offers user interface UI development tools and components for a range of developer applications across all platforms.",
       keyAchievements:
-        "Créé et maintenu 10 applications web pour de nombreux clients nationaux et internationaux.\nAssuré que les interfaces utilisateur et l'expérience utilisateur des applications logicielles répondaient à au moins 80 % des attentes des utilisateurs.\nCréé et analysé 500 tests unitaires.\nDéveloppé des scripts Python pour automatiser le processus de réduction du bruit des images, réduisant le temps d'analyse des recherches de 40 %.\nÉtabli et dirigé une équipe de 10 personnes couvrant chaque rôle clé aux premières étapes.",
+        "Created and maintained 10 web applications for numerous national and foreign clients.\nEnsured that the user interfaces and user experience of the software applications developed by the team met at least 80% of users expectations.\nCreated and analyzed 500 unit test cases.\nDeveloped python scripts to automate image's noise-reduction process which helped improve research analysis time by 40%.\nEstablished and lead a team of 10 people; covering every key role in the early stages.",
       startYear: "2023-02-16",
       endYear: "2023-02-21",
     },
     {
       company: "Reilty Group",
-      position: "Développeur Front-End",
+      position: "Front End Web Developer",
       description:
-        "Reilty Group est un leader du secteur fournissant des logiciels et solutions de jeux en ligne.",
+        "Reilty Group is an industry-leading provider of online gambling software and solutions.",
       keyAchievements:
-        "Augmentation de 35 % de la portée des utilisateurs grâce à l'installation de la plateforme web sur des appareils mobiles.\nLivraison de 30 solutions web.\nRemplacement d'un développeur web à plein temps par un emploi à temps partiel, réalisant ainsi un gain de productivité de plus de 60 %.\nCollaboration avec plus de 4 équipes différentes et fourniture de solutions de bout en bout aux clients.",
+        "Increased by 35% the reach of users to the platform, over the installation of the web platform in mobile devices.\nDelivered 30 web solutions.\nReplaced 1 full-time web developer under part-time employment achieving a productivity gain of over 60% as measured by working hours.\nWorked with more than 4 different teams at different points of time and provided end-to-end solutions for clients.",
       startYear: "2023-02-22",
       endYear: "2023-03-09",
     },
     {
       company: "HellX",
-      position: "Développeur Python",
+      position: "Python Developer",
       description:
-        "Heller est un éditeur de logiciels spécialisé dans la gestion logistique.",
+        "Heller is a Software Editor specialized in logistics management.",
       keyAchievements:
-        "Développement de plusieurs systèmes d'automatisation - économisant plus de 50 000 $ par an.\nIntégration en tant que 10ᵉ employé dans l'équipe, travaillant directement avec les plus gros clients.\nDéveloppement conforme aux exigences, livraison anticipée permettant d’économiser 20 % du coût du projet.\nRéduction de la taille de la base de données de près de 50 % et amélioration de ses performances de 20 %.\nRéduction du temps de livraison des marchandises de 50 %. ",
+        "Developed several automation systems - saved over $50,000 annually.\nJoined the team as #10 employee as a developer working directly with the biggest customers.\nInvolved in coding as per the requirement, delivered well ahead of time which saved project cost by 20%.\nReduced database size by nearly 50% and improved its performance by 20%.\nDelivery time of good reduced by 50%.",
       startYear: "2023-02-22",
       endYear: "2023-03-09",
     },
@@ -155,41 +155,42 @@ const DefaultResumeData = {
   projects: [],
   skills: [
     {
-      title: "Compétences Techniques",
+      title: "Technical Skills",
       skills: [
         "JavaScript",
         "Python",
-        "Services Web",
+        "Web Services",
         "C++",
         "HTML5",
         "CSS",
         "SQL",
-        "Interface Utilisateur",
-        "Créativité",
+        "User Interface",
+        "Creativity",
       ],
     },
     {
-      title: "Compétences Interpersonnelles",
+      title: "Soft Skills",
       skills: [
         "Collaboration",
-        "Résolution de problèmes",
+        "Problem-solving",
         "Communication",
-        "Gestion du temps",
-        "Orienté résultats",
+        "Time management",
+        "Result-oriented",
       ],
     },
     {
-      title: "Compétences Additionnelles",
-      skills: ["Prise de parole en public", "Rédaction", "Recherche"],
+      title: "Additional Skills",
+      skills: ["Public Speaking", "Writing", "Research"],
     },
   ],
   languages: [
-    { language: "Français", proficiency: "Natif" },
-    { language: "Anglais", proficiency: "Intermédiaire" },
+    { language: "Hindi", proficiency: "Native" },
+    { language: "English", proficiency: "Intermediate" },
   ],
+
   certifications: [
-    "Développeur Web Certifié",
-    "Certification Professionnelle en Développement Java",
+    "Certified Web Professional-Web Developer",
+    "Java Development Certified Professional",
   ],
 };
 

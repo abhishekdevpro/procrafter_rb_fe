@@ -107,7 +107,7 @@
 
 //       if (response.status === 200) {
 //         console.log("Google sign-in token: ", response.data.data);
-//         window.location.href = response.data.data;
+//         window.open(response.data.data);
 //       } else {
 //         toast.error(t("loginpage.toast.google_failed"));
 //       }
@@ -121,8 +121,8 @@
 //       <Navbar />
 //       <div className="flex justify-center items-center h-screen w-full">
 //         <div className="p-8 rounded-xl shadow-lg shadow-slate-700 w-full max-w-lg bg-white">
-//           <div className="flex justify-center ">
-//             <Image src={logo} className="h-60  w-[240px]" alt="Logo" />
+//           <div className="flex justify-center mb-6">
+//             <Image src={logo} className="w-40 h-10" alt="Logo" />
 //           </div>
 //           <div className="text-2xl text-black text-center font-bold mb-4">
 //             {t("loginpage.welcome")}
@@ -239,7 +239,7 @@
 //                 ${
 //                   !isChecked || isLoading
 //                     ? "bg-gray-400 cursor-not-allowed "
-//                     : "bg-purple-600 hover:bg-pink-600"
+//                     : "bg-purple-600 hover:bg-[#008f6f]"
 //                 }`}
 //               disabled={!isChecked || isLoading} // Disabled when terms are not checked or loading
 //             >
@@ -271,6 +271,7 @@ import { FcGoogle } from "react-icons/fc";
 import { BASE_URL } from "../../components/Constant/constant";
 import { useTranslation } from "react-i18next";
 import { ResumeContext } from "../../components/context/ResumeContext";
+import GoogleOneTapLogin from "../../components/GoogleOneTapLogin";
 const Login2 = () => {
   const { t } = useTranslation();
   const [isThirdstepOpen, setThirdstepOpen] = useState(false);
@@ -358,10 +359,11 @@ const Login2 = () => {
   return (
     <>
       <Navbar />
+
       <div className="flex justify-center items-center h-screen w-full">
         <div className="p-8 rounded-xl shadow-lg shadow-slate-700 w-full max-w-lg bg-white">
           <div className="flex justify-center mb-6">
-            <Image src={logo} className="w-60 h-[240px]" alt="Logo" />
+            <Image src={logo} className="h-[200px]  w-[200px]" alt="Logo" />
           </div>
           <div className="text-2xl text-black text-center font-bold mb-4">
             {t("loginpage.welcome")}
@@ -403,12 +405,12 @@ const Login2 = () => {
                 name="terms"
                 checked={isChecked}
                 onChange={handleCheckboxChange}
-                className="w-4 h-4 text-pink-600 border-gray-300 rounded focus:ring-pink-600"
+                className="w-4 h-4 text-yellow-500 border-gray-300 rounded focus:ring-yellow-500"
               />
               <label htmlFor="terms" className="text-gray-700 text-sm">
                 {t("loginpage.agree_terms")}{" "}
                 <Link
-                  href="/terms&conditions"
+                  href="/TermsandConditions"
                   className="text-purple-600 underline"
                 >
                   {t("loginpage.terms_conditions")}

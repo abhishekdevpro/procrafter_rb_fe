@@ -256,7 +256,7 @@ const Summary = () => {
   };
 
   return (
-    <div className="flex-col gap-3 w-full mt-10 px-10">
+    <div className="flex-col gap-3 w-full mt-10 px-2">
       <div className="flex flex-col gap-2">
         <div className="flex justify-between mb-2 items-center">
           <div className="flex items-center gap-2">

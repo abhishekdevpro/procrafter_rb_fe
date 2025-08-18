@@ -85,7 +85,7 @@ export default function Notification() {
   return (
     <>
       <Navbar />
-      <div className="p-4 md:p-10 max-w-5xl mx-auto  bg-gradient-to-b from-white to-purple-200">
+      <div className="p-4 md:p-10 max-w-5xl mx-auto   bg-gradient-to-br from-white to-purple-200">
         <h2 className="text-2xl font-semibold mb-6">
           {t("notification.title")}
         </h2>
@@ -159,7 +159,7 @@ const ToggleSwitch = ({ label, enabled, onChange }) => {
       <button
         onClick={onChange}
         className={`relative w-12 h-6 rounded-full transition duration-300 ${
-          enabled ? "bg-pink-600" : "bg-gray-300"
+          enabled ? "bg-green-500" : "bg-gray-300"
         }`}
       >
         <span

@@ -11,6 +11,7 @@ import { toast } from "react-toastify";
 import MobileCoverLetterBuilder from "./mobile-cv-builder";
 import { BASE_URL } from "../components/Constant/constant";
 import { useTranslation } from "react-i18next";
+import FontSelector from "./FontSelector";
 import CoverLetterFontSelector from "./CoverLetterFontSelector";
 function CoverLetterBuilder() {
   const {
@@ -31,6 +32,7 @@ function CoverLetterBuilder() {
   const [selectedTemplate, setSelectedTemplate] = useState("template1");
   const [isMobile, setIsMobile] = useState(false);
   const [selectedPdfType, setSelectedPdfType] = useState("1");
+
   useEffect(() => {
     const checkIsMobile = () => {
       setIsMobile(window.innerWidth < 768); // 768px is typical tablet/mobile breakpoint
@@ -127,10 +129,13 @@ function CoverLetterBuilder() {
       },
       personalDetails: {
         name: data.personalDetails?.name || "",
+        position: data.personalDetails?.position || "",
         address: data.personalDetails?.address || "",
         email: data.personalDetails?.email || "",
         contact: data.personalDetails?.contact || "",
+        photo: data.photo || "",
       },
+      photo: data.photo || "",
     };
   };
 
@@ -277,12 +282,11 @@ function CoverLetterBuilder() {
           {/* Main Content */}
           <div className=" bg-gray-50 ">
             {/* Sticky Options Bar */}
-            <div className="sticky top-[64px] z-40 bg-gray-200 p-4 shadow-sm">
+            <div className="sticky top-[64px] z-20 bg-gray-200 p-4 shadow-sm">
               <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
                 {/* Font Selector and Options */}
                 <div className="flex items-center gap-4">
                   <CoverLetterFontSelector />
-
                   <ColorPickers
                     selectmultiplecolor={backgroundColorss}
                     onChange={setBgColor}
@@ -299,13 +303,13 @@ function CoverLetterBuilder() {
                 <div className="flex gap-4">
                   <button
                     onClick={handleFinish}
-                    className="bg-purple-600 hover:bg-pink-600 text-white px-6 py-2 rounded-lg"
+                    className="bg-blue-950 text-white px-6 py-2 rounded-lg"
                   >
                     {t("cvBuilder.save")}
                   </button>
                   <button
                     onClick={downloadAsPDF}
-                    className="bg-pink-600 text-white px-6 py-2 rounded-lg  hover:bg-purple-600"
+                    className="bg-yellow-500 text-black px-6 py-2 rounded-lg"
                   >
                     {t("cvBuilder.download")}
                   </button>

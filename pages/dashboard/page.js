@@ -23,11 +23,14 @@ export default function DashboardPage() {
         <div className="w-full shadow-md">
           <ProfilePage />
         </div>
-        <div className="flex flex-1 w-full  mt-4 bg-white shadow-md rounded-lg overflow-hidden">
+        <div className="flex flex-1 w-full  mt-4 bg-white shadow-md rounded-lg overflow-hidden relative">
           {/* Hamburger icon for mobile view */}
-          <div className="md:hidden">
-            <button onClick={toggleSidebar} className="p-4 focus:outline-none">
-              <FaBars className="text-2xl" />
+          <div className="md:hidden absolute top-2 left-2 z-10">
+            <button
+              onClick={toggleSidebar}
+              className="p-2 focus:outline-none bg-white rounded shadow-md"
+            >
+              <FaBars className="text-xl" />
             </button>
           </div>
 

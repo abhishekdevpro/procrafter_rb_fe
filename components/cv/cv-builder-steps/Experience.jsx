@@ -12,10 +12,10 @@ export default function ExperienceStep({ onNext, onChange, value, onBack }) {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-pink-200 flex flex-col">
+    <div className="min-h-screen  bg-gradient-to-br from-white to-purple-200 flex flex-col">
       <main className="flex-1 flex flex-col items-center justify-center px-4 py-12">
         <div className="max-w-xl text-center">
-          <h1 className="text-3xl md:text-4xl font-bold text-pink-600 mb-4">
+          <h1 className="text-3xl md:text-4xl font-bold text-purple-600 mb-4">
             {t("experienceStep.title")}
           </h1>
           <p className="text-md md:text-lg text-[#4b5563] mb-10">
@@ -34,7 +34,7 @@ export default function ExperienceStep({ onNext, onChange, value, onBack }) {
               className={`w-full p-6 text-left rounded-xl border-2 flex items-center justify-between text-purple-600 font-semibold transition-all${
                 value === exp.id
                   ? "border-purple-600 bg-[#e6f0f5]"
-                  : "border-[#e5e7eb] hover:border-pink-600"
+                  : "border-[#e5e7eb] hover:border-purple-600"
               }`}
             >
               {exp.label}

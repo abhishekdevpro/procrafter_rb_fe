@@ -1,17 +1,15 @@
 import React from "react";
 import Footer from "../Footer/Footer";
-import Navbar from "../Navbar/Navbar";
 
 function Navbarcontent() {
   return (
     <div>
-      <Navbar />
       <div className="m-4 sm:mx-10 lg:mx-40 p-4 sm:p-6 shadow-2xl">
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold my-4 underline">
           AI Resume Builder
         </h1>
         <p className="text-base sm:text-lg">
-          AI Resume Builder on CibliJob.com offers a seamless way to craft
+          AI Resume Builder on ProCraftr.com offers a seamless way to craft
           professional resumes tailored to specific job roles. Leveraging
           advanced AI algorithms, it guides users through every step, ensuring
           optimal formatting, keyword optimization, and personalized content.

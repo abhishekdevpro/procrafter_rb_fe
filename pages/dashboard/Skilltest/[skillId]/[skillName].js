@@ -299,7 +299,7 @@ const Testpaper = () => {
                   </button>
                   {currentQuestionIndex === questions.length - 1 ? (
                     <button
-                      className="p-2 bg-pink-600 rounded-md text-white hover:bg-pink-600"
+                      className="p-2 bg-green-500 rounded-md text-white hover:bg-green-700"
                       onClick={handleSubmit}
                     >
                       {t("testPaper.submit")}

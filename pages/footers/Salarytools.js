@@ -7,9 +7,9 @@
 //     <div>
 //       <Navbar />
 //       <div className="m-4 sm:mx-10 lg:mx-40 p-4 sm:p-6 shadow-2xl">
-//         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold my-4 underline">
+//         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold my-4 underline">
 //           Salary Tools
-//         </h2>
+//         </h1>
 
 //         <h2 className="text-xl sm:text-2xl font-semibold my-2 mt-5">
 //           Salary Tools for Job Seekers
@@ -20,7 +20,7 @@
 
 //         <p className="text-base sm:text-lg">
 //           Understanding your market value and negotiating your salary are
-//           crucial steps in your job search and career advancement. At Cibli Job,
+//           crucial steps in your job search and career advancement. At ProCraftr,
 //           we provide access to a variety of salary tools and resources that
 //           empower you to make informed decisions about your compensation. These
 //           tools help you research industry standards, evaluate job offers, and
@@ -79,7 +79,7 @@
 //         </p>
 
 //         <h2 className="text-xl sm:text-2xl font-semibold my-2 mt-5">
-//           How Cibli Job Can Help
+//           How ProCraftr Can Help
 //         </h2>
 
 //         <h3 className="text-xl sm:text-2xl font-semibold my-2 mt-5">
@@ -98,7 +98,7 @@
 //           Exclusive Resources
 //         </h3>
 //         <p className="text-base sm:text-lg">
-//           As a Cibli Job client, you’ll gain access to exclusive resources,
+//           As a ProCraftr client, you’ll gain access to exclusive resources,
 //           including industry reports, salary surveys, and negotiation workshops.
 //           Our comprehensive toolkit ensures that you have all the information
 //           and skills needed to advocate for yourself effectively.
@@ -109,7 +109,7 @@
 //         </h3>
 //         <p className="text-base sm:text-lg">
 //           Don’t leave your salary to chance. Take control of your career and
-//           maximize your earning potential with the help of Cibli Job’s salary
+//           maximize your earning potential with the help of ProCraftr’s salary
 //           tools and resources. Contact us today to learn more about how we can
 //           support you in your job search and salary negotiations.
 //         </p>
@@ -133,9 +133,9 @@ function Salarytools() {
     <div>
       <Navbar />
       <div className="m-4 sm:mx-10 lg:mx-40 p-4 sm:p-6 shadow-2xl">
-        <h2 className="text-4xl font-semibold my-4 underline text-center">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold my-4 underline">
           {t("salary_tools_title")}
-        </h2>
+        </h1>
 
         <h2 className="text-xl sm:text-2xl font-semibold my-2 mt-5">
           {t("salary_tools_for_job_seekers")}

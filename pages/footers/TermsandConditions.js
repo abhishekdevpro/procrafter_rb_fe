@@ -176,8 +176,8 @@
 //           conditions, please contact us at:
 //           <br />
 //           Email:{" "}
-//           <a href="mailto:support@procraftrresumebuilder.com" className="text-blue-500">
-//             support@procraftrresumebuilder.com
+//           <a href="mailto:dummy@procraftr.com" className="text-blue-500">
+//             dummy@procraftr.com
 //           </a>
 //         </p>
 
@@ -219,8 +219,8 @@
 //           {t.contact}:
 //           <br />
 //           Email:{" "}
-//           <a href="mailto:support@procraftrresumebuilder.com" className="text-blue-500">
-//             support@procraftrresumebuilder.com
+//           <a href="mailto:dummy@procraftr.com" className="text-blue-500">
+//             dummy@procraftr.com
 //           </a>
 //         </p>
 //       </div>
@@ -265,13 +265,9 @@ function TermsandConditions() {
         <p className="text-base sm:text-lg mt-5">{termsData.closing}</p>
         <p className="text-base sm:text-lg">
           {/* {termsData.contact}: */}
-          {/* <br /> */}
           Email:{" "}
-          <a
-            href="mailto:support@procraftrresumebuilder.com"
-            className="text-blue-500"
-          >
-            support@procraftrresumebuilder.com
+          <a href="mailto:dummy@procraftr.com" className="text-blue-500">
+            dummy@procraftr.com
           </a>
         </p>
       </div>

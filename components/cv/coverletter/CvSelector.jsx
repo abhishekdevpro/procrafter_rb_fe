@@ -98,7 +98,7 @@ const TemplateSelector = ({
     <div className="font-sans">
       <button
         onClick={openModal}
-        className="hidden md:block rounded-lg border-2 m-2 border-pink-600 px-5 py-2 font-bold bg-white text-black"
+        className="hidden md:block rounded-lg border-2 m-2 border-green-500 px-5 py-2 font-bold bg-white text-black"
       >
         <span>
           {t("templateSelector.selectedTemplate", {
@@ -149,8 +149,8 @@ const TemplateSelector = ({
                     <div
                       className={`rounded-xl p-2 border-2 transition-colors duration-300 ${
                         isSelected
-                          ? "border-pink-600 bg-pink-100"
-                          : "border-transparent hover:border-pink-300"
+                          ? "border-purple-600 bg-teal-100"
+                          : "border-transparent hover:border-teal-300"
                       }`}
                     >
                       <div className="relative w-full aspect-[3/4] overflow-hidden rounded-lg shadow-md">
@@ -161,16 +161,18 @@ const TemplateSelector = ({
                           className="object-fill"
                         />
                         {isDisabled && (
-                          <div className="absolute inset-0 bg-black bg-opacity-60 text-white text-sm font-semibold flex items-center justify-center rounded-lg">
-                            🔒 Upgrade to use
-                          </div>
+                          <Link href={"/payment"}>
+                            <div className="absolute inset-0 bg-black bg-opacity-60 text-white text-sm font-semibold flex items-center justify-center rounded-lg">
+                              🔒 Upgrade to use
+                            </div>
+                          </Link>
                         )}
                       </div>
                       <div
                         className={`mt-2 text-center py-2 px-4 rounded-md transition-colors duration-300 ${
                           isSelected
-                            ? "bg-pink-600 text-white font-semibold"
-                            : "text-gray-600 group-hover:text-pink-600"
+                            ? "bg-purple-600 text-white font-semibold"
+                            : "text-gray-600 group-hover:text-purple-600"
                         }`}
                       >
                         {template.key}
@@ -183,7 +185,7 @@ const TemplateSelector = ({
               {isBasicUser && (
                 <div className="text-center mt-6">
                   <Link href={"/payment"}>
-                    <button className="bg-pink-600 hover:bg-pink-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition">
+                    <button className="bg-purple-600 hover:bg-purple-600 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition">
                       Upgrade Your Plan to Unlock All Templates
                     </button>
                   </Link>
@@ -193,7 +195,7 @@ const TemplateSelector = ({
 
             <button
               onClick={closeModal}
-              className="w-full mt-4 sm:w-auto px-6 py-2.5 bg-purple-600 text-white font-semibold rounded-lg hover:bg-pink-600 transition-colors duration-200 flex items-center justify-center mx-auto"
+              className="w-full mt-4 sm:w-auto px-6 py-2.5 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-700 transition-colors duration-200 flex items-center justify-center mx-auto"
             >
               {t("templateSelector.closeButton")}
             </button>

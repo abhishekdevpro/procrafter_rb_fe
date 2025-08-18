@@ -6,7 +6,6 @@ import Navbar from "./Navbar/Navbar";
 import ColorPickers from "./ColorPickers";
 import CoverLetterPreview from "../components/cv/coverletter/CoverLetterPreview";
 import { useTranslation } from "react-i18next";
-import CoverLetterFontSelector from "./CoverLetterFontSelector";
 
 const MobileCoverLetterBuilder = ({
   selectedFont,
@@ -58,7 +57,17 @@ const MobileCoverLetterBuilder = ({
           <div className="sticky top-[64px] z-40 bg-gray-200 p-4 shadow-sm">
             <div className="flex items-center absolute justify-center gap-2 p-2  top-26 left-0 right-0 bg-white shadow-lg ">
               {/* Font Selector */}
-              <CoverLetterFontSelector />
+              <select
+                value={selectedFont}
+                onChange={handleFontChange}
+                className=" h-10 rounded-lg border border-green-500 px-4 font-bold text-black bg-white"
+              >
+                <option value="Ubuntu">Ubuntu</option>
+                <option value="Calibri">Calibri</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Roboto">Roboto</option>
+                <option value="Poppins">Poppins</option>
+              </select>
 
               {/* Color Picker */}
               <ColorPickers
@@ -96,7 +105,7 @@ const MobileCoverLetterBuilder = ({
             </button>
             <button
               onClick={handleFinish}
-              className="w-full flex items-center justify-center gap-2 bg-pink-600 text-white px-6 py-3 rounded-lg"
+              className="w-full flex items-center justify-center gap-2 bg-[#369984] text-white px-6 py-3 rounded-lg"
             >
               <Save size={20} />
               {/* Save Cover Letter */}

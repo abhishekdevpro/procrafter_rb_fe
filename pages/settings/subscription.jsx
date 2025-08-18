@@ -199,7 +199,7 @@ export default function Subscription() {
   return (
     <>
       <Navbar />
-      <div className="p-4 md:p-10 max-w-5xl mx-auto  bg-gradient-to-b from-white to-purple-200">
+      <div className="p-4 md:p-10 max-w-5xl mx-auto   bg-gradient-to-br from-white to-purple-200">
         <h2 className="text-2xl font-semibold mb-6">
           {t("subscription.title")}
         </h2>
@@ -227,7 +227,7 @@ export default function Subscription() {
                     {t("subscription.contact_us")}
                   </p>
                   <ul className="list-disc ml-5 text-gray-700">
-                    <li>{t("subscription.phone")}</li>
+                    {/* <li>{t("subscription.phone")}</li> */}
                     <li className="text-[15px]">{t("subscription.email")}</li>
                   </ul>
                 </div>
@@ -241,8 +241,8 @@ export default function Subscription() {
                   </p>
                   <ul className="list-disc ml-5 text-gray-700">
                     <li>{t("subscription.monday_friday")}</li>
-                    <li>{t("subscription.saturday")}</li>
-                    <li>{t("subscription.sunday")}</li>
+                    {/* <li>{t("subscription.saturday")}</li>
+                    <li>{t("subscription.sunday")}</li> */}
                   </ul>
                 </div>
               </div>
@@ -267,7 +267,7 @@ export default function Subscription() {
                     Status:{" "}
                     <span
                       className={`font-medium ${
-                        status === "Active" ? "text-purple-600" : "text-red-600"
+                        status === "Active" ? "text-green-600" : "text-red-600"
                       }`}
                     >
                       {status}
@@ -347,9 +347,9 @@ export default function Subscription() {
                   {userData?.plan_id ? (
                     <span className="font-medium">
                       {userData.plan_id === 1 && "Free Plan"}
-                      {userData.plan_id === 2 && "Single Pass"}
-                      {userData.plan_id === 3 && "AI Pro Month"}
-                      {userData.plan_id === 4 && "AI Pro Yearly"}
+                      {userData.plan_id === 2 && "3 Days"}
+                      {userData.plan_id === 3 && "7 Days"}
+                      {userData.plan_id === 4 && "1 Month"}
                     </span>
                   ) : (
                     "N/A"
@@ -357,7 +357,7 @@ export default function Subscription() {
                 </p>
                 <p className="mt-4 text-gray-700">
                   {t("subscription.more_info")}{" "}
-                  <a href="mailto:customersupport@procrafter.com.">
+                  <a href="mailto:customerdummy@procraftr.com">
                     <span className="text-purple-600 cursor-pointer">
                       {t("subscription.email")}
                     </span>

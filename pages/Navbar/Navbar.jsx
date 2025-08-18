@@ -219,7 +219,7 @@
 //                   <img
 //                     src={
 //                       photo
-//                         ? `https://api.procraftrresumebuilder.com${photo}`
+//                         ? `https://api.createmyresume.in${photo}`
 //                         : "https://img.freepik.com/premium-vector/businessman-avatar-illustration-cartoon-user-portrait-user-profile-icon_118339-4382.jpg"
 //                     }
 //                     alt="User"
@@ -485,6 +485,7 @@ import { BASE_URL } from "../../components/Constant/constant";
 import CibliJobId from "./CibliJobId";
 import { useTranslation } from "react-i18next";
 import { ResumeContext } from "../../components/context/ResumeContext";
+import { Home } from "lucide-react";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -647,10 +648,16 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0 flex items-center">
             <Link href="/">
-              <Image src={logo} alt="logo" className="h-60  w-[240px]" />
+              <Image src={logo} alt="logo" className="h-[200px]  w-[200px]" />
             </Link>
           </div>
           <div className="hidden md:flex justify-center items-center space-x-4">
+            <Link
+              href="/"
+              className="text-black hover:text-purple-600 px-3 py-2 rounded-md text-lg font-semibold"
+            >
+              <Home size={20} />
+            </Link>
             {isLoggedIn ? (
               <div>
                 <Link
@@ -689,7 +696,7 @@ const Navbar = () => {
               {t("jobs")}
             </Link>
             <Link
-              href="https://blog.procraftrresumebuilder.com/"
+              href=""
               className="text-black hover:text-purple-600 px-3 py-2 rounded-md text-lg font-semibold"
             >
               {t("resources")}
@@ -714,7 +721,7 @@ const Navbar = () => {
                   <img
                     src={
                       photo
-                        ? `https://api.procraftrresumebuilder.com${photo}`
+                        ? `https://api.createmyresume.in${photo}`
                         : "https://img.freepik.com/premium-vector/businessman-avatar-illustration-cartoon-user-portrait-user-profile-icon_118339-4382.jpg"
                     }
                     alt="User"
@@ -825,6 +832,12 @@ const Navbar = () => {
           <div className="md:hidden absolute top-16 left-0 right-0 bg-white shadow-lg z-50">
             <div className="px-2 pt-2 pb-3 space-y-1">
               <Link
+                href="/"
+                className="text-black hover:text-purple-600 block px-3 py-2 rounded-md text-base font-semibold"
+              >
+                <Home size={20} />
+              </Link>
+              <Link
                 href="/dashboard/myjobs"
                 className="text-black hover:text-purple-600 block px-3 py-2 rounded-md text-base font-semibold"
               >
@@ -837,7 +850,7 @@ const Navbar = () => {
                 {t("ai_resume_builder")}
               </Link>
               <Link
-                href="https://blog.procraftrresumebuilder.com/"
+                href=""
                 className="text-black hover:text-purple-600 block px-3 py-2 rounded-md text-base font-semibold"
               >
                 {t("resources")}

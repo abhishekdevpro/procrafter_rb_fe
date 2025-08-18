@@ -13,27 +13,32 @@ const ContactUs = () => {
   });
   const { selectedLang } = useContext(ResumeContext);
   const [error, setError] = useState("");
-  const [errors, setErrors] = useState({});
   const [successMessage, setSuccessMessage] = useState("");
-  const { t } = useTranslation();
+  const [fieldErrors, setFieldErrors] = useState({});
+  const [apiError, setApiError] = useState("");
 
+  const { t } = useTranslation();
+  // const handleInputChange = (e) => {
+  //   const { name, value } = e.target;
+  //   // setFormData({ ...formData, [name]: value });
+  //   setFormData((prev) => ({
+  //     ...prev,
+  //     [name]: value,
+  //   }));
+  // };
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
     if (name === "phone") {
-      // Allow only numbers, limit to 10 digits
-      const numericValue = value.replace(/\D/g, "").slice(0, 10);
+      // Allow only digits
+      const numericValue = value.replace(/\D/g, "");
       setFormData((prev) => ({ ...prev, [name]: numericValue }));
     } else {
       setFormData((prev) => ({ ...prev, [name]: value }));
     }
-
-    // Clear field-level error
-    setErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const validate = () => {
     const newErrors = {};
 
     if (!formData.name.trim()) {
@@ -41,27 +46,36 @@ const ContactUs = () => {
     }
 
     if (!formData.phone.trim()) {
-      newErrors.phone = "Phone number is required";
-    } else if (!/^[0-9]{10}$/.test(formData.phone)) {
-      newErrors.phone = "Phone must be 10 digits";
+      newErrors.phone = "Phone is required";
+    } else if (!/^[0-9]{7,15}$/.test(formData.phone)) {
+      newErrors.phone = "Enter a valid phone number (7–15 digits)";
     }
 
     if (!formData.email.trim()) {
       newErrors.email = "Email is required";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Invalid email format";
+    } else if (
+      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formData.email)
+    ) {
+      newErrors.email = "Enter a valid email address";
     }
 
     if (!formData.remark.trim()) {
       newErrors.remark = "Remark is required";
     }
 
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
-      setError("Please fix the errors above");
+    return newErrors;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const validationErrors = validate();
+    if (Object.keys(validationErrors).length > 0) {
+      setFieldErrors(validationErrors);
+      setApiError("");
+      setSuccessMessage("");
       return;
     }
-    setErrors({});
     setError("");
     setSuccessMessage("");
 
@@ -94,7 +108,7 @@ const ContactUs = () => {
           {t("getintouch")}
         </h2>
         <p className="text-center mb-8 sm:mb-12">{t("contact_paragraph")}</p>
-        {/* <div className="flex flex-col md:flex-row items-center justify-center gap-8 border border-pink-600 ">
+        {/* <div className="flex flex-col md:flex-row items-center justify-center gap-8 border border-green-500 ">
           <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg p-6 ">
             <div className="flex items-center mb-4">
               <div className="text-3xl">✉</div>
@@ -194,8 +208,8 @@ const ContactUs = () => {
                     />
                   </div>
                   {error && <p className="text-red-500 mb-2">{error}</p>}
-                  {successMessage && <p className="text-pink-600 mb-2">{successMessage}</p>}
-                  <button type="submit" className="bg-purple-600 text-white px-4 py-2 rounded-lg">
+                  {successMessage && <p className="text-green-500 mb-2">{successMessage}</p>}
+                  <button type="submit" className="bg-green-400 text-white px-4 py-2 rounded-lg">
                     Send
                   </button>
                 </form>
@@ -253,15 +267,16 @@ const ContactUs = () => {
               {t("we_are_here")}
             </p>
             <p className="text-slate-600 font-light mb-4 text-sm">
-              {t("contact_anytime")}
+              {t("contact_anytime")} -{" "}
+              <span className="font-bold">&quot;Dummy&quot;</span>
             </p>
             <div>
               <button className="border px-3 py-2 rounded-lg">
                 <a
-                  href="mailto:support@procraftrresumebuilder.com"
+                  href="mailto:dummy@procraftr.com"
                   className="text-slate-800 font-semibold text-sm hover:underline flex items-center"
                 >
-                  support@procraftrresumebuilder.com
+                  dummy@procraftr.com
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="ml-2 h-4 w-4"
@@ -296,7 +311,9 @@ const ContactUs = () => {
             </p>
             <button
               className="border px-3 py-2 rounded-lg"
-              onClick={() => setIsFormVisible(!isFormVisible)}
+              onClick={() =>
+                window.open("https://wa.me/", "_blank", "noopener,noreferrer")
+              }
             >
               <span className="text-slate-800 font-semibold text-sm hover:underline flex items-center">
                 {t("chat")}
@@ -319,71 +336,7 @@ const ContactUs = () => {
 
             {isFormVisible && (
               <div className="bg-white shadow-md border rounded-lg p-6 w-full mt-4 z-10">
-                {/* <form onSubmit={handleSubmit}>
-                  <div className="mb-4">
-                    <label className="block text-sm font-semibold mb-1">
-                      {t("form.name")}
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      className="w-full border px-2 py-1 rounded-lg"
-                      required
-                    />
-                  </div>
-                  <div className="mb-4">
-                    <label className="block text-sm font-semibold mb-1">
-                      {t("form.phone")}
-                    </label>
-                    <input
-                      type="text"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      className="w-full border px-2 py-1 rounded-lg"
-                      required
-                    />
-                  </div>
-                  <div className="mb-4">
-                    <label className="block text-sm font-semibold mb-1">
-                      {t("form.email")}
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      className="w-full border px-2 py-1 rounded-lg"
-                      required
-                    />
-                  </div>
-                  <div className="mb-4">
-                    <label className="block text-sm font-semibold mb-1">
-                      {t("form.remark")}
-                    </label>
-                    <textarea
-                      name="remark"
-                      value={formData.remark}
-                      onChange={handleInputChange}
-                      className="w-full border px-2 py-1 rounded-lg"
-                      required
-                    />
-                  </div>
-                  {error && <p className="text-red-500 mb-2">{error}</p>}
-                  {successMessage && (
-                    <p className="text-pink-600 mb-2">{successMessage}</p>
-                  )}
-                  <button
-                    type="submit"
-                    className="bg-purple-600 text-white px-4 py-2 rounded-lg"
-                  >
-                    {t("form.send")}
-                  </button>
-                </form> */}
                 <form onSubmit={handleSubmit}>
-                  {/* Name Field */}
                   <div className="mb-4">
                     <label className="block text-sm font-semibold mb-1">
                       {t("form.name")}
@@ -394,30 +347,31 @@ const ContactUs = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       className="w-full border px-2 py-1 rounded-lg"
+                      required
                     />
-                    {errors.name && (
-                      <p className="text-red-500 text-sm">{errors.name}</p>
+                    {fieldErrors.name && (
+                      <p className="text-red-500 text-sm">{fieldErrors.name}</p>
                     )}
                   </div>
 
-                  {/* Phone Field */}
                   <div className="mb-4">
                     <label className="block text-sm font-semibold mb-1">
                       {t("form.phone")}
                     </label>
                     <input
-                      type="text"
+                      type="tel"
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
                       className="w-full border px-2 py-1 rounded-lg"
+                      required
                     />
-                    {errors.phone && (
-                      <p className="text-red-500 text-sm">{errors.phone}</p>
+                    {fieldErrors.phone && (
+                      <p className="text-red-500 text-sm">
+                        {fieldErrors.phone}
+                      </p>
                     )}
                   </div>
-
-                  {/* Email Field */}
                   <div className="mb-4">
                     <label className="block text-sm font-semibold mb-1">
                       {t("form.email")}
@@ -428,13 +382,14 @@ const ContactUs = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       className="w-full border px-2 py-1 rounded-lg"
+                      required
                     />
-                    {errors.email && (
-                      <p className="text-red-500 text-sm">{errors.email}</p>
+                    {fieldErrors.email && (
+                      <p className="text-red-500 text-sm">
+                        {fieldErrors.email}
+                      </p>
                     )}
                   </div>
-
-                  {/* Remark Field */}
                   <div className="mb-4">
                     <label className="block text-sm font-semibold mb-1">
                       {t("form.remark")}
@@ -444,22 +399,21 @@ const ContactUs = () => {
                       value={formData.remark}
                       onChange={handleInputChange}
                       className="w-full border px-2 py-1 rounded-lg"
+                      required
                     />
-                    {errors.remark && (
-                      <p className="text-red-500 text-sm">{errors.remark}</p>
+                    {fieldErrors.remark && (
+                      <p className="text-red-500 text-sm">
+                        {fieldErrors.remark}
+                      </p>
                     )}
                   </div>
-
-                  {/* Global Error or Success */}
                   {error && <p className="text-red-500 mb-2">{error}</p>}
                   {successMessage && (
-                    <p className="text-green-600 mb-2">{successMessage}</p>
+                    <p className="text-green-500 mb-2">{successMessage}</p>
                   )}
-
-                  {/* Submit Button */}
                   <button
                     type="submit"
-                    className="bg-purple-600 text-white px-4 py-2 rounded-lg"
+                    className="bg-green-400 text-white px-4 py-2 rounded-lg"
                   >
                     {t("form.send")}
                   </button>

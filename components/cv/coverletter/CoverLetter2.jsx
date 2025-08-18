@@ -8,7 +8,7 @@ import IntroductionBodyWrapper from "./IntroductionBodyWrapper";
 import SocialInfo from "./SocialInfo";
 import ImageWrapper from "./ImageWrapper";
 
-const CoverLetter2 = () => {
+const CoverLetter3 = () => {
   const { coverLetterData, backgroundColorss, selectedFont } =
     useContext(CoverLetterContext);
 
@@ -83,4 +83,4 @@ const CoverLetter2 = () => {
   );
 };
 
-export default CoverLetter2;
+export default CoverLetter3;

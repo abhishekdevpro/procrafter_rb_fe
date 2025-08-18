@@ -8,7 +8,6 @@ import axios from "axios";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 import "react-quill/dist/quill.snow.css";
-import { BASE_URL } from "../../Constant/constant";
 
 const IntroductionAndBodyForm = () => {
   const { t } = useTranslation();
@@ -24,23 +23,11 @@ const IntroductionAndBodyForm = () => {
   });
 
   const handleBodyChange = (index, value) => {
-    // Remove HTML tags to count actual characters
-    const plainText = value.replace(/<[^>]*>/g, "");
-
-    // Set character limits for each section
-    const charLimits = [500, 800, 600]; // Introduction, Body, Conclusion
-
-    if (plainText.length <= charLimits[index]) {
-      setCoverLetterData((prevData) => {
-        const updatedBody = [...prevData.body];
-        updatedBody[index] = value;
-        return { ...prevData, body: updatedBody };
-      });
-    }
-  };
-
-  const getCharacterCount = (htmlContent) => {
-    return htmlContent ? htmlContent.replace(/<[^>]*>/g, "").length : 0;
+    setCoverLetterData((prevData) => {
+      const updatedBody = [...prevData.body];
+      updatedBody[index] = value;
+      return { ...prevData, body: updatedBody };
+    });
   };
 
   const handleAIAssist = async (index) => {
@@ -55,7 +42,8 @@ const IntroductionAndBodyForm = () => {
     let payload = {};
 
     if (index === 0) {
-      endpoint = `${BASE_URL}/api/user/aisummery-section1-coverletter`;
+      endpoint =
+        "https://api.createmyresume.in/api/user/aisummery-section1-coverletter";
       payload = {
         name: personalDetails.name,
         target_role: personalDetails.position,
@@ -63,12 +51,14 @@ const IntroductionAndBodyForm = () => {
         location: personalDetails.address,
       };
     } else if (index === 1) {
-      endpoint = `${BASE_URL}/api/user/aisummery-section2-coverletter`;
+      endpoint =
+        "https://api.createmyresume.in/api/user/aisummery-section2-coverletter";
       payload = {
         target_role: personalDetails.position,
       };
     } else if (index === 2) {
-      endpoint = `${BASE_URL}/api/user/aisummery-section3-coverletter`;
+      endpoint =
+        "https://api.createmyresume.in/api/user/aisummery-section3-coverletter";
       payload = {
         name: personalDetails.name,
         target_role: personalDetails.position,
@@ -136,46 +126,29 @@ const IntroductionAndBodyForm = () => {
         {t("coverLetterSection.title")}
       </h2>
 
-      {sectionTitles.map((title, index) => {
-        const charLimits = [500, 800, 600]; // Introduction, Body, Conclusion
-        const currentCount = getCharacterCount(
-          coverLetterData.body[index] || ""
-        );
-        const isOverLimit = currentCount > charLimits[index];
-
-        return (
-          <div key={index} className="mb-6">
-            <div className="flex items-center justify-between mb-2">
-              <label className="block text-black font-medium">{title}</label>
-              <button
-                onClick={() => handleAIAssist(index)}
-                className=" p-2 text-white bg-black rounded-lg text-sm mb-2"
-                type="button"
-              >
-                ✙ {t("coverLetterSection.aiAssist", { sectionTitle: title })}
-              </button>
-            </div>
-
-            <ReactQuill
-              value={coverLetterData.body[index] || ""}
-              onChange={(value) => handleBodyChange(index, value)}
-              theme="snow"
-              placeholder={t("coverLetterSection.placeholder", {
-                sectionTitle: title,
-              })}
-            />
-
-            <div
-              className={`text-xs mt-1 text-right ${
-                isOverLimit ? "text-red-500" : "text-gray-500"
-              }`}
+      {sectionTitles.map((title, index) => (
+        <div key={index} className="mb-6">
+          <div className="flex items-center justify-between gap-4 mb-2">
+            <label className="block text-black font-medium">{title}</label>
+            <button
+              onClick={() => handleAIAssist(index)}
+              className=" p-2 text-white bg-black rounded-lg text-sm mb-2"
+              type="button"
             >
-              {currentCount}/{charLimits[index]} characters
-              {isOverLimit && <span className="ml-2">(Over limit!)</span>}
-            </div>
+              ✙ {t("coverLetterSection.aiAssist", { sectionTitle: title })}
+            </button>
           </div>
-        );
-      })}
+
+          <ReactQuill
+            value={coverLetterData.body[index] || ""}
+            onChange={(value) => handleBodyChange(index, value)}
+            theme="snow"
+            placeholder={t("coverLetterSection.placeholder", {
+              sectionTitle: title,
+            })}
+          />
+        </div>
+      ))}
       {/* Popup Modal */}
       {popupVisible && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60">
@@ -199,6 +172,7 @@ const IntroductionAndBodyForm = () => {
                   checked={selectedSuggestionIndex === idx}
                   onChange={() => setSelectedSuggestionIndex(idx)}
                   className="mt-1"
+                  maxLength={500}
                 />
                 <span className="whitespace-pre-line">{text}</span>
               </label>

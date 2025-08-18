@@ -147,7 +147,7 @@ const FAQ = () => {
 
   return (
     <div id="faq" className=" bg-gray-100">
-        <ContactUs />
+      <ContactUs />
     </div>
   );
 };

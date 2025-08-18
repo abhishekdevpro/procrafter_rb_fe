@@ -29,10 +29,10 @@
 // };
 
 // export default FAQSection;
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const FAQSection = () => {
   const { t } = useTranslation();
@@ -40,10 +40,10 @@ const FAQSection = () => {
   const [activeIndex, setActiveIndex] = useState(null); // Track the active FAQ index
 
   const faqs = [
-    { question: t('faq.question1'), answer: t('faq.answer1') },
-    { question: t('faq.question2'), answer: t('faq.answer2') },
-    { question: t('faq.question3'), answer: t('faq.answer3') },
-    { question: t('faq.question4'), answer: t('faq.answer4') },
+    // { question: t('faq.question1'), answer: t('faq.answer1') },
+    // { question: t("faq.question2"), answer: t("faq.answer2") },
+    { question: t("faq.question3"), answer: t("faq.answer3") },
+    { question: t("faq.question4"), answer: t("faq.answer4") },
   ];
 
   const handleToggle = (index) => {
@@ -56,8 +56,8 @@ const FAQSection = () => {
 
   return (
     <section className="max-w-4xl mx-auto px-6 py-12">
-      <h2 className="text-3xl font-bold text-center mb-4">{t('faq.title')}</h2>
-      <p className="text-gray-600 text-center mb-8">{t('faq.subtitle')}</p>
+      <h2 className="text-3xl font-bold text-center mb-4">{t("faq.title")}</h2>
+      <p className="text-gray-600 text-center mb-8">{t("faq.subtitle")}</p>
       <div className="space-y-6">
         {faqs.map((faq, index) => (
           <div key={index} className="border rounded-lg bg-white">
@@ -65,7 +65,9 @@ const FAQSection = () => {
               onClick={() => handleToggle(index)}
               className="cursor-pointer p-6 bg-gray-100 hover:bg-gray-200 transition-all"
             >
-              <h3 className="text-xl font-semibold text-gray-900">{faq.question}</h3>
+              <h3 className="text-xl font-semibold text-gray-900">
+                {faq.question}
+              </h3>
             </div>
             {activeIndex === index && (
               <div className="p-6 bg-gray-50">

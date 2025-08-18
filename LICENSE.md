@@ -1,3 +1,1 @@
-MIT License
-
-Procrafter Copyright (c) 2025
+ProCraftr Copyright (c) 2025

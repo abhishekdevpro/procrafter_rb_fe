@@ -6,10 +6,10 @@ function PrivacyPolicy() {
   return (
     <div className="bg-gray-50 min-h-screen">
       <Navbar />
-      <div className="m-4 sm:mx-10 lg:mx-40 p-4 sm:p-6 shadow-2xl">
-        <h2 className="text-3xl sm:text-4xl font-semibold text-center underline mb-6">
+      <div className="max-w-4xl mx-auto my-5 p-6 sm:p-10 shadow-lg bg-white rounded-lg">
+        <h1 className="text-3xl sm:text-4xl font-semibold text-center underline mb-6">
           Privacy Policy
-        </h2>
+        </h1>
 
         <div className="mb-6">
           <h2 className="text-xl font-semibold">Introduction</h2>
@@ -138,13 +138,18 @@ function PrivacyPolicy() {
 
         <div className="mb-6">
           <h2 className="text-xl font-semibold">10. Contact Us</h2>
+          <p>
+            This website (ProCraftr) is operated under the registered legal
+            entity name *Dummy*, in compliance with applicable laws and
+            regulations.
+          </p>
           <p className="text-gray-700">
             If you have any questions, contact us at:{" "}
             <a
-              href="mailto:support@procraftrresumebuilder.com"
+              href="mailto:career@ciblJob.fr"
               className="text-blue-600 underline"
             >
-              support@procraftrresumebuilder.com
+              dummy@procraftr.com
             </a>
           </p>
         </div>
@@ -166,47 +171,34 @@ export default PrivacyPolicy;
 //   const { t } = useTranslation();
 
 //   return (
-//     <div className="">
+//     <div className="bg-gray-50 min-h-screen">
 //       <Navbar />
-//       <div className="m-4 sm:mx-10 lg:mx-40 p-4 sm:p-6 shadow-2xl">
-//         <h2 className="text-3xl sm:text-4xl font-semibold text-center underline mb-6">
+//       <div className="max-w-4xl mx-auto my-5 p-6 sm:p-10 shadow-lg bg-white rounded-lg">
+//         <h1 className="text-3xl sm:text-4xl font-semibold text-center underline mb-6">
 //           {t("privacyPolicy")}
-//         </h2>
+//         </h1>
 
 //         <p className="text-gray-700">{t("intro")}</p>
 
 //         {Object.keys(t("sections", { returnObjects: true })).map(
-//           (key, index) => {
-//             const content = t(key, { returnObjects: true });
-
-//             return (
-//               <div key={index} className="mb-6">
-//                 <h2 className="text-xl sm:text-2xl font-semibold my-2 mt-5">
-//                   {t(`sections.${key}`)}
-//                 </h2>
-
-//                 {typeof content === "string" ? (
-//                   <p className="text-base sm:text-lg">{content}</p>
-//                 ) : (
-//                   Object.values(content).map((line, i) => (
-//                     <p key={i} className="text-base sm:text-lg mb-2">
-//                       {line}
-//                     </p>
-//                   ))
-//                 )}
-//               </div>
-//             );
-//           }
+//           (key, index) => (
+//             <div key={index} className="mb-6">
+//               <h2 className="text-xl font-semibold">{t(`sections.${key}`)}</h2>
+//               <p className="text-gray-700 mt-2">{t(key)}</p>
+//             </div>
+//           )
 //         )}
 
 //         {/* <h2 className="text-xl font-semibold">{t("sections.contactUs")}</h2> */}
-
-//         <a
-//           href={`mailto:${t("email_name")}`}
-//           className="text-blue-600 underline"
-//         >
-//           {t("email_name")}
-//         </a>
+//         <p className="text-gray-700">
+//           {/* {t("contactUs")}{" "} */}
+//           <a
+//             href={`mailto:${t("email_name")}`}
+//             className="text-blue-600 underline"
+//           >
+//             {t("email_name")}
+//           </a>
+//         </p>
 //       </div>
 
 //       <Footer />

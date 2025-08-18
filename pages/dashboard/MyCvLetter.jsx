@@ -298,7 +298,7 @@ const MyCvLetter = () => {
     //     </div>
     //   )}
     // </div>
-    <div className="container mx-auto p-6 max-w-7xl">
+    <div className="container mx-auto  max-w-7xl">
       {showLoader && <FullScreenLoader />}
       <div className="flex flex-col sm:flex-row justify-between items-center mb-8">
         <h1 className="text-2xl font-bold text-gray-800">
@@ -322,7 +322,7 @@ const MyCvLetter = () => {
                   {t("mycvletter.sr_no")}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">
-                  {t("mycvletter.my_cover_letters")}
+                  {t("mycvletter.cover_letter")}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">
                   {t("mycvletter.modification")}

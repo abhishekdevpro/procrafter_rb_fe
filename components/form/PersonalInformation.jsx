@@ -314,10 +314,8 @@ const PersonalInformation = () => {
 
   const handleContactChange = (e) => {
     const { value } = e.target;
-    // const fullContactValue = `${value
-    //   .replace(/^(\+\d+\s*)?/, "")
-    //   .slice(0, 10)}`;
-    const fullContactValue = value.replace(/\D/g, "").slice(0, 10);
+    const fullContactValue = `${value.replace(/^(\+\d+\s*)?/, "")}`;
+
     const updatedContact = {
       target: {
         name: "contactInformation",
@@ -430,6 +428,8 @@ const PersonalInformation = () => {
                               ? handleContactChange
                               : handleInputChange
                           }
+                          minLength={3}
+                          maxLength={10}
                         />
 
                         {/* Error Icon for Contact Information */}

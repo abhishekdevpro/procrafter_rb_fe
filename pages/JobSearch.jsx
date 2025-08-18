@@ -289,7 +289,7 @@ const JobSearch = () => {
   //     console.log("called");
   //     try {
   //       const response = await fetch(
-  //         "https://api.procraftrresumebuilder.com/api/user/job-list"
+  //         "https://api.createmyresume.in/api/user/job-list"
   //       );
   //       if (!response.ok) {
   //         throw new Error("Failed to fetch job data");
@@ -312,8 +312,7 @@ const JobSearch = () => {
       try {
         const response = await axiosInstance.get("/api/user/job-list");
         console.log(response, ">>>data");
-
-        setJobResults(response.data?.data || []);
+        setJobResults(response.data.data || []);
       } catch (err) {
         console.error(err);
         setError(t("jobsearch.error_message"));

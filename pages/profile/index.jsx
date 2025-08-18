@@ -189,50 +189,6 @@ const ProfileForm = () => {
     }
   };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-
-  //   const token = localStorage.getItem("token");
-  //   const formDataToSend = new FormData();
-
-  //   formDataToSend.append("first_name", formData.first_name);
-  //   formDataToSend.append("last_name", formData.last_name);
-  //   formDataToSend.append("professional_title", formData.professional_title);
-  //   formDataToSend.append("languages", formData.languages);
-  //   formDataToSend.append("age", formData.age);
-  //   formDataToSend.append("current_salary", formData.current_salary);
-  //   formDataToSend.append("expected_salary", formData.expected_salary);
-  //   formDataToSend.append("description", formData.description);
-  //   formDataToSend.append("country_id", formData.country_id);
-  //   formDataToSend.append("state_id", formData.state_id);
-  //   formDataToSend.append("city_id", formData.city_id);
-  //   formDataToSend.append("phone", formData.phone);
-
-  //   if (formData.uploadPhoto) {
-  //     formDataToSend.append("upload_photo", formData.uploadPhoto);
-  //   }
-
-  //   try {
-  //     const response = await axios.patch(
-  //       `${BASE_URL}/api/user/user-profile?lang=${language}`,
-  //       formDataToSend,
-  //       {
-  //         headers: {
-  //           "Content-Type": "multipart/form-data",
-  //           Authorization: token,
-  //         },
-  //       }
-  //     );
-  //     console.log(response.code, response.status, ">>>>response");
-  //     if (response.status === 200) {
-  //       toast.success(t("profile_updated"));
-  //     } else {
-  //       toast.error(t("profile_update_failed"), response.data.message);
-  //     }
-  //   } catch (error) {
-  //     toast.error("An error occurred during profile update:", error);
-  //   }
-  // };
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -385,78 +341,6 @@ const ProfileForm = () => {
         </h1>
 
         <form onSubmit={handleSubmit}>
-          {/* <div className="">
-            <label className="block mb-2">Change Your Image:</label>
-            <div className="md:flex items-center space-x-4 relative">
-              {formData.photo && (
-                <div className="relative">
-                  <img
-                    src={`https://api.procraftrresumebuilder.com${formData.photo}`}
-                    alt="Profile"
-                    className="w-20 h-20 rounded-full border"
-                  />
-                  <button
-                    type="button"
-                    onClick={() =>
-                      setFormData((prev) => ({ ...prev, photo: "" }))
-                    } // Reset the image
-                    className="absolute top-0 right-0 bg-red-500 text-white rounded-full p-1"
-                  >
-                    <Trash2 size={16} />
-                  </button>
-                </div>
-              )}
-              <input
-                type="file"
-                accept="image/*"
-                onChange={handleFileChange}
-                className="w-full border p-2"
-              />
-            </div>
-          </div> */}
-          {/* <div className="md:flex items-center space-x-4 relative">
-            {formData.photo && (
-              <div className="relative">
-                <img
-                  src={
-                    formData.uploadPhoto
-                      ? URL.createObjectURL(formData.uploadPhoto)
-                      : `https://api.procraftrresumebuilder.com${formData.photo}`
-                  }
-                  alt="Profile"
-                  className="w-20 h-20 rounded-full border"
-                />
-                <button
-                  type="button"
-                  onClick={handleRemovePhoto}
-                  className="absolute top-0 right-0 bg-red-500 text-white rounded-full p-1"
-                >
-                  <Trash2 size={16} />
-                </button>
-              </div>
-            )}
-
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleFileChange}
-              className="hidden"
-              id="fileInput"
-            />
-            <label
-              htmlFor="fileInput"
-              className="border p-2 cursor-pointer bg-gray-100 rounded-md"
-            >
-              {t("choose_file")}
-            </label>
-            <span className="ml-2 text-gray-700">
-              {formData.uploadPhoto
-                ? formData.uploadPhoto.name
-                : formData.photo
-                ? t("image_uploaded")
-                : t("no_file_chosen")}
-            </span>
-          </div> */}
           <div className="flex flex-col md:flex-row items-start md:items-center gap-4 relative">
             {formData.photo && (
               <div className="relative">
@@ -464,7 +348,7 @@ const ProfileForm = () => {
                   src={
                     formData.uploadPhoto
                       ? URL.createObjectURL(formData.uploadPhoto)
-                      : `https://api.procraftrresumebuilder.com${formData.photo}`
+                      : `https://api.createmyresume.in${formData.photo}`
                   }
                   alt="Profile"
                   className="w-20 h-20 rounded-full border object-cover"
@@ -512,6 +396,7 @@ const ProfileForm = () => {
                 value={formData.first_name}
                 onChange={handleChange}
                 className="w-full border p-2"
+                maxLength={20}
               />
             </div>
             <div>
@@ -522,6 +407,7 @@ const ProfileForm = () => {
                 value={formData.last_name}
                 onChange={handleChange}
                 className="w-full border p-2"
+                maxLength={20}
               />
             </div>
             <div>
@@ -532,6 +418,7 @@ const ProfileForm = () => {
                 value={formData.professional_title}
                 onChange={handleChange}
                 className="w-full border p-2"
+                maxLength={100}
               />
             </div>
             <div>
@@ -542,6 +429,7 @@ const ProfileForm = () => {
                 value={formData.languages}
                 onChange={handleChange}
                 className="w-full border p-2"
+                maxLength={50}
               />
             </div>
 
@@ -554,6 +442,7 @@ const ProfileForm = () => {
                 onChange={handleChange}
                 className="w-full border p-2"
                 min="0"
+                maxLength={20}
               />
             </div>
             <div>
@@ -565,6 +454,7 @@ const ProfileForm = () => {
                 onChange={handleChange}
                 className="w-full border p-2"
                 min="0"
+                maxLength={20}
               />
             </div>
             <div className="md:col-span-2">
@@ -575,6 +465,7 @@ const ProfileForm = () => {
                 onChange={handleChange}
                 className="w-full border p-2"
                 rows="4"
+                maxLength={1000}
               />
             </div>
 
@@ -586,6 +477,7 @@ const ProfileForm = () => {
                 value={formData.phone}
                 onChange={handleChange}
                 className="w-full border p-2"
+                maxLength={20}
               />
             </div>
             <div>
@@ -597,12 +489,13 @@ const ProfileForm = () => {
                 onChange={handleChange}
                 className="w-full border p-2"
                 readOnly
+                maxLength={30}
               />
             </div>
           </div>
           <button
             type="submit"
-            className="w-full bg-purple-600 text-white p-2 rounded"
+            className="w-full bg-green-400 text-white p-2 rounded"
           >
             {t("update_profile")}
           </button>

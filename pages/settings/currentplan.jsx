@@ -56,11 +56,11 @@ export default function CurrentPlan() {
           <p className="">
             Current Plan:{" "}
             {userData?.plan_id ? (
-              <span className="font-medium text-pink-600">
+              <span className="font-medium text-green-500">
                 {userData.plan_id === 1 && "Free Plan"}
-                {userData.plan_id === 2 && "Single Pass"}
-                {userData.plan_id === 3 && "AI Pro Month"}
-                {userData.plan_id === 4 && "AI Pro Yearly"}
+                {userData.plan_id === 2 && "3 Days"}
+                {userData.plan_id === 3 && "7 Days"}
+                {userData.plan_id === 4 && "1 Month"}
               </span>
             ) : (
               "N/A"

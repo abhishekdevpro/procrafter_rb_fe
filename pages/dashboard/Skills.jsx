@@ -168,7 +168,7 @@ const Skills = () => {
                   className="bg-purple-600 rounded-xl shadow-2xl border-2 border-slate-600 px-5 py-4 text-center"
                 >
                   <h3 className="text-2xl sm:text-3xl text-white font-semibold py-3">
-                    {skill.name}
+                    {skill.name || "Add skill from CV"}
                   </h3>
                   <p className="text-center text-white py-1">
                     {t("skill.total_questions")}: {skill.total_question || "15"}

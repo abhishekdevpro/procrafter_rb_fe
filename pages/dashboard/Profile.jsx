@@ -509,7 +509,7 @@ const ProfilePage = () => {
       <Navbar />
       {/* <div className="bg-purple-600 p-4">
         <div className="max-w-4xl mx-auto">
-          <div className="rounded-lg shadow-lg p-6 bg-pink-600 flex flex-col md:flex-row justify-between items-center md:h-44">
+          <div className="rounded-lg shadow-lg p-6 bg-black flex flex-col md:flex-row justify-between items-center md:h-44">
             <div className="space-y-4 mb-6 md:mb-0 md:mr-6 md:pr-6 w-full">
               <div className="flex flex-col md:flex-row md:items-center md:space-x-4">
                 <img

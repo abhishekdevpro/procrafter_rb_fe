@@ -156,7 +156,7 @@
 //         <div className="flex justify-between items-center mb-2">
 //           <span className="text-sm font-medium">Resume Strength:</span>
 //           <div className="flex items-center gap-2">
-//             <span className="bg-teal-100 text-teal-800 px-2 py-1 rounded-full text-sm">
+//             <span className="bg-teal-100 text-pink-600 px-2 py-1 rounded-full text-sm">
 //               {score}
 //             </span>
 //             <button className="text-purple-600 hover:text-blue-700 text-sm">
@@ -260,8 +260,8 @@ const Sidebar = ({ score, resumeId }) => {
           if (parsedData?.templateData?.templateDetails) {
             const { backgroundColor, templateId } =
               parsedData.templateData.templateDetails;
-            setBgColor(backgroundColor || "");
-            setHeaderColor(backgroundColor || "");
+            setBgColor(backgroundColor || "#2563EB");
+            setHeaderColor(backgroundColor || "#2563EB");
             setSelectedTemplate(templateId || "template1");
           }
         }
@@ -359,7 +359,7 @@ const Sidebar = ({ score, resumeId }) => {
               {t("dashboard_sidebar.resumeStrength")}
             </span>
             <div className="flex items-center gap-2">
-              <span className="bg-teal-100 text-teal-800 px-2 py-1 rounded-full text-sm">
+              <span className="bg-teal-100 text-pink-600 px-2 py-1 rounded-full text-sm">
                 {score}
               </span>
               <button className="text-purple-600 hover:text-blue-700 text-sm">

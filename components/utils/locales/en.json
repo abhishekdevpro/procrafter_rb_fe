@@ -23,7 +23,7 @@
   
   
   "build_resume": "Build your Resume",
-  "reviews_certified": "Reviews Certified by Recruiters & Admired by Jobseekers",
+  "reviews_certified": "Endorsed by Recruiters, Trusted by Job Seekers Worldwide",
   "featured_on": "As Featured on",
   
 
@@ -36,7 +36,7 @@
     "select_design": "Select Design",
     "improve_with_ai": "Improve with AI",
     "download": "Download",
-    "create_resume": "Create my Resume",
+    "create_resume": "ProCraftr",
   
 "saving": "Saving...",
   
@@ -78,7 +78,7 @@
         "resume_builder": "Resume Builder",
         "resume_description": "Relevant for automation & one time download.",
         "starting_price": "Starting",
-        "price_currency": "$",
+        "price_currency": "₹",
         "price_amount": "0",
         "feature1": "Create optimized resumes",
         "feature2": "Copy and paste content from site",
@@ -100,7 +100,7 @@
   
     "combo_title": "French English Combo",
     "combo_description": "Built by expert resume writers",
-    "combo_price_currency": "$",
+    "combo_price_currency": "₹",
     "combo_price_amount": "29",
     "combo_price_per_resume": "/Resume",
     "feature1_c": "Create optimized resumes",
@@ -114,12 +114,12 @@
    
   
     "we_are_here": "We are here to help",
-    "contact_anytime": "Contact us anytime",
+    "contact_anytime": "Contact Person",
     "phone": "Phone",
     "email_us": "Email Us",
     "message_us": "Message Us",
     "reach_out": "Reach out for any assistance",
-    "chat": "Chat",
+    "chat": " Chat on WhatsApp",
     "form": {
       "name": "Name",
       "phone": "Phone",
@@ -151,7 +151,7 @@
         "ai_resume_accuracy": "AI - Resume Accuracy",
         "ai_resume_enhancer": "AI - Resume Enhancer",
         "ai_job_match_apply": "AI - Job Match & Apply",
-        "copyright": "© Copyright By procraftrresumebuilder.com All Rights Reserved",
+        "copyright": "© Copyright By procraftr.com All Rights Reserved",
         "toast_success":"Subscribed successfully!"
       
       },
@@ -213,7 +213,7 @@
           
           "how_to_apply": "How to Apply",
           "how_to_apply_description": "If you’re passionate about helping others succeed and want to be part of a dynamic, growth-oriented team, we’d love to hear from you. To apply for a position at ProCraftr, please send your resume and a cover letter to",
-          "apply_email": "support@procraftrresumebuilder.com",
+          "apply_email": "dummy@procraftr.com",
           
           "join_us": "Join Us and Make a Difference",
           "join_us_description": "At ProCraftr, you’ll have the opportunity to make a meaningful impact every day. Join us and help shape the future of job seekers around the world. We look forward to welcoming you to our team!",
@@ -244,7 +244,7 @@
             "exclusive_resources_desc": "As a ProCraftr client, you’ll gain access to exclusive resources, including industry reports, salary surveys, and negotiation workshops. Our comprehensive toolkit ensures that you have all the information and skills needed to advocate for yourself effectively.",
           
             "maximize_earning": "Start Maximizing Your Earning Potential Today",
-            "maximize_earning_desc": "Don’t leave your salary to chance. Take control of your career and maximize your earning potential with the help of ProCraftr’s salary tools and resources. Contact us today to learn more about how we can support you in your job search and salary negotiations.",
+            "maximize_earning_desc": "Don’t leave your salary to chance. Take control of your career and maximize your earning potential with the help of ProCraftr's salary tools and resources. Contact us today to learn more about how we can support you in your job search and salary negotiations.",
             
               "privacyPolicy": "Privacy Policy",
               "intro": "At ProCraftr, we value your privacy and are committed to protecting your personal information. This Privacy Policy outlines how we collect, use, and safeguard your data when you use our website and services.",
@@ -285,11 +285,11 @@
               "childrensPrivacy": "Our services are not intended for individuals under 18. If a child provides personal data, we will delete it.",
               "changesPolicy": "We may update this Privacy Policy. Continued use of our services after changes means acceptance of the revised policy.",
               "contactUs": "If you have any questions, contact us at:",
-              "email_name": "support@procraftrresumebuilder.com",
+              "email_name": "dummy@procraftr.com",
               
                 "title": "AI Resume Builder",
                 "introduction": "Revolutionizing the Job Application Process",
-                "description_ai": "Welcome to ProCraftr’s AI Resume Builder – an innovative solution designed to streamline the resume creation process and help you land your dream job. Our cutting-edge AI technology simplifies resume writing, ensuring that your skills and achievements are presented in the best possible light.",
+                "description_ai": "Welcome to ProCraftr's AI Resume Builder – an innovative solution designed to streamline the resume creation process and help you land your dream job. Our cutting-edge AI technology simplifies resume writing, ensuring that your skills and achievements are presented in the best possible light.",
                 "key_features": "Key Features",
                 "features": [
                   {
@@ -361,7 +361,7 @@
                 ],
                 "cta": {
                   "title": "Start Building Your Resume Today",
-                  "description": "Transform your job application process with ProCraftr’s AI Resume Builder. Sign up now and take the first step toward landing your dream job with a professionally crafted resume that showcases your unique strengths and qualifications.",
+                  "description": "Transform your job application process with ProCraftr's  AI Resume Builder. Sign up now and take the first step toward landing your dream job with a professionally crafted resume that showcases your unique strengths and qualifications.",
                   "button": "Get Started"
                 },
                 
@@ -494,7 +494,7 @@
                           "title": "10. Contact Information",
                           "list": [
                             "If you have any questions or concerns about these terms and conditions, please contact us at:",
-                            "Email: support@procraftrresumebuilder.com"
+                            "Email: dummy@procraftr.com"
                           ]
                         }
                       ],
@@ -605,7 +605,7 @@
                     "AI-Enhanced_p15": "With an accurate and well-crafted resume, you can confidently apply for jobs, knowing that your application is strong and reliable.",
                     "AI-Enhanced_p16": "Optimizing your resume for accuracy and relevance increases your chances of passing through ATS filters and being shortlisted for interviews.",
                     "AI-Enhanced_p17": "Our AI tools automate the resume review process, saving you time and effort while ensuring a high level of precision and quality.",
-                    "AI-Enhanced_p18": "Transform your resume with ProCraftr’s AI-enhanced accuracy tools. Sign up now to create a resume that is polished, precise, and professional.",
+                    "AI-Enhanced_p18": "Transform your resume with ProCraftr's AI-enhanced accuracy tools. Sign up now to create a resume that is polished, precise, and professional.",
                   
                   
                   
@@ -615,8 +615,8 @@
                     "professional_title": "Professional Title",
                     "languages": "Languages",
                     "age": "Age",
-                    "current_salary": "Current Salary ($)",
-                    "expected_salary": "Expected Salary ($)",
+                    "current_salary": "Current Salary (₹)",
+                    "expected_salary": "Expected Salary (₹)",
                     "description": "Description",
                     "phone_number": "Phone Number",
                     "email": "Email",
@@ -713,7 +713,7 @@
                           "loading": "Loading...",
                           "error_message": "Failed to fetch jobs. Please try again later.",
                           "apply_now": "Apply Now",
-                           "no_jobs_found": "No jobs found."
+                          "no_jobs_found": "coming soon"
                         },
                          "notification_coming_soon": "🙋‍♀️ Notification Coming Soon",
                          "skill": {
@@ -1326,19 +1326,37 @@
       "feature6": "Resume Parsing (ATS-Friendly)",
     
       "feature8": "Job Search & Career Resources",
-      "feature9": "Cover Letter Builder",
-      "feature10": "Job Alerts & Tracking"
+      "feature9": "Cover Letter Builder"
+     
     },
     
-    "singlePass": {
-      "title": "Single Pass",
-      "price": "9.99",
-      "billingCycle":"single",
+    "threeDays": {
+      "title": "3 Days Plan",
+      "price": "59",
+      "billingCycle":" 3 Days",
       "bestValue": "false",
       "buttonText": "Get Started",
       "feature1": "Everything in Free +",
-      "feature2": "28 Unique Resume Templates & 5 CoverLetter Templates",
-      "feature3": "20+ Colors Options & 10+ Fonts",
+      "feature2": "20+ Unique Resume Templates & 5+ CoverLetter Templates",
+      "feature3": "20+ Color Options & 10+ Fonts",
+      "feature4": "Resume Parsing (ATS-Friendly)",
+      "feature5": "Free Cover Letter Builder",
+      "feature6": "AI Resume Score & Feedback",
+      "feature7": "Skill Tests & Analysis",
+      "feature8": "AI-Enabled Content",
+      "feature9": "Auto-Improvement",
+      "feature10": "ATS Optimization"
+    },
+    
+    "weeklyplan": {
+      "title": "7 Days Plan",
+      "price": "109 ",
+      "billingCycle": " Week",
+      "bestValue": "false",
+      "buttonText": "Get Started",
+      "feature1": "Everything in Free +",
+      "feature2": "20+ Unique Resume Templates & 5+ CoverLetter Templates",
+      "feature3": "20+ Color Options & 10+ Fonts",
       "feature4": "Resume Parsing (ATS-Friendly)",
       "feature5": "Free Cover Letter Builder",
       "feature6": "AI Resume Score & Feedback",
@@ -1349,14 +1367,32 @@
     },
     
     "aiProMonth": {
-      "title": "AI Pro Month",
-      "price": "19.99",
-      "billingCycle": "month",
+      "title": " Monthly Plan",
+      "price": "179",
+      "billingCycle": " Month",
+      "bestValue": "true",
+      "buttonText": "Get Started",
+      "feature1": "Everything in Free +",
+      "feature2": "20+ Unique Resume Templates & 5+ CoverLetter Templates",
+      "feature3": "20+ Color Options & 10+ Fonts",
+      "feature4": "Resume Parsing (ATS-Friendly)",
+      "feature5": "Free Cover Letter Builder",
+      "feature6": "AI Resume Score & Feedback",
+      "feature7": "Skill Tests & Analysis",
+      "feature8": "AI-Enabled Content",
+      "feature9": "Auto-Improvement",
+      "feature10": "ATS Optimization",
+      "feature11": "Most Affordable ATS Optimization"
+    },
+    "aiProthreeMonth": {
+      "title": "3 Months",
+      "price": "329 ",
+      "billingCycle": " 3 Months",
       "bestValue": "false",
       "buttonText": "Get Started",
       "feature1": "Everything in Free +",
-      "feature2": "28 Unique Resume Templates & 5 CoverLetter Templates",
-      "feature3": "20+ Colors Options & 10+ Fonts",
+      "feature2": "20+ Unique Resume Templates",
+      "feature3": "8 Color Options & 6 Fonts",
       "feature4": "Resume Parsing (ATS-Friendly)",
       "feature5": "Free Cover Letter Builder",
       "feature6": "AI Resume Score & Feedback",
@@ -1367,14 +1403,14 @@
     },
     
     "aiProYearly": {
-      "title": "AI Pro Yearly",
-      "price": "149.99",
-      "billingCycle": "year",
+      "title": "1 Year",
+      "price": "749",
+      "billingCycle": " 1 Year",
       "bestValue": "true",
       "buttonText": "Get Started",
       "feature1": "Everything in Free +",
-      "feature2": "28 Unique Resume Templates & 5+ CoverLetter Templates",
-      "feature3": "15+ Colors Options & 10+ Fonts",
+      "feature2": "20+ Unique Resume Templates",
+      "feature3": "8 Color Options & 6 Fonts",
       "feature4": "Resume Parsing (ATS-Friendly)",
       "feature5": "Free Cover Letter Builder",
       "feature6": "AI Resume Score & Feedback",
@@ -1546,7 +1582,7 @@
     "product_notifications": "Product notifications",
     "product_notifications_desc": "We’ll inform you about new job matches and applications that need your attention so you can be among the first applicants and maximize your chances of getting the dream job.",
     "email_notifications": "Email notifications",
-    "sms_notifications": "SMS notifications",
+    "sms_notifications": "SMS / Whatsapp notifications ",
     "marketing_notifications": "Marketing notifications",
     "marketing_optin": "I am open to receive marketing communications.",
     "loading": "Loading...",
@@ -1559,9 +1595,9 @@
     "help_support": "Need help or want to change your subscription?",
     "contact_us": "Contact us at:",
     "phone": "📞 855-695-3235",
-    "email": "📧 customersupport@ProCraftr.com",
-    "availability": "Available 7 days a week:",
-    "monday_friday": "Monday-Friday: 8 AM - 8 PM (CST)",
+    "email": "📧 dummy@procraftr.com",
+    "availability": "Available 5 days a week:",
+    "monday_friday": "Monday-Friday: 10 AM - 6 PM (IST)",
     "saturday": "Saturday: 8 AM - 5 PM (CST)",
     "sunday": "Sunday: 10 AM - 6 PM (CST)",
     "account_id": "Account ID:",
@@ -1677,18 +1713,19 @@
     
 },
 "plan": {
-  "confirm_title": "Are you sure?",
+  "confirm_title": "Let's get going :)",
   "confirm_message": "Do you really want to purchase this plan?",
   "confirm_yes": "Yes, Purchase",
   "confirm_no": "No, Go Back"
 },
 "paymentplans":{
-  "Cast a wider net – 10x your job applications": "Cast a wider net – 10x your job applications",
-  "Our AI-powered platform scours": "Our AI-powered platform scours millions of jobs to continuously find and apply to relevant job openings until you're hired.",
-  "Kudos! You're one step closer to success": "Kudos! You're one step closer to success",
-  "Pricing Plans": "Pricing Plans",
-  "title": "Choose the plan that works best for you",
-  "subtitle": "Our pricing plans are designed to accommodate all your resume building needs.",
+  "Cast a wider net – 10x your job applications": "Get Noticed – Apply Smarter, Not Harder",
+  "Our AI-powered platform scours": "Our AI-powered platform helps you discover and apply to the most relevant jobs — automatically and effortlessly, so you can land interviews faster.",
+  "Kudos! You're one step closer to success": "🎉 Great Job! You’re almost resume-ready",
+  "kudos_description":"Choose the perfect plan to unlock professional resume tools, cover letter support, and job tracking — all in one place.",
+  "Pricing Plans": "Plans & Pricing",
+  "title": "Select a plan that fits your career goals.",
+  "subtitle": "Our flexible pricing is designed to support every stage of your job journey — whether you're starting fresh or leveling up.",
   "Best Value": "Best Value",
   "Free": "Free",
   "Free Plan": "Free Plan",
@@ -1705,7 +1742,7 @@
   "2 Unique Resume Templates": "2 Unique Resume Templates",
   "2 Color Options & 2 Fonts": "2 Color Options & 2 Fonts",
   "Resume Parsing (ATS-Friendly)": "Resume Parsing (ATS-Friendly)",
-
+  "French Language Support": "French Language Support",
   "Job Search & Career Resources": "Job Search & Career Resources",
   "Cover Letter Builder": "Cover Letter Builder",
   "Job Alerts & Tracking": "Job Alerts & Tracking",

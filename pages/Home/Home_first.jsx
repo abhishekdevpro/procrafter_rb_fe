@@ -48,7 +48,7 @@
 //             <div className="px-3 py-3 w-full md:w-[500px]">
 //               <div className=" flex flex-col gap-4 ">
 //                 <div className="font-extrabold text-5xl font-sans">
-//                   &quot;Cibli Job&quot; AI Powered Resume Tool, Is Live NOW
+//                   &quot;ProCraftr&quot; AI Powered Resume Tool, Is Live NOW
 //                 </div>
 
 //                 <div className=" text-lg font-medium text-slate-700">
@@ -66,7 +66,7 @@
 //                       isAuthenticated ? "/dashboard/resume-builder" : "/login2"
 //                     }
 //                   >
-//                     <button className=" text-white bg-pink-600 text-lg px-6 py-2 rounded-full  font-bold hover:shadow-2xl hover:shadow-slate-500 ">
+//                     <button className=" text-white bg-black text-lg px-6 py-2 rounded-full  font-bold hover:shadow-2xl hover:shadow-slate-500 ">
 //                       {" "}
 //                       Build your Resume
 //                     </button>
@@ -133,18 +133,19 @@ import Link from "next/link";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import image4 from "./Images/homeimage1.jpg";
-import image5 from "./Images/homeimage2.jpg";
-import image6 from "./Images/homeimage3.jpg";
-// import image1 from "./Images/frenchresume1.jpg";
-// import image2 from "./Images/frenchresume2.jpg";
-// import image3 from "./Images/frenchresume3.jpg";
+import image1 from "./Images/homeimage1.jpg";
+import image2 from "./Images/homeimage2.jpg";
+import image3 from "./Images/homeimage3.jpg";
 import Image from "next/image";
 import Home_second from "./Home_second";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next"; // Import useTranslation
 
 import ImageSlider from "./Slider_details";
+import Home_step from "./Home-steps";
+import Home_third from "./Home_third";
+import ATSResumeSection from "./ATS-section";
+import Home_fourth from "./Home_fourth";
 
 function Home_first() {
   const { t } = useTranslation(); // Initialize useTranslation hook
@@ -166,7 +167,7 @@ function Home_first() {
     autoplaySpeed: 3000,
   };
 
-  const images = [image4, image5, image6];
+  const images = [image1, image2, image3];
 
   return (
     <>
@@ -185,24 +186,33 @@ function Home_first() {
             {/* Content Section */}
             <div className="px-3 py-3 w-full md:w-[500px]">
               <div className="flex flex-col gap-4">
-                <h1 className="font-extrabold text-5xl font-sans">
-                  {t("resume_tool_live")}
-                </h1>
+                <div className="font-sans text-center text-2xl md:text-5xl font-bold leading-tight">
+                  Introducing Our{" "}
+                  <span className="text-gray-800 font-normal">
+                    Smart AI-Powered Resume Builder
+                  </span>{" "}
+                  <span className="text-black font-extrabold">
+                    &quot;ProCraftr&quot;
+                  </span>
+                </div>
 
                 <div className="text-lg font-medium text-slate-700">
-                  {t("resume_features")}
+                  Score, upgrade, and apply – the smarter way to job search
+                  starts now.
                 </div>
+
                 <div className="flex flex-wrap gap-4">
                   <Link
                     href={
                       isAuthenticated ? "/dashboard/resume-builder" : "/login2"
                     }
                   >
-                    <button className="text-white bg-pink-600 text-lg px-6 py-2 rounded-full font-bold hover:shadow-2xl hover:shadow-slate-500">
+                    <button className="text-white bg-purple-600 hover:bg-pink-600 text-lg px-6 py-2 rounded-full font-bold hover:shadow-2xl hover:shadow-slate-500">
                       {t("build_resume")} {/* Use translation key */}
                     </button>
                   </Link>
                 </div>
+
                 <div className="font-bold text-base">
                   <i className="fa-solid fa-star text-yellow-500"></i>{" "}
                   <i className="fa-solid fa-star text-yellow-500"></i>{" "}
@@ -230,7 +240,7 @@ function Home_first() {
             </div>
 
             {/* Image Slider Section */}
-            {/* <div className="px-6 py-3">
+            <div className="px-6 py-3">
               <div className="hidden md:block md:max-w-lg p-4">
                 <Slider {...settings}>
                   {images?.map((image, index) => (
@@ -246,34 +256,16 @@ function Home_first() {
                   ))}
                 </Slider>
               </div>
-            </div> */}
-            {/* Image Slider Section */}
-            <div className="px-6 py-3">
-              <div className="hidden md:block md:max-w-lg p-4">
-                <Slider {...settings}>
-                  {images?.map((image, index) => (
-                    <div key={index} className="w-full text-center">
-                      <Image
-                        src={image}
-                        alt={`slide-${index}`}
-                        width={320}
-                        height={240}
-                        className="transition-transform transform hover:scale-105 md:h-auto md:w-96"
-                      />
-                      {/* <p className="mt-2 text-lg font-semibold text-gray-700">
-                        {index < 3 ? t("french_resume") : t("english_resume")}
-                      </p> */}
-                    </div>
-                  ))}
-                </Slider>
-              </div>
             </div>
           </div>
         </div>
       </div>
-
-      <ImageSlider />
-      <Home_second />
+      <Home_step />
+      <ATSResumeSection />
+      <Home_third />
+      {/* <Home_fourth /> */}
+      {/* <ImageSlider />
+      <Home_second /> */}
     </>
   );
 }

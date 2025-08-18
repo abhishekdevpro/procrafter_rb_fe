@@ -1,16 +1,16 @@
 import Head from "next/head";
 
 export default function Meta({ title, keywords, description }) {
-  const homepage = "https://ciblijob.fr/";
+  const homepage = "https://procraftr.com";
   const logo = "/assets/logo.png";
-  const favicon = "/assets/favicon.ico";
+  const favicon = "/favicon.ico";
 
   function websiteSchema() {
     return {
       __html: JSON.stringify({
         "@context": "https://schema.org/",
         "@type": "WebSite",
-        name: "CibliJob",
+        name: "ProCraftr",
         url: homepage,
         potentialAction: {
           "@type": "SearchAction",
@@ -26,8 +26,8 @@ export default function Meta({ title, keywords, description }) {
       __html: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "Organization",
-        name: "CibliJob",
-        alternateName: "CibliJob",
+        name: "ProCraftr",
+        alternateName: "ProCraftr",
         url: homepage,
         logo: logo,
         contactPoint: {
@@ -38,8 +38,8 @@ export default function Meta({ title, keywords, description }) {
           availableLanguage: "en",
         },
         sameAs: [
-          "https://ciblijob.fr/",
-          "https://www.facebook.com/people/CibliJob/61564845718534/",
+          "https://ciblijob.fr//",
+          "https://www.facebook.com/people/ProCraftr/61564845718534/",
         ],
       }),
     };
@@ -49,10 +49,10 @@ export default function Meta({ title, keywords, description }) {
       __html: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
-        name: "CibliJob",
+        name: "ProCraftr",
         image:
           "https://ciblijob.fr//_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.2cfd75d8.jpg&w=640&q=75",
-        url: "https://ciblijob.fr/",
+        url: "https://ciblijob.fr//",
         telephone: "18882008168",
         priceRange: "$269",
         address: {
@@ -74,7 +74,7 @@ export default function Meta({ title, keywords, description }) {
       />
       <meta name="description" content={description} />
       <meta charSet="utf-8" />
-      <link rel="icon" href={favicon} />
+      <link rel="icon" href="/favicon.ico" />
       <title>{title}</title>
 
       {/* Canonical URL */}
@@ -87,11 +87,11 @@ export default function Meta({ title, keywords, description }) {
       <meta name="bingbot" content="index, follow" />
 
       {/* Open Graph (OG) Tags */}
-      <meta property="og:site_name" content="CibliJob" />
+      <meta property="og:site_name" content="ProCraftr" />
       <meta property="og:url" content={homepage} />
       <meta
         property="og:title"
-        content="Best AI Resume Builder Online | CibliJob"
+        content="Best AI Resume Builder Online | ProCraftr"
       />
       <meta property="og:type" content="website" />
       <meta
@@ -105,7 +105,7 @@ export default function Meta({ title, keywords, description }) {
       <meta property="twitter:url" content={homepage} />
       <meta
         property="twitter:title"
-        content="Best AI Resume Builder Online | CibliJob"
+        content="Best AI Resume Builder Online | ProCraftr"
       />
       <meta
         property="twitter:description"

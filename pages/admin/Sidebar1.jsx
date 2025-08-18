@@ -1,12 +1,11 @@
 import React from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { useTranslation } from "react-i18next";
 
 const Sidebar1 = ({ onClose }) => {
   const router = useRouter();
   const location = router.pathname;
-  const { t } = useTranslation("");
+
   const handleLogout = () => {
     localStorage.removeItem("token"); // Clear the token
     router.push("/adminlogin"); // Redirect to login after logout
@@ -24,7 +23,7 @@ const Sidebar1 = ({ onClose }) => {
         <li>
           <Link href="" className={getLinkClassName("/")} onClick={onClose}>
             <span className="mr-2">🏠</span>
-            <span>{t("admin.sidebar.home")}</span>
+            <span>Home</span>
           </Link>
         </li>
         <li>
@@ -34,7 +33,7 @@ const Sidebar1 = ({ onClose }) => {
             onClick={onClose} // Close sidebar on link click
           >
             <span className="mr-2">🛡️</span>
-            <span>{t("admin.sidebar.admin")}</span>
+            <span>Admin</span>
           </Link>
         </li>
 
@@ -45,9 +44,7 @@ const Sidebar1 = ({ onClose }) => {
             onClick={onClose} // Close sidebar on link click
           >
             <span className="mr-2">👨🏻‍👩🏻‍👦🏻‍👦🏻</span>
-            <span>
-              <span>{t("admin.sidebar.customers")}</span>
-            </span>
+            <span>All Customers</span>
           </Link>
         </li>
         <li>
@@ -57,7 +54,7 @@ const Sidebar1 = ({ onClose }) => {
             onClick={onClose} // Close sidebar on link click
           >
             <span className="mr-2">📋</span>
-            <span>{t("admin.sidebar.templates")}</span>
+            <span>My Templates</span>
           </Link>
         </li>
 
@@ -68,7 +65,7 @@ const Sidebar1 = ({ onClose }) => {
             onClick={onClose} // Close sidebar on link click
           >
             <span className="mr-2">📊</span>
-            <span>{t("admin.sidebar.leads")}</span>
+            <span>Leads</span>
           </Link>
         </li>
         <li>
@@ -78,7 +75,7 @@ const Sidebar1 = ({ onClose }) => {
             onClick={onClose} // Close sidebar on link click
           >
             <span className="mr-2">💷</span>
-            <span>{t("admin.sidebar.payment")}</span>
+            <span>Payment</span>
           </Link>
         </li>
         <li>
@@ -88,7 +85,7 @@ const Sidebar1 = ({ onClose }) => {
             onClick={onClose} // Close sidebar on link click
           >
             <span className="mr-2">🔔</span>
-            <span>{t("admin.sidebar.subscribers")}</span>
+            <span>Subscribers List</span>
           </Link>
         </li>
         {/* <li>
@@ -131,7 +128,7 @@ const Sidebar1 = ({ onClose }) => {
             }}
           >
             <span className="mr-2 ">🔓</span>
-            <span>{t("admin.sidebar.logout")}</span>
+            <span>Log Out</span>
           </Link>
         </li>
       </ul>

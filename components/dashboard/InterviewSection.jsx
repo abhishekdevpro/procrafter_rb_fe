@@ -7,7 +7,7 @@
 //     <div className="border border-gray-200 rounded-lg p-6 mb-6">
 //       <div className="flex justify-between items-center">
 //         <div className="flex items-center gap-3">
-//           <div className="p-2 bg-purple-100 rounded-lg">
+//           <div className="p-2 bg-teal-100 rounded-lg">
 //             <svg
 //               className="w-6 h-6 text-purple-600"
 //               fill="none"
@@ -47,11 +47,13 @@ import { useTranslation } from "react-i18next";
 
 const InterviewSection = () => {
   const { t } = useTranslation();
+
   return (
-    <div className="border border-gray-200 rounded-lg p-4 md:p-6 mb-6">
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
-          <div className="p-2 bg-purple-100 rounded-lg">
+    <div className="border border-gray-200 rounded-lg p-4 sm:p-6 mb-6">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
+        {/* Left side */}
+        <div className="flex items-start sm:items-center gap-3">
+          <div className="p-2 bg-teal-100 rounded-lg">
             <svg
               className="w-6 h-6 text-purple-600"
               fill="none"
@@ -70,15 +72,16 @@ const InterviewSection = () => {
             <h3 className="text-lg font-semibold">
               {t("dashboard_interview.clearInterview")}
             </h3>
-            <p className="text-gray-600 max-w-md">
+            <p className="text-gray-600 text-sm sm:text-base max-w-md">
               {t("dashboard_interview.description")}
             </p>
           </div>
         </div>
 
-        <div className="w-full md:w-auto">
-          <Link href={``}>
-            <button className="w-full md:w-auto px-6 py-2 border border-purple-600 text-purple-600 rounded-lg hover:bg-blue-50">
+        {/* Button */}
+        <div className="sm:ml-4">
+          <Link href="" passHref>
+            <button className="w-full sm:w-auto px-4 py-2 border border-purple-600 text-purple-600 rounded-md hover:bg-teal-50 transition">
               {t("dashboard_interview.visitResources")}
             </button>
           </Link>

@@ -8,9 +8,9 @@ function Aboutus() {
     <div>
       <Navbar />
       <div className="m-4 sm:mx-10 lg:mx-40 p-4 sm:p-6 shadow-2xl">
-        <h2 className="text-4xl font-semibold my-4 underline text-center">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold my-4 underline">
           {t("about_us")}
-        </h2>
+        </h1>
         <p className="text-base sm:text-lg">{t("welcome_message")}</p>
 
         <h2 className="text-xl sm:text-2xl font-semibold my-2 mt-5">

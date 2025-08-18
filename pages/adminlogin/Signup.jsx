@@ -93,7 +93,7 @@ function Signup() {
     <div className="flex justify-center items-center">
       <div className="p-8 rounded-xl shadow-lg shadow-slate-700 w-full max-w-lg m-5">
         <div className="flex justify-center mb-4">
-          <Image src={logo} className="h-60  w-[240px]" alt="Logo" />
+          <Image src={logo} className="h-[200px]  w-[200px]" alt="Logo" />
         </div>
         <div className="text-2xl text-black text-center font-bold">
           Create an Account
@@ -181,7 +181,7 @@ function Signup() {
           <div className="mb-4">
             <label className="flex items-center">
               <input type="checkbox" required className="mr-2" />
-              <Link href={"/terms&conditions"}>
+              <Link href={"/TermsandConditions"}>
                 {" "}
                 Agree to terms & conditions
               </Link>

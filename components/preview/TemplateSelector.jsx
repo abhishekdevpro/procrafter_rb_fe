@@ -28,7 +28,6 @@ import template24 from "./template/template24.png";
 import template25 from "./template/template25.png";
 import template26 from "./template/template26.png";
 import template27 from "./template/template27.png";
-import template28 from "./template/template28.png";
 import { BASE_URL } from "../Constant/constant";
 import axios from "axios";
 import Link from "next/link";
@@ -65,14 +64,14 @@ const TemplateSelector = ({
     { key: "template18", imageUrl: template18, pdfType: 2 },
     { key: "template19", imageUrl: template19, pdfType: 1 },
     { key: "template20", imageUrl: template20, pdfType: 1 },
-    { key: "template21", imageUrl: template21, pdfType: 2 },
-    { key: "template22", imageUrl: template22, pdfType: 3 },
-    { key: "template23", imageUrl: template23, pdfType: 2 },
-    { key: "template24", imageUrl: template24, pdfType: 3 },
-    { key: "template25", imageUrl: template25, pdfType: 1 },
-    { key: "template26", imageUrl: template26, pdfType: 3 },
-    { key: "template27", imageUrl: template27, pdfType: 3 },
-    { key: "template28", imageUrl: template28, pdfType: 2 },
+    // { key: "template21", imageUrl: template21, pdfType: 2 },
+    // { key: "template22", imageUrl: template22, pdfType: 3 },
+    // { key: "template23", imageUrl: template23, pdfType: 2 },
+    // { key: "template24", imageUrl: template24, pdfType: 3 },
+    // { key: "template25", imageUrl: template25, pdfType: 1 },
+    // { key: "template26", imageUrl: template26, pdfType: 3 },
+    // { key: "template27", imageUrl: template27, pdfType: 3 },
+    // { key: "template28", imageUrl: template21, pdfType: 2 },
   ];
 
   const templates = allTemplates;
@@ -170,8 +169,8 @@ const TemplateSelector = ({
       <div className="flex flex-col md:flex-row gap-2 m-2">
         <button
           onClick={openModal}
-          className="flex items-center gap-2 rounded-lg border-2 border-pink-600 px-5 py-2 bg-white text-black font-medium 
-    transition-transform duration-200 ease-in-out hover:scale-[1.02] hover:bg-pink-50 hover:text-pink-600"
+          className="flex items-center gap-2 rounded-lg border-2 border-purple-600 px-5 py-2 bg-white text-purple-600 font-medium 
+    transition-transform duration-200 ease-in-out hover:scale-[1.02] hover:bg-blue-50 hover:text-purple-6000"
         >
           <FileText size={18} />
           <span className="hidden md:inline">
@@ -191,7 +190,7 @@ const TemplateSelector = ({
             >
               &times;
             </button>
-            <div className="text-lg font-bold mb-4 text-center border rounded-3xl py-2 text-white bg-pink-600">
+            <div className="text-lg font-bold mb-4 text-center border rounded-3xl py-2 text-white bg-purple-600">
               Select a Template
             </div>
 
@@ -219,8 +218,8 @@ const TemplateSelector = ({
                     <div
                       className={`rounded-xl p-2 border-2 relative transition-colors duration-300 ${
                         template.key === templateId
-                          ? "border-pink-600 bg-purple-100"
-                          : "border-transparent hover:border-purple-300"
+                          ? "border-purple-600 bg-blue-100"
+                          : "border-transparent hover:border-blue-300"
                       }`}
                     >
                       <div className="relative w-full h-full aspect-[3/4] overflow-hidden rounded-lg shadow-md">
@@ -241,7 +240,7 @@ const TemplateSelector = ({
                       <div
                         className={`text-center mt-2 font-medium ${
                           template.key === templateId
-                            ? "text-pink-600"
+                            ? "text-purple-600"
                             : "text-gray-600"
                         }`}
                       >
@@ -255,7 +254,7 @@ const TemplateSelector = ({
             {isBasicUser && (
               <div className="text-center mt-6">
                 <Link href={"/payment"}>
-                  <button className="bg-pink-600 hover:bg-pink-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition">
+                  <button className="bg-purple-600 hover:bg-purple-600 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition">
                     Upgrade Your Plan to Unlock All Templates
                   </button>
                 </Link>
@@ -263,7 +262,7 @@ const TemplateSelector = ({
             )}
             <button
               onClick={closeModal}
-              className="w-full sm:w-auto px-6 py-2.5 my-4 bg-purple-600 text-white font-semibold rounded-lg hover:bg-pink-600 transition-colors duration-200 flex items-center justify-center mx-auto"
+              className="w-full sm:w-auto px-6 py-2.5 my-4 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-700 transition-colors duration-200 flex items-center justify-center mx-auto"
             >
               Close
             </button>

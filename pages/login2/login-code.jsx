@@ -22,9 +22,6 @@ const LoginCode = () => {
     setOtp(e.target.value);
   };
 
-  const handleCaptchaChange = (value) => {
-    setCaptchaVerified(value ? true : false);
-  };
   useEffect(() => {
     // Get email from localStorage
     const storedEmail = localStorage.getItem("userEmail");
@@ -56,8 +53,8 @@ const LoginCode = () => {
       console.error(
         error.response?.data?.message || "Invalid OTP. Please try again."
       );
-
-      router.push("/login2"); // Redirect to the login page on error
+      toast.error(error.response?.data?.message || "Invalid Otp");
+      // router.push("/login2"); // Redirect to the login page on error
     } finally {
       setLoading(false); // Stop the loader
     }
@@ -81,7 +78,7 @@ const LoginCode = () => {
             alt="Logo"
             width={200}
             height={100}
-            className="h-auto"
+            className="h-[200px]  w-[200px]"
           />
         </div>
 
@@ -109,20 +106,6 @@ const LoginCode = () => {
           />
         </div>
 
-        {/* CAPTCHA */}
-        {/* <div className="mb-6">
-          <ReCAPTCHA
-            sitekey="your-recaptcha-site-key-here"
-            onChange={handleCaptchaChange}
-          />
-        </div> */}
-
-        {/* Success Message */}
-        {/* <div className="flex items-center bg-green-100 border border-pink-600 text-pink-600 p-3 rounded-md mb-6">
-          <span className="mr-2">✅</span> Success!
-        </div> */}
-
-        {/* Resend Code */}
         <p className="text-center text-sm mb-6">
           Didn&apos;t receive your code?{" "}
           <Link href="/login2">
@@ -140,11 +123,12 @@ const LoginCode = () => {
         >
           Sign in <span className="ml-2">→</span>
         </button>
-
-        {/* Alternative Option */}
-        <p className="mt-6 text-center text-sm text-purple-600 font-semibold">
-          Don&apos;t have access to this email?
-        </p>
+        <Link href="/login2">
+          {/* Alternative Option */}
+          <p className="mt-6 text-center text-sm text-purple-600 font-semibold">
+            Don&apos;t have access to this email?
+          </p>
+        </Link>
       </div>
     </div>
   );

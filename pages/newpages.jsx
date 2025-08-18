@@ -17,25 +17,25 @@ const NewPages = () => {
       {/* Header Section */}
       <div className="bg-gray-100 p-6 rounded-lg flex items-center gap-4">
         <div>
-          <h2 className="text-xl font-bold ">CibliAI Resume Builder</h2>
+          <h2 className="text-xl font-bold ">ProCraftr AI Resume Builder</h2>
           <p className="text-gray-700 text-sm mt-2">
-            Applying for jobs has never been easier! CibliAI is an advanced
+            Applying for jobs has never been easier! ProCraftr AI is an advanced
             AI-powered tool designed to craft resumes perfectly tailored to each
             job opportunity.
           </p>
         </div>
         <Image
           src={logo}
-          alt="CibliAI"
+          alt="ProCraftr AI"
           width={200}
           height={200}
-          className="rounded-md"
+          className="rounded-md h-[200px]  w-[200px]"
         />
       </div>
       <div className="flex justify-center gap-4 items-center mt-4">
         {/* Features Section */}
         <h3 className="text-2xl font-bold text-center my-6">
-          CIBLI AI INTERVIEWS
+          ProCraftr AI INTERVIEWS
         </h3>
 
         <div className="">
@@ -67,8 +67,8 @@ const NewPages = () => {
       {/* Footer */}
       <p className="text-center text-sm text-gray-600 mt-6">
         Eliminate the guesswork, save time, and maximize your chances of success
-        with CibliAI—the smarter way to build the perfect resume for every job
-        application.
+        with ProCraftr AI—the smarter way to build the perfect resume for every
+        job application.
       </p>
     </div>
   );

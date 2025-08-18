@@ -1,7 +1,6 @@
 import Sidebar1 from "./Sidebar1";
 
 import React, { useState } from "react";
- 
 
 import { FaBars } from "react-icons/fa"; //
 import MyResume1 from "./MyResume1";
@@ -24,9 +23,9 @@ export default function DashboardPage() {
         <div className="w-full shadow-md">
           <Navbar />
         </div>
-        <div className="flex flex-1 w-full  mt-4 bg-white shadow-md rounded-lg overflow-hidden">
+        <div className="flex flex-1 w-full  mt-4 bg-white shadow-md rounded-lg overflow-hidden relative">
           {/* Hamburger icon for mobile view */}
-          <div className="md:hidden">
+          <div className="md:hidden absolute left-2 top-2 z-10">
             <button onClick={toggleSidebar} className="p-4 focus:outline-none">
               <FaBars className="text-2xl" />
             </button>

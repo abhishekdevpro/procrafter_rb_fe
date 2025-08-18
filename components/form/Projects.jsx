@@ -4,7 +4,7 @@ import { useContext, useState } from "react";
 import dynamic from "next/dynamic";
 import "react-quill/dist/quill.snow.css";
 import { ResumeContext } from "../context/ResumeContext";
-import { ChevronDown, ChevronUp, AlertCircle, X, Trash } from "lucide-react";
+import { ChevronDown, ChevronUp, AlertCircle, X } from "lucide-react";
 import axios from "axios";
 import FormButton from "./FormButton";
 import { useRouter } from "next/router";
@@ -66,23 +66,8 @@ const Projects = () => {
 
   const handleProjects = (e, index) => {
     const newProjects = [...resumeData.projects];
-    const { name, value } = e.target;
-
-    // Set character limits for different fields
-    const charLimits = {
-      name: 100,
-      link: 200,
-      description: 1000,
-    };
-
-    if (charLimits[name] && value.length <= charLimits[name]) {
-      newProjects[index][name] = value;
-      setResumeData({ ...resumeData, projects: newProjects });
-    } else if (!charLimits[name]) {
-      // For fields without character limits
-      newProjects[index][name] = value;
-      setResumeData({ ...resumeData, projects: newProjects });
-    }
+    newProjects[index][e.target.name] = e.target.value;
+    setResumeData({ ...resumeData, projects: newProjects });
   };
   const handlePresentToggle = (index) => {
     const newProjects = [...resumeData.projects];
@@ -107,24 +92,17 @@ const Projects = () => {
   // };
   const handleKeyAchievement = (e, projectIndex) => {
     const newProjects = [...resumeData.projects];
-    const value = e.target.value;
+    const achievements = e.target.value
+      .split("\n")
+      // .map((item) => item.trim())
+      .filter((item) => item.trim !== "");
 
-    // Set character limit for key achievements
-    const charLimit = 2000;
+    newProjects[projectIndex].keyAchievements = achievements;
 
-    if (value.length <= charLimit) {
-      const achievements = value
-        .split("\n")
-        // .map((item) => item.trim())
-        .filter((item) => item.trim !== "");
+    // Optional: Track user-modified achievements separately if needed
+    setSelectedKeyAchievements(achievements); // sync with popup logic
 
-      newProjects[projectIndex].keyAchievements = achievements;
-
-      // Optional: Track user-modified achievements separately if needed
-      setSelectedKeyAchievements(achievements); // sync with popup logic
-
-      setResumeData({ ...resumeData, projects: newProjects });
-    }
+    setResumeData({ ...resumeData, projects: newProjects });
   };
 
   const addProjects = () => {
@@ -574,7 +552,7 @@ const Projects = () => {
     }
   };
   return (
-    <div className="flex-col-gap-3 w-full mt-10 px-10 max-h-[400px] overflow-y-auto">
+    <div className="flex-col-gap-3 w-full mt-10 px-2 max-h-[400px] overflow-y-auto">
       <h2 className="input-title text-black text-3xl">
         {t("resumeStrength.sections.projects")}
       </h2>
@@ -600,13 +578,6 @@ const Projects = () => {
                   <ChevronDown />
                 )}
               </button>
-              <button
-                onClick={() => removeProjects(projectIndex)}
-                className="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded bg-red-500 text-white hover:bg-red-600 transition-colors md:ml-2"
-                type="button"
-              >
-                <Trash className="w-5 h-5" />
-              </button>
             </div>
             {expandedProjects.includes(projectIndex) && (
               <>
@@ -615,7 +586,7 @@ const Projects = () => {
                     type="text"
                     placeholder={t("builder_forms.project.placeholderName")}
                     name="name"
-                    maxLength={100}
+                    maxLength={50}
                     className={`w-full other-input border  ${
                       improve && hasErrors(projectIndex, "name")
                         ? "border-red-500"
@@ -624,9 +595,6 @@ const Projects = () => {
                     value={project.name}
                     onChange={(e) => handleProjects(e, projectIndex)}
                   />
-                  <div className="text-xs text-gray-500 mt-1 text-right">
-                    {project.name?.length || 0}/100
-                  </div>
 
                   {improve && hasErrors(projectIndex, "name") && (
                     <button
@@ -686,7 +654,7 @@ const Projects = () => {
                       type="text"
                       placeholder={t("builder_forms.project.placeholderLink")}
                       name="link"
-                      maxLength={200}
+                      maxLength={150}
                       className={`w-full other-input border  ${
                         improve && hasErrors(projectIndex, "link")
                           ? "border-red-500"
@@ -695,9 +663,6 @@ const Projects = () => {
                       value={project.link}
                       onChange={(e) => handleProjects(e, projectIndex)}
                     />
-                    <div className="text-xs text-gray-500 mt-1 text-right">
-                      {project.link?.length || 0}/200
-                    </div>
                     {improve && hasErrors(projectIndex, "link") && (
                       <button
                         type="button"
@@ -770,6 +735,17 @@ const Projects = () => {
                   <ReactQuill
                     placeholder={t("builder_forms.work_experience.description")}
                     value={project.description}
+                    // onChange={(value) =>
+                    //   handleProjects(
+                    // {
+                    //   target: {
+                    //     name: "description",
+                    //     value: value,
+                    //   },
+                    // },
+                    // projectIndex
+                    //   )
+                    // }
                     onChange={(value) => {
                       if (value.replace(/<[^>]*>/g, "").length <= 1000) {
                         handleProjects(
@@ -793,12 +769,6 @@ const Projects = () => {
                       toolbar: [["bold", "italic", "underline"], ["clean"]],
                     }}
                   />
-                  <div className="text-xs text-gray-500 mt-1 text-right">
-                    {project.description
-                      ? project.description.replace(/<[^>]*>/g, "").length
-                      : 0}
-                    /1000 characters
-                  </div>
 
                   {improve && hasErrors(projectIndex, "description") && (
                     <button
@@ -903,17 +873,7 @@ const Projects = () => {
                         : project?.keyAchievements || ""
                     }
                     onChange={(e) => handleKeyAchievement(e, projectIndex)}
-                    maxLength={2000}
                   />
-                  <div className="text-xs text-gray-500 mt-1 text-right">
-                    {
-                      (Array.isArray(project?.keyAchievements)
-                        ? project.keyAchievements.join("\n")
-                        : project?.keyAchievements || ""
-                      ).length
-                    }
-                    /2000
-                  </div>
 
                   {improve && hasErrors(projectIndex, "keyAchievements") && (
                     <button

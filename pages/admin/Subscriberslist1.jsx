@@ -107,7 +107,7 @@ function Subscriberslist1() {
   }
 
   return (
-    <div className="container mx-auto p-4 text-center">
+    <div className="container mx-auto p-4 text-center mt-8">
       <div className="bg-gradient-to-r from-pink-500 to-pink-700 p-6 rounded-lg shadow-lg mb-8">
         <h2 className="text-start text-3xl text-white font-bold">
           {t("admin.subscriberlist.subscriberList")}
@@ -145,7 +145,7 @@ function Subscriberslist1() {
                   <td className="py-2 px-4">
                     {/* <button
                       className={`border px-8 rounded-3xl py-2 ${
-                        user.is_subscribe === 1 ? "bg-pink-600" : "bg-red-700"
+                        user.is_subscribe === 1 ? "bg-green-700" : "bg-red-700"
                       } text-white`}
                     >
                       {user.is_subscribe === 1
@@ -154,7 +154,7 @@ function Subscriberslist1() {
                     </button> */}
                     <button
                       className={`border px-8 rounded-3xl py-2 ${
-                        user.is_subscribe === 1 ? "bg-pink-600" : "bg-red-700"
+                        user.is_subscribe === 1 ? "bg-green-700" : "bg-red-700"
                       } text-white`}
                       onClick={() => {
                         if (user.is_subscribe === 0) {

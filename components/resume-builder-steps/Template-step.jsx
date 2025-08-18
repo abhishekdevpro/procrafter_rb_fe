@@ -34,11 +34,12 @@ import template24 from "../preview/template/template24.png";
 import template25 from "../preview/template/template25.png";
 import template26 from "../preview/template/template26.png";
 import template27 from "../preview/template/template27.png";
-import template28 from "../preview/template/template28.png";
+// import template28 from "../preview/template/template28.png";
 import { BASE_URL } from "../Constant/constant";
 import { useTranslation } from "react-i18next";
 import { ResumeContext } from "../context/ResumeContext";
 import { SaveLoader } from "../ResumeLoader/SaveLoader";
+import Link from "next/link";
 
 const TemplateStep = ({ onNext, onBack, onChange, value }) => {
   const router = useRouter();
@@ -180,8 +181,8 @@ const TemplateStep = ({ onNext, onBack, onChange, value }) => {
     },
     {
       name: "Green",
-      class: "bg-[#00b38d]",
-      selectedClass: "ring-[#00b38d]",
+      class: "bg-purple-600",
+      selectedClass: "ring-purple-600",
       hexCode: "#00b38d",
     },
     {
@@ -279,54 +280,54 @@ const TemplateStep = ({ onNext, onBack, onChange, value }) => {
     { key: "template18", imageUrl: template18, name: "Premium Plus" },
     { key: "template19", imageUrl: template19, name: "Executive Pro" },
     { key: "template20", imageUrl: template20, name: "Modern Elite" },
-    {
-      key: "template21",
-      imageUrl: template21,
-      name: "Contemporary",
-      // hasPhoto: true,
-    },
-    {
-      key: "template22",
-      imageUrl: template22,
-      name: "Modern Clean",
-      // hasPhoto: false,
-    },
-    {
-      key: "template23",
-      imageUrl: template23,
-      name: "Creative",
-      // hasPhoto: true,
-    },
-    {
-      key: "template24",
-      imageUrl: template24,
-      name: "Executive",
-      // hasPhoto: true,
-    },
-    {
-      key: "template25",
-      imageUrl: template25,
-      name: "Minimal",
-      // hasPhoto: true
-    },
-    {
-      key: "template26",
-      imageUrl: template26,
-      name: "Classic",
-      // hasPhoto: false,
-    },
-    {
-      key: "template27",
-      imageUrl: template27,
-      name: "Contemporary",
-      // hasPhoto: false,
-    },
-    {
-      key: "template28",
-      imageUrl: template28,
-      name: "Contemporary",
-      // hasPhoto: false,
-    },
+    // {
+    //   key: "template21",
+    //   imageUrl: template21,
+    //   name: "Contemporary",
+    //   // hasPhoto: true,
+    // },
+    // {
+    //   key: "template22",
+    //   imageUrl: template22,
+    //   name: "Modern Clean",
+    //   // hasPhoto: false,
+    // },
+    // {
+    //   key: "template23",
+    //   imageUrl: template23,
+    //   name: "Creative",
+    //   // hasPhoto: true,
+    // },
+    // {
+    //   key: "template24",
+    //   imageUrl: template24,
+    //   name: "Executive",
+    //   // hasPhoto: true,
+    // },
+    // {
+    //   key: "template25",
+    //   imageUrl: template25,
+    //   name: "Minimal",
+    //   // hasPhoto: true
+    // },
+    // {
+    //   key: "template26",
+    //   imageUrl: template26,
+    //   name: "Classic",
+    //   // hasPhoto: false,
+    // },
+    // {
+    //   key: "template27",
+    //   imageUrl: template27,
+    //   name: "Contemporary",
+    //   // hasPhoto: false,
+    // },
+    // {
+    //   key: "template28",
+    //   imageUrl: template28,
+    //   name: "Contemporary",
+    //   // hasPhoto: false,
+    // },
   ];
 
   useEffect(() => {
@@ -569,8 +570,8 @@ const TemplateStep = ({ onNext, onBack, onChange, value }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-pink-200 flex flex-col">
-      <div className="bg-pink-600 text-white py-3 px-6 rounded-b-3xl mx-auto mt-4   items-center gap-3 shadow-md">
+    <div className="min-h-screen  bg-gradient-to-br from-white to-purple-200 flex flex-col">
+      <div className="bg-purple-600 text-white py-3 px-6 rounded-b-3xl mx-auto mt-4   items-center gap-3 shadow-md">
         <h2 className="text-3xl font-bold text-white">
           {t("templateStep.choose_template")}
         </h2>
@@ -603,9 +604,11 @@ const TemplateStep = ({ onNext, onBack, onChange, value }) => {
                   onClick={() => {
                     {
                       isDisabled && (
-                        <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center text-white text-sm font-semibold">
-                          🔒 Upgrade to use
-                        </div>
+                        <Link href={"/payment"}>
+                          <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center text-white text-sm font-semibold">
+                            🔒 Upgrade to use
+                          </div>
+                        </Link>
                       );
                     }
                     handleColorChange(color.hexCode, color.name);
@@ -619,7 +622,7 @@ const TemplateStep = ({ onNext, onBack, onChange, value }) => {
           {isBasicUser && (
             <button
               onClick={() => router.push("/payment")}
-              className="mt-4 w-full bg-pink-600 hover:bg-purple-600 text-white text-sm font-semibold py-2 px-4 rounded-lg shadow-md transition duration-200"
+              className="mt-4 w-full bg-purple-600 hover:bg-purple-600 text-white text-sm font-semibold py-2 px-4 rounded-lg shadow-md transition duration-200"
             >
               Upgrade Your Plan to Unlock All Templates & Colors
             </button>
@@ -665,15 +668,25 @@ const TemplateStep = ({ onNext, onBack, onChange, value }) => {
                       priority={index < 6}
                     />
                     {isDisabled && (
-                      <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center text-white text-sm font-semibold">
-                        🔒 Upgrade to use
-                      </div>
+                      <Link href={"/payment"}>
+                        <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center text-white text-sm font-semibold">
+                          🔒 Upgrade to use
+                        </div>
+                      </Link>
                     )}
 
                     {!isDisabled && (
-                      <div className="absolute inset-0 flex items-end justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-to-t from-black/60 to-transparent p-4">
+                      <div
+                        onClick={handleSaveTemplate}
+                        className="absolute inset-0 flex items-end justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-to-t from-black/60 to-transparent p-4"
+                      >
                         <span className="bg-white text-black font-semibold px-4 py-2 rounded-full shadow-md">
-                          {t("templateStep.usethistemplate")}
+                          {/* {t("templateStep.usethistemplate")} */}
+                          {isLoading ? (
+                            <SaveLoader loadingText={t("saving")} />
+                          ) : (
+                            t("templateStep.usethistemplate")
+                          )}
                         </span>
                       </div>
                     )}

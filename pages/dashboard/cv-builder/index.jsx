@@ -97,6 +97,7 @@ import axios from "axios";
 import { BASE_URL } from "../../../components/Constant/constant";
 import { ResumeContext } from "../../../components/context/ResumeContext";
 import { useTranslation } from "react-i18next";
+import Navbar from "../../Navbar/Navbar";
 
 export default function Home() {
   const { t } = useTranslation();
@@ -138,23 +139,29 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen  bg-gradient-to-b from-white to-purple-200 flex items-center justify-center">
-      <div className="bg-white rounded-lg shadow-lg p-8 text-center">
-        <h1 className="text-2xl font-bold mb-4">{t("coverLetter.title")}</h1>
-        <p className="mb-6 text-gray-600">{t("coverLetter.description")}</p>
+    <>
+      {" "}
+      <Navbar />
+      <main className="min-h-screen  bg-gradient-to-br from-white to-purple-200 flex items-center justify-center">
+        <div className="bg-white rounded-lg shadow-lg p-8 text-center">
+          <h1 className="text-2xl font-bold mb-4">{t("coverLetter.title")}</h1>
+          <p className="mb-6 text-gray-600">{t("coverLetter.description")}</p>
 
-        {error && <p className="text-red-500 mb-4">{error}</p>}
+          {error && <p className="text-red-500 mb-4">{error}</p>}
 
-        <button
-          onClick={handleCreateCvLetter}
-          className={`px-6 py-3 text-white font-semibold rounded-lg ${
-            loading ? "bg-gray-400" : "bg-purple-600 hover:bg-purple-700"
-          }`}
-          disabled={loading}
-        >
-          {loading ? t("coverLetter.loadingText") : t("coverLetter.buttonText")}
-        </button>
-      </div>
-    </main>
+          <button
+            onClick={handleCreateCvLetter}
+            className={`px-6 py-3 text-white font-semibold rounded-lg ${
+              loading ? "bg-gray-400" : "bg-purple-600 hover:bg-pink-600"
+            }`}
+            disabled={loading}
+          >
+            {loading
+              ? t("coverLetter.loadingText")
+              : t("coverLetter.buttonText")}
+          </button>
+        </div>
+      </main>
+    </>
   );
 }

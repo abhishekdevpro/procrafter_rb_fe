@@ -37,7 +37,7 @@
 //               <Image src={logo} alt="logo" className="h-10  w-[140px]" />
 //             </Link>
 //           </div>
-//           <h1>CibliJob ID</h1>
+//           <h1>ProCraftr ID</h1>
 //           <p>Your One-Stop Access to Career Solutions</p>
 //           <p>
 //             <em>Coming Soon!</em>
@@ -51,11 +51,11 @@
 //           <p>90% Complete</p>
 //         </div>
 //         <p>
-//           CibliJob ID will allow you to seamlessly connect to all our services
+//           ProCraftr ID will allow you to seamlessly connect to all our services
 //           with a single account. Stay tuned for the launch!
 //         </p>
 //         <div className="">
-//           <p>Want to know when CibliJob ID is live? Sign up for updates!</p>
+//           <p>Want to know when ProCraftr ID is live? Sign up for updates!</p>
 //           <form>
 //             <input
 //               type="email"
@@ -114,7 +114,7 @@ function CibliJobId({ isOpen, onClose }) {
       }}
     >
       <div
-        className=" bg-gradient-to-b from-white to-purple-200"
+        className="  bg-gradient-to-br from-white to-purple-200"
         style={{
           // backgroundColor: "white",
           padding: "20px",
@@ -127,7 +127,7 @@ function CibliJobId({ isOpen, onClose }) {
         <div className="hero">
           <div className="flex justify-center items-center mb-2">
             <Link href="/">
-              <Image src={logo} alt="logo" className="h-60 w-[240px]" />
+              <Image src={logo} alt="logo" className="h-[200px]  w-[200px]" />
             </Link>
           </div>
           <h1>{t("modal.title")}</h1>

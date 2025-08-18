@@ -47,7 +47,7 @@ const LoginEmail = () => {
             alt="Logo"
             width={200}
             height={100}
-            className="h-auto"
+            className="h-[200px]  w-[200px]"
           />
         </div>
 

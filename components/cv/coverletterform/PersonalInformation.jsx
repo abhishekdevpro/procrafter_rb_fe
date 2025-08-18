@@ -73,13 +73,10 @@ const PersonalInformation = () => {
             type="text"
             value={coverLetterData.personalDetails.name}
             onChange={(e) => handleChange("name", e.target.value)}
-            className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-pink-600"
+            className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
             placeholder="Enter your name"
-            maxLength={30}
+            maxLength={50}
           />
-          <div className="text-xs text-gray-500 mt-1 text-right">
-            {coverLetterData.personalDetails.name?.length || 0}/30
-          </div>
         </div>
         {/* <div>
           <label className="block text-black font-medium mb-2">Position</label>
@@ -87,7 +84,7 @@ const PersonalInformation = () => {
             type="text"
             value={coverLetterData.personalDetails.position}
             onChange={(e) => handleChange("position", e.target.value)}
-            className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-pink-600"
+            className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
             placeholder="Enter your position"
           />
         </div> */}
@@ -99,13 +96,10 @@ const PersonalInformation = () => {
             type="email"
             value={coverLetterData.personalDetails.email}
             onChange={(e) => handleChange("email", e.target.value)}
-            className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-pink-600"
+            className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
             placeholder="Enter your email"
             maxLength={50}
           />
-          <div className="text-xs text-gray-500 mt-1 text-right">
-            {coverLetterData.personalDetails.email?.length || 0}/50
-          </div>
         </div>
 
         {/* Address Field */}
@@ -114,14 +108,11 @@ const PersonalInformation = () => {
           <textarea
             value={coverLetterData.personalDetails.address}
             onChange={(e) => handleChange("address", e.target.value)}
-            className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-pink-600"
+            className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
             placeholder="Enter your address"
             rows="3"
             maxLength={200}
           ></textarea>
-          <div className="text-xs text-gray-500 mt-1 text-right">
-            {coverLetterData.personalDetails.address?.length || 0}/200
-          </div>
         </div>
 
         {/* Contact Field */}
@@ -131,13 +122,10 @@ const PersonalInformation = () => {
             type="tel"
             value={coverLetterData.personalDetails.contact}
             onChange={(e) => handleChange("contact", e.target.value)}
-            className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-pink-600"
+            className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
             placeholder="Enter your contact number"
             maxLength={20}
           />
-          <div className="text-xs text-gray-500 mt-1 text-right">
-            {coverLetterData.personalDetails.contact?.length || 0}/20
-          </div>
         </div>
       </div>
     </div>

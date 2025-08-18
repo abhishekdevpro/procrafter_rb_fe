@@ -1,7 +1,7 @@
 import React from "react";
 import Footer from "./Footer/Footer";
 import Navbar from "./Navbar/Navbar";
-import TermsandConditions2 from "./footers/TermsandConditions.js"
+import TermsandConditions2 from "./footers/TermsandConditions.js";
 function TermsandConditions() {
   return (
     <>
@@ -97,7 +97,7 @@ function TermsandConditions() {
 
       <Footer />
     </div> */}
-    <TermsandConditions2 />
+      <TermsandConditions2 />
     </>
   );
 }

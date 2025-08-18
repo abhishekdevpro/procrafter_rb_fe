@@ -60,7 +60,7 @@
 //         {/* Make sure this is always rendered */}
 //         <div className="p-8 rounded-xl shadow-lg shadow-slate-700 w-full max-w-lg bg-white">
 //           <div className="flex justify-center mb-6">
-//             <Image src={logo} className="h-60  w-[240px]" alt="Logo" />
+//             <Image src={logo} className="w-40 h-10" alt="Logo" />
 //           </div>
 //           <div className="text-2xl text-black text-center font-bold mb-4">
 //             Forgot Password
@@ -163,7 +163,7 @@ function Index() {
       <div className="flex justify-center items-center h-screen w-full">
         <div className="p-8 rounded-xl shadow-lg shadow-slate-700 w-full max-w-lg bg-white">
           <div className="flex justify-center mb-6">
-            <Image src={logo} className="h-60  w-[240px]" alt="Logo" />
+            <Image src={logo} className="h-[200px]  w-[200px]" alt="Logo" />
           </div>
           <div className="text-2xl text-black text-center font-bold mb-4">
             {t("forgotpage.forgot_password")}

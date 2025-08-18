@@ -128,7 +128,7 @@ const allColors = [
   },
   {
     name: "Blue",
-    class: "bg-[#00b38d]",
+    class: "bg-purple-600",
     selectedClass: "ring-blue-400",
     value: "#00b38d",
   },
@@ -250,8 +250,8 @@ const ColorPicker = ({ selectedColor, onChange }) => {
     <div className="relative flex items-center m-2 z-20 ">
       <button
         onClick={handleToggleDropdown}
-        className="rounded-lg border-2 border-pink-600 px-4 py-2 bg-white text-black font-medium 
-    transition-transform duration-200 ease-in-out hover:scale-[1.02] hover:bg-pink-50 hover:text-pink-600 flex items-center gap-2"
+        className="rounded-lg border-2 border-purple-600 px-4 py-2 bg-white text-purple-600 font-medium 
+    transition-transform duration-200 ease-in-out hover:scale-[1.02] hover:bg-teal-50 hover:text-purple-600 flex items-center gap-2"
       >
         <Palette size={18} />
         <span className="hidden md:inline">Color Theme</span>

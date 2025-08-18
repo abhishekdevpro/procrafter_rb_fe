@@ -25,9 +25,9 @@ export default function DashboardPage() {
         <div className="w-full shadow-md">
           <ProfilePage />
         </div>
-        <div className="flex flex-1 w-full  mt-4 bg-white shadow-md rounded-lg overflow-hidden">
+        <div className="flex flex-1 w-full  mt-4  bg-gradient-to-br from-white to-purple-200 shadow-md rounded-lg overflow-hidden relative">
           {/* Hamburger icon for mobile view */}
-          <div className="md:hidden">
+          <div className="md:hidden  ">
             <button onClick={toggleSidebar} className="p-4 focus:outline-none">
               <FaBars className="text-2xl" />
             </button>
@@ -43,7 +43,7 @@ export default function DashboardPage() {
           </div>
 
           {/* Content area */}
-          <div className="flex-1 w-full max-w-8xl p-6 ml-8 overflow-auto">
+          <div className="flex-1 w-full max-w-8xl p-6 overflow-auto">
             {/* 🙋‍♀️ Notification Coming Soon
              */}
             {t("notification_coming_soon")}

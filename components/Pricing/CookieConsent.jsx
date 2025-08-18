@@ -1,52 +1,57 @@
 // components/CookieConsent.js
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { useTranslation } from "next-i18next";
 
 const CookieConsent = () => {
-  const { t } = useTranslation();
   const [showBanner, setShowBanner] = useState(false);
 
   useEffect(() => {
+    // Check if user has already accepted cookies
     const cookieAccepted = localStorage.getItem("cookieAccepted");
+
+    // Only show banner if they haven't accepted yet
     if (!cookieAccepted) {
       setShowBanner(true);
     }
   }, []);
 
   const acceptCookies = () => {
+    // Save to localStorage that user has accepted cookies
     localStorage.setItem("cookieAccepted", "true");
     setShowBanner(false);
   };
 
-  if (!showBanner) return null;
+  if (!showBanner) {
+    return null;
+  }
 
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-white py-4 px-6 shadow-lg border-t flex flex-col sm:flex-row justify-between items-center gap-4 z-50">
       <div>
         <p className="text-sm sm:text-base">
-          {t("cookie.message")}{" "}
-          <Link
-            href="/privacy-policy"
-            className="text-teal-600 hover:underline"
-          >
-            {t("cookie.cookiePolicy")}
-          </Link>{" "}
-          {t("cookie.and")}{" "}
+          This site uses cookies to ensure you get the best experience on our
+          website. To learn more visit our{" "}
           <Link
             href="/terms&conditions"
-            className="text-teal-600 hover:underline"
+            className="text-purple-600 hover:underline"
           >
-            {t("cookie.privacyPolicy")}
+            Terms and Conditions
+          </Link>{" "}
+          and{" "}
+          <Link
+            href="/privacy-policy"
+            className="text-purple-600 hover:underline"
+          >
+            Privacy Policy
           </Link>
           .
         </p>
       </div>
       <button
         onClick={acceptCookies}
-        className="bg-purple-600 hover:bg-pink-600 text-white font-medium py-2 px-6 rounded text-sm sm:text-base"
+        className="bg-purple-600 hover:bg-purple-600 text-white font-medium py-2 px-6 rounded text-sm sm:text-base"
       >
-        {t("cookie.button")}
+        Got it!
       </button>
     </div>
   );

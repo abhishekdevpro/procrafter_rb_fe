@@ -344,12 +344,12 @@ export default function MyJobs() {
   return (
     <div>
       <Navbar />
-      <div className="min-h-screen flex flex-col items-center  bg-gradient-to-b from-white to-purple-200">
+      <div className="min-h-screen flex flex-col items-center  bg-gradient-to-br from-white to-purple-200">
         <div className="w-full shadow-md">{/* <ProfilePage /> */}</div>
 
-        <div className="flex flex-1 w-full  mt-4  bg-gradient-to-b from-white to-purple-200 shadow-md rounded-lg overflow-hidden">
+        <div className="flex flex-1 w-full  mt-4  bg-gradient-to-br from-white to-purple-200 shadow-md rounded-lg overflow-hidden relative">
           {/* Hamburger icon for mobile view */}
-          <div className="md:hidden">
+          <div className="md:hidden absolute top-2 left-2 z-10">
             <button onClick={toggleSidebar} className="p-4 focus:outline-none">
               <FaBars className="text-2xl" />
             </button>
@@ -365,7 +365,7 @@ export default function MyJobs() {
           </div>
 
           {/* Content area */}
-          <div className="flex-1 w-full max-w-8xl p-4 overflow-auto">
+          <div className="flex-1 w-full max-w-8xl p-4 overflow-auto  bg-gradient-to-br from-white to-purple-200">
             <JobSearch />
           </div>
           {/* Content area */}

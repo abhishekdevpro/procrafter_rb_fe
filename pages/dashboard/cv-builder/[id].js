@@ -56,6 +56,7 @@ export default function Home() {
               onBack={() => router.back()} // optional: go back to previous page
             />
           )}
+
           {currentStep === 2 && (
             <ExperienceStep
               onNext={handleNext}

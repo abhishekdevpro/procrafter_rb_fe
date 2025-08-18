@@ -28,7 +28,7 @@ const FullScreenLoader = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0  bg-gradient-to-b from-white to-purple-200 flex items-center justify-center z-50">
+    <div className="fixed inset-0   bg-gradient-to-br from-white to-purple-200 flex items-center justify-center z-50">
       <div className="text-center max-w-md w-full px-4">
         {/* Resume Preview Card */}
         <div className="bg-white shadow-lg rounded-lg p-6 mx-auto mb-8 relative">
@@ -101,8 +101,8 @@ export default FullScreenLoader;
 //               }}
 //               className={`p-4 rounded-lg border-2 transition-all ${
 //                 value === exp.id
-//                   ? "border-pink-600 bg-blue-50"
-//                   : "border-gray-200 hover:border-purple-600"
+//                   ? "border-green-500 bg-blue-50"
+//                   : "border-gray-200 hover:border-green-400"
 //               }`}
 //             >
 //               {exp.label}

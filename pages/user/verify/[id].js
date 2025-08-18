@@ -96,14 +96,14 @@ const VerificationPage = () => {
               <div className="mt-6">
                 <button
                   onClick={() => router.reload()}
-                  className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-pink-600 transition-colors"
+                  className="px-4 py-2 bg-green-400 text-white rounded-lg hover:bg-green-500 transition-colors"
                 >
                   Try Again
                 </button>
                 <p className="mt-4 text-sm text-gray-600">
                   If the problem persists, please{" "}
                   <a
-                    href="mailto:support@procrafter.com"
+                    href="mailto:dummy@procraftr.com"
                     className="text-blue-500 hover:underline"
                   >
                     contact support

@@ -148,8 +148,8 @@ const CVSelector = ({ onNext, onBack, onChange, value }) => {
     },
     {
       name: "Green",
-      class: "bg-[#00b38d]",
-      selectedClass: "ring-[#00b38d]",
+      class: "bg-purple-600",
+      selectedClass: "ring-purple-600",
       hexCode: "#00b38d",
     },
     {
@@ -427,8 +427,8 @@ const CVSelector = ({ onNext, onBack, onChange, value }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-pink-200 flex flex-col">
-      <div className="bg-pink-600 text-white py-3 px-6 rounded-b-3xl mx-auto mt-4   items-center gap-3 shadow-md">
+    <div className="min-h-screen  bg-gradient-to-br from-white to-purple-200 flex flex-col">
+      <div className="bg-purple-600 text-white py-3 px-6 rounded-b-3xl mx-auto mt-4   items-center gap-3 shadow-md">
         <h2 className="text-3xl font-bold text-white">
           {t("cvSelector.title")}
         </h2>

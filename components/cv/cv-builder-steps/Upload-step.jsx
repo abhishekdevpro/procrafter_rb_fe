@@ -28,8 +28,8 @@ export default function UploadStep({ onNext, onBack, onChange, value }) {
   };
 
   return (
-    <div className="space-y-6 bg-gradient-to-b from-white to-pink-200">
-      <div className="text-center bg-pink-600 pt-4 pb-4 mb-4">
+    <div className="space-y-6  bg-gradient-to-br from-white to-purple-200">
+      <div className="text-center bg-purple-600 pt-4 pb-4 mb-4">
         <h2 className="text-2xl font-bold text-white">
           {t("cvUploadStep.title")}
         </h2>
@@ -39,7 +39,7 @@ export default function UploadStep({ onNext, onBack, onChange, value }) {
       <div className="flex justify-center items-center">
         <button
           onClick={handleStartFromScratch}
-          className="p-6 border-2 rounded-lg text-center hover:border-purple-400"
+          className="p-6 border-2 rounded-lg text-center hover:border-blue-400"
         >
           <div className="w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center">
             <FaFileAlt className="text-purple-600 w-8 h-8" />

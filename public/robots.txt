@@ -1,3 +1,0 @@
-User-agent: *
-Disallow:
-https://ciblijob.fr/sitemap.xml
