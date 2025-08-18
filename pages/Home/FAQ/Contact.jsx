@@ -108,7 +108,7 @@ const ContactUs = () => {
           {t("getintouch")}
         </h2>
         <p className="text-center mb-8 sm:mb-12">{t("contact_paragraph")}</p>
-        {/* <div className="flex flex-col md:flex-row items-center justify-center gap-8 border border-green-500 ">
+        {/* <div className="flex flex-col md:flex-row items-center justify-center gap-8 border border-purple-600 ">
           <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg p-6 ">
             <div className="flex items-center mb-4">
               <div className="text-3xl">✉</div>

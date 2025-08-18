@@ -101,7 +101,7 @@ export default FullScreenLoader;
 //               }}
 //               className={`p-4 rounded-lg border-2 transition-all ${
 //                 value === exp.id
-//                   ? "border-green-500 bg-blue-50"
+//                   ? "border-purple-600 bg-blue-50"
 //                   : "border-gray-200 hover:border-green-400"
 //               }`}
 //             >

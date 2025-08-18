@@ -775,7 +775,7 @@ export default function MobileBuilder() {
                 {/* <select
                   value={selectedFont}
                   onChange={handleFontChange}
-                  className="rounded-lg border-2 border-green-500 px-5 py-2 font-bold  bg-white text-black"
+                  className="rounded-lg border-2 border-purple-600 px-5 py-2 font-bold  bg-white text-black"
                 >
                   <option value="Ubuntu">Ubuntu</option>
                   <option value="Calibri">Calibri</option>
